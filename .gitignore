@@ -7,14 +7,13 @@
 config.php
 verify.php
 
-posts/*.md
-posts/*.jpg
-
 templates/clear/
 templates/typographic/
 templates/cards/
 templates/posted/
 templates/focus/
+
+posts/cache/*
 
 plugins/switcher.php
 
