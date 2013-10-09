@@ -30,7 +30,7 @@ if (empty($_GET['filename'])) {
     $filename = explode('/',$_GET['filename']);
 
     // File name could be the name of a category
-    if($filename[count($filename) - 2] == "category") {
+    if($filename[count($filename) - 2] == "kategorie") {
         $category = $filename[count($filename) - 1];
         $filename = null;
     } else {
@@ -97,7 +97,7 @@ if ($filename==NULL) {
             $post_category = $post['post_category'];
             
             // Get the post category link.
-            $post_category_link = $blog_url.'category/'.urlencode(trim(strtolower($post_category)));
+            $post_category_link = $blog_url.'kategorie/'.urlencode(trim(strtolower($post_category)));
 
             // Get the post status.
             $post_status = $post['post_status'];
@@ -335,7 +335,7 @@ else {
         $post_status = str_replace(array("\n", '- '), '', $fcontents[5]);
         
         // Get the post category link.
-        $post_category_link = $blog_url.'category/'.urlencode(trim(strtolower($post_category)));
+        $post_category_link = $blog_url.'kategorie/'.urlencode(trim(strtolower($post_category)));
 
         // Get the post link.
         $post_link = $blog_url.str_replace(array(FILE_EXT, POSTS_DIR), '', $filename);
