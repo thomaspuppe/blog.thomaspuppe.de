@@ -139,7 +139,7 @@ if ($filename==NULL) {
 
         // Get the page description and author meta.
         $get_page_meta[] = '<meta name="description" content="' . $meta_description . '">';
-        $get_page_meta[] = '<meta name="author" content="' . $blog_title . '">';
+        $get_page_meta[] = '<meta name="author" content="' . $blog_author . '">';
 
         // Get the Twitter card.
         $get_page_meta[] = '<meta name="twitter:card" content="summary">';
@@ -206,7 +206,7 @@ else if ($filename == 'rss' || $filename == 'atom') {
         $feed->setChannelElement('language', $language);
         $feed->setChannelElement('pubDate', date(DATE_RSS, time()));
     } else {
-        $feed->setChannelElement('author', $blog_title.' - ' . $blog_email);
+        $feed->setChannelElement('author', $blog_author.' - ' . $blog_email);
         $feed->setChannelElement('updated', date(DATE_RSS, time()));
     }
 
