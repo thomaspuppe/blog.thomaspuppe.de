@@ -19,10 +19,12 @@ Chrome und Safari haben eine andere Schreibweise für die doNotTrack Property al
 
 	<tbody>
 	<tr><td>Chrome 30 (Win 7)</td><td>navigator.doNotTrack</td><td>"0", "1", null</td></tr>
+	<tr><td>Chromium 30 (Ubuntu 13)</td><td>navigator.doNotTrack</td><td>"0", "1", null</td></tr>
 
 	<tr><td>Safari 5 (Win 7)</td><td>navigator.doNotTrack</td><td>"0", "1", null</td></tr>
 
 	<tr><td>Firefox 25 (Win 7)</td><td>navigator.doNotTrack</td><td>"no", "yes", "unspecified"</td></tr>
+	<tr><td>Firefox 25 (Ubuntu 13)</td><td>navigator.doNotTrack</td><td>"no", "yes", "unspecified"</td></tr>
 
 	<tr><td>Opera 12 (Win 7)</td><td>navigator.doNotTrack</td><td>"0", "1", null</td></tr>
 
