@@ -1,0 +1,30 @@
+header {
+
+    @media screen and (min-width: $breakpoint-large) {
+        float: left;
+        width: 250px;
+    }
+    
+}
+
+.header__title {
+    
+}
+
+.header__logo {
+    border: 1px red solid; /* DEBUG */
+    float: left;
+    margin-right: 2em;
+}
+
+.header__headline {
+    float: left;
+    font-family: $font-face-sans-serif;
+    font-size: 1.5em;
+    line-height: 150%;
+    font-weight: 900;
+
+    @include link-as-text;
+}
+
+

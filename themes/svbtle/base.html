@@ -9,36 +9,48 @@
     {% if 'sitemap' in env.views -%}
         <link href="{{ env.views.sitemap.path }}" type="application/xml" rel="sitemap" title="Sitemap">
     {%- endif%}
-  <link href="{{ env.path + '/' }}" rel="home start" />
   <link href="{{ env.path + '/atom/' }}" type="application/atom+xml" rel="alternate" title="Atom Feed" />
   <link href="{{ env.path + '/rss/' }}" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+  
+  {# TODO: do this on your own! 
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  #}
+
   {%- endblock %}
 </head>
 <body>
-  <header>
-    <h1><a href="{{ env.path + '/' }}" rel="home start" class="blogtitle">{{ conf.sitename }}</a></h1>
-    <h2>@thomaspuppe</h2>
-    <nav>
+
+  <header class="header">
+
+    <div class="header__title">
+      <svg class="header__logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="140px" height="120px" xml:space="preserve">
+        <circle cx="70" cy="60" r="50" stroke="black" fill="white" stroke-width="3"></circle>
+        <polygon points="87.334,95.568 69.667,84.717 52,95.568 52,24 87.334,24"></polygon>
+      </svg>
+
+      <h1><a class="header__headline" href="{{ env.path + '/' }}" rel="home start" class="blogtitle">{{ conf.sitename }}</a></h1>
+    </div>
+
+    <nav class="main-nav">
       <ul>
-        <li><a href="{{ env.path + '/' }}" rel="home start">blog</a></li>
-        <li><a href="{{ env.path + '/atom/' }}" rel="alternate">atom</a></li>
+        <li><a href="https://twitter.com/thomaspuppe">@thomaspuppe</a></li>
+        <li><a href="https://github.com/thomaspuppe">github</a></li>
+        <li><a href="http://www.thomaspuppe.de">website</a></li>
         <li><a href="{{ env.path + '/rss/' }}" rel="alternate">rss</a></li>
-        <li><a href="{{ env.path + '/articles/' }}" rel="contents">articles</a></li>
       </ul>
     </nav>
+  
   </header>
+
   {%- block content -%}
   {%- endblock -%}
   <footer>
     {% block footer %}
-    <p>written by <a href="mailto:{{ conf.email }}">{{ conf.author }}</a></p>
-    <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/de/" rel="copyright license">
-        <img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="by-nc-sa" />
-    </a>
+    <p>&copy; 2012&ndash;2015 <a href="http://www.thomaspuppe.de">{{ conf.author }}</a>.</p>
     {% endblock %}
   </footer>
+
 </body>
 </html>

@@ -1,0 +1,13 @@
+.main {
+
+    margin: 50px;
+
+    color: #B00B1E !important; /* DEBUG */
+
+    @media screen and (min-width: $breakpoint-large) {
+        border-left: 1px grey solid;
+        margin-left: 260px;
+        padding-left: 10px;
+    }
+
+}
