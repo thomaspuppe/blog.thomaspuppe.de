@@ -2,7 +2,7 @@
 title: Eine Single-Page-App minimieren mit Gulp
 date: 2015-01-23
 tags: [Webentwicklung]
-permalink: single-page-apps-monimieren-mit-gulp
+permalink: single-page-apps-minimieren-mit-gulp
 draft: false
 ---
 

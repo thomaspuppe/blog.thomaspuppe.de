@@ -5,6 +5,9 @@
   <meta charset="utf-8" />
   <title>{% block title %}{% endblock %}</title>
   <link media="all" href="{{ env.path + '/style.css' }}" rel="stylesheet" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link href="/favicon.ico" rel="shortcut icon" />
     {% if 'sitemap' in env.views -%}
         <link href="{{ env.views.sitemap.path }}" type="application/xml" rel="sitemap" title="Sitemap">
@@ -25,22 +28,20 @@
   <header class="header">
 
     <div class="header__title">
-      <svg class="header__logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="140px" height="120px" xml:space="preserve">
-        <circle cx="70" cy="60" r="50" stroke="black" fill="white" stroke-width="3"></circle>
-        <polygon points="87.334,95.568 69.667,84.717 52,95.568 52,24 87.334,24"></polygon>
-      </svg>
-
-      <h1><a class="header__headline" href="{{ env.path + '/' }}" rel="home start" class="blogtitle">{{ conf.sitename }}</a></h1>
+      <div class="header__logo"></div>
+        {% if env.type == 'index' %}
+          <h1 class="header__headline">{{ conf.sitename }}</h1>
+        {% else %}
+          <a class="header__headline" href="{{ env.path + '/' }}">{{ conf.sitename }}</a>
+        {% endif %}
     </div>
 
-    <nav class="main-nav">
-      <ul>
-        <li><a href="https://twitter.com/thomaspuppe">@thomaspuppe</a></li>
-        <li><a href="https://github.com/thomaspuppe">github</a></li>
-        <li><a href="http://www.thomaspuppe.de">website</a></li>
-        <li><a href="{{ env.path + '/rss/' }}" rel="alternate">rss</a></li>
-      </ul>
-    </nav>
+    <aside class="socialnav">
+      <a href="https://twitter.com/thomaspuppe">twitter</a>
+      <a href="https://github.com/thomaspuppe">github</a>
+      <a href="http://www.thomaspuppe.de">website</a>
+      <a href="{{ env.path + '/rss/' }}" rel="alternate">rss</a>
+    </aside>
   
   </header>
 

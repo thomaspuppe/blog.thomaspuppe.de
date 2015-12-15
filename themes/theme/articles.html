@@ -3,7 +3,7 @@
 {% block title %}{{ conf.sitename }} – Artikelübersicht{% endblock %}
 
 {% block content %}
-<article>
+<article class="ARTICLES-HTML">
     <table id="arc">
     {% for year in env.globals.entrylist | archivesfor %}
         {% for month in year %}
