@@ -1,7 +1,4 @@
-/* ********************************************************
-REMIFY!
-https://gist.github.com/colinmeinke/6607359
-******************************************************** */
+/** REMIFY! https://gist.github.com/colinmeinke/6607359 */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -246,14 +243,27 @@ body {
 .socialnav {
   position: absolute;
   bottom: 0;
-  font-size: 2.0rem; }
+  font-size: 2rem; }
 
 .main {
-  margin: 50px; }
+  margin: 50px 0 50px 50px; }
   @media screen and (min-width: 1600px) {
     .main {
       border-left: 1px grey solid;
       margin-left: 260px;
       padding-left: 10px; } }
+
+.list article {
+  border-right: 15px #EEE solid; }
+  .list article.bundestwitter {
+    border-color: #08C; }
+  .list article.projekte {
+    border-color: #aa2526; }
+  .list article.linktipps {
+    border-color: #0FB000; }
+  .list article.webentwicklung {
+    border-color: #223642; }
+  .list article.datenvisualisierung {
+    border-color: #8e44ad; }
 
 /*# sourceMappingURL=style.css.map */

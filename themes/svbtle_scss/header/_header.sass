@@ -1,0 +1,27 @@
+.header__title
+    margin: rem($page-padding)
+
+.header__headline
+    font-family: $font-face-sans-serif
+    font-size: rem(28px)
+    font-weight: bold
+    line-height: rem(32px)
+
+// TODO: macht das Sinn?
+a.header__headline
+    @include link-as-text($underline_on_hover: false)
+
+@media screen and (min-width: $breakpoint-small)
+    .header__logo 
+        float: left
+        margin-right: 2em
+
+@media screen and (min-width: $breakpoint-large)
+    header
+        float: left
+        width: 250px
+
+    .header__logo
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><circle cx="70" cy="60" r="50" stroke="black" fill="white" stroke-width="3"></circle><polygon points="87.334,95.568 69.667,84.717 52,95.568 52,24 87.334,24"></polygon></svg>')
+        height: 120px
+        width: 140px

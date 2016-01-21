@@ -18,11 +18,12 @@
 
 {% block content %}
 
-    <section class="main">
+    <section class="main list">
 
         {% for entry in env.entrylist %}
             {% include 'entry.html' %}
         {% endfor %}
+        
         {% if env.prev is not none %}
             <a href="{{ env.path ~ env.prev ~ '/' }}" class="page floatright">
             {{ env.prev.title }} &raquo;

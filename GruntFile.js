@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 files: {
-                    './themes/svbtle/style.css': './themes/svbtle_scss/styles.scss'
+                    './themes/svbtle/style.css': './themes/svbtle_scss/styles.sass'
                 },
                 options: {
                     style: 'nested' // expanded, nested, compact, compressed
@@ -61,8 +61,12 @@ module.exports = function(grunt) {
         },
         watch: {
             css: {
-                files: './themes/svbtle_scss/**/*.scss',
+                files: './themes/svbtle_scss/**/*.sass',
                 tasks: ['sass']
+            },
+            shell: {
+                files: './themes/svbtle/**/*.html',
+                tasks: ['shell']
             }
         }
     });
