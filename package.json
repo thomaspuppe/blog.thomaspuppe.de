@@ -9,6 +9,6 @@
   },
   "license": "BSD-2-Clause",
   "scripts": {
-    "build-css": "sass themes/svbtle/sass/styles.sass themes/svbtle/styles.css"
+    "build-css": "sass --watch themes/thomaspuppe/sass/styles.sass:themes/thomaspuppe/styles.css"
   }
 }
