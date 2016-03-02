@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Blog von Thomas Puppe, Web Developer.</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+</head>
+<body>
+  <header>
+    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
+    <nav>
+      <ul>
+        <li><a href="/" rel="home start">blog</a></li>
+        <li><a href="/atom/" rel="alternate">atom</a></li>
+        <li><a href="/rss/" rel="alternate">rss</a></li>
+        <li><a href="/articles/" rel="contents">articles</a></li>
+      </ul>
+    </nav>
+  </header>
+    
+        <article class="ENTRY-HTML">
+    <header>
+        <time datetime="2015-01-23">23.01.2015</time>
+        <h1>
+            <a href="single-page-apps-minimieren-mit-gulp" rel="bookmark canonical">Eine Single-Page-App minimieren mit Gulp</a>
+        </h1>
+    </header>
+    <p>Unter mee&shy;ting&shy;ti&shy;mer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleich&shy;zei&shy;tig sollen Less und JSLint genutzt werden. Ein wun&shy;der&shy;ba&shy;res Ein&shy;satz&shy;ge&shy;biet für Gulp!</p>
+<h3>Das Projekt</h3>
+<p>Unter der Domain <a href="http://meetingtimer.biz">mee&shy;ting&shy;ti&shy;mer.biz</a> betreibe ich eine kleine Website. Ein Nach&shy;mit&shy;tags&shy;pro&shy;jekt, das während eines Meetings anhand der Teil&shy;neh&shy;mer&shy;zahl die Kosten des Meetings hochzählt und anzeigt.</p>
+<p>Die Seite ist einfach und benötigt nur wenig JavaScript und CSS. Dem Per&shy;for&shy;mance-Junkie in mir hat es gestört, dass für 2,8 KB CSS (nicht minimiert und un&shy;kom&shy;pri&shy;miert) extra ein Request gestartet werden muss. Weil ich außerdem mit Gulp ex&shy;pe&shy;ri&shy;men&shy;tie&shy;ren wollte, nahm ich diese Seite <span>&#8230;<a href="single-page-apps-minimieren-mit-gulp" class="continue">continue</a>.</span></p>
+    <footer>
+        
+            <p>tagged as
+                <a href="/kategorie/webentwicklung/" rel="tag">Webentwicklung</a>
+                
+            </p>
+        
+    </footer>
+</article>
+    
+        <article class="ENTRY-HTML">
+    <header>
+        <time datetime="2014-11-19">19.11.2014</time>
+        <h1>
+            <a href="twitterdaten-mappen-mit-leaflet" rel="bookmark canonical">Twitterdaten mappen mit Leaflet</a>
+        </h1>
+    </header>
+    <p>Meine <a href="http://blog.thomaspuppe.de/2014-11_twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.</p>
+<p>In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aus&shy;sor&shy;tie&shy;ren usw. </p>
+<pre>//Alle Tweets in einer großen Datei:
+$ wc -l tweets.json 
+// 71180 tweets.json
+
+// Filtern der Tweets, die Medien enthalten (was zurzeit nur Fotos sein können)
+$ grep media_url tweets.json > tweets_media.json
+$ wc -l tweets_media.json 
+// 32330 tweets_media.json
+
+// Filtern der Tweets, die Koordinaten enthalten
+$ grep -v "\"coordinates\":null" tweets_media.json > tweets_media_coordinates.json
+$ wc </pre><span>&#8230;<a href="twitterdaten-mappen-mit-leaflet" class="continue">continue</a>.</span>
+    <footer>
+        
+            <p>tagged as
+                <a href="/kategorie/webentwicklung/" rel="tag">Webentwicklung</a>
+                
+            </p>
+        
+    </footer>
+</article>
+    
+        <article class="ENTRY-HTML">
+    <header>
+        <time datetime="2014-11-06">06.11.2014</time>
+        <h1>
+            <a href="twitterdaten-sammeln-mit-AWS" rel="bookmark canonical">Twitterdaten sammeln mit AWS</a>
+        </h1>
+    </header>
+    <p>Um Tweets zu einem aktuellen Thema zu sammeln, muss man die Twitter Streaming API mit&shy;schnei&shy;den. In 20 Minuten ist dafür ein kos&shy;ten&shy;lo&shy;ses always-online System aufgesetzt.</p>
+<p>Bei kurzen Events (TV-Duell vor der Bun&shy;des&shy;tags&shy;wahl) habe ich die Sammlung von Tweets einfach auf meinem lokalen Rechner gemacht. Für die an&shy;ste&shy;hen&shy;den Fei&shy;er&shy;lich&shy;kei&shy;ten zum #Mauerfall soll die Sammlung mehrere Tage dauern. Mein Rechner soll dabei aber nicht im Dau&shy;er&shy;be&shy;trieb laufen. Daher habe ich einfach eine AWS Instanz hoch&shy;ge&shy;fah&shy;ren und lasse die die Arbeit tun. Zum Mit&shy;schnei&shy;den des Streams dient diesmal auch nicht die PHP-Lib Phirehose, sondern das Python-Tool Tweepy.</p>
+<p>Dieser Artikel beschreibt, wie man mit wenigen Klicks, <span>&#8230;<a href="twitterdaten-sammeln-mit-AWS" class="continue">continue</a>.</span></p>
+    <footer>
+        
+            <p>tagged as
+                <a href="/kategorie/webentwicklung/" rel="tag">Webentwicklung</a>
+                
+            </p>
+        
+    </footer>
+</article>
+    
+        <article class="ENTRY-HTML">
+    <header>
+        <time datetime="2014-05-06">06.05.2014</time>
+        <h1>
+            <a href="link-unterstreichung" rel="bookmark canonical">Perfekte Link-Unterstreichung</a>
+        </h1>
+    </header>
+    <p>Link-Un&shy;ter&shy;strei&shy;chung bei großen Schrift&shy;ar&shy;ten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.</p>
+<p>Als Freund <a href="http://ia.net/blog/100e2r">&ldquo;großer&rdquo; Schrift</a> auf Websites stelle ich fest, dass die Un&shy;ter&shy;strei&shy;chung von Links ab 20 Pixeln Schrift&shy;grö&shy;ße (bei meinem Setup von font-family: Georgia, "Times New Roman", Times, serif;) recht breit ist. Das stört auch die Lesbarkeit des Textes &mdash; zumindest im Vergleich zu einer Variante mit schmalerer Un&shy;ter&shy;strei&shy;chung. Hier im Blog kommt das nicht zum Tragen. Groß sind nur die Über&shy;schrif&shy;ten, die eine dicke Un&shy;ter&shy;strei&shy;chung vertragen. Der Fließtext ist kleiner als 20px und hat daher moderate Un&shy;ter&shy;strei&shy;chung. Auf <span>&#8230;<a href="link-unterstreichung" class="continue">continue</a>.</span></p>
+    <footer>
+        
+            <p>tagged as
+                <a href="/kategorie/webentwicklung/" rel="tag">Webentwicklung</a>
+                
+            </p>
+        
+    </footer>
+</article>
+    
+
+    
+<footer>
+    
+    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
+    
+  </footer>
+</body>
+</html>

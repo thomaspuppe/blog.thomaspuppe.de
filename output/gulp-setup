@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Performance-oriented Gulp-Setup</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="gulp-replace-task
+
+
+- JS/CSS Datei mit Timestamper..." />
+    <meta name="keywords" content="Webentwicklung" />
+</head>
+<body>
+  <header>
+    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
+    <nav>
+      <ul>
+        <li><a href="/" rel="home start">blog</a></li>
+        <li><a href="/atom/" rel="alternate">atom</a></li>
+        <li><a href="/rss/" rel="alternate">rss</a></li>
+        <li><a href="/articles/" rel="contents">articles</a></li>
+      </ul>
+    </nav>
+  </header>
+    
+        <article class="ENTRY-HTML">
+    <header>
+        <time datetime="2014-05-06">06.05.2014</time>
+        <h1>
+            <a href="gulp-setup" rel="bookmark canonical">Performance-oriented Gulp-Setup</a>
+        </h1>
+    </header>
+    <p>gulp-replace-task</p>
+<ul>
+<li>JS/CSS Datei mit Timestam&shy;per&shy;set&shy;zen</li>
+<li>... danach aufräumen</li>
+<li>
+<p>Inhalte Inline einsetzen</p>
+</li>
+<li>
+<p>watcher</p>
+</li>
+</ul>
+    <footer>
+        
+            <p>tagged as
+                <a href="/kategorie/webentwicklung/" rel="tag">Webentwicklung</a>
+                
+            </p>
+        
+    </footer>
+</article>
+    
+
+    
+<footer>
+    
+    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
+    
+  </footer>
+</body>
+</html>

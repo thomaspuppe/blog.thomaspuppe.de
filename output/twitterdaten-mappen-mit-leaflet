@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Twitterdaten mappen mit Leaflet</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="Meine &lt;a href=&#34;http://blog.thomaspuppe.de/2014-11_..." />
+    <meta name="keywords" content="Webentwicklung" />
+</head>
+<body>
+  <header>
+    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
+    <nav>
+      <ul>
+        <li><a href="/" rel="home start">blog</a></li>
+        <li><a href="/atom/" rel="alternate">atom</a></li>
+        <li><a href="/rss/" rel="alternate">rss</a></li>
+        <li><a href="/articles/" rel="contents">articles</a></li>
+      </ul>
+    </nav>
+  </header>
+    
+        <article class="ENTRY-HTML">
+    <header>
+        <time datetime="2014-11-19">19.11.2014</time>
+        <h1>
+            <a href="twitterdaten-mappen-mit-leaflet" rel="bookmark canonical">Twitterdaten mappen mit Leaflet</a>
+        </h1>
+    </header>
+    <p>Meine <a href="http://blog.thomaspuppe.de/2014-11_twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.</p>
+<p>In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aus&shy;sor&shy;tie&shy;ren usw. </p>
+<pre>//Alle Tweets in einer großen Datei:
+$ wc -l tweets.json 
+// 71180 tweets.json
+
+// Filtern der Tweets, die Medien enthalten (was zurzeit nur Fotos sein können)
+$ grep media_url tweets.json > tweets_media.json
+$ wc -l tweets_media.json 
+// 32330 tweets_media.json
+
+// Filtern der Tweets, die Koordinaten enthalten
+$ grep -v "\"coordinates\":null" tweets_media.json > tweets_media_coordinates.json
+$ wc -l tweets_media_coordinates.json
+// 249 tweets_media_coordinates.json</pre>
+
+<p>Die Datei enthält nun (er&shy;staun&shy;lich wenige) Tweets, die aber mit allen Daten. Da für die Vi&shy;sua&shy;li&shy;sie&shy;rung nicht alles benötigt wird, extrahiere ich nur die nötigen Daten. Dazu habe ich ein kleines Python-Script ge&shy;schrie&shy;ben. Die Code-Qualität sei mir verziehen, das waren jetzt meine ersten Zeilen Python überhaupt.</p>
+<pre>import json
+
+readFile = open('tweets_media_coordinates.json')
+lines = readFile.readlines()
+readFile.close()
+
+outputArray = []
+
+for lineString in lines:
+    try:
+        lineObject = json.loads(lineString)
+        outputObject = {}
+        outputObject['id_str'] = lineObject['id_str']
+        outputObject['text'] = lineObject['text']
+        outputObject['screen_name'] = lineObject['user']['screen_name']
+        outputObject['text'] = lineObject['text']
+
+        for entityKey in lineObject['entities'] :
+            if entityKey == 'media' :
+                for media in lineObject['entities']['media'] : 
+                    if media['type'] == 'photo' : 
+                        outputObject['media_url'] = media['media_url']
+
+        outputObject['coordinates'] = lineObject['coordinates']['coordinates']
+
+        outputArray.append(outputObject)
+    except: 
+        pass
+
+outputString = json.dumps(outputArray, separators=(',',':'), indent=2)
+
+writeFile = open('tweets_media_coordinates_short.json','w')
+writeFile.write('{"tweets":' + outputString + '}') 
+writeFile.close()</pre>
+
+<p>Das Ergebnis ist eine JSON Datei mit den Tweets, Foto-URLs und Ko&shy;or&shy;di&shy;na&shy;ten: <a href="http://www.thomaspuppe.de/lab/mauerfall-tweets/data/tweets_media_coordinates_short.json">http://www.tho&shy;ma&shy;s&shy;pup&shy;pe.de/lab/mauerfall-tweets/data/tweets_&shy;me&shy;di&shy;a_&shy;co&shy;or&shy;di&shy;na&shy;tes_s&shy;hort.json</a>.</p>
+<p>Diese Datei ist die Daten-Grundlage für die Vi&shy;sua&shy;li&shy;sie&shy;rung. Auch dafür habe ich fix was aus dem Netz gezogen: den <a href="https://github.com/moklick/generator-leaflet">Leaflet-Generator</a> von <a href="https://twitter.com/moklick">Moritz Klack</a>. Via npm lädt man das halbe Internet herunter, hat aber dafür eine out-of-the-box Map Anwendung. Die eigentlich benötigten Dateien sollte man sich dann fürs nächste mal zu&shy;recht&shy;le&shy;gen.</p>
+<p>In die gegebene Karte wmüssen nur noch ein paar Zeilen JavaScript eingefügt werden, und schon sind die Punkte auf einer schönen Karte hinterlegt.</p>
+<pre>var markerIcon = L.divIcon({className: 'my-div-icon'}), // stylen via CSS!
+markerOptions = {
+    'clickable': true,
+    'keyboard': false,
+    'icon': markerIcon
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    var httpRequest = new XMLHttpRequest()
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState === 4) {
+            if (httpRequest.status === 200) {
+                var data = JSON.parse(httpRequest.responseText);
+                for (var i=0; i < data['tweets'].length; i++) {
+                    var currentData = data['tweets'][i];
+                    markerOptions['alt'] = currentData['media_url'];
+                    L.marker(
+                        [currentData['coordinates'][1], currentData['coordinates'][0]], 
+                        markerOptions)
+                    .addTo(map);
+                }
+            }
+        }
+    }
+    httpRequest.open('GET', 'data/tweets_media_coordinates_short.json')
+    httpRequest.send()
+});</pre>
+
+<p>Zu beachten: die Ko&shy;or&shy;di&shy;na&shy;ten bei Twitter sind als Lon,Lat ge&shy;spei&shy;chert, leaflet benötigt aber Lat,Lon. Daher die Rochade beim Anlegen der Marker.</p>
+<p>Und hier das Ergebnis: </p>
+<figure>
+    <a href="http://www.thomaspuppe.de/lab/mauerfall-tweets/">
+        <img src="/images/2014/11/tweets-mauerfall.png">
+        <figcaption>http://www.tho&shy;ma&shy;s&shy;pup&shy;pe.de/lab/mauerfall-tweets/</figcaption>
+    </a>
+</figure>
+    <footer>
+        
+            <p>tagged as
+                <a href="/kategorie/webentwicklung/" rel="tag">Webentwicklung</a>
+                
+            </p>
+        
+    </footer>
+</article>
+    
+
+    
+<footer>
+    
+    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
+    
+  </footer>
+</body>
+</html>

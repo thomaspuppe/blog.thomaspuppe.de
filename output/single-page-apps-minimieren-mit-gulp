@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Eine Single-Page-App minimieren mit Gulp</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleichzeitig sollen Less und JSLint genutzt werden. Ein wunderbares Einsatzgebiet für Gulp!" />
+    <meta name="keywords" content="Webentwicklung" />
+</head>
+<body>
+  <header>
+    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
+    <nav>
+      <ul>
+        <li><a href="/" rel="home start">blog</a></li>
+        <li><a href="/atom/" rel="alternate">atom</a></li>
+        <li><a href="/rss/" rel="alternate">rss</a></li>
+        <li><a href="/articles/" rel="contents">articles</a></li>
+      </ul>
+    </nav>
+  </header>
+    
+        <article class="ENTRY-HTML">
+    <header>
+        <time datetime="2015-01-23">23.01.2015</time>
+        <h1>
+            <a href="single-page-apps-minimieren-mit-gulp" rel="bookmark canonical">Eine Single-Page-App minimieren mit Gulp</a>
+        </h1>
+    </header>
+    <p>Unter mee&shy;ting&shy;ti&shy;mer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleich&shy;zei&shy;tig sollen Less und JSLint genutzt werden. Ein wun&shy;der&shy;ba&shy;res Ein&shy;satz&shy;ge&shy;biet für Gulp!</p>
+<h3>Das Projekt</h3>
+<p>Unter der Domain <a href="http://meetingtimer.biz">mee&shy;ting&shy;ti&shy;mer.biz</a> betreibe ich eine kleine Website. Ein Nach&shy;mit&shy;tags&shy;pro&shy;jekt, das während eines Meetings anhand der Teil&shy;neh&shy;mer&shy;zahl die Kosten des Meetings hochzählt und anzeigt.</p>
+<p>Die Seite ist einfach und benötigt nur wenig JavaScript und CSS. Dem Per&shy;for&shy;mance-Junkie in mir hat es gestört, dass für 2,8 KB CSS (nicht minimiert und un&shy;kom&shy;pri&shy;miert) extra ein Request gestartet werden muss. Weil ich außerdem mit Gulp ex&shy;pe&shy;ri&shy;men&shy;tie&shy;ren wollte, nahm ich diese Seite zum Anlass.</p>
+<h3>Her&shy;aus&shy;for&shy;de&shy;run&shy;gen</h3>
+<ol>
+<li>Möglichst wenige Requests im Live-betrieb ... es wäre schade, für 6 kB JavaScript und 3 kB CSS zwei Roundtrips zu starten.</li>
+<li>Beim Pro&shy;gram&shy;mie&shy;ren möchte ich dennoch nicht alles in einer großen HTML Datei horten.</li>
+</ol>
+<h3>Lösung mittels Gulp</h3>
+<p>Grundlage bei der Arbeit mit CSS und JS sind natürlich die klas&shy;si&shy;schen Werkzeuge wie less, minify-css, slint, uglify und concat. Die sind in jedem Gulp-Tutorial enthalten und sollen hier nicht behandelt werden. Spannend für meine Zwecke sind zwei weitere Tasks: </p>
+<pre>var replace = require('gulp-replace-task'),
+    cleanhtml = require('gulp-cleanhtml');</pre>
+
+<p>Deren Benutzung ist simpel und kom&shy;for&shy;ta&shy;bel: Im HTML setzt man Platz&shy;hal&shy;ter: </p>
+<pre>...
+&lt;style type="text/css"&gt;@@cssStyles&lt;/style&gt;
+...&lt;/head&gt;
+&lt;body&gt;...
+&lt;script type="text/javascript">@@jsScript&lt;/script&gt;
+&lt;/body&gt;</pre>
+
+<p>Und lässt diese im Gulp Task durch den Inhalt der Dateien ersetzen:</p>
+<pre>gulp.task('replace', function () {
+    return gulp.src('./index.html')
+        .pipe(replace({
+            patterns: [
+                {
+                    match: 'cssStyles',
+                    replacement: fs.readFileSync('./web/assets/css/style.css', 'utf8')
+                },
+                {
+                    match: 'jsScript',
+                    replacement: fs.readFileSync('./web/assets/js/all.min.js', 'utf8')
+                },
+                {
+                    match: 'timestamp',
+                    replacement: currentDatetime
+                }
+            ]
+        }))
+        .pipe(cleanhtml())
+        .pipe(gulp.dest('./web'));
+});</pre>
+
+<p>Ich habe auch mit "gulp-inline-source" ex&shy;pe&shy;ri&shy;men&shy;tiert, aber der hat den JavaScript Code zerstört. Replace macht dasselbe und kann außerdem banutzt werden um andere Platz&shy;hal&shy;ter zu erstezen - z.B. den aktuellen Timestamp, eine Release-Nummer, Da&shy;tei&shy;grö&shy;ßen, Sub&shy;tem&shy;pla&shy;tes, MD5-Hashes von Downloads oder was auch immer.</p>
+<p>Die Datei aus "src" wird gelesen und die Vorkommen des Such&shy;pat&shy;terns ersetzt. Danach entfernt "cle&shy;anhtml" alle Whi&shy;te&shy;s&shy;paces und "dest" schreibt die Datei in ihren Zielordner (das VEr&shy;zeich&shy;nis was dann deployed wird). So einfach geht es.</p>
+<p>Das Ergebnis ist eine 4,4 kB große HTML Datei (die damit einen Bruchteil des 27,7 kB großen Touch Icons hat). Zu sehen unter <a href="http://meetingtimer.biz">mee&shy;ting&shy;ti&shy;mer.biz</a>. Die Quellen, .gulpfile und das Ergebnis sind bei GitHub zu finden: <a href="https://github.com/thomaspuppe/meetingtimer.biz">https://github.com/tho&shy;ma&shy;s&shy;pup&shy;pe/mee&shy;ting&shy;ti&shy;mer.biz</a></p>
+<h3>Potential</h3>
+<ul>
+<li>Gulp ent&shy;schlan&shy;ken. Die Concat Funktionen werden für jeweils eine Datei jar gar nicht gebraucht.</li>
+<li>Innerhalb des JS Codes könnten nicht-native Bezeichner noch au&shy;to&shy;ma&shy;tisch gegen kürzere ersetzt werden.</li>
+<li>Ebenso könnte man CSS Klas&shy;sen&shy;na&shy;men zu&shy;sam&shy;men&shy;kür&shy;zen.</li>
+<li>Unnötiges CSS rauswerfen. Selektoren prä&shy;zi&shy;sie&shy;ren. Zugegeben, da war ich schlampig.</li>
+<li>Erlaubt iOS, Touch Icons inline als Base 64 codiert abzulegen? Oder Inline als SVG?</li>
+</ul>
+<p>Das kommt später. Das wäre auch ein guter Anreiz, die Mi&shy;ni&shy;mie&shy;rung aus&shy;zu&shy;rei&shy;zen. Wieso sollte ein simpler Timer KB groß sein, wenn man <a href="http://js1k.com/2014-dragons/demo/1854">Minecraft in 1024 bytes</a> oder <a href="http://js1k.com/2014-dragons/demo/1934">Wol&shy;fen&shy;stein 2D in 2K</a> pro&shy;gram&shy;mie&shy;ren kann?</p>
+    <footer>
+        
+            <p>tagged as
+                <a href="/kategorie/webentwicklung/" rel="tag">Webentwicklung</a>
+                
+            </p>
+        
+    </footer>
+</article>
+    
+
+    
+<footer>
+    
+    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
+    
+  </footer>
+</body>
+</html>
