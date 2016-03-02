@@ -54,7 +54,7 @@ VIEWS = {
     # '/:year/:slug/:lang/': {'view': 'translation'},
 }
 
-THEME = 'themes/svbtle'
+THEME = 'themes/thomaspuppe'
 ENGINE = 'acrylamid.templates.jinja2.Environment'
 DATE_FORMAT = '%Y-%m-%d'
 PERMALINK_FORMAT = '/:year-:month_:slug'
