@@ -1,0 +1,46 @@
+.teaser
+	border-right: 15px #EEE solid
+	margin-top: rem(4px)
+	padding: rem($page-padding)
+
+	&--bundestwitter
+		border-color: $color-bundestwitter
+	&--projekte
+		border-color: $color-projekte
+	&--linktipps
+		border-color: $color-linktipps
+	&--webentwicklung
+		border-color: $color-webentwicklung
+	&--datenvisualisierung
+		border-color: $color-datenvisualisierung
+
+	&:hover
+		background-color: #EEE
+		cursor: pointer
+
+	&__meta
+		font-family: $font-face-sans-serif
+		font-size: rem(14px)
+		line-height: rem(24px)
+		text-transform: uppercase
+
+	&__title
+		color: #000
+		font-family: $font-face-sans-serif
+		font-size: rem(24px)
+		line-height: rem(16px)
+
+	&__link
+		color: inherit		
+		text-decoration: none
+
+	&__text
+		max-width: rem(800px)
+
+@media screen and (min-width: $breakpoint-small)
+	.teaser
+		padding: rem($page-padding*2)
+
+@media screen and (min-width: $breakpoint-medium)
+	.teaser
+		padding: rem($page-padding*4)

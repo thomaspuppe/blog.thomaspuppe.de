@@ -8,10 +8,6 @@ WWW_ROOT = 'http://blog.thomaspuppe.de/'
 AUTHOR = 'Thomas Puppe'
 EMAIL = 'info@thomaspuppe.de'
 
-# Dropplets Settings:
-#$blog_twitter = "thomaspuppe";
-#$template = "svbtle";
-
 CONTENT_EXTENSION = '.md'
 STATIC = ['static']
 

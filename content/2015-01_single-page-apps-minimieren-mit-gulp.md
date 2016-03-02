@@ -1,9 +1,11 @@
 ---
 title: Eine Single-Page-App minimieren mit Gulp
 date: 2015-01-23
+update: 2016-01-22
 tags: [Webentwicklung]
 permalink: single-page-apps-minimieren-mit-gulp
 draft: false
+description: Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleichzeitig sollen Less und JSLint genutzt werden. Ein wunderbares Einsatzgebiet für Gulp!
 ---
 
 Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleichzeitig sollen Less und JSLint genutzt werden. Ein wunderbares Einsatzgebiet für Gulp!

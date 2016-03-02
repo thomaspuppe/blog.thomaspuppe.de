@@ -1,13 +1,9 @@
 {% set tag = entry.tags[0] %}
 
-<article class="{{ tag | lower }}">
-    <span class="category">
-        #{{ tag }} | 
-        <time datetime="{{ entry.date.strftime("%Y-%m-%d") }}">{{ entry.date.strftime("%d.%m.%Y") }}</time>
-    </span>
-    <h1>
-        <a href="{{ env.path + entry.permalink }}">{{ entry.title }}</a>
-    </h1>
-    <p>{{ entry.content }}</p>
-    <a href="{{ env.path + entry.permalink }}" class="button_accent" title="Artikel «{{ entry.title }}» lesen">{{ entry.title }}&nbsp;&nbsp;&nbsp;&rarr;</a>
+<article class="teaser teaser--{{ tag | lower }}">
+    <span class="teaser__meta">#{{ tag }} | {{ entry.date.strftime("%d.%m.%Y") }}</span>
+    <h2 class="teaser__title">
+        <a class="teaser__link" href="{{ env.path + entry.permalink }}" title="Artikel «{{ entry.title }}» lesen">{{ entry.title }}</a>
+    </h2>
+    <p class="teaser__text">{{ entry.description | e}}</p>
 </article>
