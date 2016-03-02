@@ -1,0 +1,14 @@
+body {
+  color: #292929;
+  font: 1.125em/160% Georgia, Palatino, Palatino Linotype, OpenSerif, FreeSerif, serif;
+  padding: 0;
+  padding: 0 10px; }
+
+h1, h2, h3 {
+  line-height: 120%; }
+
+section {
+  margin: 40px auto;
+  max-width: 800px; }
+
+/*# sourceMappingURL=styles.css.map */
