@@ -12,49 +12,60 @@ CONTENT_EXTENSION = '.md'
 STATIC = ['static']
 
 FILTERS = ['markdown+codehilite(css_class=highlight)', 'hyphenate', 'h1']
+
 VIEWS = {
-    '/': {  'filters': 'summarize', 
-            'view': 'index'#,
-            #'pagination': '/page/:num/'
-            },
 
-    '/:year-:month_:slug': {'views': ['entry', 'draft']},
+	'/': {  
+		'filters': 'summarize', 
+		'view': 'index'
+	},
 
-    '/tag/:name/': {'filters': 'summarize', 'view':'tag',
-                    'pagination': '/tag/:name/:num/'},
+	'/:year-:month_:slug': {
+		'views': ['entry', 'draft']
+	},
 
-    '/atom/': {'filters': ['h2', 'nohyphenate'], 'view': 'atom'},
-    '/rss/': {'filters': ['h2', 'nohyphenate'], 'view': 'rss'},
+	'/kategorie/:name/': {
+		'filters': 'summarize', 
+		'view':'tag',
+		'pagination': '/tag/:name/:num/'
+	},
 
-    # # per tag Atom or RSS feed. Just uncomment to generate them.
-    # '/tag/:name/atom/': {'filters': ['h2', 'nohyphenate'], 'view': 'atompertag'},
-    # '/tag/:name/rss/': {'filters': ['h2', 'nohyphenate'], 'view': 'rsspertag'},
+	'/feed/atom/': {'filters': ['h2', 'nohyphenate'], 'view': 'atom'},
+	'/feed/rss/': {'filters': ['h2', 'nohyphenate'], 'view': 'rss'},
 
-    '/articles/': {'view': 'archive', 'template': 'articles.html'},
+	# # per tag Atom or RSS feed. Just uncomment to generate them.
+	# '/tag/:name/atom/': {'filters': ['h2', 'nohyphenate'], 'view': 'atompertag'},
+	# '/tag/:name/rss/': {'filters': ['h2', 'nohyphenate'], 'view': 'rsspertag'},
 
-    '/sitemap.xml': {'view': 'sitemap'},
+	'/articles/': {'view': 'archive', 'template': 'articles.html'},
 
-    # # Here are some more examples
+	'/sitemap.xml': {'view': 'sitemap'},
 
-    # # '/:slug/' is a slugified url of your static page's title
-    # '/:slug/': {'view': 'page'},
+	# # Here are some more examples
 
-    # # '/atom/full/' will give you a _complete_ feed of all your entries
-    # '/atom/full/': {'filters': 'h2', 'view': 'atom', 'num_entries': 1000},
+	# # '/:slug/' is a slugified url of your static page's title
+	# '/:slug/': {'view': 'page'},
 
-    # # a feed containing all entries tagges with 'python'
-    # '/rss/python/': {'filters': 'h2', 'view': 'rss',
-    #                  'if': lambda e: 'python' in e.tags},
+	# # '/atom/full/' will give you a _complete_ feed of all your entries
+	# '/atom/full/': {'filters': 'h2', 'view': 'atom', 'num_entries': 1000},
 
-    # # a full typography features entry including MathML and Footnotes
-    # '/:year/:slug': {'filters': ['typography', 'Markdown+Footnotes+MathML'],
-    #                  'view': 'entry'},
+	# # a feed containing all entries tagges with 'python'
+	# '/rss/python/': {'filters': 'h2', 'view': 'rss',
+	#                  'if': lambda e: 'python' in e.tags},
 
-    # # translations!
-    # '/:year/:slug/:lang/': {'view': 'translation'},
+	# # a full typography features entry including MathML and Footnotes
+	# '/:year/:slug': {'filters': ['typography', 'Markdown+Footnotes+MathML'],
+	#                  'view': 'entry'},
+
+	# # translations!
+	# '/:year/:slug/:lang/': {'view': 'translation'},
 }
 
+LANG = 'DE'
 THEME = 'themes/thomaspuppe'
 ENGINE = 'acrylamid.templates.jinja2.Environment'
 DATE_FORMAT = '%Y-%m-%d'
 PERMALINK_FORMAT = '/:year-:month_:slug'
+
+# prevent pagination
+DEFAULT_ORPHANS = 9999

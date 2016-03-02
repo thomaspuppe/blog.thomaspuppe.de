@@ -20,14 +20,17 @@
     {% for entry in env.entrylist %}
         {% include 'entry.html' %}
     {% endfor %}
-    {% if env.prev is not none %}
-        <a href="{{ env.path ~ env.prev ~ '/' }}" class="page floatright">
-        {{ env.prev.title }} &raquo;
-        </a>
-    {% endif %}
-    {% if env.next is not none %}
-        <a href="{{ env.path ~ env.next ~ '/' }}" class="page floatleft">
-        &laquo; {{ env.next.title }}
-        </a>
-    {%- endif  %}
+
+    {# TODO: use as Nextread, if you have a styled teaser! 
+	    {% if env.prev is not none %}
+	        <a href="{{ env.path ~ env.prev ~ '/' }}" class="page floatright">
+	        {{ env.prev.title }} &raquo;
+	        </a>
+	    {% endif %}
+	    {% if env.next is not none %}
+	        <a href="{{ env.path ~ env.next ~ '/' }}" class="page floatleft">
+	        &laquo; {{ env.next.title }}
+	        </a>
+	    {%- endif  %}
+	#}
 {% endblock %}
