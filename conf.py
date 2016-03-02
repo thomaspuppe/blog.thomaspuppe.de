@@ -63,6 +63,8 @@ VIEWS = {
 
 LANG = 'DE'
 THEME = 'themes/thomaspuppe'
+THEME_IGNORE = ['sass*']
+
 ENGINE = 'acrylamid.templates.jinja2.Environment'
 DATE_FORMAT = '%Y-%m-%d'
 PERMALINK_FORMAT = '/:year-:month_:slug'
