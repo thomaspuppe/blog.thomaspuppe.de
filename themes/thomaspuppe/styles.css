@@ -1,19 +1,55 @@
 /** REMIFY! https://gist.github.com/colinmeinke/6607359 */
+@font-face {
+  font-family: "League Spartan";
+  src: url("assets/webfonts/leaguespartan/leaguespartan-bold.woff2"), url("assets/webfonts/leaguespartan/leaguespartan-bold.woff");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: "Sina Nova";
+  src: url("assets/webfonts/sinanova/sinanova-regular.woff2"), url("assets/webfonts/sinanova/sinanova-regular.woff");
+  font-weight: normal;
+  font-style: normal; }
 body {
   color: #292929;
-  font: 1.125em/160% Georgia, Palatino, Palatino Linotype, OpenSerif, FreeSerif, serif;
-  padding: 0;
-  padding: 0 10px; }
+  font-family: "Sina Nova", Georgia, Palatino, Palatino Linotype, OpenSerif, FreeSerif, serif; }
 
 h1, h2, h3 {
-  line-height: 120%; }
+  font-family: "League Spartan", Halvetica, OpenSans, FreeSans, sans-serif;
+  font-size: 2.7rem;
+  line-height: 4.25rem;
+  font-weight: 400;
+  margin-top: 1.41667rem;
+  margin-bottom: 1.41667rem;
+  text-transform: uppercase; }
 
-section {
-  margin: 40px auto;
-  max-width: 800px; }
+h2, h3 {
+  font-size: 1.7rem;
+  line-height: 2.83333rem; }
+
+.grid_OFF {
+  background-image: linear-gradient(to bottom, rgba(0, 170, 255, 0.3) 1px, transparent 1px);
+  background-position: left -1px;
+  background-repeat: repeat;
+  background-size: 1.41667rem 1.41667rem; }
+  .grid_OFF body {
+    box-shadow: 1px 0px 0px rgba(0, 170, 255, 0.3), -1px 0px 0px rgba(0, 170, 255, 0.3); }
+
+html, body {
+  font-size: 24px; }
 
 body {
-  margin: 2.5rem auto;
-  max-width: 56.25rem; }
+  margin: 4.25rem auto;
+  padding: 0;
+  max-width: 37.5rem;
+  font-size: 24px;
+  line-height: 1.41667rem; }
+
+p, ul, ol, pre, table, blockquote {
+  margin-top: 1.41667rem;
+  margin-bottom: 0; }
+
+h1 a, h2 a {
+  color: #292929;
+  text-decoration: none; }
 
 /*# sourceMappingURL=styles.css.map */

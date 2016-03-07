@@ -1,3 +1,25 @@
+.grid_OFF
+	background-image: linear-gradient(to bottom, hsla(200, 100%, 50%, .3) 1px, transparent 1px)
+	background-position: left -1px
+	background-repeat: repeat
+	background-size: rem($base-line-height) rem($base-line-height)
+	body
+		box-shadow: 1px 0px 0px hsla(200, 100%, 50%, .3), -1px 0px 0px hsla(200, 100%, 50%, .3)
+
+html, body
+	font-size: $base-font-size
+
 body
-	margin: rem(40px) auto
+	margin: rem($base-line-height*3) auto
+	padding: 0
 	max-width: rem(900px)
+	font-size: $base-font-size
+	line-height: rem($base-line-height)
+
+p, ul, ol, pre, table, blockquote
+	margin-top: rem($base-line-height)
+	margin-bottom: 0
+
+h1 a, h2 a
+	color: $color-text
+	text-decoration: none

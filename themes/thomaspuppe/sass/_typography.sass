@@ -1,12 +1,17 @@
 body
 	color: $color-text
-	font:  1.125em/160% $font-face-serif
-	padding: 0
-	padding: 0 10px
+	font-family: $font-face-serif
 
 h1, h2, h3
-	line-height: 120%
+	font-family: $font-face-sans-serif
+	font-size: rem($base-font-size*2.7)
+	line-height: rem($base-line-height*3)
+	font-weight: 400
+	margin-top: rem($base-line-height)
+	margin-bottom: rem($base-line-height)
+	text-transform: uppercase
 
-section 
-	margin: 40px auto
-	max-width: 800px
+h2, h3
+	font-size: rem($base-font-size*1.7)
+	line-height: rem($base-line-height*2)
+
