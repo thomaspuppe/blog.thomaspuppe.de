@@ -4,6 +4,7 @@ date: 2014-05-06
 tags: [Webentwicklung]
 permalink: link-unterstreichung
 draft: false
+description: Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.
 ---
 
 Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.
@@ -15,7 +16,7 @@ Als Freund <a href="http://ia.net/blog/100e2r">&ldquo;großer&rdquo; Schrift</a>
     <figcaption>Abb. 1: Link-Unterstreichung nativ und trickreich</figcaption>
 </figure>
 
-Kürzlich bin ich auf einen Artikel von <a href="https://medium.com/@mwichary">Marcin Wichary</a> gestoßen, der dieses Problem löst: <a href="https://medium.com/p/7c03a9274f9">&ldquo;Crafting link underlines on Medium&rdquo;</a>. In dem sehr lesenswerten Artikel wird auf pro und contra von Link-Unterstreichung im Allgemeinen und verschiedenen Techniken im Speziellen eingegangen. Am Ende schaut die Lösung so aus: 
+Kürzlich bin ich auf einen Artikel von <a href="https://medium.com/@mwichary">Marcin Wichary</a> gestoßen, der dieses Problem löst: <a href="https://medium.com/p/7c03a9274f9">&ldquo;Crafting link underlines on Medium&rdquo;</a>. In dem sehr lesenswerten Artikel wird auf pro und contra von Link-Unterstreichung im Allgemeinen und verschiedenen Techniken im Speziellen eingegangen. Am Ende schaut die Lösung so aus:
 
 <pre>a, a:link, a:visited {
     color: #333;

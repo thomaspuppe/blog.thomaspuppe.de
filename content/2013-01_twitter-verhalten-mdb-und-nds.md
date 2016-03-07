@@ -4,6 +4,7 @@ date: 2013-01-22
 tags: [Bundestwitter]
 permalink: 2013-01a_twitter-verhalten-mdb-und-nds
 draft: false
+description: Ein Überblick über das Twitter-Verhalten der MdB und der Wahlkämpfer der niedersächsischen Landtagswahl 2013
 ---
 
 <p>Wie viele Politiker sind auf Twitter aktiv? Wie häufig twittern sie? Was wird geschrieben? Erzeugt das Bürgernähe? Hilft es im Wahlkampf?</p><p><em>Ein Überblick über das Twitter-Verhalten der MdB und der Wahlkämpfer der niedersächsischen Landtagswahl 2013.</em></p>

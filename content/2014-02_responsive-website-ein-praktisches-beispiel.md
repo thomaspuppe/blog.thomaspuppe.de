@@ -4,6 +4,7 @@ date: 2014-02-13
 tags: [Web-Entwicklung]
 permalink: responsive-website-ein-praktisches-beispiel
 draft: false
+description: Wie baut man eine einfache Website von nicht-responsive auf responsive um? Eine Schritt-für-Schritt Anleitung anhand dieses Blogs.
 ---
 
 Wie baut man eine einfache Website von nicht-responsive auf responsive um? Eine Schritt-für-Schritt Anleitung anhand dieses Blogs.
@@ -32,17 +33,17 @@ Auf Desktop-Browsern spielt der Viewport übrigens keine Rolle. Hier gilt die Fe
 
 Als nächstes muss die Seite flexibel auf die (nun auch auf kleinen Geräten erkannte) Breite reagieren. Statt einer festen Breite in Pixeln geben wir den Elementen auf der Seite eine flexible Breite in Prozent, die sich an der größe des Browserfensters (oder des mobilen Gerätes) orientiert.
 
-Feste oder minimale Breiten können im Responsive Web Design für kleine Elemente nützlich sein. Für große Elemente sind sie es meist nicht. Böser Fehler in der ersten Version dieses Blogs: 
+Feste oder minimale Breiten können im Responsive Web Design für kleine Elemente nützlich sein. Für große Elemente sind sie es meist nicht. Böser Fehler in der ersten Version dieses Blogs:
 
 <pre>.posts { width: 100%; min-width:710px; }</pre>
 
 Soeben haben wir mobile Geräte mittels Viewport dazu gezwungen, die Seite in Originalpixeln zu rendern. Hat das Gerät nur 480 Pixel Breite, ist die Seite natürlich zur Hälfte abgeschnitten. Indem man feste oder minmale Breiten aus dem CSS entfernt, passten sich Block-Elemente wie Divs an die verfügbare Breite an. In diesem Fall sind das 100% des Browsers - so soll es sein. Auf die Angabe von 100% kann man in dem Fall natürlich auch verzichten.
 
-100% Breite für Elemente sind aber nicht immer erwünscht. Gerade bei sehr großen Monitoren sind Flisßtexte schlecht lesbar, wenn sie den ganzen Bildschrimbreite einnehmen. Abhilfe schafft die Angabe einer maximalen Breite: 
+100% Breite für Elemente sind aber nicht immer erwünscht. Gerade bei sehr großen Monitoren sind Flisßtexte schlecht lesbar, wenn sie den ganzen Bildschrimbreite einnehmen. Abhilfe schafft die Angabe einer maximalen Breite:
 
 <pre>.posts p, .posts h1, .posts h2 { max-width:600px; }</pre>
 
-Da die Artikel selbst noch breit laufen sollen (bunter Rand rechts), begrenzen wir nur Überschriften und Absätze in der Breite. Ḿan erkennt, dass die Inhalte der rechten Spalte sich dem Menü 
+Da die Artikel selbst noch breit laufen sollen (bunter Rand rechts), begrenzen wir nur Überschriften und Absätze in der Breite. Ḿan erkennt, dass die Inhalte der rechten Spalte sich dem Menü
 
 ##3. Breakpoints für unterschiedliche Styles
 

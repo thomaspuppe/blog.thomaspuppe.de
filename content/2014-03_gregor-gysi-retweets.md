@@ -4,13 +4,14 @@ date: 2014-03-16
 tags: [Bundestwitter]
 permalink: gregor-gysi-retweets
 draft: false
+description: Gregor Gysi führt in den letzten Wochen die Retweet-Charts von Bundestwitter an. Ist das systematische Unterstützung durch Wenige? Oder eine breite Basis?
 ---
 
 Der Fraktionsführer der Linken im Deutschen Bundestag, <a href="http://www.bundestwitter.de/politiker/dr-gregor-gysi/">Gregor Gysi</a>, führt in den letzten Wochen die <a href="http://www.bundestwitter.de">Retweet-Charts von Bundestwitter</a> an. Ist das systematische Unterstützung durch Wenige? Oder eine breite Basis?
 
 Grundlage der Analyse sind alle Tweets von Gregor Gysi aus dem Jahr 2014 (Stand 16.02.). Diese habe ich nach Retweet-Häufigkeit sortiert, und die Top 25 dann genauer untersucht. Von jedem Tweet wurden die Profildaten aller Retweeter geladen, und die <a href="#tabelleGesamt">Daten in einer Tabelle zusammengeführt</a> (Link führt zur Tabelle am Fuß dieses Posts).
 
-Insgesamt haben 920 verschiedene Profile die <a href="http://www.bundestwitter.de/politiker/dr-gregor-gysi/tweets/">Top-Tweets von Gregor Gysi</a> weiterverbreitet. Manche Accounts retweeten fast jeden dieser Beiträge: 
+Insgesamt haben 920 verschiedene Profile die <a href="http://www.bundestwitter.de/politiker/dr-gregor-gysi/tweets/">Top-Tweets von Gregor Gysi</a> weiterverbreitet. Manche Accounts retweeten fast jeden dieser Beiträge:
 
 <ol>
 <li>Free Chelsea Manning (<a href="https://www.twitter.com/politlinkx">politlinkx</a>) schickte 23 Retweets an 643 Follower.</li>
@@ -20,11 +21,11 @@ Insgesamt haben 920 verschiedene Profile die <a href="http://www.bundestwitter.d
 <li>NimA (<a href="https://www.twitter.com/Nima_1990">Nima_1990</a>) schickte 12 Retweets an 29 Follower.</li>
 </ol>
 
-Mit @politlinkx und @ProDemokratie sind "Gruppen" (Begriff als Gegensatz zu einzelnen Privatpersonen) an der Spitze der Unterstützer. Die @linksfraktion ist mit 6 Retweets an Position 19. Mit jeweils 1 Retweet sind @katjakipping, Petra_Sitte_MdB, MWBirkwald und @DerRostocker von der Linksfraktion dabei. Andere MdB haben die untersuchten Tweets nicht weiterverbreitet. 
+Mit @politlinkx und @ProDemokratie sind "Gruppen" (Begriff als Gegensatz zu einzelnen Privatpersonen) an der Spitze der Unterstützer. Die @linksfraktion ist mit 6 Retweets an Position 19. Mit jeweils 1 Retweet sind @katjakipping, Petra_Sitte_MdB, MWBirkwald und @DerRostocker von der Linksfraktion dabei. Andere MdB haben die untersuchten Tweets nicht weiterverbreitet.
 
 Die große Unterstützung kommt aber aus einer breiten Basis. 668 Personen haben 1 Retweet gemacht, 140 Personen 2 Retweets. Es folgen 45 Personen mit 3 Retweets, 38 Personen mit 4 Retweets und 20 Personen mit 5 Retweets. Mehr als 10 Retweets hatten nur die 5 oben genannten Accounts.
 
-1 Retweet: 668 Personen. 2 Retweets: 140 Personen. 3 Retweets: 45 Personen.4 Retweets: 38 Personen. 5 Retweets: 20 Personen. 6 Retweets: 4 Personen. 7 Retweets: 6 Personen. 8 Retweets: 8 Personen. 10 Retweets: 2 Personen. 12 Retweets: 1 Person. 13 Retweets: 1 Person. 15 Retweets: 1 Person. 21 Retweets: 1 Person. 23 Retweets: 1 Person. 
+1 Retweet: 668 Personen. 2 Retweets: 140 Personen. 3 Retweets: 45 Personen.4 Retweets: 38 Personen. 5 Retweets: 20 Personen. 6 Retweets: 4 Personen. 7 Retweets: 6 Personen. 8 Retweets: 8 Personen. 10 Retweets: 2 Personen. 12 Retweets: 1 Person. 13 Retweets: 1 Person. 15 Retweets: 1 Person. 21 Retweets: 1 Person. 23 Retweets: 1 Person.
 
 <h2>Wer sind die Unterstützer mit den meisten Followern?</h2>
 <ol>
@@ -3622,7 +3623,7 @@ Die große Unterstützung kommt aber aus einer breiten Basis. 668 Personen haben
 </table>
 
 
-Hinweise: 
+Hinweise:
 
 <ul>
     <li>Wie man sieht, habe ich die Masse der 1-mal und 2-mal Retweter ausgelassen.</li>

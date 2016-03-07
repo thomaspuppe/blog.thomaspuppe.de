@@ -4,20 +4,21 @@ date: 2014-11-19
 tags: [Webentwicklung]
 permalink: twitterdaten-mappen-mit-leaflet
 draft: false
+description: Meine Sammlung von Tweets zum #Mauerfall umfasst über 70.000 Tweets. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.
 ---
 
 Meine <a href="http://blog.thomaspuppe.de/2014-11_twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.
 
 
-In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aussortieren usw. 
+In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aussortieren usw.
 
 <pre>//Alle Tweets in einer großen Datei:
-$ wc -l tweets.json 
+$ wc -l tweets.json
 // 71180 tweets.json
 
 // Filtern der Tweets, die Medien enthalten (was zurzeit nur Fotos sein können)
 $ grep media_url tweets.json > tweets_media.json
-$ wc -l tweets_media.json 
+$ wc -l tweets_media.json
 // 32330 tweets_media.json
 
 // Filtern der Tweets, die Koordinaten enthalten
@@ -46,20 +47,20 @@ for lineString in lines:
 
         for entityKey in lineObject['entities'] :
             if entityKey == 'media' :
-                for media in lineObject['entities']['media'] : 
-                    if media['type'] == 'photo' : 
+                for media in lineObject['entities']['media'] :
+                    if media['type'] == 'photo' :
                         outputObject['media_url'] = media['media_url']
 
         outputObject['coordinates'] = lineObject['coordinates']['coordinates']
 
         outputArray.append(outputObject)
-    except: 
+    except:
         pass
 
 outputString = json.dumps(outputArray, separators=(',',':'), indent=2)
 
 writeFile = open('tweets_media_coordinates_short.json','w')
-writeFile.write('{"tweets":' + outputString + '}') 
+writeFile.write('{"tweets":' + outputString + '}')
 writeFile.close()</pre>
 
 Das Ergebnis ist eine JSON Datei mit den Tweets, Foto-URLs und Koordinaten: <a href="http://www.thomaspuppe.de/lab/mauerfall-tweets/data/tweets_media_coordinates_short.json">http://www.thomaspuppe.de/lab/mauerfall-tweets/data/tweets_media_coordinates_short.json</a>.
@@ -85,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     var currentData = data['tweets'][i];
                     markerOptions['alt'] = currentData['media_url'];
                     L.marker(
-                        [currentData['coordinates'][1], currentData['coordinates'][0]], 
+                        [currentData['coordinates'][1], currentData['coordinates'][0]],
                         markerOptions)
                     .addTo(map);
                 }
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 Zu beachten: die Koordinaten bei Twitter sind als Lon,Lat gespeichert, leaflet benötigt aber Lat,Lon. Daher die Rochade beim Anlegen der Marker.
 
-Und hier das Ergebnis: 
+Und hier das Ergebnis:
 
 <figure>
     <a href="http://www.thomaspuppe.de/lab/mauerfall-tweets/">

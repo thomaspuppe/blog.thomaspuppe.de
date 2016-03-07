@@ -4,6 +4,7 @@ date: 2013-10-09
 tags: [Daten-Visualisierung]
 permalink: visualized-io-berlin-2013
 draft: false
+description: Eine Zusammenfassung der Themen auf der VISUALIZED.iO Konferenz  2013 in Berlin.
 ---
 
 Eine grobe Zusammenfassung der Themen auf der VISUALIZED.iO Konferenz am 05. Oktober 2013 in Berlin. Es ist wenig ausformuliert, sondern eher eine Liste an Stichpunkten, Links zu den vorgestellten Projekten und einige Zitate.

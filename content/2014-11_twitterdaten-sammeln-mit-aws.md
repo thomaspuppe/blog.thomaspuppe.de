@@ -4,6 +4,7 @@ date: 2014-11-06
 tags: [Webentwicklung]
 permalink: twitterdaten-sammeln-mit-AWS
 draft: false
+description: Um Tweets zu einem aktuellen Thema zu sammeln, muss man die Twitter Streaming API mitschneiden. In 20 Minuten ist dafür ein kostenloses always-online System aufgesetzt.
 ---
 
 Um Tweets zu einem aktuellen Thema zu sammeln, muss man die Twitter Streaming API mitschneiden. In 20 Minuten ist dafür ein kostenloses always-online System aufgesetzt.
@@ -12,12 +13,12 @@ Bei kurzen Events (TV-Duell vor der Bundestagswahl) habe ich die Sammlung von Tw
 
 Dieser Artikel beschreibt, wie man mit wenigen Klicks, 9 Konsolenkommandos und 40 Zeilen Code einen automatischen und kostenlosen Twitter-Mitschnitt anfertigt.
 
-Out of scope: 
+Out of scope:
 
 - Erstellen einer Twitter App und Generieren der Authentifizierungsdaten
 - Anmelden bei AWS und die Details fürs Einrichten einer Instanz.
 
-##Schritt 1: AWS Instanz erstellen und hochfahren 
+##Schritt 1: AWS Instanz erstellen und hochfahren
 
 Für das Sammeln reicht die kleinste EC2 Instanz von AWS (t2.micro), die kostenlos ist. Der kostenlose Festplattenspeicher kann bis zu 30 GB reichen, je größer desto besser wird auch die IO Performance sein. Zugriff braucht man nur per SSH, daher lege ich kein eigenes VPC an.
 
@@ -25,7 +26,7 @@ Mit meinem (oder einem neu generierten) Key melde ich mich via SSH auf der Insta
 
 ##Schritt 2: Twitter-Collecor installieren und anwerfen
 
-<pre>// Update 
+<pre>// Update
 $ sudo apt-get update
 $ sudo apt-get upgrade
 
@@ -96,12 +97,12 @@ Fertig. Ein Update zur Zuverlässigkeit und eine Auswertung der Tweets gibt es d
 
 ##Update zur Zuverlässigkeit:
 
-Das lief nicht so toll. Die Sammlung ist mehrfach abgebrochen, ohne dass Infos im Error-Log gelandet sind. Ob der Server mit dem Speichern nicht nachgekommen ist, oder ob die Streaming API Aussetzer hatte, lässt sich nicht mehr feststellen. Lesson learned: während der Sammlung sollte ein externer "Dienst" (Cronjob, Daemon, whatever) prüfen ob das Programm noch läuft und falls nötig neu starten. Sicher lässt sich auch das 
+Das lief nicht so toll. Die Sammlung ist mehrfach abgebrochen, ohne dass Infos im Error-Log gelandet sind. Ob der Server mit dem Speichern nicht nachgekommen ist, oder ob die Streaming API Aussetzer hatte, lässt sich nicht mehr feststellen. Lesson learned: während der Sammlung sollte ein externer "Dienst" (Cronjob, Daemon, whatever) prüfen ob das Programm noch läuft und falls nötig neu starten. Sicher lässt sich auch das
 
 
-##Auswertung der Tweets: 
+##Auswertung der Tweets:
 
-Insgesamt wurden 71180 Tweets erfasst. Da die Aufzeichnung ausgerechnet am Abend des 8.11. abbrach und ich bis Spätabends am 9.11. nicht online war, fehlen alle Tweets vom Tag des Mauerfalls. Aber immerhin gibt es die kleine Sammlung der Tage zuvor. 
+Insgesamt wurden 71180 Tweets erfasst. Da die Aufzeichnung ausgerechnet am Abend des 8.11. abbrach und ich bis Spätabends am 9.11. nicht online war, fehlen alle Tweets vom Tag des Mauerfalls. Aber immerhin gibt es die kleine Sammlung der Tage zuvor.
 
 Die Datei lässt sich via scp vom AWS Server herunterladen, dann kann man die Maschien stoppen oder terminieren.
 

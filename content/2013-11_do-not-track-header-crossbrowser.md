@@ -4,9 +4,10 @@ date: 2013-11-07
 tags: [Web-Entwicklung]
 permalink: do-not-track-header-crossbrowser
 draft: false
+description: Der doNotTrack Flag des Browsers signalisiert, dass ein Nutzer nicht getrackt werden möchte. Diese Information lässt sich per JS auslesen &mdash; jedoch je nach browser unterschiedlch.
 ---
 
-Mit dem doNotTrack Befehl können User signalisieren, dass sie nicht von Websites getrackt werden möchten. Browser senden dafür einen HTTP-Header mit ihren Requests an den Webserver. Via JavaScript lässt sich diese Einstellung auch im Client auslesen. Dieses Auslesen funktioniert leider nicht einheitlich. 
+Mit dem doNotTrack Befehl können User signalisieren, dass sie nicht von Websites getrackt werden möchten. Browser senden dafür einen HTTP-Header mit ihren Requests an den Webserver. Via JavaScript lässt sich diese Einstellung auch im Client auslesen. Dieses Auslesen funktioniert leider nicht einheitlich.
 
 Chrome und Safari haben eine andere Schreibweise für die doNotTrack Property als der Firefox Browser. Der IE 9/10 verwendet einen eigenen Namen. Und der IE 8 unterstützt diese Einstellung laut Microsoft auf <a href="http://ie.microsoft.com/TEStdrive/Browser/DoNotTrack/Default.html">sehr krude Art und Weise</a>.
 
