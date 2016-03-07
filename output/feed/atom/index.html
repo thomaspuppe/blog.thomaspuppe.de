@@ -97,14 +97,14 @@
             <email>info@thomaspuppe.de</email>
         </author>
         <content type="html">&lt;p&gt;Meine &lt;a href=&#34;http://blog.thomaspuppe.de/2014-11_twitterdaten-sammeln-mit-aws&#34;&gt;Sammlung von Tweets zum #Mauerfall&lt;/a&gt; via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.&lt;/p&gt;
-&lt;p&gt;In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aussortieren usw. &lt;/p&gt;
+&lt;p&gt;In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aussortieren usw.&lt;/p&gt;
 &lt;pre&gt;//Alle Tweets in einer großen Datei:
-$ wc -l tweets.json 
+$ wc -l tweets.json
 // 71180 tweets.json
 
 // Filtern der Tweets, die Medien enthalten (was zurzeit nur Fotos sein können)
 $ grep media_url tweets.json &gt; tweets_media.json
-$ wc -l tweets_media.json 
+$ wc -l tweets_media.json
 // 32330 tweets_media.json
 
 // Filtern der Tweets, die Koordinaten enthalten
@@ -132,20 +132,20 @@ for lineString in lines:
 
         for entityKey in lineObject[&#39;entities&#39;] :
             if entityKey == &#39;media&#39; :
-                for media in lineObject[&#39;entities&#39;][&#39;media&#39;] : 
-                    if media[&#39;type&#39;] == &#39;photo&#39; : 
+                for media in lineObject[&#39;entities&#39;][&#39;media&#39;] :
+                    if media[&#39;type&#39;] == &#39;photo&#39; :
                         outputObject[&#39;media_url&#39;] = media[&#39;media_url&#39;]
 
         outputObject[&#39;coordinates&#39;] = lineObject[&#39;coordinates&#39;][&#39;coordinates&#39;]
 
         outputArray.append(outputObject)
-    except: 
+    except:
         pass
 
 outputString = json.dumps(outputArray, separators=(&#39;,&#39;,&#39;:&#39;), indent=2)
 
 writeFile = open(&#39;tweets_media_coordinates_short.json&#39;,&#39;w&#39;)
-writeFile.write(&#39;{&#34;tweets&#34;:&#39; + outputString + &#39;}&#39;) 
+writeFile.write(&#39;{&#34;tweets&#34;:&#39; + outputString + &#39;}&#39;)
 writeFile.close()&lt;/pre&gt;
 
 &lt;p&gt;Das Ergebnis ist eine JSON Datei mit den Tweets, Foto-URLs und Koordinaten: &lt;a href=&#34;http://www.thomaspuppe.de/lab/mauerfall-tweets/data/tweets_media_coordinates_short.json&#34;&gt;http://www.thomaspuppe.de/lab/mauerfall-tweets/data/tweets_media_coordinates_short.json&lt;/a&gt;.&lt;/p&gt;
@@ -168,7 +168,7 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
                     var currentData = data[&#39;tweets&#39;][i];
                     markerOptions[&#39;alt&#39;] = currentData[&#39;media_url&#39;];
                     L.marker(
-                        [currentData[&#39;coordinates&#39;][1], currentData[&#39;coordinates&#39;][0]], 
+                        [currentData[&#39;coordinates&#39;][1], currentData[&#39;coordinates&#39;][0]],
                         markerOptions)
                     .addTo(map);
                 }
@@ -180,7 +180,7 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
 });&lt;/pre&gt;
 
 &lt;p&gt;Zu beachten: die Koordinaten bei Twitter sind als Lon,Lat gespeichert, leaflet benötigt aber Lat,Lon. Daher die Rochade beim Anlegen der Marker.&lt;/p&gt;
-&lt;p&gt;Und hier das Ergebnis: &lt;/p&gt;
+&lt;p&gt;Und hier das Ergebnis:&lt;/p&gt;
 &lt;figure&gt;
     &lt;a href=&#34;http://www.thomaspuppe.de/lab/mauerfall-tweets/&#34;&gt;
         &lt;img src=&#34;/images/2014/11/tweets-mauerfall.png&#34;&gt;
@@ -204,7 +204,7 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
         <content type="html">&lt;p&gt;Um Tweets zu einem aktuellen Thema zu sammeln, muss man die Twitter Streaming API mitschneiden. In 20 Minuten ist dafür ein kostenloses always-online System aufgesetzt.&lt;/p&gt;
 &lt;p&gt;Bei kurzen Events (TV-Duell vor der Bundestagswahl) habe ich die Sammlung von Tweets einfach auf meinem lokalen Rechner gemacht. Für die anstehenden Feierlichkeiten zum #Mauerfall soll die Sammlung mehrere Tage dauern. Mein Rechner soll dabei aber nicht im Dauerbetrieb laufen. Daher habe ich einfach eine AWS Instanz hochgefahren und lasse die die Arbeit tun. Zum Mitschneiden des Streams dient diesmal auch nicht die PHP-Lib Phirehose, sondern das Python-Tool Tweepy.&lt;/p&gt;
 &lt;p&gt;Dieser Artikel beschreibt, wie man mit wenigen Klicks, 9 Konsolenkommandos und 40 Zeilen Code einen automatischen und kostenlosen Twitter-Mitschnitt anfertigt.&lt;/p&gt;
-&lt;p&gt;Out of scope: &lt;/p&gt;
+&lt;p&gt;Out of scope:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Erstellen einer Twitter App und Generieren der Authentifizierungsdaten&lt;/li&gt;
 &lt;li&gt;Anmelden bei AWS und die Details fürs Einrichten einer Instanz.&lt;/li&gt;
@@ -213,7 +213,7 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
 &lt;p&gt;Für das Sammeln reicht die kleinste EC2 Instanz von AWS (t2.micro), die kostenlos ist. Der kostenlose Festplattenspeicher kann bis zu 30 GB reichen, je größer desto besser wird auch die IO Performance sein. Zugriff braucht man nur per SSH, daher lege ich kein eigenes VPC an.&lt;/p&gt;
 &lt;p&gt;Mit meinem (oder einem neu generierten) Key melde ich mich via SSH auf der Instanz an.&lt;/p&gt;
 &lt;h4&gt;Schritt 2: Twitter-Collecor installieren und anwerfen&lt;/h4&gt;
-&lt;pre&gt;// Update 
+&lt;pre&gt;// Update
 $ sudo apt-get update
 $ sudo apt-get upgrade
 
@@ -277,9 +277,9 @@ $ while true; do ( wc -l tweets.json ; sleep 5 ) done;&lt;/pre&gt;
 
 &lt;p&gt;Fertig. Ein Update zur Zuverlässigkeit und eine Auswertung der Tweets gibt es dann später hier im Blog.&lt;/p&gt;
 &lt;h4&gt;Update zur Zuverlässigkeit:&lt;/h4&gt;
-&lt;p&gt;Das lief nicht so toll. Die Sammlung ist mehrfach abgebrochen, ohne dass Infos im Error-Log gelandet sind. Ob der Server mit dem Speichern nicht nachgekommen ist, oder ob die Streaming API Aussetzer hatte, lässt sich nicht mehr feststellen. Lesson learned: während der Sammlung sollte ein externer &#34;Dienst&#34; (Cronjob, Daemon, whatever) prüfen ob das Programm noch läuft und falls nötig neu starten. Sicher lässt sich auch das &lt;/p&gt;
+&lt;p&gt;Das lief nicht so toll. Die Sammlung ist mehrfach abgebrochen, ohne dass Infos im Error-Log gelandet sind. Ob der Server mit dem Speichern nicht nachgekommen ist, oder ob die Streaming API Aussetzer hatte, lässt sich nicht mehr feststellen. Lesson learned: während der Sammlung sollte ein externer &#34;Dienst&#34; (Cronjob, Daemon, whatever) prüfen ob das Programm noch läuft und falls nötig neu starten. Sicher lässt sich auch das&lt;/p&gt;
 &lt;h4&gt;Auswertung der Tweets:&lt;/h4&gt;
-&lt;p&gt;Insgesamt wurden 71180 Tweets erfasst. Da die Aufzeichnung ausgerechnet am Abend des 8.11. abbrach und ich bis Spätabends am 9.11. nicht online war, fehlen alle Tweets vom Tag des Mauerfalls. Aber immerhin gibt es die kleine Sammlung der Tage zuvor. &lt;/p&gt;
+&lt;p&gt;Insgesamt wurden 71180 Tweets erfasst. Da die Aufzeichnung ausgerechnet am Abend des 8.11. abbrach und ich bis Spätabends am 9.11. nicht online war, fehlen alle Tweets vom Tag des Mauerfalls. Aber immerhin gibt es die kleine Sammlung der Tage zuvor.&lt;/p&gt;
 &lt;p&gt;Die Datei lässt sich via scp vom AWS Server herunterladen, dann kann man die Maschien stoppen oder terminieren.&lt;/p&gt;
 &lt;p&gt;Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dargestellt: &lt;a href=&#34;http://www.thomaspuppe.de/lab/mauerfall-tweets/&#34;&gt;Karte&lt;/a&gt;, &lt;a href=&#34;http://blog.thomaspuppe.de/2014-11_twitterdaten-mappen-mit-leaflet&#34;&gt;Blog-Beitrag&lt;/a&gt;.&lt;/p&gt;</content>
     </entry>
@@ -303,7 +303,7 @@ $ while true; do ( wc -l tweets.json ; sleep 5 ) done;&lt;/pre&gt;
     &lt;figcaption&gt;Abb. 1: Link-Unterstreichung nativ und trickreich&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Kürzlich bin ich auf einen Artikel von &lt;a href=&#34;https://medium.com/@mwichary&#34;&gt;Marcin Wichary&lt;/a&gt; gestoßen, der dieses Problem löst: &lt;a href=&#34;https://medium.com/p/7c03a9274f9&#34;&gt;&amp;ldquo;Crafting link underlines on Medium&amp;rdquo;&lt;/a&gt;. In dem sehr lesenswerten Artikel wird auf pro und contra von Link-Unterstreichung im Allgemeinen und verschiedenen Techniken im Speziellen eingegangen. Am Ende schaut die Lösung so aus: &lt;/p&gt;
+&lt;p&gt;Kürzlich bin ich auf einen Artikel von &lt;a href=&#34;https://medium.com/@mwichary&#34;&gt;Marcin Wichary&lt;/a&gt; gestoßen, der dieses Problem löst: &lt;a href=&#34;https://medium.com/p/7c03a9274f9&#34;&gt;&amp;ldquo;Crafting link underlines on Medium&amp;rdquo;&lt;/a&gt;. In dem sehr lesenswerten Artikel wird auf pro und contra von Link-Unterstreichung im Allgemeinen und verschiedenen Techniken im Speziellen eingegangen. Am Ende schaut die Lösung so aus:&lt;/p&gt;
 &lt;pre&gt;a, a:link, a:visited {
     color: #333;
     text-decoration: none;
@@ -347,7 +347,7 @@ a:hover, a:focus {
         </author>
         <content type="html">&lt;p&gt;Der Fraktionsführer der Linken im Deutschen Bundestag, &lt;a href=&#34;http://www.bundestwitter.de/politiker/dr-gregor-gysi/&#34;&gt;Gregor Gysi&lt;/a&gt;, führt in den letzten Wochen die &lt;a href=&#34;http://www.bundestwitter.de&#34;&gt;Retweet-Charts von Bundestwitter&lt;/a&gt; an. Ist das systematische Unterstützung durch Wenige? Oder eine breite Basis?&lt;/p&gt;
 &lt;p&gt;Grundlage der Analyse sind alle Tweets von Gregor Gysi aus dem Jahr 2014 (Stand 16.02.). Diese habe ich nach Retweet-Häufigkeit sortiert, und die Top 25 dann genauer untersucht. Von jedem Tweet wurden die Profildaten aller Retweeter geladen, und die &lt;a href=&#34;http://blog.thomaspuppe.degregor-gysi-retweets/#tabelleGesamt&#34;&gt;Daten in einer Tabelle zusammengeführt&lt;/a&gt; (Link führt zur Tabelle am Fuß dieses Posts).&lt;/p&gt;
-&lt;p&gt;Insgesamt haben 920 verschiedene Profile die &lt;a href=&#34;http://www.bundestwitter.de/politiker/dr-gregor-gysi/tweets/&#34;&gt;Top-Tweets von Gregor Gysi&lt;/a&gt; weiterverbreitet. Manche Accounts retweeten fast jeden dieser Beiträge: &lt;/p&gt;
+&lt;p&gt;Insgesamt haben 920 verschiedene Profile die &lt;a href=&#34;http://www.bundestwitter.de/politiker/dr-gregor-gysi/tweets/&#34;&gt;Top-Tweets von Gregor Gysi&lt;/a&gt; weiterverbreitet. Manche Accounts retweeten fast jeden dieser Beiträge:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Free Chelsea Manning (&lt;a href=&#34;https://www.twitter.com/politlinkx&#34;&gt;politlinkx&lt;/a&gt;) schickte 23 Retweets an 643 Follower.&lt;/li&gt;
 &lt;li&gt;Demokratie Report (&lt;a href=&#34;https://www.twitter.com/ProDemokratie&#34;&gt;ProDemokratie&lt;/a&gt;) schickte 21 Retweets an 318 Follower.&lt;/li&gt;
@@ -356,9 +356,9 @@ a:hover, a:focus {
 &lt;li&gt;NimA (&lt;a href=&#34;https://www.twitter.com/Nima_1990&#34;&gt;Nima_1990&lt;/a&gt;) schickte 12 Retweets an 29 Follower.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Mit @politlinkx und @ProDemokratie sind &#34;Gruppen&#34; (Begriff als Gegensatz zu einzelnen Privatpersonen) an der Spitze der Unterstützer. Die @linksfraktion ist mit 6 Retweets an Position 19. Mit jeweils 1 Retweet sind @katjakipping, Petra_Sitte_MdB, MWBirkwald und @DerRostocker von der Linksfraktion dabei. Andere MdB haben die untersuchten Tweets nicht weiterverbreitet. &lt;/p&gt;
+&lt;p&gt;Mit @politlinkx und @ProDemokratie sind &#34;Gruppen&#34; (Begriff als Gegensatz zu einzelnen Privatpersonen) an der Spitze der Unterstützer. Die @linksfraktion ist mit 6 Retweets an Position 19. Mit jeweils 1 Retweet sind @katjakipping, Petra_Sitte_MdB, MWBirkwald und @DerRostocker von der Linksfraktion dabei. Andere MdB haben die untersuchten Tweets nicht weiterverbreitet.&lt;/p&gt;
 &lt;p&gt;Die große Unterstützung kommt aber aus einer breiten Basis. 668 Personen haben 1 Retweet gemacht, 140 Personen 2 Retweets. Es folgen 45 Personen mit 3 Retweets, 38 Personen mit 4 Retweets und 20 Personen mit 5 Retweets. Mehr als 10 Retweets hatten nur die 5 oben genannten Accounts.&lt;/p&gt;
-&lt;p&gt;1 Retweet: 668 Personen. 2 Retweets: 140 Personen. 3 Retweets: 45 Personen.4 Retweets: 38 Personen. 5 Retweets: 20 Personen. 6 Retweets: 4 Personen. 7 Retweets: 6 Personen. 8 Retweets: 8 Personen. 10 Retweets: 2 Personen. 12 Retweets: 1 Person. 13 Retweets: 1 Person. 15 Retweets: 1 Person. 21 Retweets: 1 Person. 23 Retweets: 1 Person. &lt;/p&gt;
+&lt;p&gt;1 Retweet: 668 Personen. 2 Retweets: 140 Personen. 3 Retweets: 45 Personen.4 Retweets: 38 Personen. 5 Retweets: 20 Personen. 6 Retweets: 4 Personen. 7 Retweets: 6 Personen. 8 Retweets: 8 Personen. 10 Retweets: 2 Personen. 12 Retweets: 1 Person. 13 Retweets: 1 Person. 15 Retweets: 1 Person. 21 Retweets: 1 Person. 23 Retweets: 1 Person.&lt;/p&gt;
 &lt;h4&gt;Wer sind die Unterstützer mit den meisten Followern?&lt;/h4&gt;
 
 &lt;ol&gt;
@@ -3954,7 +3954,7 @@ a:hover, a:focus {
                         &lt;/tr&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Hinweise: &lt;/p&gt;
+&lt;p&gt;Hinweise:&lt;/p&gt;
 &lt;ul&gt;
     &lt;li&gt;Wie man sieht, habe ich die Masse der 1-mal und 2-mal Retweter ausgelassen.&lt;/li&gt;
     &lt;li&gt;Die Zahl der Follower ist auch vom 16.03.2014, und nicht vom Tag der Retweets.&lt;/li&gt;
@@ -3989,14 +3989,14 @@ a:hover, a:focus {
 &lt;p&gt;Auf Desktop-Browsern spielt der Viewport übrigens keine Rolle. Hier gilt die Fensterbreite wie sie ist, weil es ja keinen Grund zum Skalieren gibt.&lt;/p&gt;
 &lt;h4&gt;2. Flexible Seitenbreite und Raster&lt;/h4&gt;
 &lt;p&gt;Als nächstes muss die Seite flexibel auf die (nun auch auf kleinen Geräten erkannte) Breite reagieren. Statt einer festen Breite in Pixeln geben wir den Elementen auf der Seite eine flexible Breite in Prozent, die sich an der größe des Browserfensters (oder des mobilen Gerätes) orientiert.&lt;/p&gt;
-&lt;p&gt;Feste oder minimale Breiten können im Responsive Web Design für kleine Elemente nützlich sein. Für große Elemente sind sie es meist nicht. Böser Fehler in der ersten Version dieses Blogs: &lt;/p&gt;
+&lt;p&gt;Feste oder minimale Breiten können im Responsive Web Design für kleine Elemente nützlich sein. Für große Elemente sind sie es meist nicht. Böser Fehler in der ersten Version dieses Blogs:&lt;/p&gt;
 &lt;pre&gt;.posts { width: 100%; min-width:710px; }&lt;/pre&gt;
 
 &lt;p&gt;Soeben haben wir mobile Geräte mittels Viewport dazu gezwungen, die Seite in Originalpixeln zu rendern. Hat das Gerät nur 480 Pixel Breite, ist die Seite natürlich zur Hälfte abgeschnitten. Indem man feste oder minmale Breiten aus dem CSS entfernt, passten sich Block-Elemente wie Divs an die verfügbare Breite an. In diesem Fall sind das 100% des Browsers - so soll es sein. Auf die Angabe von 100% kann man in dem Fall natürlich auch verzichten.&lt;/p&gt;
-&lt;p&gt;100% Breite für Elemente sind aber nicht immer erwünscht. Gerade bei sehr großen Monitoren sind Flisßtexte schlecht lesbar, wenn sie den ganzen Bildschrimbreite einnehmen. Abhilfe schafft die Angabe einer maximalen Breite: &lt;/p&gt;
+&lt;p&gt;100% Breite für Elemente sind aber nicht immer erwünscht. Gerade bei sehr großen Monitoren sind Flisßtexte schlecht lesbar, wenn sie den ganzen Bildschrimbreite einnehmen. Abhilfe schafft die Angabe einer maximalen Breite:&lt;/p&gt;
 &lt;pre&gt;.posts p, .posts h1, .posts h2 { max-width:600px; }&lt;/pre&gt;
 
-&lt;p&gt;Da die Artikel selbst noch breit laufen sollen (bunter Rand rechts), begrenzen wir nur Überschriften und Absätze in der Breite. Ḿan erkennt, dass die Inhalte der rechten Spalte sich dem Menü &lt;/p&gt;
+&lt;p&gt;Da die Artikel selbst noch breit laufen sollen (bunter Rand rechts), begrenzen wir nur Überschriften und Absätze in der Breite. Ḿan erkennt, dass die Inhalte der rechten Spalte sich dem Menü&lt;/p&gt;
 &lt;h4&gt;3. Breakpoints für unterschiedliche Styles&lt;/h4&gt;
 &lt;p&gt;Anhand von sogenannten Media Queries kann bestimmtes CSS für bestimmte Gerätetypen ausgeliefert werden. Für Responsive Websites richtet man sich meist nach der Breite des Bildschirms. Anhand von Grenzwerten (&amp;ldquo;Breakpoints&amp;rdquo;) werden unterschiedliche Regeln für unterschiedliche Bildschirm edefiniert. Für den Einsatz von Breakpoints gibt es zwei verschiedene Ansätze. &lt;strong&gt;Desktop-First&lt;/strong&gt; funktioniert mit absteigenden max-width Werten:&lt;/p&gt;
 &lt;pre&gt;h1 {
@@ -4050,7 +4050,7 @@ font-size: 2em;
             <uri>http://blog.thomaspuppe.de/</uri>
             <email>info@thomaspuppe.de</email>
         </author>
-        <content type="html">&lt;p&gt;Mit dem doNotTrack Befehl können User signalisieren, dass sie nicht von Websites getrackt werden möchten. Browser senden dafür einen HTTP-Header mit ihren Requests an den Webserver. Via JavaScript lässt sich diese Einstellung auch im Client auslesen. Dieses Auslesen funktioniert leider nicht einheitlich. &lt;/p&gt;
+        <content type="html">&lt;p&gt;Mit dem doNotTrack Befehl können User signalisieren, dass sie nicht von Websites getrackt werden möchten. Browser senden dafür einen HTTP-Header mit ihren Requests an den Webserver. Via JavaScript lässt sich diese Einstellung auch im Client auslesen. Dieses Auslesen funktioniert leider nicht einheitlich.&lt;/p&gt;
 &lt;p&gt;Chrome und Safari haben eine andere Schreibweise für die doNotTrack Property als der Firefox Browser. Der IE 9/10 verwendet einen eigenen Namen. Und der IE 8 unterstützt diese Einstellung laut Microsoft auf &lt;a href=&#34;http://ie.microsoft.com/TEStdrive/Browser/DoNotTrack/Default.html&#34;&gt;sehr krude Art und Weise&lt;/a&gt;.&lt;/p&gt;
 &lt;h4&gt;Getestete Browser:&lt;/h4&gt;
 &lt;table&gt;
@@ -4144,13 +4144,13 @@ jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
 &lt;p&gt;&lt;img src=&#34;/images/2013/10/tracking_graphen.png&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;Im Juli 2013 wurde das Besuchertracking bei Bundestwitter umgestellt von Google Analytics (mit IP-Anonymisierung) auf Piwik. Das ist ein OpenSource Tracking-Dienst den man sich selbst hosten kann. Wenn der eigene Server geschont werden soll, kann man das auch auf seinem eigenen Cloud-Rechner installieren. Eine schöne Anleitung dazu gibt es &lt;a href=&#34;http://dicasdolampada.wordpress.com/2013/07/22/goodbye-google-analytics-hello-piwik/&#34;&gt;hier&lt;/a&gt; und &lt;a href=&#34;https://github.com/openshift/piwik-openshift-quickstart/&#34;&gt;hier&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Piwik war mir wichtig, um vom Platzhirschen Google Analytcis loszukommen. Kleiner paranoider Exkurs: &lt;/p&gt;
+&lt;p&gt;Piwik war mir wichtig, um vom Platzhirschen Google Analytcis loszukommen. Kleiner paranoider Exkurs:&lt;/p&gt;
 &lt;blockquote&gt;Man muss sich das mal auf der Zunge zergehen lassen: ich zwinge den Besucher meiner Seite, Code vom Server des profitorientierten Unternehmen Google aus den USA herunterzuladen. Dieser Code wird im Browser meines Besuchers ausgeführt und sendet dann seine Erkenntnisse an seinen Herkunftsserver: Google in den USA.&lt;/blockquote&gt;
 
 &lt;p&gt;Mit der Nutzung von Google Analytics leistet man Google Beihilfe zur Erstellung von Nutzerprofilen. Mit Piwik werden die User-Daten auf dem eigenen Server gehostet. Damit klinkt man seine eigene Website aus dem Google-Netzwerk aus. (Das Gleiche gilt für die Nicht-Nutzung von Facebook- oder Twitter-Widgets.)&lt;/p&gt;
 &lt;p&gt;Daher wollte ich herausfinden, ob man wirklich auf die Features von Google Analytics angewiesen ist. Sicher: das Tool ist das beste kostenlose Tracking-Tool auf dem Markt. Aber solang man auf die Integration mit Google AdWords verzichten kann, braucht man die Funktionen vielleicht nicht alle?&lt;/p&gt;
 &lt;p&gt;Nachdem ich ein paar Monate völlig zufrieden war mit Piwik, entschloss ich mich, noch einen &#34;Schritt zurück&#34; zu gehen und die serverseitige Software AWStats zu testen. Die wertet die Apache Logfiles aus (welche standardmäßig sowieso angelegt werden), und stellt die Ergebnisse dar. AWStats ist bei vielen Hostings inklusive und von Anfang an installiert.&lt;/p&gt;
-&lt;p&gt;Die Kernfunktionen, die ich nutze, bieten tatsächlich alle 3 Systeme: &lt;/p&gt;
+&lt;p&gt;Die Kernfunktionen, die ich nutze, bieten tatsächlich alle 3 Systeme:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Besucher pro Tag, Monat&lt;/li&gt;
 &lt;li&gt;Besucherquelle: Referrer-Website bzw. Suchmaschine&lt;/li&gt;
@@ -4160,14 +4160,14 @@ jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
 &lt;/ul&gt;
 &lt;p&gt;AWStats zeigt nicht den Anteil neuer bzw. wiederkehrender Besucher an. Google Analytics hat zudem eine &#34;Trackback&#34;-Übersicht mit Seiten, die auf Bundestwitter verlinken (auch ohne dass Besucher darüber kamen). Dafür gibt es aber auch Dienste, und die Google-Suche lässt sich entsprechend nutzen (&lt;a href=&#34;https://www.google.com/search?q=link%3A+%22bundestwitter.de%22+-site%3Abundestwitter.de&#34;&gt;link: &#34;bundestwitter.de&#34; -site:bundestwitter.de&lt;/a&gt; sucht Seiten, die auf bundestwitter.de verlinken und schließt dabei bundestwitter.de aus).&lt;/p&gt;
 &lt;p&gt;Ein weiteres Alleinstellungsmerkmal von Google Analytics ist die Messung der Website Performance. Diese Funktion finde ich sehr stark, aber auch sie lässt sich ersetzen durch andere Dienste wie Pingdom RUM (die man auch temporär nutzen kann, und nicht ständig aktiv haben muss).&lt;/p&gt;
-&lt;p&gt;Dafür bietet AWStats sogar Vorteile, die die anderen Tools nicht bieten: &lt;/p&gt;
+&lt;p&gt;Dafür bietet AWStats sogar Vorteile, die die anderen Tools nicht bieten:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Der Client muss kein JS laden und ausführen.&lt;/li&gt;
 &lt;li&gt;Ich habe die Rohdaten und kann sie herunterladen.&lt;/li&gt;
 &lt;li&gt;Liste von 404 Responses. Ich sehe also, auf welche Seiten fehlerhaft verlinkt wird.&lt;/li&gt;
 &lt;li&gt;Anzeige der verbrauchten Bandbreite pro Ressource. Nicht wichtig bei meinem Hosting, aber für die Performance-Optimierung nützlich.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Interessant ist auch, dass die Anzahl der gezählten Besucher stark variiert. AWStats zeigt ca. doppelt so viele Besucher an wie Piwik (für Google Analytics habe ich keinen Vergleich, weil dies nicht parallel installiert war). Daher genieße ich die Zahlen aller Dienste mit Vorsicht, und achte eher auf Auf- und Abwärtstrends statt absolute Zahlen. &lt;/p&gt;
+&lt;p&gt;Interessant ist auch, dass die Anzahl der gezählten Besucher stark variiert. AWStats zeigt ca. doppelt so viele Besucher an wie Piwik (für Google Analytics habe ich keinen Vergleich, weil dies nicht parallel installiert war). Daher genieße ich die Zahlen aller Dienste mit Vorsicht, und achte eher auf Auf- und Abwärtstrends statt absolute Zahlen.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Fazit: für den normalen Gebrauch bietet AWStats alles, was der Website-Betreiber begehrt. Wer auf clientseitiges Tracking von Google Analytics oder Piwik verzichtet, tut seinem Besucher etwas Gutes ohne auf Besucherstatistiken verzichten zu müssen. Mit der Liste von 404 Fehlern verfügt AWStats sogar über ein nützliches Alleinstellungsmerkmal.&lt;/strong&gt;&lt;/p&gt;</content>
     </entry>
     

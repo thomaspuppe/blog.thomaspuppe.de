@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="grid">
 <head>
   <meta charset="utf-8" />
   <title>Perfekte Link-Unterstreichung</title>
@@ -9,7 +9,7 @@
   <link href="/" rel="home start" />
   <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
   <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="Link-Unterstreichung bei großen Schriftarten wirkt..." />
+    <meta name="description" content="Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen." />
     <meta name="keywords" content="Webentwicklung" />
 </head>
 <body>
@@ -39,7 +39,7 @@
     <figcaption>Abb. 1: Link-Un&shy;ter&shy;strei&shy;chung nativ und trickreich</figcaption>
 </figure>
 
-<p>Kürzlich bin ich auf einen Artikel von <a href="https://medium.com/@mwichary">Marcin Wichary</a> gestoßen, der dieses Problem löst: <a href="https://medium.com/p/7c03a9274f9">&ldquo;Crafting link underlines on Medium&rdquo;</a>. In dem sehr le&shy;sens&shy;wer&shy;ten Artikel wird auf pro und contra von Link-Un&shy;ter&shy;strei&shy;chung im All&shy;ge&shy;mei&shy;nen und ver&shy;schie&shy;de&shy;nen Techniken im Speziellen ein&shy;ge&shy;gan&shy;gen. Am Ende schaut die Lösung so aus: </p>
+<p>Kürzlich bin ich auf einen Artikel von <a href="https://medium.com/@mwichary">Marcin Wichary</a> gestoßen, der dieses Problem löst: <a href="https://medium.com/p/7c03a9274f9">&ldquo;Crafting link underlines on Medium&rdquo;</a>. In dem sehr le&shy;sens&shy;wer&shy;ten Artikel wird auf pro und contra von Link-Un&shy;ter&shy;strei&shy;chung im All&shy;ge&shy;mei&shy;nen und ver&shy;schie&shy;de&shy;nen Techniken im Speziellen ein&shy;ge&shy;gan&shy;gen. Am Ende schaut die Lösung so aus:</p>
 <pre>a, a:link, a:visited {
     color: #333;
     text-decoration: none;

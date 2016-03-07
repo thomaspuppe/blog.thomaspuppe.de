@@ -10,4 +10,4 @@ This should be filled...
 
     // during development open two consoles:
     $ acrylamid autocompile
-    $ npm run build-css 
+    $ npm run build-css

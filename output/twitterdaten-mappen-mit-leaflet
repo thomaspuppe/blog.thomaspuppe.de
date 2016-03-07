@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="grid">
 <head>
   <meta charset="utf-8" />
   <title>Twitterdaten mappen mit Leaflet</title>
@@ -9,7 +9,7 @@
   <link href="/" rel="home start" />
   <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
   <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="Meine &lt;a href=&#34;http://blog.thomaspuppe.de/2014-11_..." />
+    <meta name="description" content="Meine Sammlung von Tweets zum #Mauerfall umfasst über 70.000 Tweets. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden." />
     <meta name="keywords" content="Webentwicklung" />
 </head>
 <body>
@@ -33,14 +33,14 @@
         </h1>
     </header>
     <p>Meine <a href="http://blog.thomaspuppe.de/2014-11_twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.</p>
-<p>In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aus&shy;sor&shy;tie&shy;ren usw. </p>
+<p>In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aus&shy;sor&shy;tie&shy;ren usw.</p>
 <pre>//Alle Tweets in einer großen Datei:
-$ wc -l tweets.json 
+$ wc -l tweets.json
 // 71180 tweets.json
 
 // Filtern der Tweets, die Medien enthalten (was zurzeit nur Fotos sein können)
 $ grep media_url tweets.json > tweets_media.json
-$ wc -l tweets_media.json 
+$ wc -l tweets_media.json
 // 32330 tweets_media.json
 
 // Filtern der Tweets, die Koordinaten enthalten
@@ -68,20 +68,20 @@ for lineString in lines:
 
         for entityKey in lineObject['entities'] :
             if entityKey == 'media' :
-                for media in lineObject['entities']['media'] : 
-                    if media['type'] == 'photo' : 
+                for media in lineObject['entities']['media'] :
+                    if media['type'] == 'photo' :
                         outputObject['media_url'] = media['media_url']
 
         outputObject['coordinates'] = lineObject['coordinates']['coordinates']
 
         outputArray.append(outputObject)
-    except: 
+    except:
         pass
 
 outputString = json.dumps(outputArray, separators=(',',':'), indent=2)
 
 writeFile = open('tweets_media_coordinates_short.json','w')
-writeFile.write('{"tweets":' + outputString + '}') 
+writeFile.write('{"tweets":' + outputString + '}')
 writeFile.close()</pre>
 
 <p>Das Ergebnis ist eine JSON Datei mit den Tweets, Foto-URLs und Ko&shy;or&shy;di&shy;na&shy;ten: <a href="http://www.thomaspuppe.de/lab/mauerfall-tweets/data/tweets_media_coordinates_short.json">http://www.tho&shy;ma&shy;s&shy;pup&shy;pe.de/lab/mauerfall-tweets/data/tweets_&shy;me&shy;di&shy;a_&shy;co&shy;or&shy;di&shy;na&shy;tes_s&shy;hort.json</a>.</p>
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     var currentData = data['tweets'][i];
                     markerOptions['alt'] = currentData['media_url'];
                     L.marker(
-                        [currentData['coordinates'][1], currentData['coordinates'][0]], 
+                        [currentData['coordinates'][1], currentData['coordinates'][0]],
                         markerOptions)
                     .addTo(map);
                 }
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });</pre>
 
 <p>Zu beachten: die Ko&shy;or&shy;di&shy;na&shy;ten bei Twitter sind als Lon,Lat ge&shy;spei&shy;chert, leaflet benötigt aber Lat,Lon. Daher die Rochade beim Anlegen der Marker.</p>
-<p>Und hier das Ergebnis: </p>
+<p>Und hier das Ergebnis:</p>
 <figure>
     <a href="http://www.thomaspuppe.de/lab/mauerfall-tweets/">
         <img src="/images/2014/11/tweets-mauerfall.png">

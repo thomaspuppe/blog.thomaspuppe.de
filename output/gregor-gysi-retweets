@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="grid">
 <head>
   <meta charset="utf-8" />
   <title>Die Unterstützer des @GregorGysi</title>
@@ -9,7 +9,7 @@
   <link href="/" rel="home start" />
   <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
   <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="Der Fraktionsführer der Linken im Deutschen Bundes..." />
+    <meta name="description" content="Gregor Gysi führt in den letzten Wochen die Retweet-Charts von Bundestwitter an. Ist das systematische Unterstützung durch Wenige? Oder eine breite Basis?" />
     <meta name="keywords" content="Bundestwitter" />
 </head>
 <body>
@@ -34,7 +34,7 @@
     </header>
     <p>Der Frak&shy;ti&shy;ons&shy;füh&shy;rer der Linken im Deutschen Bundestag, <a href="http://www.bundestwitter.de/politiker/dr-gregor-gysi/">Gregor Gysi</a>, führt in den letzten Wochen die <a href="http://www.bundestwitter.de">Retweet-Charts von Bun&shy;dest&shy;wit&shy;ter</a> an. Ist das sys&shy;te&shy;ma&shy;ti&shy;sche Un&shy;ter&shy;stüt&shy;zung durch Wenige? Oder eine breite Basis?</p>
 <p>Grundlage der Analyse sind alle Tweets von Gregor Gysi aus dem Jahr 2014 (Stand 16.02.). Diese habe ich nach Retweet-Häufigkeit sortiert, und die Top 25 dann genauer untersucht. Von jedem Tweet wurden die Pro&shy;fil&shy;da&shy;ten aller Retweeter geladen, und die <a href="#tabelleGesamt">Daten in einer Tabelle zu&shy;sam&shy;men&shy;ge&shy;führt</a> (Link führt zur Tabelle am Fuß dieses Posts).</p>
-<p>Insgesamt haben 920 ver&shy;schie&shy;de&shy;ne Profile die <a href="http://www.bundestwitter.de/politiker/dr-gregor-gysi/tweets/">Top-Tweets von Gregor Gysi</a> wei&shy;ter&shy;ver&shy;brei&shy;tet. Manche Accounts retweeten fast jeden dieser Beiträge: </p>
+<p>Insgesamt haben 920 ver&shy;schie&shy;de&shy;ne Profile die <a href="http://www.bundestwitter.de/politiker/dr-gregor-gysi/tweets/">Top-Tweets von Gregor Gysi</a> wei&shy;ter&shy;ver&shy;brei&shy;tet. Manche Accounts retweeten fast jeden dieser Beiträge:</p>
 <ol>
 <li>Free Chelsea Manning (<a href="https://www.twitter.com/politlinkx">politlinkx</a>) schickte 23 Retweets an 643 Follower.</li>
 <li>Demokratie Report (<a href="https://www.twitter.com/ProDemokratie">Pro&shy;De&shy;mo&shy;kra&shy;tie</a>) schickte 21 Retweets an 318 Follower.</li>
@@ -43,9 +43,9 @@
 <li>NimA (<a href="https://www.twitter.com/Nima_1990">Nima_1990</a>) schickte 12 Retweets an 29 Follower.</li>
 </ol>
 
-<p>Mit @po&shy;lit&shy;lin&shy;kx und @Pro&shy;De&shy;mo&shy;kra&shy;tie sind "Gruppen" (Begriff als Gegensatz zu einzelnen Pri&shy;vat&shy;per&shy;so&shy;nen) an der Spitze der Un&shy;ter&shy;stüt&shy;zer. Die @links&shy;frak&shy;ti&shy;on ist mit 6 Retweets an Position 19. Mit jeweils 1 Retweet sind @kat&shy;ja&shy;kip&shy;ping, Pe&shy;tra_&shy;Sit&shy;te_MdB, MWBirkwald und @Der&shy;Ros&shy;to&shy;cker von der Links&shy;frak&shy;ti&shy;on dabei. Andere MdB haben die un&shy;ter&shy;such&shy;ten Tweets nicht wei&shy;ter&shy;ver&shy;brei&shy;tet. </p>
+<p>Mit @po&shy;lit&shy;lin&shy;kx und @Pro&shy;De&shy;mo&shy;kra&shy;tie sind "Gruppen" (Begriff als Gegensatz zu einzelnen Pri&shy;vat&shy;per&shy;so&shy;nen) an der Spitze der Un&shy;ter&shy;stüt&shy;zer. Die @links&shy;frak&shy;ti&shy;on ist mit 6 Retweets an Position 19. Mit jeweils 1 Retweet sind @kat&shy;ja&shy;kip&shy;ping, Pe&shy;tra_&shy;Sit&shy;te_MdB, MWBirkwald und @Der&shy;Ros&shy;to&shy;cker von der Links&shy;frak&shy;ti&shy;on dabei. Andere MdB haben die un&shy;ter&shy;such&shy;ten Tweets nicht wei&shy;ter&shy;ver&shy;brei&shy;tet.</p>
 <p>Die große Un&shy;ter&shy;stüt&shy;zung kommt aber aus einer breiten Basis. 668 Personen haben 1 Retweet gemacht, 140 Personen 2 Retweets. Es folgen 45 Personen mit 3 Retweets, 38 Personen mit 4 Retweets und 20 Personen mit 5 Retweets. Mehr als 10 Retweets hatten nur die 5 oben genannten Accounts.</p>
-<p>1 Retweet: 668 Personen. 2 Retweets: 140 Personen. 3 Retweets: 45 Personen.4 Retweets: 38 Personen. 5 Retweets: 20 Personen. 6 Retweets: 4 Personen. 7 Retweets: 6 Personen. 8 Retweets: 8 Personen. 10 Retweets: 2 Personen. 12 Retweets: 1 Person. 13 Retweets: 1 Person. 15 Retweets: 1 Person. 21 Retweets: 1 Person. 23 Retweets: 1 Person. </p>
+<p>1 Retweet: 668 Personen. 2 Retweets: 140 Personen. 3 Retweets: 45 Personen.4 Retweets: 38 Personen. 5 Retweets: 20 Personen. 6 Retweets: 4 Personen. 7 Retweets: 6 Personen. 8 Retweets: 8 Personen. 10 Retweets: 2 Personen. 12 Retweets: 1 Person. 13 Retweets: 1 Person. 15 Retweets: 1 Person. 21 Retweets: 1 Person. 23 Retweets: 1 Person.</p>
 <h3>Wer sind die Un&shy;ter&shy;stüt&shy;zer mit den meisten Followern?</h3>
 
 <ol>
@@ -3641,7 +3641,7 @@
                         </tr>
 </table>
 
-<p>Hinweise: </p>
+<p>Hinweise:</p>
 <ul>
     <li>Wie man sieht, habe ich die Masse der 1-mal und 2-mal Retweter aus&shy;ge&shy;las&shy;sen.</li>
     <li>Die Zahl der Follower ist auch vom 16.03.2014, und nicht vom Tag der Retweets.</li>

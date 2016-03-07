@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="grid">
 <head>
   <meta charset="utf-8" />
   <title>Blog von Thomas Puppe, Web Developer.</title>
@@ -52,19 +52,20 @@
         </h1>
     </header>
     <p>Meine <a href="http://blog.thomaspuppe.de/2014-11_twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.</p>
-<p>In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aus&shy;sor&shy;tie&shy;ren usw. </p>
+<p>In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aus&shy;sor&shy;tie&shy;ren usw.</p>
 <pre>//Alle Tweets in einer großen Datei:
-$ wc -l tweets.json 
+$ wc -l tweets.json
 // 71180 tweets.json
 
 // Filtern der Tweets, die Medien enthalten (was zurzeit nur Fotos sein können)
 $ grep media_url tweets.json > tweets_media.json
-$ wc -l tweets_media.json 
+$ wc -l tweets_media.json
 // 32330 tweets_media.json
 
 // Filtern der Tweets, die Koordinaten enthalten
 $ grep -v "\"coordinates\":null" tweets_media.json > tweets_media_coordinates.json
-$ wc </pre><span>&#8230;<a href="twitterdaten-mappen-mit-leaflet" class="continue">continue</a>.</span>
+$ wc -l tweets_media_coordinates.json
+// 249 </pre><span>&#8230;<a href="twitterdaten-mappen-mit-leaflet" class="continue">continue</a>.</span>
     <footer>
         
             <p>tagged as

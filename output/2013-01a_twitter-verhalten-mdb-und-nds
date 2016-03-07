@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="grid">
 <head>
   <meta charset="utf-8" />
   <title>Wie twittern Politiker?</title>
@@ -9,7 +9,7 @@
   <link href="/" rel="home start" />
   <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
   <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="&lt;p&gt;Wie viele Politiker sind auf Twitter aktiv? Wie..." />
+    <meta name="description" content="Ein Überblick über das Twitter-Verhalten der MdB und der Wahlkämpfer der niedersächsischen Landtagswahl 2013" />
     <meta name="keywords" content="Bundestwitter" />
 </head>
 <body>
