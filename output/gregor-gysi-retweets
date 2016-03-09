@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="grid">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <title>Die Unterstützer des @GregorGysi</title>
@@ -14,24 +14,21 @@
 </head>
 <body>
   <header>
-    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/" rel="home start">blog</a></li>
-        <li><a href="/atom/" rel="alternate">atom</a></li>
-        <li><a href="/rss/" rel="alternate">rss</a></li>
-        <li><a href="/articles/" rel="contents">articles</a></li>
-      </ul>
-    </nav>
-  </header>
-    
-        <article class="ENTRY-HTML">
-    <header>
-        <time datetime="2014-03-16">16.03.2014</time>
-        <h1>
-            <a href="gregor-gysi-retweets" rel="bookmark canonical">Die Unterstützer des @GregorGysi</a>
-        </h1>
-    </header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Bundestwitter
+		</span>
+		<time datetime="2014-03-16">
+			16. März 2014
+		</time>
+	</div>
+
+    <h1 class="post__title">Die Unterstützer des @GregorGysi</h1>
+
     <p>Der Frak&shy;ti&shy;ons&shy;füh&shy;rer der Linken im Deutschen Bundestag, <a href="http://www.bundestwitter.de/politiker/dr-gregor-gysi/">Gregor Gysi</a>, führt in den letzten Wochen die <a href="http://www.bundestwitter.de">Retweet-Charts von Bun&shy;dest&shy;wit&shy;ter</a> an. Ist das sys&shy;te&shy;ma&shy;ti&shy;sche Un&shy;ter&shy;stüt&shy;zung durch Wenige? Oder eine breite Basis?</p>
 <p>Grundlage der Analyse sind alle Tweets von Gregor Gysi aus dem Jahr 2014 (Stand 16.02.). Diese habe ich nach Retweet-Häufigkeit sortiert, und die Top 25 dann genauer untersucht. Von jedem Tweet wurden die Pro&shy;fil&shy;da&shy;ten aller Retweeter geladen, und die <a href="#tabelleGesamt">Daten in einer Tabelle zu&shy;sam&shy;men&shy;ge&shy;führt</a> (Link führt zur Tabelle am Fuß dieses Posts).</p>
 <p>Insgesamt haben 920 ver&shy;schie&shy;de&shy;ne Profile die <a href="http://www.bundestwitter.de/politiker/dr-gregor-gysi/tweets/">Top-Tweets von Gregor Gysi</a> wei&shy;ter&shy;ver&shy;brei&shy;tet. Manche Accounts retweeten fast jeden dieser Beiträge:</p>
@@ -3646,22 +3643,7 @@
     <li>Wie man sieht, habe ich die Masse der 1-mal und 2-mal Retweter aus&shy;ge&shy;las&shy;sen.</li>
     <li>Die Zahl der Follower ist auch vom 16.03.2014, und nicht vom Tag der Retweets.</li>
 </ul>
-    <footer>
-        
-            <p>tagged as
-                <a href="/kategorie/bundestwitter/" rel="tag">Bundestwitter</a>
-                
-            </p>
-        
-    </footer>
-</article>
-    
 
-    
-<footer>
-    
-    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
-    
-  </footer>
+</article>
 </body>
 </html>

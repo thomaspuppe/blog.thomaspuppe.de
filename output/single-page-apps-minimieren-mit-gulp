@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="grid">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <title>Eine Single-Page-App minimieren mit Gulp</title>
@@ -14,24 +14,21 @@
 </head>
 <body>
   <header>
-    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/" rel="home start">blog</a></li>
-        <li><a href="/atom/" rel="alternate">atom</a></li>
-        <li><a href="/rss/" rel="alternate">rss</a></li>
-        <li><a href="/articles/" rel="contents">articles</a></li>
-      </ul>
-    </nav>
-  </header>
-    
-        <article class="ENTRY-HTML">
-    <header>
-        <time datetime="2015-01-23">23.01.2015</time>
-        <h1>
-            <a href="single-page-apps-minimieren-mit-gulp" rel="bookmark canonical">Eine Single-Page-App minimieren mit Gulp</a>
-        </h1>
-    </header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Webentwicklung
+		</span>
+		<time datetime="2015-01-23">
+			23. Januar 2015
+		</time>
+	</div>
+
+    <h1 class="post__title">Eine Single-Page-App minimieren mit Gulp</h1>
+
     <p>Unter mee&shy;ting&shy;ti&shy;mer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleich&shy;zei&shy;tig sollen Less und JSLint genutzt werden. Ein wun&shy;der&shy;ba&shy;res Ein&shy;satz&shy;ge&shy;biet für Gulp!</p>
 <h3>Das Projekt</h3>
 <p>Unter der Domain <a href="http://meetingtimer.biz">mee&shy;ting&shy;ti&shy;mer.biz</a> betreibe ich eine kleine Website. Ein Nach&shy;mit&shy;tags&shy;pro&shy;jekt, das während eines Meetings anhand der Teil&shy;neh&shy;mer&shy;zahl die Kosten des Meetings hochzählt und anzeigt.</p>
@@ -89,22 +86,7 @@
 <li>Erlaubt iOS, Touch Icons inline als Base 64 codiert abzulegen? Oder Inline als SVG?</li>
 </ul>
 <p>Das kommt später. Das wäre auch ein guter Anreiz, die Mi&shy;ni&shy;mie&shy;rung aus&shy;zu&shy;rei&shy;zen. Wieso sollte ein simpler Timer KB groß sein, wenn man <a href="http://js1k.com/2014-dragons/demo/1854">Minecraft in 1024 bytes</a> oder <a href="http://js1k.com/2014-dragons/demo/1934">Wol&shy;fen&shy;stein 2D in 2K</a> pro&shy;gram&shy;mie&shy;ren kann?</p>
-    <footer>
-        
-            <p>tagged as
-                <a href="/kategorie/webentwicklung/" rel="tag">Webentwicklung</a>
-                
-            </p>
-        
-    </footer>
-</article>
-    
 
-    
-<footer>
-    
-    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
-    
-  </footer>
+</article>
 </body>
 </html>

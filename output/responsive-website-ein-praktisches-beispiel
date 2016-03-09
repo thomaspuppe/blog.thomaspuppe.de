@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="grid">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <title>Umstellung auf Responsive Web Design - ein praktisches Beispiel</title>
@@ -14,24 +14,21 @@
 </head>
 <body>
   <header>
-    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/" rel="home start">blog</a></li>
-        <li><a href="/atom/" rel="alternate">atom</a></li>
-        <li><a href="/rss/" rel="alternate">rss</a></li>
-        <li><a href="/articles/" rel="contents">articles</a></li>
-      </ul>
-    </nav>
-  </header>
-    
-        <article class="ENTRY-HTML">
-    <header>
-        <time datetime="2014-02-13">13.02.2014</time>
-        <h1>
-            <a href="responsive-website-ein-praktisches-beispiel" rel="bookmark canonical">Umstellung auf Responsive Web Design - ein praktisches Beispiel</a>
-        </h1>
-    </header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Web-Entwicklung
+		</span>
+		<time datetime="2014-02-13">
+			13. Februar 2014
+		</time>
+	</div>
+
+    <h1 class="post__title">Umstellung auf Responsive Web Design - ein praktisches Beispiel</h1>
+
     <p>Wie baut man eine einfache Website von nicht-responsive auf responsive um? Eine Schritt-für-Schritt Anleitung anhand dieses Blogs.</p>
 <p>Ziel ist nicht, dass der Blog auf allen Geräten gleich aussieht (was auch nicht der Sinn von RWD ist). Sondern dass er auf allen Geräten gut aussieht und vor Allem funk&shy;tio&shy;niert (was der Sinn von RWD ist).</p>
 <p>Anhand des sehr einfachen Blog-Layouts öchte ich drei grund&shy;le&shy;gen&shy;de Regeln von Responsive Websites erläutern.</p>
@@ -95,22 +92,7 @@ font-size: 2em;
 <p>Da mobile (kleine) Geräte ten&shy;den&shy;ti&shy;ell schwächer sind als große, halte ich Mobile-First für einen guten Ansatz.</p>
 <h3>Linktipp</h3>
 <p><a href="http://bradfrost.github.io/this-is-responsive/">&ldquo;This is responsive&rdquo; von Brad Frost</a>.</p>
-    <footer>
-        
-            <p>tagged as
-                <a href="/kategorie/web-entwicklung/" rel="tag">Web-Entwicklung</a>
-                
-            </p>
-        
-    </footer>
-</article>
-    
 
-    
-<footer>
-    
-    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
-    
-  </footer>
+</article>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="grid">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <title>Passwort Generator</title>
@@ -14,41 +14,23 @@
 </head>
 <body>
   <header>
-    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/" rel="home start">blog</a></li>
-        <li><a href="/atom/" rel="alternate">atom</a></li>
-        <li><a href="/rss/" rel="alternate">rss</a></li>
-        <li><a href="/articles/" rel="contents">articles</a></li>
-      </ul>
-    </nav>
-  </header>
-    
-        <article class="ENTRY-HTML">
-    <header>
-        <time datetime="2012-12-15">15.12.2012</time>
-        <h1>
-            <a href="passwort-generator" rel="bookmark canonical">Passwort Generator</a>
-        </h1>
-    </header>
-    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-    <footer>
-        
-            <p>tagged as
-                <a href="/kategorie/projekte/" rel="tag">Projekte</a>
-                
-            </p>
-        
-    </footer>
-</article>
-    
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
 
-    
-<footer>
-    
-    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
-    
-  </footer>
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Projekte
+		</span>
+		<time datetime="2012-12-15">
+			15. Dezember 2012
+		</time>
+	</div>
+
+    <h1 class="post__title">Passwort Generator</h1>
+
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+
+</article>
 </body>
 </html>

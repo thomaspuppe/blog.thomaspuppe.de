@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="grid">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <title>Performance-oriented Gulp-Setup</title>
@@ -17,24 +17,21 @@
 </head>
 <body>
   <header>
-    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/" rel="home start">blog</a></li>
-        <li><a href="/atom/" rel="alternate">atom</a></li>
-        <li><a href="/rss/" rel="alternate">rss</a></li>
-        <li><a href="/articles/" rel="contents">articles</a></li>
-      </ul>
-    </nav>
-  </header>
-    
-        <article class="ENTRY-HTML">
-    <header>
-        <time datetime="2014-05-06">06.05.2014</time>
-        <h1>
-            <a href="gulp-setup" rel="bookmark canonical">Performance-oriented Gulp-Setup</a>
-        </h1>
-    </header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Webentwicklung
+		</span>
+		<time datetime="2014-05-06">
+			06. Mai 2014
+		</time>
+	</div>
+
+    <h1 class="post__title">Performance-oriented Gulp-Setup</h1>
+
     <p>gulp-replace-task</p>
 <ul>
 <li>JS/CSS Datei mit Timestam&shy;per&shy;set&shy;zen</li>
@@ -46,22 +43,7 @@
 <p>watcher</p>
 </li>
 </ul>
-    <footer>
-        
-            <p>tagged as
-                <a href="/kategorie/webentwicklung/" rel="tag">Webentwicklung</a>
-                
-            </p>
-        
-    </footer>
-</article>
-    
 
-    
-<footer>
-    
-    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
-    
-  </footer>
+</article>
 </body>
 </html>

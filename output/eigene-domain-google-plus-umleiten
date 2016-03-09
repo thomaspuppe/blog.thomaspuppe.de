@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="grid">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <title>domain.de+ auf Google+ Profil umleiten</title>
@@ -14,44 +14,26 @@
 </head>
 <body>
   <header>
-    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/" rel="home start">blog</a></li>
-        <li><a href="/atom/" rel="alternate">atom</a></li>
-        <li><a href="/rss/" rel="alternate">rss</a></li>
-        <li><a href="/articles/" rel="contents">articles</a></li>
-      </ul>
-    </nav>
-  </header>
-    
-        <article class="ENTRY-HTML">
-    <header>
-        <time datetime="2013-01-17">17.01.2013</time>
-        <h1>
-            <a href="eigene-domain-google-plus-umleiten" rel="bookmark canonical">domain.de+ auf Google+ Profil umleiten</a>
-        </h1>
-    </header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Web-Entwicklung
+		</span>
+		<time datetime="2013-01-17">
+			17. Januar 2013
+		</time>
+	</div>
+
+    <h1 class="post__title">domain.de+ auf Google+ Profil umleiten</h1>
+
     <p>Ein Tipp für die Leute mit eigener Domain: Wei&shy;ter&shy;lei&shy;tung von <strong>tho&shy;ma&shy;s&shy;pup&shy;pe.de/+</strong> auf das Google-Profil via .htaccess:</p>
 <p><code>RewriteEngine on
 RewriteCond %{REQUEST_URI} ^/+
 RewriteRule ^(.*)$ https://plus.google.com/u/0/109992889758306031081/ [R=permanent,L]</code></p>
-    <footer>
-        
-            <p>tagged as
-                <a href="/kategorie/web-entwicklung/" rel="tag">Web-Entwicklung</a>
-                
-            </p>
-        
-    </footer>
-</article>
-    
 
-    
-<footer>
-    
-    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
-    
-  </footer>
+</article>
 </body>
 </html>

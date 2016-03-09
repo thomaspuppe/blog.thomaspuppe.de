@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="grid">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <title>Wie twittern Politiker?</title>
@@ -14,24 +14,21 @@
 </head>
 <body>
   <header>
-    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/" rel="home start">blog</a></li>
-        <li><a href="/atom/" rel="alternate">atom</a></li>
-        <li><a href="/rss/" rel="alternate">rss</a></li>
-        <li><a href="/articles/" rel="contents">articles</a></li>
-      </ul>
-    </nav>
-  </header>
-    
-        <article class="ENTRY-HTML">
-    <header>
-        <time datetime="2013-01-22">22.01.2013</time>
-        <h1>
-            <a href="2013-01a_twitter-verhalten-mdb-und-nds" rel="bookmark canonical">Wie twittern Politiker?</a>
-        </h1>
-    </header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Bundestwitter
+		</span>
+		<time datetime="2013-01-22">
+			22. Januar 2013
+		</time>
+	</div>
+
+    <h1 class="post__title">Wie twittern Politiker?</h1>
+
     <p>Wie viele Politiker sind auf Twitter aktiv? Wie häufig twittern sie? Was wird ge&shy;schrie&shy;ben? Erzeugt das Bürgernähe? Hilft es im Wahlkampf?</p>
 
 <p><em>Ein Überblick über das Twitter-Verhalten der MdB und der Wahl&shy;kämp&shy;fer der nie&shy;der&shy;säch&shy;si&shy;schen Land&shy;tags&shy;wahl 2013.</em></p>
@@ -195,22 +192,7 @@
     <li><a href="http://www.ndr.de/fernsehen/sendungen/hallo_niedersachsen/media/hallonds13283.html">&quot;Wahlkampf im Internet&quot;</a> Hallo Nie&shy;der&shy;sach&shy;sen - 02.01.2013 19:30 Uhr</li>
 </ul>
 </p>
-    <footer>
-        
-            <p>tagged as
-                <a href="/kategorie/bundestwitter/" rel="tag">Bundestwitter</a>
-                
-            </p>
-        
-    </footer>
-</article>
-    
 
-    
-<footer>
-    
-    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
-    
-  </footer>
+</article>
 </body>
 </html>

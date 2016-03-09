@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="grid">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <title>Good bye Google Analytics! Good bye Piwik! Hallo AWStats!</title>
@@ -14,24 +14,21 @@
 </head>
 <body>
   <header>
-    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/" rel="home start">blog</a></li>
-        <li><a href="/atom/" rel="alternate">atom</a></li>
-        <li><a href="/rss/" rel="alternate">rss</a></li>
-        <li><a href="/articles/" rel="contents">articles</a></li>
-      </ul>
-    </nav>
-  </header>
-    
-        <article class="ENTRY-HTML">
-    <header>
-        <time datetime="2013-10-22">22.10.2013</time>
-        <h1>
-            <a href="goodbye-google-analytics-goodbye-piwik" rel="bookmark canonical">Good bye Google Analytics! Good bye Piwik! Hallo AWStats!</a>
-        </h1>
-    </header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Web-Entwicklung
+		</span>
+		<time datetime="2013-10-22">
+			22. Oktober 2013
+		</time>
+	</div>
+
+    <h1 class="post__title">Good bye Google Analytics! Good bye Piwik! Hallo AWStats!</h1>
+
     <p>Warum ich mein Website-Tracking von Google Analytics über Piwik zu AWStats zurück ent&shy;wi&shy;ckel&shy;te und trotzdem nichts vermisse.</p>
 <p><img src="/images/2013/10/tracking_graphen.png"></p>
 
@@ -61,22 +58,7 @@
 </ul>
 <p>In&shy;ter&shy;es&shy;sant ist auch, dass die Anzahl der gezählten Besucher stark variiert. AWStats zeigt ca. doppelt so viele Besucher an wie Piwik (für Google Analytics habe ich keinen Vergleich, weil dies nicht parallel in&shy;stal&shy;liert war). Daher genieße ich die Zahlen aller Dienste mit Vorsicht, und achte eher auf Auf- und Ab&shy;wärts&shy;trends statt absolute Zahlen.</p>
 <p><strong>Fazit: für den normalen Gebrauch bietet AWStats alles, was der Website-Betreiber begehrt. Wer auf cli&shy;ent&shy;sei&shy;ti&shy;ges Tracking von Google Analytics oder Piwik verzichtet, tut seinem Besucher etwas Gutes ohne auf Be&shy;su&shy;cher&shy;sta&shy;tis&shy;ti&shy;ken verzichten zu müssen. Mit der Liste von 404 Fehlern verfügt AWStats sogar über ein nützliches Al&shy;lein&shy;stel&shy;lungs&shy;merk&shy;mal.</strong></p>
-    <footer>
-        
-            <p>tagged as
-                <a href="/kategorie/web-entwicklung/" rel="tag">Web-Entwicklung</a>
-                
-            </p>
-        
-    </footer>
-</article>
-    
 
-    
-<footer>
-    
-    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
-    
-  </footer>
+</article>
 </body>
 </html>

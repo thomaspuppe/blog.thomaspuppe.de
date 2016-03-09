@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="grid">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <title>Twitterdaten sammeln mit AWS</title>
@@ -14,24 +14,21 @@
 </head>
 <body>
   <header>
-    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/" rel="home start">blog</a></li>
-        <li><a href="/atom/" rel="alternate">atom</a></li>
-        <li><a href="/rss/" rel="alternate">rss</a></li>
-        <li><a href="/articles/" rel="contents">articles</a></li>
-      </ul>
-    </nav>
-  </header>
-    
-        <article class="ENTRY-HTML">
-    <header>
-        <time datetime="2014-11-06">06.11.2014</time>
-        <h1>
-            <a href="twitterdaten-sammeln-mit-AWS" rel="bookmark canonical">Twitterdaten sammeln mit AWS</a>
-        </h1>
-    </header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Webentwicklung
+		</span>
+		<time datetime="2014-11-06">
+			06. November 2014
+		</time>
+	</div>
+
+    <h1 class="post__title">Twitterdaten sammeln mit AWS</h1>
+
     <p>Um Tweets zu einem aktuellen Thema zu sammeln, muss man die Twitter Streaming API mit&shy;schnei&shy;den. In 20 Minuten ist dafür ein kos&shy;ten&shy;lo&shy;ses always-online System aufgesetzt.</p>
 <p>Bei kurzen Events (TV-Duell vor der Bun&shy;des&shy;tags&shy;wahl) habe ich die Sammlung von Tweets einfach auf meinem lokalen Rechner gemacht. Für die an&shy;ste&shy;hen&shy;den Fei&shy;er&shy;lich&shy;kei&shy;ten zum #Mauerfall soll die Sammlung mehrere Tage dauern. Mein Rechner soll dabei aber nicht im Dau&shy;er&shy;be&shy;trieb laufen. Daher habe ich einfach eine AWS Instanz hoch&shy;ge&shy;fah&shy;ren und lasse die die Arbeit tun. Zum Mit&shy;schnei&shy;den des Streams dient diesmal auch nicht die PHP-Lib Phirehose, sondern das Python-Tool Tweepy.</p>
 <p>Dieser Artikel beschreibt, wie man mit wenigen Klicks, 9 Kon&shy;so&shy;len&shy;kom&shy;man&shy;dos und 40 Zeilen Code einen au&shy;to&shy;ma&shy;ti&shy;schen und kos&shy;ten&shy;lo&shy;sen Twitter-Mitschnitt anfertigt.</p>
@@ -113,22 +110,7 @@ $ while true; do ( wc -l tweets.json ; sleep 5 ) done;</pre>
 <p>Insgesamt wurden 71180 Tweets erfasst. Da die Auf&shy;zeich&shy;nung aus&shy;ge&shy;rech&shy;net am Abend des 8.11. abbrach und ich bis Spätabends am 9.11. nicht online war, fehlen alle Tweets vom Tag des Mauerfalls. Aber immerhin gibt es die kleine Sammlung der Tage zuvor.</p>
 <p>Die Datei lässt sich via scp vom AWS Server her&shy;un&shy;ter&shy;la&shy;den, dann kann man die Maschien stoppen oder ter&shy;mi&shy;nie&shy;ren.</p>
 <p>Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dar&shy;ge&shy;stellt: <a href="http://www.thomaspuppe.de/lab/mauerfall-tweets/">Karte</a>, <a href="http://blog.thomaspuppe.de/2014-11_twitterdaten-mappen-mit-leaflet">Blog-Beitrag</a>.</p>
-    <footer>
-        
-            <p>tagged as
-                <a href="/kategorie/webentwicklung/" rel="tag">Webentwicklung</a>
-                
-            </p>
-        
-    </footer>
-</article>
-    
 
-    
-<footer>
-    
-    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
-    
-  </footer>
+</article>
 </body>
 </html>

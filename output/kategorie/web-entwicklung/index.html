@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="grid">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <title>Blog von Thomas Puppe, Web Developer.</title>
@@ -12,116 +12,81 @@
 </head>
 <body>
   <header>
-    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/" rel="home start">blog</a></li>
-        <li><a href="/atom/" rel="alternate">atom</a></li>
-        <li><a href="/rss/" rel="alternate">rss</a></li>
-        <li><a href="/articles/" rel="contents">articles</a></li>
-      </ul>
-    </nav>
+		<h1>Blog von Thomas Puppe, Web Developer.</h1>
+  	
+
   </header>
-    
-        <article class="ENTRY-HTML">
-    <header>
-        <time datetime="2014-02-13">13.02.2014</time>
-        <h1>
-            <a href="responsive-website-ein-praktisches-beispiel" rel="bookmark canonical">Umstellung auf Responsive Web Design - ein praktisches Beispiel</a>
-        </h1>
-    </header>
-    <p>Wie baut man eine einfache Website von nicht-responsive auf responsive um? Eine Schritt-für-Schritt Anleitung anhand dieses Blogs.</p>
-<p>Ziel ist nicht, dass der Blog auf allen Geräten gleich aussieht (was auch nicht der Sinn von RWD ist). Sondern dass er auf allen Geräten gut aussieht und vor Allem funk&shy;tio&shy;niert (was der Sinn von RWD ist).</p>
-<p>Anhand des sehr einfachen Blog-Layouts öchte ich drei grund&shy;le&shy;gen&shy;de Regeln von Responsive Websites erläutern.</p>
-<h3>1. Anpassung des Viewport</h3>
-<p>Mit der Einführung des iPhone wurde quasi eine neue Ge&shy;rä&shy;te&shy;klas&shy;se geschaffen, auf die das Web nicht vor&shy;be&shy;rei&shy;tet war. Websites, die zuvor auf einem Bildschirm mit 1024 und mehr Pixeln dar&shy;ge&shy;stellt wurden, sollten <span>&#8230;<a href="responsive-website-ein-praktisches-beispiel" class="continue">continue</a>.</span></p>
-    <footer>
-        
-            <p>tagged as
-                <a href="/kategorie/web-entwicklung/" rel="tag">Web-Entwicklung</a>
-                
-            </p>
-        
-    </footer>
-</article>
-    
-        <article class="ENTRY-HTML">
-    <header>
-        <time datetime="2013-11-07">07.11.2013</time>
-        <h1>
-            <a href="do-not-track-header-crossbrowser" rel="bookmark canonical">doNotTrack Browserübergreifend erkennen</a>
-        </h1>
-    </header>
-    <p>Mit dem doNotTrack Befehl können User si&shy;gna&shy;li&shy;sie&shy;ren, dass sie nicht von Websites getrackt werden möchten. Browser senden dafür einen HTTP-Header mit ihren Requests an den Webserver. Via JavaScript lässt sich diese Ein&shy;stel&shy;lung auch im Client auslesen. Dieses Auslesen funk&shy;tio&shy;niert leider nicht ein&shy;heit&shy;lich.</p>
-<p>Chrome und Safari haben eine andere Schreib&shy;wei&shy;se für die doNotTrack Property als der Firefox Browser. Der IE 9/10 verwendet einen eigenen Namen. Und der IE 8 un&shy;ter&shy;stützt diese Ein&shy;stel&shy;lung laut Microsoft auf <a href="http://ie.microsoft.com/TEStdrive/Browser/DoNotTrack/Default.html">sehr krude Art und Weise</a>.</p>
-<h3>Getestete Browser:</h3>
-<table>
-    <thead>
-    <tr><td>Browser</td><td>Abruf</td><td>Wert</td></tr>
-    </thead>
+        	<article class="teaser">
 
-    <tbody>
-    <tr><td>Chrome 30 <span>&#8230;<a href="do-not-track-header-crossbrowser" class="continue">continue</a>.</span></td></tr></tbody></table>
-    <footer>
-        
-            <p>tagged as
-                <a href="/kategorie/web-entwicklung/" rel="tag">Web-Entwicklung</a>
-                
-            </p>
-        
-    </footer>
-</article>
-    
-        <article class="ENTRY-HTML">
-    <header>
-        <time datetime="2013-10-22">22.10.2013</time>
-        <h1>
-            <a href="goodbye-google-analytics-goodbye-piwik" rel="bookmark canonical">Good bye Google Analytics! Good bye Piwik! Hallo AWStats!</a>
-        </h1>
-    </header>
-    <p>Warum ich mein Website-Tracking von Google Analytics über Piwik zu AWStats zurück ent&shy;wi&shy;ckel&shy;te und trotzdem nichts vermisse.</p>
-<p><img src="/images/2013/10/tracking_graphen.png"></img>
+	<div class="teaser__meta">
+		<span class="teaser__category">#Web-Entwicklung
+		</span>
+		<time datetime="2014-02-13">
+			13. Februar 2014
+		</time>
+	</div>
 
-<p>Im Juli 2013 wurde das Be&shy;su&shy;cher&shy;tracking bei Bun&shy;dest&shy;wit&shy;ter umgestellt von Google Analytics (mit IP-An&shy;ony&shy;mi&shy;sie&shy;rung) auf Piwik. Das ist ein OpenSource Tracking-Dienst den man sich selbst hosten kann. Wenn der eigene Server geschont werden soll, kann man das auch auf seinem eigenen Cloud-Rechner in&shy;stal&shy;lie&shy;ren. Eine schöne Anleitung dazu gibt es <a href="http://dicasdolampada.wordpress.com/2013/07/22/goodbye-google-analytics-hello-piwik/">hier</a> und <a href="https://github.com/openshift/piwik-openshift-quickstart/">hier</a>.</p>
-<p>Piwik war mir wichtig, um vom Platz&shy;hir&shy;schen Google Analytcis los&shy;zu&shy;kom&shy;men. Kleiner paranoider Exkurs:</p>
-<blockquote>Man muss sich das mal auf der Zunge zergehen lassen: ich zwinge den Besucher meiner Seite, Code vom Server des pro&shy;fit&shy;ori&shy;en&shy;tier&shy;ten <span>&#8230;<a href="goodbye-google-analytics-goodbye-piwik" class="continue">continue</a>.</span></blockquote></p>
-    <footer>
-        
-            <p>tagged as
-                <a href="/kategorie/web-entwicklung/" rel="tag">Web-Entwicklung</a>
-                
-            </p>
-        
-    </footer>
-</article>
-    
-        <article class="ENTRY-HTML">
-    <header>
-        <time datetime="2013-01-17">17.01.2013</time>
-        <h1>
-            <a href="eigene-domain-google-plus-umleiten" rel="bookmark canonical">domain.de+ auf Google+ Profil umleiten</a>
-        </h1>
-    </header>
-    <p>Ein Tipp für die Leute mit eigener Domain: Wei&shy;ter&shy;lei&shy;tung von <strong>tho&shy;ma&shy;s&shy;pup&shy;pe.de/+</strong> auf das Google-Profil via .htaccess:</p>
-<p><code>RewriteEngine on
-RewriteCond %{REQUEST_URI} ^/+
-RewriteRule ^(.*)$ https://plus.google.com/u/0/109992889758306031081/ [R=permanent,L]</code></p>
-    <footer>
-        
-            <p>tagged as
-                <a href="/kategorie/web-entwicklung/" rel="tag">Web-Entwicklung</a>
-                
-            </p>
-        
-    </footer>
-</article>
-    
+    <h2 class="teaser__title">
+        <a href="responsive-website-ein-praktisches-beispiel" rel="bookmark canonical">Umstellung auf Responsive Web Design - ein praktisches Beispiel</a>
+    </h2>
 
-    
-<footer>
-    
-    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
-    
-  </footer>
+    <p class="teaser__text">Wie baut man eine einfache Website von nicht-responsive auf responsive um? Eine Schritt-für-Schritt Anleitung anhand dieses Blogs.</p>
+
+</article>
+    	
+        	<article class="teaser">
+
+	<div class="teaser__meta">
+		<span class="teaser__category">#Web-Entwicklung
+		</span>
+		<time datetime="2013-11-07">
+			07. November 2013
+		</time>
+	</div>
+
+    <h2 class="teaser__title">
+        <a href="do-not-track-header-crossbrowser" rel="bookmark canonical">doNotTrack Browserübergreifend erkennen</a>
+    </h2>
+
+    <p class="teaser__text">Der doNotTrack Flag des Browsers signalisiert, dass ein Nutzer nicht getrackt werden möchte. Diese Information lässt sich per JS auslesen &mdash; jedoch je nach browser unterschiedlch.</p>
+
+</article>
+    	
+        	<article class="teaser">
+
+	<div class="teaser__meta">
+		<span class="teaser__category">#Web-Entwicklung
+		</span>
+		<time datetime="2013-10-22">
+			22. Oktober 2013
+		</time>
+	</div>
+
+    <h2 class="teaser__title">
+        <a href="goodbye-google-analytics-goodbye-piwik" rel="bookmark canonical">Good bye Google Analytics! Good bye Piwik! Hallo AWStats!</a>
+    </h2>
+
+    <p class="teaser__text">Warum ich mein Website-Tracking von Google Analytics über Piwik zu AWStats zurück entwickelte und trotzdem nichts vermisse.</p>
+
+</article>
+    	
+        	<article class="teaser">
+
+	<div class="teaser__meta">
+		<span class="teaser__category">#Web-Entwicklung
+		</span>
+		<time datetime="2013-01-17">
+			17. Januar 2013
+		</time>
+	</div>
+
+    <h2 class="teaser__title">
+        <a href="eigene-domain-google-plus-umleiten" rel="bookmark canonical">domain.de+ auf Google+ Profil umleiten</a>
+    </h2>
+
+    <p class="teaser__text">Ein Tipp für die Leute mit eigener Domain: Weiterl...</p>
+
+</article>
+    	
 </body>
 </html>

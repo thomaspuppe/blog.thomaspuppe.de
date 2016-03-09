@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="grid">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <title>Perfekte Link-Unterstreichung</title>
@@ -14,24 +14,21 @@
 </head>
 <body>
   <header>
-    <h1><a href="/" rel="home start" class="blogtitle">Blog von Thomas Puppe, Web Developer.</a></h1>
-    <nav>
-      <ul>
-        <li><a href="/" rel="home start">blog</a></li>
-        <li><a href="/atom/" rel="alternate">atom</a></li>
-        <li><a href="/rss/" rel="alternate">rss</a></li>
-        <li><a href="/articles/" rel="contents">articles</a></li>
-      </ul>
-    </nav>
-  </header>
-    
-        <article class="ENTRY-HTML">
-    <header>
-        <time datetime="2014-05-06">06.05.2014</time>
-        <h1>
-            <a href="link-unterstreichung" rel="bookmark canonical">Perfekte Link-Unterstreichung</a>
-        </h1>
-    </header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Webentwicklung
+		</span>
+		<time datetime="2014-05-06">
+			06. Mai 2014
+		</time>
+	</div>
+
+    <h1 class="post__title">Perfekte Link-Unterstreichung</h1>
+
     <p>Link-Un&shy;ter&shy;strei&shy;chung bei großen Schrift&shy;ar&shy;ten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.</p>
 <p>Als Freund <a href="http://ia.net/blog/100e2r">&ldquo;großer&rdquo; Schrift</a> auf Websites stelle ich fest, dass die Un&shy;ter&shy;strei&shy;chung von Links ab 20 Pixeln Schrift&shy;grö&shy;ße (bei meinem Setup von font-family: Georgia, "Times New Roman", Times, serif;) recht breit ist. Das stört auch die Lesbarkeit des Textes &mdash; zumindest im Vergleich zu einer Variante mit schmalerer Un&shy;ter&shy;strei&shy;chung. Hier im Blog kommt das nicht zum Tragen. Groß sind nur die Über&shy;schrif&shy;ten, die eine dicke Un&shy;ter&shy;strei&shy;chung vertragen. Der Fließtext ist kleiner als 20px und hat daher moderate Un&shy;ter&shy;strei&shy;chung. Auf meiner Website mit vielen Links störte die Un&shy;ter&shy;strei&shy;chung schon mehr (siehe Screenshot):</p>
 <figure>
@@ -67,22 +64,7 @@ a:hover, a:focus {
 <p><strong>Trick 1:</strong> Links bekommen ein Hin&shy;ter&shy;grund&shy;bild, das keine Datei oder DataURI nutzt, sondern Gradients.</p>
 <p><strong>Trick 2:</strong> Ein Text-Shadow, un&shy;ter&shy;bricht die Linie bei Buchstaben mit Unterlänge.</p>
 <p>Achtgeben muss man auf Links, die nicht nur Text enthalten. Wird z.B. ein Bild verlinkt, erhält dieses auch eine solche Un&shy;ter&shy;strei&shy;chung. Das muss dann mittels &ldquo;background-image:none;&rdquo; un&shy;ter&shy;bun&shy;den werden &mdash; und zwar am Link statt am Bild. Bei großen Seiten kann es hier haarig werden und der Nutzen recht&shy;fer&shy;tigt den Aufwand vielleicht nicht mehr. Dasselbe gilt für Links im Button-Stil usw.</p>
-    <footer>
-        
-            <p>tagged as
-                <a href="/kategorie/webentwicklung/" rel="tag">Webentwicklung</a>
-                
-            </p>
-        
-    </footer>
-</article>
-    
 
-    
-<footer>
-    
-    <p>written by <a href="mailto:info@thomaspuppe.de">Thomas Puppe</a></p>
-    
-  </footer>
+</article>
 </body>
 </html>
