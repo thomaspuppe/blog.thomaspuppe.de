@@ -1,0 +1,46 @@
+.post
+	padding: rem($base-line-height) 0
+
+	&__category
+		&:after
+			content: " | "
+
+	> *
+		margin: rem($base-line-height) auto
+		max-width: rem($page-width)
+
+	h3
+		margin: rem($base-line-height*1.5) auto rem($base-line-height*0.5)
+
+	figure,
+	pre
+		margin: rem($base-line-height*2) auto
+		max-width: rem($page-width-extended)
+
+	figure
+		text-align: center
+		font-style: italic
+		padding: 0 rem($base-line-height)
+		figcaption
+			margin-top: rem($base-line-height)
+
+	pre
+		background: #34495e
+		color: #ecf0f1
+		font-family: $font-family-monospace
+		font-size: smaller
+		overflow-x: auto
+		padding: rem($base-line-height)
+
+	img
+		max-width: 100%
+
+	a, a:link, a:visited, a:hover, a:focus
+		color: $color-link
+		text-decoration: none
+		position: relative
+		text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white
+		background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, $color-link 2px, $color-link 3px, rgba(0, 0, 0, 0) 3px)
+	a:hover, a:focus
+		color: $color-link-hover
+		background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, $color-link-hover 2px, $color-link-hover 3px, rgba(0, 0, 0, 0) 3px)
