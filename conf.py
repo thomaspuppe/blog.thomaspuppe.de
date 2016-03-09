@@ -7,6 +7,7 @@ WWW_ROOT = 'http://blog.thomaspuppe.de/'
 
 AUTHOR = 'Thomas Puppe'
 EMAIL = 'info@thomaspuppe.de'
+WEBSITE = 'http://www.thomaspuppe.de'
 
 CONTENT_EXTENSION = '.md'
 STATIC = ['static']
@@ -15,8 +16,8 @@ FILTERS = ['markdown+codehilite(css_class=highlight)', 'hyphenate', 'h1']
 
 VIEWS = {
 
-	'/': {  
-		'filters': 'summarize', 
+	'/': {
+		'filters': 'summarize',
 		'view': 'index'
 	},
 
@@ -25,7 +26,7 @@ VIEWS = {
 	},
 
 	'/kategorie/:name/': {
-		'filters': 'summarize', 
+		'filters': 'summarize',
 		'view':'tag',
 		'pagination': '/tag/:name/:num/'
 	},
