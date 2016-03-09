@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ entry.lang if entry else conf.lang }}" class="grid">
+<html lang="{{ entry.lang if entry else conf.lang }}">
 <head>
   {% block head -%}
   <meta charset="utf-8" />
@@ -16,22 +16,15 @@
 </head>
 <body>
   <header>
-    <h1><a href="{{ env.path + '/' }}" rel="home start" class="blogtitle">{{ conf.sitename }}</a></h1>
-    <nav>
-      <ul>
-        <li><a href="{{ env.path + '/' }}" rel="home start">blog</a></li>
-        <li><a href="{{ env.path + '/atom/' }}" rel="alternate">atom</a></li>
-        <li><a href="{{ env.path + '/rss/' }}" rel="alternate">rss</a></li>
-        <li><a href="{{ env.path + '/articles/' }}" rel="contents">articles</a></li>
-      </ul>
-    </nav>
+
+  	{%- if entry is defined %}
+		<p><a href="{{ env.path + '/' }}" rel="home start">{{ conf.sitename }}</a></p>
+  	{% else %}
+		<h1>{{ conf.sitename }}</h1>
+  	{% endif %}
+
   </header>
   {%- block content -%}
   {%- endblock -%}
-  <footer>
-    {% block footer %}
-    <p>written by <a href="mailto:{{ conf.email }}">{{ conf.author }}</a></p>
-    {% endblock %}
-  </footer>
 </body>
 </html>

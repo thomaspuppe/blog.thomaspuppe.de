@@ -17,11 +17,15 @@
 {% endblock %}
 
 {% block content %}
-    {% for entry in env.entrylist %}
+	{%- if entry is defined -%}
         {% include 'entry.html' %}
-    {% endfor %}
+    {%- else -%}
+	    {% for entry in env.entrylist %}
+        	{% include 'entry_teaser.html' %}
+    	{% endfor %}
+    {%- endif -%}
 
-    {# TODO: use as Nextread, if you have a styled teaser! 
+    {# TODO: use as Nextread, if you have a styled teaser!
 	    {% if env.prev is not none %}
 	        <a href="{{ env.path ~ env.prev ~ '/' }}" class="page floatright">
 	        {{ env.prev.title }} &raquo;
