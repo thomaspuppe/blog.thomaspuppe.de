@@ -31,7 +31,7 @@ Lovely presentation slides with selfmade comic drawings!
 
 * Twitter: [@RachelNabors](https://twitter.com/RachelNabors)
 * [Rachel Nabors Website](http://rachelnabors.com)
-* Slides of [talks Rachel has given](http://rachelnabors.com/speaking/). Warsaw keynote not included (yet?)
+* Slides of this talk: [The Web in Motion: animation's impact on UI and web design](http://slideshare.net/CrowChick/the-web-in-motion-animations-impact-on-ui-and-web-design).
 * [Web Animations API resources](http://rachelnabors.com/waapi)
 * Chrome status: Statistics of the [occurrences of certain CSS features in the wild](http://www.chromestatus.com/metrics/css/popularity)
 * [Web Animation Weekly](http://webanimationweekly.com/) newsletter
