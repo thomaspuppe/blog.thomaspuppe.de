@@ -103,6 +103,9 @@ header {
     padding: 1.41667rem; }
   .post img {
     max-width: 100%; }
+  .post blockquote {
+    border-left: 4px #292929 solid;
+    padding-left: 1em; }
   .post a, .post a:link, .post a:visited, .post a:hover, .post a:focus {
     color: #292929;
     text-decoration: none;

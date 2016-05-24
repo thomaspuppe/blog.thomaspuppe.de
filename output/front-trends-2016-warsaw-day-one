@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Front Trends 2016 in Warsaw: Day 1</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="Summarizing the first day presentations of the Front Trends 2016 conference in Warsaw. Covering pranks, animations, static sites, RxJS, performance, and leadership." />
+    <meta name="keywords" content="Webentwicklung" />
+</head>
+<body>
+  <header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Webentwicklung
+		</span>
+		<time datetime="2016-05-18">
+			
+			18. Mai 2016
+		</time>
+	</div>
+
+    <h1 class="post__title">Front Trends 2016 in Warsaw: Day 1</h1>
+
+    <p>Sum&shy;ma&shy;ri&shy;zing the first day pre&shy;sen&shy;ta&shy;ti&shy;ons of the Front Trends 2016 conference in Warsaw. Covering pranks, animations, static sites, RxJS, per&shy;for&shy;mance, and leadership. A speakers list can also be found on <a href="https://2016.front-trends.com/speakers/">2016.front-trends.com/speakers/</a>.</p>
+<figure>
+    <img src="/images/2016/05/front-trends-venue.jpg" alt="The venue: Warsaws Star Club"/>
+    <figcaption>The venue: Warsaws Star Club</figcaption>
+</figure>
+
+<h3>Opening by <a href="https://twitter.com/twholman">Tim Holman</a></h3>
+<ul>
+<li>Fun with <a href="http://slides.com/tholman/css-pranks/#/">CSS pranks</a></li>
+</ul>
+<h3>Keynote: The Web in Motion by <a href="https://twitter.com/RachelNabors">Rachel Nabors</a></h3>
+<p>Rachel talked about Apps vs Websites, and how Apps often provide the same content, but look much nicer because tran&shy;si&shy;ti&shy;ons between states are animated. If there is only <em>old state -&gt; new state</em>, the users brain needs to do heavy in&shy;ter&shy;po&shy;la&shy;ti&shy;on work. If the transition is animated, there is less cognitive workload on the user. So the goal is to eliminate sudden visual changes. Rachel takes two excurses to dark patterns/ads and technical history of animations (Flash, SMIL. CSS Animations) and closes with the Web Animation API.</p>
+<blockquote>
+<p>The difference between web and native starts to blur. The Web is moving forward.</p>
+</blockquote>
+<p>Lovely pre&shy;sen&shy;ta&shy;ti&shy;on slides with selfmade comic drawings!</p>
+<ul>
+<li>Twitter: <a href="https://twitter.com/RachelNabors">@Ra&shy;chel&shy;Na&shy;bors</a></li>
+<li><a href="http://rachelnabors.com">Rachel Nabors Website</a></li>
+<li>Slides of <a href="http://rachelnabors.com/speaking/">talks Rachel has given</a>. Warsaw keynote not included (yet?)</li>
+<li><a href="http://rachelnabors.com/waapi">Web Animations API resources</a></li>
+<li>Chrome status: Statistics of the <a href="http://www.chromestatus.com/metrics/css/popularity">oc&shy;cur&shy;ren&shy;ces of certain CSS features in the wild</a></li>
+<li><a href="http://webanimationweekly.com/">Web Animation Weekly</a> newsletter</li>
+</ul>
+<h3>Static Sites go all Hollywood <a href="https://twitter.com/philhawksworth">Phil Hawksworth</a></h3>
+<p>Phil Hawksworth speaks about the advantages of Static Site Generators and the situations where they are a good choice. Embedded in Praise of simplicity and "Short Stack de&shy;ve&shy;lop&shy;men&shy;t". Key argument: SSG moves complexity and potential failures away from the user, because if things go wrong, it is in the building step and not while actually serving a user's request.</p>
+<blockquote>
+<p>Sim&shy;pli&shy;fy&shy;ing is not dumbing down. It is focussing on what matters.</p>
+</blockquote>
+<ul>
+<li>Twitter: <a href="https://twitter.com/philhawksworth">@phil&shy;hawks&shy;worth</a></li>
+<li><a href="http://www.netlify.com">Netlify</a>: Service for building and hosting of static sites, <a href="http://surge.sh">Surge.sh</a>: Deployment and hosting of static sites</li>
+</ul>
+<h3>Working with the web and the future by <a href="https://twitter.com/sjenkinson">Sally Jenkinson</a></h3>
+<p>Sally Jenkinson had a rather abstract talk about how our decisions of today affect the future. In positive ways (visionary user interfaces) and negative ways (technical debt). I learned about the "<a href="https://en.wikipedia.org/wiki/White_elephant">White Elephant</a>" analogy.</p>
+<blockquote>
+<p>The future is a spectrum, not a single point in time. Think of the next sprint, the next month, the next year, the next ten years – at the same time.</p>
+</blockquote>
+<ul>
+<li>Twitter: <a href="https://twitter.com/sjenkinson">@s&shy;jenk&shy;in&shy;son</a></li>
+<li>Website: <a href="http://www.recordssoundthesame.com">re&shy;cor&shy;ds&shy;sound&shy;the&shy;sa&shy;me.com</a></li>
+<li>Book re&shy;com&shy;men&shy;da&shy;ti&shy;on: <a href="http://rosenfeldmedia.com/books/make-it-so/">Make it so: In&shy;ter&shy;ac&shy;tion Design Lessons from Science Fiction</a></li>
+<li><a href="http://www.scifiinterfaces.com">Lessons from Sci-Fi Interfaces</a></li>
+</ul>
+<h3>Lightning Talks</h3>
+<ul>
+<li>"Layout: Think Flex"</li>
+<li>"50 Shades of #0089ff" by Gabriel Agu</li>
+<li>"Language" by <a href="https://twitter.com/g16n">Gunnar Bittersman</a></li>
+</ul>
+<h3>RxJS – Destroy the state machine by Stenver Jerkku</h3>
+<p>A technical talk with lots of code samples. In short: RxJS is like "Promises on steroids", providing more pos&shy;si&shy;bi&shy;li&shy;ties and code which is easier to read. It also has brilliant testing tools and is available in various languages (Scala, Ruby, Java, ...).</p>
+<ul>
+<li><a href="http://www.reactivemanifesto.org">The reactive manifesto</a></li>
+</ul>
+<h3>Untangle your code with yield by <a href="https://twitter.com/stas">Staś Małolepszy</a></h3>
+<p>Very technical talk, completely in code. This was fa&shy;sci&shy;na&shy;ting, in the sense of Clarke's law. I will need to check and work-through the pre&shy;sen&shy;ta&shy;ti&shy;on. Buzzwords: ES5, function generators, yield, iterators.</p>
+<p>Staś did some live coding (live-un&shy;com&shy;men&shy;ting, actually) with split-screen of code and results. Not sure if this setting is also part of the demo repo.</p>
+<ul>
+<li>Twitter: <a href="https://twitter.com/stas">@stas</a></li>
+<li>Code demo: <a href="http://www.github.com/stasm/preso">Untangle your code with yield</a></li>
+</ul>
+<h3>Once more with feeling by <a href="https://twitter.com/tkadlec">Tim Kadlec</a></h3>
+<p>Tim Kadlec held yet another per&shy;for&shy;mance talk, making fun of the fact that this topic has been talked about a lot in the last years. ("There's a secret club of people who need to say 'The fastest Request is no Request' two times each year.")</p>
+<p>Measurable per&shy;for&shy;mance im&shy;pro&shy;ve&shy;ment (DNS-prefetch, preconnect, preload, prerender, async, defer, inline critical CSS) is important. If there is nothing left to speed up, you can increase the perceived speed (skeleton rendering, changing status text on progress bars). And sometimes you need to add an artificial delay, because people do not trust a credit card validation which runs too fast.</p>
+<blockquote>
+<p>Everything on your page should have a <em>value</em>, because everything has a <em>cost</em>.</p>
+</blockquote>
+<ul>
+<li>Twitter: <a href="https://twitter.com/tkadlec">@tkadlec</a></li>
+<li>Pre&shy;sen&shy;ta&shy;ti&shy;on Slides: <a href="https://speakerdeck.com/tkadlec/once-more-with-feeling">Once more with feeling</a></li>
+</ul>
+<h3>Leadership in an Ever-Changing Industry by <a href="https://twitter.com/Geek_Manager">Meri Williams</a></h3>
+<p>Meri Williams cursed more than other speakers while explaining what makes a good geek manager. in short: giving/explaining/allowing people  PURPOSE, AUTONOMY, MASTERY and INCLUSION. And keep developing your own mastery in TECH, TEAM and TOOLS. People need to say "yes" to these questions: "Am I expected? Am I respected? Can I be myself and be suc&shy;cess&shy;full here?"</p>
+<blockquote>
+<p>Be a bulldozer and a cheer&shy;lea&shy;der. Get shit out of their way and tell them they're awesome.</p>
+</blockquote>
+<ul>
+<li>Twitter: <a href="https://twitter.com/Geek_Manager">@Ge&shy;ek_&shy;Ma&shy;na&shy;ger</a></li>
+<li><a href="http://blog.geekmanager.co.uk/">Meris Blog</a></li>
+<li>Book Re&shy;com&shy;men&shy;da&shy;ti&shy;on: <a href="http://www.danpink.com/books/drive/">Drive</a> by Daniel H. Pink</li>
+<li>Book Re&shy;com&shy;men&shy;da&shy;ti&shy;on: <a href="http://www.gallup.com/press/176069/first-break-rules-world-greatest-managers-differently.aspx">First, Break All the Rules</a></li>
+</ul>
+<hr />
+<p>Next read: <a href="/front-trends-2016-warsaw-day-two">Front Trends 2016 in Warsaw: Day 2</a></p>
+
+</article>
+</body>
+</html>
