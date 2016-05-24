@@ -98,6 +98,7 @@ The Guardian's Native app caches articles offline, to provide content even if th
 
 * Oliver Ashs Twitter Account: [@oliverjash](https://twitter.com/oliverjash)
 * [The slides](https://speakerdeck.com/oliverjash/building-an-offline-page-for-theguardian-dot-com-front-trends-may-2016) of this talk
+* This talk on video: [Building an offline page for theguardian.com](https://www.youtube.com/watch?v=dZU6_2xXeVk)
 * [the Guardian's digital development team blog](https://www.theguardian.com/info/developer-blog)
 
 
