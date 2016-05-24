@@ -2,3 +2,4 @@
 .sass-cache
 *.css.map
 #output
+.DS_Store
