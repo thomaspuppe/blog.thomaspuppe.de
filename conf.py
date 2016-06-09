@@ -72,3 +72,10 @@ PERMALINK_FORMAT = '/:year-:month_:slug'
 
 # prevent pagination
 DEFAULT_ORPHANS = 9999
+
+DEPLOYMENT = {
+    "ls": "ls $OUTPUT_DIR",
+    "echo": "echo '$OUTPUT_DIR'",
+    #"default": "rsync -av --delete $OUTPUT_DIR www@server:~/blog.example.org/"
+    "default": "scp -vr ./output/* bundestwitter:/var/www/blog_thomaspuppe_de/"
+}
