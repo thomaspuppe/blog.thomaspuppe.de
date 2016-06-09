@@ -1,6 +1,7 @@
 ---
 title: Twitterdaten mappen mit Leaflet
 date: 2014-11-19
+datelabel: 19. November 2014
 tags: [Webentwicklung]
 permalink: twitterdaten-mappen-mit-leaflet
 draft: false
@@ -37,25 +38,25 @@ readFile.close()
 outputArray = []
 
 for lineString in lines:
-    try:
-        lineObject = json.loads(lineString)
-        outputObject = {}
-        outputObject['id_str'] = lineObject['id_str']
-        outputObject['text'] = lineObject['text']
-        outputObject['screen_name'] = lineObject['user']['screen_name']
-        outputObject['text'] = lineObject['text']
+	try:
+		lineObject = json.loads(lineString)
+		outputObject = {}
+		outputObject['id_str'] = lineObject['id_str']
+		outputObject['text'] = lineObject['text']
+		outputObject['screen_name'] = lineObject['user']['screen_name']
+		outputObject['text'] = lineObject['text']
 
-        for entityKey in lineObject['entities'] :
-            if entityKey == 'media' :
-                for media in lineObject['entities']['media'] :
-                    if media['type'] == 'photo' :
-                        outputObject['media_url'] = media['media_url']
+		for entityKey in lineObject['entities'] :
+			if entityKey == 'media' :
+				for media in lineObject['entities']['media'] :
+					if media['type'] == 'photo' :
+						outputObject['media_url'] = media['media_url']
 
-        outputObject['coordinates'] = lineObject['coordinates']['coordinates']
+		outputObject['coordinates'] = lineObject['coordinates']['coordinates']
 
-        outputArray.append(outputObject)
-    except:
-        pass
+		outputArray.append(outputObject)
+	except:
+		pass
 
 outputString = json.dumps(outputArray, separators=(',',':'), indent=2)
 
@@ -71,30 +72,30 @@ In die gegebene Karte wmüssen nur noch ein paar Zeilen JavaScript eingefügt we
 
 <pre>var markerIcon = L.divIcon({className: 'my-div-icon'}), // stylen via CSS!
 markerOptions = {
-    'clickable': true,
-    'keyboard': false,
-    'icon': markerIcon
+	'clickable': true,
+	'keyboard': false,
+	'icon': markerIcon
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    var httpRequest = new XMLHttpRequest()
-    httpRequest.onreadystatechange = function () {
-        if (httpRequest.readyState === 4) {
-            if (httpRequest.status === 200) {
-                var data = JSON.parse(httpRequest.responseText);
-                for (var i=0; i < data['tweets'].length; i++) {
-                    var currentData = data['tweets'][i];
-                    markerOptions['alt'] = currentData['media_url'];
-                    L.marker(
-                        [currentData['coordinates'][1], currentData['coordinates'][0]],
-                        markerOptions)
-                    .addTo(map);
-                }
-            }
-        }
-    }
-    httpRequest.open('GET', 'data/tweets_media_coordinates_short.json')
-    httpRequest.send()
+	var httpRequest = new XMLHttpRequest()
+	httpRequest.onreadystatechange = function () {
+		if (httpRequest.readyState === 4) {
+			if (httpRequest.status === 200) {
+				var data = JSON.parse(httpRequest.responseText);
+				for (var i=0; i < data['tweets'].length; i++) {
+					var currentData = data['tweets'][i];
+					markerOptions['alt'] = currentData['media_url'];
+					L.marker(
+						[currentData['coordinates'][1], currentData['coordinates'][0]],
+						markerOptions)
+					.addTo(map);
+				}
+			}
+		}
+	}
+	httpRequest.open('GET', 'data/tweets_media_coordinates_short.json')
+	httpRequest.send()
 });</pre>
 
 Zu beachten: die Koordinaten bei Twitter sind als Lon,Lat gespeichert, leaflet benötigt aber Lat,Lon. Daher die Rochade beim Anlegen der Marker.
@@ -102,8 +103,8 @@ Zu beachten: die Koordinaten bei Twitter sind als Lon,Lat gespeichert, leaflet b
 Und hier das Ergebnis:
 
 <figure>
-    <a href="http://www.thomaspuppe.de/lab/mauerfall-tweets/">
-        <img src="/images/2014/11/tweets-mauerfall.png">
-        <figcaption>http://www.thomaspuppe.de/lab/mauerfall-tweets/</figcaption>
-    </a>
+	<a href="http://www.thomaspuppe.de/lab/mauerfall-tweets/">
+		<img src="/images/2014/11/tweets-mauerfall.png">
+		<figcaption>http://www.thomaspuppe.de/lab/mauerfall-tweets/</figcaption>
+	</a>
 </figure>

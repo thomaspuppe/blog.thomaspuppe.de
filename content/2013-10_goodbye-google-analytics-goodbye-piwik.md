@@ -1,6 +1,7 @@
 ---
 title: Good bye Google Analytics! Good bye Piwik! Hallo AWStats!
 date: 2013-10-22
+datelabel: 22. Oktober 2013
 tags: [Web-Entwicklung]
 permalink: goodbye-google-analytics-goodbye-piwik
 draft: false

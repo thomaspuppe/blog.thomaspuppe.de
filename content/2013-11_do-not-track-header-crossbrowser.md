@@ -1,6 +1,7 @@
 ---
 title: doNotTrack Browserübergreifend erkennen
 date: 2013-11-07
+datelabel: 07. November 2013
 tags: [Web-Entwicklung]
 permalink: do-not-track-header-crossbrowser
 draft: false

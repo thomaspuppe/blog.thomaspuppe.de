@@ -1,6 +1,7 @@
 ---
 title: Eine Single-Page-App minimieren mit Gulp
 date: 2015-01-23
+datelabel: 23. Januar 2015
 update: 2016-01-22
 tags: [Webentwicklung]
 permalink: single-page-apps-minimieren-mit-gulp
@@ -23,12 +24,12 @@ Die Seite ist einfach und benötigt nur wenig JavaScript und CSS. Dem Performanc
 
 ##Lösung mittels Gulp
 
-Grundlage bei der Arbeit mit CSS und JS sind natürlich die klassischen Werkzeuge wie less, minify-css, slint, uglify und concat. Die sind in jedem Gulp-Tutorial enthalten und sollen hier nicht behandelt werden. Spannend für meine Zwecke sind zwei weitere Tasks: 
+Grundlage bei der Arbeit mit CSS und JS sind natürlich die klassischen Werkzeuge wie less, minify-css, slint, uglify und concat. Die sind in jedem Gulp-Tutorial enthalten und sollen hier nicht behandelt werden. Spannend für meine Zwecke sind zwei weitere Tasks:
 
 <pre>var replace = require('gulp-replace-task'),
     cleanhtml = require('gulp-cleanhtml');</pre>
 
-Deren Benutzung ist simpel und komfortabel: Im HTML setzt man Platzhalter: 
+Deren Benutzung ist simpel und komfortabel: Im HTML setzt man Platzhalter:
 
 <pre>...
 &lt;style type="text/css"&gt;@@cssStyles&lt;/style&gt;
