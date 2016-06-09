@@ -24,7 +24,7 @@
 		</span>
 		<time datetime="2015-01-23">
 			
-			
+			23. Januar 2015
 		</time>
 	</div>
 
@@ -40,11 +40,11 @@
 <li>Beim Pro&shy;gram&shy;mie&shy;ren möchte ich dennoch nicht alles in einer großen HTML Datei horten.</li>
 </ol>
 <h3>Lösung mittels Gulp</h3>
-<p>Grundlage bei der Arbeit mit CSS und JS sind natürlich die klas&shy;si&shy;schen Werkzeuge wie less, minify-css, slint, uglify und concat. Die sind in jedem Gulp-Tutorial enthalten und sollen hier nicht behandelt werden. Spannend für meine Zwecke sind zwei weitere Tasks: </p>
+<p>Grundlage bei der Arbeit mit CSS und JS sind natürlich die klas&shy;si&shy;schen Werkzeuge wie less, minify-css, slint, uglify und concat. Die sind in jedem Gulp-Tutorial enthalten und sollen hier nicht behandelt werden. Spannend für meine Zwecke sind zwei weitere Tasks:</p>
 <pre>var replace = require('gulp-replace-task'),
     cleanhtml = require('gulp-cleanhtml');</pre>
 
-<p>Deren Benutzung ist simpel und kom&shy;for&shy;ta&shy;bel: Im HTML setzt man Platz&shy;hal&shy;ter: </p>
+<p>Deren Benutzung ist simpel und kom&shy;for&shy;ta&shy;bel: Im HTML setzt man Platz&shy;hal&shy;ter:</p>
 <pre>...
 &lt;style type="text/css"&gt;@@cssStyles&lt;/style&gt;
 ...&lt;/head&gt;
