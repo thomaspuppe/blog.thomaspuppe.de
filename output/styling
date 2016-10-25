@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="grid" lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Blog Styling</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="Styleguide für diesen Blog, der alle Arten von Inhalten enthält" />
+    <meta name="keywords" content="Webentwicklung" />
+</head>
+<body>
+  <header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Webentwicklung
+		</span>
+		<time datetime="2016-06-19">
+			
+			19. Juni 2016
+		</time>
+	</div>
+
+    <h1 class="post__title">Blog Styling</h1>
+
+    <p>Link-Un&shy;ter&shy;strei&shy;chung bei großen Schrift&shy;ar&shy;ten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.</p>
+<p>Als Freund <a href="http://ia.net/blog/100e2r">&ldquo;großer&rdquo; Schrift</a> auf Websites stelle ich fest, dass die Un&shy;ter&shy;strei&shy;chung von Links ab 20 Pixeln Schrift&shy;grö&shy;ße (bei meinem Setup von font-family: Georgia, "Times New Roman", Times, serif;) recht breit ist. Das stört auch die Lesbarkeit des Textes &mdash; zumindest im Vergleich zu einer Variante mit schmalerer Un&shy;ter&shy;strei&shy;chung. Hier im Blog kommt das nicht zum Tragen. Groß sind nur die Über&shy;schrif&shy;ten, die eine dicke Un&shy;ter&shy;strei&shy;chung vertragen. Der Fließtext ist kleiner als 20px und hat daher moderate Un&shy;ter&shy;strei&shy;chung. Auf meiner Website mit vielen Links störte die Un&shy;ter&shy;strei&shy;chung schon mehr (siehe Screenshot):</p>
+<h2>HTML Ipsum Presents</h2>
+
+<p><strong>Pel&shy;len&shy;tes&shy;que habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullam&shy;cor&shy;per pharetra. Vestibulum erat wisi, con&shy;di&shy;men&shy;tum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt con&shy;di&shy;men&shy;tum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+
+<h3>Header Level 2</h3>
+
+<ol>
+   <li>Lorem ipsum dolor sit amet, con&shy;sec&shy;te&shy;tu&shy;er adipiscing elit.</li>
+   <li>Aliquam tincidunt mauris eu risus.</li>
+</ol>
+
+<h4>Header Level 3: Blo&shy;ck&shy;quo&shy;tes</h4>
+
+<blockquote><p>Lorem ipsum dolor sit amet, con&shy;sec&shy;te&shy;tur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+
+<blockquote>
+<p>Everything on your page should have a _value_, because everything has a _cost_.</p>
+<cite><a href="https://twitter.com/tkadlec" title="Tim Kadlec on Twitter">Tim Kadlec</a></cite>
+</blockquote>
+
+<h5>Header Level 4: Lists</h5>
+
+<ul>
+   <li>Lorem ipsum dolor sit amet, con&shy;sec&shy;te&shy;tu&shy;er adipiscing elit.</li>
+   <li>Aliquam tincidunt mauris eu risus.</li>
+</ul>
+
+<pre><code>#header h1 a {
+    display: block;
+    width: 300px;
+    height: 80px;
+}
+</code></pre>
+
+<ul>
+   <li>Lorem ipsum dolor sit amet, con&shy;sec&shy;te&shy;tu&shy;er adipiscing elit.</li>
+   <li>Aliquam tincidunt mauris eu risus.</li>
+   <li>Vestibulum auctor dapibus neque.</li>
+</ul>
+
+<ul>
+   <li>Morbi in sem quis dui placerat ornare. Pel&shy;len&shy;tes&shy;que odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
+   <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
+   <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec con&shy;sec&shy;te&shy;tu&shy;er ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
+   <li>Pel&shy;len&shy;tes&shy;que fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
+</ul>
+
+<ol>
+   <li>Lorem ipsum dolor sit amet, con&shy;sec&shy;te&shy;tu&shy;er adipiscing elit.</li>
+   <li>Aliquam tincidunt mauris eu risus.</li>
+   <li>Vestibulum auctor dapibus neque.</li>
+</ol>
+
+<dl>
+   <dt>Definition list</dt>
+   <dd>Con&shy;sec&shy;te&shy;tur adi&shy;pi&shy;si&shy;cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua. Ut enim ad minim veniam, quis nostrud ex&shy;er&shy;ci&shy;ta&shy;ti&shy;on ullamco laboris nisi ut aliquip ex ea
+commodo consequat.</dd>
+   <dt>Lorem ipsum dolor sit amet</dt>
+   <dd>Con&shy;sec&shy;te&shy;tur adi&shy;pi&shy;si&shy;cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua. Ut enim ad minim veniam, quis nostrud ex&shy;er&shy;ci&shy;ta&shy;ti&shy;on ullamco laboris nisi ut aliquip ex ea
+commodo consequat.</dd>
+</dl>
+
+<h3>überlanger Code (unten wegen dem Grid)</h3>
+
+<p>Kürzlich bin ich auf einen Artikel von <a href="https://medium.com/@mwichary">Marcin Wichary</a> gestoßen, der dieses Problem löst: <a href="https://medium.com/p/7c03a9274f9">&ldquo;Crafting link underlines on Medium&rdquo;</a>. In dem sehr le&shy;sens&shy;wer&shy;ten Artikel wird auf pro und contra von Link-Un&shy;ter&shy;strei&shy;chung im All&shy;ge&shy;mei&shy;nen und ver&shy;schie&shy;de&shy;nen Techniken im Speziellen ein&shy;ge&shy;gan&shy;gen. Am Ende schaut die Lösung so aus:</p>
+<pre>a, a:link, a:visited {
+    color: #333;
+    text-decoration: none;
+    position: relative;
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 3px, rgba(0, 0, 0, 0) 3px);
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    a {
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #333333 2px, #333333 2.5px, rgba(0, 0, 0, 0) 2.5px);
+    }
+}
+
+a:hover, a:focus {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #666 2px, #666 3px, rgba(0, 0, 0, 0) 3px);
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+    a:hover, a:focus {
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #666 2px, #666 2.5px, rgba(0, 0, 0, 0) 2.5px);
+    }
+}</pre>
+
+<p><strong>Trick 1:</strong> Links bekommen ein Hin&shy;ter&shy;grund&shy;bild, das keine Datei oder DataURI nutzt, sondern Gradients.</p>
+<p><strong>Trick 2:</strong> Ein Text-Shadow, un&shy;ter&shy;bricht die Linie bei Buchstaben mit Unterlänge.</p>
+<p>Achtgeben muss man auf Links, die nicht nur Text enthalten. Wird z.B. ein Bild verlinkt, erhält dieses auch eine solche Un&shy;ter&shy;strei&shy;chung. Das muss dann mittels &ldquo;background-image:none;&rdquo; un&shy;ter&shy;bun&shy;den werden &mdash; und zwar am Link statt am Bild. Bei großen Seiten kann es hier haarig werden und der Nutzen recht&shy;fer&shy;tigt den Aufwand vielleicht nicht mehr. Dasselbe gilt für Links im Button-Stil usw.</p>
+<h3>Bilder (unten wegen dem Grid)</h3>
+
+<figure>
+    <img src="/images/2016/05/warschau-panorama.jpg" alt="beautiful city of Warsaw"/>
+    <figcaption>beautiful Warsaw</figcaption>
+</figure>
+
+<p>Achtgeben muss man auf Links, die nicht nur Text enthalten. Wird z.B. ein Bild verlinkt, erhält dieses auch eine solche Un&shy;ter&shy;strei&shy;chung. Das muss dann mittels &ldquo;background-image:none;&rdquo; un&shy;ter&shy;bun&shy;den werden &mdash; und zwar am Link statt am Bild. Bei großen Seiten kann es hier haarig werden und der Nutzen recht&shy;fer&shy;tigt den Aufwand vielleicht nicht mehr. Dasselbe gilt für Links im Button-Stil usw.</p>
+<figure>
+    <img src="/images/2016/05/front-trends-venue.jpg" alt="The venue: Warsaws Star Club"/>
+    <figcaption>Lorem ipsum dolor sit amet, con&shy;sec&shy;te&shy;tur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</figcaption>
+</figure>
+
+</article>
+</body>
+</html>

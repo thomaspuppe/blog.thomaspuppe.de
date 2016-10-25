@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /** REMIFY! https://gist.github.com/colinmeinke/6607359 */
 @font-face {
   font-family: "League Spartan";
@@ -106,6 +107,8 @@ header {
   .post blockquote {
     border-left: 4px #292929 solid;
     padding-left: 1em; }
+    .post blockquote cite:before {
+      content: "— "; }
   .post a, .post a:link, .post a:visited, .post a:hover, .post a:focus {
     color: #292929;
     text-decoration: none;

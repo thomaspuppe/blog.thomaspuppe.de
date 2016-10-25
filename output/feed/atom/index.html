@@ -11,8 +11,111 @@
     <link rel="self" type="application/atom+xml" href="http://blog.thomaspuppe.de/feed/atom/" />
     <icon>http://blog.thomaspuppe.de/favicon.ico</icon>
     <logo>http://blog.thomaspuppe.de/feed-logo.png</logo>
-    <updated>2016-05-19T22:00:00Z</updated>
+    <updated>2016-10-17T22:00:00Z</updated>
     <generator uri="https://github.com/posativ/acrylamid/" version="0.7.10">acrylamid</generator>
+        <entry>
+        <title>Inodes im Linux: Volle Festplatte, obwohl noch Platz ist?</title>
+        <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.deinodes-linux-festplatte-voll" />
+        <id>tag:blog.thomaspuppe.de,2016-10-18:inodes-linux-festplatte-voll</id>
+        <updated>2016-10-17T22:00:00Z</updated>
+        <category term="Webentwicklung" />
+        
+        <author>
+            <name>Thomas Puppe</name>
+            <uri>http://blog.thomaspuppe.de/</uri>
+            <email>info@thomaspuppe.de</email>
+        </author>
+        <content type="html">&lt;p&gt;Kürzlich fiel mein &lt;a href=&#34;http://www.bundestwitter.de&#34;&gt;Bundestwitter&lt;/a&gt;-Server aus. Bei der Suche nach der Ursache habe ich einige neue Dinge über Linux gelernt, die ich hier dokumentieren möchte.&lt;/p&gt;
+&lt;p&gt;Die Tweet-Sammel-Cronjobs auf meinem Linux (Ubuntu) Server meldeten sich, dass sie keine Daten mehr schreiben könnten. Ich kenne das Problem schon, wenn zu viele Logs und Backups herumliegen ohne aufgeräumt zu werden.&lt;/p&gt;
+&lt;p&gt;Diesmal allerdings sagt &lt;code&gt;df -h&lt;/code&gt;, es sei noch ordentlich Platz auf der Platte frei:&lt;/p&gt;
+&lt;pre&gt;
+Size    Used    Avail    Use%
+ 77G     50G      28G    65%&lt;/pre&gt;
+
+&lt;p&gt;Nach kurzer Recherche stieß ich darauf, dass nicht nur der Platz auf der Festplatte begrenzt ist, sondern auch die maximale Zahl der Dateien. Wikipedia sagt:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Die Anzahl der möglichen Inodes und somit der möglichen Dateien ist bei manchen Dateisystemen beschränkt; wird die Maximalanzahl erreicht, lassen sich keine weiteren Dateien anlegen.&lt;/p&gt;
+&lt;p&gt;&amp;mdash; &lt;a href=&#34;https://de.wikipedia.org/wiki/Inode#Praxis&#34;&gt;Wikipedia: Inode&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Also: &lt;code&gt;df -i&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;
+ Inodes      IUsed   IFree    IUse%
+1000000    1000000       0     100%&lt;/pre&gt;
+
+&lt;p&gt;Eine Lösung könnte darin bestehen, die Festplatte neu zu formatieren und die Zahl der möglichen Inodes höher festzulegen. Ob das bei meinem 1und1 VirtualServer so einfach möglich ist, ist fraglich. Zunächst möchte ich aber wissen, wo diese vielen Dateien liegen und woher sie kommen. Bundestwitter legt zwar viele Logfiles für Tweets an, aber diese werden regelmäßig gepackt, heruntergeladen und vom Server gelöscht. Sie erklären die volle Platte vermutlich nicht.&lt;/p&gt;
+&lt;p&gt;Ich suche also einen Befehl, der mir zeigt, in welchen Verzeichnissen viele Inodes verbraucht werden. Google ist mein Freund:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;find /var/www/ -xdev -printf &#39;%h\n&#39; | sort | uniq -c | sort -k 1 -n&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;... listet alle Folder und subfolder mit der Zahl ihrer enthaltenen Inodes auf. Was ggf. sehr lang wird &amp;mdash; in meinem Fall knapp 2000 Einträge:&lt;/p&gt;
+&lt;pre&gt;
+1       /var/www/blog_thomaspuppe_de/assets
+[... 2000 weitere Einträge ...]
+2563    /var/www/bundestwitter/cache/www_bundestwitter_de/connectionStatistics&lt;/pre&gt;
+
+&lt;p&gt;Das hilft also nur bei überschaubarer Ordnertiefe. Besser ist dieser Befehl, der die Anzahl der Inodes in einem Verzeichnis (oder in jedem Unterverzeichnis) zeigt:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;for i in /var/www/*; do echo $i; find $i | wc -l | sort ; done&lt;/code&gt; (ohne &#34;/*&#34; für das einzelne Verzeichnis):&lt;/p&gt;
+&lt;pre&gt;
+104      /var/www/blog_thomaspuppe_de
+76266    /var/www/bundestwitter
+2        /var/www/html
+1371     /var/www/lab_thomaspuppe_de
+32748    /var/www/socialmediapolitik
+2        /var/www/thomas_works
+3        /var/www/www_meetingtimer_biz
+101      /var/www/www_thomaspuppe_de
+&lt;/pre&gt;
+
+&lt;p&gt;Es zeigt sich, dass Bundestwitter nicht der Verursacher ist. Aber mit dem genannten Befehl kann ich nun die Ordner des Root-Verzeichnisses auflisten ...&lt;/p&gt;
+&lt;pre&gt;sudo su #(um sich eine Menge &#34;Permission denied&#34; Meldungen zu sparen)
+for i in /*; do echo $i; find $i | wc -l | sort ; done&lt;/pre&gt;
+
+&lt;p&gt;... zeigt, dass die allermeisten Inodes in &lt;code&gt;/var&lt;/code&gt; verbraucht werden. (Warum in &lt;code&gt;proc&lt;/code&gt; so viel los ist, wird Gegenstand einer anderen Untersuchung sein.)&lt;/p&gt;
+&lt;pre&gt;
+16        /home
+22271     /proc
+29687     /usr
+953965    /var
+&lt;/pre&gt;
+
+&lt;p&gt;Von hier aus kann ich mich mit dem Befehl &lt;code&gt;for i in /var/*; do echo $i; find $i | wc -l | sort ; done&lt;/code&gt; usw. fortbewegen.&lt;/p&gt;
+&lt;pre&gt;
+662       /var/log
+836952    /var/spool
+112120    /var/www
+&lt;/pre&gt;
+
+&lt;p&gt;In &lt;code&gt;/var/spool&lt;/code&gt; liegt also sehr viel Zeugs. Dies ist das &#34;Verzeichnis für abzuarbeitende Warteschlangen (Druckaufträge, E-Mail-Versandaufträge …)&#34;
+(&lt;a href=&#34;https://de.wikipedia.org/wiki/Filesystem_Hierarchy_Standard&#34;&gt;Wikipedia&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Mit der bekannten Technik taste ich mich weiter voran und stoße auf ein Verzeichnis, in dem fast alle Dateien liegen:&lt;/p&gt;
+&lt;pre&gt;836836    /var/spool/postfix/maildrop&lt;/pre&gt;
+
+&lt;p&gt;Das sind also felgeschlagene Versuche des Systems, E-Mails zu versenden. Stichproben (&lt;code&gt;cat /var/spool/postfix/maildrop/D7E6A90D4CA9&lt;/code&gt;) ergeben, dass meine Cronjobs versuchen, Mails zu versenden.&lt;/p&gt;
+&lt;h5&gt;Ich habe also meinen Übeltäter. Nun geht es ans Aufräumen.&lt;/h5&gt;
+&lt;p&gt;Die erste Maßnahme, für den Seelenfrieden, ist natürlich&lt;/p&gt;
+&lt;pre&gt;sudo rm -rf /var/spool/postfix/maildrop/*
+bash: /bin/rm: Argument list too long&lt;/pre&gt;
+
+&lt;p&gt;Eine schnelle Suche führt mich auf`&lt;a href=&#34;http://www.sysadminslife.com/linux/bash-binrm-die-argumentliste-ist-zu-lang/&#34;&gt;sysadminslife.com&lt;/a&gt;, wo folgender Befehl vorgeschlagen wird:&lt;/p&gt;
+&lt;pre&gt;find -type f -print0 | xargs -0 rm&lt;/pre&gt;
+
+&lt;p&gt;An der Stelle möchte ich Explainshell erwähnen. Eine Website, die Shell-Befehle aufdröselt und die einzelnen Bestandteile erklärt. &lt;a href=&#34;http://explainshell.com/explain?cmd=find+-type+f+-print0+%7C+xargs+-0+rm&#34;&gt;http://explainshell.com/explain?cmd=find+-type+f+-print0+%7C+xargs+-0+rm&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Ta dah:&lt;/p&gt;
+&lt;pre&gt;$ ls /var/spool/postfix/maildrop | wc -l
+14
+
+$ df -i
+Inodes      IUsed     IFree    IUse%
+1000000    143491    856509      15%
+&lt;/pre&gt;
+
+&lt;p&gt;Es bleibt die Frage: Wie vermeide ich, dass die Ausführung der Cronjobs Mails erzeugt (die dann in der Spool Queue landen)?&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.cyberciti.biz/faq/disable-the-mail-alert-by-crontab-command/&#34;&gt;http://www.cyberciti.biz/faq/disable-the-mail-alert-by-crontab-command/&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The crontab command is used to maintain crontab files for individual users. By default the output of a command or a script (if any produced), will be email to your local email account.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Die einfachste Methode, dies zu verhindern, ist die Zeile &lt;code&gt;MAILTO=&#34;&#34;&lt;/code&gt; an den beginn der Crontab-Datei (&lt;code&gt;crontab -e&lt;/code&gt;) zu schreiben. Damit werden alle Cron-Mails aus diesr Datei unterdrückt. Alternativ kann man auch pro Zeile den Versand von Mails verhintern durch den Output nach /dev/null: &lt;code&gt;0 1 5 10 * /path/to/script.sh &amp;gt; /dev/null&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Kleines Extra: In Zukunft möchte ich eine Warnung erhalten, wenn der Plattenplatz (oder die Inodes) zur Neige gehen. Der Test dafür ist leicht geschrieben (siehe oben), und einen Mechanismus zur Benachrichtigung habe ich schon für andere Zwecke. Und zwar benutze ich den Service und die App von &lt;a href=&#34;https://www.pushover.net&#34;&gt;Pushover: Simple Notifications for Android, iOS, and Desktop&lt;/a&gt; und &lt;a href=&#34;https://deadmanssnitch.com/&#34;&gt;Dead Man&#39;s Snitch — A dead simple cron job monitoring tool&lt;/a&gt;.&lt;/p&gt;</content>
+    </entry>
+    
         <entry>
         <title>Front Trends 2016 in Warsaw: Day 3</title>
         <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.defront-trends-2016-warsaw-day-three" />
