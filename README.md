@@ -1,12 +1,14 @@
-TODO 
+# Installation
 
-This should be filled... 
+	$ virtualenv blog
+	$ cd blog
+	$ source bin/activate
+	$ pip install acrylamid
+	$ git clone git@github.com:thomaspuppe/blog.thomaspuppe.de.git
+	$ git cd blog.thomaspuppe.de
+	$ npm install
 
-
-    sudo easy_install -U acrylamid
-    // sass should be installed
-    // define config sass and acrylamid as requirements.txt?
-
+# Run it
 
     // during development open two consoles:
     $ acrylamid autocompile
