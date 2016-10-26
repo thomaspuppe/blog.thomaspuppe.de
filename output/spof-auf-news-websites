@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class="grid" lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Single Point Of Failure auf News-Websites</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="Kaputte Third-Party Scripts können Websites lahmlegen. Ich untersuche einige Nachrichten-Websites auf deren Robustheit für dieses Problem." />
+    <meta name="keywords" content="Webentwicklung" />
+</head>
+<body>
+  <header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Webentwicklung
+		</span>
+		<time datetime="2016-10-26">
+			
+			26. Oktober 2016
+		</time>
+	</div>
+
+    <h1 class="post__title">Single Point Of Failure auf News-Websites</h1>
+
+    <p>Moderne Websites binden häufig Inhalte und Code von fremden Servern ein. Seien es Social-Media-Widgets, Tracking, oder Werbung. News-Websites verwenden all diese Dinge. Und damit ist die Ver&shy;füg&shy;bar&shy;keit und Ge&shy;schwin&shy;dig&shy;keit der News-Website unter Umständen abhängig von der Ver&shy;füg&shy;bar&shy;keit und Ge&shy;schwin&shy;dig&shy;keit der fremden Anbieter. Was diese Umstände sind, wie man sie erkennt, und aus&shy;schal&shy;tet, erkläre ich in diesem Artikel an einigen Beispielen.</p>
+<h2>Was ist ein SPOF und was ist daran schlimm?</h2>
+<p>Ein "Single Point of Failure" (SPOF) ist ein Be&shy;stand&shy;teil eines Systems, dessen Ausfall das gesamte System be&shy;ein&shy;träch&shy;tigt. Auf einer Website heißt das: ein Element der Website, das die gesamte Seite be&shy;ein&shy;träch&shy;tigt, wenn es einen Fehler hat, langsam ist, oder überhaupt nicht verfügbar ist. Was eine "Be&shy;ein&shy;träch&shy;ti&shy;gung der Seite" ist, darüber kann man streiten. Im Kontext dieses Artikels ist eine News-Website be&shy;ein&shy;träch&shy;tigt, wenn man keine Inhalte lesen kann.</p>
+<h2>Wie entsteht so etwas?</h2>
+<p>Der SPOF kann auf einer Website an ver&shy;schie&shy;de&shy;nen Stellen sitzen. Of&shy;fen&shy;sicht&shy;lich ist der Fall, dass der Server, der die HTML-Seiten ausliefert, nicht verfügbar ist. Dann gibt es keine Inhalte, die mit weiteren Scripten "an&shy;ge&shy;rei&shy;cher&shy;t" werden könnten. Das ist der Worst Case, und es gibt Strategien dagegen, aber das soll hier nicht das Thema sein.</p>
+<p>In&shy;ter&shy;es&shy;sant sind die Si&shy;tua&shy;tio&shy;nen, in denen der ei&shy;gent&shy;li&shy;che Inhalt -- das HTML -- sehr wohl verfügbar ist. Aber externe Scripte den schon geladenen Inhalt dann verzögern, be&shy;schä&shy;di&shy;gen, blockieren. Diesen Fällen möchte ich mich hier widmen.</p>
+<h2>Simulation von SPOF</h2>
+<p>Steve Souders befasst sich in dem sehr guten Artikel "<a href="https://www.stevesouders.com/blog/2010/06/01/frontend-spof/">Frontend SPOF</a>" mit SPOFs und liefert einen tollen Trick, mit dem man einen kaputten Server simulieren kann. Und zwar wird der Domain des zu testenden Hosts mittels der lokalen Hosts-Datei auf dem Test&shy;rech&shy;ner ins Leere geführt. Man weist ihm einfach eine falsche IP-Adresse zu.</p>
+<p>Das kann entweder Localhost sein. In dem Fall würde der Request schnell fehl&shy;schla&shy;gen, meist mit Fehler 404. Das simuliert einen kaputten Third-Par&shy;ty&shy;_&shy;Ser&shy;ver. Oder man leitet den Request zum "Blackhole-Service" vom Web&shy;page&shy;test.org. Dieser Server antwortet einfach nicht auf Requests, und lässt diese somit in einen Timeout laufen. Das simuliert, dass ein Third-Party-Server überlastet ist.</p>
+<p>Wenn ohne Werbung auch kein Inhalt geliefert wird, kann das vielleicht ver&shy;ar&shy;gu&shy;men&shy;tiert werden -- schließ&shy;lich werden AdBlocker-Blocker genau mit dieser Begründung ge&shy;recht&shy;fer&shy;tigt.</p>
+<p>Dass aber ein Tracking-Tool wie Chartbeat in der lage ist, die Webseite lahm&shy;zu&shy;le&shy;gen, ist ein Desaster. Und kein theo&shy;re&shy;ti&shy;sches. Genau das ist (auch mir) schon passiert: TODO: Quelle suchen.</p>
+<p>TODO: jQuery Outage suchen</p>
+<h3>- http://de.slideshare.net/pa&shy;trick&shy;me&shy;en&shy;an/frontend-spof</h3>
+<ul>
+<li>Google sperrt document.write aus</li>
+</ul>
+<h2>Wie umgeht man den SPOF?</h2>
+<h2>Simulation</h2>
+<ul>
+<li>https://www.ste&shy;ves&shy;ou&shy;ders.com/blog/2010/06/01/frontend-spof/ (mit Hosts-Sache)</li>
+</ul>
+<p>Weil localhost schnell fehl&shy;schlägt, bracht es das Blackhole.</p>
+<ul>
+<li>Extension https://chrome.google.com/webstore/detail/spof-o-matic/plikhggfbplemd&shy;do&shy;bondkeogom&shy;goo&shy;deg</li>
+</ul>
+<p>-</p>
+<h1></h1>
+<blockquote>
+<p>Weil localhost schnell fehl&shy;schlägt, bracht es das Blackhole.</p>
+</blockquote>
+<p>Wenn es schnell fehl&shy;schla&shy;gen soll, dann ist localhost cool. So kann man z.B. bestimmte Tracker effektiv und systemweit aus&shy;schal&shy;ten (AdBlocking/Track&shy;blo&shy;cking home made).</p>
+<p>Süd&shy;deut&shy;sche
+- Chartbeat</p>
+<p>ZEIT Online
+- http://static.chartbeat.com/js/chart&shy;bea&shy;t_&shy;m&shy;ab.js</p>
+<hr />
+<p>Weitere Per&shy;for&shy;mance-Sachen:
+- Ge&shy;wichts&shy;ver&shy;gleich, Ladezeit, Scores
+- Textinhalt/Gesamtcode Verhältnis der HP und eines Artikels
+-</p>
+<h3>Quellen:</h3>
+<ul>
+<li>http://de.slideshare.net/pa&shy;trick&shy;me&shy;en&shy;an/frontend-spof</li>
+<li>https://www.ste&shy;ves&shy;ou&shy;ders.com/blog/2010/06/01/frontend-spof/</li>
+</ul>
+
+</article>
+</body>
+</html>

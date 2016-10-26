@@ -11,8 +11,67 @@
     <link rel="self" type="application/atom+xml" href="http://blog.thomaspuppe.de/feed/atom/" />
     <icon>http://blog.thomaspuppe.de/favicon.ico</icon>
     <logo>http://blog.thomaspuppe.de/feed-logo.png</logo>
-    <updated>2016-10-17T22:00:00Z</updated>
+    <updated>2016-10-25T22:00:00Z</updated>
     <generator uri="https://github.com/posativ/acrylamid/" version="0.7.10">acrylamid</generator>
+        <entry>
+        <title>Single Point Of Failure auf News-Websites</title>
+        <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.despof-auf-news-websites" />
+        <id>tag:blog.thomaspuppe.de,2016-10-26:spof-auf-news-websites</id>
+        <updated>2016-10-25T22:00:00Z</updated>
+        <category term="Webentwicklung" />
+        
+        <author>
+            <name>Thomas Puppe</name>
+            <uri>http://blog.thomaspuppe.de/</uri>
+            <email>info@thomaspuppe.de</email>
+        </author>
+        <content type="html">&lt;p&gt;Moderne Websites binden häufig Inhalte und Code von fremden Servern ein. Seien es Social-Media-Widgets, Tracking, oder Werbung. News-Websites verwenden all diese Dinge. Und damit ist die Verfügbarkeit und Geschwindigkeit der News-Website unter Umständen abhängig von der Verfügbarkeit und Geschwindigkeit der fremden Anbieter. Was diese Umstände sind, wie man sie erkennt, und ausschaltet, erkläre ich in diesem Artikel an einigen Beispielen.&lt;/p&gt;
+&lt;h3&gt;Was ist ein SPOF und was ist daran schlimm?&lt;/h3&gt;
+&lt;p&gt;Ein &#34;Single Point of Failure&#34; (SPOF) ist ein Bestandteil eines Systems, dessen Ausfall das gesamte System beeinträchtigt. Auf einer Website heißt das: ein Element der Website, das die gesamte Seite beeinträchtigt, wenn es einen Fehler hat, langsam ist, oder überhaupt nicht verfügbar ist. Was eine &#34;Beeinträchtigung der Seite&#34; ist, darüber kann man streiten. Im Kontext dieses Artikels ist eine News-Website beeinträchtigt, wenn man keine Inhalte lesen kann.&lt;/p&gt;
+&lt;h3&gt;Wie entsteht so etwas?&lt;/h3&gt;
+&lt;p&gt;Der SPOF kann auf einer Website an verschiedenen Stellen sitzen. Offensichtlich ist der Fall, dass der Server, der die HTML-Seiten ausliefert, nicht verfügbar ist. Dann gibt es keine Inhalte, die mit weiteren Scripten &#34;angereichert&#34; werden könnten. Das ist der Worst Case, und es gibt Strategien dagegen, aber das soll hier nicht das Thema sein.&lt;/p&gt;
+&lt;p&gt;Interessant sind die Situationen, in denen der eigentliche Inhalt -- das HTML -- sehr wohl verfügbar ist. Aber externe Scripte den schon geladenen Inhalt dann verzögern, beschädigen, blockieren. Diesen Fällen möchte ich mich hier widmen.&lt;/p&gt;
+&lt;h3&gt;Simulation von SPOF&lt;/h3&gt;
+&lt;p&gt;Steve Souders befasst sich in dem sehr guten Artikel &#34;&lt;a href=&#34;https://www.stevesouders.com/blog/2010/06/01/frontend-spof/&#34;&gt;Frontend SPOF&lt;/a&gt;&#34; mit SPOFs und liefert einen tollen Trick, mit dem man einen kaputten Server simulieren kann. Und zwar wird der Domain des zu testenden Hosts mittels der lokalen Hosts-Datei auf dem Testrechner ins Leere geführt. Man weist ihm einfach eine falsche IP-Adresse zu.&lt;/p&gt;
+&lt;p&gt;Das kann entweder Localhost sein. In dem Fall würde der Request schnell fehlschlagen, meist mit Fehler 404. Das simuliert einen kaputten Third-Party_Server. Oder man leitet den Request zum &#34;Blackhole-Service&#34; vom Webpagetest.org. Dieser Server antwortet einfach nicht auf Requests, und lässt diese somit in einen Timeout laufen. Das simuliert, dass ein Third-Party-Server überlastet ist.&lt;/p&gt;
+&lt;p&gt;Wenn ohne Werbung auch kein Inhalt geliefert wird, kann das vielleicht verargumentiert werden -- schließlich werden AdBlocker-Blocker genau mit dieser Begründung gerechtfertigt.&lt;/p&gt;
+&lt;p&gt;Dass aber ein Tracking-Tool wie Chartbeat in der lage ist, die Webseite lahmzulegen, ist ein Desaster. Und kein theoretisches. Genau das ist (auch mir) schon passiert: TODO: Quelle suchen.&lt;/p&gt;
+&lt;p&gt;TODO: jQuery Outage suchen&lt;/p&gt;
+&lt;h4&gt;- http://de.slideshare.net/patrickmeenan/frontend-spof&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Google sperrt document.write aus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Wie umgeht man den SPOF?&lt;/h3&gt;
+&lt;h3&gt;Simulation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;https://www.stevesouders.com/blog/2010/06/01/frontend-spof/ (mit Hosts-Sache)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Weil localhost schnell fehlschlägt, bracht es das Blackhole.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Extension https://chrome.google.com/webstore/detail/spof-o-matic/plikhggfbplemddobondkeogomgoodeg&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;-&lt;/p&gt;
+&lt;h1&gt;&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Weil localhost schnell fehlschlägt, bracht es das Blackhole.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Wenn es schnell fehlschlagen soll, dann ist localhost cool. So kann man z.B. bestimmte Tracker effektiv und systemweit ausschalten (AdBlocking/Trackblocking home made).&lt;/p&gt;
+&lt;p&gt;Süddeutsche
+- Chartbeat&lt;/p&gt;
+&lt;p&gt;ZEIT Online
+- http://static.chartbeat.com/js/chartbeat_mab.js&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Weitere Performance-Sachen:
+- Gewichtsvergleich, Ladezeit, Scores
+- Textinhalt/Gesamtcode Verhältnis der HP und eines Artikels
+-&lt;/p&gt;
+&lt;h4&gt;Quellen:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;http://de.slideshare.net/patrickmeenan/frontend-spof&lt;/li&gt;
+&lt;li&gt;https://www.stevesouders.com/blog/2010/06/01/frontend-spof/&lt;/li&gt;
+&lt;/ul&gt;</content>
+    </entry>
+    
         <entry>
         <title>Inodes im Linux: Volle Festplatte, obwohl noch Platz ist?</title>
         <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.deinodes-linux-festplatte-voll" />
