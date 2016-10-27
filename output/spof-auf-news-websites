@@ -40,7 +40,7 @@
 <p>Steve Souders befasst sich in dem sehr guten Artikel "<a href="https://www.stevesouders.com/blog/2010/06/01/frontend-spof/">Frontend SPOF</a>" mit SPOFs und liefert einen tollen Trick, mit dem man einen kaputten Server simulieren kann. Und zwar wird der Domain des zu testenden Hosts mittels der lokalen Hosts-Datei auf dem Test&shy;rech&shy;ner ins Leere geführt. Man weist ihm einfach eine falsche IP-Adresse zu.</p>
 <p>Das kann entweder Localhost sein. In dem Fall würde der Request schnell fehl&shy;schla&shy;gen, meist mit Fehler 404. Das simuliert einen kaputten Third-Par&shy;ty&shy;_&shy;Ser&shy;ver. Oder man leitet den Request zum "Blackhole-Service" vom Web&shy;page&shy;test.org. Dieser Server antwortet einfach nicht auf Requests, und lässt diese somit in einen Timeout laufen. Das simuliert, dass ein Third-Party-Server überlastet ist.</p>
 <p>Wenn ohne Werbung auch kein Inhalt geliefert wird, kann das vielleicht ver&shy;ar&shy;gu&shy;men&shy;tiert werden -- schließ&shy;lich werden AdBlocker-Blocker genau mit dieser Begründung ge&shy;recht&shy;fer&shy;tigt.</p>
-<p>Dass aber ein Tracking-Tool wie Chartbeat in der lage ist, die Webseite lahm&shy;zu&shy;le&shy;gen, ist ein Desaster. Und kein theo&shy;re&shy;ti&shy;sches. Genau das ist (auch mir) schon passiert: TODO: Quelle suchen.</p>
+<p>Dass aber ein Tracking-Tool wie Chartbeat in der Lage ist, die Webseite lahm&shy;zu&shy;le&shy;gen, ist ein Desaster. Und kein theo&shy;re&shy;ti&shy;sches. Genau das ist (auch mir) schon passiert: TODO: Quelle suchen.</p>
 <p>TODO: jQuery Outage suchen</p>
 <h3>- http://de.slideshare.net/pa&shy;trick&shy;me&shy;en&shy;an/frontend-spof</h3>
 <ul>
@@ -61,15 +61,148 @@
 <p>Weil localhost schnell fehl&shy;schlägt, bracht es das Blackhole.</p>
 </blockquote>
 <p>Wenn es schnell fehl&shy;schla&shy;gen soll, dann ist localhost cool. So kann man z.B. bestimmte Tracker effektiv und systemweit aus&shy;schal&shy;ten (AdBlocking/Track&shy;blo&shy;cking home made).</p>
-<p>Süd&shy;deut&shy;sche
-- Chartbeat</p>
-<p>ZEIT Online
-- http://static.chartbeat.com/js/chart&shy;bea&shy;t_&shy;m&shy;ab.js</p>
-<hr />
-<p>Weitere Per&shy;for&shy;mance-Sachen:
-- Ge&shy;wichts&shy;ver&shy;gleich, Ladezeit, Scores
-- Textinhalt/Gesamtcode Verhältnis der HP und eines Artikels
--</p>
+<h2>Zur Sache: SPOF auf deutschen News-Websites</h2>
+<p>Für meinen Test habe ich acht deutsche Nach&shy;rich&shy;ten-Websites her&shy;an&shy;ge&shy;zo&shy;gen. Grundlage für meine Auswahl waren die Zu&shy;griffs&shy;zah&shy;len laut Statista, und die taz aus Interesse.</p>
+<p>Mein Vorgehen: im jeweiligen Quellcode der Seite habe ich nach den beiden Triggern für blo&shy;ckie&shy;ren&shy;des JavaScript gesucht: <code>document.write</code> und <code>&lt;script src=""</code> ohne <code>async</code>. Von der Liste der gefundenen Dateien habe ich dieh&shy;je&shy;ni&shy;gen aus&shy;ge&shy;nom&shy;men, die unter der Domain der zeitung laufen. Auch wenn Subdomains in der Art <code>scripts.zeit.de</code> oder <code>code.bildstatic.de</code>  vielleicht schon eine Art third-party sind (CDN bzw Proxy_&shy;Ser&shy;ver zu einem anderen Hoster), habe ich das als Self-Hosted gewertet. Im Sinne von "wenn das ausfällt, ist kein Fremder schuld sondern du selber". Die übrigen Hosts habe ich dann in meiner <code>/etc/hosts</code>-Datei blockiert, indem ich sie auf die IP des Web&shy;page&shy;test Blackhole schicke: <code>72.66.115.13  www.googletagmanager.com</code>.</p>
+<h3>Test 1: IVW Zählung</h3>
+<p>Es gibt eine Sache, die alle be&shy;trach&shy;te&shy;ten Websites gemeinsam haben. Und zwar die "IVW-Zählung". Die IVW ist die "<a href="https://de.wikipedia.org/wiki/Informationsgemeinschaft_zur_Feststellung_der_Verbreitung_von_Werbetr%C3%A4gern">In&shy;for&shy;ma&shy;ti&shy;ons&shy;ge&shy;mein&shy;schaft zur Fest&shy;stel&shy;lung der Ver&shy;brei&shy;tung von Wer&shy;be&shy;trä&shy;gern</a>". Sie erfasst die Reichweite vieler Medien, und dient damit nicht nur zur un&shy;ab&shy;hän&shy;gi&shy;gen Fest&shy;stel&shy;lung von Reichweite, sondern auch zur Verteilung von Wer&shy;be&shy;er&shy;lö&shy;sen.</p>
+<p>Da machen alle be&shy;trach&shy;te&shy;ten Medien mit, und daher haben auch alle die Datei <code>https://script.ioam.de/iam.js</code> ein&shy;ge&shy;bun&shy;den. Was passiert also, wenn ich den Host <code>script.ioam.de</code> blockiere -- oder er tat&shy;säch&shy;lich ausfällt bzw lahmt?</p>
+<table>
+    <tr>
+        <td></td>
+        <td>Bild</td>
+        <td>Spiegel</td>
+        <td>Focus</td>
+        <td>Welt</td>
+        <td>Stern</td>
+        <td>SZ</td>
+        <td>taz</td>
+        <td>Zeit</td>
+    </tr>
+    <tr>
+        <td>IVW</td>
+        <td style="background-color:red;">BLOCKIERT</td>
+        <td style="background-color:red;">BLOCKIERT</td>
+        <td style="background-color:red;">BLOCKIERT</td>
+        <td style="background-color:green;">läuft</td>
+        <td style="background-color:red;">BLOCKIERT</td>
+        <td style="background-color:red;">BLOCKIERT</td>
+        <td style="background-color:red;">BLOCKIERT</td>
+        <td style="background-color:red;">BLOCKIERT</td>
+    </tr>
+</table>
+
+<p>Alle Seiten bis auf welt.de bleiben weiß. Der Nutzer sieht keinen Inhalt, und nichts passiert solange das Zähl-Script der IWV geladen und ausgeführt wird.</p>
+<p>Auch unter besten Be&shy;din&shy;gun&shy;gen hat das einen Per&shy;for&shy;mance-Impact. Bei meinen Tests benötigte das Script zwischen 35 und 180ms zum Laden. Jede Seite muss also immer warten. Meistens unmerklich. Erst wenn es Probleme beim Laden gibt, wird der Single Point of Failure zu einem Problem.</p>
+<p>Einzig die Welt lädt ihren Zählpixel asynchron und im Footer der Seite. Das heißt, auch wenn es beim Laden Probleme gibt, wird immerhin der gesamte Inhalt dar&shy;ge&shy;stellt.</p>
+<h3>Test 2: Gogole Analytics und TagManager</h3>
+<p>Als nächstes habe ich mir die Stan&shy;dard&shy;tools von Google angesehen. Auch sie werden von fast allen Medien genutzt.</p>
+<table>
+    <tr>
+        <td></td>
+        <td>Bild</td>
+        <td>Spiegel</td>
+        <td>Focus</td>
+        <td>Welt</td>
+        <td>Stern</td>
+        <td>SZ</td>
+        <td>taz</td>
+        <td>Zeit</td>
+    </tr>
+    <tr>
+        <td>Google Analytics</td>
+        <td>-</td>
+        <td style="background-color:green;">OK</td>
+        <td>-</td>
+        <td style="background-color:green;">OK</td>
+        <td style="background-color:green;">OK</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td>Google TagManager</td>
+        <td>-</td>
+        <td>-</td>
+        <td style="background-color:green;">OK</td>
+        <td>-</td>
+        <td>-</td>
+        <td style="background-color:green;">OK</td>
+        <td>-</td>
+        <td style="background-color:green;">OK</td>
+    </tr>
+</table>
+
+<p>Da Google die Einbindung grund&shy;sätz&shy;lich asynchron empfiehlt, stellen diese Tools keinen SPOF dar. Und folglich spielen auch alle Dinge, die über den TagManager nach&shy;ge&shy;la&shy;den werden (zum Beispiel Analytics, das dann auch nicht mit betrachtet wird), keine Rolle mehr für die Un&shy;ter&shy;su&shy;chung. Dass sie die korrekt geladene Seite dennoch wieder langsam machen und bis zur Un&shy;kennt&shy;lich&shy;keit ma&shy;ni&shy;pu&shy;lie&shy;ren können, ist hier nicht das Thema.</p>
+<h3>Test 3: Facebook und Twitter</h3>
+<p>Einzig die Süd&shy;deut&shy;sche Zeitung bindet auf der Homepage direkt (ohne Umweg über den Google TagManager) Facebook und Twitter Krams ein. Beides aber nicht blo&shy;ckie&shy;rend. Also kein SPOF.</p>
+<h3>Test 4: Chartbeat</h3>
+<p>Chartbeat ist ein Tool, mit dem man live die Be&shy;su&shy;cher&shy;stö&shy;me auf einer Website anschauen kann, samt Herkunft und In&shy;ter&shy;ak&shy;tio&shy;nen.</p>
+<table>
+    <tr>
+        <td></td>
+        <td>Bild</td>
+        <td>Spiegel</td>
+        <td>Focus</td>
+        <td>Welt</td>
+        <td>Stern</td>
+        <td>SZ</td>
+        <td>taz</td>
+        <td>Zeit</td>
+    </tr>
+    <tr>
+        <td>Chartbeat</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td style="background-color:green;">OK</td>
+        <td style="background-color:red;">BLOCKIERT</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+</table>
+
+<p>Der Stern und die SZ binden Chartbeat auf ihrer Homepage ein. Und bieten ein schönes Beispiel dafür, dass der SPOF nicht zwingend durch den Dritt&shy;an&shy;bie&shy;ter verursacht wird, sondern man durch die Art der Einbindung selbst Einfluss darauf hat. Hat Chartbeat Probleme, reißt es die Süd&shy;deut&shy;sche mit rein. Der Stern lädt das Script asynchron, und ist damit nicht abhängig.</p>
+<h2>Test 5: Werbung</h2>
+<p>Die Einbindung der Werbung ist sehr un&shy;ter&shy;schied&shy;lich gelöst. Und häufig über die eigenen Server. So werden Scripte gern mal blo&shy;ckie&shy;rend ein&shy;ge&shy;bun&shy;den, auch über document.write, aber über eigene Domains (Bei&shy;spiels&shy;wei&shy;se <code>&lt;script type="text/javascript" src="http://scripts.zeit.de/iqd/iqd_gzip_test.js.gz"&gt;&lt;/script&gt;</code>). Diese Fälle lasse ich hier außen vor.</p>
+<table>
+    <tr>
+        <td></td>
+        <td>Bild</td>
+        <td>Spiegel</td>
+        <td>Focus</td>
+        <td>Welt</td>
+        <td>Stern</td>
+        <td>SZ</td>
+        <td>taz</td>
+        <td>Zeit</td>
+    </tr>
+    <tr>
+        <td>Werbung</td>
+        <td style="background-color:red;">BLOCKIERT</td>
+        <td style="background-color:red;">BLOCKIERT</td>
+        <td style="background-color:green;">OK</td>
+        <td style="background-color:green;">OK</td>
+        <td style="background-color:green;">OK</td>
+        <td style="background-color:red;">BLOCKIERT</td>
+        <td style="background-color:green;">OK</td>
+        <td style="background-color:green;">OK</td>
+    </tr>
+</table>
+
+<p>Wieder einmal macht es die Welt richtig. Sie benutzt den gleichen Wer&shy;be&shy;ser&shy;ver wie die Bild, aber bindet das Script asynchron ein. Vor&shy;bild&shy;lich.</p>
+<h3>Sonstige Be&shy;ob&shy;ach&shy;tun&shy;gen</h3>
+<ul>
+<li>Bild.de bindet am meisten blo&shy;ckie&shy;ren&shy;de Scripte ein. Das umfasst eigene nicht zu&shy;sam&shy;men&shy;ge&shy;fass&shy;ten Scripte (über eigene Domains), ver&shy;schie&shy;de&shy;nen Wer&shy;be&shy;ser&shy;ver,  Content-Marketing-Gedöhns ("Outbrain", dieselbe Datei mehrfach geladen), nicht zuletzt der AdBlocker-Blocker. Eins der Werbe-Scripte wird auf Artikeln blo&shy;ckie&shy;rend und auf der Homepage asynchron ein&shy;ge&shy;bun&shy;den.</li>
+<li>Ein Ausfall von <code>ec-ns.sascdn.com</code> für bild.de löst den AdBlocker-Blocker aus und zeigt den Nutzern einen Hinweis, man möge doch den AdBlocker aus&shy;schal&shy;ten.</li>
+<li>Das Tracking-Script "Meetrics" auf ZEIT Online ist blo&shy;ckie&shy;rend ein&shy;ge&shy;bun&shy;den, aber im Fuß der Seite. Damit wird bei einem Ausfall das Rendern der Seite angehalten. Aber eben nur des Sei&shy;ten&shy;fu&shy;ßes. Der gesamte Inhalt, der vorher im HTML steht, ist sichtbar.</li>
+</ul>
+<h2>Auf&shy;fäl&shy;lig&shy;kei&shy;ten</h2>
+<ul>
+<li>RUM: window.per&shy;for&shy;mance.mark im Einsatz (Süd&shy;deut&shy;sche, Welt)</li>
+<li>taz: Content Management: open&shy;News&shy;pa&shy;per www.open&shy;news&shy;pa&shy;per.org based on TYPO3 www.typo3.org</li>
+</ul>
 <h3>Quellen:</h3>
 <ul>
 <li>http://de.slideshare.net/pa&shy;trick&shy;me&shy;en&shy;an/frontend-spof</li>
