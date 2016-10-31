@@ -13,7 +13,8 @@
 		margin: rem($base-line-height*1.5) auto rem($base-line-height*0.5)
 
 	figure,
-	pre
+	pre,
+	table
 		margin: rem($base-line-height*2) auto
 		max-width: rem($page-width-extended)
 
@@ -42,6 +43,30 @@
 		cite:before
 			content: '— '
 
+	table
+		overflow-x: auto
+		width: 100%
+		thead
+			td:not(:first-child)
+				border-top: 1px solid #ecf0f1
+				border-bottom: 1px solid #ecf0f1
+				background-color: #34495e
+				background: -webkit-gradient(linear, left top, left bottom, from(#34495e), to(#455a6f))
+				background: -moz-linear-gradient(top, #34495e, #455a6f)
+				color: #ecf0f1
+				font-weight: bold
+				letter-spacing: 2px
+		td
+			padding: 1ch
+			text-align: center
+		tbody
+			td:first-child
+				font-weight: bold
+			.red
+				background-color: #F38181
+			.green
+				background-color: #D6F7AD
+
 	a, a:link, a:visited, a:hover, a:focus
 		color: $color-link
 		text-decoration: none
@@ -51,3 +76,10 @@
 	a:hover, a:focus
 		color: $color-link-hover
 		background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, $color-link-hover 2px, $color-link-hover 3px, rgba(0, 0, 0, 0) 3px)
+
+	code
+		font-size: 0.8em
+		background: #ecf0f1
+		color: #34495e
+		padding-left: 0.5ch
+		padding-right: 0.5ch
