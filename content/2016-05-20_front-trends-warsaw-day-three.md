@@ -126,8 +126,6 @@ We don't need to know everything, finding a niche is cool. This is not a test. R
 * Tims website: [tholman.com](http://tholman.com/)
 * Some [funny presentations](http://slides.com/tholman/), todays not included
 
----
-
 > Creativity is the best motivator.
 > Projects are a journey, be fluid.
 > &mdash; Tim Holman
