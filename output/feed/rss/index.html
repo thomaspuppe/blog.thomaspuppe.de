@@ -5,7 +5,7 @@
         <link>http://blog.thomaspuppe.de/</link>
         <description></description>
         <language>de</language>
-        <pubDate>Tue, 25 Oct 2016 22:00:00 GMT</pubDate>
+        <pubDate>Sun, 30 Oct 2016 23:00:00 GMT</pubDate>
         <docs>http://blog.thomaspuppe.de/feed/rss/</docs>
         <generator>acrylamid 0.7.10</generator>
         
@@ -16,103 +16,93 @@
 &lt;h3&gt;Was ist ein SPOF und was ist daran schlimm?&lt;/h3&gt;
 &lt;p&gt;Ein &#34;Single Point of Failure&#34; (SPOF) ist ein Bestandteil eines Systems, dessen Ausfall das gesamte System beeinträchtigt. Auf einer Website heißt das: ein Element der Website, das die gesamte Seite beeinträchtigt, wenn es einen Fehler hat, langsam ist, oder überhaupt nicht verfügbar ist. Was eine &#34;Beeinträchtigung der Seite&#34; ist, darüber kann man streiten. Im Kontext dieses Artikels ist eine News-Website beeinträchtigt, wenn man keine Inhalte lesen kann.&lt;/p&gt;
 &lt;h3&gt;Wie entsteht so etwas?&lt;/h3&gt;
-&lt;p&gt;Der SPOF kann auf einer Website an verschiedenen Stellen sitzen. Offensichtlich ist der Fall, dass der Server, der die HTML-Seiten ausliefert, nicht verfügbar ist. Dann gibt es keine Inhalte, die mit weiteren Scripten &#34;angereichert&#34; werden könnten. Das ist der Worst Case, und es gibt Strategien dagegen, aber das soll hier nicht das Thema sein.&lt;/p&gt;
-&lt;p&gt;Interessant sind die Situationen, in denen der eigentliche Inhalt -- das HTML -- sehr wohl verfügbar ist. Aber externe Scripte den schon geladenen Inhalt dann verzögern, beschädigen, blockieren. Diesen Fällen möchte ich mich hier widmen.&lt;/p&gt;
+&lt;p&gt;Der SPOF kann auf einer Website an verschiedenen Stellen sitzen. Offensichtlich ist der Fall, dass der Server, der die HTML-Seiten ausliefert, nicht verfügbar ist. Dann gibt es schlicht keine Inhalte. Das ist der Worst Case, und es gibt Strategien dagegen, aber das soll hier nicht das Thema sein.&lt;/p&gt;
+&lt;p&gt;Interessant sind die Situationen, in denen der eigentliche Inhalt &amp;mdash; das HTML &amp;mdash; sehr wohl verfügbar ist. Aber externe Scripte den schon geladenen Inhalt dann verzögern, beschädigen, oder blockieren. Ein nicht notwendiger Bestandteil der Seite blockiert also den wichtigen Teil. Das ist ärgerlich, weil unnötig. Diesen Fällen möchte ich mich hier widmen.&lt;/p&gt;
 &lt;h3&gt;Simulation von SPOF&lt;/h3&gt;
-&lt;p&gt;Steve Souders befasst sich in dem sehr guten Artikel &#34;&lt;a href=&#34;https://www.stevesouders.com/blog/2010/06/01/frontend-spof/&#34;&gt;Frontend SPOF&lt;/a&gt;&#34; mit SPOFs und liefert einen tollen Trick, mit dem man einen kaputten Server simulieren kann. Und zwar wird der Domain des zu testenden Hosts mittels der lokalen Hosts-Datei auf dem Testrechner ins Leere geführt. Man weist ihm einfach eine falsche IP-Adresse zu.&lt;/p&gt;
-&lt;p&gt;Das kann entweder Localhost sein. In dem Fall würde der Request schnell fehlschlagen, meist mit Fehler 404. Das simuliert einen kaputten Third-Party_Server. Oder man leitet den Request zum &#34;Blackhole-Service&#34; vom Webpagetest.org. Dieser Server antwortet einfach nicht auf Requests, und lässt diese somit in einen Timeout laufen. Das simuliert, dass ein Third-Party-Server überlastet ist.&lt;/p&gt;
-&lt;p&gt;Wenn ohne Werbung auch kein Inhalt geliefert wird, kann das vielleicht verargumentiert werden -- schließlich werden AdBlocker-Blocker genau mit dieser Begründung gerechtfertigt.&lt;/p&gt;
-&lt;p&gt;Dass aber ein Tracking-Tool wie Chartbeat in der Lage ist, die Webseite lahmzulegen, ist ein Desaster. Und kein theoretisches. Genau das ist (auch mir) schon passiert: TODO: Quelle suchen.&lt;/p&gt;
-&lt;p&gt;TODO: jQuery Outage suchen&lt;/p&gt;
-&lt;h4&gt;- http://de.slideshare.net/patrickmeenan/frontend-spof&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Google sperrt document.write aus&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;Wie umgeht man den SPOF?&lt;/h3&gt;
-&lt;h3&gt;Simulation&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;https://www.stevesouders.com/blog/2010/06/01/frontend-spof/ (mit Hosts-Sache)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Weil localhost schnell fehlschlägt, bracht es das Blackhole.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Extension https://chrome.google.com/webstore/detail/spof-o-matic/plikhggfbplemddobondkeogomgoodeg&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;-&lt;/p&gt;
-&lt;h1&gt;&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Weil localhost schnell fehlschlägt, bracht es das Blackhole.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Wenn es schnell fehlschlagen soll, dann ist localhost cool. So kann man z.B. bestimmte Tracker effektiv und systemweit ausschalten (AdBlocking/Trackblocking home made).&lt;/p&gt;
-&lt;h3&gt;Zur Sache: SPOF auf deutschen News-Websites&lt;/h3&gt;
-&lt;p&gt;Für meinen Test habe ich acht deutsche Nachrichten-Websites herangezogen. Grundlage für meine Auswahl waren die Zugriffszahlen laut Statista, und die taz aus Interesse.&lt;/p&gt;
-&lt;p&gt;Mein Vorgehen: im jeweiligen Quellcode der Seite habe ich nach den beiden Triggern für blockierendes JavaScript gesucht: &lt;code&gt;document.write&lt;/code&gt; und &lt;code&gt;&amp;lt;script src=&#34;&#34;&lt;/code&gt; ohne &lt;code&gt;async&lt;/code&gt;. Von der Liste der gefundenen Dateien habe ich diehjenigen ausgenommen, die unter der Domain der zeitung laufen. Auch wenn Subdomains in der Art &lt;code&gt;scripts.zeit.de&lt;/code&gt; oder &lt;code&gt;code.bildstatic.de&lt;/code&gt;  vielleicht schon eine Art third-party sind (CDN bzw Proxy_Server zu einem anderen Hoster), habe ich das als Self-Hosted gewertet. Im Sinne von &#34;wenn das ausfällt, ist kein Fremder schuld sondern du selber&#34;. Die übrigen Hosts habe ich dann in meiner &lt;code&gt;/etc/hosts&lt;/code&gt;-Datei blockiert, indem ich sie auf die IP des Webpagetest Blackhole schicke: &lt;code&gt;72.66.115.13  www.googletagmanager.com&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Die beschriebene Situation, dass ein externer Bestandteil &amp;mdash; oder besser Zusatz &amp;mdash; einer Website dieselbe lahmlegt, lässt sich künstlich simulieren.&lt;/p&gt;
+&lt;p&gt;Steve Souders befasst sich in dem sehr guten Artikel &#34;&lt;a href=&#34;https://www.stevesouders.com/blog/2010/06/01/frontend-spof/&#34;&gt;Frontend SPOF&lt;/a&gt;&#34; mit SPOFs. Auch die Präsentation &#34;&lt;a href=&#34;http://de.slideshare.net/patrickmeenan/frontend-spof&#34;&gt;Frontend SPOF&lt;/a&gt;&#34; von Patrick Meenan beleuchtet das Problem und liefert einen tollen Trick, mit dem man einen beliebigen Server (genauer: Host) als kaputt simulieren kann. Und zwar über einen manipulierten DNS-Eintrag. Die Domain des zu testenden Hosts wird mittels der lokalen Hosts-Datei auf dem Testrechner ins Leere geführt. Man weist ihm einfach eine falsche IP-Adresse zu.&lt;/p&gt;
+&lt;p&gt;Das kann entweder Localhost sein. In dem Fall würde der Request schnell fehlschlagen, meist mit Fehler 404. Das simuliert einen Third-Party-Server, der schnell mit einem Fehler antwortet. Oder man leitet den Request zum &#34;Blackhole-Service&#34; vom Webpagetest.org. Dieser Server antwortet einfach nicht auf Requests, und lässt diese somit in einen Timeout laufen. Damit simuliere ich, dass ein Third-Party-Server überlastet ist.&lt;/p&gt;
+&lt;p&gt;Es gibt eine Extension für den Google-Chrome Browser, die auf SPOF hinweist und die jeweiligen Resourcen auch blockieren kann: &lt;a href=&#34;https://chrome.google.com/webstore/detail/spof-o-matic/plikhggfbplemddobondkeogomgoodeg&#34;&gt;SPOF-O-Matic&lt;/a&gt;. Damit lassen sich SPOF auch gut simulieren.&lt;/p&gt;
+&lt;h3&gt;Zur Sache: Single Points of Failure auf deutschen News-Websites&lt;/h3&gt;
+&lt;p&gt;Für meinen Test habe ich acht deutsche Nachrichten-Websites herangezogen. Grundlage für meine Auswahl waren die Zugriffszahlen laut Statista, plus die taz aus eigenem Interesse.&lt;/p&gt;
+&lt;p&gt;Mein Vorgehen: im jeweiligen Quellcode der Seite habe ich nach den beiden Triggern für blockierendes JavaScript gesucht: &lt;code&gt;document.write&lt;/code&gt; und &lt;code&gt;&amp;lt;script src=&#34;&#34;&lt;/code&gt; ohne &lt;code&gt;async&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Von der Liste der gefundenen Dateien habe ich diejenigen ausgenommen, die unter der Domain der Zeitung selbst laufen. Auch wenn Subdomains in der Art &lt;code&gt;scripts.zeit.de&lt;/code&gt; oder &lt;code&gt;code.bildstatic.de&lt;/code&gt; vielleicht schon Third-Party sind (CDN bzw Proxy-Server zu einem anderen Hoster), habe ich das als selbst gehostet gewertet. Im Sinne von &#34;wenn das ausfällt, ist kein Fremder schuld sondern du selber&#34;.&lt;/p&gt;
+&lt;p&gt;Die übrigen Hosts habe ich dann in meiner &lt;code&gt;/etc/hosts&lt;/code&gt;-Datei blockiert, indem ich sie auf die IP des Webpagetest Blackhole schicke: &lt;code&gt;72.66.115.13   www.googletagmanager.com&lt;/code&gt;. Das funktioniert auch in &lt;a href=&#34;https://de.wikipedia.org/wiki/Hosts_(Datei)#Pfade_unter_verschiedenen_Betriebssystemen&#34;&gt;anderen Betriebssystemen&lt;/a&gt;.&lt;/p&gt;
 &lt;h4&gt;Test 1: IVW Zählung&lt;/h4&gt;
-&lt;p&gt;Es gibt eine Sache, die alle betrachteten Websites gemeinsam haben. Und zwar die &#34;IVW-Zählung&#34;. Die IVW ist die &#34;&lt;a href=&#34;https://de.wikipedia.org/wiki/Informationsgemeinschaft_zur_Feststellung_der_Verbreitung_von_Werbetr%C3%A4gern&#34;&gt;Informationsgemeinschaft zur Feststellung der Verbreitung von Werbeträgern&lt;/a&gt;&#34;. Sie erfasst die Reichweite vieler Medien, und dient damit nicht nur zur unabhängigen Feststellung von Reichweite, sondern auch zur Verteilung von Werbeerlösen.&lt;/p&gt;
-&lt;p&gt;Da machen alle betrachteten Medien mit, und daher haben auch alle die Datei &lt;code&gt;https://script.ioam.de/iam.js&lt;/code&gt; eingebunden. Was passiert also, wenn ich den Host &lt;code&gt;script.ioam.de&lt;/code&gt; blockiere -- oder er tatsächlich ausfällt bzw lahmt?&lt;/p&gt;
+&lt;p&gt;Es gibt eine Sache, die alle betrachteten Websites gemeinsam haben. Und zwar die &#34;IVW-Zählung&#34;. Die IVW ist die &#34;&lt;a href=&#34;https://de.wikipedia.org/wiki/Informationsgemeinschaft_zur_Feststellung_der_Verbreitung_von_Werbetr%C3%A4gern&#34;&gt;Informationsgemeinschaft zur Feststellung der Verbreitung von Werbeträgern&lt;/a&gt;&#34;. Sie erfasst die Reichweite vieler Medien, und dient damit nicht nur zur unabhängigen Zählung der Besucher, sondern auch zur Verteilung von Werbeerlösen.&lt;/p&gt;
+&lt;p&gt;Da machen alle betrachteten Medien mit, und daher haben auch alle die Datei &lt;code&gt;https://script.ioam.de/iam.js&lt;/code&gt; eingebunden. Was passiert also, wenn ich den Host &lt;code&gt;script.ioam.de&lt;/code&gt; blockiere &amp;mdash; oder er tatsächlich ausfällt bzw lahmt?&lt;/p&gt;
 &lt;table&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;
-        &lt;td&gt;Bild&lt;/td&gt;
-        &lt;td&gt;Spiegel&lt;/td&gt;
-        &lt;td&gt;Focus&lt;/td&gt;
-        &lt;td&gt;Welt&lt;/td&gt;
-        &lt;td&gt;Stern&lt;/td&gt;
-        &lt;td&gt;SZ&lt;/td&gt;
-        &lt;td&gt;taz&lt;/td&gt;
-        &lt;td&gt;Zeit&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;IVW&lt;/td&gt;
-        &lt;td style=&#34;background-color:red;&#34;&gt;BLOCKIERT&lt;/td&gt;
-        &lt;td style=&#34;background-color:red;&#34;&gt;BLOCKIERT&lt;/td&gt;
-        &lt;td style=&#34;background-color:red;&#34;&gt;BLOCKIERT&lt;/td&gt;
-        &lt;td style=&#34;background-color:green;&#34;&gt;läuft&lt;/td&gt;
-        &lt;td style=&#34;background-color:red;&#34;&gt;BLOCKIERT&lt;/td&gt;
-        &lt;td style=&#34;background-color:red;&#34;&gt;BLOCKIERT&lt;/td&gt;
-        &lt;td style=&#34;background-color:red;&#34;&gt;BLOCKIERT&lt;/td&gt;
-        &lt;td style=&#34;background-color:red;&#34;&gt;BLOCKIERT&lt;/td&gt;
-    &lt;/tr&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;Bild&lt;/td&gt;
+            &lt;td&gt;Spiegel&lt;/td&gt;
+            &lt;td&gt;Focus&lt;/td&gt;
+            &lt;td&gt;Welt&lt;/td&gt;
+            &lt;td&gt;Stern&lt;/td&gt;
+            &lt;td&gt;SZ&lt;/td&gt;
+            &lt;td&gt;taz&lt;/td&gt;
+            &lt;td&gt;Zeit&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;IVW&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Alle Seiten bis auf welt.de bleiben weiß. Der Nutzer sieht keinen Inhalt, und nichts passiert solange das Zähl-Script der IWV geladen und ausgeführt wird.&lt;/p&gt;
+&lt;p&gt;Alle Seiten bis auf welt.de bleiben weiß! Der Nutzer sieht keinen Inhalt, und nichts passiert solange das Zähl-Script der IWV geladen und ausgeführt wird. Wenn deren Server nicht antwortet, bleibt die News-Website also etliche Sekunden lang (bei meinen Tests im aktuellen Chrome 2 Minuten) weiß. Obwohl alle Inhalte eigentlich schon da sind.&lt;/p&gt;
 &lt;p&gt;Auch unter besten Bedingungen hat das einen Performance-Impact. Bei meinen Tests benötigte das Script zwischen 35 und 180ms zum Laden. Jede Seite muss also immer warten. Meistens unmerklich. Erst wenn es Probleme beim Laden gibt, wird der Single Point of Failure zu einem Problem.&lt;/p&gt;
 &lt;p&gt;Einzig die Welt lädt ihren Zählpixel asynchron und im Footer der Seite. Das heißt, auch wenn es beim Laden Probleme gibt, wird immerhin der gesamte Inhalt dargestellt.&lt;/p&gt;
-&lt;h4&gt;Test 2: Gogole Analytics und TagManager&lt;/h4&gt;
+&lt;h4&gt;Test 2: Google Analytics und Google TagManager&lt;/h4&gt;
 &lt;p&gt;Als nächstes habe ich mir die Standardtools von Google angesehen. Auch sie werden von fast allen Medien genutzt.&lt;/p&gt;
 &lt;table&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;
-        &lt;td&gt;Bild&lt;/td&gt;
-        &lt;td&gt;Spiegel&lt;/td&gt;
-        &lt;td&gt;Focus&lt;/td&gt;
-        &lt;td&gt;Welt&lt;/td&gt;
-        &lt;td&gt;Stern&lt;/td&gt;
-        &lt;td&gt;SZ&lt;/td&gt;
-        &lt;td&gt;taz&lt;/td&gt;
-        &lt;td&gt;Zeit&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Google Analytics&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-        &lt;td style=&#34;background-color:green;&#34;&gt;OK&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-        &lt;td style=&#34;background-color:green;&#34;&gt;OK&lt;/td&gt;
-        &lt;td style=&#34;background-color:green;&#34;&gt;OK&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Google TagManager&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-        &lt;td style=&#34;background-color:green;&#34;&gt;OK&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-        &lt;td style=&#34;background-color:green;&#34;&gt;OK&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-        &lt;td style=&#34;background-color:green;&#34;&gt;OK&lt;/td&gt;
-    &lt;/tr&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;Bild&lt;/td&gt;
+            &lt;td&gt;Spiegel&lt;/td&gt;
+            &lt;td&gt;Focus&lt;/td&gt;
+            &lt;td&gt;Welt&lt;/td&gt;
+            &lt;td&gt;Stern&lt;/td&gt;
+            &lt;td&gt;SZ&lt;/td&gt;
+            &lt;td&gt;taz&lt;/td&gt;
+            &lt;td&gt;Zeit&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Google Analytics&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Google TagManager&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;p&gt;Da Google die Einbindung grundsätzlich asynchron empfiehlt, stellen diese Tools keinen SPOF dar. Und folglich spielen auch alle Dinge, die über den TagManager nachgeladen werden (zum Beispiel Analytics, das dann auch nicht mit betrachtet wird), keine Rolle mehr für die Untersuchung. Dass sie die korrekt geladene Seite dennoch wieder langsam machen und bis zur Unkenntlichkeit manipulieren können, ist hier nicht das Thema.&lt;/p&gt;
@@ -121,77 +111,167 @@
 &lt;h4&gt;Test 4: Chartbeat&lt;/h4&gt;
 &lt;p&gt;Chartbeat ist ein Tool, mit dem man live die Besucherstöme auf einer Website anschauen kann, samt Herkunft und Interaktionen.&lt;/p&gt;
 &lt;table&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;
-        &lt;td&gt;Bild&lt;/td&gt;
-        &lt;td&gt;Spiegel&lt;/td&gt;
-        &lt;td&gt;Focus&lt;/td&gt;
-        &lt;td&gt;Welt&lt;/td&gt;
-        &lt;td&gt;Stern&lt;/td&gt;
-        &lt;td&gt;SZ&lt;/td&gt;
-        &lt;td&gt;taz&lt;/td&gt;
-        &lt;td&gt;Zeit&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Chartbeat&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-        &lt;td style=&#34;background-color:green;&#34;&gt;OK&lt;/td&gt;
-        &lt;td style=&#34;background-color:red;&#34;&gt;BLOCKIERT&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-        &lt;td&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;Bild&lt;/td&gt;
+            &lt;td&gt;Spiegel&lt;/td&gt;
+            &lt;td&gt;Focus&lt;/td&gt;
+            &lt;td&gt;Welt&lt;/td&gt;
+            &lt;td&gt;Stern&lt;/td&gt;
+            &lt;td&gt;SZ&lt;/td&gt;
+            &lt;td&gt;taz&lt;/td&gt;
+            &lt;td&gt;Zeit&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Chartbeat&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Der Stern und die SZ binden Chartbeat auf ihrer Homepage ein. Und bieten ein schönes Beispiel dafür, dass der SPOF nicht zwingend durch den Drittanbieter verursacht wird, sondern man durch die Art der Einbindung selbst Einfluss darauf hat. Hat Chartbeat Probleme, reißt es die Süddeutsche mit rein. Der Stern lädt das Script asynchron, und ist damit nicht abhängig.&lt;/p&gt;
-&lt;h3&gt;Test 5: Werbung&lt;/h3&gt;
+&lt;p&gt;Der Stern und die SZ binden Chartbeat auf ihrer Homepage ein. Und bieten ein schönes Beispiel dafür, dass der SPOF nicht zwingend durch den Drittanbieter verursacht wird, sondern man selbst durch die Art der Einbindung Einfluss darauf hat. Hat Chartbeat Probleme, reißt es die Süddeutsche mit rein. Der Stern lädt das Script asynchron, und ist damit nicht abhängig.&lt;/p&gt;
+&lt;h4&gt;Test 5: Werbung&lt;/h4&gt;
 &lt;p&gt;Die Einbindung der Werbung ist sehr unterschiedlich gelöst. Und häufig über die eigenen Server. So werden Scripte gern mal blockierend eingebunden, auch über document.write, aber über eigene Domains (Beispielsweise &lt;code&gt;&amp;lt;script type=&#34;text/javascript&#34; src=&#34;http://scripts.zeit.de/iqd/iqd_gzip_test.js.gz&#34;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;). Diese Fälle lasse ich hier außen vor.&lt;/p&gt;
 &lt;table&gt;
-    &lt;tr&gt;
-        &lt;td&gt;&lt;/td&gt;
-        &lt;td&gt;Bild&lt;/td&gt;
-        &lt;td&gt;Spiegel&lt;/td&gt;
-        &lt;td&gt;Focus&lt;/td&gt;
-        &lt;td&gt;Welt&lt;/td&gt;
-        &lt;td&gt;Stern&lt;/td&gt;
-        &lt;td&gt;SZ&lt;/td&gt;
-        &lt;td&gt;taz&lt;/td&gt;
-        &lt;td&gt;Zeit&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Werbung&lt;/td&gt;
-        &lt;td style=&#34;background-color:red;&#34;&gt;BLOCKIERT&lt;/td&gt;
-        &lt;td style=&#34;background-color:red;&#34;&gt;BLOCKIERT&lt;/td&gt;
-        &lt;td style=&#34;background-color:green;&#34;&gt;OK&lt;/td&gt;
-        &lt;td style=&#34;background-color:green;&#34;&gt;OK&lt;/td&gt;
-        &lt;td style=&#34;background-color:green;&#34;&gt;OK&lt;/td&gt;
-        &lt;td style=&#34;background-color:red;&#34;&gt;BLOCKIERT&lt;/td&gt;
-        &lt;td style=&#34;background-color:green;&#34;&gt;OK&lt;/td&gt;
-        &lt;td style=&#34;background-color:green;&#34;&gt;OK&lt;/td&gt;
-    &lt;/tr&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;Bild&lt;/td&gt;
+            &lt;td&gt;Spiegel&lt;/td&gt;
+            &lt;td&gt;Focus&lt;/td&gt;
+            &lt;td&gt;Welt&lt;/td&gt;
+            &lt;td&gt;Stern&lt;/td&gt;
+            &lt;td&gt;SZ&lt;/td&gt;
+            &lt;td&gt;taz&lt;/td&gt;
+            &lt;td&gt;Zeit&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Werbung&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Wieder einmal macht es die Welt richtig. Sie benutzt den gleichen Werbeserver wie die Bild, aber bindet das Script asynchron ein. Vorbildlich.&lt;/p&gt;
-&lt;h4&gt;Sonstige Beobachtungen&lt;/h4&gt;
+&lt;p&gt;Wieder einmal macht es die Welt richtig. Sie benutzt den gleichen Werbeserver wie die Bild, aber bindet das Script asynchron ein (es gibt einen Feature-Toggle: offenbar werden synchron und asynchron verglichen).&lt;/p&gt;
+&lt;p&gt;Auf verschiedene Wege verhindern auch andere Seiten den SPOF: Der Stern lädt das Werbescript asynchron und vom eigenen Server. Die Zeit blockierend vom eigenen Server. Die taz asynchron von fremden Servern.&lt;/p&gt;
+&lt;p&gt;Bei Bild, Spiegel und Süddeutscher Zeitung leidet die Website, wenn das Werbenetzwerk langsam antwortet.&lt;/p&gt;
+&lt;h3&gt;Sonstige Beobachtungen&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Bild.de bindet am meisten blockierende Scripte ein. Das umfasst eigene nicht zusammengefassten Scripte (über eigene Domains), verschiedenen Werbeserver,  Content-Marketing-Gedöhns (&#34;Outbrain&#34;, dieselbe Datei mehrfach geladen), nicht zuletzt der AdBlocker-Blocker. Eins der Werbe-Scripte wird auf Artikeln blockierend und auf der Homepage asynchron eingebunden.&lt;/li&gt;
-&lt;li&gt;Ein Ausfall von &lt;code&gt;ec-ns.sascdn.com&lt;/code&gt; für bild.de löst den AdBlocker-Blocker aus und zeigt den Nutzern einen Hinweis, man möge doch den AdBlocker ausschalten.&lt;/li&gt;
-&lt;li&gt;Das Tracking-Script &#34;Meetrics&#34; auf ZEIT Online ist blockierend eingebunden, aber im Fuß der Seite. Damit wird bei einem Ausfall das Rendern der Seite angehalten. Aber eben nur des Seitenfußes. Der gesamte Inhalt, der vorher im HTML steht, ist sichtbar.&lt;/li&gt;
+&lt;li&gt;Bild.de bindet am meisten blockierende Scripte ein. Das umfasst eigene nicht zusammengefassten Scripte (über eigene Domains), verschiedenen Werbeserver,  Content-Marketing-Gedöns (&#34;Outbrain&#34;, dieselbe Datei mehrfach geladen), und nicht zuletzt den AdBlocker-Blocker. Eines der Werbe-Scripte wird auf Artikeln blockierend eingebunden, auf der Homepage jedoch asynchron.&lt;/li&gt;
+&lt;li&gt;Ein Ausfall von &lt;code&gt;ec-ns.sascdn.com&lt;/code&gt; für bild.de löst den AdBlocker-Blocker aus und zeigt den Nutzern einen Hinweis, man möge doch bitte seinen AdBlocker ausschalten.&lt;/li&gt;
+&lt;li&gt;Das Tracking-Script &#34;Meetrics&#34; auf ZEIT Online ist blockierend eingebunden, aber im Fuß der Seite. Damit wird bei einem Ausfall das Rendern der Seite angehalten. Aber eben nur das Rendern des Seitenfußes. Der gesamte Inhalt, der vorher im HTML steht, ist sichtbar.&lt;/li&gt;
+&lt;li&gt;Die Süddeutsche und die Welt betreiben Real User Monitoring für Frontend Performance mittels &lt;code&gt;window.performance.mark&lt;/code&gt;. Das ist eigentlich ein alter Hut, aber bei News-Websites sind sie damit Vorreiter.&lt;/li&gt;
+&lt;li&gt;Der Google Chrome Browser wird in Zukunft bei mobilen Datenverbindungen (2G) von selbst Scripte ignorieren, die blockierend von einem langsamen Netzwerk geladen werden: &lt;a href=&#34;https://developers.google.com/web/updates/2016/08/removing-document-write&#34;&gt;Intervening against document.write()&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Auffälligkeiten&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;RUM: window.performance.mark im Einsatz (Süddeutsche, Welt)&lt;/li&gt;
-&lt;li&gt;taz: Content Management: openNewspaper www.opennewspaper.org based on TYPO3 www.typo3.org&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Quellen:&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;http://de.slideshare.net/patrickmeenan/frontend-spof&lt;/li&gt;
-&lt;li&gt;https://www.stevesouders.com/blog/2010/06/01/frontend-spof/&lt;/li&gt;
-&lt;/ul&gt;</description>
-        <pubDate>Tue, 25 Oct 2016 22:00:00 GMT</pubDate>
-        <guid isPermaLink="false">tag:blog.thomaspuppe.de,2016-10-26:spof-auf-news-websites</guid>
+&lt;h3&gt;Zusammenfassung&lt;/h3&gt;
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;Bild&lt;/td&gt;
+            &lt;td&gt;Spiegel&lt;/td&gt;
+            &lt;td&gt;Focus&lt;/td&gt;
+            &lt;td&gt;Welt&lt;/td&gt;
+            &lt;td&gt;Stern&lt;/td&gt;
+            &lt;td&gt;SZ&lt;/td&gt;
+            &lt;td&gt;taz&lt;/td&gt;
+            &lt;td&gt;Zeit&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;IVW&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Google Analytics&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Google TagManager&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Chartbeat&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Werbung&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td class=&#34;red&#34;&gt;blockiert&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+            &lt;td class=&#34;green&#34;&gt;ok&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Mit ihrer Ansage, durch den Relaunch im September 2016 die schnellste News-Website in Deutschland zu werden, meinte die Welt es ernst. Best Practices wurden offenbar konsequent verfolgt, notfalls auch um den Preis von IVW-Zählungen (so meine Vermutung). Dass Lade- und Render-Zeiten von verschiedenen Punkten auf der Website mittels &lt;code&gt;window.performance.mark&lt;/code&gt; gemessen werden, deutet auf eine genaue Beobachtung der Performance hin &amp;mdash; was überhaupt erst einmal die Grundlage einer vernünftigen Optimierung ist.&lt;/p&gt;
+&lt;p&gt;Die Bild hingegen verfolgt das Gegenteil. Hier gibt es viel Blocking, zum Beispiel vom Clickbait-Inhalte-Lieferanten Outbrain, und einen AdBlocker-Blocker, der bei Versagen des ThirdParty Servers zu unrecht anspringt.&lt;/p&gt;
+&lt;p&gt;Wenn ohne Werbung auch kein Inhalt geliefert wird, kann das vielleicht verargumentiert werden &amp;mdash; schließlich werden AdBlocker-Blocker genau mit dieser Begründung gerechtfertigt.&lt;/p&gt;
+&lt;p&gt;Dass aber ein Tracking-Tool wie Chartbeat oder eine Bibliothek wie jQuery in der Lage ist, die Webseite lahmzulegen, ist ein leicht zu vermeidendes Desaster. Und kein theoretisches: &lt;a href=&#34;https://twitter.com/the_jsf/status/529302161499619328&#34;&gt;jQuery&lt;/a&gt;, &lt;a href=&#34;https://twitter.com/SCsupport/status/789546288530403328&#34;&gt;SoundCloud&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;One more thing&lt;/h3&gt;
+&lt;p&gt;Bitte nicht vergessen, die Tracking-Domains aus der Hosts-Datei zu entfernen. Wäre doch schade, wenn die Scripte nicht mehr geladen würden.&lt;/p&gt;
+&lt;pre&gt;# Tracker-Blocking
+127.0.0.1       www.googletagmanager.com
+127.0.0.1       www.google-analytics.com
+127.0.0.1       widgets.outbrain.com
+127.0.0.1       connect.facebook.net
+127.0.0.1       platform.twitter.com
+127.0.0.1       static.chartbeat.com
+&lt;/pre&gt;</description>
+        <pubDate>Sun, 30 Oct 2016 23:00:00 GMT</pubDate>
+        <guid isPermaLink="false">tag:blog.thomaspuppe.de,2016-10-31:spof-auf-news-websites</guid>
     </item>
         
             <item>
@@ -286,7 +366,7 @@ Inodes      IUsed     IFree    IUse%
 &lt;/blockquote&gt;
 &lt;p&gt;Die einfachste Methode, dies zu verhindern, ist die Zeile &lt;code&gt;MAILTO=&#34;&#34;&lt;/code&gt; an den beginn der Crontab-Datei (&lt;code&gt;crontab -e&lt;/code&gt;) zu schreiben. Damit werden alle Cron-Mails aus diesr Datei unterdrückt. Alternativ kann man auch pro Zeile den Versand von Mails verhintern durch den Output nach /dev/null: &lt;code&gt;0 1 5 10 * /path/to/script.sh &amp;gt; /dev/null&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Kleines Extra: In Zukunft möchte ich eine Warnung erhalten, wenn der Plattenplatz (oder die Inodes) zur Neige gehen. Der Test dafür ist leicht geschrieben (siehe oben), und einen Mechanismus zur Benachrichtigung habe ich schon für andere Zwecke. Und zwar benutze ich den Service und die App von &lt;a href=&#34;https://www.pushover.net&#34;&gt;Pushover: Simple Notifications for Android, iOS, and Desktop&lt;/a&gt; und &lt;a href=&#34;https://deadmanssnitch.com/&#34;&gt;Dead Man&#39;s Snitch — A dead simple cron job monitoring tool&lt;/a&gt;.&lt;/p&gt;</description>
-        <pubDate>Mon, 17 Oct 2016 22:00:00 GMT</pubDate>
+        <pubDate>Mon, 17 Oct 2016 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2016-10-18:inodes-linux-festplatte-voll</guid>
     </item>
         
@@ -380,13 +460,12 @@ Inodes      IUsed     IFree    IUse%
 &lt;li&gt;Tims website: &lt;a href=&#34;http://tholman.com/&#34;&gt;tholman.com&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Some &lt;a href=&#34;http://slides.com/tholman/&#34;&gt;funny presentations&lt;/a&gt;, todays not included&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr /&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Creativity is the best motivator.
 Projects are a journey, be fluid.
 &amp;mdash; Tim Holman&lt;/p&gt;
 &lt;/blockquote&gt;</description>
-        <pubDate>Thu, 19 May 2016 22:00:00 GMT</pubDate>
+        <pubDate>Thu, 19 May 2016 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2016-05-20:front-trends-2016-warsaw-day-three</guid>
     </item>
         
@@ -460,7 +539,7 @@ Projects are a journey, be fluid.
 &lt;/ul&gt;
 &lt;hr /&gt;
 &lt;p&gt;Next read: &lt;a href=&#34;http://blog.thomaspuppe.de/front-trends-2016-warsaw-day-three&#34;&gt;Front Trends 2016 in Warsaw: Day 3&lt;/a&gt;&lt;/p&gt;</description>
-        <pubDate>Wed, 18 May 2016 22:00:00 GMT</pubDate>
+        <pubDate>Wed, 18 May 2016 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2016-05-19:front-trends-2016-warsaw-day-two</guid>
     </item>
         
@@ -552,7 +631,7 @@ Projects are a journey, be fluid.
 &lt;/ul&gt;
 &lt;hr /&gt;
 &lt;p&gt;Next read: &lt;a href=&#34;http://blog.thomaspuppe.de/front-trends-2016-warsaw-day-two&#34;&gt;Front Trends 2016 in Warsaw: Day 2&lt;/a&gt;&lt;/p&gt;</description>
-        <pubDate>Tue, 17 May 2016 22:00:00 GMT</pubDate>
+        <pubDate>Tue, 17 May 2016 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2016-05-18:front-trends-2016-warsaw-day-one</guid>
     </item>
         
@@ -616,7 +695,7 @@ Projects are a journey, be fluid.
 &lt;li&gt;Erlaubt iOS, Touch Icons inline als Base 64 codiert abzulegen? Oder Inline als SVG?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Das kommt später. Das wäre auch ein guter Anreiz, die Minimierung auszureizen. Wieso sollte ein simpler Timer KB groß sein, wenn man &lt;a href=&#34;http://js1k.com/2014-dragons/demo/1854&#34;&gt;Minecraft in 1024 bytes&lt;/a&gt; oder &lt;a href=&#34;http://js1k.com/2014-dragons/demo/1934&#34;&gt;Wolfenstein 2D in 2K&lt;/a&gt; programmieren kann?&lt;/p&gt;</description>
-        <pubDate>Thu, 22 Jan 2015 22:00:00 GMT</pubDate>
+        <pubDate>Thu, 22 Jan 2015 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2015-01-23:single-page-apps-minimieren-mit-gulp</guid>
     </item>
         
@@ -714,7 +793,7 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
         &lt;figcaption&gt;http://www.thomaspuppe.de/lab/mauerfall-tweets/&lt;/figcaption&gt;
     &lt;/a&gt;
 &lt;/figure&gt;</description>
-        <pubDate>Tue, 18 Nov 2014 22:00:00 GMT</pubDate>
+        <pubDate>Tue, 18 Nov 2014 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2014-11-19:twitterdaten-mappen-mit-leaflet</guid>
     </item>
         
@@ -802,7 +881,7 @@ $ while true; do ( wc -l tweets.json ; sleep 5 ) done;&lt;/pre&gt;
 &lt;p&gt;Insgesamt wurden 71180 Tweets erfasst. Da die Aufzeichnung ausgerechnet am Abend des 8.11. abbrach und ich bis Spätabends am 9.11. nicht online war, fehlen alle Tweets vom Tag des Mauerfalls. Aber immerhin gibt es die kleine Sammlung der Tage zuvor.&lt;/p&gt;
 &lt;p&gt;Die Datei lässt sich via scp vom AWS Server herunterladen, dann kann man die Maschien stoppen oder terminieren.&lt;/p&gt;
 &lt;p&gt;Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dargestellt: &lt;a href=&#34;http://www.thomaspuppe.de/lab/mauerfall-tweets/&#34;&gt;Karte&lt;/a&gt;, &lt;a href=&#34;http://blog.thomaspuppe.de/2014-11_twitterdaten-mappen-mit-leaflet&#34;&gt;Blog-Beitrag&lt;/a&gt;.&lt;/p&gt;</description>
-        <pubDate>Wed, 05 Nov 2014 22:00:00 GMT</pubDate>
+        <pubDate>Wed, 05 Nov 2014 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2014-11-06:twitterdaten-sammeln-mit-AWS</guid>
     </item>
         
@@ -844,7 +923,7 @@ a:hover, a:focus {
 &lt;p&gt;&lt;strong&gt;Trick 1:&lt;/strong&gt; Links bekommen ein Hintergrundbild, das keine Datei oder DataURI nutzt, sondern Gradients.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Trick 2:&lt;/strong&gt; Ein Text-Shadow, unterbricht die Linie bei Buchstaben mit Unterlänge.&lt;/p&gt;
 &lt;p&gt;Achtgeben muss man auf Links, die nicht nur Text enthalten. Wird z.B. ein Bild verlinkt, erhält dieses auch eine solche Unterstreichung. Das muss dann mittels &amp;ldquo;background-image:none;&amp;rdquo; unterbunden werden &amp;mdash; und zwar am Link statt am Bild. Bei großen Seiten kann es hier haarig werden und der Nutzen rechtfertigt den Aufwand vielleicht nicht mehr. Dasselbe gilt für Links im Button-Stil usw.&lt;/p&gt;</description>
-        <pubDate>Mon, 05 May 2014 22:00:00 GMT</pubDate>
+        <pubDate>Mon, 05 May 2014 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2014-05-06:link-unterstreichung</guid>
     </item>
         
@@ -4465,7 +4544,7 @@ a:hover, a:focus {
     &lt;li&gt;Wie man sieht, habe ich die Masse der 1-mal und 2-mal Retweter ausgelassen.&lt;/li&gt;
     &lt;li&gt;Die Zahl der Follower ist auch vom 16.03.2014, und nicht vom Tag der Retweets.&lt;/li&gt;
 &lt;/ul&gt;</description>
-        <pubDate>Sat, 15 Mar 2014 22:00:00 GMT</pubDate>
+        <pubDate>Sat, 15 Mar 2014 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2014-03-16:gregor-gysi-retweets</guid>
     </item>
         
@@ -4535,7 +4614,7 @@ font-size: 2em;
 &lt;p&gt;Da mobile (kleine) Geräte tendentiell schwächer sind als große, halte ich Mobile-First für einen guten Ansatz.&lt;/p&gt;
 &lt;h4&gt;Linktipp&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&#34;http://bradfrost.github.io/this-is-responsive/&#34;&gt;&amp;ldquo;This is responsive&amp;rdquo; von Brad Frost&lt;/a&gt;.&lt;/p&gt;</description>
-        <pubDate>Wed, 12 Feb 2014 22:00:00 GMT</pubDate>
+        <pubDate>Wed, 12 Feb 2014 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2014-02-13:responsive-website-ein-praktisches-beispiel</guid>
     </item>
         
@@ -4618,7 +4697,7 @@ jsOutput.innerHTML+= &#34;// User Agent\n&#34;;
 jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
 
 &lt;/script&gt;</description>
-        <pubDate>Wed, 06 Nov 2013 22:00:00 GMT</pubDate>
+        <pubDate>Wed, 06 Nov 2013 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2013-11-07:do-not-track-header-crossbrowser</guid>
     </item>
         
@@ -4654,7 +4733,7 @@ jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
 &lt;/ul&gt;
 &lt;p&gt;Interessant ist auch, dass die Anzahl der gezählten Besucher stark variiert. AWStats zeigt ca. doppelt so viele Besucher an wie Piwik (für Google Analytics habe ich keinen Vergleich, weil dies nicht parallel installiert war). Daher genieße ich die Zahlen aller Dienste mit Vorsicht, und achte eher auf Auf- und Abwärtstrends statt absolute Zahlen.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Fazit: für den normalen Gebrauch bietet AWStats alles, was der Website-Betreiber begehrt. Wer auf clientseitiges Tracking von Google Analytics oder Piwik verzichtet, tut seinem Besucher etwas Gutes ohne auf Besucherstatistiken verzichten zu müssen. Mit der Liste von 404 Fehlern verfügt AWStats sogar über ein nützliches Alleinstellungsmerkmal.&lt;/strong&gt;&lt;/p&gt;</description>
-        <pubDate>Mon, 21 Oct 2013 22:00:00 GMT</pubDate>
+        <pubDate>Mon, 21 Oct 2013 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2013-10-22:goodbye-google-analytics-goodbye-piwik</guid>
     </item>
         
@@ -4763,7 +4842,7 @@ jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
 &lt;p&gt;&#34;We are the new photojournalists.&#34;&lt;/p&gt;
 
 &lt;p&gt;&#34;Knowledge is the reason for change. Data Visualization helps spreading knowledge.&#34;&lt;/p&gt;</description>
-        <pubDate>Tue, 08 Oct 2013 22:00:00 GMT</pubDate>
+        <pubDate>Tue, 08 Oct 2013 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2013-10-09:visualized-io-berlin-2013</guid>
     </item>
         
@@ -4933,7 +5012,7 @@ jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
     &lt;li&gt;&lt;a href=&#34;http://www.ndr.de/fernsehen/sendungen/hallo_niedersachsen/media/hallonds13283.html&#34;&gt;&amp;quot;Wahlkampf im Internet&amp;quot;&lt;/a&gt; Hallo Niedersachsen - 02.01.2013 19:30 Uhr&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/p&gt;</description>
-        <pubDate>Mon, 21 Jan 2013 22:00:00 GMT</pubDate>
+        <pubDate>Mon, 21 Jan 2013 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2013-01-22:2013-01a_twitter-verhalten-mdb-und-nds</guid>
     </item>
         
@@ -4944,7 +5023,7 @@ jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
 &lt;p&gt;&lt;code&gt;RewriteEngine on
 RewriteCond %{REQUEST_URI} ^/+
 RewriteRule ^(.*)$ https://plus.google.com/u/0/109992889758306031081/ [R=permanent,L]&lt;/code&gt;&lt;/p&gt;</description>
-        <pubDate>Wed, 16 Jan 2013 22:00:00 GMT</pubDate>
+        <pubDate>Wed, 16 Jan 2013 23:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2013-01-17:eigene-domain-google-plus-umleiten</guid>
     </item>
         </channel>
