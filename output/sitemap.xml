@@ -61,7 +61,7 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/webentwicklung/</loc>
-    <lastmod>2016-10-31</lastmod>
+    <lastmod>2016-12-13</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -100,8 +100,14 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>http://blog.thomaspuppe.de/das-anti-agile-manifest</loc>
+    <lastmod>2016-12-13</lastmod>
+    <changefreq>never</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>http://blog.thomaspuppe.de/</loc>
-    <lastmod>2016-11-10</lastmod>
+    <lastmod>2016-12-13</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -111,7 +117,7 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/articles/</loc>
-    <lastmod>2016-11-10</lastmod>
+    <lastmod>2016-12-13</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -133,12 +139,12 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/feed/rss/</loc>
-    <lastmod>2016-11-10</lastmod>
+    <lastmod>2016-12-13</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/feed/atom/</loc>
-    <lastmod>2016-11-10</lastmod>
+    <lastmod>2016-12-13</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
