@@ -11,8 +11,99 @@
     <link rel="self" type="application/atom+xml" href="http://blog.thomaspuppe.de/feed/atom/" />
     <icon>http://blog.thomaspuppe.de/favicon.ico</icon>
     <logo>http://blog.thomaspuppe.de/feed-logo.png</logo>
-    <updated>2016-10-30T23:00:00Z</updated>
+    <updated>2016-11-08T23:00:00Z</updated>
     <generator uri="https://github.com/posativ/acrylamid/" version="0.7.10">acrylamid</generator>
+        <entry>
+        <title>News-Aufmacher zur Präsidentenwahl in den USA</title>
+        <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.deus-wahl-aufmacher-auf-news-websites" />
+        <id>tag:blog.thomaspuppe.de,2016-11-09:us-wahl-aufmacher-auf-news-websites</id>
+        <updated>2016-11-08T23:00:00Z</updated>
+        <category term="News-Watch" />
+        
+        <author>
+            <name>Thomas Puppe</name>
+            <uri>http://blog.thomaspuppe.de/</uri>
+            <email>info@thomaspuppe.de</email>
+        </author>
+        <content type="html">&lt;p&gt;Kürzlich habe ich mit dem Python-Framework &lt;a href=&#34;https://scrapy.org/&#34;&gt;Scrapy&lt;/a&gt; herumgespielt. Erstens wollte ich ausprobieren, wie gut es sich bedienen lässt. Zweitens war ich neugierig, wie die Aufmacher von News-Websies vor und bei der US-Präsidentschaftswahl bestückt werden. Beides lässt sich praktischerweise gut kombinieren :-)&lt;/p&gt;
+&lt;h3&gt;Das Vorgehen&lt;/h3&gt;
+&lt;p&gt;Zunächst habe ich die Homepages der News-Seiten mehrere Tage lang im 5-Minuten-Takt heruntergeladen.&lt;/p&gt;
+&lt;pre&gt;#!/bin/bash
+currenttime=`date &#39;+%Y-%m-%d_%H-%M-%S&#39;`;
+foldername=&#34;/var/www/newscurl/$currenttime&#34;;
+mkdir $foldername;
+cd $foldername;
+
+curl -o spiegel.html http://www.spiegel.de/
+curl -o zeit.html http://www.zeit.de/index
+curl -o lr-online.html http://www.lr-online.de/
+&lt;/pre&gt;
+
+&lt;p&gt;Damit ist das HTML der Seite gesichert, und kann später immer wieder analysiert werden. Was mit Scrapy auch recht einfach gelingt:&lt;/p&gt;
+&lt;pre&gt;import os
+import scrapy
+
+class LocalSpider(scrapy.Spider):
+    name = &#39;localspider&#39;
+    # provided via `python -m SimpleHTTPServer 9090`, since file:// url did not work
+    start_urls = [&#39;http://localhost:9090/&#39;]
+
+    def parse_single_page(self, response):
+        yield {
+            &#39;title&#39;: response.css(&#39;main article h2 a::attr(title)&#39;).extract_first(),
+            &#39;url&#39;: response.css(&#39;main article h2 a::attr(href)&#39;).extract_first(),
+            &#39;image&#39;: response.css(&#39;main article img::attr(src)&#39;).extract_first()
+        }
+
+    def parse(self, response):
+        # entry point: directory listing of localhost:9090
+        for link in response.css(&#39;a&#39;):
+            link_url = link.css(&#39;::attr(href)&#39;).extract_first()
+
+            if link_url.endswith(&#39;zeit.html&#39;):
+                yield scrapy.Request(response.urljoin(link_url), callback=self.parse_single_page)
+            else:
+                yield scrapy.Request(response.urljoin(link_url), callback=self.parse)&lt;/pre&gt;
+
+&lt;p&gt;Mit &lt;code&gt;scrapy runspider localspider.py -o result.json --logfile=localspider.log&lt;/code&gt; erhalte ich so ein &lt;a href=&#34;http://lab.thomaspuppe.de/us-wahl-news-aufmacher/result.json&#34;&gt;JSON-File mit allen Ergebnissen&lt;/a&gt; und ein umfangreiches Logfile des Scraping-Vorgangs.&lt;/p&gt;
+&lt;p&gt;Zum Schluss robbe ich mittels PHP über das JSON-File und gebe die Inhalte als HTML-Tabelle aus. Das Ergebnis (weder für Mobilgeräte optimiert, noch für sonstwas) schaut so aus: &lt;a href=&#34;http://lab.thomaspuppe.de/us-wahl-news-aufmacher/&#34;&gt;http://lab.thomaspuppe.de/us-wahl-news-aufmacher/&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Fazit 1: Scrapy&lt;/h3&gt;
+&lt;p&gt;Die Bedienung ist sehr einfach. Scrapy war eines der ersten Python-Frameworks, das ich problemlos installieren und benutzen konnte. Das liegt vielleicht an meiner wachsenden Python-Erfahrung, wahrscheinlich war viel Glück dabei, und auf jeden Fall bietet die Scrapy-Website einen super Einstieg samt funktionierendem Hello-World.&lt;/p&gt;
+&lt;p&gt;Die Selektoren entsprechen im Grunde CSS-Selektoren. Womit mans chon sehr weit kommt. Die asynchronen yield-Aufrufe sind ein schöner Weg zur Parallelisierung der Anfragen. Der Output im JSON-Format kommt mir entgegen. Andere Varianten habe ich nicht getestet.&lt;/p&gt;
+&lt;p&gt;Insgesamt war mein Test-Case ja sehr einfach. Da sieht man nciht viel vom Framework. Aber mein erster Eindruck ist gut. Auch, weil man im Netz jede Menge Doku und Rat zu Scrapy findet. Und es eine &#34;Scraping as a Servcie&#34; Anbindung gib, mit der man seine Scripte in die Cloud schießt und der Dienst &lt;a href=&#34;https://scrapinghub.com/&#34;&gt;Scrapinghub&lt;/a&gt; sich um das regelmäßige Crawling kümmert.&lt;/p&gt;
+&lt;h3&gt;Fazit 2: Die Aufmacher&lt;/h3&gt;
+&lt;p&gt;Das Ergebnis kann man hier ansehen: &lt;a href=&#34;http://lab.thomaspuppe.de/us-wahl-news-aufmacher/&#34;&gt;Aufmacher auf deutschen News-Websites zur US-Wahl&lt;/a&gt; (Achtung: 4 MB groß). Die Legende zeigt die Farbcodes an. Per Mouseover sieht man den Titel. Die meisten Felder sind zum Artikel verlinkt. Zoomen funktioniert. Mobil sieht man was, aber Mouseover tut natürlich nicht.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;http://blog.thomaspuppe.de/images/2016/11/us-wahl-aufmacher.png&#34; alt=&#34;Screenshotder Visualisierung Aufmacher auf deutschen News-Websites zur US-Wahl&#34;/&gt;
+    &lt;figcaption&gt;Screenshot der Visualisierung&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Was sieht man?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Themen:&lt;/em&gt; Am Freitag war die Türkei das dominante Aufmacherthema. Am Wochenende wechselte das über deutsche Politik auf die US-Wahl.&lt;/p&gt;
+&lt;p&gt;Montag ging es um Clinton (das FBI und die E-Mails), wechselte dann zu allgemeiner/beidseitiger Berichterstattung.&lt;/p&gt;
+&lt;p&gt;Dienstag hatten wir den ganzen Tag allgemeine (nicht auf einen kandidaten fokussierte) US-Wahl-Aufmacher, nur unterbrochen durch den &#34;Prediger ohne Gesicht&#34;. Ab dem Abend dann kippte es schon in Richtung Donald Trump (klickte wohl besser).&lt;/p&gt;
+&lt;p&gt;Im Laufe der Nacht gab es zunächst allgemeine Wahlticker, bis es am Morgen dann natürlich zu Trump wechselte. Um Hillary Clinton ging es erst am Abend wieder, als sie vor die Presse trat.&lt;/p&gt;
+&lt;p&gt;Die lokalen Zeitungen aus Berlin und der Lausitz haben lokale Themen und nationale Themen als Aufmacher. Pünktlich am Mittwoch schwenkten sie zur US-Wahl. Die Morgenpost zunächst mit einer Clinton-Party in Berlin.&lt;/p&gt;
+&lt;p&gt;So weit, so erwartbar.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Verfügbarkeit:&lt;/em&gt; Alle betrachteten Angebote waren durchweg verfügbar. ZEIT Online hatte zur wichtigsten geplanten Nachrichtenlage des Jahres Aussetzer. Shame on us.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Und sonst?&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Die Bild-Zeitung habe ich auch gecurlt, aber das ranzige HTML erwies sich als nicht vernünftig crawlbar. Nehmen wir mal an, das sei Absicht zu Zeiten des AdBlockerBlockings.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Der Zieleinlauf&lt;/h3&gt;
+&lt;p&gt;In dieser Reihenfolge wurde der Sieg Trumps verkündet (konkrete Aussage, ohne &#34;praktisch nicht mehr einholbar&#34; uns so):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;08:20 Uhr FAZ: &lt;a href=&#34;http://www.faz.net/aktuell/politik/wahl-in-amerika/us-wahl-2016-ergebnisse-und-news-im-liveticker-14508839.html&#34;&gt;Liveticker zur Wahl: Donald Trump wird Präsident von Amerika&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;08:35 Uhr Focus: &lt;a href=&#34;http://www.focus.de/politik/ausland/us-wahlen-2016/us-wahlen-2016-im-live-ticker-trump-baut-fuehrung-aus-und-gewinnt-florida_id_6179418.html&#34;&gt;+++ US-Wahlen 2016 im Live-Ticker +++: Sie haben es so gewählt: Amerikaner machen Trump zu ihrem nächsten Präsidenten&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;08:35 Uhr Lausitzer Rundschau: &lt;a href=&#34;http://www.lr-online.de/us-ticker&#34;&gt;Die Präsidentschaftswahl in den USA im Liveticker - Donald Trump hat laut US-Medien die Wahl gewonnen&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;08:40 Uhr Süddeutsche Zeitung: &lt;a href=&#34;http://www.sueddeutsche.de/politik/us-wahl-us-medien-verkuenden-trumps-sieg-1.3233721&#34;&gt;US-Medien verkünden Trumps Sieg&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;08:40 Uhr taz: &lt;a href=&#34;http://www.taz.de/taz-Liveticker-zur-US-Wahl-2016/!5355525/&#34;&gt;Trump hat gewonnen - taz-Liveticker zur US-Wahl 2016&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;08:40 Uhr Welt: &lt;a href=&#34;https://www.welt.de/politik/ausland/article159356634/Donald-Trump-wird-45-Praesident-der-Vereinigten-Staaten.html&#34;&gt;Die Sensation ist perfekt - Donald Trump wird 45. Präsident der Vereinigten Staaten&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;08:45 Uhr SPIEGEL: &lt;a href=&#34;http://www.spiegel.de/politik/ausland/donald-trump-gewinnt-die-us-wahl-2016-a-1120397.html&#34;&gt;Vereinigte Staaten: Donald Trump gewinnt US-Präsidentschaftswahl&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;08:45 Uhr ZEIT: &lt;a href=&#34;http://www.zeit.de/politik/ausland/2016-11/wahl-usa-hillary-clinton-donald-trump-praesidentschaft-live&#34;&gt;Wahl in den USA - Hillary Clinton verliert US-Wahl&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+    </entry>
+    
         <entry>
         <title>Single Point Of Failure auf News-Websites</title>
         <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.despof-auf-news-websites" />
