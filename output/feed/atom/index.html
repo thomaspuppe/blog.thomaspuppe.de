@@ -11,8 +11,219 @@
     <link rel="self" type="application/atom+xml" href="http://blog.thomaspuppe.de/feed/atom/" />
     <icon>http://blog.thomaspuppe.de/favicon.ico</icon>
     <logo>http://blog.thomaspuppe.de/feed-logo.png</logo>
-    <updated>2016-12-12T23:00:00Z</updated>
+    <updated>2017-01-05T23:00:00Z</updated>
     <generator uri="https://github.com/posativ/acrylamid/" version="0.7.10">acrylamid</generator>
+        <entry>
+        <title>URL-unshortening</title>
+        <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.deurl-unshortening" />
+        <id>tag:blog.thomaspuppe.de,2017-01-06:url-unshortening</id>
+        <updated>2017-01-05T23:00:00Z</updated>
+        <category term="Webentwicklung" />
+        
+        <author>
+            <name>Thomas Puppe</name>
+            <uri>http://blog.thomaspuppe.de/</uri>
+            <email>info@thomaspuppe.de</email>
+        </author>
+        <content type="html">&lt;p&gt;Für ein aktuelles Feature bei Bundestwitter trage ich gerade zusammen, welche Links von Politikern via Twitter verbreitet wurden. Dabei stellt sich heraus, dass mehr als 20% der geposteten Links sogenannte Shortlinks sind. Also nicht nur die Kürzung von Twitter selbst via &lt;code&gt;t.co&lt;/code&gt; (deren echte URLs werden über die APIs mitgeliefert), sondern es werden schon Short-URLs beim Schreiben der Tweets eingegeben.&lt;/p&gt;
+&lt;p&gt;In Zahlen drückt sich das so aus (bei insgesamt 48.000 Links):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;6404 &amp;times; fb.me&lt;/li&gt;
+&lt;li&gt;1506 &amp;times; bit.ly&lt;/li&gt;
+&lt;li&gt;1072 &amp;times; ow.ly&lt;/li&gt;
+&lt;li&gt;199 &amp;times; tinyurl.com&lt;/li&gt;
+&lt;li&gt;187 &amp;times; goo.gl&lt;/li&gt;
+&lt;li&gt;138 &amp;times; ift.tt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Diese URLs möchte ich nun also auflösen. Im Internet findet man darüber &lt;a href=&#34;http://security.thejoshmeister.com/2009/04/how-to-preview-shortened-urls-tinyurl.html&#34;&gt;Artikel&lt;/a&gt;, &lt;a href=&#34;http://www.toolsvoid.com/unshorten-url&#34;&gt;einige&lt;/a&gt; &lt;a href=&#34;https://www.unshorten.it/&#34;&gt;verschiedene&lt;/a&gt; &lt;a href=&#34;http://checkshorturl.com/&#34;&gt;Dienste &lt;/a&gt; und &lt;a href=&#34;https://github.com/quark-zju/unshorten&#34;&gt;diverse&lt;/a&gt; &lt;a href=&#34;https://github.com/mathiasbynens/node-unshorten&#34;&gt;Scripte&lt;/a&gt;, &lt;a href=&#34;https://github.com/nodeca/url-unshort&#34;&gt;Bibliotheken&lt;/a&gt; und &lt;a href=&#34;https://gist.github.com/zhasm/986361&#34;&gt;Snippets&lt;/a&gt; bei GitHub.&lt;/p&gt;
+&lt;h3&gt;Eigentlich ist es viel einfacher!&lt;/h3&gt;
+&lt;p&gt;Es stellt sich heraus, dass &lt;em&gt;im Prinzip&lt;/em&gt; ein Curl-Aufruf ausreicht. Alle genannten Dienste antworten mit einem HTTP Status 301 und dem Location-Header. &lt;strong&gt;Das Internet ist also doch noch nicht so kaputt wie ich dachte.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In Bash ist das ganz simpel: &lt;code&gt;curl -I http://fb.me/16MEzokwA&lt;/code&gt;. Fertig. Wegen der Anbindung an meine Datenbank habe ich die Arbeit mit PHP erledigt, was auch mit Bordmitteln und ein paar Codezeilen funktioniert:&lt;/p&gt;
+&lt;pre&gt;function get_resp_from_url($url)
+{
+    $curlConnection = curl_init();
+    curl_setopt($curlConnection, CURLOPT_URL, $url);
+    curl_setopt($curlConnection, CURLOPT_NOBODY, true);
+
+    if (curl_exec($curlConnection) == false) {
+        print &#39;Curl-Error: &#39; . curl_error($ch);
+        curl_close($curlConnection);
+        return false;
+    } else {
+        $responseInfo = curl_getinfo($curlConnection);
+        curl_close($curlConnection);
+        return array(
+            &#39;status&#39; =&gt; $responseInfo[&#39;http_code&#39;],
+            &#39;location&#39; =&gt; $responseInfo[&#39;redirect_url&#39;]
+            );
+    }
+}&lt;/pre&gt;
+
+&lt;p&gt;Einzig Facebook konnte damit nicht abgegrast werden. &lt;code&gt;fb.me&lt;/code&gt;-Adressen liefern mir zuverlässig Status 301 bei Abfrage per Bash, und Status 200 mit Facebook-HTML im Body bei der Abfrage per PHP.&lt;/p&gt;
+&lt;p&gt;Weder Google noch die curl-Referenz für PHP konnten helfen, also musste Python herhalten. Nach dem üblichen erfolglosen Herumirren auf mehreren Wegen (&lt;code&gt;httplib&lt;/code&gt; und &lt;code&gt;urllib2&lt;/code&gt;) funktioniert es dann auf diese Art:&lt;/p&gt;
+&lt;pre&gt;import requests
+r = requests.get(url, allow_redirects=False)
+if r.status_code == 301:
+    return r.headers.get(&#39;Location&#39;)&lt;/pre&gt;
+
+&lt;p&gt;Schöne Erkenntnis am Rande: selbst bei hunderten oder tausenden Abfragen im unter-Sekunden-Takt hat keiner der Dienste mit Rate Limiting oder anderer Abweisung reagiert.&lt;/p&gt;</content>
+    </entry>
+    
+        <entry>
+        <title>Online-Aufmacher nach dem Anschlag in Berlin</title>
+        <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.deberlin-anschlag-aufmacher" />
+        <id>tag:blog.thomaspuppe.de,2017-01-05:berlin-anschlag-aufmacher</id>
+        <updated>2017-01-04T23:00:00Z</updated>
+        <category term="News-Watch" />
+        
+        <author>
+            <name>Thomas Puppe</name>
+            <uri>http://blog.thomaspuppe.de/</uri>
+            <email>info@thomaspuppe.de</email>
+        </author>
+        <content type="html">&lt;p&gt;Die Aufmacher der großen Online-Medien am 21. Dezember 2016, zwei Tage nach dem Anschlag. Entspringt einer kleinen Übung zu Crawling und Scraping. Ohne Auswertung.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34; scoped&gt;
+small { color: grey; }
+span.gitdel { background: #ffecec; text-decoration: line-through; }
+span.gitadd { background: #ecffec; }
+&lt;/style&gt;
+
+&lt;h4&gt;Der SPIEGEL&lt;/h4&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;small&gt;00:00)&lt;/small&gt; Berlin nach dem Terror: Maximal unbeeindruckt&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;06:10)&lt;/small&gt; Anschlag auf Weihnachtsmarkt: Ermittler erwarten schnellen Fahndungserfolg&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;11:10)&lt;/small&gt; Anschlag in Berlin: Polizei sucht tatverdächtigen Tunesier&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;15:45)&lt;/small&gt; +++ Newsblog +++: Tatbeteiligung des Gesuchten &#34;überhaupt nicht geklärt&#34;&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;15:55)&lt;/small&gt; +++ Newsblog +++: Gesuchter Tunesier sollte abgeschoben werden&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;16:30)&lt;/small&gt; NRW-Innenminister zu Anis A.: Gesuchter Tunesier sollte abgeschoben werden&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;17:55)&lt;/small&gt; +++ Newsblog +++: Öffentliche Fahndung nach Anis Amri - bis zu 100.000 Euro Belohnung&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;18:15)&lt;/small&gt; Weihnachtsmarkt-Anschlag von Berlin: BKA fahndet öffentlich nach Islamisten Anis Amri&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;18:50)&lt;/small&gt; Weihnachtsmarktanschlag von Berlin: BKA fahndet öffentlich nach Islamist Anis Amri&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;19:35)&lt;/small&gt; Mutmaßlicher Berliner Attentäter Anis Amri: Aus den Augen verloren&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Die ZEIT&lt;/h4&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;small&gt;00:00)&lt;/small&gt; Anschlag auf Berliner Weihnachtsmarkt - Der Weg des Trucks&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;07:45)&lt;/small&gt; Berlin - In Stille vereint&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;10:35)&lt;/small&gt; Terrorismus - Gefangen in der Reaktionsroutine&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;11:15)&lt;/small&gt; Berlin - Polizei fahndet bundesweit nach Verdächtigem&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;12:00)&lt;/small&gt; Berlin - Polizei fahndet nach verdächtigem Tunesier&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;14:50)&lt;/small&gt; Berlin - Verdächtiger seit Mitternacht zur Fahndung ausgeschrieben&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;15:50)&lt;/small&gt; Berlin - Verdächtiger sollte abgeschoben werden&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;17:30)&lt;/small&gt; Anschlag in Berlin - Erstaunliche Angstresistenz&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;20:25)&lt;/small&gt; Anschlag am Breitscheidplatz - Ein alter Bekannter&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;FAZ&lt;/h4&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;small&gt;00:00)&lt;/small&gt; Attentat auf Weihnachtsmarkt: Suche nach dem richtigen Mann&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;06:05)&lt;/small&gt; Nach Todesfahrt von Berlin: Fieberhafte Suche nach dem Täter&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;09:25)&lt;/small&gt; Nach dem Anschlag in Berlin: Polizeigewerkschaft: „Politiker erschweren unsere Arbeit“&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;09:50)&lt;/small&gt; Reaktionen auf den Anschlag: Dringend verdächtig&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;11:50)&lt;/small&gt; Liveblog nach Anschlag: Polizei fahndet bundesweit nach einem Verdächtigen&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;12:10)&lt;/small&gt; Nach Anschlag von Berlin: Polizei fahndet angeblich nach Tunesier&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;13:20)&lt;/small&gt; Nach Anschlag von Berlin: Polizei fahndet offenbar nach Tunesier&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;14:50)&lt;/small&gt; Nach Anschlag von Berlin: Polizei fahndet nach Tunesier&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;15:25)&lt;/small&gt; Liveblog nach Anschlag: Innenminister bestätigt Suche nach Verdächtigem&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;16:00)&lt;/small&gt; Liveblog nach Anschlag: Verdächtiger sollte abgeschoben werden&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;16:45)&lt;/small&gt; Die Medien und der Anschlag: Wer sät die Furcht?&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;18:05)&lt;/small&gt; Nach Attentat in Berlin: Öffentliche Fahndung nach verdächtigem Tunesier&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;19:35)&lt;/small&gt; Anschlag auf Weihnachtsmarkt: Berliner Justiz observierte Amri von März bis September&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;21:40)&lt;/small&gt; Anschlag von Berlin: Wer ist Anis Amri?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Focus&lt;/h4&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;small&gt;00:00)&lt;/small&gt; Zeitvorsprung macht alles schwieriger: Attentäter flüchtig: Experte erklärt, wie Polizei jetzt den Staatsfeind Nr. 1 jagt&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;01:40)&lt;/small&gt; TV-Kolumne „Maischberger“: Talk zum Anschlag in Berlin: Moderatorin Maischberger greift Söder an&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;02:15)&lt;/small&gt; TV-Kolumne „Maischberger“: Nach dem Anschlag in Berlin: Söder prangert „Kontrollverlust“ an den Grenzen an&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;03:35)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: Chef der Innenminister-Konferenz: „Wir sind in einem Kriegszustand“&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;03:40)&lt;/small&gt; „Wir haben viel zu früh Hurra geschrien“: Todesfahrer von Berlin noch immer auf der Flucht: Was bei der Fahndung falsch lief&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;06:25)&lt;/small&gt; „Wir haben viel zu früh Hurra geschrien“: Die verhängnisvollen Pannen der Polizei auf der Suche nach dem Todesfahrer&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;06:50)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: Stoppte er die Todesfahrt? Beifahrer offenbar erst nach Anschlag erschossen&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;07:10)&lt;/small&gt; Unglück in Mexiko: 29 Tote: Aufnahmen zeigen verheerende Explosion tausender Feuerwerkskörper&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;07:15)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: Stoppte er die Todesfahrt? Beifahrer offenbar erst nach Anschlag erschossen&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;08:35)&lt;/small&gt; Nach Anschlag in Berlin: Panzersperren und Anti-Terror-Poller? So sollen Silvester-Partys geschützt werden&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;09:10)&lt;/small&gt; Dom im Fokus der Polizei: Kölner Polizeipräsident nach Anschlag: &#34;Habe Sorge, dass es Nachahmer gibt&#34;&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;09:20)&lt;/small&gt; Nach Anschlag in Berlin: Panzersperren und Anti-Terror-Poller? So sollen Silvester-Partys geschützt werden&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;09:30)&lt;/small&gt; Ein Spanier erlitt mehrere Brüche: &#34;Schlimmster Schmerz meines Lebens&#34;: Jetzt sprechen die Opfer des Berlin-Anschlags&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;09:40)&lt;/small&gt; Ein Spanier erlitt mehrere Brüche: &#34;Schlimmster Schmerz meines Lebens&#34;: Jetzt sprechen die Opfer des Anschlags&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;10:45)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: Polizei nahm weiteren Verdächtigen fest - und ließ auch ihn wieder laufen&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;10:50)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: Polizei lässt weiteren Verdächtigen laufen - Ermittler glauben, dass Täter verletzt ist&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;11:00)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: Polizei lässt weiteren Verdächtigen laufen - Neue Spur führt in Salafisten-Kreise&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;11:10)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: Dokument in Lkw entdeckt: Polizei fahndet bundesweit nach Verdächtigem - Spur führt in Salafisten-Kreise&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;11:15)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: Dokument in Lkw entdeckt: Polizei fahndet bundesweit nach 23-jährigem Tunesier&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;11:20)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: Ausweis in Lkw entdeckt: Polizei fahndet bundesweit nach 23-jährigem Tunesier&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;11:30)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: Ausweis in Lkw entdeckt: Polizei fahndet nach 23-jährigem Tunesier - steht Zugriff in NRW kurz bevor?&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;12:00)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: Polizei fahndet mit diesem Bild nach Terror-Verdächtigem Anis A.&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;12:20)&lt;/small&gt; Nach Anschlag in Berlin: Die Polizei fahndet mit diesem Bild deutschlandweit nach dem Terrorverdächtigen Anis A.&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;13:05)&lt;/small&gt; Was über den Mann bekannt ist: Terrorverdächtiger Anis A.: Polizei nahm ihn im August fest, ließ ihn aber laufen&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;13:45)&lt;/small&gt; Sein Ausweis lag im Todes-Lkw: Terrorverdächtiger Anis A.: Festnahme, Abschiebehaft - trotzdem lief er frei herum&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;14:00)&lt;/small&gt; Sein Asylpapier lag im Todes-Lkw: Terrorverdächtiger Anis A.: Festnahme, Abschiebehaft - trotzdem lief er frei herum&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;15:30)&lt;/small&gt; Überfälle auf Polizeistationen und Amokfahrt mit Lkw: Terrornetzwerk um Anis A. plante seit 2015 Anschläge in Deutschland&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;16:40)&lt;/small&gt; Sein Asylpapier lag im Todes-Lkw: Anis A. sollte abgeschoben werden - nötige Papiere kamen &#34;zufälligerweise heute&#34; aus Tunesien&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;18:00)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: 100.000 Euro Belohnung für Anis A. - Polizei wegen Schreibfehler an Razzia gehindert&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;18:05)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: 100.000 Euro Belohnung für Hinweise - Polizei wegen Schreibfehler an Razzia gehindert&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;18:35)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: 100.000 Euro Belohnung für Hinweise - Polizei wegen Schreibfehlers an Razzia gehindert&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;19:10)&lt;/small&gt; Wie konnte das passieren?: Rekonstruktion des Versagens: Wie Anis Amri den Behörden entkam&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;20:30)&lt;/small&gt; &#34;Bin genauso betroffen wie alle anderen&#34;: Jagd auf Anis Amri: Nun äußern sich die Geschwister des Terrorverdächtigen&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;21:15)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: Flüchtlingslager angezündet: Anis Amri saß in Italien vier Jahre im Gefängnis&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;22:25)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: Ranghoher Polizist: Anis Amri &#34;über alle Berge&#34; - Verdächtiger saß in Italien vier Jahre im Gefängnis&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;23:45)&lt;/small&gt; +++ Anschlag in Berlin im Live-Ticker +++: Ranghoher Polizist: Anis Amri &#34;über alle Berge&#34; – Verdächtiger saß in Italien vier Jahre im Gefängnis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Süddeutsche Zeitung&lt;/h4&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;small&gt;00:00)&lt;/small&gt; Deutschland ist nicht im Krieg&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;09:25)&lt;/small&gt; So lassen sich öffentliche Plätze schützen&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;11:05)&lt;/small&gt; Nizza hat seine Lehren aus dem Anschlag gezogen&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;11:30)&lt;/small&gt; Medien: Polizei findet Personalien in Lkw - bundesweite Fahndung&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;11:40)&lt;/small&gt; Polizei sucht Tunesier - Verdächtiger erhielt Asyl in Deutschland&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;11:45)&lt;/small&gt; Polizei sucht Tunesier - Verdächtiger beantragte Asyl in Deutschland&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;15:25)&lt;/small&gt; De Maizière: Nach Verdächtigem wird europaweit gefahndet&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;15:40)&lt;/small&gt; Verdächtiger war in Abschiebehaft &lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;16:25)&lt;/small&gt; NRW ermittelte gegen Verdächtigen wegen &#34;Vorbereitung einer staatsgefährdenden Straftat&#34; &lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;17:50)&lt;/small&gt; Bundesanwaltschaft fahndet öffentlich nach Anis Amri&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;17:55)&lt;/small&gt; Anschlag in Berlin: Bundesanwaltschaft fahndet öffentlich nach Anis Amri&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;22:20)&lt;/small&gt; Anschlag in Berlin: Bundesanwaltschaft fahndet europaweit&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;22:30)&lt;/small&gt; Anis Amri ist den Sicherheitsbehörden lange bekannt&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;taz&lt;/h4&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;small&gt;00:00)&lt;/small&gt; Gelassenheit als Gegenwehr - Kommentar Anschlag in Berlin&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;08:45)&lt;/small&gt; „Bald in Berlin“ - Berlin im Visier von Terroristen&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;10:10)&lt;/small&gt; „Dass IS sich bekennt ist kein Beweis“ - Suche nach dem Berlin-Attentäter&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;10:20)&lt;/small&gt; „Dass IS sich bekennt, ist kein Beweis“ - Suche nach dem Berlin-Attentäter&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;14:20)&lt;/small&gt; Gegen den Hass – und dafür - Demos nach dem Anschlag in Berlin&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;19:40)&lt;/small&gt; Brauchen wir mehr Überwachung? - Sicherheit nach Berliner Anschlag&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Berliner Morgenpost&lt;/h4&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;small&gt;00:00)&lt;/small&gt; Lkw rast auf Weihnachtsmarkt in Berlin - Was wir wissen&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;06:25)&lt;/small&gt; Die tödliche Stille nach dem Terroranschlag von Berlin&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;06:40)&lt;/small&gt; Trauer um Opfer des Anschlags von Berlin&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;06:45)&lt;/small&gt; Sechs Festnahmen nach Attentat auf Botschafter in der Türkei&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;07:30)&lt;/small&gt; Das geschah in der Nacht zu Mittwoch in Berlin&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;11:25)&lt;/small&gt; Lkw rast auf Weihnachtsmarkt in Berlin - Was wir wissen&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;16:30)&lt;/small&gt; Die Polizei fahndet nach Verdächtigem - noch aber ohne Foto&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;17:55)&lt;/small&gt; Die Polizei fahndet nach Verdächtigem - zunächst ohne Foto&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;18:20)&lt;/small&gt; Lkw rast auf Weihnachtsmarkt in Berlin - Was wir wissen&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;19:00)&lt;/small&gt; Anschlag in Berlin - &#34;Fürchtet euch nicht&#34;&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;19:15)&lt;/small&gt; So scheiterte die Abschiebung des Verdächtigen Anis Amri&lt;/li&gt;
+    &lt;li&gt;&lt;small&gt;20:10)&lt;/small&gt; Berlin hat ein Sicherheitsdefizit&lt;/li&gt;
+&lt;/ul&gt;</content>
+    </entry>
+    
         <entry>
         <title>Das Anti-agile Manifest</title>
         <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.dedas-anti-agile-manifest" />

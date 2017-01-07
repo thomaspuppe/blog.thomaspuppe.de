@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Online-Aufmacher nach dem Anschlag in Berlin</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="Die Aufmacher der großen Online-Medien zwei Tage nach dem Anschlag im Vergleich" />
+    <meta name="keywords" content="News-Watch" />
+</head>
+<body>
+  <header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#News-Watch
+		</span>
+		<time datetime="2017-01-05">
+			
+			05. Januar 2017
+		</time>
+	</div>
+
+    <h1 class="post__title">Online-Aufmacher nach dem Anschlag in Berlin</h1>
+
+    <p>Die Aufmacher der großen Online-Medien am 21. Dezember 2016, zwei Tage nach dem Anschlag. Entspringt einer kleinen Übung zu Crawling und Scraping. Ohne Auswertung.</p>
+<style type="text/css" scoped>
+small { color: grey; }
+span.gitdel { background: #ffecec; text-decoration: line-through; }
+span.gitadd { background: #ecffec; }
+</style>
+
+<h3>Der SPIEGEL</h3>
+
+<ul>
+    <li><small>00:00)</small> Berlin nach dem Terror: Maximal un&shy;be&shy;ein&shy;druckt</li>
+    <li><small>06:10)</small> Anschlag auf Weih&shy;nachts&shy;markt: Ermittler erwarten schnellen Fahn&shy;dungs&shy;er&shy;folg</li>
+    <li><small>11:10)</small> Anschlag in Berlin: Polizei sucht tat&shy;ver&shy;däch&shy;ti&shy;gen Tunesier</li>
+    <li><small>15:45)</small> +++ Newsblog +++: Tat&shy;be&shy;tei&shy;li&shy;gung des Gesuchten "überhaupt nicht geklärt"</li>
+    <li><small>15:55)</small> +++ Newsblog +++: Gesuchter Tunesier sollte ab&shy;ge&shy;scho&shy;ben werden</li>
+    <li><small>16:30)</small> NRW-In&shy;nen&shy;mi&shy;nis&shy;ter zu Anis A.: Gesuchter Tunesier sollte ab&shy;ge&shy;scho&shy;ben werden</li>
+    <li><small>17:55)</small> +++ Newsblog +++: Öf&shy;fent&shy;li&shy;che Fahndung nach Anis Amri - bis zu 100.000 Euro Belohnung</li>
+    <li><small>18:15)</small> Weih&shy;nachts&shy;markt-Anschlag von Berlin: BKA fahndet öffentlich nach Islamisten Anis Amri</li>
+    <li><small>18:50)</small> Weih&shy;nachts&shy;markt&shy;an&shy;schlag von Berlin: BKA fahndet öffentlich nach Islamist Anis Amri</li>
+    <li><small>19:35)</small> Mut&shy;maß&shy;li&shy;cher Berliner Attentäter Anis Amri: Aus den Augen verloren</li>
+</ul>
+
+<h3>Die ZEIT</h3>
+
+<ul>
+    <li><small>00:00)</small> Anschlag auf Berliner Weih&shy;nachts&shy;markt - Der Weg des Trucks</li>
+    <li><small>07:45)</small> Berlin - In Stille vereint</li>
+    <li><small>10:35)</small> Ter&shy;ro&shy;ris&shy;mus - Gefangen in der Re&shy;ak&shy;ti&shy;ons&shy;rou&shy;ti&shy;ne</li>
+    <li><small>11:15)</small> Berlin - Polizei fahndet bundesweit nach Ver&shy;däch&shy;ti&shy;gem</li>
+    <li><small>12:00)</small> Berlin - Polizei fahndet nach ver&shy;däch&shy;ti&shy;gem Tunesier</li>
+    <li><small>14:50)</small> Berlin - Ver&shy;däch&shy;ti&shy;ger seit Mit&shy;ter&shy;nacht zur Fahndung aus&shy;ge&shy;schrie&shy;ben</li>
+    <li><small>15:50)</small> Berlin - Ver&shy;däch&shy;ti&shy;ger sollte ab&shy;ge&shy;scho&shy;ben werden</li>
+    <li><small>17:30)</small> Anschlag in Berlin - Er&shy;staun&shy;li&shy;che Angst&shy;re&shy;sis&shy;tenz</li>
+    <li><small>20:25)</small> Anschlag am Breit&shy;scheid&shy;platz - Ein alter Bekannter</li>
+</ul>
+
+<h3>FAZ</h3>
+
+<ul>
+    <li><small>00:00)</small> Attentat auf Weih&shy;nachts&shy;markt: Suche nach dem richtigen Mann</li>
+    <li><small>06:05)</small> Nach Todesfahrt von Berlin: Fie&shy;ber&shy;haf&shy;te Suche nach dem Täter</li>
+    <li><small>09:25)</small> Nach dem Anschlag in Berlin: Po&shy;li&shy;zei&shy;ge&shy;werk&shy;schaft: „Politiker erschweren unsere Arbeit“</li>
+    <li><small>09:50)</small> Reaktionen auf den Anschlag: Dringend verdächtig</li>
+    <li><small>11:50)</small> Liveblog nach Anschlag: Polizei fahndet bundesweit nach einem Ver&shy;däch&shy;ti&shy;gen</li>
+    <li><small>12:10)</small> Nach Anschlag von Berlin: Polizei fahndet angeblich nach Tunesier</li>
+    <li><small>13:20)</small> Nach Anschlag von Berlin: Polizei fahndet offenbar nach Tunesier</li>
+    <li><small>14:50)</small> Nach Anschlag von Berlin: Polizei fahndet nach Tunesier</li>
+    <li><small>15:25)</small> Liveblog nach Anschlag: In&shy;nen&shy;mi&shy;nis&shy;ter bestätigt Suche nach Ver&shy;däch&shy;ti&shy;gem</li>
+    <li><small>16:00)</small> Liveblog nach Anschlag: Ver&shy;däch&shy;ti&shy;ger sollte ab&shy;ge&shy;scho&shy;ben werden</li>
+    <li><small>16:45)</small> Die Medien und der Anschlag: Wer sät die Furcht?</li>
+    <li><small>18:05)</small> Nach Attentat in Berlin: Öf&shy;fent&shy;li&shy;che Fahndung nach ver&shy;däch&shy;ti&shy;gem Tunesier</li>
+    <li><small>19:35)</small> Anschlag auf Weih&shy;nachts&shy;markt: Berliner Justiz ob&shy;ser&shy;vier&shy;te Amri von März bis September</li>
+    <li><small>21:40)</small> Anschlag von Berlin: Wer ist Anis Amri?</li>
+</ul>
+
+<h3>Focus</h3>
+
+<ul>
+    <li><small>00:00)</small> Zeit&shy;vor&shy;sprung macht alles schwie&shy;ri&shy;ger: Attentäter flüchtig: Experte erklärt, wie Polizei jetzt den Staats&shy;feind Nr. 1 jagt</li>
+    <li><small>01:40)</small> TV-Kolumne „Maisch&shy;ber&shy;ger“: Talk zum Anschlag in Berlin: Mo&shy;de&shy;ra&shy;to&shy;rin Maisch&shy;ber&shy;ger greift Söder an</li>
+    <li><small>02:15)</small> TV-Kolumne „Maisch&shy;ber&shy;ger“: Nach dem Anschlag in Berlin: Söder prangert „Kon&shy;troll&shy;ver&shy;lus&shy;t“ an den Grenzen an</li>
+    <li><small>03:35)</small> +++ Anschlag in Berlin im Live-Ticker +++: Chef der In&shy;nen&shy;mi&shy;nis&shy;ter-Konferenz: „Wir sind in einem Kriegs&shy;zu&shy;stan&shy;d“</li>
+    <li><small>03:40)</small> „Wir haben viel zu früh Hurra geschrien“: To&shy;des&shy;fah&shy;rer von Berlin noch immer auf der Flucht: Was bei der Fahndung falsch lief</li>
+    <li><small>06:25)</small> „Wir haben viel zu früh Hurra geschrien“: Die ver&shy;häng&shy;nis&shy;vol&shy;len Pannen der Polizei auf der Suche nach dem To&shy;des&shy;fah&shy;rer</li>
+    <li><small>06:50)</small> +++ Anschlag in Berlin im Live-Ticker +++: Stoppte er die Todesfahrt? Beifahrer offenbar erst nach Anschlag erschossen</li>
+    <li><small>07:10)</small> Unglück in Mexiko: 29 Tote: Aufnahmen zeigen ver&shy;hee&shy;ren&shy;de Explosion tausender Feu&shy;er&shy;werks&shy;kör&shy;per</li>
+    <li><small>07:15)</small> +++ Anschlag in Berlin im Live-Ticker +++: Stoppte er die Todesfahrt? Beifahrer offenbar erst nach Anschlag erschossen</li>
+    <li><small>08:35)</small> Nach Anschlag in Berlin: Pan&shy;zer&shy;sper&shy;ren und Anti-Terror-Poller? So sollen Silvester-Partys geschützt werden</li>
+    <li><small>09:10)</small> Dom im Fokus der Polizei: Kölner Po&shy;li&shy;zei&shy;prä&shy;si&shy;dent nach Anschlag: "Habe Sorge, dass es Nachahmer gibt"</li>
+    <li><small>09:20)</small> Nach Anschlag in Berlin: Pan&shy;zer&shy;sper&shy;ren und Anti-Terror-Poller? So sollen Silvester-Partys geschützt werden</li>
+    <li><small>09:30)</small> Ein Spanier erlitt mehrere Brüche: "Schlimms&shy;ter Schmerz meines Lebens": Jetzt sprechen die Opfer des Berlin-Anschlags</li>
+    <li><small>09:40)</small> Ein Spanier erlitt mehrere Brüche: "Schlimms&shy;ter Schmerz meines Lebens": Jetzt sprechen die Opfer des Anschlags</li>
+    <li><small>10:45)</small> +++ Anschlag in Berlin im Live-Ticker +++: Polizei nahm weiteren Ver&shy;däch&shy;ti&shy;gen fest - und ließ auch ihn wieder laufen</li>
+    <li><small>10:50)</small> +++ Anschlag in Berlin im Live-Ticker +++: Polizei lässt weiteren Ver&shy;däch&shy;ti&shy;gen laufen - Ermittler glauben, dass Täter verletzt ist</li>
+    <li><small>11:00)</small> +++ Anschlag in Berlin im Live-Ticker +++: Polizei lässt weiteren Ver&shy;däch&shy;ti&shy;gen laufen - Neue Spur führt in Salafisten-Kreise</li>
+    <li><small>11:10)</small> +++ Anschlag in Berlin im Live-Ticker +++: Dokument in Lkw entdeckt: Polizei fahndet bundesweit nach Ver&shy;däch&shy;ti&shy;gem - Spur führt in Salafisten-Kreise</li>
+    <li><small>11:15)</small> +++ Anschlag in Berlin im Live-Ticker +++: Dokument in Lkw entdeckt: Polizei fahndet bundesweit nach 23-jährigem Tunesier</li>
+    <li><small>11:20)</small> +++ Anschlag in Berlin im Live-Ticker +++: Ausweis in Lkw entdeckt: Polizei fahndet bundesweit nach 23-jährigem Tunesier</li>
+    <li><small>11:30)</small> +++ Anschlag in Berlin im Live-Ticker +++: Ausweis in Lkw entdeckt: Polizei fahndet nach 23-jährigem Tunesier - steht Zugriff in NRW kurz bevor?</li>
+    <li><small>12:00)</small> +++ Anschlag in Berlin im Live-Ticker +++: Polizei fahndet mit diesem Bild nach Terror-Ver&shy;däch&shy;ti&shy;gem Anis A.</li>
+    <li><small>12:20)</small> Nach Anschlag in Berlin: Die Polizei fahndet mit diesem Bild deutsch&shy;land&shy;weit nach dem Ter&shy;ror&shy;ver&shy;däch&shy;ti&shy;gen Anis A.</li>
+    <li><small>13:05)</small> Was über den Mann bekannt ist: Ter&shy;ror&shy;ver&shy;däch&shy;ti&shy;ger Anis A.: Polizei nahm ihn im August fest, ließ ihn aber laufen</li>
+    <li><small>13:45)</small> Sein Ausweis lag im Todes-Lkw: Ter&shy;ror&shy;ver&shy;däch&shy;ti&shy;ger Anis A.: Festnahme, Ab&shy;schie&shy;be&shy;haft - trotzdem lief er frei herum</li>
+    <li><small>14:00)</small> Sein Asylpapier lag im Todes-Lkw: Ter&shy;ror&shy;ver&shy;däch&shy;ti&shy;ger Anis A.: Festnahme, Ab&shy;schie&shy;be&shy;haft - trotzdem lief er frei herum</li>
+    <li><small>15:30)</small> Überfälle auf Po&shy;li&shy;zei&shy;sta&shy;tio&shy;nen und Amokfahrt mit Lkw: Ter&shy;ror&shy;netz&shy;werk um Anis A. plante seit 2015 Anschläge in Deutsch&shy;land</li>
+    <li><small>16:40)</small> Sein Asylpapier lag im Todes-Lkw: Anis A. sollte ab&shy;ge&shy;scho&shy;ben werden - nötige Papiere kamen "zu&shy;fäl&shy;li&shy;ger&shy;wei&shy;se heute" aus Tunesien</li>
+    <li><small>18:00)</small> +++ Anschlag in Berlin im Live-Ticker +++: 100.000 Euro Belohnung für Anis A. - Polizei wegen Schreib&shy;feh&shy;ler an Razzia gehindert</li>
+    <li><small>18:05)</small> +++ Anschlag in Berlin im Live-Ticker +++: 100.000 Euro Belohnung für Hinweise - Polizei wegen Schreib&shy;feh&shy;ler an Razzia gehindert</li>
+    <li><small>18:35)</small> +++ Anschlag in Berlin im Live-Ticker +++: 100.000 Euro Belohnung für Hinweise - Polizei wegen Schreib&shy;feh&shy;lers an Razzia gehindert</li>
+    <li><small>19:10)</small> Wie konnte das passieren?: Re&shy;kon&shy;struk&shy;ti&shy;on des Versagens: Wie Anis Amri den Behörden entkam</li>
+    <li><small>20:30)</small> "Bin genauso betroffen wie alle anderen": Jagd auf Anis Amri: Nun äußern sich die Ge&shy;schwis&shy;ter des Ter&shy;ror&shy;ver&shy;däch&shy;ti&shy;gen</li>
+    <li><small>21:15)</small> +++ Anschlag in Berlin im Live-Ticker +++: Flücht&shy;lings&shy;la&shy;ger angezündet: Anis Amri saß in Italien vier Jahre im Gefängnis</li>
+    <li><small>22:25)</small> +++ Anschlag in Berlin im Live-Ticker +++: Ranghoher Polizist: Anis Amri "über alle Berge" - Ver&shy;däch&shy;ti&shy;ger saß in Italien vier Jahre im Gefängnis</li>
+    <li><small>23:45)</small> +++ Anschlag in Berlin im Live-Ticker +++: Ranghoher Polizist: Anis Amri "über alle Berge" – Ver&shy;däch&shy;ti&shy;ger saß in Italien vier Jahre im Gefängnis</li>
+</ul>
+
+<h3>Süd&shy;deut&shy;sche Zeitung</h3>
+
+<ul>
+    <li><small>00:00)</small> Deutsch&shy;land ist nicht im Krieg</li>
+    <li><small>09:25)</small> So lassen sich öf&shy;fent&shy;li&shy;che Plätze schützen</li>
+    <li><small>11:05)</small> Nizza hat seine Lehren aus dem Anschlag gezogen</li>
+    <li><small>11:30)</small> Medien: Polizei findet Per&shy;so&shy;na&shy;li&shy;en in Lkw - bun&shy;des&shy;wei&shy;te Fahndung</li>
+    <li><small>11:40)</small> Polizei sucht Tunesier - Ver&shy;däch&shy;ti&shy;ger erhielt Asyl in Deutsch&shy;land</li>
+    <li><small>11:45)</small> Polizei sucht Tunesier - Ver&shy;däch&shy;ti&shy;ger beantragte Asyl in Deutsch&shy;land</li>
+    <li><small>15:25)</small> De Maizière: Nach Ver&shy;däch&shy;ti&shy;gem wird europaweit gefahndet</li>
+    <li><small>15:40)</small> Ver&shy;däch&shy;ti&shy;ger war in Ab&shy;schie&shy;be&shy;haft </li>
+    <li><small>16:25)</small> NRW ermittelte gegen Ver&shy;däch&shy;ti&shy;gen wegen "Vor&shy;be&shy;rei&shy;tung einer staats&shy;ge&shy;fähr&shy;den&shy;den Straftat" </li>
+    <li><small>17:50)</small> Bun&shy;des&shy;an&shy;walt&shy;schaft fahndet öffentlich nach Anis Amri</li>
+    <li><small>17:55)</small> Anschlag in Berlin: Bun&shy;des&shy;an&shy;walt&shy;schaft fahndet öffentlich nach Anis Amri</li>
+    <li><small>22:20)</small> Anschlag in Berlin: Bun&shy;des&shy;an&shy;walt&shy;schaft fahndet europaweit</li>
+    <li><small>22:30)</small> Anis Amri ist den Si&shy;cher&shy;heits&shy;be&shy;hör&shy;den lange bekannt</li>
+</ul>
+
+<h3>taz</h3>
+
+<ul>
+    <li><small>00:00)</small> Ge&shy;las&shy;sen&shy;heit als Gegenwehr - Kommentar Anschlag in Berlin</li>
+    <li><small>08:45)</small> „Bald in Berlin“ - Berlin im Visier von Ter&shy;ro&shy;ris&shy;ten</li>
+    <li><small>10:10)</small> „Dass IS sich bekennt ist kein Beweis“ - Suche nach dem Berlin-Attentäter</li>
+    <li><small>10:20)</small> „Dass IS sich bekennt, ist kein Beweis“ - Suche nach dem Berlin-Attentäter</li>
+    <li><small>14:20)</small> Gegen den Hass – und dafür - Demos nach dem Anschlag in Berlin</li>
+    <li><small>19:40)</small> Brauchen wir mehr Über&shy;wa&shy;chung? - Sicherheit nach Berliner Anschlag</li>
+</ul>
+
+<h3>Berliner Morgenpost</h3>
+
+<ul>
+    <li><small>00:00)</small> Lkw rast auf Weih&shy;nachts&shy;markt in Berlin - Was wir wissen</li>
+    <li><small>06:25)</small> Die tödliche Stille nach dem Ter&shy;ror&shy;an&shy;schlag von Berlin</li>
+    <li><small>06:40)</small> Trauer um Opfer des Anschlags von Berlin</li>
+    <li><small>06:45)</small> Sechs Festnahmen nach Attentat auf Bot&shy;schaf&shy;ter in der Türkei</li>
+    <li><small>07:30)</small> Das geschah in der Nacht zu Mittwoch in Berlin</li>
+    <li><small>11:25)</small> Lkw rast auf Weih&shy;nachts&shy;markt in Berlin - Was wir wissen</li>
+    <li><small>16:30)</small> Die Polizei fahndet nach Ver&shy;däch&shy;ti&shy;gem - noch aber ohne Foto</li>
+    <li><small>17:55)</small> Die Polizei fahndet nach Ver&shy;däch&shy;ti&shy;gem - zunächst ohne Foto</li>
+    <li><small>18:20)</small> Lkw rast auf Weih&shy;nachts&shy;markt in Berlin - Was wir wissen</li>
+    <li><small>19:00)</small> Anschlag in Berlin - "Fürchtet euch nicht"</li>
+    <li><small>19:15)</small> So scheiterte die Ab&shy;schie&shy;bung des Ver&shy;däch&shy;ti&shy;gen Anis Amri</li>
+    <li><small>20:10)</small> Berlin hat ein Si&shy;cher&shy;heits&shy;de&shy;fi&shy;zit</li>
+</ul>
+
+</article>
+</body>
+</html>
