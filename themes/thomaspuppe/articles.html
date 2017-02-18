@@ -11,16 +11,14 @@
         {% for month in year %}
             <tr>
             {% if loop.first %}
-                <th>{# { year ~ ' ' ~ month.full } #}</th>
-            {% else %}
-                <th>{# { month.full } #}</th>
+                <th>{{ year }}</th>
             {% endif %}
             <td></td>
             </tr>
 
             {% for entry in month.items %}
                 <tr>
-                    <th>{{ entry.date.day }}</th>
+                    <th>{{ entry.date.day }}. {{ month.full }}</th>
                     <td><a href="{{ env.path + entry.permalink }}">{{ entry.title | e }}</a></td>
                 </tr>
             {% endfor %}

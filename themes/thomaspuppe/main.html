@@ -20,7 +20,8 @@
 	{%- if entry is defined -%}
         {% include 'entry.html' %}
     {%- else -%}
-	    {% for entry in env.entrylist %}
+	    {# % for entry in env.entrylist % #}
+	    {% for entry in env.globals.entrylist %}
         	{% include 'entry_teaser.html' %}
     	{% endfor %}
     {%- endif -%}
