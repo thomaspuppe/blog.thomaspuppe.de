@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/bundestwitter/</loc>
-    <lastmod>2016-10-31</lastmod>
+    <lastmod>2017-02-18</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -60,8 +60,18 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>http://blog.thomaspuppe.de/kategorie/web-development/</loc>
+    <lastmod>2017-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>http://blog.thomaspuppe.de/page/2/</loc>
+    <lastmod>2017-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>http://blog.thomaspuppe.de/kategorie/webentwicklung/</loc>
-    <lastmod>2017-01-06</lastmod>
+    <lastmod>2017-02-18</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -72,7 +82,7 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/web-entwicklung/</loc>
-    <lastmod>2016-10-31</lastmod>
+    <lastmod>2017-02-18</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -113,12 +123,18 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/</loc>
-    <lastmod>2017-01-06</lastmod>
+    <lastmod>2017-02-18</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>http://blog.thomaspuppe.de/fast-brutalist-websites</loc>
+    <lastmod>2017-02-18</lastmod>
+    <changefreq>never</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>http://blog.thomaspuppe.de/kategorie/daten-visualisierung/</loc>
-    <lastmod>2016-10-31</lastmod>
+    <lastmod>2017-02-18</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -147,22 +163,22 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/news-watch/</loc>
-    <lastmod>2017-01-05</lastmod>
+    <lastmod>2017-02-18</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/feed/rss/</loc>
-    <lastmod>2017-01-06</lastmod>
+    <lastmod>2017-02-18</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/feed/atom/</loc>
-    <lastmod>2017-01-06</lastmod>
+    <lastmod>2017-02-18</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/articles/</loc>
-    <lastmod>2017-01-06</lastmod>
+    <lastmod>2017-02-18</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

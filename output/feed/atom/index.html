@@ -11,8 +11,156 @@
     <link rel="self" type="application/atom+xml" href="http://blog.thomaspuppe.de/feed/atom/" />
     <icon>http://blog.thomaspuppe.de/favicon.ico</icon>
     <logo>http://blog.thomaspuppe.de/feed-logo.png</logo>
-    <updated>2017-01-05T23:00:00Z</updated>
+    <updated>2017-02-08T23:00:00Z</updated>
     <generator uri="https://github.com/posativ/acrylamid/" version="0.7.10">acrylamid</generator>
+        <entry>
+        <title>How to make your shiny new brutalist website brutally fast</title>
+        <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.defast-brutalist-websites" />
+        <id>tag:blog.thomaspuppe.de,2017-02-09:fast-brutalist-websites</id>
+        <updated>2017-02-08T23:00:00Z</updated>
+        <category term="web development" />
+        
+        <author>
+            <name>Thomas Puppe</name>
+            <uri>http://blog.thomaspuppe.de/</uri>
+            <email>info@thomaspuppe.de</email>
+        </author>
+        <content type="html">&lt;p&gt;&lt;link href=&#34;/images/2017/02/brutalist/styles.css&#34; type=&#34;text/css&#34; rel=&#34;stylesheet&#34;/&gt;&lt;/p&gt;
+&lt;p&gt;Websites which are intentionally ugly are one of the hottest trends in webdesign in early 2017, according to the &lt;a href=&#34;https://www.washingtonpost.com/news/the-intersect/wp/2016/05/09/the-hottest-trend-in-web-design-is-intentionally-ugly-unusable-sites/&#34;&gt;Washington Post&lt;/a&gt;, &lt;a href=&#34;http://www.webdesignerdepot.com/2016/08/the-rise-and-rise-of-the-brutalist-design-trend/&#34;&gt;webdesignerdepot&lt;/a&gt; or the &lt;a href=&#34;http://t3n.de/news/web-brutalism-design-trend-705490/&#34;&gt;t3n magazine&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After &lt;a href=&#34;https://www.templatemonster.com/infographics/web-design-trends-years-2004-2014.php&#34;&gt;years&lt;/a&gt; of flash, wood patterns, skeuomorphism, webfonts, grunge handwriting, full screen images, ambient background videos, parallax bullshit and interactive &lt;strike&gt;crap&lt;/strike&gt;cards, this is a trend that I actually like. &lt;strong&gt;Because: ugly is fast!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Well, it can be fast. Scanning a &lt;a href=&#34;http://brutalistwebsites.com/&#34;&gt;collection of brutalist websites&lt;/a&gt;, I have seen everything from pages with 10 kilobytes to dozens of megabytes. In this article I want to explore and explain some tricks for building ugly websites simply and fast.&lt;/p&gt;
+&lt;h3&gt;1. Backgrounds&lt;/h3&gt;
+&lt;p&gt;Use small background images and either tile them, or show them in full size - even if the image is actually much smaller than the screen.&lt;/p&gt;
+&lt;div class=&#34;bgkermitphoto larger&#34;&gt;&lt;/div&gt;
+
+&lt;div class=&#34;bgkermiticon larger&#34;&gt;&lt;/div&gt;
+
+&lt;p&gt;I really like CSS backgrounds which repeat a pattern or symbol. There is a beautiful collection of &lt;a href=&#34;http://lea.verou.me/css3patterns/&#34;&gt;CSS3 patterns by Lea Verou&lt;/a&gt;. You can even have &lt;a href=&#34;http://codepen.io/mistic100/pen/GFHkm&#34;&gt;moving color tiles&lt;/a&gt;. My absoute favourite are the &lt;a href=&#34;https://codepen.io/collection/XORbRd/&#34;&gt;fruits by Angela Valasquez&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;bgcssananas full&#34;&gt;&lt;/div&gt;
+
+&lt;p&gt;At this point I want to point out that I do not want to describe the sources or the techniques as &#34;ugly&#34;. But they can help you to create effects that might be used in so-called brutalist webdesign. That being said, let me continue with &lt;a href=&#34;http://angrytools.com/gradient/&#34;&gt;CSS gradients&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&#34;bgcssgradient larger&#34;&gt;&lt;/div&gt;
+
+&lt;h3&gt;2. Fonts&lt;/h3&gt;
+&lt;p&gt;You can go absolutely crazy with &lt;a href=&#34;https://css3gen.com/css3-text-effects/&#34;&gt;CSS text effects&lt;/a&gt;. Just google it. Without even touching the font size or font face (aka webfont), you can make a lot of impact. The best: you do not need to load a huge web font file (maybe even from the Google servers), but can use these effects with any system font. Which viewer cares about rounded serifs and handcrafted ligatures, if you put these in their face?&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;textshadow&#34;&gt;Text-Shadow and &lt;u&gt;underline&lt;/u&gt;&lt;/span&gt;,
+&lt;span class=&#34;textneon&#34;&gt;Crazy Neon&lt;/span&gt; or &lt;span class=&#34;textfire&#34;&gt;fire effects&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Take care that you do not get &lt;span class=&#34;textdeepshadow&#34;&gt;too classy&lt;/span&gt; by accident.&lt;/p&gt;
+&lt;p&gt;You might want to use text which fills the screen. Which fills &lt;strong&gt;any&lt;/strong&gt; screen, from smartphone to cinema display. There&#39;s a unit for that:&lt;/p&gt;
+&lt;div class=&#34;full&#34;&gt;&lt;span class=&#34;texthuge&#34;&gt;&lt;a href=&#34;https://css-tricks.com/viewport-sized-typography/&#34;&gt;Viewport sized typography&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;
+
+&lt;p&gt;More properties that you can play with: line-heights, alignment (center, right), &lt;a href=&#34;https://davidwalsh.name/demo/css-vertical-text.php&#34;&gt;vertical text&lt;/a&gt;, &lt;a href=&#34;http://line25.com/tutorials/how-to-create-a-cool-anaglyphic-text-effect-with-css&#34;&gt;3D glasses effect&lt;/a&gt;, &lt;a href=&#34;http://codepen.io/squarecat/pen/KuHsl&#34;&gt;star wars scrolling&lt;/a&gt; and &lt;span class=&#34;texthover&#34; data-letters=&#34;hover animations&#34;&gt;hover animations&lt;/span&gt; (&lt;a href=&#34;https://tympanus.net/codrops/2015/05/13/inspiration-for-text-styles-and-hover-effects/&#34;&gt;1&lt;/a&gt;, &lt;a href=&#34;http://codepen.io/boldfacedesign/pen/EoGgD&#34;&gt;2&lt;/a&gt;, &lt;a href=&#34;http://codepen.io/lbebber/pen/BzoHi&#34;&gt;3&lt;/a&gt;)!&lt;/p&gt;
+&lt;h3&gt;3. Images&lt;/h3&gt;
+&lt;p&gt;Holy shit, there is a &lt;a href=&#34;https://css-tricks.com/almanac/properties/f/filter/&#34;&gt;huge amount&lt;/a&gt; of &lt;a href=&#34;https://blog.kulturbanause.de/2015/03/css-filter-effekte/&#34;&gt;CSS filters&lt;/a&gt; that you can apply on images in modern browsers. Plus: everything Photoshop.&lt;/p&gt;
+&lt;p&gt;But we want a tiny fast brutal website, don&#39;t we? So we only use small images. Which can either be scaled, repeated (with varying effects) or heavily compressed.&lt;/p&gt;
+&lt;div class=&#34;larger&#34;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;http://bennettfeely.com/filters/&#34;&gt;appy CSS filters&lt;/a&gt;&lt;br&gt;
+(credits: &lt;a href=&#34;https://twitter.com/bennettfeely&#34;&gt;@bennettfeely&lt;/a&gt;)&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;http://blog.thomaspuppe.de/images/2017/02/brutalist/img_trump_jpeg75.jpg&#34; style=&#34;-webkit-filter:sepia(1) hue-rotate(200deg);filter:sepia(1) hue-rotate(200deg);&#34;/&gt;
+    &lt;br&gt;sepia(1) hue-rotate(200deg)
+&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;http://blog.thomaspuppe.de/images/2017/02/brutalist/img_trump_jpeg75.jpg&#34; style=&#34;-webkit-filter:sepia(1);filter:sepia(1);&#34;/&gt;
+    &lt;br&gt;sepia(1)
+&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;http://blog.thomaspuppe.de/images/2017/02/brutalist/img_trump_jpeg75.jpg&#34; style=&#34;-webkit-filter:saturate(4);filter: saturate(4);&#34;/&gt;
+    &lt;br&gt;saturate(4)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;img src=&#34;http://blog.thomaspuppe.de/images/2017/02/brutalist/img_trump_jpeg75.jpg&#34; style=&#34;-webkit-filter:hue-rotate(90deg);filter:hue-rotate(90deg);&#34;/&gt;
+    &lt;br&gt;hue-rotate(90deg)
+&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;http://blog.thomaspuppe.de/images/2017/02/brutalist/img_trump_jpeg75.jpg&#34; style=&#34;-webkit-filter:invert(.8);filter:invert(.8);&#34;/&gt;
+    &lt;br&gt;invert(.8)
+&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;http://blog.thomaspuppe.de/images/2017/02/brutalist/img_trump_jpeg75.jpg&#34; style=&#34;-webkit-filter:contrast(3);filter:contrast(3);&#34;/&gt;
+    &lt;br&gt;contrast(3)
+&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;http://blog.thomaspuppe.de/images/2017/02/brutalist/img_trump_jpeg75.jpg&#34; style=&#34;-webkit-filter:blur(7px);filter: blur(7px);&#34;/&gt;
+    &lt;br&gt;blur(7px)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;larger&#34;&gt;
+    &lt;table&gt;&lt;tr&gt;
+        &lt;td&gt;&lt;a href=&#34;http://www.jpegreducer.com&#34;&gt;compress heavily&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;
+            &lt;img src=&#34;http://blog.thomaspuppe.de/images/2017/02/brutalist/img_trump_jpeg50.jpg&#34;/&gt;&lt;br&gt;
+            jpg 50%: 13kB
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;img src=&#34;http://blog.thomaspuppe.de/images/2017/02/brutalist/img_trump_jpeg25.jpg&#34;/&gt;&lt;br&gt;
+            jpg 25%: 9kB
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;img src=&#34;http://blog.thomaspuppe.de/images/2017/02/brutalist/img_trump_jpeg10.jpg&#34;/&gt;&lt;br&gt;
+            jpg 10%: 6kB
+        &lt;/td&gt;
+    &lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;larger&#34;&gt;
+    &lt;table&gt;&lt;tr&gt;
+        &lt;td&gt;&lt;a href=&#34;http://optimizilla.com&#34;&gt;reduce colors&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;
+            &lt;img src=&#34;http://blog.thomaspuppe.de/images/2017/02/brutalist/img_trump_8colors.png&#34;/&gt;&lt;br&gt;
+            8 colors png: 44kB
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;img src=&#34;http://blog.thomaspuppe.de/images/2017/02/brutalist/img_trump_2colors.png&#34;/&gt;&lt;br&gt;
+            2 colors png: 15kB
+        &lt;/td&gt;
+    &lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;h3&gt;4. ASCII Art&lt;/h3&gt;
+&lt;pre&gt;
+ _______________________________________
+&lt; Are you old enough to know ASCII art? &gt;
+ ---------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||&lt;/pre&gt;
+
+&lt;h3&gt;5. Unicode Writing&lt;/h3&gt;
+&lt;p&gt;I can write &amp;#x24d8;&amp;#x24dd; &amp;#x24d1;&amp;#x24e4;&amp;#x24d1;&amp;#x24d1;&amp;#x24db;&amp;#x24d4;&amp;#x24e2; or &amp;#x73;&amp;#x20e3;&amp;#xa0;&amp;#xa0;&amp;#xa0;&amp;#x71;&amp;#x20e3;&amp;#xa0;&amp;#xa0;&amp;#xa0;&amp;#x75;&amp;#x20e3;&amp;#xa0;&amp;#xa0;&amp;#xa0;&amp;#x61;&amp;#x20e3;&amp;#xa0;&amp;#xa0;&amp;#xa0;&amp;#x72;&amp;#x20e3;&amp;#xa0;&amp;#xa0;&amp;#xa0;&amp;#x65;&amp;#x20e3;&amp;#xa0;&amp;#xa0;&amp;#xa0;&amp;#x73;&amp;#x20e3; and even &amp;#x105; &amp;#x282;&amp;#x567;&amp;#x57e;&amp;#x4c0;&amp;#x4bd; &amp;#xe7;&amp;#x105;&amp;#x4c0;&amp;#x4c0;&amp;#x4bd;&amp;#x56a; &amp;#x48d;&amp;#x4bd;&amp;#x572;&amp;#x567; just using &lt;a href=&#34;http://lunicode.com/&#34;&gt;unicode characters&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There are many more on the ➥ &lt;a href=&#34;https://unicode-table.com/en/&#34;&gt;unicode table&lt;/a&gt; &lt;span style=&#34;font-size:200%&#34;&gt;😎&lt;/span&gt;.&lt;/p&gt;
+&lt;h3&gt;6. Oldschool HTML without styles&lt;/h3&gt;
+&lt;p&gt;This was more fun when &lt;code&gt;&amp;lt;hr&amp;gt;&lt;/code&gt; had a dropshadow and tables had borders and table-padding and stuff. But some HTML elements look quite brutal when unstyled. &lt;code&gt;fieldset&lt;/code&gt; elements are handy for creating boxes:&lt;/p&gt;
+&lt;div&gt;&lt;form&gt;&lt;fieldset&gt;
+    &lt;legend&gt;form fieldset legend&lt;/legend&gt;
+    &lt;textarea cols=&#34;3&#34; rows=&#34;8&#34;&gt;unstyled    textarea&lt;/textarea&gt;
+    &lt;hr&gt;
+    &lt;button disabled style=&#34;width:100%&#34;&gt;disabled button&lt;/button&gt;
+    &lt;hr&gt;
+    With HTML5 we even have new fany stuff like the progress element:
+    &lt;progress&gt;progress&lt;/progress&gt;
+&lt;/fieldset&gt;&lt;/form&gt;&lt;/div&gt;
+
+&lt;h3&gt;7. Share this page! &amp;#10084;&lt;/h3&gt;
+&lt;p&gt;Never never ever use Twitter and Facebook widgets! They are the worst! They force your users to connect to twitter/facebook servers and load tons of crap, even when they do not click.&lt;/p&gt;
+&lt;p&gt;Instead, use simple links which you can style on your own behalf. It is really fast, it is safe, and it works. Just try it out:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/share?url=http%3A%2F%2Fblog.thomaspuppe.de/fast-brutalist-websites&amp;amp;hashtags=brutalist%2Cwebdesign&amp;amp;text=How%20to%20make%20your%20shiny%20new%20brutalist%20website%20brutally%20fast&#34;&gt;
+&lt;p style=&#34;font-family:monospace;white-space:pre;&#34;&gt;
+┊┊┊┊┊┊┊┊┊┊┊┊╭━━━━━╮
+┊┊┊┊╱▔▔╲┊┊╭━╯TWEET╰━╮
+┊┊┊▕┈┈▋▋▏╭┫THIS HOLY┃
+┊▂▂╱┈┈┈▕╲╯╰╮  SHIT! ┃
+┊▏▕▂▂╱┈▕▔┊┊╰━━━━━━━━╯
+┊╲▂▂▂▂▂╱┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊
+━━━━┃━┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+&lt;/p&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fblog.thomaspuppe.de%2Ffast-brutalist-websites&#34; class=&#34;facebookbutton&#34;&gt;&lt;span style=&#34;font-size:150%&#34;&gt;&amp;#9996;&lt;/span&gt; Share on facebook&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;strong&gt;Credits:&lt;/strong&gt; &lt;a href=&#34;https://pixabay.com/de/kermit-frosch-schneeball-werfen-601711/&#34;&gt;Kermit photo&lt;/a&gt;, &lt;a href=&#34;https://dribbble.com/shots/1787673-Kermit&#34;&gt;Kermit icon&lt;/a&gt;, &lt;a href=&#34;http://xahlee.info/comp/unicode_ascii_art.html&#34;&gt;Twitter Button&lt;/a&gt;, &lt;a href=&#34;http://www.mburnette.com/blog/create-simple-faux-3d-css-button&#34;&gt;Facebook Button&lt;/a&gt;.&lt;/p&gt;</content>
+    </entry>
+    
         <entry>
         <title>URL-unshortening</title>
         <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.deurl-unshortening" />
