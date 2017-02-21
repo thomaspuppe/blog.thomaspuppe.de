@@ -54,7 +54,7 @@ The creative coder and code golfer did exactly this: vanilla JS coding of a cool
 
 Starting with features of syntax highlighting and code fonts, Kenneth explains some typographic features (kerning, ligatures, case-sensitive fonts, small caps) and how to use them correctly in your CSS. The best part: you can just copy and use it from [utility-opentype.kennethormandy.com](http://utility-opentype.kennethormandy.com/).
 
-* eBook recommendation: [http://practicaltypography.com/](Butterick's Practical Typography)
+* eBook recommendation: [Butterick's Practical Typography](http://practicaltypography.com/)
 
 
 

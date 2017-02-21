@@ -3,7 +3,7 @@ title: Twitterdaten sammeln mit AWS
 date: 2014-11-06
 datelabel: 06. November 2014
 tags: [Webentwicklung]
-permalink: twitterdaten-sammeln-mit-AWS
+permalink: twitterdaten-sammeln-mit-aws
 draft: false
 description: Um Tweets zu einem aktuellen Thema zu sammeln, muss man die Twitter Streaming API mitschneiden. In 20 Minuten ist dafür ein kostenloses always-online System aufgesetzt.
 ---
@@ -107,4 +107,4 @@ Insgesamt wurden 71180 Tweets erfasst. Da die Aufzeichnung ausgerechnet am Abend
 
 Die Datei lässt sich via scp vom AWS Server herunterladen, dann kann man die Maschien stoppen oder terminieren.
 
-Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dargestellt: <a href="http://www.thomaspuppe.de/lab/mauerfall-tweets/">Karte</a>, <a href="http://blog.thomaspuppe.de/2014-11_twitterdaten-mappen-mit-leaflet">Blog-Beitrag</a>.
+Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dargestellt: <a href="http://lab.thomaspuppe.de/mauerfall-tweets/">Karte</a>, <a href="http://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet">Blog-Beitrag</a>.

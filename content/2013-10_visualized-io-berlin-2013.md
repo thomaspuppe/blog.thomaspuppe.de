@@ -27,7 +27,6 @@ Eine grobe Zusammenfassung der Themen auf der VISUALIZED.iO Konferenz am 05. Okt
 <h3>3) <a href="http://christopherwarnow.com/">Christopher Warnow</a> (<a href="https://twitter.com/brainSteen">@brainSteen</a>): Sick Data - The weird cousin of Big Data.</h3>
 <p>"It's not the petabytes. It's the question."</p>
 <p>Christopher Warnow stellte einige Ergebnisse seiner Visualisierung von Lobbying, Geldflüssen und der Shareholders des DAX (viele Gewinne fließen ins Ausland) vor.</p>
-<p>Seine Arbeiten findet man im <a href="visualizing.org/users/christopherwarnow">Visualizing-Profil von Christopher Warnow</a></p>
 
 <h3>4) <a href="http://www.esono.com/">Boris Müller</a></h3>
 <p>Digitale Kuppelproduktion – <a href="http://www.marc-tiedemann.de/2013/05/fulldome-facebook-visualization/">Marc Tiedemann: Datenvisualisierung im Planetarium</a>(!!!) Bei Vimeo gibt es <a href="http://vimeo.com/73371511">ein schönes Video des Projekts</a>.</p>
