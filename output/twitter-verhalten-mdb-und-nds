@@ -86,11 +86,11 @@
 <p>Im September 2008 wurden dann viele Accounts der FDP-Fraktion angelegt (welche zum Teil aber nur zur Na&shy;mens&shy;si&shy;che&shy;rung dienten und nie aktiv waren).</p>
 
 <figure>
-<img src="images/2013/01/bundestwitter-mdb-verhalten/neue-accounts-2008.png"><br />
-<img src="images/2013/01/bundestwitter-mdb-verhalten/neue-accounts-2009.png"><br />
-<img src="images/2013/01/bundestwitter-mdb-verhalten/neue-accounts-2010.png"><br />
-<img src="images/2013/01/bundestwitter-mdb-verhalten/neue-accounts-2011.png"><br />
-<img src="images/2013/01/bundestwitter-mdb-verhalten/neue-accounts-2012.png"><br />
+<img src="images/2013/01/bundestwitter-mdb-verhalten/neue-accounts-2008.png" alt="neue MdB Twitter Accounts 2008"><br />
+<img src="images/2013/01/bundestwitter-mdb-verhalten/neue-accounts-2009.png" alt="neue MdB Twitter Accounts 2009"><br />
+<img src="images/2013/01/bundestwitter-mdb-verhalten/neue-accounts-2010.png" alt="neue MdB Twitter Accounts 2010"><br />
+<img src="images/2013/01/bundestwitter-mdb-verhalten/neue-accounts-2011.png" alt="neue MdB Twitter Accounts 2011"><br />
+<img src="images/2013/01/bundestwitter-mdb-verhalten/neue-accounts-2012.png" alt="neue MdB Twitter Accounts 2012"><br />
 <figcaption>MdB-Twitter-Account Neuzugänge in den Jahren 2008 bis 2012</figcaption>
 </figure>
 
@@ -101,9 +101,9 @@
 <p>Verglichen mit der Zahl der Sitze im Bundestag sind die kleinen/jungen Parteien aktiver bei Twitter als die großen. Die FDP sticht bei Follower-Zahlen hervor, während die Grünen am meisten schreiben.</p>
 
 <figure>
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/verteilung-accounts.png"><br />
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/verteilung-follower.png"><br />
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/verteilung-tweets.png"><br />
+    <img src="images/2013/01/bundestwitter-mdb-verhalten/verteilung-accounts.png" alt="Graph: Verteilung der Accounts"><br />
+    <img src="images/2013/01/bundestwitter-mdb-verhalten/verteilung-follower.png" alt="Graph: Verteilung der Follower"><br />
+    <img src="images/2013/01/bundestwitter-mdb-verhalten/verteilung-tweets.png" alt="Graph: Verteilung der Tweets"><br />
 </figure>
 
 <p>Natürlich gibt es jeweils eine große Bandbreite. Jede Partei hat sehr aktive und sehr inaktive Twitterer. Am Aktivsten sind Folgende Ab&shy;ge&shy;ord&shy;ne&shy;te:</p>
@@ -117,23 +117,23 @@
 
 <table>
     <tr>
-        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_schroeder_k.jpg"></td>
+        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_schroeder_k.jpg" alt="Profilbild Kristina Schröder"></td>
         <td>Dr. Kristina Schröder (<a href="http://www.bundestwitter.de/mdb/schroeder_k/">@schro&shy;eder_k</a>)<br />32.757 Follower</td>
     </tr>
     <tr>
-        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_altmaier.jpg"></td>
+        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_altmaier.jpg" alt="Profilbild Peter Altmaier"></td>
         <td>Peter Altmaier (<a href="http://www.bundestwitter.de/mdb/peteraltmaier/">@pe&shy;te&shy;r&shy;alt&shy;mai&shy;er</a>)<br />31.478 Follower</td>
     </tr>
     <tr>
-        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_Volker_Beck.jpg"></td>
+        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_Volker_Beck.jpg" alt="Profilbild Volker Beck"></td>
         <td>Volker Beck (<a href="http://www.bundestwitter.de/mdb/Volker_Beck/">@Vol&shy;ker_&shy;Beck</a>)<br />28.279 Follower</td>
     </tr>
     <tr>
-        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_FDP_Fraktion.jpeg"></td>
+        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_FDP_Fraktion.jpeg" alt="Profilbild FDP-Fraktion"></td>
         <td>FDP-Fraktion (<a href="http://www.bundestwitter.de/mdb/FDP_Fraktion/">@F&shy;DP_Frak&shy;ti&shy;on</a>)<br />25.033 Follower</td>
     </tr>
     <tr>
-        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_sigmargabriel.jpg"></td>
+        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_sigmargabriel.jpg" alt="Profilbild Sigmar Gabriel"></td>
         <td>Sigmar Gabriel (<a href="http://www.bundestwitter.de/mdb/sigmargabriel/">@sig&shy;mar&shy;ga&shy;bri&shy;el</a>)<br />18.731 Follower</td>
     </tr>
 </table>
@@ -147,7 +147,7 @@
 <p>Es findet – mit 7% der Nach&shy;rich&shy;ten – relativ wenig Dialog statt. (Relativ zu meiner Erwartung. Ich kenne keine Twitter-weiten Zahlen hierzu.) Umso mehr werden Links verschickt (zu Pres&shy;se&shy;mit&shy;tei&shy;lun&shy;gen, Artikeln, Fotos) und ge&shy;ret&shy;weetet (was eine sehr einfache Form der "In&shy;halts&shy;ge&shy;ne&shy;rie&shy;run&shy;g" ist).</p>
 
 <figure>
-<img src="images/2013/01/bundestwitter-mdb-verhalten/inhaltsverteilung.png">
+<img src="images/2013/01/bundestwitter-mdb-verhalten/inhaltsverteilung.png" alt="Graph: Verteilung der Inhalte">
 </figure>
 
 <p>Wobei zu beachten ist: aus dieser Statistik entfallen direkte Tweets an Persionen via "@&shy;Screen&shy;na&shy;me" am Anfang des Tweets, weil diese Nach&shy;rich&shy;ten nicht in der öf&shy;fent&shy;li&shy;chen Timeline erscheinen und somit nicht von Bun&shy;dest&shy;wit&shy;ter aus&shy;ge&shy;wer&shy;tet werden.</p>
@@ -157,27 +157,27 @@
 <p>Im Land&shy;tags&shy;wahl&shy;kampf 2013 für Nie&shy;der&shy;sach&shy;sen habe ich die Accounts der am&shy;tie&shy;ren&shy;den Ab&shy;ge&shy;ord&shy;ne&shy;ten sowie aller twit&shy;tern&shy;den Kandidaten beobachtet. Hier einige Im&shy;pres&shy;sio&shy;nen (die ich noch vor der Wahl bei&shy;spiel&shy;haft zu&shy;sam&shy;men&shy;ge&shy;tra&shy;gen habe).</p>
 
 <figure>
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweet-mcallister.png">
+    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweet-mcallister.png" alt="Tweets von David McAllister">
     <figcaption>David McAl&shy;lis&shy;ters Team twitterte eher hölzern.</figcaption>
 </figure>
 
 <figure>
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweets-olpen.png">
+    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweets-olpen.png" alt="Tweets von oliver Olpen">
     <figcaption>Berichte über den Wahlkampf – auch in der Provinz oder übers Pla&shy;ka&shy;te&shy;kle&shy;ben</figcaption>
 </figure>
 
 <figure>
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweets-weil.png">
+    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweets-weil.png" alt="Tweets von Stephan Weil">
     <figcaption>Das Team um Stephan Weil war etwas näher am Bürger.</figcaption>
 </figure>
 
 <figure>
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweet-katta.png">
+    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweet-katta.png" alt="Tweets von Piraten-Politikern">
     <figcaption>Typisch für die Piraten: der schon länger exi&shy;s&shy;tiren&shy;de private Account wird nun für Privates und Politik genutzt.</figcaption>
 </figure>
 
 <figure>
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweet-dorisschroederk.png">
+    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweet-dorisschroederk.png" alt="Tweets von Doris Schröder-Köpf">
     <figcaption>Doris Schröder-Köpf ließ ihren Account au&shy;to&shy;ma&shy;tisch von Facebook befüllen.</figcaption>
 </figure>
 

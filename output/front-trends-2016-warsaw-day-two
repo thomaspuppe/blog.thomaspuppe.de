@@ -68,7 +68,7 @@
 </ul>
 <h3>Lightning Talks</h3>
 <p><a href="http://www.maciejkorsan.com/">Marciej Korsan</a>: Frontend is an art (an ukulele song!!!!).</p>
-<p><a href="http://ramonvictor.github.io/">Ramon Vicor</a>: Redux principles in plain JavaScript. A talk about the principles of Redux. There is a blog post which covers the same topic: <a href="Tic-Tac-Toe.js: redux pattern in plain javascript">https://medium.com/@ra&shy;mon&shy;vic&shy;tor/tic-tac-toe-js-redux-pattern-in-plain-javascript-ff&shy;fe37f7c47a#.2jrpb9qnr</a>.</p>
+<p><a href="http://ramonvictor.github.io/">Ramon Vicor</a>: Redux principles in plain JavaScript. A talk about the principles of Redux. There is a blog post which covers the same topic: <a href="https://medium.com/@ramonvictor/tic-tac-toe-js-redux-pattern-in-plain-javascript-fffe37f7c47a#.2jrpb9qnr">Tic-Tac-Toe.js: redux pattern in plain javascript</a>.</p>
 <p>Keith: Tech Addiction in Aeroplane Mode: A coping strategy. tl;dr: Have fun with yourself and un&shy;con&shy;scious passengers!</p>
 <p><a href="https://www.twitter.com/michaelhans_pl">Michael Hans</a>, <a href="https://www.twitter.com/ZasadaKamil">Kamil Zasada</a>: API First. Customer says "We need something. Dont know what. Can you show something this week?" <a href="http://www.raml.com">RESTful API TODO</a>. API contracts are created before any actual code is written. This way, QA can start running tests against it while DEV is pro&shy;gramming. Also, FE can programm a SPA against dummy/mockup endpoints.</p>
 <p><a href="https://www.twitter.com/RachelNabors">Rachel Nabors</a>: Creatures of the Deep, featuring great il&shy;lus&shy;tra&shy;ti&shy;ons from the <a href="http://devtoolschallenger.com/">Dev&shy;Tool&shy;sChal&shy;len&shy;ger.com</a> !</p>

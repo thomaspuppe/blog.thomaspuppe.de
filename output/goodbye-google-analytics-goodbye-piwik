@@ -31,7 +31,7 @@
     <h1 class="post__title">Good bye Google Analytics! Good bye Piwik! Hallo AWStats!</h1>
 
     <p>Warum ich mein Website-Tracking von Google Analytics über Piwik zu AWStats zurück ent&shy;wi&shy;ckel&shy;te und trotzdem nichts vermisse.</p>
-<p><img src="/images/2013/10/tracking_graphen.png"></p>
+<p><img src="/images/2013/10/tracking_graphen.png" alt="Die Graphen von drei Analysetools gegenübergestellt"></p>
 
 <p>Im Juli 2013 wurde das Be&shy;su&shy;cher&shy;tracking bei Bun&shy;dest&shy;wit&shy;ter umgestellt von Google Analytics (mit IP-An&shy;ony&shy;mi&shy;sie&shy;rung) auf Piwik. Das ist ein OpenSource Tracking-Dienst den man sich selbst hosten kann. Wenn der eigene Server geschont werden soll, kann man das auch auf seinem eigenen Cloud-Rechner in&shy;stal&shy;lie&shy;ren. Eine schöne Anleitung dazu gibt es <a href="http://dicasdolampada.wordpress.com/2013/07/22/goodbye-google-analytics-hello-piwik/">hier</a> und <a href="https://github.com/openshift/piwik-openshift-quickstart/">hier</a>.</p>
 <p>Piwik war mir wichtig, um vom Platz&shy;hir&shy;schen Google Analytcis los&shy;zu&shy;kom&shy;men. Kleiner paranoider Exkurs:</p>

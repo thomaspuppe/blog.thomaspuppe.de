@@ -33,7 +33,7 @@
     <p>Link-Un&shy;ter&shy;strei&shy;chung bei großen Schrift&shy;ar&shy;ten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.</p>
 <p>Als Freund <a href="http://ia.net/blog/100e2r">&ldquo;großer&rdquo; Schrift</a> auf Websites stelle ich fest, dass die Un&shy;ter&shy;strei&shy;chung von Links ab 20 Pixeln Schrift&shy;grö&shy;ße (bei meinem Setup von font-family: Georgia, "Times New Roman", Times, serif;) recht breit ist. Das stört auch die Lesbarkeit des Textes &mdash; zumindest im Vergleich zu einer Variante mit schmalerer Un&shy;ter&shy;strei&shy;chung. Hier im Blog kommt das nicht zum Tragen. Groß sind nur die Über&shy;schrif&shy;ten, die eine dicke Un&shy;ter&shy;strei&shy;chung vertragen. Der Fließtext ist kleiner als 20px und hat daher moderate Un&shy;ter&shy;strei&shy;chung. Auf meiner Website mit vielen Links störte die Un&shy;ter&shy;strei&shy;chung schon mehr (siehe Screenshot):</p>
 <figure>
-    <img src="/images/2014/05/link-underline.png">
+    <img src="/images/2014/05/link-underline.png" alt="Abb. 1: Link-Unterstreichung nativ und trickreich">
     <figcaption>Abb. 1: Link-Un&shy;ter&shy;strei&shy;chung nativ und trickreich</figcaption>
 </figure>
 

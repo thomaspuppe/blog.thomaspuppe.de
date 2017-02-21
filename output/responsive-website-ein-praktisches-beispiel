@@ -35,13 +35,13 @@
 <p>Anhand des sehr einfachen Blog-Layouts öchte ich drei grund&shy;le&shy;gen&shy;de Regeln von Responsive Websites erläutern.</p>
 <h3>1. Anpassung des Viewport</h3>
 <p>Mit der Einführung des iPhone wurde quasi eine neue Ge&shy;rä&shy;te&shy;klas&shy;se geschaffen, auf die das Web nicht vor&shy;be&shy;rei&shy;tet war. Websites, die zuvor auf einem Bildschirm mit 1024 und mehr Pixeln dar&shy;ge&shy;stellt wurden, sollten nun auf einem 320 oder 480 Pixel breiten Display gezeigt werden. Vor dieser Her&shy;aus&shy;for&shy;de&shy;rung stand Apple. Eine Variante dafür wäre, nur die linke obere Ecke der Website zu zeigen. Ein anderer, die Website klein zu skalieren. Für die zweite Variante hatte sich Apple ent&shy;schie&shy;den. Websites wurden auf eine feste Breite von 980 Pixel gerendert und dann auf die Breite des iPhones her&shy;un&shy;ter&shy;ska&shy;liert. (Für Android-Browser gilt das gleiche, mit 800 Pixeln Breite.)</p>
-<figure><img src="/images/2014/02/responsive_01_ohneviewport.png"><figcaption>Abb. 1: Dar&shy;stel&shy;lung ohne Viewport</figcaption></figure>
+<figure><img src="/images/2014/02/responsive_01_ohneviewport.png" alt="Abb. 1: Darstellung ohne Viewport"><figcaption>Abb. 1: Dar&shy;stel&shy;lung ohne Viewport</figcaption></figure>
 
 <p>Wenn nun aber eine Website mit einer Breite von wenigr als 980 Pixeln gut zu&shy;recht&shy;kommt (also responsive ist), dann muss das dem Browser mitgeteilt werden. Dafür dient der Viewport:</p>
 <pre>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</pre>
 
 <p>Dieser Meta-Tag im Head-Bereich der Website sagt dem Browser, dass die Seite nicht mit fiktiven 980 Pixeln gerendert werden soll, sondern auf der nativen Breite des Geräts. Wie sich die Seite bei dieser Breite verhält, das ist dann Sache des CSS.</p>
-<figure><img src="/images/2014/02/responsive_02_mitviewport.png"><figcaption>Abb. 2: Dar&shy;stel&shy;lung mit Viewport (noch nicht schön, aber man sieht die au&shy;to&shy;ma&shy;ti&shy;sche Anpassung der Breite).</figcaption></figure>
+<figure><img src="/images/2014/02/responsive_02_mitviewport.png" alt="Abb. 2: Darstellung mit Viewport (noch nicht schön, aber man sieht die automatische Anpassung der Breite)"><figcaption>Abb. 2: Dar&shy;stel&shy;lung mit Viewport (noch nicht schön, aber man sieht die au&shy;to&shy;ma&shy;ti&shy;sche Anpassung der Breite).</figcaption></figure>
 
 <p>Auf Desktop-Browsern spielt der Viewport übrigens keine Rolle. Hier gilt die Fens&shy;ter&shy;brei&shy;te wie sie ist, weil es ja keinen Grund zum Skalieren gibt.</p>
 <h3>2. Flexible Sei&shy;ten&shy;brei&shy;te und Raster</h3>
