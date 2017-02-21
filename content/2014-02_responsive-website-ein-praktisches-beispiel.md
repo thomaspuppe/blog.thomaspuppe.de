@@ -18,7 +18,7 @@ Anhand des sehr einfachen Blog-Layouts öchte ich drei grundlegende Regeln von R
 
 Mit der Einführung des iPhone wurde quasi eine neue Geräteklasse geschaffen, auf die das Web nicht vorbereitet war. Websites, die zuvor auf einem Bildschirm mit 1024 und mehr Pixeln dargestellt wurden, sollten nun auf einem 320 oder 480 Pixel breiten Display gezeigt werden. Vor dieser Herausforderung stand Apple. Eine Variante dafür wäre, nur die linke obere Ecke der Website zu zeigen. Ein anderer, die Website klein zu skalieren. Für die zweite Variante hatte sich Apple entschieden. Websites wurden auf eine feste Breite von 980 Pixel gerendert und dann auf die Breite des iPhones herunterskaliert. (Für Android-Browser gilt das gleiche, mit 800 Pixeln Breite.)
 
-<figure><img src="/images/2014/02/responsive_01_ohneviewport.png"><figcaption>Abb. 1: Darstellung ohne Viewport</figcaption></figure>
+<figure><img src="/images/2014/02/responsive_01_ohneviewport.png" alt="Abb. 1: Darstellung ohne Viewport"><figcaption>Abb. 1: Darstellung ohne Viewport</figcaption></figure>
 
 Wenn nun aber eine Website mit einer Breite von wenigr als 980 Pixeln gut zurechtkommt (also responsive ist), dann muss das dem Browser mitgeteilt werden. Dafür dient der Viewport:
 
@@ -26,7 +26,7 @@ Wenn nun aber eine Website mit einer Breite von wenigr als 980 Pixeln gut zurech
 
 Dieser Meta-Tag im Head-Bereich der Website sagt dem Browser, dass die Seite nicht mit fiktiven 980 Pixeln gerendert werden soll, sondern auf der nativen Breite des Geräts. Wie sich die Seite bei dieser Breite verhält, das ist dann Sache des CSS.
 
-<figure><img src="/images/2014/02/responsive_02_mitviewport.png"><figcaption>Abb. 2: Darstellung mit Viewport (noch nicht schön, aber man sieht die automatische Anpassung der Breite).</figcaption></figure>
+<figure><img src="/images/2014/02/responsive_02_mitviewport.png" alt="Abb. 2: Darstellung mit Viewport (noch nicht schön, aber man sieht die automatische Anpassung der Breite)"><figcaption>Abb. 2: Darstellung mit Viewport (noch nicht schön, aber man sieht die automatische Anpassung der Breite).</figcaption></figure>
 
 Auf Desktop-Browsern spielt der Viewport übrigens keine Rolle. Hier gilt die Fensterbreite wie sie ist, weil es ja keinen Grund zum Skalieren gibt.
 

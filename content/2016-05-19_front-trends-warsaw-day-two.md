@@ -62,7 +62,7 @@ Starting with features of syntax highlighting and code fonts, Kenneth explains s
 
 [Marciej Korsan](http://www.maciejkorsan.com/): Frontend is an art (an ukulele song!!!!).
 
-[Ramon Vicor](http://ramonvictor.github.io/): Redux principles in plain JavaScript. A talk about the principles of Redux. There is a blog post which covers the same topic: [https://medium.com/@ramonvictor/tic-tac-toe-js-redux-pattern-in-plain-javascript-fffe37f7c47a#.2jrpb9qnr](Tic-Tac-Toe.js: redux pattern in plain javascript).
+[Ramon Vicor](http://ramonvictor.github.io/): Redux principles in plain JavaScript. A talk about the principles of Redux. There is a blog post which covers the same topic: [Tic-Tac-Toe.js: redux pattern in plain javascript](https://medium.com/@ramonvictor/tic-tac-toe-js-redux-pattern-in-plain-javascript-fffe37f7c47a#.2jrpb9qnr).
 
 Keith: Tech Addiction in Aeroplane Mode: A coping strategy. tl;dr: Have fun with yourself and unconscious passengers!
 

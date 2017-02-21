@@ -60,33 +60,33 @@ But we want a tiny fast brutal website, don't we? So we only use small images. W
 <tr>
 <td><a href="http://bennettfeely.com/filters/">appy CSS filters</a><br>
 (credits: <a href="https://twitter.com/bennettfeely">@bennettfeely</a>)</td>
-<td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg"
+<td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg" alt="Photo of Donald Trump with a graphic filter"
 	style="-webkit-filter:sepia(1) hue-rotate(200deg);filter:sepia(1) hue-rotate(200deg);"/>
 	<br>sepia(1) hue-rotate(200deg)
 </td>
-<td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg"
+<td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg" alt="Photo of Donald Trump with a graphic filter"
 	style="-webkit-filter:sepia(1);filter:sepia(1);"/>
 	<br>sepia(1)
 </td>
-<td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg"
+<td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg" alt="Photo of Donald Trump with a graphic filter"
 	style="-webkit-filter:saturate(4);filter: saturate(4);"/>
 	<br>saturate(4)
 </td>
 </tr>
 <tr>
-<td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg"
+<td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg" alt="Photo of Donald Trump with a graphic filter"
 	style="-webkit-filter:hue-rotate(90deg);filter:hue-rotate(90deg);"/>
 	<br>hue-rotate(90deg)
 </td>
-<td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg"
+<td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg" alt="Photo of Donald Trump with a graphic filter"
 	style="-webkit-filter:invert(.8);filter:invert(.8);"/>
 	<br>invert(.8)
 </td>
-<td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg"
+<td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg" alt="Photo of Donald Trump with a graphic filter"
 	style="-webkit-filter:contrast(3);filter:contrast(3);"/>
 	<br>contrast(3)
 </td>
-<td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg"
+<td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg" alt="Photo of Donald Trump with a graphic filter"
 	style="-webkit-filter:blur(7px);filter: blur(7px);"/>
 	<br>blur(7px)
 </td>
@@ -98,15 +98,15 @@ But we want a tiny fast brutal website, don't we? So we only use small images. W
 	<table><tr>
 		<td><a href="http://www.jpegreducer.com">compress heavily</a></td>
 		<td>
-			<img src="/images/2017/02/brutalist/img_trump_jpeg50.jpg" /><br>
+			<img src="/images/2017/02/brutalist/img_trump_jpeg50.jpg" alt="Photo of Donald Trump" /><br>
 			jpg 50%: 13kB
 		</td>
 		<td>
-			<img src="/images/2017/02/brutalist/img_trump_jpeg25.jpg" /><br>
+			<img src="/images/2017/02/brutalist/img_trump_jpeg25.jpg" alt="Photo of Donald Trump, heavily compressed" /><br>
 			jpg 25%: 9kB
 		</td>
 		<td>
-			<img src="/images/2017/02/brutalist/img_trump_jpeg10.jpg" /><br>
+			<img src="/images/2017/02/brutalist/img_trump_jpeg10.jpg" alt="Photo of Donald Trump, heavily compressed" /><br>
 			jpg 10%: 6kB
 		</td>
 	</tr></table>
@@ -116,11 +116,11 @@ But we want a tiny fast brutal website, don't we? So we only use small images. W
 	<table><tr>
 		<td><a href="http://optimizilla.com">reduce colors</a></td>
 		<td>
-			<img src="/images/2017/02/brutalist/img_trump_8colors.png" /><br>
+			<img src="/images/2017/02/brutalist/img_trump_8colors.png" alt="8-color-photo of Donald Trump" /><br>
 			8 colors png: 44kB
 		</td>
 		<td>
-			<img src="/images/2017/02/brutalist/img_trump_2colors.png" /><br>
+			<img src="/images/2017/02/brutalist/img_trump_2colors.png" alt="2-color-photo of Donald Trump" /><br>
 			2 colors png: 15kB
 		</td>
 	</tr></table>

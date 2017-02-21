@@ -71,7 +71,7 @@ Insgesamt war mein Test-Case ja sehr einfach. Da sieht man nciht viel vom Framew
 Das Ergebnis kann man hier ansehen: [Aufmacher auf deutschen News-Websites zur US-Wahl](http://lab.thomaspuppe.de/us-wahl-news-aufmacher/) (Achtung: 4 MB groß). Die Legende zeigt die Farbcodes an. Per Mouseover sieht man den Titel. Die meisten Felder sind zum Artikel verlinkt. Zoomen funktioniert. Mobil sieht man was, aber Mouseover tut natürlich nicht.
 
 <figure>
-	<img src="/images/2016/11/us-wahl-aufmacher.png" alt="Screenshotder Visualisierung Aufmacher auf deutschen News-Websites zur US-Wahl" />
+	<img src="/images/2016/11/us-wahl-aufmacher.png" alt="Screenshot der Visualisierung Aufmacher auf deutschen News-Websites zur US-Wahl" />
 	<figcaption>Screenshot der Visualisierung</figcaption>
 </figure>
 

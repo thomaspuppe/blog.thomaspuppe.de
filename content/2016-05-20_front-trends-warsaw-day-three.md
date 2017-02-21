@@ -12,7 +12,7 @@ description: Summarizing the third day presentations of the Front Trends 2016 co
 Summarizing the third day presentations of the Front Trends 2016 conference in Warsaw, including the Nyan cat, pixel bonding, modern(izer) tools, CSS engineering principles, Origami, offline pages, real programmers and Trojan CVs.. A speakers list can also be found on [2016.front-trends.com/speakers/](https://2016.front-trends.com/speakers/).
 
 <figure>
-	<img src="/images/2016/05/front-trends-emotions.jpg" />
+	<img src="/images/2016/05/front-trends-emotions.jpg" alt="Photograph of a slide with Nyan Cat"/>
 	<figcaption>If an interface is more human, it allow us to be more human.<br>&mdash;Tammie Lister</figcaption>
 </figure>
 

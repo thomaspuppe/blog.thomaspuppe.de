@@ -104,7 +104,7 @@ Und hier das Ergebnis:
 
 <figure>
 	<a href="http://lab.thomaspuppe.de/mauerfall-tweets/">
-		<img src="/images/2014/11/tweets-mauerfall.png">
+		<img src="/images/2014/11/tweets-mauerfall.png" alt="Eine karte mit Tweets zum Mauerfall-Jubiläum">
 		<figcaption>http://lab.thomaspuppe.de/mauerfall-tweets/</figcaption>
 	</a>
 </figure>

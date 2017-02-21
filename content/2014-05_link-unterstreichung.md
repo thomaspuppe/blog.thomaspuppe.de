@@ -13,7 +13,7 @@ Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar
 Als Freund <a href="http://ia.net/blog/100e2r">&ldquo;großer&rdquo; Schrift</a> auf Websites stelle ich fest, dass die Unterstreichung von Links ab 20 Pixeln Schriftgröße (bei meinem Setup von font-family: Georgia, "Times New Roman", Times, serif;) recht breit ist. Das stört auch die Lesbarkeit des Textes &mdash; zumindest im Vergleich zu einer Variante mit schmalerer Unterstreichung. Hier im Blog kommt das nicht zum Tragen. Groß sind nur die Überschriften, die eine dicke Unterstreichung vertragen. Der Fließtext ist kleiner als 20px und hat daher moderate Unterstreichung. Auf meiner Website mit vielen Links störte die Unterstreichung schon mehr (siehe Screenshot):
 
 <figure>
-    <img src="/images/2014/05/link-underline.png">
+    <img src="/images/2014/05/link-underline.png" alt="Abb. 1: Link-Unterstreichung nativ und trickreich">
     <figcaption>Abb. 1: Link-Unterstreichung nativ und trickreich</figcaption>
 </figure>
 

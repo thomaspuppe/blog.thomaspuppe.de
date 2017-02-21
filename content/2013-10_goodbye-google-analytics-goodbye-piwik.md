@@ -10,7 +10,7 @@ description: Warum ich mein Website-Tracking von Google Analytics über Piwik zu
 
 Warum ich mein Website-Tracking von Google Analytics über Piwik zu AWStats zurück entwickelte und trotzdem nichts vermisse.
 
-<p><img src="/images/2013/10/tracking_graphen.png"></p>
+<p><img src="/images/2013/10/tracking_graphen.png" alt="Die Graphen von drei Analysetools gegenübergestellt"></p>
 
 Im Juli 2013 wurde das Besuchertracking bei Bundestwitter umgestellt von Google Analytics (mit IP-Anonymisierung) auf Piwik. Das ist ein OpenSource Tracking-Dienst den man sich selbst hosten kann. Wenn der eigene Server geschont werden soll, kann man das auch auf seinem eigenen Cloud-Rechner installieren. Eine schöne Anleitung dazu gibt es <a href="http://dicasdolampada.wordpress.com/2013/07/22/goodbye-google-analytics-hello-piwik/">hier</a> und <a href="https://github.com/openshift/piwik-openshift-quickstart/">hier</a>.
 
