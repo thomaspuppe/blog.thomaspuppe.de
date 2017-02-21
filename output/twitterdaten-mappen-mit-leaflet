@@ -30,7 +30,7 @@
 
     <h1 class="post__title">Twitterdaten mappen mit Leaflet</h1>
 
-    <p>Meine <a href="http://blog.thomaspuppe.de/twitterdaten-sammeln-mit-AWS">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.</p>
+    <p>Meine <a href="http://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.</p>
 <p>In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aus&shy;sor&shy;tie&shy;ren usw.</p>
 <pre>//Alle Tweets in einer großen Datei:
 $ wc -l tweets.json
@@ -82,7 +82,7 @@ writeFile = open('tweets_media_coordinates_short.json','w')
 writeFile.write('{"tweets":' + outputString + '}')
 writeFile.close()</pre>
 
-<p>Das Ergebnis ist eine JSON Datei mit den Tweets, Foto-URLs und Ko&shy;or&shy;di&shy;na&shy;ten: <a href="http://www.thomaspuppe.de/lab/mauerfall-tweets/data/tweets_media_coordinates_short.json">http://www.tho&shy;ma&shy;s&shy;pup&shy;pe.de/lab/mauerfall-tweets/data/tweets_&shy;me&shy;di&shy;a_&shy;co&shy;or&shy;di&shy;na&shy;tes_s&shy;hort.json</a>.</p>
+<p>Das Ergebnis ist eine JSON Datei mit den Tweets, Foto-URLs und Ko&shy;or&shy;di&shy;na&shy;ten: <a href="http://lab.thomaspuppe.de/mauerfall-tweets/data/tweets_media_coordinates_short.json">http://www.tho&shy;ma&shy;s&shy;pup&shy;pe.de/lab/mauerfall-tweets/data/tweets_&shy;me&shy;di&shy;a_&shy;co&shy;or&shy;di&shy;na&shy;tes_s&shy;hort.json</a>.</p>
 <p>Diese Datei ist die Daten-Grundlage für die Vi&shy;sua&shy;li&shy;sie&shy;rung. Auch dafür habe ich fix was aus dem Netz gezogen: den <a href="https://github.com/moklick/generator-leaflet">Leaflet-Generator</a> von <a href="https://twitter.com/moklick">Moritz Klack</a>. Via npm lädt man das halbe Internet herunter, hat aber dafür eine out-of-the-box Map Anwendung. Die eigentlich benötigten Dateien sollte man sich dann fürs nächste mal zu&shy;recht&shy;le&shy;gen.</p>
 <p>In die gegebene Karte wmüssen nur noch ein paar Zeilen JavaScript eingefügt werden, und schon sind die Punkte auf einer schönen Karte hinterlegt.</p>
 <pre>var markerIcon = L.divIcon({className: 'my-div-icon'}), // stylen via CSS!
@@ -116,9 +116,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>Zu beachten: die Ko&shy;or&shy;di&shy;na&shy;ten bei Twitter sind als Lon,Lat ge&shy;spei&shy;chert, leaflet benötigt aber Lat,Lon. Daher die Rochade beim Anlegen der Marker.</p>
 <p>Und hier das Ergebnis:</p>
 <figure>
-    <a href="http://www.thomaspuppe.de/lab/mauerfall-tweets/">
+    <a href="http://lab.thomaspuppe.de/mauerfall-tweets/">
         <img src="/images/2014/11/tweets-mauerfall.png">
-        <figcaption>http://www.tho&shy;ma&shy;s&shy;pup&shy;pe.de/lab/mauerfall-tweets/</figcaption>
+        <figcaption>http://lab.tho&shy;ma&shy;s&shy;pup&shy;pe.de/mauerfall-tweets/</figcaption>
     </a>
 </figure>
 

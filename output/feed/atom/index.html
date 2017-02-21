@@ -1024,7 +1024,7 @@ Projects are a journey, be fluid.
 &lt;/blockquote&gt;
 &lt;p&gt;Starting with features of syntax highlighting and code fonts, Kenneth explains some typographic features (kerning, ligatures, case-sensitive fonts, small caps) and how to use them correctly in your CSS. The best part: you can just copy and use it from &lt;a href=&#34;http://utility-opentype.kennethormandy.com/&#34;&gt;utility-opentype.kennethormandy.com&lt;/a&gt;.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;eBook recommendation: &lt;a href=&#34;http://blog.thomaspuppe.defront-trends-2016-warsaw-day-two/Butterick&#39;s Practical Typography&#34;&gt;http://practicaltypography.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;eBook recommendation: &lt;a href=&#34;http://practicaltypography.com/&#34;&gt;Butterick&#39;s Practical Typography&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;Lightning Talks&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&#34;http://www.maciejkorsan.com/&#34;&gt;Marciej Korsan&lt;/a&gt;: Frontend is an art (an ukulele song!!!!).&lt;/p&gt;
@@ -1241,7 +1241,7 @@ Projects are a journey, be fluid.
             <uri>http://blog.thomaspuppe.de/</uri>
             <email>info@thomaspuppe.de</email>
         </author>
-        <content type="html">&lt;p&gt;Meine &lt;a href=&#34;http://blog.thomaspuppe.de/twitterdaten-sammeln-mit-AWS&#34;&gt;Sammlung von Tweets zum #Mauerfall&lt;/a&gt; via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.&lt;/p&gt;
+        <content type="html">&lt;p&gt;Meine &lt;a href=&#34;http://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws&#34;&gt;Sammlung von Tweets zum #Mauerfall&lt;/a&gt; via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.&lt;/p&gt;
 &lt;p&gt;In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aussortieren usw.&lt;/p&gt;
 &lt;pre&gt;//Alle Tweets in einer großen Datei:
 $ wc -l tweets.json
@@ -1293,7 +1293,7 @@ writeFile = open(&#39;tweets_media_coordinates_short.json&#39;,&#39;w&#39;)
 writeFile.write(&#39;{&#34;tweets&#34;:&#39; + outputString + &#39;}&#39;)
 writeFile.close()&lt;/pre&gt;
 
-&lt;p&gt;Das Ergebnis ist eine JSON Datei mit den Tweets, Foto-URLs und Koordinaten: &lt;a href=&#34;http://www.thomaspuppe.de/lab/mauerfall-tweets/data/tweets_media_coordinates_short.json&#34;&gt;http://www.thomaspuppe.de/lab/mauerfall-tweets/data/tweets_media_coordinates_short.json&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Das Ergebnis ist eine JSON Datei mit den Tweets, Foto-URLs und Koordinaten: &lt;a href=&#34;http://lab.thomaspuppe.de/mauerfall-tweets/data/tweets_media_coordinates_short.json&#34;&gt;http://www.thomaspuppe.de/lab/mauerfall-tweets/data/tweets_media_coordinates_short.json&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Diese Datei ist die Daten-Grundlage für die Visualisierung. Auch dafür habe ich fix was aus dem Netz gezogen: den &lt;a href=&#34;https://github.com/moklick/generator-leaflet&#34;&gt;Leaflet-Generator&lt;/a&gt; von &lt;a href=&#34;https://twitter.com/moklick&#34;&gt;Moritz Klack&lt;/a&gt;. Via npm lädt man das halbe Internet herunter, hat aber dafür eine out-of-the-box Map Anwendung. Die eigentlich benötigten Dateien sollte man sich dann fürs nächste mal zurechtlegen.&lt;/p&gt;
 &lt;p&gt;In die gegebene Karte wmüssen nur noch ein paar Zeilen JavaScript eingefügt werden, und schon sind die Punkte auf einer schönen Karte hinterlegt.&lt;/p&gt;
 &lt;pre&gt;var markerIcon = L.divIcon({className: &#39;my-div-icon&#39;}), // stylen via CSS!
@@ -1327,17 +1327,17 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
 &lt;p&gt;Zu beachten: die Koordinaten bei Twitter sind als Lon,Lat gespeichert, leaflet benötigt aber Lat,Lon. Daher die Rochade beim Anlegen der Marker.&lt;/p&gt;
 &lt;p&gt;Und hier das Ergebnis:&lt;/p&gt;
 &lt;figure&gt;
-    &lt;a href=&#34;http://www.thomaspuppe.de/lab/mauerfall-tweets/&#34;&gt;
+    &lt;a href=&#34;http://lab.thomaspuppe.de/mauerfall-tweets/&#34;&gt;
         &lt;img src=&#34;/images/2014/11/tweets-mauerfall.png&#34;&gt;
-        &lt;figcaption&gt;http://www.thomaspuppe.de/lab/mauerfall-tweets/&lt;/figcaption&gt;
+        &lt;figcaption&gt;http://lab.thomaspuppe.de/mauerfall-tweets/&lt;/figcaption&gt;
     &lt;/a&gt;
 &lt;/figure&gt;</content>
     </entry>
     
         <entry>
         <title>Twitterdaten sammeln mit AWS</title>
-        <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.detwitterdaten-sammeln-mit-AWS" />
-        <id>tag:blog.thomaspuppe.de,2014-11-06:twitterdaten-sammeln-mit-AWS</id>
+        <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.detwitterdaten-sammeln-mit-aws" />
+        <id>tag:blog.thomaspuppe.de,2014-11-06:twitterdaten-sammeln-mit-aws</id>
         <updated>2014-11-05T23:00:00Z</updated>
         <category term="Webentwicklung" />
         
@@ -1426,7 +1426,7 @@ $ while true; do ( wc -l tweets.json ; sleep 5 ) done;&lt;/pre&gt;
 &lt;h4&gt;Auswertung der Tweets:&lt;/h4&gt;
 &lt;p&gt;Insgesamt wurden 71180 Tweets erfasst. Da die Aufzeichnung ausgerechnet am Abend des 8.11. abbrach und ich bis Spätabends am 9.11. nicht online war, fehlen alle Tweets vom Tag des Mauerfalls. Aber immerhin gibt es die kleine Sammlung der Tage zuvor.&lt;/p&gt;
 &lt;p&gt;Die Datei lässt sich via scp vom AWS Server herunterladen, dann kann man die Maschien stoppen oder terminieren.&lt;/p&gt;
-&lt;p&gt;Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dargestellt: &lt;a href=&#34;http://www.thomaspuppe.de/lab/mauerfall-tweets/&#34;&gt;Karte&lt;/a&gt;, &lt;a href=&#34;http://blog.thomaspuppe.de/2014-11_twitterdaten-mappen-mit-leaflet&#34;&gt;Blog-Beitrag&lt;/a&gt;.&lt;/p&gt;</content>
+&lt;p&gt;Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dargestellt: &lt;a href=&#34;http://lab.thomaspuppe.de/mauerfall-tweets/&#34;&gt;Karte&lt;/a&gt;, &lt;a href=&#34;http://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet&#34;&gt;Blog-Beitrag&lt;/a&gt;.&lt;/p&gt;</content>
     </entry>
     
         <entry>
@@ -5353,8 +5353,6 @@ jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
 
 &lt;p&gt;Christopher Warnow stellte einige Ergebnisse seiner Visualisierung von Lobbying, Geldflüssen und der Shareholders des DAX (viele Gewinne fließen ins Ausland) vor.&lt;/p&gt;
 
-&lt;p&gt;Seine Arbeiten findet man im &lt;a href=&#34;http://blog.thomaspuppe.devisualized-io-berlin-2013/visualizing.org/users/christopherwarnow&#34;&gt;Visualizing-Profil von Christopher Warnow&lt;/a&gt;&lt;/p&gt;
-
 &lt;h5&gt;4) &lt;a href=&#34;http://www.esono.com/&#34;&gt;Boris Müller&lt;/a&gt;&lt;/h5&gt;
 
 &lt;p&gt;Digitale Kuppelproduktion – &lt;a href=&#34;http://www.marc-tiedemann.de/2013/05/fulldome-facebook-visualization/&#34;&gt;Marc Tiedemann: Datenvisualisierung im Planetarium&lt;/a&gt;(!!!) Bei Vimeo gibt es &lt;a href=&#34;http://vimeo.com/73371511&#34;&gt;ein schönes Video des Projekts&lt;/a&gt;.&lt;/p&gt;
@@ -5434,8 +5432,8 @@ jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
     
         <entry>
         <title>Wie twittern Politiker?</title>
-        <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.de2013-01a_twitter-verhalten-mdb-und-nds" />
-        <id>tag:blog.thomaspuppe.de,2013-01-22:2013-01a_twitter-verhalten-mdb-und-nds</id>
+        <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.detwitter-verhalten-mdb-und-nds" />
+        <id>tag:blog.thomaspuppe.de,2013-01-22:twitter-verhalten-mdb-und-nds</id>
         <updated>2013-01-21T23:00:00Z</updated>
         <category term="Bundestwitter" />
         
@@ -5448,7 +5446,7 @@ jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
 
 &lt;p&gt;&lt;em&gt;Ein Überblick über das Twitter-Verhalten der MdB und der Wahlkämpfer der niedersächsischen Landtagswahl 2013.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Dieser Artiel ist die schriftliche Zusammenfassung einer &lt;a href=&#34;http://blog.thomaspuppe.de2013-01a_twitter-verhalten-mdb-und-nds/images/2013/01/bundestwitter-mdb-verhalten/praesentation_for-public.pdf&#34;&gt;Präsentation&lt;/a&gt;, die ich im Januar 2013 an der HTW Berlin hielt.&lt;/p&gt;
+&lt;p&gt;Dieser Artiel ist die schriftliche Zusammenfassung einer &lt;a href=&#34;http://blog.thomaspuppe.detwitter-verhalten-mdb-und-nds/images/2013/01/bundestwitter-mdb-verhalten/praesentation_for-public.pdf&#34;&gt;Präsentation&lt;/a&gt;, die ich im Januar 2013 an der HTW Berlin hielt.&lt;/p&gt;
 
 &lt;h4&gt;Wie viele Politiker twittern?&lt;/h4&gt;
 
