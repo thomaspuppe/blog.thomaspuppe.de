@@ -138,12 +138,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://blog.thomaspuppe.de/visualized-io-berlin-2013</loc>
-    <lastmod>2017-02-26</lastmod>
-    <changefreq>never</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
     <loc>http://blog.thomaspuppe.de/front-trends-2016-warsaw-day-one</loc>
     <lastmod>2017-02-26</lastmod>
     <changefreq>never</changefreq>
@@ -177,8 +171,9 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>http://blog.thomaspuppe.de/articles/</loc>
+    <loc>http://blog.thomaspuppe.de/visualized-io-berlin-2013</loc>
     <lastmod>2017-02-26</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>never</changefreq>
+    <priority>1.0</priority>
   </url>
 </urlset>

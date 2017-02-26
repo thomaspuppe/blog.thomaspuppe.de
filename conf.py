@@ -21,7 +21,7 @@ VIEWS = {
 		'view': 'index'
 	},
 
-	'/:year-:month_:slug': {
+	'/:slug': {
 		'views': ['entry', 'draft']
 	},
 
@@ -37,8 +37,6 @@ VIEWS = {
 	# # per tag Atom or RSS feed. Just uncomment to generate them.
 	# '/tag/:name/atom/': {'filters': ['h2', 'nohyphenate'], 'view': 'atompertag'},
 	# '/tag/:name/rss/': {'filters': ['h2', 'nohyphenate'], 'view': 'rsspertag'},
-
-	'/articles/': {'view': 'archive', 'template': 'articles.html'},
 
 	'/sitemap.xml': {'view': 'sitemap'},
 
@@ -68,7 +66,7 @@ THEME_IGNORE = ['sass*']
 
 ENGINE = 'acrylamid.templates.jinja2.Environment'
 DATE_FORMAT = '%Y-%m-%d'
-PERMALINK_FORMAT = '/:year-:month_:slug'
+PERMALINK_FORMAT = '/:slug'
 
 # prevent pagination
 DEFAULT_ORPHANS = 9999
