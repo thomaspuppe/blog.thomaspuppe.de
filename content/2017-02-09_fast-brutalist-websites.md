@@ -168,7 +168,7 @@ Never never ever use Twitter and Facebook widgets! They are the worst! They forc
 
 Instead, use simple links which you can style on your own behalf. It is really fast, it is safe, and it works. Just try it out:
 
-<a href="https://twitter.com/share?url=http%3A%2F%2Fblog.thomaspuppe.de/fast-brutalist-websites&hashtags=brutalist%2Cwebdesign&text=How%20to%20make%20your%20shiny%20new%20brutalist%20website%20brutally%20fast">
+<a href="https://twitter.com/share?url=https%3A%2F%2Fblog.thomaspuppe.de/fast-brutalist-websites&hashtags=brutalist%2Cwebdesign&text=How%20to%20make%20your%20shiny%20new%20brutalist%20website%20brutally%20fast">
 <p style="font-family:monospace;white-space:pre;">
 ┊┊┊┊┊┊┊┊┊┊┊┊╭━━━━━╮
 ┊┊┊┊╱▔▔╲┊┊╭━╯TWEET╰━╮
@@ -180,7 +180,7 @@ Instead, use simple links which you can style on your own behalf. It is really f
 </p></a>
 
 
-<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fblog.thomaspuppe.de%2Ffast-brutalist-websites" class="facebookbutton"><span style="font-size:150%">&#9996;</span> Share on facebook</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.thomaspuppe.de%2Ffast-brutalist-websites" class="facebookbutton"><span style="font-size:150%">&#9996;</span> Share on facebook</a>
 
 
 <br><br><br><br><br><br>

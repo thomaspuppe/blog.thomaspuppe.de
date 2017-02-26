@@ -30,7 +30,7 @@
 
     <h1 class="post__title">Twitterdaten mappen mit Leaflet</h1>
 
-    <p>Meine <a href="http://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.</p>
+    <p>Meine <a href="https://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.</p>
 <p>In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aus&shy;sor&shy;tie&shy;ren usw.</p>
 <pre>//Alle Tweets in einer großen Datei:
 $ wc -l tweets.json

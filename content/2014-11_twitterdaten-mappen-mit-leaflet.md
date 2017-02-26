@@ -8,7 +8,7 @@ draft: false
 description: Meine Sammlung von Tweets zum #Mauerfall umfasst über 70.000 Tweets. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.
 ---
 
-Meine <a href="http://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.
+Meine <a href="https://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.
 
 
 In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aussortieren usw.

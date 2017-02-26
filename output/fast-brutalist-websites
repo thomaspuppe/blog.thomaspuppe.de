@@ -151,7 +151,7 @@
 <h2>7. Share this page! &#10084;</h2>
 <p>Never never ever use Twitter and Facebook widgets! They are the worst! They force your users to connect to twitter/facebook servers and load tons of crap, even when they do not click.</p>
 <p>Instead, use simple links which you can style on your own behalf. It is really fast, it is safe, and it works. Just try it out:</p>
-<p><a href="https://twitter.com/share?url=http%3A%2F%2Fblog.thomaspuppe.de/fast-brutalist-websites&amp;hashtags=brutalist%2Cwebdesign&amp;text=How%20to%20make%20your%20shiny%20new%20brutalist%20website%20brutally%20fast">
+<p><a href="https://twitter.com/share?url=https%3A%2F%2Fblog.thomaspuppe.de/fast-brutalist-websites&amp;hashtags=brutalist%2Cwebdesign&amp;text=How%20to%20make%20your%20shiny%20new%20brutalist%20website%20brutally%20fast">
 <p style="font-family:monospace;white-space:pre;">
 ┊┊┊┊┊┊┊┊┊┊┊┊╭━━━━━╮
 ┊┊┊┊╱▔▔╲┊┊╭━╯T&shy;WEET╰━╮
@@ -161,7 +161,7 @@
 ┊╲▂▂▂▂▂╱┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊
 ━━━━┃━┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 </p></a></p>
-<p><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fblog.thomaspuppe.de%2Ffast-brutalist-websites" class="facebookbutton"><span style="font-size:150%">&#9996;</span> Share on facebook</a></p>
+<p><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.thomaspuppe.de%2Ffast-brutalist-websites" class="facebookbutton"><span style="font-size:150%">&#9996;</span> Share on facebook</a></p>
 <p><br><br><br><br><br><br>
 <strong>Credits:</strong> <a href="https://pixabay.com/de/kermit-frosch-schneeball-werfen-601711/">Kermit photo</a>, <a href="https://dribbble.com/shots/1787673-Kermit">Kermit icon</a>, <a href="http://xahlee.info/comp/unicode_ascii_art.html">Twitter Button</a>, <a href="http://www.mburnette.com/blog/create-simple-faux-3d-css-button">Facebook Button</a>.</p>
 

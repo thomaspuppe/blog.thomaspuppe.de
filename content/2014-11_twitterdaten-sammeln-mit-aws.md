@@ -107,4 +107,4 @@ Insgesamt wurden 71180 Tweets erfasst. Da die Aufzeichnung ausgerechnet am Abend
 
 Die Datei lässt sich via scp vom AWS Server herunterladen, dann kann man die Maschien stoppen oder terminieren.
 
-Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dargestellt: <a href="http://lab.thomaspuppe.de/mauerfall-tweets/">Karte</a>, <a href="http://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet">Blog-Beitrag</a>.
+Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dargestellt: <a href="http://lab.thomaspuppe.de/mauerfall-tweets/">Karte</a>, <a href="https://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet">Blog-Beitrag</a>.

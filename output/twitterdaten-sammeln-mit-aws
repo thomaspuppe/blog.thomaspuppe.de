@@ -110,7 +110,7 @@ $ while true; do ( wc -l tweets.json ; sleep 5 ) done;</pre>
 <h3>Auswertung der Tweets:</h3>
 <p>Insgesamt wurden 71180 Tweets erfasst. Da die Auf&shy;zeich&shy;nung aus&shy;ge&shy;rech&shy;net am Abend des 8.11. abbrach und ich bis Spätabends am 9.11. nicht online war, fehlen alle Tweets vom Tag des Mauerfalls. Aber immerhin gibt es die kleine Sammlung der Tage zuvor.</p>
 <p>Die Datei lässt sich via scp vom AWS Server her&shy;un&shy;ter&shy;la&shy;den, dann kann man die Maschien stoppen oder ter&shy;mi&shy;nie&shy;ren.</p>
-<p>Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dar&shy;ge&shy;stellt: <a href="http://lab.thomaspuppe.de/mauerfall-tweets/">Karte</a>, <a href="http://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet">Blog-Beitrag</a>.</p>
+<p>Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dar&shy;ge&shy;stellt: <a href="http://lab.thomaspuppe.de/mauerfall-tweets/">Karte</a>, <a href="https://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet">Blog-Beitrag</a>.</p>
 
 </article>
 </body>
