@@ -7,8 +7,8 @@
   <link href="/favicon.ico" rel="shortcut icon" />
     <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
   <link href="/" rel="home start" />
-  <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
     <meta name="description" content="Um Tweets zu einem aktuellen Thema zu sammeln, muss man die Twitter Streaming API mitschneiden. In 20 Minuten ist dafür ein kostenloses always-online System aufgesetzt." />
     <meta name="keywords" content="Webentwicklung" />
 </head>

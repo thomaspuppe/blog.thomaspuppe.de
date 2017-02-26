@@ -7,8 +7,8 @@
   <link href="/favicon.ico" rel="shortcut icon" />
     <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
   <link href="/" rel="home start" />
-  <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
     <meta name="description" content="Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleichzeitig sollen Less und JSLint genutzt werden. Ein wunderbares Einsatzgebiet für Gulp!" />
     <meta name="keywords" content="Webentwicklung" />
 </head>

@@ -7,8 +7,8 @@
   <link href="/favicon.ico" rel="shortcut icon" />
     <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
   <link href="/" rel="home start" />
-  <link href="/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
     <meta name="description" content="Intentionally ugly websites are one of the trends in 2017. What I like most about this: ugly is fast!" />
     <meta name="keywords" content="web development" />
 </head>
