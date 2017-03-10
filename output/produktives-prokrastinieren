@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Produktives Prokrastinieren</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="TODO: Die Description" />
+    <meta name="keywords" content="web development" />
+</head>
+<body>
+  <header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#web development
+		</span>
+		<time datetime="2017-03-10">
+			
+			3. März 2017
+		</time>
+	</div>
+
+    <h1 class="post__title">Produktives Prokrastinieren</h1>
+
+    <p>Ver&shy;steck&shy;tes Pro&shy;kras&shy;ti&shy;nie&shy;ren</p>
+<p>-</p>
+<p>Pro&shy;duk&shy;ti&shy;ves Pro&shy;kras&shy;ti&shy;nie&shy;ren</p>
+<ul>
+<li>Blogpost</li>
+<li>kleine Apps</li>
+<li>Design-Tricks aus&shy;pro&shy;bie&shy;ren</li>
+</ul>
+<p>Alles nur, um die Kandidaten bei Bun&shy;dest&shy;wit&shy;ter nicht bauen zu müssen.</p>
+<p>... vllt für die doch wieder so ein Symphony-Ding? Damit nur den Admin. Und Frontend selbst&shy;ge&shy;baut???</p>
+
+</article>
+</body>
+</html>

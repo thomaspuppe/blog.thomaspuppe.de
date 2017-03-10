@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Twitter-Bot-Beobachtung zu #AnneWill</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="Social Bots sind aktell ein großes Thema. Zu Recht? Ich habe am Sonntag #AnneWill Tweets gesammelt, und an denen zwei Methoden zur Bot-Erkennung verglichen." />
+    <meta name="keywords" content="Webentwicklung" />
+</head>
+<body>
+  <header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Webentwicklung
+		</span>
+		<time datetime="2017-03-10">
+			
+			10. März 2017
+		</time>
+	</div>
+
+    <h1 class="post__title">Twitter-Bot-Beobachtung zu #AnneWill</h1>
+
+    <p>Social Bots sind aktuell ein großes Thema. Die Medien berichten darüber, wie die <a href="http://www.zeit.de/digital/internet/2017-01/social-bots-bundestagswahl-twitter-studie">bösen Roboter</a> unsere <a href="http://www.zeit.de/2017/09/bundestagswahl-fake-news-manipulation-russland-hacker-cyberkrieg">Demokratie hacken</a> werden. Sogar Verbote werden gefordert -- ich nehme an, der Quatsch soll Schlag&shy;zei&shy;len bringen und ist nicht ernst gemeint. "Forscher" und "Experten" versuchen, die vom Untergang bedrohten Parteien zu beraten. Auf&shy;ge&shy;fal&shy;len ist mir kürzlich das Projekt <a href="http://botswatch.de/projects/anne-will-am-04-12-2016/">Botswatch</a>, das Bot-Reaktionen auf Talkshows beleuchtet -- mit der simplen Heuristik, dass User mit 50 oder mehr Tweets pro Tag Bots seien.</p>
+<p>Ich halte das alles für sinnlose Panikmache. War aber neugierig, wie denn die Zahlen zustande kommen, was sie bedeuten, und welche Techniken heute zum Einsatz kommen um Social Bots zu iden&shy;ti&shy;fi&shy;zie&shy;ren.</p>
+<p>Dazu habe ich am ver&shy;gan&shy;ge&shy;nen Sonntag Tweets zur Sendung Anne Will im Ersten ge&shy;spei&shy;chert, und etwas genauer angeschaut.</p>
+<ul>
+<li>Sendung: So, 05.03.17 | 21:45 - 22:45 Uhr Das Erste</li>
+<li>Tweet-Auf&shy;zeich&shy;nung: 21:00 bis 23:30 Uhr, Tweets mit dem Hashtag #annewill.</li>
+<li>Insgesamt wurden 5705 Tweets erfasst, davon sind 2842 "o&shy;ri&shy;gi&shy;na&shy;le" Tweets und 2863 Retweets.</li>
+</ul>
+<p>Die Rohdaten habe ich bei <a href="https://github.com/thomaspuppe/watch-the-bots/tree/master/data/annewill/original">GitHub</a> ver&shy;öf&shy;fent&shy;licht, einige Erkundungs-Grafiken sind in meinem <a href="https://public.tableau.com/profile/thomas.puppe#!/vizhome/BlogBotswatch/TweetsUhrzeit">Tableau</a> Account zugänglich.</p>
+<figure>
+    <img src="/images/2017/03/botswatch/graph_tweets-per-minute.png" alt="Graph: Tweets pro Minute währen der Anne Will Sendung"/>
+    <figcaption>Tweets mit #annewill pro Minute während der Sendung am 05.03.2017 <a href="https://public.tableau.com/profile/thomas.puppe#!/vizhome/BlogBotswatch/TweetsUhrzeit">Daten bei Tableau</a></figcaption>
+</figure>
+
+<p>Insgesamt haben 1794 User (Re)Tweets gesendet. Die meisten wenige, manche viele. Die flei&shy;ßigs&shy;ten Kom&shy;men&shy;ta&shy;to&shy;ren waren @rot_pe (64 Tweets), @HorstNRW (53 Tweets), @darksideof&shy;t&shy;heeg (37 Tweets).</p>
+<p>888 User haben nur einen Tweet gesendet, 491 User zwei oder drei Tweets. Immerhin 115 User schrieben jeweils mehr als 10 Tweets.</p>
+<p>Die er&shy;folg&shy;reichs&shy;ten (im Sinne von Retweets während der Sendung) stammen von @krk979 (98 RT), @A&shy;li&shy;Co&shy;lo&shy;gne (58 RT und 42 RT) und @Hein&shy;rich_Krug (42 RT).</p>
+<p>Man kann da jetzt alle möglichen Analysen drauf fahren (Hashtags, Dialoge, wer wird erwähnt) ... aber hier soll es um Bots gehen. Also los: finden wir die Bots!</p>
+<h3>Verfahren 1: Accounts mit mehr als 50 Tweets pro Tag sind Bots</h3>
+<p>Das erste Verfahren, das mich auch auf das Thema gebracht hat, ist das schnellste. Alle Accounts, die mindestens 50 Tweets pro Tag senden oder mindestens 50 Favoriten markieren, sind Bots.</p>
+<p>Im Sample von #annewill wären das</p>
+<ul>
+<li>mit 50+Tweets: 151 User mit 838 Tweets.</li>
+<li>mit 50+ Favoriten: 130 User mit 615 Tweets.</li>
+<li>Kombiniert (50 Tweets oder Favoriten): <em>217 User mit 1080 Tweets</em>.</li>
+</ul>
+<p>12 Prozent aller User sollen also Bots sein, die für ein Fünftel der Tweets ver&shy;ant&shy;wort&shy;lich sind. Das sind auch zahlen, die Botswatch nennt (logisch, ich habe deren Verfahren angewendet) und 19% werden auch in einem <a href="http://www.zeit.de/digital/internet/2017-01/social-bots-bundestagswahl-twitter-studie/komplettansicht">ZEIT Online Artikel zu Social Bots</a> genannt, oder im <a href="http://www.manager-magazin.de/unternehmen/it/social-bots-donald-trumps-stimmungsmacher-a-1136133.html">Han&shy;dels&shy;blatt</a>. Beide zitieren Studien von Uni&shy;ver&shy;si&shy;tä&shy;ten in den USA. Ich habe mir nicht die Mühe gemacht, die Pri&shy;mär&shy;quel&shy;len zu prüfen.</p>
+<p>Verschiebt man die Grenze auf 40 oder 60 Tweets, bleibt der Anteil ähnlich: 16 bis 10 Prozent der Nutzer wären Bots, und 22 bis 15 Prozent der Nach&shy;rich&shy;ten von ihnen ge&shy;schrie&shy;ben. Ein <a href="https://public.tableau.com/profile/thomas.puppe#!/vizhome/BlogBotswatch/TweetsTagHistogramm">Histogramm</a> dazu habe ich bei Tableau (Achtung: un&shy;ter&shy;schied&shy;li&shy;che Bucket-Größen!).</p>
+<figure>
+    <img src="/images/2017/03/botswatch/graph_tweets-tag-histogramm.png" alt="Graph: Histogramm mit Accounts und Tweets pro Tag"/>
+    <figcaption>Anzahl von Accounts des #annewill Samples, die eine bestimmte Menge von Tweets pro Tag versenden</figcaption>
+</figure>
+
+<p>Ich habe mir die aktivsten dieser Accounts angesehen, um zu erfahren was da los ist.</p>
+<p>Was sind das für Bots, die "nach einer neuen Bundestags-Studie nicht nur unsere politische Kultur vergiften, sondern bei knappen Mehrheiten auch Wahl&shy;er&shy;geb&shy;nis&shy;se be&shy;ein&shy;flus&shy;sen können" (<a href="http://www.focus.de/politik/deutschland/social-bots-bundestagsstudie-warnt-roboter-koennten-radikalisieren-und-wahlen-beeinflussen_id_6527643.html">focus</a>)?</p>
+<p>Ich habe mir die Accounts angeschaut, die im Annewill-Sample als Bot klas&shy;si&shy;fi&shy;ziert wurden, und besonders viel tweeten.</p>
+<p>Top-Bot meines Samples mit 855 Tweets pro Tag ist der <em>@bot_huso</em> ("Hurensohn Bot"). Ein au&shy;to&shy;ma&shy;ti&shy;sches Programm, das Tweets retweetet, die das Wort "Hu&shy;ren&shy;sohn" beinhalten.</p>
+<p>Es folgen eine kurdische Nach&shy;rich&shy;ten-Such&shy;ma&shy;schi&shy;ne (@Ro&shy;j&shy;na&shy;me_&shy;com), der @De&shy;mo&shy;kra&shy;tie_Bot, der offenbar alles mit #democracy retweetet, die @WorldTweet&shy;News und etliche Trending-Topic-Bots (@T&shy;ren&shy;ding&shy;To&shy;picPK, @top_worl&shy;d_&shy;now).</p>
+<p>Erst danach folgt im Ranking der User @han&shy;s_o&shy;ber&shy;mei&shy;er (Username "Old Fart") mit 439 Tweets pro Tag und 12 Beiträgen zur Anne Will Sendung. Ein echter AfD/Mer&shy;kel&shy;muss&shy;weg Typ, der sehr viele Beiträge retweetet, und manche selber verfasst oder kom&shy;men&shy;tiert. Nach der 50-Tweets-Regel wäre er ein Bot, nach meiner mensch&shy;li&shy;chen Ein&shy;schät&shy;zung nicht.</p>
+<p>Dann folgen einige Spam-Bots.</p>
+<p class="highlight">Nach&shy;rich&shy;ten wie "Check LINK Live Nude Streaming #Deutsch&shy;land #BVBFCB #annewill #bpw16 #CDU www.ein-spam-link.com" werden häufig verschickt. Sie stammen auch eindeutig von Bots. Aber sie gefähren nicht unsere Demokratie!</p>
+
+<p>Das Live-Nude-Streaming aus dem Bundestag wurde mit nur 14 Tweets beworben. Das ist nicht viel, aber treibt zusammen mit anderem Spam die Zahlen der Bot-Hysteriker nach oben.</p>
+<p>Zwischen Trend-Bots und Spam gibt es natürlich viele Accounts, die tat&shy;säch&shy;lich Inhalte verbreiten. Auch, und vor Allem, politische.</p>
+<p>Zunächst möchte ich noch das andere Ende des Spektrums anschauen: Accounts, die sehr wenige Tweets pro Tag absenden. (Kleiner Exkurs: die Tweets pro Tag errechnet man in der Regel aus dem Tag der Ac&shy;coun&shy;t&shy;er&shy;öff&shy;nung und der Gesamtzahl der bisherigen Tweets. Schwan&shy;kun&shy;gen in der Aktivität werden dabei nicht be&shy;rück&shy;sich&shy;tigt. Das ginge auch, aber mit erheblch mehr Aufwand.)</p>
+<p>Ab unteren Ende des Spektrums des #annewill-Bot-Rankings auffällig viele Accounts, die seit Jahren bestehen, aber nur eine ein&shy;stel&shy;li&shy;ge Anzahl an Tweets verfasst haben. Als Beispiel seien genannt: @Se&shy;cret9191, @E&shy;schen&shy;bach22145, @Co&shy;by18807372, @juewilu, @truee&shy;quals&shy;fal&shy;se und @FredHeiss. Besucht man diese Accounts, stellt man fest, dass sie wenige oder keine Follower haben, und tat&shy;säch&shy;lich nur einen sehr aktuellen Tweet (der aber zum Zeitpunkt der Über&shy;prü&shy;fung, zwei Tage später, schon nicht mehr der Annewill-Tweet ist). Hier wird of&shy;fen&shy;sicht&shy;lich kurz nach dem Schreiben wieder gelöscht. Entweder das sind komische Kauze -- oder Bots, die nicht also solche (durch plumpe Heu&shy;ris&shy;ti&shy;ken) erkennbar sein wollen. Besonders die Namen mit Zahlen deuten mög&shy;li&shy;cher&shy;wei&shy;se auf eine generische Erzeugung der Accounts hin. Beim Her&shy;um&shy;spie&shy;len mit den Zahlen habe ich allerdings kein Schema und keine Serie gefunden.</p>
+<p>Verfahren 2: BotOrNot</p>
+<p>Die University of Indiana bietet einen Service namens <a href="http://truthy.indiana.edu/botornot">BotOrNot</a> an, den man auch per <a href="https://github.com/truthy/botornot-python">API</a> benutzen kann. Die Nutzer der Annewill-Tweets habe ich gegen diese API gesendet.</p>
+<p>Als Ergebnis erhält man eine Wahr&shy;schein&shy;lich&shy;keit, zu der ein Account als Bot angesehen wird. Da gibt es ver&shy;schie&shy;de&shy;ne Merkmale wie das Netzwerk, Account-Infos, Zeiträume zu denen ge&shy;schrie&shy;ben wird (24h Aktivität=Bot) und In&shy;halts&shy;ana&shy;ly&shy;sen. Außerdem einen Gesamt-Score, den ich für alle Accounts, die sich an #annewill beteiligt haben, betrachtet habe:</p>
+<figure>
+    <img src="/images/2017/03/botswatch/graph_botornot-score-histogramm.png" alt="Graph: Histogramm mit dem Botornot-Score"/>
+    <figcaption>Anzahl von Accounts des #annewill Samples, die eine bestimmten Score bei BotOrNot erreichen</figcaption>
+</figure>
+
+<p>Aus dem Sample werden 163 Accounts als Bots betrachtet, wenn man 50% Wahr&shy;schein&shy;lich&shy;keit als Bot-Grenze zieht. Möchte man zu 60% sicher sein, sind es nur noch 31 Accounts. Diese habe ich mir genauer angesehen.</p>
+<p>Sehr hohe Werte haben die Accounts @Anti68er (97%), @FredHeiss (92%), Co&shy;by18807372 (79%). Das sind die oben genannten "leeren" Accounts, die ihre Tweets schnell wieder lsöchen.</p>
+<p>Auch vertreten sind @RMehberg (79%), @Mar&shy;kus&shy;Fel&shy;der2 (64%), @Li&shy;saS&shy;kyt&shy;ta (64%), die nicht sehr aktiv sind. Warum Accounts, die wenige Wochen alt sind und nicht viel schreiben, als Bots ein&shy;ge&shy;ord&shy;net werden, erschließt sich mir nicht.</p>
+<p>Von den 31 Usern, die mit mehr als 60% als Bot klas&shy;si&shy;fi&shy;ziert werden, wurde nur ein einziger in der 50-Tweets-Methode erfasst: @top_worl&shy;d_&shy;now.</p>
+<p>Umgekehrt: der "Hu&shy;ren&shy;sohn"-Retweeter, die Trend-Bots, und die Spam-Schleudern sind von BotOrNot alle nicht als Bot erkannt worden.</p>
+<p>Auch hier noch ein Blick auf das andere Ende des Spektrums: von den 58 Usern, die mit weniger als 20% Wahr&shy;schein&shy;lich&shy;keit als Bot ein&shy;ge&shy;ord&shy;net wurden, wären drei von der 50-Tweet Klas&shy;si&shy;fi&shy;zie&shy;rung erfasst worden.</p>
+<h3>Fazit 1: Vergleich der Bots</h3>
+<p>Man sieht, dass die beiden Verfahren -- 50-Tweet-Heutistik vs. API der Uni&shy;ver&shy;si&shy;tät -- un&shy;ter&shy;schied&shy;li&shy;che Accounts als Bots einordnen. Bei beiden findet man an beiden Enden des Spektrums sofort Fehl&shy;klas&shy;si&shy;fi&shy;zie&shy;run&shy;gen. Die Zahlen, die man als Grenzwert benutzt, lasse sich beliebig ver&shy;schie&shy;ben und sorgen dann entweder allmählich für mehr Bots (Anzahl-der-Tweets Methode) oder rapide (BotOrNot Score).</p>
+<h3>Fazit 2: Der Inhalt</h3>
+<p>Im Sample habe ich jede Menge radikale Asichten gesehen. Meistens von rechts. Besonders von Viel&shy;schrei&shy;bern. Und das durch die Bank, unabhängig von Methode und Einordnung als Bot.</p>
+<p>Was nicht bedeuten muss, dass die AfD und andere Nazis Bots einsetzen (wie gern irgendwo ge&shy;schrie&shy;ben), sondern auch bedeuten kann dass diejenigen besonders viel zu po&shy;li&shy;ti&shy;schen Talkshows twittern, die besonders viel po&shy;li&shy;ti&shy;sches Mit&shy;tei&shy;lungs&shy;be&shy;dürf&shy;nis haben.</p>
+<p>In absoluten Zahlen ist das nach meiner Ansicht eh nicht relevant. Accounts wie @An&shy;ne&shy;Will&shy;Talk, @HeikoMaas, @ber&shy;lin&shy;er&shy;zei&shy;tung oder @jun&shy;geuni&shy;on haben eine große Reichweite, stehen aber nicht im Verdacht Bots zu sein.</p>
+<p>Der pa&shy;trio&shy;ti&shy;sche Viel&shy;schrei&shy;ber @darksideof&shy;t&shy;heeg kommt auf 13.000 Follower, hat viele Beiträge und einen mittleren Score von 51% bei BotOrNot.</p>
+<p>Die als Bots erkannten Accounts haben hingegen keine großen Follower-Zahlen. Und damit keinen großen Einfluss. Außer, wie so oft bei twitter, indirekt über die Medien, die das Thema Bots aufgreifen und die, als wirksamer Aufreger, extreme Ansichten wei&shy;ter&shy;ver&shy;brei&shy;ten.</p>
+<h3>Was hilft denn? Wie erkennt man Bots?</h3>
+<p>Ganz wichtig: Bots schreiben eh keine Inhalte. Sie dienen als Mul&shy;ti&shy;pli&shy;ka&shy;to&shy;ren (einer schreibt, zehn künstliche Accounts ver&shy;öf&shy;fent&shy;li&shy;chen), oder sie verbreiten bestimmte Inhalte weiter. Und an der Stelle ist es auch egal, ob das ein iden&shy;ti&shy;tä&shy;rer Fanboy mit zu viel Zeit macht, oder ein au&shy;to&shy;ma&shy;ti&shy;sches Programm.</p>
+<p>Als konkrete Maßnahme für ein Thema, z.B. Polit-Talkshows, hilft nur die Einordnung ins Thema. Passt das Ge&shy;schrie&shy;be&shy;ne zur Sendung? Das kann dann nicht vor&shy;be&shy;rei&shy;tet aus der Dose kommen. (Witze über die Vor&shy;her&shy;sag&shy;bar&shy;keit von Polit-Talkshows über&shy;sprin&shy;gen wir.) Dann ist es wohl von Menschen ge&shy;schrie&shy;ben.</p>
+<p>Ist es ein All&shy;ge&shy;mein&shy;platz oder eine Lüge? Dann könnte es vor&shy;be&shy;rei&shy;tet aus der Dose kommen. Oder auch nicht. Hier hilft dann Me&shy;di&shy;en&shy;kom&shy;pe&shy;tenz und gesunder Men&shy;schen&shy;ver&shy;stand.</p>
+<p><em>Die Bot-Detektoren jedenfalls helfen nicht.</em> Noch nicht. Noch nicht gut genug. Es gibt sicher weitere Ansätze, aber so etwas ist immer ein Wettrennen. Die Bot-Pro&shy;gram&shy;mie&shy;rer wissen ja auch, mit welchen Methoden die Detektoren arbeiten. Und haben sich, wie gesehen, daran angepasst. Ich erinnere an die Accounts, die sehr viel schreiben und gleich wieder löschen. Oder die au&shy;to&shy;ma&shy;ti&shy;schen Trend-Bots und Spam-Bots. Bei solch groben Unschärfen kann man nur raten. Eine Angabe im Nach&shy;kom&shy;ma&shy;be&shy;reich, dass nun 22,81% der Akteure Bots seien, täuscht eine Wis&shy;sen&shy;schaft&shy;lich&shy;keit vor, die nicht gegeben ist.</p>
+<h3>P.S.</h3>
+<p>Es macht wirklich keinen Spaß, sich durch politische Tweets durch&shy;zu&shy;ar&shy;bei&shy;ten.</p>
+<blockquote>"Die Talkshow #annewill ist noch nicht mal als Trinkspiel zu gebrauchen. Sad /o\" &mdash; @Ni&shy;cole&shy;Punkt</blockquote>
+
+</article>
+</body>
+</html>
