@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://blog.thomaspuppe.de/goodbye-google-analytics-goodbye-piwik</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
@@ -13,49 +13,54 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/link-unterstreichung</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>http://blog.thomaspuppe.de/kategorie/social-bots/</loc>
+    <lastmod>2017-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>http://blog.thomaspuppe.de/front-trends-2016-warsaw-day-three</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/berlin-anschlag-aufmacher</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/responsive-website-ein-praktisches-beispiel</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/eigene-domain-google-plus-umleiten</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/twitter-verhalten-mdb-und-nds</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
@@ -71,7 +76,7 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/single-page-apps-minimieren-mit-gulp</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
@@ -92,37 +97,37 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/inodes-linux-festplatte-voll</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/url-unshortening</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/spof-auf-news-websites</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/us-wahl-aufmacher-auf-news-websites</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/front-trends-2016-warsaw-day-two</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/das-anti-agile-manifest</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
@@ -133,7 +138,7 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/fast-brutalist-websites</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
@@ -145,19 +150,19 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/front-trends-2016-warsaw-day-one</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/gregor-gysi-retweets</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/do-not-track-header-crossbrowser</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
@@ -178,7 +183,7 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/visualized-io-berlin-2013</loc>
-    <lastmod>2017-02-26</lastmod>
+    <lastmod>2017-03-10</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
