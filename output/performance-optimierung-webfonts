@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Performance-Optimierung von Webfonts</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="None" />
+    <meta name="keywords" content="Webentwicklung" />
+</head>
+<body>
+  <header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Webentwicklung
+		</span>
+		<time datetime="2017-03-15">
+			
+			15. März 2017
+		</time>
+	</div>
+
+    <h1 class="post__title">Performance-Optimierung von Webfonts</h1>
+
+    <h3>braucht man überhaupt Webfonts?</h3>
+<ul>
+<li>Screenshot mit/ohne</li>
+</ul>
+<h3>woff2 statt woff</h3>
+<ul>
+<li>nutze ja derzeit nur die eine. Weil: wie viele Browser un&shy;ter&shy;stüt&shy;zen die? Und: Font ist ein Optisches Schmankerl. Ein En&shy;han&shy;ce&shy;ment.</li>
+</ul>
+<h3>Subset</h3>
+<ul>
+<li>https://trans&shy;fon&shy;ter.org/ (oder https://github.com/bramstein/homebrew-web&shy;font&shy;tools)</li>
+<li>
+<h3>https://parall.ax/blog/view/3072/tutorial-reducing-the-file-size-of-custom-web-fonts</h3>
+</li>
+</ul>
+<h2>FOIT/FOUT</h2>
+<ul>
+<li>Cookie-Variante https://www.fil&shy;ament&shy;group.com/lab/font-events.html</li>
+<li>Font Loading API (wann kommt die wo?)</li>
+<li>JS Gehampel (http://bdadam.com/blog/better-webfont-loading-with-lo&shy;cal&shy;sto&shy;r&shy;a&shy;ge-and-woff2.html) für mich keine Option</li>
+<li>Al&shy;ter&shy;na&shy;ti&shy;ven noch nicht Browser&shy;san&shy;dard(?): https://www.bramstein.com/writing/web-font-loading-patterns.html#&shy;cust&shy;om-font-display</li>
+</ul>
+<h3>optische An&shy;glei&shy;chung</h3>
+<ul>
+<li>letter-spacing, line-height, font-weight, font-variant, font-style</li>
+<li>
+<p>http://web&shy;de&shy;si&shy;gner&shy;note&shy;book.com/css/the-little-known-font-size-adjust-css3-property/</p>
+</li>
+<li>
+<p>https://helpx.adobe.com/typekit/using/font-events.html#&shy;Sty&shy;ling&shy;fall&shy;back&shy;font&shy;su&shy;s&shy;ing&shy;fon&shy;te&shy;vents</p>
+</li>
+<li>http://webfont-test.com/</li>
+<li>Wenn es da kein Tool gibt, mach selber eines (Codepen)</li>
+</ul>
+<h3>Laden bei guter Verbindung</h3>
+<ul>
+<li>wie gesagt: optisches Schmankerl. Also: Network checken.</li>
+</ul>
+<h3>Links</h3>
+<ul>
+<li>http://fontfamily.io/An&shy;da&shy;le_&shy;Mo&shy;no,monospace</li>
+</ul>
+<h3>Links</h3>
+<ul>
+<li>https://www.zachleat.com/web/com&shy;pre&shy;hen&shy;si&shy;ve-webfonts/</li>
+</ul>
+
+</article>
+</body>
+</html>

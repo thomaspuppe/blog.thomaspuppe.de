@@ -11,8 +11,142 @@
     <link rel="self" type="application/atom+xml" href="http://blog.thomaspuppe.de/feed/atom/" />
     <icon>http://blog.thomaspuppe.de/favicon.ico</icon>
     <logo>http://blog.thomaspuppe.de/feed-logo.png</logo>
-    <updated>2017-03-13T23:00:00Z</updated>
+    <updated>2017-03-14T23:00:00Z</updated>
     <generator uri="https://github.com/posativ/acrylamid/" version="0.7.10">acrylamid</generator>
+        <entry>
+        <title>Performance-Optimierung von Webfonts</title>
+        <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.deperformance-optimierung-webfonts" />
+        <id>tag:blog.thomaspuppe.de,2017-03-15:performance-optimierung-webfonts</id>
+        <updated>2017-03-14T23:00:00Z</updated>
+        <category term="Webentwicklung" />
+        
+        <author>
+            <name>Thomas Puppe</name>
+            <uri>http://blog.thomaspuppe.de/</uri>
+            <email>info@thomaspuppe.de</email>
+        </author>
+        <content type="html">&lt;h4&gt;braucht man überhaupt Webfonts?&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Screenshot mit/ohne&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;woff2 statt woff&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;nutze ja derzeit nur die eine. Weil: wie viele Browser unterstützen die? Und: Font ist ein Optisches Schmankerl. Ein Enhancement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Subset&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;https://transfonter.org/ (oder https://github.com/bramstein/homebrew-webfonttools)&lt;/li&gt;
+&lt;li&gt;
+&lt;h4&gt;https://parall.ax/blog/view/3072/tutorial-reducing-the-file-size-of-custom-web-fonts&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;FOIT/FOUT&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Cookie-Variante https://www.filamentgroup.com/lab/font-events.html&lt;/li&gt;
+&lt;li&gt;Font Loading API (wann kommt die wo?)&lt;/li&gt;
+&lt;li&gt;JS Gehampel (http://bdadam.com/blog/better-webfont-loading-with-localstorage-and-woff2.html) für mich keine Option&lt;/li&gt;
+&lt;li&gt;Alternativen noch nicht Browsersandard(?): https://www.bramstein.com/writing/web-font-loading-patterns.html#custom-font-display&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;optische Angleichung&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;letter-spacing, line-height, font-weight, font-variant, font-style&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;http://webdesignernotebook.com/css/the-little-known-font-size-adjust-css3-property/&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;https://helpx.adobe.com/typekit/using/font-events.html#Stylingfallbackfontsusingfontevents&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;http://webfont-test.com/&lt;/li&gt;
+&lt;li&gt;Wenn es da kein Tool gibt, mach selber eines (Codepen)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Laden bei guter Verbindung&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;wie gesagt: optisches Schmankerl. Also: Network checken.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Links&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;http://fontfamily.io/Andale_Mono,monospace&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Links&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;https://www.zachleat.com/web/comprehensive-webfonts/&lt;/li&gt;
+&lt;/ul&gt;</content>
+    </entry>
+    
+        <entry>
+        <title>Progressive Web App erstellen</title>
+        <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.deprogressive-web-app-meetingtimer" />
+        <id>tag:blog.thomaspuppe.de,2017-03-15:progressive-web-app-meetingtimer</id>
+        <updated>2017-03-14T23:00:00Z</updated>
+        <category term="Webentwicklung" />
+        
+        <author>
+            <name>Thomas Puppe</name>
+            <uri>http://blog.thomaspuppe.de/</uri>
+            <email>info@thomaspuppe.de</email>
+        </author>
+        <content type="html">&lt;h3&gt;Progressive Web App -- was ist das?&lt;/h3&gt;
+&lt;p&gt;Progressive Web Apps sind der (mittlerweile nicht mehr ganz so) heiße Scheiß im mobilen Internet. Normale Websites und -apps werden mit bestimmten Features angereichert, um am Ende App-like benutzbar zu sein. Allerdings als richtiges HTML im richtigen (auch älteren) Browser, ohne Lock-In eines App Stores.&lt;/p&gt;
+&lt;p&gt;Das Smashing Magazine behandelt Progressive Web Apps in einer sehr guten &lt;a href=&#34;https://www.smashingmagazine.com/2016/08/a-beginners-guide-to-progressive-web-apps/&#34;&gt;drei&lt;/a&gt;-&lt;a href=&#34;https://www.smashingmagazine.com/2016/09/the-building-blocks-of-progressive-web-apps/&#34;&gt;teiligen&lt;/a&gt;-&lt;a href=&#34;https://www.smashingmagazine.com/2016/12/progressive-web-amps/&#34;&gt;Serie&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Von einer Progressive Web App spricht man, wenn sie folgende zehn Kriterien erfüllt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Progressive, Responsive, Discoverable (crawlbar), Linkable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Den Anspruch stelle ich an alles im Internet. Ist das nicht erfüllt, hast du keine Website. Haken wir hier mal ab.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fresh, Re-engageable, App-like&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ist etwas schwammig. Sagen wir, die App soll Spaß machen.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Safe, Installable, Connectivity-independent&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Um diese drei Punkte wird es in diesem Blog-Post gehen. Ich möchte meine bereits existierende &lt;a href=&#34;https://blog.thomaspuppe.de/single-page-apps-minimieren-mit-gulp&#34;&gt;kleine App&lt;/a&gt; sicher (per SSL) ausliefern, auf Smartphones installierbar und offline nutzbar machen.&lt;/p&gt;
+&lt;p&gt;Die anderen genannten Kriterien sind zum Teil etwas vage und abstrakt, und müssen nicht alle erfüllt werden. So kann die App auch nicht-fresh oder gar unresponsiv sein, und sich dennoch installieren lassen. Andere Dinge bauen aufeinander auf: so gibt es zum Beispiel keine Offline-Unterstützung, wenn die App nicht via SSL ausgeliefert wird.&lt;/p&gt;
+&lt;p&gt;Und damit sind wir direkt im Thema, um eine Progressive Web App zu bauen...&lt;/p&gt;
+&lt;h3&gt;Schritt 1: SSL&lt;/h3&gt;
+&lt;p&gt;Die Auslieferung per SSL ist eine der Voraussetzungen, dass eine Website als Progressive Web App funktioniert. Gleichzeitig ist sie die größte Hürde. Während man den Code beliebig selbst schreiben kann, und das nicht besonders schwer ist (wie wir gleich sehen), ist die Einrichtung von SSL komplizierter, und meist mit Kosten verbunden.&lt;/p&gt;
+&lt;p&gt;Zum Glück gibt es &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;Letsencrypt&lt;/a&gt;, eine Zertifizierungsstelle die kostenlose Zertifikate ausstellt und bei der Einrichtung unterstützt. Auf einem Server mit SSH-Zugriff ist es superleicht, mittels &lt;a href=&#34;https://certbot.eff.org/&#34;&gt;Letsencrypt und Certbot&lt;/a&gt; SSL-Zertifikate zu erzeugen. Das funktionier auch, wenn mehrere Domains auf diesem Server liegen. Nach der (systemspezifischen) Installation reicht ein Befehl zum Erzeugen eines Zertifikats:&lt;/p&gt;
+&lt;pre&gt;$ ./certbot-auto certonly --webroot -w /var/www/www_meetingtimer_biz/ -d www.meetingtimer.biz&lt;/pre&gt;
+
+&lt;p&gt;Der Certbot gibt aus, wo das neu erzeugte Zertifikat liegt. Diesen Pfad benutze ich nun zur Konfiguration meines nginX Webservers:&lt;/p&gt;
+&lt;pre&gt;server {
+    listen 443;
+
+    ssl on;
+    ssl_certificate /etc/letsencrypt/live/www.meetingtimer.biz/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/www.meetingtimer.biz/privkey.pem ;
+
+    server_name www.meetingtimer.biz;
+    root /var/www/www_meetingtimer_biz;
+    index index.html;
+}&lt;/pre&gt;
+
+&lt;p&gt;Die drei ssl-Zeilen sind im Prinzip alles, was es zum Verschlüsseln braucht. Man kann das ganze optimieren: für eine Weiterleitung von nicht-www auf www braucht man zum Beispiel noch ein Zertifikat, wenn die Weiterleitung auch durch den Webserver erfolgen soll. Außerdem kann man die Verschlüsselung noch verbessern, laut einem Test von &lt;a href=&#34;https://www.ssllabs.com/ssltest/&#34;&gt;SSL Labs&lt;/a&gt; erreichen das Zertifikat und die Server-Konfiguration noch nicht die volle Punktzahl. Aber für den Einstieg sind wir sehr gut versorgt.&lt;/p&gt;
+&lt;p&gt;Eine andere Möglichkeit, eigene Inhalte kostenlos und einfach über eine HTTPS-Verbindung auszuliefern, sind &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Auch wenn Verschlüsselung an sich schon ein Wert ist, war sie hier nur die notwenige Vorbedingung für den nächsten Schritt:&lt;/p&gt;
+&lt;h3&gt;Schritt 2: Ein Manifest erstellen, um die App &#34;installieren&#34; zu können&lt;/h3&gt;
+&lt;pre&gt;{
+  &#34;lang&#34;: &#34;en&#34;,
+  &#34;background_color&#34;: &#34;#232323&#34;,
+  &#34;name&#34;: &#34;How Much does this meeting cost?&#34;,
+  &#34;short_name&#34;: &#34;MeetingTimer&#34;,
+  &#34;display&#34;: &#34;standalone&#34;,
+  &#34;icons&#34;: [
+    {
+      &#34;src&#34;: &#34;icon_144.png&#34;,
+      &#34;sizes&#34;: &#34;144x144&#34;,
+      &#34;type&#34;: &#34;image/png&#34;
+    },
+  ]
+}&lt;/pre&gt;
+
+&lt;p&gt;Diese Datei wird unter dem Namen &lt;a href=&#34;https://www.meetingtimer.biz/manifest.json&#34;&gt;manifest.json&lt;/a&gt; im Root der Domain abgelegt.&lt;/p&gt;
+&lt;p&gt;Brcue Lawson hat einen kleinen &lt;a href=&#34;http://brucelawson.github.io/manifest/&#34;&gt;Manifest-Generator&lt;/a&gt; erstellt, und es gibt eine &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/Manifest&#34;&gt;umfangreiche
+Dokumentation&lt;/a&gt; im MDN.&lt;/p&gt;
+&lt;p&gt;Nun kann man das Manifest validieren. Wenn das ok ist, wird es im HTML-Head der Website eingetragen:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&lt;link rel=&#34;manifest&#34; href=&#34;/manifest.json&#34;&gt;&lt;/code&gt;&lt;/p&gt;</content>
+    </entry>
+    
         <entry>
         <title>Open Source in deutschen Newsrooms</title>
         <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.deopen-source-in-deutschen-newsrooms" />
