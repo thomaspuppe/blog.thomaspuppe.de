@@ -64,7 +64,7 @@ Auch wenn Verschlüsselung an sich schon ein Wert ist, war sie hier nur die notw
 
 # Schritt 2: Ein Manifest erstellen, um die App "installieren" zu können
 
-
+Progressive Web Apps lassen sich auf dem Smartphone zum Home-Screen oder menü hinzufügen.
 
 <pre>{
   "lang": "en",
