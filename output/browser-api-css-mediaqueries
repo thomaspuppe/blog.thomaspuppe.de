@@ -37,7 +37,33 @@
     }
 }</p>
 <p>(1) Browser APIs</p>
-<h2>navigator.share()</h2>
+<h3>navigator.coo&shy;kie&shy;Enab&shy;led</h3>
+<p>Eigentlich ganz simpel, kannte ich aber bis heute noch nicht. Ist natürlich der  Methode, ein Cookie zu setzen und dann auszulesen, zu bevorzugen. Breite Browser-Un&shy;ter&shy;stüt&shy;zung.</p>
+<blockquote>
+<p>Auf diesem Browser: <script>document.write(navigator.cookieEnabled || '<em>undefined</em>')</script></p>
+</blockquote>
+<h3>navigator.doNotTrack</h3>
+<p>Zeigt an, ob im Browser "Do not track" gesetzt wurde -- und auf welchen Wert. Ist in vielen browsern im&shy;ple&shy;men&shy;tiert, aber der <a href="https://blog.thomaspuppe.de/do-not-track-header-crossbrowser">Rück&shy;ga&shy;be&shy;wert ist un&shy;ter&shy;scheid&shy;lich</a> und muss geparsed werden.</p>
+<blockquote>
+<p>Auf diesem Browser: <script>document.write(navigator.doNotTrack || '<em>undefined</em>')</script></p>
+</blockquote>
+<h3>navigator.getBattery().then(function(e){console.log(e)})</h3>
+<p>https://developer.mozilla.org/en-US/docs/Web/API/Bat&shy;te&shy;ry&shy;Ma&shy;na&shy;ger</p>
+<h3>navigator.hard&shy;ware&shy;Con&shy;cur&shy;ren&shy;cy</h3>
+<p>Gibt die Zahl der ver&shy;füg&shy;ba&shy;ren Pro&shy;zes&shy;so&shy;ren zurück. Das ist ein grober Indikator dafür, ob der Browser auf einem ein starken neuen Gerät läuft, oder einer alten Möhre. (Vielleicht kann man auch auf die sinnvolle Anzahl an Service Workern oder Web Workern schließen? Gibt ein Browser-Tab, das in einem Prozess läuft, solche Mög&shy;lich&shy;kei&shy;ten her?)</p>
+<blockquote>
+<p>Auf diesem Browser: <script>document.write(navigator.hardwareConcurrency || '<em>undefined</em>')</script></p>
+</blockquote>
+<h3>navigator.geo&shy;lo&shy;ca&shy;ti&shy;on</h3>
+<blockquote>
+<p>Auf diesem Browser: <script>document.write(navigator.geolocation || '<em>undefined</em>')</script></p>
+</blockquote>
+<h3>navigator.onLine</h3>
+<blockquote>
+<p>Auf diesem Browser: <script>document.write(navigator.onLine || '<em>undefined</em>')</script></p>
+</blockquote>
+<p>navigator.storage</p>
+<h3>navigator.share()</h3>
 <p>https://developers.google.com/web/updates/2016/10/navigator-share</p>
 <p>Mit disem Button kann man per JS auslösen, was sonst aus dem Menü getriggert wird. Der Vorteil gegenüber in&shy;di&shy;vi&shy;du&shy;el&shy;len Sharing-Buttons: die Leute bekommen genau die Dienste angeboten, die sie zur Verfügung haben -- und nicht die der Sei&shy;ten&shy;be&shy;trei&shy;ber für wichtig hielt.</p>
 <p>navigator.share({
@@ -48,15 +74,14 @@
 <p>Alle Parameter müssen Strings sein. Ob diese aus JavaScript kommen oder hardcoded sind, ist egal. Test oder URL können weg&shy;ge&shy;lass&shy;sen werden.</p>
 <p>Zu&shy;rück&shy;ge&shy;ge&shy;ben wird eine Promise. Man kann den User also fürs Sharen belohnen oder Ab&shy;bruch&shy;ra&shy;ten tracken.</p>
 <p>Ein paar Ein&shy;schrän&shy;kun&shy;gen hat die Technik: Sie ist nur auf HTTPS-Seiten verfügbar, und kann nur durch User-In&shy;ter&shy;ak&shy;ti&shy;on getriggert werden (nicht etwa onLoad oder onScroll -- Sorry lieber "User Engager"). Navigator.share() ist derzeit nur im Chrome (ab Version 55) verfügbar. Wie bei allen aktuellen Features wird der Entwickler also pro&shy;gres&shy;si&shy;ve&shy;ly enhancen (<code>navigator.share !== undefined</code>).</p>
-<p>Mozilla verfolgte ienn ähnlichen Ansatz:</p>
+<p>Mozilla verfolgte einen ähnlichen Ansatz:</p>
 <p>https://github.com/mozilla/f1/wiki/navigator-share-api</p>
-<p>navigator.coo&shy;kie&shy;Enab&shy;led
-navigator.doNotTrack
-navigator.getBattery().then(function(e){console.log(e)})
-navigator.hard&shy;ware&shy;Con&shy;cur&shy;ren&shy;cy
-navigator.geo&shy;lo&shy;ca&shy;ti&shy;on
-navigator.onLine
-navigator.storage</p>
+<p>https://developer.mozilla.org/en-US/docs/Web/API/Navigator/per&shy;mis&shy;si&shy;ons
+https://developer.mozilla.org/en-US/docs/Web/API/Net&shy;wor&shy;kIn&shy;for&shy;ma&shy;ti&shy;on
+https://developer.mozilla.org/en-US/docs/Web/API/Pre&shy;sen&shy;ta&shy;ti&shy;on
+https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon
+https://developer.mozilla.org/en-US/docs/Web/API/We&shy;b_Wor&shy;ker&shy;s_A&shy;PI</p>
+<p>TODO: Bei Chrome nachsehen</p>
 <h3>navigator.vibrate(500)</h3>
 <p>Lässt das Gerät vibrieren, wenn das verfügbar ist. Als Parameter nimmt die Funktion einen Integer (einmalige Vibration für x Mil&shy;li&shy;se&shy;kun&shy;den) oder ein Array (Pattern von Vibration und Pause) entgegen. <code>navigator.vibrate([100,200,300])</code> vibriert also 100 ms, pausiert 200 ms, vibriert 300 ms. Verfügbar in modernen mobilen Browsern (<a href="http://caniuse.com/#search=vibration">caniuse?</a>). Die Funktion steht aber auch in nicht-vi&shy;brier&shy;fä&shy;hi&shy;gen Geräten zur Verfügung und lässt sich nicht prüfen. Zur Erkennung muss man also über die Device-Detection gehen.</p>
 <p>navigator.watch()
@@ -77,6 +102,9 @@ navigator.connection</p>
 <p>@media all and (ori&shy;en&shy;ta&shy;ti&shy;on: portrait) { ... }</p>
 <h3>resolution</h3>
 <p>Erkennt die Pi&shy;xel&shy;dich&shy;te auf einem Gerät, und wird vor Allem genutzt, um Retina-optimierte Bilder aus&shy;zu&shy;lie&shy;fern (<code>min-resolution: 300dpi</code>).</p>
+<h3>display-mode</h3>
+<h3>light-level</h3>
+<p>Beschreibt die Licht&shy;ver&shy;hält&shy;nis&shy;se in der Umgebung, und nimmt die Werte "dim" (gedämpft), "normal" und "washed" (sehr hell) an. Eigentlich praktisch für so etwas wie den Nacht-Lese-Modus. An&shy;de&shy;rer&shy;seits sehe ich hier die Gefahr, dass man mit seinen Queries die Nut&shy;zer&shy;ein&shy;stel&shy;lun&shy;gen oder au&shy;to&shy;ma&shy;ti&shy;sche Hel&shy;lig&shy;keits&shy;an&shy;pas&shy;sung des Smart&shy;pho&shy;nes über&shy;schreibt -- "das Gegenteil von gut ist gut gemeint". Un&shy;ter&shy;stützt wird <code>light-level</code> nur im Edge und im Firefox für OS X.</p>
 <h3>supports</h3>
 <p>Erst heute in einem <a href="https://github.com/codecandies/grid-talk">Vortrag des Kollegen Brünjes</a> gesehen. Außerhalb leider selten. Mit dieser Feature Query prüft man, ob der Browser bestimmte CSS-Ei&shy;gen&shy;schaf&shy;ten un&shy;ter&shy;stützt. Zum Beispiel <code>@supports(blink)</code> oder <code>@supports (display: grid)</code>.</p>
 <p>In den meisten Fällen lässt sich die Abfrage bzw. das pro&shy;gres&shy;si&shy;ve En&shy;han&shy;ce&shy;ment direkt in die CSS-Regeln einbauen. Zum Beispiel bei Schrift&shy;grö&shy;ßen via <code>font-size:16px; font-size: 1rem;</code> für den IE8. Der ignoriert die zweite Angabe, mit der er nicht klarkommt, und nutzt die erste. Moderne Browser über&shy;schrei&shy;ben die erste mit der zweiten.</p>
@@ -92,7 +120,8 @@ navigator.connection</p>
 <p><code>color</code> und <code>color-index</code> geben an, wie viele Farben verfügbar sind und wie sie ge&shy;spei&shy;chert werden, <code>monochrome</code> erkennt Geräte die nur mit Graustufen arbeiten (und mit wie vielen). <code>grid</code> spricht auf Monospace-Font Displays an, also alle die feste Plätze und Breiten für jedes Zeichen haben. Theo&shy;re&shy;tisch ist das cool, um reduzierte Bilder (oder auf Kontrast op&shy;ti&shy;mier&shy;tes CSS) an Geräte wie den Kindle aus&shy;zu&shy;lie&shy;fern. Weil diese Mi&shy;kro&shy;op&shy;ti&shy;mie&shy;rung aber kaum jemand betreibt, machen die Geräte selbst was gutes aus dem CSS -- weshalb wiederum niemand diese Mi&shy;kro&shy;op&shy;ti&shy;mie&shy;rung betreibt.</p>
 <p>Im Firefox kann man Windows-Versionen und Be&shy;triebs&shy;sys&shy;tem-Stile erkennen und mit seienm Styling darauf reagieren. Feature-Queries wie <code></code>-moz-os-version:windows-win10<code>,</code>-moz-mac-graphite-theme<code>und</code>-moz-windows-theme:aero` regeln das.</p>
 <h3>Media Queries Level 4</h3>
-<p>Noch im <a href="https://drafts.csswg.org/mediaqueries-4/#media">Draft-Status</a> sind Media Queries Level 4. Sie ver&shy;spre&shy;chen Features wie <code>update</code> (Schnel&shy;lig&shy;keit beim Bildaufbau, quasi frames-per-second), und eine bessere Logische Ver&shy;knüp&shy;fung von Queries via <code>not</code> und <code>or</code>.</p>
+<p>Noch im <a href="https://drafts.csswg.org/mediaqueries-4/#media">Draft-Status</a> sind Media Queries Level 4. Sie ver&shy;spre&shy;chen Features wie <code>hover</code> (kann ich über Elemente hovern?), <code>pointer</code> (wie genau kann ich Elemente treffen -- Mauszeiger vs Wurst&shy;fin&shy;ger), <code>update</code> (Schnel&shy;lig&shy;keit beim Bildaufbau, quasi frames-per-second) und mehr.</p>
+<p><code>device-width</code>, <code>device-height</code>, und damit auch device-aspect-ratio` sind deprecated.</p>
 <h2>(3) The Missing</h2>
 <p>Was um Himmels Willen endlich eingeführt werden muss:</p>
 <ul>

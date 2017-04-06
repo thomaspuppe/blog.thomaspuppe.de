@@ -19,8 +19,41 @@ Kürzlich sah ich in einer interessanten [Präsentation über Progressive Web Ap
 
 (1) Browser APIs
 
+## navigator.cookieEnabled
 
-# navigator.share()
+Eigentlich ganz simpel, kannte ich aber bis heute noch nicht. Ist natürlich der  Methode, ein Cookie zu setzen und dann auszulesen, zu bevorzugen. Breite Browser-Unterstützung.
+
+> Auf diesem Browser: <script>document.write(navigator.cookieEnabled || '<em>undefined</em>')</script>
+
+## navigator.doNotTrack
+
+Zeigt an, ob im Browser "Do not track" gesetzt wurde -- und auf welchen Wert. Ist in vielen browsern implementiert, aber der [Rückgabewert ist unterscheidlich](https://blog.thomaspuppe.de/do-not-track-header-crossbrowser) und muss geparsed werden.
+
+> Auf diesem Browser: <script>document.write(navigator.doNotTrack || '<em>undefined</em>')</script>
+
+## navigator.getBattery().then(function(e){console.log(e)})
+https://developer.mozilla.org/en-US/docs/Web/API/BatteryManager
+
+
+## navigator.hardwareConcurrency
+
+Gibt die Zahl der verfügbaren Prozessoren zurück. Das ist ein grober Indikator dafür, ob der Browser auf einem ein starken neuen Gerät läuft, oder einer alten Möhre. (Vielleicht kann man auch auf die sinnvolle Anzahl an Service Workern oder Web Workern schließen? Gibt ein Browser-Tab, das in einem Prozess läuft, solche Möglichkeiten her?)
+
+> Auf diesem Browser: <script>document.write(navigator.hardwareConcurrency || '<em>undefined</em>')</script>
+
+## navigator.geolocation
+
+> Auf diesem Browser: <script>document.write(navigator.geolocation || '<em>undefined</em>')</script>
+
+## navigator.onLine
+
+> Auf diesem Browser: <script>document.write(navigator.onLine || '<em>undefined</em>')</script>
+
+
+navigator.storage
+
+
+## navigator.share()
 
 https://developers.google.com/web/updates/2016/10/navigator-share
 
@@ -38,34 +71,11 @@ Zurückgegeben wird eine Promise. Man kann den User also fürs Sharen belohnen o
 
 Ein paar Einschränkungen hat die Technik: Sie ist nur auf HTTPS-Seiten verfügbar, und kann nur durch User-Interaktion getriggert werden (nicht etwa onLoad oder onScroll -- Sorry lieber "User Engager"). Navigator.share() ist derzeit nur im Chrome (ab Version 55) verfügbar. Wie bei allen aktuellen Features wird der Entwickler also progressively enhancen (`navigator.share !== undefined`).
 
-Mozilla verfolgte ienn ähnlichen Ansatz:
+Mozilla verfolgte einen ähnlichen Ansatz:
 
 https://github.com/mozilla/f1/wiki/navigator-share-api
 
 
-
-
-
-navigator.cookieEnabled
-
-
-navigator.doNotTrack
-
-
-navigator.getBattery().then(function(e){console.log(e)})
-https://developer.mozilla.org/en-US/docs/Web/API/BatteryManager
-
-
-navigator.hardwareConcurrency
-
-
-navigator.geolocation
-
-
-navigator.onLine
-
-
-navigator.storage
 
 
 https://developer.mozilla.org/en-US/docs/Web/API/Navigator/permissions
@@ -122,6 +132,12 @@ Eine simplere Variante der ratio. Nimmt die Werte `landscape` oder `portrait` an
 
 Erkennt die Pixeldichte auf einem Gerät, und wird vor Allem genutzt, um Retina-optimierte Bilder auszuliefern (`min-resolution: 300dpi`).
 
+## display-mode
+
+
+## light-level
+
+Beschreibt die Lichtverhältnisse in der Umgebung, und nimmt die Werte "dim" (gedämpft), "normal" und "washed" (sehr hell) an. Eigentlich praktisch für so etwas wie den Nacht-Lese-Modus. Andererseits sehe ich hier die Gefahr, dass man mit seinen Queries die Nutzereinstellungen oder automatische Helligkeitsanpassung des Smartphones überschreibt -- "das Gegenteil von gut ist gut gemeint". Unterstützt wird `light-level` nur im Edge und im Firefox für OS X.
 
 ## supports
 
