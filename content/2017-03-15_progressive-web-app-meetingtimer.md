@@ -5,7 +5,7 @@ datelabel: 15. März 2017
 language: de
 tags: [Webentwicklung]
 permalink: progressive-web-app-meetingtimer
-draft: false
+draft: true
 description:
 ---
 
@@ -45,47 +45,64 @@ Zum Glück gibt es [Letsencrypt](https://letsencrypt.org/), eine Zertifizierungs
 Der Certbot gibt aus, wo das neu erzeugte Zertifikat liegt. Diesen Pfad benutze ich nun zur Konfiguration meines nginX Webservers:
 
 <pre>server {
-    listen 443;
+		listen 443;
 
-    ssl on;
-    ssl_certificate /etc/letsencrypt/live/www.meetingtimer.biz/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/www.meetingtimer.biz/privkey.pem ;
+		ssl on;
+		ssl_certificate /etc/letsencrypt/live/www.meetingtimer.biz/fullchain.pem;
+		ssl_certificate_key /etc/letsencrypt/live/www.meetingtimer.biz/privkey.pem ;
 
-    server_name www.meetingtimer.biz;
-    root /var/www/www_meetingtimer_biz;
-    index index.html;
+		server_name www.meetingtimer.biz;
+		root /var/www/www_meetingtimer_biz;
+		index index.html;
 }</pre>
 
 Die drei ssl-Zeilen sind im Prinzip alles, was es zum Verschlüsseln braucht. Man kann das ganze optimieren: für eine Weiterleitung von nicht-www auf www braucht man zum Beispiel noch ein Zertifikat, wenn die Weiterleitung auch durch den Webserver erfolgen soll. Außerdem kann man die Verschlüsselung noch verbessern, laut einem Test von [SSL Labs](https://www.ssllabs.com/ssltest/) erreichen das Zertifikat und die Server-Konfiguration noch nicht die volle Punktzahl. Aber für den Einstieg sind wir sehr gut versorgt.
 
-Eine andere Möglichkeit, eigene Inhalte kostenlos und einfach über eine HTTPS-Verbindung auszuliefern, sind [GitHub Pages](https://pages.github.com/).
+Eine andere Möglichkeit, eigene Inhalte kostenlos und einfach über eine HTTPS-Verbindung auszuliefern, sind [GitHub Pages](https://pages.github.com/). Für den lokalen Webserver kann man sich selbst ein Zertifikat [erzeugen](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04) und signieren. Beim Öffnen der Seite warnt der Browser zwar, lässt sich aber überreden, die Seite zu öffnen.
 
 Auch wenn Verschlüsselung an sich schon ein Wert ist, war sie hier nur die notwenige Vorbedingung für den nächsten Schritt:
 
-# Schritt 2: Ein Manifest erstellen, um die App "installieren" zu können
+# Schritt 2: Ein Manifest und einen Service Worker erstellen, um die App "installieren" zu können
 
 Progressive Web Apps lassen sich auf dem Smartphone zum Home-Screen oder menü hinzufügen.
 
 <pre>{
-  "lang": "en",
-  "background_color": "#232323",
-  "name": "How Much does this meeting cost?",
-  "short_name": "MeetingTimer",
-  "display": "standalone",
-  "icons": [
-    {
-      "src": "icon_144.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-  ]
+	"lang": "en",
+	"background_color": "#232323",
+	"name": "How Much does this meeting cost?",
+	"short_name": "MeetingTimer",
+	"display": "standalone",
+	"icons": [
+		{
+			"src": "icon_144.png",
+			"sizes": "144x144",
+			"type": "image/png"
+		},
+	]
 }</pre>
 
 Diese Datei wird unter dem Namen [manifest.json](https://www.meetingtimer.biz/manifest.json) im Root der Domain abgelegt.
 
-Brcue Lawson hat einen kleinen [Manifest-Generator](http://brucelawson.github.io/manifest/) erstellt, und es gibt eine [umfangreiche
+Bruce Lawson hat einen kleinen [Manifest-Generator](http://brucelawson.github.io/manifest/) erstellt, und es gibt eine [umfangreiche
 Dokumentation](https://developer.mozilla.org/en-US/docs/Web/Manifest) im MDN.
 
-Nun kann man das Manifest validieren. Wenn das ok ist, wird es im HTML-Head der Website eingetragen:
+Nun kann man das [Manifest validieren](https://manifest-validator.appspot.com/). Wenn es in Ordnung ist, wird es im HTML-Head der Website eingetragen:
 
-<code><link rel="manifest" href="/manifest.json"></code>
+<pre>&lt;link rel="manifest" href="./manifest.json"&gt;</pre>
+
+Als nächstes erstellen wir einen ServiceWorker, und registrieren ihn in einem Script-Tag in der index.html Datei:
+
+<pre>if ('serviceWorker' in navigator) {
+	navigator.serviceWorker.register('/serviceworker.js');
+}</pre>
+
+Die Datei `sericeworker.js` kann sogar leer sein, wenn man die Möglichkeiten der Worker nicht nutzen möchte -- was wir später tun werden. Aber sie muss existieren.
+
+Mit den drei geschaffenen Voraussetzungen (HTTPS, Manifest und ServiceWorker) kann man die App nun auf seinem Home Screen installieren. Das könnte man schon immer mit dem Menüpunkt "zum Startbildschirm hinzufügen", was einen Shortcut auf dem Startbildschirm hinterlegt. Die progressive-web-appige Lösung löst aber außerdem einen Installations-Hinweis des Chrome Browsers aus:
+
+Und zweitens
+
+https://developers.google.com/web/fundamentals/engage-and-retain/app-install-banners/
+
+
+# Schritt 4: Dateien offline verfügbar machen

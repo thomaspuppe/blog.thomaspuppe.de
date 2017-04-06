@@ -5,7 +5,7 @@
         <link>http://blog.thomaspuppe.de/</link>
         <description></description>
         <language>de</language>
-        <pubDate>Tue, 14 Mar 2017 23:00:00 GMT</pubDate>
+        <pubDate>Tue, 14 Mar 2017 22:00:00 GMT</pubDate>
         <docs>http://blog.thomaspuppe.de/feed/rss/</docs>
         <generator>acrylamid 0.7.10</generator>
         
@@ -27,6 +27,14 @@
 &lt;h4&gt;https://parall.ax/blog/view/3072/tutorial-reducing-the-file-size-of-custom-web-fonts&lt;/h4&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Beispiel:
+- 195 KB Montserrat Black in ttf
+- Formate mit allen Subsets:
+  - eot 220, svg 566, ttf 220, woff 99, woff2 65
+- Subset Latin:
+  - eot 37, svg 83, ttf 37, woff 21, woff2 16
+- Subset Buchstaben (&#34;Do one thing today.&#34;):
+  -&lt;/p&gt;
 &lt;h3&gt;FOIT/FOUT&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Cookie-Variante https://www.filamentgroup.com/lab/font-events.html&lt;/li&gt;
@@ -58,7 +66,7 @@
 &lt;ul&gt;
 &lt;li&gt;https://www.zachleat.com/web/comprehensive-webfonts/&lt;/li&gt;
 &lt;/ul&gt;</description>
-        <pubDate>Tue, 14 Mar 2017 23:00:00 GMT</pubDate>
+        <pubDate>Tue, 14 Mar 2017 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2017-03-15:performance-optimierung-webfonts</guid>
     </item>
         
@@ -90,42 +98,54 @@
 
 &lt;p&gt;Der Certbot gibt aus, wo das neu erzeugte Zertifikat liegt. Diesen Pfad benutze ich nun zur Konfiguration meines nginX Webservers:&lt;/p&gt;
 &lt;pre&gt;server {
-    listen 443;
+        listen 443;
 
-    ssl on;
-    ssl_certificate /etc/letsencrypt/live/www.meetingtimer.biz/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/www.meetingtimer.biz/privkey.pem ;
+        ssl on;
+        ssl_certificate /etc/letsencrypt/live/www.meetingtimer.biz/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/www.meetingtimer.biz/privkey.pem ;
 
-    server_name www.meetingtimer.biz;
-    root /var/www/www_meetingtimer_biz;
-    index index.html;
+        server_name www.meetingtimer.biz;
+        root /var/www/www_meetingtimer_biz;
+        index index.html;
 }&lt;/pre&gt;
 
 &lt;p&gt;Die drei ssl-Zeilen sind im Prinzip alles, was es zum Verschlüsseln braucht. Man kann das ganze optimieren: für eine Weiterleitung von nicht-www auf www braucht man zum Beispiel noch ein Zertifikat, wenn die Weiterleitung auch durch den Webserver erfolgen soll. Außerdem kann man die Verschlüsselung noch verbessern, laut einem Test von &lt;a href=&#34;https://www.ssllabs.com/ssltest/&#34;&gt;SSL Labs&lt;/a&gt; erreichen das Zertifikat und die Server-Konfiguration noch nicht die volle Punktzahl. Aber für den Einstieg sind wir sehr gut versorgt.&lt;/p&gt;
-&lt;p&gt;Eine andere Möglichkeit, eigene Inhalte kostenlos und einfach über eine HTTPS-Verbindung auszuliefern, sind &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Eine andere Möglichkeit, eigene Inhalte kostenlos und einfach über eine HTTPS-Verbindung auszuliefern, sind &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt;. Für den lokalen Webserver kann man sich selbst ein Zertifikat &lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04&#34;&gt;erzeugen&lt;/a&gt; und signieren. Beim Öffnen der Seite warnt der Browser zwar, lässt sich aber überreden, die Seite zu öffnen.&lt;/p&gt;
 &lt;p&gt;Auch wenn Verschlüsselung an sich schon ein Wert ist, war sie hier nur die notwenige Vorbedingung für den nächsten Schritt:&lt;/p&gt;
-&lt;h3&gt;Schritt 2: Ein Manifest erstellen, um die App &#34;installieren&#34; zu können&lt;/h3&gt;
+&lt;h3&gt;Schritt 2: Ein Manifest und einen Service Worker erstellen, um die App &#34;installieren&#34; zu können&lt;/h3&gt;
+&lt;p&gt;Progressive Web Apps lassen sich auf dem Smartphone zum Home-Screen oder menü hinzufügen.&lt;/p&gt;
 &lt;pre&gt;{
-  &#34;lang&#34;: &#34;en&#34;,
-  &#34;background_color&#34;: &#34;#232323&#34;,
-  &#34;name&#34;: &#34;How Much does this meeting cost?&#34;,
-  &#34;short_name&#34;: &#34;MeetingTimer&#34;,
-  &#34;display&#34;: &#34;standalone&#34;,
-  &#34;icons&#34;: [
-    {
-      &#34;src&#34;: &#34;icon_144.png&#34;,
-      &#34;sizes&#34;: &#34;144x144&#34;,
-      &#34;type&#34;: &#34;image/png&#34;
-    },
-  ]
+    &#34;lang&#34;: &#34;en&#34;,
+    &#34;background_color&#34;: &#34;#232323&#34;,
+    &#34;name&#34;: &#34;How Much does this meeting cost?&#34;,
+    &#34;short_name&#34;: &#34;MeetingTimer&#34;,
+    &#34;display&#34;: &#34;standalone&#34;,
+    &#34;icons&#34;: [
+        {
+            &#34;src&#34;: &#34;icon_144.png&#34;,
+            &#34;sizes&#34;: &#34;144x144&#34;,
+            &#34;type&#34;: &#34;image/png&#34;
+        },
+    ]
 }&lt;/pre&gt;
 
 &lt;p&gt;Diese Datei wird unter dem Namen &lt;a href=&#34;https://www.meetingtimer.biz/manifest.json&#34;&gt;manifest.json&lt;/a&gt; im Root der Domain abgelegt.&lt;/p&gt;
-&lt;p&gt;Brcue Lawson hat einen kleinen &lt;a href=&#34;http://brucelawson.github.io/manifest/&#34;&gt;Manifest-Generator&lt;/a&gt; erstellt, und es gibt eine &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/Manifest&#34;&gt;umfangreiche
+&lt;p&gt;Bruce Lawson hat einen kleinen &lt;a href=&#34;http://brucelawson.github.io/manifest/&#34;&gt;Manifest-Generator&lt;/a&gt; erstellt, und es gibt eine &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/Manifest&#34;&gt;umfangreiche
 Dokumentation&lt;/a&gt; im MDN.&lt;/p&gt;
-&lt;p&gt;Nun kann man das Manifest validieren. Wenn das ok ist, wird es im HTML-Head der Website eingetragen:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;&lt;link rel=&#34;manifest&#34; href=&#34;/manifest.json&#34;&gt;&lt;/code&gt;&lt;/p&gt;</description>
-        <pubDate>Tue, 14 Mar 2017 23:00:00 GMT</pubDate>
+&lt;p&gt;Nun kann man das &lt;a href=&#34;https://manifest-validator.appspot.com/&#34;&gt;Manifest validieren&lt;/a&gt;. Wenn es in Ordnung ist, wird es im HTML-Head der Website eingetragen:&lt;/p&gt;
+&lt;pre&gt;&amp;lt;link rel=&#34;manifest&#34; href=&#34;./manifest.json&#34;&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;Als nächstes erstellen wir einen ServiceWorker, und registrieren ihn in einem Script-Tag in der index.html Datei:&lt;/p&gt;
+&lt;pre&gt;if (&#39;serviceWorker&#39; in navigator) {
+    navigator.serviceWorker.register(&#39;/serviceworker.js&#39;);
+}&lt;/pre&gt;
+
+&lt;p&gt;Die Datei &lt;code&gt;sericeworker.js&lt;/code&gt; kann sogar leer sein, wenn man die Möglichkeiten der Worker nicht nutzen möchte -- was wir später tun werden. Aber sie muss existieren.&lt;/p&gt;
+&lt;p&gt;Mit den drei geschaffenen Voraussetzungen (HTTPS, Manifest und ServiceWorker) kann man die App nun auf seinem Home Screen installieren. Das könnte man schon immer mit dem Menüpunkt &#34;zum Startbildschirm hinzufügen&#34;, was einen Shortcut auf dem Startbildschirm hinterlegt. Die progressive-web-appige Lösung löst aber außerdem einen Installations-Hinweis des Chrome Browsers aus:&lt;/p&gt;
+&lt;p&gt;Und zweitens&lt;/p&gt;
+&lt;p&gt;https://developers.google.com/web/fundamentals/engage-and-retain/app-install-banners/&lt;/p&gt;
+&lt;h3&gt;Schritt 4: Dateien offline verfügbar machen&lt;/h3&gt;</description>
+        <pubDate>Tue, 14 Mar 2017 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2017-03-15:progressive-web-app-meetingtimer</guid>
     </item>
         
@@ -162,7 +182,7 @@ Dokumentation&lt;/a&gt; im MDN.&lt;/p&gt;
 &lt;p&gt;Mit etwas Stolz sehe ich uns bei ZEIT Online mit vorn dabei, auch wenn die aktive Veröffentlichung von Inhalten oder das Neuveröfentlichen von Code-Repositories eingerostet ist.&lt;/p&gt;
 &lt;p&gt;Die Berliner Morgenpost zeigt, dass man zumindest Datensätze veröffentlichen kann, um Recherchen transparenter zu machen und vielleicht neue Projekte zu inspirieren (was z.B. &lt;a href=&#34;http://srfdata.github.io/&#34;&gt;SRF Data&lt;/a&gt; sehr gut macht).&lt;/p&gt;
 &lt;p&gt;Nicht zuletzt ist Open Source und öffentliches Tech-Bloggen ein wirkungsvolles Recruiting-Instrument -- hier könnte sich jeder hervorheben, der nur &lt;em&gt;irgendwas&lt;/em&gt; tut. Der Guardian zeigt wie das im Idelfall aussehen könnte.&lt;/p&gt;</description>
-        <pubDate>Mon, 13 Mar 2017 23:00:00 GMT</pubDate>
+        <pubDate>Mon, 13 Mar 2017 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2017-03-14:open-source-in-deutschen-newsrooms</guid>
     </item>
         
@@ -244,7 +264,7 @@ Dokumentation&lt;/a&gt; im MDN.&lt;/p&gt;
 &lt;h4&gt;P.S.&lt;/h4&gt;
 &lt;p&gt;Es macht wirklich keinen Spaß, sich durch politische Tweets durchzuarbeiten.&lt;/p&gt;
 &lt;blockquote&gt;&#34;Die Talkshow #annewill ist noch nicht mal als Trinkspiel zu gebrauchen. Sad /o\&#34; &lt;br&gt;&amp;mdash; @NicolePunkt&lt;/blockquote&gt;</description>
-        <pubDate>Thu, 09 Mar 2017 23:00:00 GMT</pubDate>
+        <pubDate>Thu, 09 Mar 2017 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2017-03-10:twitter-bots-anne-will</guid>
     </item>
         
@@ -385,7 +405,7 @@ Dokumentation&lt;/a&gt; im MDN.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.thomaspuppe.de%2Ffast-brutalist-websites&#34; class=&#34;facebookbutton&#34;&gt;&lt;span style=&#34;font-size:150%&#34;&gt;&amp;#9996;&lt;/span&gt; Share on facebook&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 &lt;strong&gt;Credits:&lt;/strong&gt; &lt;a href=&#34;https://pixabay.com/de/kermit-frosch-schneeball-werfen-601711/&#34;&gt;Kermit photo&lt;/a&gt;, &lt;a href=&#34;https://dribbble.com/shots/1787673-Kermit&#34;&gt;Kermit icon&lt;/a&gt;, &lt;a href=&#34;http://xahlee.info/comp/unicode_ascii_art.html&#34;&gt;Twitter Button&lt;/a&gt;, &lt;a href=&#34;http://www.mburnette.com/blog/create-simple-faux-3d-css-button&#34;&gt;Facebook Button&lt;/a&gt;.&lt;/p&gt;</description>
-        <pubDate>Wed, 08 Feb 2017 23:00:00 GMT</pubDate>
+        <pubDate>Wed, 08 Feb 2017 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2017-02-09:fast-brutalist-websites</guid>
     </item>
         
@@ -434,7 +454,7 @@ if r.status_code == 301:
     return r.headers.get(&#39;Location&#39;)&lt;/pre&gt;
 
 &lt;p&gt;Schöne Erkenntnis am Rande: selbst bei hunderten oder tausenden Abfragen im unter-Sekunden-Takt hat keiner der Dienste mit Rate Limiting oder anderer Abweisung reagiert.&lt;/p&gt;</description>
-        <pubDate>Thu, 05 Jan 2017 23:00:00 GMT</pubDate>
+        <pubDate>Thu, 05 Jan 2017 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2017-01-06:url-unshortening</guid>
     </item>
         
@@ -582,7 +602,7 @@ span.gitadd { background: #ecffec; }
     &lt;li&gt;&lt;small&gt;19:15)&lt;/small&gt; So scheiterte die Abschiebung des Verdächtigen Anis Amri&lt;/li&gt;
     &lt;li&gt;&lt;small&gt;20:10)&lt;/small&gt; Berlin hat ein Sicherheitsdefizit&lt;/li&gt;
 &lt;/ul&gt;</description>
-        <pubDate>Wed, 04 Jan 2017 23:00:00 GMT</pubDate>
+        <pubDate>Wed, 04 Jan 2017 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2017-01-05:berlin-anschlag-aufmacher</guid>
     </item>
         
@@ -609,7 +629,7 @@ span.gitadd { background: #ecffec; }
 &lt;p&gt;Lines of Code und Features pro Sprint sind der beste Indikator für hochwertige Arbeit.&lt;/p&gt;
 &lt;p&gt;Die besten Architekturen, Anforderungen und Entwürfe entstehen außerhalb des ausführenden Teams. Sie fallen dann in Stein gemeißelt auf das Team herab.&lt;/p&gt;
 &lt;p&gt;Team-interne Meetings sind zu vermeiden (siehe auch &#34;&lt;em&gt;Leave me alone&lt;/em&gt;&#34;). Wird dennoch hin und wieder eine Retrospektive erzwungen, lässt man die still über sich ergehen und macht weiter wie zuvor.&lt;/p&gt;</description>
-        <pubDate>Mon, 12 Dec 2016 23:00:00 GMT</pubDate>
+        <pubDate>Mon, 12 Dec 2016 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2016-12-13:das-anti-agile-manifest</guid>
     </item>
         
@@ -693,7 +713,7 @@ class LocalSpider(scrapy.Spider):
 &lt;li&gt;08:45 Uhr SPIEGEL: &lt;a href=&#34;http://www.spiegel.de/politik/ausland/donald-trump-gewinnt-die-us-wahl-2016-a-1120397.html&#34;&gt;Vereinigte Staaten: Donald Trump gewinnt US-Präsidentschaftswahl&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;08:45 Uhr ZEIT: &lt;a href=&#34;http://www.zeit.de/politik/ausland/2016-11/wahl-usa-hillary-clinton-donald-trump-praesidentschaft-live&#34;&gt;Wahl in den USA - Hillary Clinton verliert US-Wahl&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
-        <pubDate>Tue, 08 Nov 2016 23:00:00 GMT</pubDate>
+        <pubDate>Tue, 08 Nov 2016 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2016-11-09:us-wahl-aufmacher-auf-news-websites</guid>
     </item>
         
@@ -958,7 +978,7 @@ class LocalSpider(scrapy.Spider):
 127.0.0.1       platform.twitter.com
 127.0.0.1       static.chartbeat.com
 &lt;/pre&gt;</description>
-        <pubDate>Sun, 30 Oct 2016 23:00:00 GMT</pubDate>
+        <pubDate>Sun, 30 Oct 2016 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2016-10-31:spof-auf-news-websites</guid>
     </item>
         
@@ -1054,7 +1074,7 @@ Inodes      IUsed     IFree    IUse%
 &lt;/blockquote&gt;
 &lt;p&gt;Die einfachste Methode, dies zu verhindern, ist die Zeile &lt;code&gt;MAILTO=&#34;&#34;&lt;/code&gt; an den beginn der Crontab-Datei (&lt;code&gt;crontab -e&lt;/code&gt;) zu schreiben. Damit werden alle Cron-Mails aus diesr Datei unterdrückt. Alternativ kann man auch pro Zeile den Versand von Mails verhintern durch den Output nach /dev/null: &lt;code&gt;0 1 5 10 * /path/to/script.sh &amp;gt; /dev/null&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Kleines Extra: In Zukunft möchte ich eine Warnung erhalten, wenn der Plattenplatz (oder die Inodes) zur Neige gehen. Der Test dafür ist leicht geschrieben (siehe oben), und einen Mechanismus zur Benachrichtigung habe ich schon für andere Zwecke. Und zwar benutze ich den Service und die App von &lt;a href=&#34;https://www.pushover.net&#34;&gt;Pushover: Simple Notifications for Android, iOS, and Desktop&lt;/a&gt; und &lt;a href=&#34;https://deadmanssnitch.com/&#34;&gt;Dead Man&#39;s Snitch — A dead simple cron job monitoring tool&lt;/a&gt;.&lt;/p&gt;</description>
-        <pubDate>Mon, 17 Oct 2016 23:00:00 GMT</pubDate>
+        <pubDate>Mon, 17 Oct 2016 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2016-10-18:inodes-linux-festplatte-voll</guid>
     </item>
         
@@ -1153,7 +1173,7 @@ Inodes      IUsed     IFree    IUse%
 Projects are a journey, be fluid.
 &amp;mdash; Tim Holman&lt;/p&gt;
 &lt;/blockquote&gt;</description>
-        <pubDate>Thu, 19 May 2016 23:00:00 GMT</pubDate>
+        <pubDate>Thu, 19 May 2016 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2016-05-20:front-trends-2016-warsaw-day-three</guid>
     </item>
         
@@ -1227,7 +1247,7 @@ Projects are a journey, be fluid.
 &lt;/ul&gt;
 &lt;hr /&gt;
 &lt;p&gt;Next read: &lt;a href=&#34;http://blog.thomaspuppe.de/front-trends-2016-warsaw-day-three&#34;&gt;Front Trends 2016 in Warsaw: Day 3&lt;/a&gt;&lt;/p&gt;</description>
-        <pubDate>Wed, 18 May 2016 23:00:00 GMT</pubDate>
+        <pubDate>Wed, 18 May 2016 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2016-05-19:front-trends-2016-warsaw-day-two</guid>
     </item>
         
@@ -1319,7 +1339,7 @@ Projects are a journey, be fluid.
 &lt;/ul&gt;
 &lt;hr /&gt;
 &lt;p&gt;Next read: &lt;a href=&#34;http://blog.thomaspuppe.de/front-trends-2016-warsaw-day-two&#34;&gt;Front Trends 2016 in Warsaw: Day 2&lt;/a&gt;&lt;/p&gt;</description>
-        <pubDate>Tue, 17 May 2016 23:00:00 GMT</pubDate>
+        <pubDate>Tue, 17 May 2016 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2016-05-18:front-trends-2016-warsaw-day-one</guid>
     </item>
         
@@ -1383,7 +1403,7 @@ Projects are a journey, be fluid.
 &lt;li&gt;Erlaubt iOS, Touch Icons inline als Base 64 codiert abzulegen? Oder Inline als SVG?&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Das kommt später. Das wäre auch ein guter Anreiz, die Minimierung auszureizen. Wieso sollte ein simpler Timer KB groß sein, wenn man &lt;a href=&#34;http://js1k.com/2014-dragons/demo/1854&#34;&gt;Minecraft in 1024 bytes&lt;/a&gt; oder &lt;a href=&#34;http://js1k.com/2014-dragons/demo/1934&#34;&gt;Wolfenstein 2D in 2K&lt;/a&gt; programmieren kann?&lt;/p&gt;</description>
-        <pubDate>Thu, 22 Jan 2015 23:00:00 GMT</pubDate>
+        <pubDate>Thu, 22 Jan 2015 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2015-01-23:single-page-apps-minimieren-mit-gulp</guid>
     </item>
         
@@ -1481,7 +1501,7 @@ document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
         &lt;figcaption&gt;http://lab.thomaspuppe.de/mauerfall-tweets/&lt;/figcaption&gt;
     &lt;/a&gt;
 &lt;/figure&gt;</description>
-        <pubDate>Tue, 18 Nov 2014 23:00:00 GMT</pubDate>
+        <pubDate>Tue, 18 Nov 2014 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2014-11-19:twitterdaten-mappen-mit-leaflet</guid>
     </item>
         
@@ -1569,7 +1589,7 @@ $ while true; do ( wc -l tweets.json ; sleep 5 ) done;&lt;/pre&gt;
 &lt;p&gt;Insgesamt wurden 71180 Tweets erfasst. Da die Aufzeichnung ausgerechnet am Abend des 8.11. abbrach und ich bis Spätabends am 9.11. nicht online war, fehlen alle Tweets vom Tag des Mauerfalls. Aber immerhin gibt es die kleine Sammlung der Tage zuvor.&lt;/p&gt;
 &lt;p&gt;Die Datei lässt sich via scp vom AWS Server herunterladen, dann kann man die Maschien stoppen oder terminieren.&lt;/p&gt;
 &lt;p&gt;Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dargestellt: &lt;a href=&#34;http://lab.thomaspuppe.de/mauerfall-tweets/&#34;&gt;Karte&lt;/a&gt;, &lt;a href=&#34;https://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet&#34;&gt;Blog-Beitrag&lt;/a&gt;.&lt;/p&gt;</description>
-        <pubDate>Wed, 05 Nov 2014 23:00:00 GMT</pubDate>
+        <pubDate>Wed, 05 Nov 2014 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2014-11-06:twitterdaten-sammeln-mit-aws</guid>
     </item>
         
@@ -1611,7 +1631,7 @@ a:hover, a:focus {
 &lt;p&gt;&lt;strong&gt;Trick 1:&lt;/strong&gt; Links bekommen ein Hintergrundbild, das keine Datei oder DataURI nutzt, sondern Gradients.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Trick 2:&lt;/strong&gt; Ein Text-Shadow, unterbricht die Linie bei Buchstaben mit Unterlänge.&lt;/p&gt;
 &lt;p&gt;Achtgeben muss man auf Links, die nicht nur Text enthalten. Wird z.B. ein Bild verlinkt, erhält dieses auch eine solche Unterstreichung. Das muss dann mittels &amp;ldquo;background-image:none;&amp;rdquo; unterbunden werden &amp;mdash; und zwar am Link statt am Bild. Bei großen Seiten kann es hier haarig werden und der Nutzen rechtfertigt den Aufwand vielleicht nicht mehr. Dasselbe gilt für Links im Button-Stil usw.&lt;/p&gt;</description>
-        <pubDate>Mon, 05 May 2014 23:00:00 GMT</pubDate>
+        <pubDate>Mon, 05 May 2014 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2014-05-06:link-unterstreichung</guid>
     </item>
         
@@ -5232,7 +5252,7 @@ a:hover, a:focus {
     &lt;li&gt;Wie man sieht, habe ich die Masse der 1-mal und 2-mal Retweter ausgelassen.&lt;/li&gt;
     &lt;li&gt;Die Zahl der Follower ist auch vom 16.03.2014, und nicht vom Tag der Retweets.&lt;/li&gt;
 &lt;/ul&gt;</description>
-        <pubDate>Sat, 15 Mar 2014 23:00:00 GMT</pubDate>
+        <pubDate>Sat, 15 Mar 2014 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2014-03-16:gregor-gysi-retweets</guid>
     </item>
         
@@ -5302,7 +5322,7 @@ font-size: 2em;
 &lt;p&gt;Da mobile (kleine) Geräte tendentiell schwächer sind als große, halte ich Mobile-First für einen guten Ansatz.&lt;/p&gt;
 &lt;h4&gt;Linktipp&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&#34;http://bradfrost.github.io/this-is-responsive/&#34;&gt;&amp;ldquo;This is responsive&amp;rdquo; von Brad Frost&lt;/a&gt;.&lt;/p&gt;</description>
-        <pubDate>Wed, 12 Feb 2014 23:00:00 GMT</pubDate>
+        <pubDate>Wed, 12 Feb 2014 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2014-02-13:responsive-website-ein-praktisches-beispiel</guid>
     </item>
         
@@ -5385,7 +5405,7 @@ jsOutput.innerHTML+= &#34;// User Agent\n&#34;;
 jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
 
 &lt;/script&gt;</description>
-        <pubDate>Wed, 06 Nov 2013 23:00:00 GMT</pubDate>
+        <pubDate>Wed, 06 Nov 2013 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2013-11-07:do-not-track-header-crossbrowser</guid>
     </item>
         
@@ -5421,7 +5441,7 @@ jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
 &lt;/ul&gt;
 &lt;p&gt;Interessant ist auch, dass die Anzahl der gezählten Besucher stark variiert. AWStats zeigt ca. doppelt so viele Besucher an wie Piwik (für Google Analytics habe ich keinen Vergleich, weil dies nicht parallel installiert war). Daher genieße ich die Zahlen aller Dienste mit Vorsicht, und achte eher auf Auf- und Abwärtstrends statt absolute Zahlen.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Fazit: für den normalen Gebrauch bietet AWStats alles, was der Website-Betreiber begehrt. Wer auf clientseitiges Tracking von Google Analytics oder Piwik verzichtet, tut seinem Besucher etwas Gutes ohne auf Besucherstatistiken verzichten zu müssen. Mit der Liste von 404 Fehlern verfügt AWStats sogar über ein nützliches Alleinstellungsmerkmal.&lt;/strong&gt;&lt;/p&gt;</description>
-        <pubDate>Mon, 21 Oct 2013 23:00:00 GMT</pubDate>
+        <pubDate>Mon, 21 Oct 2013 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2013-10-22:goodbye-google-analytics-goodbye-piwik</guid>
     </item>
         
@@ -5528,7 +5548,7 @@ jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
 &lt;p&gt;&#34;We are the new photojournalists.&#34;&lt;/p&gt;
 
 &lt;p&gt;&#34;Knowledge is the reason for change. Data Visualization helps spreading knowledge.&#34;&lt;/p&gt;</description>
-        <pubDate>Tue, 08 Oct 2013 23:00:00 GMT</pubDate>
+        <pubDate>Tue, 08 Oct 2013 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2013-10-09:visualized-io-berlin-2013</guid>
     </item>
         
@@ -5698,7 +5718,7 @@ jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
     &lt;li&gt;&lt;a href=&#34;http://www.ndr.de/fernsehen/sendungen/hallo_niedersachsen/media/hallonds13283.html&#34;&gt;&amp;quot;Wahlkampf im Internet&amp;quot;&lt;/a&gt; Hallo Niedersachsen - 02.01.2013 19:30 Uhr&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/p&gt;</description>
-        <pubDate>Mon, 21 Jan 2013 23:00:00 GMT</pubDate>
+        <pubDate>Mon, 21 Jan 2013 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2013-01-22:twitter-verhalten-mdb-und-nds</guid>
     </item>
         
@@ -5709,7 +5729,7 @@ jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
 &lt;p&gt;&lt;code&gt;RewriteEngine on
 RewriteCond %{REQUEST_URI} ^/+
 RewriteRule ^(.*)$ https://plus.google.com/u/0/109992889758306031081/ [R=permanent,L]&lt;/code&gt;&lt;/p&gt;</description>
-        <pubDate>Wed, 16 Jan 2013 23:00:00 GMT</pubDate>
+        <pubDate>Wed, 16 Jan 2013 22:00:00 GMT</pubDate>
         <guid isPermaLink="false">tag:blog.thomaspuppe.de,2013-01-17:eigene-domain-google-plus-umleiten</guid>
     </item>
         </channel>

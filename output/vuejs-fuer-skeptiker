@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>VueJS für Skeptiker</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="None" />
+    <meta name="keywords" content="Webentwicklung" />
+</head>
+<body>
+  <header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Webentwicklung
+		</span>
+		<time datetime="2017-03-28">
+			
+			28. März 2017
+		</time>
+	</div>
+
+    <h1 class="post__title">VueJS für Skeptiker</h1>
+
+    <ul>
+<li>groß und unnütz</li>
+<li>braucht das NPM Ökosystem mit allem Zeugs (das Internet her&shy;un&shy;ter&shy;la&shy;den)</li>
+<li>wozu? Ich kann Binding doch selber machen im vanilla JS</li>
+<li>keine noJS Version/Lösung</li>
+<li>in Fällen einer rein cli&shy;ent&shy;sei&shy;ti&shy;gen App ist das auch in Ordnung</li>
+<li>für Publishing (Blog z.B.) würde man VueJS ja nicht nehmen)</li>
+<li>Ac&shy;ces&shy;si&shy;bi&shy;li&shy;ty</li>
+</ul>
+
+</article>
+</body>
+</html>

@@ -5,7 +5,7 @@ datelabel: 15. März 2017
 language: de
 tags: [Webentwicklung]
 permalink: performance-optimierung-webfonts
-draft: false
+draft: true
 description:
 ---
 
@@ -21,6 +21,16 @@ description:
 - https://transfonter.org/ (oder https://github.com/bramstein/homebrew-webfonttools)
 - https://parall.ax/blog/view/3072/tutorial-reducing-the-file-size-of-custom-web-fonts
 -
+
+
+Beispiel:
+- 195 KB Montserrat Black in ttf
+- Formate mit allen Subsets:
+  - eot 220, svg 566, ttf 220, woff 99, woff2 65
+- Subset Latin:
+  - eot 37, svg 83, ttf 37, woff 21, woff2 16
+- Subset Buchstaben ("Do one thing today."):
+  -
 
 # FOIT/FOUT
 

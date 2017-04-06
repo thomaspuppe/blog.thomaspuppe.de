@@ -55,41 +55,53 @@
 
 <p>Der Certbot gibt aus, wo das neu erzeugte Zertifikat liegt. Diesen Pfad benutze ich nun zur Kon&shy;fi&shy;gu&shy;ra&shy;ti&shy;on meines nginX Webservers:</p>
 <pre>server {
-    listen 443;
+        listen 443;
 
-    ssl on;
-    ssl_certificate /etc/letsencrypt/live/www.meetingtimer.biz/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/www.meetingtimer.biz/privkey.pem ;
+        ssl on;
+        ssl_certificate /etc/letsencrypt/live/www.meetingtimer.biz/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/www.meetingtimer.biz/privkey.pem ;
 
-    server_name www.meetingtimer.biz;
-    root /var/www/www_meetingtimer_biz;
-    index index.html;
+        server_name www.meetingtimer.biz;
+        root /var/www/www_meetingtimer_biz;
+        index index.html;
 }</pre>
 
 <p>Die drei ssl-Zeilen sind im Prinzip alles, was es zum Ver&shy;schlüs&shy;seln braucht. Man kann das ganze optimieren: für eine Wei&shy;ter&shy;lei&shy;tung von nicht-www auf www braucht man zum Beispiel noch ein Zertifikat, wenn die Wei&shy;ter&shy;lei&shy;tung auch durch den Webserver erfolgen soll. Außerdem kann man die Ver&shy;schlüs&shy;se&shy;lung noch verbessern, laut einem Test von <a href="https://www.ssllabs.com/ssltest/">SSL Labs</a> erreichen das Zertifikat und die Server-Kon&shy;fi&shy;gu&shy;ra&shy;ti&shy;on noch nicht die volle Punktzahl. Aber für den Einstieg sind wir sehr gut versorgt.</p>
-<p>Eine andere Mög&shy;lich&shy;keit, eigene Inhalte kostenlos und einfach über eine HTTPS-Verbindung aus&shy;zu&shy;lie&shy;fern, sind <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+<p>Eine andere Mög&shy;lich&shy;keit, eigene Inhalte kostenlos und einfach über eine HTTPS-Verbindung aus&shy;zu&shy;lie&shy;fern, sind <a href="https://pages.github.com/">GitHub Pages</a>. Für den lokalen Webserver kann man sich selbst ein Zertifikat <a href="https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04">erzeugen</a> und signieren. Beim Öffnen der Seite warnt der Browser zwar, lässt sich aber überreden, die Seite zu öffnen.</p>
 <p>Auch wenn Ver&shy;schlüs&shy;se&shy;lung an sich schon ein Wert ist, war sie hier nur die notwenige Vor&shy;be&shy;din&shy;gung für den nächsten Schritt:</p>
-<h2>Schritt 2: Ein Manifest erstellen, um die App "in&shy;stal&shy;lie&shy;ren" zu können</h2>
+<h2>Schritt 2: Ein Manifest und einen Service Worker erstellen, um die App "in&shy;stal&shy;lie&shy;ren" zu können</h2>
+<p>Pro&shy;gres&shy;si&shy;ve Web Apps lassen sich auf dem Smartphone zum Home-Screen oder menü hinzufügen.</p>
 <pre>{
-  "lang": "en",
-  "background_color": "#232323",
-  "name": "How Much does this meeting cost?",
-  "short_name": "MeetingTimer",
-  "display": "standalone",
-  "icons": [
-    {
-      "src": "icon_144.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-  ]
+    "lang": "en",
+    "background_color": "#232323",
+    "name": "How Much does this meeting cost?",
+    "short_name": "MeetingTimer",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "icon_144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+    ]
 }</pre>
 
 <p>Diese Datei wird unter dem Namen <a href="https://www.meetingtimer.biz/manifest.json">manifest.json</a> im Root der Domain abgelegt.</p>
-<p>Brcue Lawson hat einen kleinen <a href="http://brucelawson.github.io/manifest/">Manifest-Generator</a> erstellt, und es gibt eine <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest">um&shy;fang&shy;rei&shy;che
+<p>Bruce Lawson hat einen kleinen <a href="http://brucelawson.github.io/manifest/">Manifest-Generator</a> erstellt, und es gibt eine <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest">um&shy;fang&shy;rei&shy;che
 Do&shy;ku&shy;men&shy;ta&shy;ti&shy;on</a> im MDN.</p>
-<p>Nun kann man das Manifest validieren. Wenn das ok ist, wird es im HTML-Head der Website ein&shy;ge&shy;tra&shy;gen:</p>
-<p><code><link rel="manifest" href="/manifest.json"></code></p>
+<p>Nun kann man das <a href="https://manifest-validator.appspot.com/">Manifest validieren</a>. Wenn es in Ordnung ist, wird es im HTML-Head der Website ein&shy;ge&shy;tra&shy;gen:</p>
+<pre>&lt;link rel="manifest" href="./manifest.json"&gt;</pre>
+
+<p>Als nächstes erstellen wir einen Ser&shy;vice&shy;Wor&shy;ker, und re&shy;gis&shy;trie&shy;ren ihn in einem Script-Tag in der index.html Datei:</p>
+<pre>if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/serviceworker.js');
+}</pre>
+
+<p>Die Datei <code>sericeworker.js</code> kann sogar leer sein, wenn man die Mög&shy;lich&shy;kei&shy;ten der Worker nicht nutzen möchte -- was wir später tun werden. Aber sie muss existieren.</p>
+<p>Mit den drei ge&shy;schaf&shy;fe&shy;nen Vor&shy;aus&shy;set&shy;zun&shy;gen (HTTPS, Manifest und Ser&shy;vice&shy;Wor&shy;ker) kann man die App nun auf seinem Home Screen in&shy;stal&shy;lie&shy;ren. Das könnte man schon immer mit dem Menüpunkt "zum Start&shy;bild&shy;schirm hin&shy;zu&shy;fü&shy;gen", was einen Shortcut auf dem Start&shy;bild&shy;schirm hinterlegt. Die pro&shy;gres&shy;si&shy;ve-web-appige Lösung löst aber außerdem einen In&shy;stal&shy;la&shy;ti&shy;ons-Hinweis des Chrome Browsers aus:</p>
+<p>Und zweitens</p>
+<p>https://developers.google.com/web/fun&shy;da&shy;men&shy;tals/engage-and-retain/app-install-banners/</p>
+<h2>Schritt 4: Dateien offline verfügbar machen</h2>
 
 </article>
 </body>

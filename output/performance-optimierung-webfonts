@@ -45,6 +45,14 @@
 <h3>https://parall.ax/blog/view/3072/tutorial-reducing-the-file-size-of-custom-web-fonts</h3>
 </li>
 </ul>
+<p>Beispiel:
+- 195 KB Montserrat Black in ttf
+- Formate mit allen Subsets:
+  - eot 220, svg 566, ttf 220, woff 99, woff2 65
+- Subset Latin:
+  - eot 37, svg 83, ttf 37, woff 21, woff2 16
+- Subset Buchstaben ("Do one thing today."):
+  -</p>
 <h2>FOIT/FOUT</h2>
 <ul>
 <li>Cookie-Variante https://www.fil&shy;ament&shy;group.com/lab/font-events.html</li>
