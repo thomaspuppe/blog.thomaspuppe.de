@@ -47,12 +47,37 @@ https://github.com/mozilla/f1/wiki/navigator-share-api
 
 
 navigator.cookieEnabled
+
+
 navigator.doNotTrack
+
+
 navigator.getBattery().then(function(e){console.log(e)})
+https://developer.mozilla.org/en-US/docs/Web/API/BatteryManager
+
+
 navigator.hardwareConcurrency
+
+
 navigator.geolocation
+
+
 navigator.onLine
+
+
 navigator.storage
+
+
+https://developer.mozilla.org/en-US/docs/Web/API/Navigator/permissions
+https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation
+https://developer.mozilla.org/en-US/docs/Web/API/Presentation
+https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API
+
+
+
+TODO: Bei Chrome nachsehen
+
 
 ## navigator.vibrate(500)
 
@@ -127,7 +152,9 @@ Im Firefox kann man Windows-Versionen und Betriebssystem-Stile erkennen und mit 
 
 ## Media Queries Level 4
 
-Noch im [Draft-Status](https://drafts.csswg.org/mediaqueries-4/#media) sind Media Queries Level 4. Sie versprechen Features wie `update` (Schnelligkeit beim Bildaufbau, quasi frames-per-second), und eine bessere Logische Verknüpfung von Queries via `not` und `or`.
+Noch im [Draft-Status](https://drafts.csswg.org/mediaqueries-4/#media) sind Media Queries Level 4. Sie versprechen Features wie `hover` (kann ich über Elemente hovern?), `pointer` (wie genau kann ich Elemente treffen -- Mauszeiger vs Wurstfinger), `update` (Schnelligkeit beim Bildaufbau, quasi frames-per-second) und mehr.
+
+`device-width`, `device-height`, und damit auch device-aspect-ratio` sind deprecated.
 
 # (3) The Missing
 
