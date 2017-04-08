@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/bundestwitter/</loc>
-    <lastmod>2017-04-06</lastmod>
+    <lastmod>2017-04-08</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -43,7 +43,7 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/social-bots/</loc>
-    <lastmod>2017-04-06</lastmod>
+    <lastmod>2017-04-08</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -66,12 +66,12 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/page/2/</loc>
-    <lastmod>2017-04-06</lastmod>
+    <lastmod>2017-04-08</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/webentwicklung/</loc>
-    <lastmod>2017-04-06</lastmod>
+    <lastmod>2017-04-08</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -82,17 +82,17 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/web-entwicklung/</loc>
-    <lastmod>2017-04-06</lastmod>
+    <lastmod>2017-04-08</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/web-development/</loc>
-    <lastmod>2017-04-06</lastmod>
+    <lastmod>2017-04-08</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/daten-visualisierung/</loc>
-    <lastmod>2017-04-06</lastmod>
+    <lastmod>2017-04-08</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -150,6 +150,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>http://blog.thomaspuppe.de/browser-api-css-mediaqueries</loc>
+    <lastmod>2017-04-08</lastmod>
+    <changefreq>never</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>http://blog.thomaspuppe.de/open-source-in-deutschen-newsrooms</loc>
     <lastmod>2017-03-14</lastmod>
     <changefreq>never</changefreq>
@@ -169,17 +175,17 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/news-watch/</loc>
-    <lastmod>2017-04-06</lastmod>
+    <lastmod>2017-04-08</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/feed/rss/</loc>
-    <lastmod>2017-04-06</lastmod>
+    <lastmod>2017-04-08</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/feed/atom/</loc>
-    <lastmod>2017-04-06</lastmod>
+    <lastmod>2017-04-08</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -190,7 +196,7 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/</loc>
-    <lastmod>2017-04-06</lastmod>
+    <lastmod>2017-04-08</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

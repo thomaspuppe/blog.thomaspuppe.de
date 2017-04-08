@@ -5,148 +5,210 @@
         <link>http://blog.thomaspuppe.de/</link>
         <description></description>
         <language>de</language>
-        <pubDate>Tue, 14 Mar 2017 22:00:00 GMT</pubDate>
+        <pubDate>Fri, 07 Apr 2017 22:00:00 GMT</pubDate>
         <docs>http://blog.thomaspuppe.de/feed/rss/</docs>
         <generator>acrylamid 0.7.10</generator>
         
             <item>
-        <title>Performance-Optimierung von Webfonts</title>
-        <link>http://blog.thomaspuppe.deperformance-optimierung-webfonts</link>
-        <description>&lt;h4&gt;braucht man überhaupt Webfonts?&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Screenshot mit/ohne&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;woff2 statt woff&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;nutze ja derzeit nur die eine. Weil: wie viele Browser unterstützen die? Und: Font ist ein Optisches Schmankerl. Ein Enhancement.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Subset&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://transfonter.org/ (oder https://github.com/bramstein/homebrew-webfonttools)&lt;/li&gt;
-&lt;li&gt;
-&lt;h4&gt;https://parall.ax/blog/view/3072/tutorial-reducing-the-file-size-of-custom-web-fonts&lt;/h4&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Beispiel:
-- 195 KB Montserrat Black in ttf
-- Formate mit allen Subsets:
-  - eot 220, svg 566, ttf 220, woff 99, woff2 65
-- Subset Latin:
-  - eot 37, svg 83, ttf 37, woff 21, woff2 16
-- Subset Buchstaben (&#34;Do one thing today.&#34;):
-  -&lt;/p&gt;
-&lt;h3&gt;FOIT/FOUT&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Cookie-Variante https://www.filamentgroup.com/lab/font-events.html&lt;/li&gt;
-&lt;li&gt;Font Loading API (wann kommt die wo?)&lt;/li&gt;
-&lt;li&gt;JS Gehampel (http://bdadam.com/blog/better-webfont-loading-with-localstorage-and-woff2.html) für mich keine Option&lt;/li&gt;
-&lt;li&gt;Alternativen noch nicht Browsersandard(?): https://www.bramstein.com/writing/web-font-loading-patterns.html#custom-font-display&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;optische Angleichung&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;letter-spacing, line-height, font-weight, font-variant, font-style&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;http://webdesignernotebook.com/css/the-little-known-font-size-adjust-css3-property/&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;https://helpx.adobe.com/typekit/using/font-events.html#Stylingfallbackfontsusingfontevents&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;http://webfont-test.com/&lt;/li&gt;
-&lt;li&gt;Wenn es da kein Tool gibt, mach selber eines (Codepen)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Laden bei guter Verbindung&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;wie gesagt: optisches Schmankerl. Also: Network checken.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Links&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;http://fontfamily.io/Andale_Mono,monospace&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;Links&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://www.zachleat.com/web/comprehensive-webfonts/&lt;/li&gt;
-&lt;/ul&gt;</description>
-        <pubDate>Tue, 14 Mar 2017 22:00:00 GMT</pubDate>
-        <guid isPermaLink="false">tag:blog.thomaspuppe.de,2017-03-15:performance-optimierung-webfonts</guid>
-    </item>
-        
-            <item>
-        <title>Progressive Web App erstellen</title>
-        <link>http://blog.thomaspuppe.deprogressive-web-app-meetingtimer</link>
-        <description>&lt;h3&gt;Progressive Web App -- was ist das?&lt;/h3&gt;
-&lt;p&gt;Progressive Web Apps sind der (mittlerweile nicht mehr ganz so) heiße Scheiß im mobilen Internet. Normale Websites und -apps werden mit bestimmten Features angereichert, um am Ende App-like benutzbar zu sein. Allerdings als richtiges HTML im richtigen (auch älteren) Browser, ohne Lock-In eines App Stores.&lt;/p&gt;
-&lt;p&gt;Das Smashing Magazine behandelt Progressive Web Apps in einer sehr guten &lt;a href=&#34;https://www.smashingmagazine.com/2016/08/a-beginners-guide-to-progressive-web-apps/&#34;&gt;drei&lt;/a&gt;-&lt;a href=&#34;https://www.smashingmagazine.com/2016/09/the-building-blocks-of-progressive-web-apps/&#34;&gt;teiligen&lt;/a&gt;-&lt;a href=&#34;https://www.smashingmagazine.com/2016/12/progressive-web-amps/&#34;&gt;Serie&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Von einer Progressive Web App spricht man, wenn sie folgende zehn Kriterien erfüllt:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Progressive, Responsive, Discoverable (crawlbar), Linkable&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Den Anspruch stelle ich an alles im Internet. Ist das nicht erfüllt, hast du keine Website. Haken wir hier mal ab.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Fresh, Re-engageable, App-like&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Ist etwas schwammig. Sagen wir, die App soll Spaß machen.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Safe, Installable, Connectivity-independent&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Um diese drei Punkte wird es in diesem Blog-Post gehen. Ich möchte meine bereits existierende &lt;a href=&#34;https://blog.thomaspuppe.de/single-page-apps-minimieren-mit-gulp&#34;&gt;kleine App&lt;/a&gt; sicher (per SSL) ausliefern, auf Smartphones installierbar und offline nutzbar machen.&lt;/p&gt;
-&lt;p&gt;Die anderen genannten Kriterien sind zum Teil etwas vage und abstrakt, und müssen nicht alle erfüllt werden. So kann die App auch nicht-fresh oder gar unresponsiv sein, und sich dennoch installieren lassen. Andere Dinge bauen aufeinander auf: so gibt es zum Beispiel keine Offline-Unterstützung, wenn die App nicht via SSL ausgeliefert wird.&lt;/p&gt;
-&lt;p&gt;Und damit sind wir direkt im Thema, um eine Progressive Web App zu bauen...&lt;/p&gt;
-&lt;h3&gt;Schritt 1: SSL&lt;/h3&gt;
-&lt;p&gt;Die Auslieferung per SSL ist eine der Voraussetzungen, dass eine Website als Progressive Web App funktioniert. Gleichzeitig ist sie die größte Hürde. Während man den Code beliebig selbst schreiben kann, und das nicht besonders schwer ist (wie wir gleich sehen), ist die Einrichtung von SSL komplizierter, und meist mit Kosten verbunden.&lt;/p&gt;
-&lt;p&gt;Zum Glück gibt es &lt;a href=&#34;https://letsencrypt.org/&#34;&gt;Letsencrypt&lt;/a&gt;, eine Zertifizierungsstelle die kostenlose Zertifikate ausstellt und bei der Einrichtung unterstützt. Auf einem Server mit SSH-Zugriff ist es superleicht, mittels &lt;a href=&#34;https://certbot.eff.org/&#34;&gt;Letsencrypt und Certbot&lt;/a&gt; SSL-Zertifikate zu erzeugen. Das funktionier auch, wenn mehrere Domains auf diesem Server liegen. Nach der (systemspezifischen) Installation reicht ein Befehl zum Erzeugen eines Zertifikats:&lt;/p&gt;
-&lt;pre&gt;$ ./certbot-auto certonly --webroot -w /var/www/www_meetingtimer_biz/ -d www.meetingtimer.biz&lt;/pre&gt;
-
-&lt;p&gt;Der Certbot gibt aus, wo das neu erzeugte Zertifikat liegt. Diesen Pfad benutze ich nun zur Konfiguration meines nginX Webservers:&lt;/p&gt;
-&lt;pre&gt;server {
-        listen 443;
-
-        ssl on;
-        ssl_certificate /etc/letsencrypt/live/www.meetingtimer.biz/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/www.meetingtimer.biz/privkey.pem ;
-
-        server_name www.meetingtimer.biz;
-        root /var/www/www_meetingtimer_biz;
-        index index.html;
+        <title>Browser APIs und CSS Media Queries</title>
+        <link>http://blog.thomaspuppe.debrowser-api-css-mediaqueries</link>
+        <description>&lt;p&gt;In der Regel denkt man bei Media Queries an nicht viel mehr als &lt;code&gt;min-width&lt;/code&gt; oder &lt;code&gt;device-pixel-ratio&lt;/code&gt; und bei Browser APIs an &lt;code&gt;navigator.userAgent&lt;/code&gt;. Moderne Browser können natürlich viel mehr.&lt;/p&gt;
+&lt;p&gt;Kürzlich sah ich in einer interessanten &lt;a href=&#34;https://speakerdeck.com/grigs/why-you-should-build-a-progressive-web-app-now-1&#34;&gt;Präsentation über Progressive Web Apps&lt;/a&gt; dies:&lt;/p&gt;
+&lt;pre&gt;@media (display-mode: standalone), (display-mode: fullscreen) {
+    .backButton {
+        display: block;
+    }
 }&lt;/pre&gt;
 
-&lt;p&gt;Die drei ssl-Zeilen sind im Prinzip alles, was es zum Verschlüsseln braucht. Man kann das ganze optimieren: für eine Weiterleitung von nicht-www auf www braucht man zum Beispiel noch ein Zertifikat, wenn die Weiterleitung auch durch den Webserver erfolgen soll. Außerdem kann man die Verschlüsselung noch verbessern, laut einem Test von &lt;a href=&#34;https://www.ssllabs.com/ssltest/&#34;&gt;SSL Labs&lt;/a&gt; erreichen das Zertifikat und die Server-Konfiguration noch nicht die volle Punktzahl. Aber für den Einstieg sind wir sehr gut versorgt.&lt;/p&gt;
-&lt;p&gt;Eine andere Möglichkeit, eigene Inhalte kostenlos und einfach über eine HTTPS-Verbindung auszuliefern, sind &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages&lt;/a&gt;. Für den lokalen Webserver kann man sich selbst ein Zertifikat &lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04&#34;&gt;erzeugen&lt;/a&gt; und signieren. Beim Öffnen der Seite warnt der Browser zwar, lässt sich aber überreden, die Seite zu öffnen.&lt;/p&gt;
-&lt;p&gt;Auch wenn Verschlüsselung an sich schon ein Wert ist, war sie hier nur die notwenige Vorbedingung für den nächsten Schritt:&lt;/p&gt;
-&lt;h3&gt;Schritt 2: Ein Manifest und einen Service Worker erstellen, um die App &#34;installieren&#34; zu können&lt;/h3&gt;
-&lt;p&gt;Progressive Web Apps lassen sich auf dem Smartphone zum Home-Screen oder menü hinzufügen.&lt;/p&gt;
-&lt;pre&gt;{
-    &#34;lang&#34;: &#34;en&#34;,
-    &#34;background_color&#34;: &#34;#232323&#34;,
-    &#34;name&#34;: &#34;How Much does this meeting cost?&#34;,
-    &#34;short_name&#34;: &#34;MeetingTimer&#34;,
-    &#34;display&#34;: &#34;standalone&#34;,
-    &#34;icons&#34;: [
-        {
-            &#34;src&#34;: &#34;icon_144.png&#34;,
-            &#34;sizes&#34;: &#34;144x144&#34;,
-            &#34;type&#34;: &#34;image/png&#34;
-        },
-    ]
-}&lt;/pre&gt;
+&lt;p&gt;Mit dieser Media Query stellt man fest, ob die Website (bzw Web App) das Browser-GUI (und damit den Back-Button des Browsers ) zur Verfügung hat, oder nicht. Und kann dann einen eigenen Button einblenden.&lt;/p&gt;
+&lt;p&gt;Das war für mich ein Anlass, mal zu schauen, welche Media/Feature Queries und Browser APIs heutzutage zur Verfügung stehen.&lt;/p&gt;
+&lt;h3&gt;(1) Browser APIs&lt;/h3&gt;
+&lt;h4&gt;navigator.cookieEnabled&lt;/h4&gt;
+&lt;p&gt;Eigentlich ganz simpel, kannte ich aber bis heute noch nicht. Diese Abfrage ist natürlich der  Methode, ein Cookie zu setzen und dann auszulesen, zu bevorzugen. Sehr gute Browser-Unterstützung.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In diesem Browser: &lt;script&gt;document.write(navigator.cookieEnabled || &#39;&lt;em&gt;undefined&lt;/em&gt;&#39;)&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;navigator.doNotTrack&lt;/h4&gt;
+&lt;p&gt;Zeigt an, ob im Browser &#34;Do not track&#34; gesetzt wurde -- und auf welchen Wert. Ist in vielen Browsern implementiert, aber der &lt;a href=&#34;https://blog.thomaspuppe.de/do-not-track-header-crossbrowser&#34;&gt;Rückgabewert ist unterschiedlich&lt;/a&gt; und muss geparsed werden.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In diesem Browser: &lt;script&gt;document.write(navigator.doNotTrack || &#39;&lt;em&gt;undefined&lt;/em&gt;&#39;)&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;navigator.hardwareConcurrency&lt;/h4&gt;
+&lt;p&gt;Gibt die Zahl der verfügbaren Prozessoren zurück. Das ist ein grober Indikator dafür, ob der Browser auf einem ein starken neuen Gerät läuft, oder einer alten Möhre. (Vielleicht kann man auch auf die sinnvolle Anzahl an Service Workern oder Web Workern schließen? Gibt ein Browser-Tab, das in einem Prozess läuft, solche Möglichkeiten her?)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In diesem Browser: &lt;script&gt;document.write(navigator.hardwareConcurrency || &#39;&lt;em&gt;undefined&lt;/em&gt;&#39;)&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;navigator.geolocation&lt;/h4&gt;
+&lt;p&gt;Selbsterklärend. Neben der aktuellen Position kann man auch Positions (oder Genauigkeits-) Änderungen als Event-Handler empfangen. Was macht man mit der Position des Users? Man füttert sie in eine Routenplanung, oder nutzt sie, um Ort und Land des Besuchers herauszufinden.&lt;/p&gt;
+&lt;pre&gt;navigator.geolocation.getCurrentPosition(function(position) {
+  console.log(position.coords.latitude, position.coords.longitude);
+});&lt;/pre&gt;
 
-&lt;p&gt;Diese Datei wird unter dem Namen &lt;a href=&#34;https://www.meetingtimer.biz/manifest.json&#34;&gt;manifest.json&lt;/a&gt; im Root der Domain abgelegt.&lt;/p&gt;
-&lt;p&gt;Bruce Lawson hat einen kleinen &lt;a href=&#34;http://brucelawson.github.io/manifest/&#34;&gt;Manifest-Generator&lt;/a&gt; erstellt, und es gibt eine &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/Manifest&#34;&gt;umfangreiche
-Dokumentation&lt;/a&gt; im MDN.&lt;/p&gt;
-&lt;p&gt;Nun kann man das &lt;a href=&#34;https://manifest-validator.appspot.com/&#34;&gt;Manifest validieren&lt;/a&gt;. Wenn es in Ordnung ist, wird es im HTML-Head der Website eingetragen:&lt;/p&gt;
-&lt;pre&gt;&amp;lt;link rel=&#34;manifest&#34; href=&#34;./manifest.json&#34;&amp;gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In diesem Browser: &lt;span id=&#34;geolocationInfo&#34;&gt;&lt;button id=&#34;geolocationInfoTrigger&#34;&gt;Testen&lt;/button&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;script&gt;
+document.getElementById(&#39;geolocationInfoTrigger&#39;).addEventListener(&#39;click&#39;, function(){
+    var $geolocationInfo = document.getElementById(&#39;geolocationInfo&#39;);
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var coords = position.coords;
+            var positionString = coords.latitude + &#39;, &#39; +  coords.longitude;
+            $geolocationInfo.innerHTML = positionString;
+        });
+    } else {
+        $geolocationInfo.innerHTML = &#39;&lt;em&gt;navigator.geolocation ist nicht verfügbar&lt;/em&gt;&#39;;
+    }
+});
+&lt;/script&gt;
 
-&lt;p&gt;Als nächstes erstellen wir einen ServiceWorker, und registrieren ihn in einem Script-Tag in der index.html Datei:&lt;/p&gt;
-&lt;pre&gt;if (&#39;serviceWorker&#39; in navigator) {
-    navigator.serviceWorker.register(&#39;/serviceworker.js&#39;);
-}&lt;/pre&gt;
+&lt;p&gt;Geolocation hat eine sehr gute &lt;a href=&#34;http://caniuse.com/#search=geolocation&#34;&gt;Browser-Unterstützung&lt;/a&gt;, erfordert aber die Berechtigung durch den User und ist im Chrome Browser nur unter SSL verfügbar.&lt;/p&gt;
+&lt;h4&gt;navigator.onLine&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In diesem Browser: &lt;script&gt;document.write(navigator.onLine || &#39;&lt;em&gt;undefined&lt;/em&gt;&#39;)&lt;/script&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Selbsterklärend. Die Änderung des online-Status lässt sich über ein Event abfangen:&lt;/p&gt;
+&lt;pre&gt;window.addEventListener(&#39;online&#39;, function(e) {
+    console.log(&#34;You are online&#34;);
+}, false);
 
-&lt;p&gt;Die Datei &lt;code&gt;sericeworker.js&lt;/code&gt; kann sogar leer sein, wenn man die Möglichkeiten der Worker nicht nutzen möchte -- was wir später tun werden. Aber sie muss existieren.&lt;/p&gt;
-&lt;p&gt;Mit den drei geschaffenen Voraussetzungen (HTTPS, Manifest und ServiceWorker) kann man die App nun auf seinem Home Screen installieren. Das könnte man schon immer mit dem Menüpunkt &#34;zum Startbildschirm hinzufügen&#34;, was einen Shortcut auf dem Startbildschirm hinterlegt. Die progressive-web-appige Lösung löst aber außerdem einen Installations-Hinweis des Chrome Browsers aus:&lt;/p&gt;
-&lt;p&gt;Und zweitens&lt;/p&gt;
-&lt;p&gt;https://developers.google.com/web/fundamentals/engage-and-retain/app-install-banners/&lt;/p&gt;
-&lt;h3&gt;Schritt 4: Dateien offline verfügbar machen&lt;/h3&gt;</description>
-        <pubDate>Tue, 14 Mar 2017 22:00:00 GMT</pubDate>
-        <guid isPermaLink="false">tag:blog.thomaspuppe.de,2017-03-15:progressive-web-app-meetingtimer</guid>
+window.addEventListener(&#39;offline&#39;, function(e) {
+    console.log(&#34;You are offline&#34;);
+}, false);&lt;/pre&gt;
+
+&lt;h4&gt;navigator.connection&lt;/h4&gt;
+&lt;p&gt;Mehr Details zur Internetverbindung des Users (cellular, wifi).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In diesem Browser: &lt;span id=&#34;connectionInfo&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;script&gt;
+var $connectionInfo = document.getElementById(&#39;connectionInfo&#39;);
+var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+if (connection &amp;&amp; connection.type) {
+    $connectionInfo.innerHTML = connection.type;
+} else {
+    $connectionInfo.innerHTML = &#39;&lt;em&gt;navigator.connection ist nicht verfügbar&lt;/em&gt;&#39;;
+}
+&lt;/script&gt;
+
+&lt;p&gt;&lt;code&gt;navigator.connection&lt;/code&gt; ist nur im Firefox Mobile und auf Android verfügbar.&lt;/p&gt;
+&lt;h4&gt;navigator.getBattery()&lt;/h4&gt;
+&lt;p&gt;Der Batteriestand des Devices kann abgefragt werden! Traurige Berühmtheit erlangte das Feature, als Uber denjenigen Kunden, deren Smartphone nur noch wenig Saft hatte, die Preise erhöht hat -- weil sie schnell das erstbeste Fahrzeug buchen würden.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In diesem Browser: &lt;span id=&#34;batteryInfo&#34;&gt;waiting...&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;script&gt;
+var $batteryInfo = document.getElementById(&#39;batteryInfo&#39;);
+if (navigator.getBattery) {
+    navigator.getBattery().then(function(battery) {
+        var batteryLevel = battery.level * 100;
+        $batteryInfo.innerHTML = batteryLevel + &#39;%&#39;;
+    }, function() {
+        $batteryInfo.innerHTML = &#39;&lt;em&gt;navigator.getBattery() ist verfügbar, aber die Abfrage funktioniert nicht&lt;/em&gt;&#39;;
+    });
+} else {
+    $batteryInfo.innerHTML = &#39;&lt;em&gt;navigator.getBattery() ist nicht verfügbar&lt;/em&gt;&#39;;
+}
+&lt;/script&gt;
+
+&lt;p&gt;Gute Menschen setzen das ein, um bei Telefonen mit schwachem Akku auf aufwändige Animationen und allen überflüssigen Quatsch zu verzichten, der die CPU belastet.&lt;/p&gt;
+&lt;pre&gt;navigator.getBattery().then(function(battery) {
+   console.log(battery.level*100 + &#39;%&#39;);
+   console.log(battery.chargingTime);
+   console.log(battery.dischargingTime);
+});&lt;/pre&gt;
+
+&lt;p&gt;Für die Änderung der Werte kann man auch wieder Event Handler registrieren, damit die Website/App informiert wird.&lt;/p&gt;
+&lt;p&gt;Eine schöne Einführung findet man bei &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/API/BatteryManager&#34;&gt;MDN&lt;/a&gt;. Das Feature wird &lt;a href=&#34;http://caniuse.com/#search=battery&#34;&gt;unterstützt&lt;/a&gt; im Firefox (nur in &#34;privilegiertem Code&#34; -- diesen Term recherchiere ich jetzt nicht), Chrome und Opera.&lt;/p&gt;
+&lt;h4&gt;navigator.share()&lt;/h4&gt;
+&lt;p&gt;Mit dieser Funktion kann man per JS die Sharing-Funktion auslösen, die sonst aus dem Menü des Browsers getriggert wird. Der Vorteil gegenüber individuellen Sharing-Buttons: die Leute bekommen genau die Dienste angeboten, die sie zur Verfügung haben -- und nicht die der Seitenbetreiber für wichtig hielt.&lt;/p&gt;
+&lt;pre&gt;navigator.share({
+    title: document.title,
+    url: window.location.href
+})&lt;/pre&gt;
+
+&lt;p&gt;Alle Parameter müssen Strings sein. Ob diese aus JavaScript kommen oder hardcoded sind, ist egal. Test oder URL können weggelasssen werden, eines von beiden muss vorhanden sein.&lt;/p&gt;
+&lt;p&gt;Zurückgegeben wird eine Promise. Man kann den User also fürs Sharen belohnen oder Abbruchraten tracken.&lt;/p&gt;
+&lt;p&gt;Ein paar Einschränkungen hat die Technik: Sie ist nur auf HTTPS-Seiten verfügbar, und kann nur durch User-Interaktion getriggert werden (nicht etwa onLoad oder onScroll -- Sorry liebe &#34;User Engager&#34;). Navigator.share() ist derzeit nur im Chrome (ab Version 55) verfügbar. Wie bei allen aktuellen Features wird der Entwickler also progressively enhancen.&lt;/p&gt;
+&lt;script&gt;
+function sharePage() {
+    if (navigator.share) {
+        navigator.share({
+            title: document.title,
+            url: window.location.href
+        });
+    } else {
+        document.getElementById(&#39;shareWrapper&#39;).innerHTML = &#39;&lt;em&gt;navigator.share ist nicht verfügbar.&lt;/em&gt;&#39;;
+    }
+}
+&lt;/script&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In diesem Browser: &lt;span id=&#34;shareWrapper&#34;&gt;&lt;button id=&#34;shareButton&#34; onclick=&#34;sharePage();&#34;&gt;Share&lt;/button&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;navigator.sendBeacon&lt;/h4&gt;
+&lt;p&gt;Kann genutzt werden, um kleine Datenmengen asynchron an einen Server zu senden. Das Verfahren ist für Event Tracking und Monitoring gedacht. Vor allem das Rumeiern mit Requests bei window.unload soll erleichtert werden.&lt;/p&gt;
+&lt;pre&gt;navigator.sendBeacon(&#34;/log&#34;, data);&lt;/pre&gt;
+
+&lt;p&gt;Das &lt;code&gt;data&lt;/code&gt; können Form Objekte, Arrays oder normale JS Objekte sein.&lt;/p&gt;
+&lt;p&gt;Der Browser-Support ist &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon#Browser_compatibility&#34;&gt;durchwachsen&lt;/a&gt; und das Verfahren ist als experimentell eingestuft. Auf GitHub liegt eine &lt;a href=&#34;https://googlechrome.github.io/samples/beacon/&#34;&gt;clevere kleine Testseite&lt;/a&gt; bereit.&lt;/p&gt;
+&lt;h4&gt;navigator.vibrate(500)&lt;/h4&gt;
+&lt;p&gt;Lässt das Gerät vibrieren, wenn das verfügbar ist. Als Parameter nimmt die Funktion einen Integer (einmalige Vibration für x Millisekunden) oder ein Array (Pattern von Vibration und Pause) entgegen. &lt;code&gt;navigator.vibrate([100,200,300])&lt;/code&gt; vibriert also 100 ms, pausiert 200 ms, vibriert 300 ms. &lt;a href=&#34;http://caniuse.com/#search=vibration&#34;&gt;Verfügbar&lt;/a&gt; in modernen mobilen Browsern.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In diesem Browser: &lt;button id=&#34;vibrateButton&#34; onclick=&#34;if (navigator.vibrate) { navigator.vibrate([200,100,200]); }&#34;&gt;Vibrieren&lt;/button&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Die Funktion steht auch in nicht-vibrierfähigen Geräten zur Verfügung und man kann nicht prüfen, ob sie tatsächlich etwas tun wird. Zur Erkennung müsste man also über die Device-Detection gehen.&lt;/p&gt;
+&lt;h3&gt;(2) Media Queries&lt;/h3&gt;
+&lt;p&gt;Die am häufigsten eingesetzten Media Queries dürften &lt;code&gt;(min/max-)(device-)width&lt;/code&gt; sein, die für responsive Layouts genutzt werden. Das &lt;code&gt;device&lt;/code&gt; macht den wichtigen Unterschied zwischen der Größe des Gerätes und des eigentlichen Viewports (also Fensters oder Split Screens).&lt;/p&gt;
+&lt;p&gt;Besonders auf großen Bildschirmen, wo man im Split Screen arbeitet (was mittlerweile auch auf Tablets kein Problem mehr ist), kann das Fenster komplett anders als das Gerät sein.&lt;/p&gt;
+&lt;p&gt;Doch Media Queries können viel mehr:&lt;/p&gt;
+&lt;h4&gt;(device-)aspect-ratio&lt;/h4&gt;
+&lt;p&gt;... ist das Seitenverhältnis des geräts (bzw Viewports). Damit kann man im simpelsten Fall quer- von Hochformat unterscheiden, oder beispielsweise Panorama-Bildschirmen spezielel Stile oder Inhalte ausliefern.&lt;/p&gt;
+&lt;pre&gt;@media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) { ... }&lt;/pre&gt;
+
+&lt;h4&gt;orientation&lt;/h4&gt;
+&lt;p&gt;Eine noch simplere Variante der aspect-ratio. Nimmt die Werte &lt;code&gt;landscape&lt;/code&gt; oder &lt;code&gt;portrait&lt;/code&gt; an.&lt;/p&gt;
+&lt;pre&gt;@media all and (orientation: portrait) { ... }&lt;/pre&gt;
+
+&lt;h4&gt;resolution&lt;/h4&gt;
+&lt;p&gt;Erkennt die Pixeldichte auf einem Gerät, und wird vor Allem genutzt, um Retina-optimierte Bilder auszuliefern (&lt;code&gt;min-resolution: 300dpi&lt;/code&gt;).&lt;/p&gt;
+&lt;h4&gt;display-mode&lt;/h4&gt;
+&lt;p&gt;Mit dieser Media Query stellt man fest, ob die Website (bzw Web App) das Browser-GUI (und damit den Back-Button des Browsers ) zur Verfügung hat. Mögliche Werte: &lt;code&gt;fullscreen&lt;/code&gt;, &lt;code&gt;standalone&lt;/code&gt;, &lt;code&gt;minimal-ui&lt;/code&gt; und &lt;code&gt;browser&lt;/code&gt;.&lt;/p&gt;
+&lt;h4&gt;light-level&lt;/h4&gt;
+&lt;p&gt;Beschreibt die Lichtverhältnisse in der Umgebung, und nimmt die Werte &lt;code&gt;dim&lt;/code&gt; (gedämpft), &lt;code&gt;normal&lt;/code&gt; und &lt;code&gt;washed&lt;/code&gt; (sehr hell) an. Eigentlich praktisch für so etwas wie den Nacht-Lese-Modus. Andererseits sehe ich hier die Gefahr, dass man mit seinen Queries die Nutzereinstellungen oder automatische Helligkeitsanpassung des Smartphones überschreibt -- &#34;das Gegenteil von gut ist gut gemeint&#34;. Unterstützt wird &lt;code&gt;light-level&lt;/code&gt; nur im Edge und im Firefox für OS X.&lt;/p&gt;
+&lt;h4&gt;supports&lt;/h4&gt;
+&lt;p&gt;Erst diese Woche in einem &lt;a href=&#34;https://github.com/codecandies/grid-talk&#34;&gt;Vortrag meines Kollegen Nico Brünjes&lt;/a&gt; gesehen. Außerhalb leider selten. Mit dieser Feature Query prüft man, ob der Browser bestimmte CSS-Eigenschaften unterstützt. Zum Beispiel &lt;code&gt;@supports(blink)&lt;/code&gt; oder &lt;code&gt;@supports (display: grid)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In den meisten Fällen lässt sich die Abfrage bzw. das progressive Enhancement direkt in die CSS-Regeln einbauen. Zum Beispiel bei Schriftgrößen via &lt;code&gt;font-size:16px; font-size: 1rem;&lt;/code&gt; für den IE8. Der ignoriert die zweite Angabe, mit der er nicht klarkommt, und nutzt die erste. Moderne Browser überschreiben die erste mit der zweiten.&lt;/p&gt;
+&lt;p&gt;Die Query &lt;code&gt;@supports&lt;/code&gt; sorgt aber für Klarheit, wenn man größere Blöcke umstylen will, sobald eine Technik verfügbar ist. Oder aber, um eine ganz andere CSS-Datei zu laden.&lt;/p&gt;
+&lt;pre&gt;&amp;lt;link rel=&#34;stylesheet&#34; media=&#34;all&#34; href=&#34;basic.css&#34; /&amp;gt;
+&amp;lt;link rel=&#34;stylesheet&#34; media=&#34;screen and (min-width: 5in) and (display: flex)&#34; href=&#34;shiny.css&#34; /&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;Der IE bis inklusive Version 11 unterstützt &lt;code&gt;@supports&lt;/code&gt; nicht.&lt;/p&gt;
+&lt;p&gt;Der Support von Features lässt sich übrigens auch via JavaScript über die CSS-API des Browsers abfragen:&lt;/p&gt;
+&lt;pre&gt;var canuiseCSSGrid = CSS.supports(&#34;(display: grid)&#34;);&lt;/pre&gt;
+
+&lt;h4&gt;Exotische Queries&lt;/h4&gt;
+&lt;p&gt;Der Vollständigkeit halber noch ein paar Media Features, die eher selten genutzt werden.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;scan&lt;/code&gt; unterscheidet in der Art des Bildaufbaus am Bildschirm (interlace vs progressive), und ist relevant bei schnellen Bewegungen.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;color&lt;/code&gt; und &lt;code&gt;color-index&lt;/code&gt; geben an, wie viele Farben verfügbar sind und wie sie gespeichert werden, &lt;code&gt;monochrome&lt;/code&gt; erkennt Geräte die nur mit Graustufen arbeiten (und mit wie vielen). &lt;code&gt;grid&lt;/code&gt; spricht auf Monospace-Font Displays an, also alle die feste Plätze und Breiten für jedes Zeichen haben. Theoretisch ist das cool, um reduzierte Bilder (oder auf Kontrast optimiertes CSS) an Geräte wie den Kindle auszuliefern. Weil diese Mikrooptimierung aber kaum jemand betreibt, machen die Geräte selbst was gutes aus dem CSS -- weshalb wiederum niemand diese Mikrooptimierung betreibt.&lt;/p&gt;
+&lt;p&gt;Im Firefox kann man Windows-Versionen und Betriebssystem-Stile erkennen und mit seienm Styling darauf reagieren. Feature-Queries wie &lt;code&gt;&lt;/code&gt;-moz-os-version:windows-win10&lt;code&gt;,&lt;/code&gt;-moz-mac-graphite-theme&lt;code&gt;und&lt;/code&gt;-moz-windows-theme:aero` regeln das.&lt;/p&gt;
+&lt;h4&gt;Media Queries Level 4&lt;/h4&gt;
+&lt;p&gt;Noch im &lt;a href=&#34;https://drafts.csswg.org/mediaqueries-4/#media&#34;&gt;Draft-Status&lt;/a&gt; sind Media Queries Level 4. Sie versprechen Features wie &lt;code&gt;hover&lt;/code&gt; (kann ich über Elemente hovern?), &lt;code&gt;pointer&lt;/code&gt; (wie genau kann ich Elemente treffen -- Mauszeiger vs Wurstfinger), &lt;code&gt;update&lt;/code&gt; (Schnelligkeit beim Bildaufbau, quasi frames-per-second) und mehr.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;device-width&lt;/code&gt;, &lt;code&gt;device-height&lt;/code&gt;, und damit auch device-aspect-ratio` sind deprecated.&lt;/p&gt;
+&lt;h3&gt;(3) Was mir fehlt&lt;/h3&gt;
+&lt;p&gt;Was um Himmels Willen endlich eingeführt werden muss:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Bessere Erkennung von Bandbreite/Netzwerkgeschwindigkeit. Zum Beispiel kann Wifi langsamer sein als Cellular via LTE. Da hilft &lt;code&gt;navigator.connection.type&lt;/code&gt; nicht unbedingt weiter.&lt;/li&gt;
+&lt;li&gt;Statt Wifi/Cellular will man eigentlich wissen: Hat der User eine Flatrate, oder zählt jedes MB? Andererseits will ich beim Surfen diese Info auch nicht unbedingt preisgeben.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://alistapart.com/article/container-queries-once-more-unto-the-breach&#34;&gt;Container Queries&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Geräte-Geschwindigkeit oder RAM. Ich möchte wissen, ob das Gerät schwach ist. Die CPU-Zahl via &lt;code&gt;navigator.hardwareConcurrency&lt;/code&gt; hilft schon.&lt;/li&gt;
+&lt;li&gt;Queries an Script-Tags:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&amp;lt;script media=&#34;screen and not (doNotTrack)&#34; src=&#34;https://google.com/analytics.js&#34; defer integrity=&#34;abc&#34;&amp;gt;
+&amp;lt;script media=&#34;screen and (bandwidth:high)&#34; src=&#34;/immersiveEffects.js&#34; defer integrity=&#34;xyz&#34;&amp;gt;
+&lt;/script&gt;&lt;/pre&gt;</description>
+        <pubDate>Fri, 07 Apr 2017 22:00:00 GMT</pubDate>
+        <guid isPermaLink="false">tag:blog.thomaspuppe.de,2017-04-08:browser-api-css-mediaqueries</guid>
     </item>
         
             <item>
