@@ -255,7 +255,7 @@ Der Vollständigkeit halber noch ein paar Media Features, die eher selten genutz
 
 `scan` unterscheidet in der Art des Bildaufbaus am Bildschirm (interlace vs progressive), und ist relevant bei schnellen Bewegungen.
 
-`color` und `color-index` geben an, wie viele Farben verfügbar sind und wie sie gespeichert werden, `monochrome` erkennt Geräte die nur mit Graustufen arbeiten (und mit wie vielen). `grid` spricht auf Monospace-Font Displays an, also alle die feste Plätze und Breiten für jedes Zeichen haben. Theoretisch ist das cool, um reduzierte Bilder (oder auf Kontrast optimiertes CSS) an Geräte wie den Kindle auszuliefern. Weil diese Mikrooptimierung aber kaum jemand betreibt, machen die Geräte selbst was gutes aus dem CSS -- weshalb wiederum niemand diese Mikrooptimierung betreibt.
+`color` und `color-index` geben an, wie viele Farben verfügbar sind und wie sie gespeichert werden, `monochrome` erkennt Geräte die nur mit Graustufen arbeiten (und mit wie vielen). `grid` spricht auf Monospace-Font Displays an, also alle die feste Plätze und Breiten für jedes Zeichen haben. Theoretisch ist das cool, um reduzierte Bilder (oder auf Kontrast optimiertes CSS) an Geräte wie den Kindle auszuliefern. Weil diese Mikrooptimierung aber kaum jemand betreibt, machen die Geräte selbst was Gutes aus dem CSS -- weshalb wiederum niemand diese Mikrooptimierung betreibt.
 
 Im Firefox kann man Windows-Versionen und Betriebssystem-Stile erkennen und mit seienm Styling darauf reagieren. Feature-Queries wie `
 `-moz-os-version:windows-win10`, `-moz-mac-graphite-theme` und `-moz-windows-theme:aero` regeln das.
@@ -269,8 +269,6 @@ Noch im [Draft-Status](https://drafts.csswg.org/mediaqueries-4/#media) sind Medi
 
 
 # (3) Was mir fehlt
-
-Was um Himmels Willen endlich eingeführt werden muss:
 
 * Bessere Erkennung von Bandbreite/Netzwerkgeschwindigkeit. Zum Beispiel kann Wifi langsamer sein als Cellular via LTE. Da hilft `navigator.connection.type` nicht unbedingt weiter.
 * Statt Wifi/Cellular will man eigentlich wissen: Hat der User eine Flatrate, oder zählt jedes MB? Andererseits will ich beim Surfen diese Info auch nicht unbedingt preisgeben.
