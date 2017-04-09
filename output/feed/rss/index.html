@@ -170,6 +170,25 @@ function sharePage() {
 &lt;p&gt;Eine noch simplere Variante der aspect-ratio. Nimmt die Werte &lt;code&gt;landscape&lt;/code&gt; oder &lt;code&gt;portrait&lt;/code&gt; an.&lt;/p&gt;
 &lt;pre&gt;@media all and (orientation: portrait) { ... }&lt;/pre&gt;
 
+&lt;style type=&#34;text/css&#34; scoped&gt;
+.orientationContainer &gt; strong { display: none; }
+@media all and (orientation: portrait) {
+    .orientationContainer &gt; * { display: none; }
+    .orientationContainer &gt; .portrait { display: inline; }
+}
+@media all and (orientation: landscape) {
+    .orientationContainer &gt; * { display: none; }
+    .orientationContainer &gt; .landscape { display: inline; }
+}
+&lt;/style&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In diesem Browser: &lt;span class=&#34;orientationContainer&#34;&gt;
+  &lt;em class=&#34;undefined&#34;&gt;undefined&lt;/em&gt;
+  &lt;strong class=&#34;portrait&#34;&gt;portrait&lt;/strong&gt;
+  &lt;strong class=&#34;landscape&#34;&gt;landscape&lt;/strong&gt;
+  &lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h4&gt;resolution&lt;/h4&gt;
 &lt;p&gt;Erkennt die Pixeldichte auf einem Gerät, und wird vor Allem genutzt, um Retina-optimierte Bilder auszuliefern (&lt;code&gt;min-resolution: 300dpi&lt;/code&gt;).&lt;/p&gt;
 &lt;h4&gt;display-mode&lt;/h4&gt;

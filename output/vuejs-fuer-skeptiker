@@ -32,12 +32,12 @@
 
     <ul>
 <li>groß und unnütz</li>
-<li>braucht das NPM Ökosystem mit allem Zeugs (das Internet her&shy;un&shy;ter&shy;la&shy;den)</li>
+<li>braucht das NPM Ökosystem mit allem Zeugs (das Internet herunterladen)</li>
 <li>wozu? Ich kann Binding doch selber machen im vanilla JS</li>
 <li>keine noJS Version/Lösung</li>
-<li>in Fällen einer rein cli&shy;ent&shy;sei&shy;ti&shy;gen App ist das auch in Ordnung</li>
+<li>in Fällen einer rein clientseitigen App ist das auch in Ordnung</li>
 <li>für Publishing (Blog z.B.) würde man VueJS ja nicht nehmen)</li>
-<li>Ac&shy;ces&shy;si&shy;bi&shy;li&shy;ty</li>
+<li>Accessibility</li>
 </ul>
 
 </article>

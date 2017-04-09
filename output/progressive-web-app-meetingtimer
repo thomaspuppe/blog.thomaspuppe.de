@@ -30,12 +30,12 @@
 
     <h1 class="post__title">Progressive Web App erstellen</h1>
 
-    <h2>Pro&shy;gres&shy;si&shy;ve Web App -- was ist das?</h2>
-<p>Pro&shy;gres&shy;si&shy;ve Web Apps sind der (mitt&shy;ler&shy;wei&shy;le nicht mehr ganz so) heiße Scheiß im mobilen Internet. Normale Websites und -apps werden mit bestimmten Features an&shy;ge&shy;rei&shy;chert, um am Ende App-like benutzbar zu sein. Allerdings als richtiges HTML im richtigen (auch älteren) Browser, ohne Lock-In eines App Stores.</p>
-<p>Das Smashing Magazine behandelt Pro&shy;gres&shy;si&shy;ve Web Apps in einer sehr guten <a href="https://www.smashingmagazine.com/2016/08/a-beginners-guide-to-progressive-web-apps/">drei</a>-<a href="https://www.smashingmagazine.com/2016/09/the-building-blocks-of-progressive-web-apps/">teiligen</a>-<a href="https://www.smashingmagazine.com/2016/12/progressive-web-amps/">Serie</a>.</p>
-<p>Von einer Pro&shy;gres&shy;si&shy;ve Web App spricht man, wenn sie folgende zehn Kriterien erfüllt:</p>
+    <h2>Progressive Web App -- was ist das?</h2>
+<p>Progressive Web Apps sind der (mittlerweile nicht mehr ganz so) heiße Scheiß im mobilen Internet. Normale Websites und -apps werden mit bestimmten Features angereichert, um am Ende App-like benutzbar zu sein. Allerdings als richtiges HTML im richtigen (auch älteren) Browser, ohne Lock-In eines App Stores.</p>
+<p>Das Smashing Magazine behandelt Progressive Web Apps in einer sehr guten <a href="https://www.smashingmagazine.com/2016/08/a-beginners-guide-to-progressive-web-apps/">drei</a>-<a href="https://www.smashingmagazine.com/2016/09/the-building-blocks-of-progressive-web-apps/">teiligen</a>-<a href="https://www.smashingmagazine.com/2016/12/progressive-web-amps/">Serie</a>.</p>
+<p>Von einer Progressive Web App spricht man, wenn sie folgende zehn Kriterien erfüllt:</p>
 <ul>
-<li>Pro&shy;gres&shy;si&shy;ve, Responsive, Dis&shy;co&shy;ver&shy;a&shy;ble (crawlbar), Linkable</li>
+<li>Progressive, Responsive, Discoverable (crawlbar), Linkable</li>
 </ul>
 <p>Den Anspruch stelle ich an alles im Internet. Ist das nicht erfüllt, hast du keine Website. Haken wir hier mal ab.</p>
 <ul>
@@ -43,17 +43,17 @@
 </ul>
 <p>Ist etwas schwammig. Sagen wir, die App soll Spaß machen.</p>
 <ul>
-<li><strong>Safe, In&shy;stallable, Con&shy;nec&shy;tivi&shy;ty-in&shy;de&shy;pen&shy;dent</strong></li>
+<li><strong>Safe, Installable, Connectivity-independent</strong></li>
 </ul>
-<p>Um diese drei Punkte wird es in diesem Blog-Post gehen. Ich möchte meine bereits exis&shy;tie&shy;ren&shy;de <a href="https://blog.thomaspuppe.de/single-page-apps-minimieren-mit-gulp">kleine App</a> sicher (per SSL) ausliefern, auf Smart&shy;pho&shy;nes in&shy;stal&shy;lier&shy;bar und offline nutzbar machen.</p>
-<p>Die anderen genannten Kriterien sind zum Teil etwas vage und abstrakt, und müssen nicht alle erfüllt werden. So kann die App auch nicht-fresh oder gar un&shy;re&shy;s&shy;pon&shy;siv sein, und sich dennoch in&shy;stal&shy;lie&shy;ren lassen. Andere Dinge bauen auf&shy;ein&shy;an&shy;der auf: so gibt es zum Beispiel keine Offline-Un&shy;ter&shy;stüt&shy;zung, wenn die App nicht via SSL aus&shy;ge&shy;lie&shy;fert wird.</p>
-<p>Und damit sind wir direkt im Thema, um eine Pro&shy;gres&shy;si&shy;ve Web App zu bauen...</p>
+<p>Um diese drei Punkte wird es in diesem Blog-Post gehen. Ich möchte meine bereits existierende <a href="https://blog.thomaspuppe.de/single-page-apps-minimieren-mit-gulp">kleine App</a> sicher (per SSL) ausliefern, auf Smartphones installierbar und offline nutzbar machen.</p>
+<p>Die anderen genannten Kriterien sind zum Teil etwas vage und abstrakt, und müssen nicht alle erfüllt werden. So kann die App auch nicht-fresh oder gar unresponsiv sein, und sich dennoch installieren lassen. Andere Dinge bauen aufeinander auf: so gibt es zum Beispiel keine Offline-Unterstützung, wenn die App nicht via SSL ausgeliefert wird.</p>
+<p>Und damit sind wir direkt im Thema, um eine Progressive Web App zu bauen...</p>
 <h2>Schritt 1: SSL</h2>
-<p>Die Aus&shy;lie&shy;fe&shy;rung per SSL ist eine der Vor&shy;aus&shy;set&shy;zun&shy;gen, dass eine Website als Pro&shy;gres&shy;si&shy;ve Web App funk&shy;tio&shy;niert. Gleich&shy;zei&shy;tig ist sie die größte Hürde. Während man den Code beliebig selbst schreiben kann, und das nicht besonders schwer ist (wie wir gleich sehen), ist die Ein&shy;rich&shy;tung von SSL kom&shy;pli&shy;zier&shy;ter, und meist mit Kosten verbunden.</p>
-<p>Zum Glück gibt es <a href="https://letsencrypt.org/">Let&shy;sen&shy;crypt</a>, eine Zer&shy;ti&shy;fi&shy;zie&shy;rungs&shy;stel&shy;le die kostenlose Zer&shy;ti&shy;fi&shy;ka&shy;te ausstellt und bei der Ein&shy;rich&shy;tung un&shy;ter&shy;stützt. Auf einem Server mit SSH-Zugriff ist es su&shy;per&shy;leicht, mittels <a href="https://certbot.eff.org/">Let&shy;sen&shy;crypt und Certbot</a> SSL-Zer&shy;ti&shy;fi&shy;ka&shy;te zu erzeugen. Das funk&shy;tio&shy;nier auch, wenn mehrere Domains auf diesem Server liegen. Nach der (sys&shy;tem&shy;spe&shy;zi&shy;fi&shy;schen) In&shy;stal&shy;la&shy;ti&shy;on reicht ein Befehl zum Erzeugen eines Zer&shy;ti&shy;fi&shy;kats:</p>
+<p>Die Auslieferung per SSL ist eine der Voraussetzungen, dass eine Website als Progressive Web App funktioniert. Gleichzeitig ist sie die größte Hürde. Während man den Code beliebig selbst schreiben kann, und das nicht besonders schwer ist (wie wir gleich sehen), ist die Einrichtung von SSL komplizierter, und meist mit Kosten verbunden.</p>
+<p>Zum Glück gibt es <a href="https://letsencrypt.org/">Letsencrypt</a>, eine Zertifizierungsstelle die kostenlose Zertifikate ausstellt und bei der Einrichtung unterstützt. Auf einem Server mit SSH-Zugriff ist es superleicht, mittels <a href="https://certbot.eff.org/">Letsencrypt und Certbot</a> SSL-Zertifikate zu erzeugen. Das funktionier auch, wenn mehrere Domains auf diesem Server liegen. Nach der (systemspezifischen) Installation reicht ein Befehl zum Erzeugen eines Zertifikats:</p>
 <pre>$ ./certbot-auto certonly --webroot -w /var/www/www_meetingtimer_biz/ -d www.meetingtimer.biz</pre>
 
-<p>Der Certbot gibt aus, wo das neu erzeugte Zertifikat liegt. Diesen Pfad benutze ich nun zur Kon&shy;fi&shy;gu&shy;ra&shy;ti&shy;on meines nginX Webservers:</p>
+<p>Der Certbot gibt aus, wo das neu erzeugte Zertifikat liegt. Diesen Pfad benutze ich nun zur Konfiguration meines nginX Webservers:</p>
 <pre>server {
         listen 443;
 
@@ -66,11 +66,11 @@
         index index.html;
 }</pre>
 
-<p>Die drei ssl-Zeilen sind im Prinzip alles, was es zum Ver&shy;schlüs&shy;seln braucht. Man kann das ganze optimieren: für eine Wei&shy;ter&shy;lei&shy;tung von nicht-www auf www braucht man zum Beispiel noch ein Zertifikat, wenn die Wei&shy;ter&shy;lei&shy;tung auch durch den Webserver erfolgen soll. Außerdem kann man die Ver&shy;schlüs&shy;se&shy;lung noch verbessern, laut einem Test von <a href="https://www.ssllabs.com/ssltest/">SSL Labs</a> erreichen das Zertifikat und die Server-Kon&shy;fi&shy;gu&shy;ra&shy;ti&shy;on noch nicht die volle Punktzahl. Aber für den Einstieg sind wir sehr gut versorgt.</p>
-<p>Eine andere Mög&shy;lich&shy;keit, eigene Inhalte kostenlos und einfach über eine HTTPS-Verbindung aus&shy;zu&shy;lie&shy;fern, sind <a href="https://pages.github.com/">GitHub Pages</a>. Für den lokalen Webserver kann man sich selbst ein Zertifikat <a href="https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04">erzeugen</a> und signieren. Beim Öffnen der Seite warnt der Browser zwar, lässt sich aber überreden, die Seite zu öffnen.</p>
-<p>Auch wenn Ver&shy;schlüs&shy;se&shy;lung an sich schon ein Wert ist, war sie hier nur die notwenige Vor&shy;be&shy;din&shy;gung für den nächsten Schritt:</p>
-<h2>Schritt 2: Ein Manifest und einen Service Worker erstellen, um die App "in&shy;stal&shy;lie&shy;ren" zu können</h2>
-<p>Pro&shy;gres&shy;si&shy;ve Web Apps lassen sich auf dem Smartphone zum Home-Screen oder menü hinzufügen.</p>
+<p>Die drei ssl-Zeilen sind im Prinzip alles, was es zum Verschlüsseln braucht. Man kann das ganze optimieren: für eine Weiterleitung von nicht-www auf www braucht man zum Beispiel noch ein Zertifikat, wenn die Weiterleitung auch durch den Webserver erfolgen soll. Außerdem kann man die Verschlüsselung noch verbessern, laut einem Test von <a href="https://www.ssllabs.com/ssltest/">SSL Labs</a> erreichen das Zertifikat und die Server-Konfiguration noch nicht die volle Punktzahl. Aber für den Einstieg sind wir sehr gut versorgt.</p>
+<p>Eine andere Möglichkeit, eigene Inhalte kostenlos und einfach über eine HTTPS-Verbindung auszuliefern, sind <a href="https://pages.github.com/">GitHub Pages</a>. Für den lokalen Webserver kann man sich selbst ein Zertifikat <a href="https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04">erzeugen</a> und signieren. Beim Öffnen der Seite warnt der Browser zwar, lässt sich aber überreden, die Seite zu öffnen.</p>
+<p>Auch wenn Verschlüsselung an sich schon ein Wert ist, war sie hier nur die notwenige Vorbedingung für den nächsten Schritt:</p>
+<h2>Schritt 2: Ein Manifest und einen Service Worker erstellen, um die App "installieren" zu können</h2>
+<p>Progressive Web Apps lassen sich auf dem Smartphone zum Home-Screen oder menü hinzufügen.</p>
 <pre>{
     "lang": "en",
     "background_color": "#232323",
@@ -87,20 +87,20 @@
 }</pre>
 
 <p>Diese Datei wird unter dem Namen <a href="https://www.meetingtimer.biz/manifest.json">manifest.json</a> im Root der Domain abgelegt.</p>
-<p>Bruce Lawson hat einen kleinen <a href="http://brucelawson.github.io/manifest/">Manifest-Generator</a> erstellt, und es gibt eine <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest">um&shy;fang&shy;rei&shy;che
-Do&shy;ku&shy;men&shy;ta&shy;ti&shy;on</a> im MDN.</p>
-<p>Nun kann man das <a href="https://manifest-validator.appspot.com/">Manifest validieren</a>. Wenn es in Ordnung ist, wird es im HTML-Head der Website ein&shy;ge&shy;tra&shy;gen:</p>
+<p>Bruce Lawson hat einen kleinen <a href="http://brucelawson.github.io/manifest/">Manifest-Generator</a> erstellt, und es gibt eine <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest">umfangreiche
+Dokumentation</a> im MDN.</p>
+<p>Nun kann man das <a href="https://manifest-validator.appspot.com/">Manifest validieren</a>. Wenn es in Ordnung ist, wird es im HTML-Head der Website eingetragen:</p>
 <pre>&lt;link rel="manifest" href="./manifest.json"&gt;</pre>
 
-<p>Als nächstes erstellen wir einen Ser&shy;vice&shy;Wor&shy;ker, und re&shy;gis&shy;trie&shy;ren ihn in einem Script-Tag in der index.html Datei:</p>
+<p>Als nächstes erstellen wir einen ServiceWorker, und registrieren ihn in einem Script-Tag in der index.html Datei:</p>
 <pre>if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/serviceworker.js');
 }</pre>
 
-<p>Die Datei <code>sericeworker.js</code> kann sogar leer sein, wenn man die Mög&shy;lich&shy;kei&shy;ten der Worker nicht nutzen möchte -- was wir später tun werden. Aber sie muss existieren.</p>
-<p>Mit den drei ge&shy;schaf&shy;fe&shy;nen Vor&shy;aus&shy;set&shy;zun&shy;gen (HTTPS, Manifest und Ser&shy;vice&shy;Wor&shy;ker) kann man die App nun auf seinem Home Screen in&shy;stal&shy;lie&shy;ren. Das könnte man schon immer mit dem Menüpunkt "zum Start&shy;bild&shy;schirm hin&shy;zu&shy;fü&shy;gen", was einen Shortcut auf dem Start&shy;bild&shy;schirm hinterlegt. Die pro&shy;gres&shy;si&shy;ve-web-appige Lösung löst aber außerdem einen In&shy;stal&shy;la&shy;ti&shy;ons-Hinweis des Chrome Browsers aus:</p>
+<p>Die Datei <code>sericeworker.js</code> kann sogar leer sein, wenn man die Möglichkeiten der Worker nicht nutzen möchte -- was wir später tun werden. Aber sie muss existieren.</p>
+<p>Mit den drei geschaffenen Voraussetzungen (HTTPS, Manifest und ServiceWorker) kann man die App nun auf seinem Home Screen installieren. Das könnte man schon immer mit dem Menüpunkt "zum Startbildschirm hinzufügen", was einen Shortcut auf dem Startbildschirm hinterlegt. Die progressive-web-appige Lösung löst aber außerdem einen Installations-Hinweis des Chrome Browsers aus:</p>
 <p>Und zweitens</p>
-<p>https://developers.google.com/web/fun&shy;da&shy;men&shy;tals/engage-and-retain/app-install-banners/</p>
+<p>https://developers.google.com/web/fundamentals/engage-and-retain/app-install-banners/</p>
 <h2>Schritt 4: Dateien offline verfügbar machen</h2>
 
 </article>

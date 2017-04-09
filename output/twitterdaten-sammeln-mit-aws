@@ -30,18 +30,18 @@
 
     <h1 class="post__title">Twitterdaten sammeln mit AWS</h1>
 
-    <p>Um Tweets zu einem aktuellen Thema zu sammeln, muss man die Twitter Streaming API mit&shy;schnei&shy;den. In 20 Minuten ist dafür ein kos&shy;ten&shy;lo&shy;ses always-online System aufgesetzt.</p>
-<p>Bei kurzen Events (TV-Duell vor der Bun&shy;des&shy;tags&shy;wahl) habe ich die Sammlung von Tweets einfach auf meinem lokalen Rechner gemacht. Für die an&shy;ste&shy;hen&shy;den Fei&shy;er&shy;lich&shy;kei&shy;ten zum #Mauerfall soll die Sammlung mehrere Tage dauern. Mein Rechner soll dabei aber nicht im Dau&shy;er&shy;be&shy;trieb laufen. Daher habe ich einfach eine AWS Instanz hoch&shy;ge&shy;fah&shy;ren und lasse die die Arbeit tun. Zum Mit&shy;schnei&shy;den des Streams dient diesmal auch nicht die PHP-Lib Phirehose, sondern das Python-Tool Tweepy.</p>
-<p>Dieser Artikel beschreibt, wie man mit wenigen Klicks, 9 Kon&shy;so&shy;len&shy;kom&shy;man&shy;dos und 40 Zeilen Code einen au&shy;to&shy;ma&shy;ti&shy;schen und kos&shy;ten&shy;lo&shy;sen Twitter-Mitschnitt anfertigt.</p>
+    <p>Um Tweets zu einem aktuellen Thema zu sammeln, muss man die Twitter Streaming API mitschneiden. In 20 Minuten ist dafür ein kostenloses always-online System aufgesetzt.</p>
+<p>Bei kurzen Events (TV-Duell vor der Bundestagswahl) habe ich die Sammlung von Tweets einfach auf meinem lokalen Rechner gemacht. Für die anstehenden Feierlichkeiten zum #Mauerfall soll die Sammlung mehrere Tage dauern. Mein Rechner soll dabei aber nicht im Dauerbetrieb laufen. Daher habe ich einfach eine AWS Instanz hochgefahren und lasse die die Arbeit tun. Zum Mitschneiden des Streams dient diesmal auch nicht die PHP-Lib Phirehose, sondern das Python-Tool Tweepy.</p>
+<p>Dieser Artikel beschreibt, wie man mit wenigen Klicks, 9 Konsolenkommandos und 40 Zeilen Code einen automatischen und kostenlosen Twitter-Mitschnitt anfertigt.</p>
 <p>Out of scope:</p>
 <ul>
-<li>Erstellen einer Twitter App und Generieren der Au&shy;then&shy;ti&shy;fi&shy;zie&shy;rungs&shy;da&shy;ten</li>
+<li>Erstellen einer Twitter App und Generieren der Authentifizierungsdaten</li>
 <li>Anmelden bei AWS und die Details fürs Einrichten einer Instanz.</li>
 </ul>
 <h3>Schritt 1: AWS Instanz erstellen und hochfahren</h3>
-<p>Für das Sammeln reicht die kleinste EC2 Instanz von AWS (t2.micro), die kostenlos ist. Der kostenlose Fest&shy;plat&shy;ten&shy;spei&shy;cher kann bis zu 30 GB reichen, je größer desto besser wird auch die IO Per&shy;for&shy;mance sein. Zugriff braucht man nur per SSH, daher lege ich kein eigenes VPC an.</p>
-<p>Mit meinem (oder einem neu ge&shy;ne&shy;rier&shy;ten) Key melde ich mich via SSH auf der Instanz an.</p>
-<h3>Schritt 2: Twitter-Collecor in&shy;stal&shy;lie&shy;ren und anwerfen</h3>
+<p>Für das Sammeln reicht die kleinste EC2 Instanz von AWS (t2.micro), die kostenlos ist. Der kostenlose Festplattenspeicher kann bis zu 30 GB reichen, je größer desto besser wird auch die IO Performance sein. Zugriff braucht man nur per SSH, daher lege ich kein eigenes VPC an.</p>
+<p>Mit meinem (oder einem neu generierten) Key melde ich mich via SSH auf der Instanz an.</p>
+<h3>Schritt 2: Twitter-Collecor installieren und anwerfen</h3>
 <pre>// Update
 $ sudo apt-get update
 $ sudo apt-get upgrade
@@ -55,7 +55,7 @@ $ mkdir tweets_mauerfall
 $ cd tweets_mauerfall/
 $ nano collect.py</pre>
 
-<p>Die genaue Code-Quelle finde ich gerade nicht mehr. Eine Suche nach "tweepy save tweets to file" brignt aber mehrere Quellen zutage. Mein Code hatte ur&shy;sprüng&shy;lich eine MongoDB als Da&shy;ten&shy;spei&shy;cher, das habe ich gegen die einfache Datei aus&shy;ge&shy;tauscht.</p>
+<p>Die genaue Code-Quelle finde ich gerade nicht mehr. Eine Suche nach "tweepy save tweets to file" brignt aber mehrere Quellen zutage. Mein Code hatte ursprünglich eine MongoDB als Datenspeicher, das habe ich gegen die einfache Datei ausgetauscht.</p>
 <p>Der Quellcode von collect.py:</p>
 <pre>import json
 import tweepy
@@ -104,13 +104,13 @@ $ nohup python collect.py > /dev/null &
 // Um die aktuelle Zahl der Tweets zu verfolgen, lasse ich mir (periodisch) die Anzahl der Zeilen in der json-Datei ausgeben:
 $ while true; do ( wc -l tweets.json ; sleep 5 ) done;</pre>
 
-<p>Fertig. Ein Update zur Zu&shy;ver&shy;läs&shy;sig&shy;keit und eine Auswertung der Tweets gibt es dann später hier im Blog.</p>
-<h3>Update zur Zu&shy;ver&shy;läs&shy;sig&shy;keit:</h3>
-<p>Das lief nicht so toll. Die Sammlung ist mehrfach ab&shy;ge&shy;bro&shy;chen, ohne dass Infos im Error-Log gelandet sind. Ob der Server mit dem Speichern nicht nach&shy;ge&shy;kom&shy;men ist, oder ob die Streaming API Aussetzer hatte, lässt sich nicht mehr fest&shy;stel&shy;len. Lesson learned: während der Sammlung sollte ein externer "Dienst" (Cronjob, Daemon, whatever) prüfen ob das Programm noch läuft und falls nötig neu starten. Sicher lässt sich auch das</p>
+<p>Fertig. Ein Update zur Zuverlässigkeit und eine Auswertung der Tweets gibt es dann später hier im Blog.</p>
+<h3>Update zur Zuverlässigkeit:</h3>
+<p>Das lief nicht so toll. Die Sammlung ist mehrfach abgebrochen, ohne dass Infos im Error-Log gelandet sind. Ob der Server mit dem Speichern nicht nachgekommen ist, oder ob die Streaming API Aussetzer hatte, lässt sich nicht mehr feststellen. Lesson learned: während der Sammlung sollte ein externer "Dienst" (Cronjob, Daemon, whatever) prüfen ob das Programm noch läuft und falls nötig neu starten. Sicher lässt sich auch das</p>
 <h3>Auswertung der Tweets:</h3>
-<p>Insgesamt wurden 71180 Tweets erfasst. Da die Auf&shy;zeich&shy;nung aus&shy;ge&shy;rech&shy;net am Abend des 8.11. abbrach und ich bis Spätabends am 9.11. nicht online war, fehlen alle Tweets vom Tag des Mauerfalls. Aber immerhin gibt es die kleine Sammlung der Tage zuvor.</p>
-<p>Die Datei lässt sich via scp vom AWS Server her&shy;un&shy;ter&shy;la&shy;den, dann kann man die Maschien stoppen oder ter&shy;mi&shy;nie&shy;ren.</p>
-<p>Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dar&shy;ge&shy;stellt: <a href="http://lab.thomaspuppe.de/mauerfall-tweets/">Karte</a>, <a href="https://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet">Blog-Beitrag</a>.</p>
+<p>Insgesamt wurden 71180 Tweets erfasst. Da die Aufzeichnung ausgerechnet am Abend des 8.11. abbrach und ich bis Spätabends am 9.11. nicht online war, fehlen alle Tweets vom Tag des Mauerfalls. Aber immerhin gibt es die kleine Sammlung der Tage zuvor.</p>
+<p>Die Datei lässt sich via scp vom AWS Server herunterladen, dann kann man die Maschien stoppen oder terminieren.</p>
+<p>Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dargestellt: <a href="http://lab.thomaspuppe.de/mauerfall-tweets/">Karte</a>, <a href="https://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet">Blog-Beitrag</a>.</p>
 
 </article>
 </body>

@@ -35,7 +35,7 @@
 
     <p>gulp-replace-task</p>
 <ul>
-<li>JS/CSS Datei mit Timestam&shy;per&shy;set&shy;zen</li>
+<li>JS/CSS Datei mit Timestampersetzen</li>
 <li>... danach aufräumen</li>
 <li>
 <p>Inhalte Inline einsetzen</p>

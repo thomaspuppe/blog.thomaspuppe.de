@@ -22,7 +22,8 @@ VIEWS = {
 	},
 
 	'/:slug': {
-		'views': ['entry', 'draft']
+		'views': ['entry', 'draft'],
+		'filters': ['nohyphenate']
 	},
 
 	'/kategorie/:name/': {

@@ -30,26 +30,26 @@
 
     <h1 class="post__title">Das Anti-agile Manifest</h1>
 
-    <p>Das <a href="http://agilemanifesto.org/iso/de/manifesto.html">Agile Manifest</a> und seine <a href="http://agilemanifesto.org/iso/de/principles.html">agilen Prinzipien</a> sind die Basis agiler Software-Ent&shy;wick&shy;lung. An diesen Leit&shy;plan&shy;ken (nicht ehernen Gesetzen) ori&shy;en&shy;tie&shy;ren sich viele moderne Entwickler-Teams.</p>
+    <p>Das <a href="http://agilemanifesto.org/iso/de/manifesto.html">Agile Manifest</a> und seine <a href="http://agilemanifesto.org/iso/de/principles.html">agilen Prinzipien</a> sind die Basis agiler Software-Entwicklung. An diesen Leitplanken (nicht ehernen Gesetzen) orientieren sich viele moderne Entwickler-Teams.</p>
 <p>Wie klingt es, wenn man das agile Manifest umkehrt?</p>
 <h3>Das Anti-agile Manifest</h3>
 <p>Wir haben feste Prozesse und Werkzeuge. Das wird nicht einfach umgeworfen für kurze Dienstwege und direkte Absprachen.</p>
-<p>Do&shy;ku&shy;men&shy;ta&shy;ti&shy;on sagt uns was die Software tut. Der super-clevere Quellcode ist eh nicht lesbar.</p>
-<p>Schrift&shy;li&shy;ches geht über Kunden-Absprachen.</p>
-<p>Pläne werden befolgt und nicht einfach umgeworfen, nur weil es neue Fragen und Er&shy;kennt&shy;nis&shy;se gibt.</p>
-<h3>Zwölf Prinzipien Anti-agiler Soft&shy;ware&shy;ent&shy;wick&shy;lung</h3>
-<p>Wir sollten nicht ständig klein&shy;tei&shy;li&shy;gen Code releasen, sondern große Würfe in großen Release-Paketen abliefern.</p>
-<p>Während der Ent&shy;wick&shy;lung möchten wir keine Änderungen an der An&shy;for&shy;de&shy;rung mehr sehen. Was einmal fest&shy;ge&shy;schrie&shy;ben wurde, soll dann auch gelten. Selbst Schuld, wenn nicht alles bedacht wurde.</p>
-<p>Ein Feature ist fertig, wenn der Code lokal läuft. Das geht dann auch auf pro&shy;duk&shy;ti&shy;ven Systemen. Falls nicht, merkt das <em>jemand</em> im Testsystem. Dafür ist genug Zeit, weil nicht so oft released wird (siehe auch "<em>große Würfe</em>").</p>
-<p>Everyone, <strong>please leave me alone</strong>. Die tägliche Zu&shy;sam&shy;men&shy;ar&shy;beit stört. Alle wichtigen Infos sind in der User Story zu&shy;sam&shy;men&shy;ge&shy;fasst. Nachfragen können so erst gar nicht entstehen. Falls doch, lässt sich das auch noch in der Review klären ("ich konnte nicht, weil...").</p>
-<p>Errichte Projekte rund um un&shy;mo&shy;ti&shy;vier&shy;te Gruppen. Wirf ihnen regelmäßig Aufgaben zu. Wenn die abgehakt sind, wirf neue nach. Wenn nicht, siehe "<em>Leave me alone</em>".</p>
-<p>Die ef&shy;fi&shy;zi&shy;en&shy;tes&shy;te und ef&shy;fek&shy;tivs&shy;te Methode, In&shy;for&shy;ma&shy;tio&shy;nen an und innerhalb eines Ent&shy;wick&shy;lungs&shy;teams zu über&shy;mit&shy;teln, ist schrift&shy;lich und all&shy;um&shy;fas&shy;send im Vorfeld (siehe auch "<em>Leave me alone</em>").</p>
-<p>Be&shy;schäf&shy;tigt&shy;ge&shy;we&shy;sen&shy;sein ist das wichtigste Fort&shy;schritts&shy;maß.</p>
-<p>Agil sein bedeutet, wech&shy;sel&shy;wei&shy;se sprinten und spurten zu können. Wir springen flexibel zwischen dringenden Deadlines, akuten Notfällen und wichtigen Bugs.</p>
-<p>Lieber schnelles Mittelmaß ("reicht doch so") als sinnloser Per&shy;fek&shy;tio&shy;nis&shy;mus. Denn Code wird nicht gelesen, kopiert oder erweitert. Falls doch, kann man sich dann die Zeit zum re&shy;fac&shy;to&shy;rie&shy;ren nehmen (siehe auch "<em>sprinten und spurten</em>").</p>
-<p>Lines of Code und Features pro Sprint sind der beste Indikator für hoch&shy;wer&shy;ti&shy;ge Arbeit.</p>
-<p>Die besten Ar&shy;chi&shy;tek&shy;tu&shy;ren, An&shy;for&shy;de&shy;run&shy;gen und Entwürfe entstehen außerhalb des aus&shy;füh&shy;ren&shy;den Teams. Sie fallen dann in Stein gemeißelt auf das Team herab.</p>
-<p>Team-interne Meetings sind zu vermeiden (siehe auch "<em>Leave me alone</em>"). Wird dennoch hin und wieder eine Re&shy;tro&shy;spek&shy;ti&shy;ve erzwungen, lässt man die still über sich ergehen und macht weiter wie zuvor.</p>
+<p>Dokumentation sagt uns was die Software tut. Der super-clevere Quellcode ist eh nicht lesbar.</p>
+<p>Schriftliches geht über Kunden-Absprachen.</p>
+<p>Pläne werden befolgt und nicht einfach umgeworfen, nur weil es neue Fragen und Erkenntnisse gibt.</p>
+<h3>Zwölf Prinzipien Anti-agiler Softwareentwicklung</h3>
+<p>Wir sollten nicht ständig kleinteiligen Code releasen, sondern große Würfe in großen Release-Paketen abliefern.</p>
+<p>Während der Entwicklung möchten wir keine Änderungen an der Anforderung mehr sehen. Was einmal festgeschrieben wurde, soll dann auch gelten. Selbst Schuld, wenn nicht alles bedacht wurde.</p>
+<p>Ein Feature ist fertig, wenn der Code lokal läuft. Das geht dann auch auf produktiven Systemen. Falls nicht, merkt das <em>jemand</em> im Testsystem. Dafür ist genug Zeit, weil nicht so oft released wird (siehe auch "<em>große Würfe</em>").</p>
+<p>Everyone, <strong>please leave me alone</strong>. Die tägliche Zusammenarbeit stört. Alle wichtigen Infos sind in der User Story zusammengefasst. Nachfragen können so erst gar nicht entstehen. Falls doch, lässt sich das auch noch in der Review klären ("ich konnte nicht, weil...").</p>
+<p>Errichte Projekte rund um unmotivierte Gruppen. Wirf ihnen regelmäßig Aufgaben zu. Wenn die abgehakt sind, wirf neue nach. Wenn nicht, siehe "<em>Leave me alone</em>".</p>
+<p>Die effizienteste und effektivste Methode, Informationen an und innerhalb eines Entwicklungsteams zu übermitteln, ist schriftlich und allumfassend im Vorfeld (siehe auch "<em>Leave me alone</em>").</p>
+<p>Beschäftigtgewesensein ist das wichtigste Fortschrittsmaß.</p>
+<p>Agil sein bedeutet, wechselweise sprinten und spurten zu können. Wir springen flexibel zwischen dringenden Deadlines, akuten Notfällen und wichtigen Bugs.</p>
+<p>Lieber schnelles Mittelmaß ("reicht doch so") als sinnloser Perfektionismus. Denn Code wird nicht gelesen, kopiert oder erweitert. Falls doch, kann man sich dann die Zeit zum refactorieren nehmen (siehe auch "<em>sprinten und spurten</em>").</p>
+<p>Lines of Code und Features pro Sprint sind der beste Indikator für hochwertige Arbeit.</p>
+<p>Die besten Architekturen, Anforderungen und Entwürfe entstehen außerhalb des ausführenden Teams. Sie fallen dann in Stein gemeißelt auf das Team herab.</p>
+<p>Team-interne Meetings sind zu vermeiden (siehe auch "<em>Leave me alone</em>"). Wird dennoch hin und wieder eine Retrospektive erzwungen, lässt man die still über sich ergehen und macht weiter wie zuvor.</p>
 
 </article>
 </body>

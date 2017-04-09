@@ -30,8 +30,8 @@
 
     <h1 class="post__title">Inodes im Linux: Volle Festplatte, obwohl noch Platz ist?</h1>
 
-    <p>Kürzlich fiel mein <a href="http://www.bundestwitter.de">Bun&shy;dest&shy;wit&shy;ter</a>-Server aus. Bei der Suche nach der Ursache habe ich einige neue Dinge über Linux gelernt, die ich hier do&shy;ku&shy;men&shy;tie&shy;ren möchte.</p>
-<p>Die Tweet-Sammel-Cronjobs auf meinem Linux (Ubuntu) Server meldeten sich, dass sie keine Daten mehr schreiben könnten. Ich kenne das Problem schon, wenn zu viele Logs und Backups her&shy;um&shy;lie&shy;gen ohne aufgeräumt zu werden.</p>
+    <p>Kürzlich fiel mein <a href="http://www.bundestwitter.de">Bundestwitter</a>-Server aus. Bei der Suche nach der Ursache habe ich einige neue Dinge über Linux gelernt, die ich hier dokumentieren möchte.</p>
+<p>Die Tweet-Sammel-Cronjobs auf meinem Linux (Ubuntu) Server meldeten sich, dass sie keine Daten mehr schreiben könnten. Ich kenne das Problem schon, wenn zu viele Logs und Backups herumliegen ohne aufgeräumt zu werden.</p>
 <p>Diesmal allerdings sagt <code>df -h</code>, es sei noch ordentlich Platz auf der Platte frei:</p>
 <pre>
 Size    Used    Avail    Use%
@@ -39,7 +39,7 @@ Size    Used    Avail    Use%
 
 <p>Nach kurzer Recherche stieß ich darauf, dass nicht nur der Platz auf der Festplatte begrenzt ist, sondern auch die maximale Zahl der Dateien. Wikipedia sagt:</p>
 <blockquote>
-<p>Die Anzahl der möglichen Inodes und somit der möglichen Dateien ist bei manchen Da&shy;tei&shy;sys&shy;te&shy;men be&shy;schränk&shy;t; wird die Ma&shy;xi&shy;mal&shy;an&shy;zahl erreicht, lassen sich keine weiteren Dateien anlegen.</p>
+<p>Die Anzahl der möglichen Inodes und somit der möglichen Dateien ist bei manchen Dateisystemen beschränkt; wird die Maximalanzahl erreicht, lassen sich keine weiteren Dateien anlegen.</p>
 <p>&mdash; <a href="https://de.wikipedia.org/wiki/Inode#Praxis">Wikipedia: Inode</a></p>
 </blockquote>
 <p>Also: <code>df -i</code>.</p>
@@ -47,17 +47,17 @@ Size    Used    Avail    Use%
  Inodes      IUsed   IFree    IUse%
 1000000    1000000       0     100%</pre>
 
-<p>Eine Lösung könnte darin bestehen, die Festplatte neu zu for&shy;ma&shy;tie&shy;ren und die Zahl der möglichen Inodes höher fest&shy;zu&shy;le&shy;gen. Ob das bei meinem 1und1 Vir&shy;tu&shy;al&shy;Ser&shy;ver so einfach möglich ist, ist fraglich. Zunächst möchte ich aber wissen, wo diese vielen Dateien liegen und woher sie kommen. Bun&shy;dest&shy;wit&shy;ter legt zwar viele Logfiles für Tweets an, aber diese werden regelmäßig gepackt, her&shy;un&shy;ter&shy;ge&shy;la&shy;den und vom Server gelöscht. Sie erklären die volle Platte vermutlich nicht.</p>
-<p>Ich suche also einen Befehl, der mir zeigt, in welchen Ver&shy;zeich&shy;nis&shy;sen viele Inodes verbraucht werden. Google ist mein Freund:</p>
+<p>Eine Lösung könnte darin bestehen, die Festplatte neu zu formatieren und die Zahl der möglichen Inodes höher festzulegen. Ob das bei meinem 1und1 VirtualServer so einfach möglich ist, ist fraglich. Zunächst möchte ich aber wissen, wo diese vielen Dateien liegen und woher sie kommen. Bundestwitter legt zwar viele Logfiles für Tweets an, aber diese werden regelmäßig gepackt, heruntergeladen und vom Server gelöscht. Sie erklären die volle Platte vermutlich nicht.</p>
+<p>Ich suche also einen Befehl, der mir zeigt, in welchen Verzeichnissen viele Inodes verbraucht werden. Google ist mein Freund:</p>
 <p><code>find /var/www/ -xdev -printf '%h\n' | sort | uniq -c | sort -k 1 -n</code></p>
-<p>... listet alle Folder und subfolder mit der Zahl ihrer ent&shy;hal&shy;te&shy;nen Inodes auf. Was ggf. sehr lang wird &mdash; in meinem Fall knapp 2000 Einträge:</p>
+<p>... listet alle Folder und subfolder mit der Zahl ihrer enthaltenen Inodes auf. Was ggf. sehr lang wird &mdash; in meinem Fall knapp 2000 Einträge:</p>
 <pre>
 1       /var/www/blog_thomaspuppe_de/assets
 [... 2000 weitere Einträge ...]
 2563    /var/www/bundestwitter/cache/www_bundestwitter_de/connectionStatistics</pre>
 
-<p>Das hilft also nur bei über&shy;schau&shy;ba&shy;rer Ord&shy;ner&shy;tie&shy;fe. Besser ist dieser Befehl, der die Anzahl der Inodes in einem Ver&shy;zeich&shy;nis (oder in jedem Un&shy;ter&shy;ver&shy;zeich&shy;nis) zeigt:</p>
-<p><code>for i in /var/www/*; do echo $i; find $i | wc -l | sort ; done</code> (ohne "/*" für das einzelne Ver&shy;zeich&shy;nis):</p>
+<p>Das hilft also nur bei überschaubarer Ordnertiefe. Besser ist dieser Befehl, der die Anzahl der Inodes in einem Verzeichnis (oder in jedem Unterverzeichnis) zeigt:</p>
+<p><code>for i in /var/www/*; do echo $i; find $i | wc -l | sort ; done</code> (ohne "/*" für das einzelne Verzeichnis):</p>
 <pre>
 104      /var/www/blog_thomaspuppe_de
 76266    /var/www/bundestwitter
@@ -69,11 +69,11 @@ Size    Used    Avail    Use%
 101      /var/www/www_thomaspuppe_de
 </pre>
 
-<p>Es zeigt sich, dass Bun&shy;dest&shy;wit&shy;ter nicht der Ver&shy;ur&shy;sa&shy;cher ist. Aber mit dem genannten Befehl kann ich nun die Ordner des Root-Ver&shy;zeich&shy;nis&shy;ses auflisten ...</p>
+<p>Es zeigt sich, dass Bundestwitter nicht der Verursacher ist. Aber mit dem genannten Befehl kann ich nun die Ordner des Root-Verzeichnisses auflisten ...</p>
 <pre>sudo su #(um sich eine Menge "Permission denied" Meldungen zu sparen)
 for i in /*; do echo $i; find $i | wc -l | sort ; done</pre>
 
-<p>... zeigt, dass die al&shy;ler&shy;meis&shy;ten Inodes in <code>/var</code> verbraucht werden. (Warum in <code>proc</code> so viel los ist, wird Gegenstand einer anderen Un&shy;ter&shy;su&shy;chung sein.)</p>
+<p>... zeigt, dass die allermeisten Inodes in <code>/var</code> verbraucht werden. (Warum in <code>proc</code> so viel los ist, wird Gegenstand einer anderen Untersuchung sein.)</p>
 <pre>
 16        /home
 22271     /proc
@@ -81,28 +81,28 @@ for i in /*; do echo $i; find $i | wc -l | sort ; done</pre>
 953965    /var
 </pre>
 
-<p>Von hier aus kann ich mich mit dem Befehl <code>for i in /var/*; do echo $i; find $i | wc -l | sort ; done</code> usw. fort&shy;be&shy;we&shy;gen.</p>
+<p>Von hier aus kann ich mich mit dem Befehl <code>for i in /var/*; do echo $i; find $i | wc -l | sort ; done</code> usw. fortbewegen.</p>
 <pre>
 662       /var/log
 836952    /var/spool
 112120    /var/www
 </pre>
 
-<p>In <code>/var/spool</code> liegt also sehr viel Zeugs. Dies ist das "Ver&shy;zeich&shy;nis für ab&shy;zu&shy;ar&shy;bei&shy;ten&shy;de War&shy;te&shy;schlan&shy;gen (Druck&shy;auf&shy;trä&shy;ge, E-Mail-Ver&shy;sand&shy;auf&shy;trä&shy;ge …)"
+<p>In <code>/var/spool</code> liegt also sehr viel Zeugs. Dies ist das "Verzeichnis für abzuarbeitende Warteschlangen (Druckaufträge, E-Mail-Versandaufträge …)"
 (<a href="https://de.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">Wikipedia</a>).</p>
-<p>Mit der bekannten Technik taste ich mich weiter voran und stoße auf ein Ver&shy;zeich&shy;nis, in dem fast alle Dateien liegen:</p>
+<p>Mit der bekannten Technik taste ich mich weiter voran und stoße auf ein Verzeichnis, in dem fast alle Dateien liegen:</p>
 <pre>836836    /var/spool/postfix/maildrop</pre>
 
-<p>Das sind also fel&shy;ge&shy;schla&shy;ge&shy;ne Versuche des Systems, E-Mails zu versenden. Stich&shy;pro&shy;ben (<code>cat /var/spool/postfix/maildrop/D7E6A90D4CA9</code>) ergeben, dass meine Cronjobs versuchen, Mails zu versenden.</p>
+<p>Das sind also felgeschlagene Versuche des Systems, E-Mails zu versenden. Stichproben (<code>cat /var/spool/postfix/maildrop/D7E6A90D4CA9</code>) ergeben, dass meine Cronjobs versuchen, Mails zu versenden.</p>
 <h4>Ich habe also meinen Übeltäter. Nun geht es ans Aufräumen.</h4>
-<p>Die erste Maßnahme, für den See&shy;len&shy;frie&shy;den, ist natürlich</p>
+<p>Die erste Maßnahme, für den Seelenfrieden, ist natürlich</p>
 <pre>sudo rm -rf /var/spool/postfix/maildrop/*
 bash: /bin/rm: Argument list too long</pre>
 
-<p>Eine schnelle Suche führt mich auf`<a href="http://www.sysadminslife.com/linux/bash-binrm-die-argumentliste-ist-zu-lang/">sy&shy;s&shy;ad&shy;mins&shy;li&shy;fe.com</a>, wo folgender Befehl vor&shy;ge&shy;schla&shy;gen wird:</p>
+<p>Eine schnelle Suche führt mich auf`<a href="http://www.sysadminslife.com/linux/bash-binrm-die-argumentliste-ist-zu-lang/">sysadminslife.com</a>, wo folgender Befehl vorgeschlagen wird:</p>
 <pre>find -type f -print0 | xargs -0 rm</pre>
 
-<p>An der Stelle möchte ich Ex&shy;plains&shy;hell erwähnen. Eine Website, die Shell-Befehle aufdröselt und die einzelnen Be&shy;stand&shy;tei&shy;le erklärt. <a href="http://explainshell.com/explain?cmd=find+-type+f+-print0+%7C+xargs+-0+rm">http://ex&shy;plains&shy;hell.com/explain?cmd=find+-type+f+-print0+%7C+xargs+-0+rm</a></p>
+<p>An der Stelle möchte ich Explainshell erwähnen. Eine Website, die Shell-Befehle aufdröselt und die einzelnen Bestandteile erklärt. <a href="http://explainshell.com/explain?cmd=find+-type+f+-print0+%7C+xargs+-0+rm">http://explainshell.com/explain?cmd=find+-type+f+-print0+%7C+xargs+-0+rm</a></p>
 <p>Ta dah:</p>
 <pre>$ ls /var/spool/postfix/maildrop | wc -l
 14
@@ -117,8 +117,8 @@ Inodes      IUsed     IFree    IUse%
 <blockquote>
 <p>The crontab command is used to maintain crontab files for individual users. By default the output of a command or a script (if any produced), will be email to your local email account.</p>
 </blockquote>
-<p>Die einfachste Methode, dies zu verhindern, ist die Zeile <code>MAILTO=""</code> an den beginn der Crontab-Datei (<code>crontab -e</code>) zu schreiben. Damit werden alle Cron-Mails aus diesr Datei un&shy;ter&shy;drückt. Alternativ kann man auch pro Zeile den Versand von Mails verhintern durch den Output nach /dev/null: <code>0 1 5 10 * /path/to/script.sh &gt; /dev/null</code>.</p>
-<p>Kleines Extra: In Zukunft möchte ich eine Warnung erhalten, wenn der Plat&shy;ten&shy;platz (oder die Inodes) zur Neige gehen. Der Test dafür ist leicht ge&shy;schrie&shy;ben (siehe oben), und einen Me&shy;cha&shy;nis&shy;mus zur Be&shy;nach&shy;rich&shy;ti&shy;gung habe ich schon für andere Zwecke. Und zwar benutze ich den Service und die App von <a href="https://www.pushover.net">Pushover: Simple No&shy;ti&shy;fi&shy;ca&shy;ti&shy;ons for Android, iOS, and Desktop</a> und <a href="https://deadmanssnitch.com/">Dead Man's Snitch — A dead simple cron job monitoring tool</a>.</p>
+<p>Die einfachste Methode, dies zu verhindern, ist die Zeile <code>MAILTO=""</code> an den beginn der Crontab-Datei (<code>crontab -e</code>) zu schreiben. Damit werden alle Cron-Mails aus diesr Datei unterdrückt. Alternativ kann man auch pro Zeile den Versand von Mails verhintern durch den Output nach /dev/null: <code>0 1 5 10 * /path/to/script.sh &gt; /dev/null</code>.</p>
+<p>Kleines Extra: In Zukunft möchte ich eine Warnung erhalten, wenn der Plattenplatz (oder die Inodes) zur Neige gehen. Der Test dafür ist leicht geschrieben (siehe oben), und einen Mechanismus zur Benachrichtigung habe ich schon für andere Zwecke. Und zwar benutze ich den Service und die App von <a href="https://www.pushover.net">Pushover: Simple Notifications for Android, iOS, and Desktop</a> und <a href="https://deadmanssnitch.com/">Dead Man's Snitch — A dead simple cron job monitoring tool</a>.</p>
 
 </article>
 </body>

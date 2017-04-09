@@ -30,35 +30,35 @@
 
     <h1 class="post__title">Good bye Google Analytics! Good bye Piwik! Hallo AWStats!</h1>
 
-    <p>Warum ich mein Website-Tracking von Google Analytics über Piwik zu AWStats zurück ent&shy;wi&shy;ckel&shy;te und trotzdem nichts vermisse.</p>
+    <p>Warum ich mein Website-Tracking von Google Analytics über Piwik zu AWStats zurück entwickelte und trotzdem nichts vermisse.</p>
 <p><img src="/images/2013/10/tracking_graphen.png" alt="Die Graphen von drei Analysetools gegenübergestellt"></p>
 
-<p>Im Juli 2013 wurde das Be&shy;su&shy;cher&shy;tracking bei Bun&shy;dest&shy;wit&shy;ter umgestellt von Google Analytics (mit IP-An&shy;ony&shy;mi&shy;sie&shy;rung) auf Piwik. Das ist ein OpenSource Tracking-Dienst den man sich selbst hosten kann. Wenn der eigene Server geschont werden soll, kann man das auch auf seinem eigenen Cloud-Rechner in&shy;stal&shy;lie&shy;ren. Eine schöne Anleitung dazu gibt es <a href="http://dicasdolampada.wordpress.com/2013/07/22/goodbye-google-analytics-hello-piwik/">hier</a> und <a href="https://github.com/openshift/piwik-openshift-quickstart/">hier</a>.</p>
-<p>Piwik war mir wichtig, um vom Platz&shy;hir&shy;schen Google Analytcis los&shy;zu&shy;kom&shy;men. Kleiner paranoider Exkurs:</p>
-<blockquote>Man muss sich das mal auf der Zunge zergehen lassen: ich zwinge den Besucher meiner Seite, Code vom Server des pro&shy;fit&shy;ori&shy;en&shy;tier&shy;ten Un&shy;ter&shy;neh&shy;men Google aus den USA her&shy;un&shy;ter&shy;zu&shy;la&shy;den. Dieser Code wird im Browser meines Besuchers ausgeführt und sendet dann seine Er&shy;kennt&shy;nis&shy;se an seinen Her&shy;kunfts&shy;ser&shy;ver: Google in den USA.</blockquote>
+<p>Im Juli 2013 wurde das Besuchertracking bei Bundestwitter umgestellt von Google Analytics (mit IP-Anonymisierung) auf Piwik. Das ist ein OpenSource Tracking-Dienst den man sich selbst hosten kann. Wenn der eigene Server geschont werden soll, kann man das auch auf seinem eigenen Cloud-Rechner installieren. Eine schöne Anleitung dazu gibt es <a href="http://dicasdolampada.wordpress.com/2013/07/22/goodbye-google-analytics-hello-piwik/">hier</a> und <a href="https://github.com/openshift/piwik-openshift-quickstart/">hier</a>.</p>
+<p>Piwik war mir wichtig, um vom Platzhirschen Google Analytcis loszukommen. Kleiner paranoider Exkurs:</p>
+<blockquote>Man muss sich das mal auf der Zunge zergehen lassen: ich zwinge den Besucher meiner Seite, Code vom Server des profitorientierten Unternehmen Google aus den USA herunterzuladen. Dieser Code wird im Browser meines Besuchers ausgeführt und sendet dann seine Erkenntnisse an seinen Herkunftsserver: Google in den USA.</blockquote>
 
-<p>Mit der Nutzung von Google Analytics leistet man Google Beihilfe zur Erstellung von Nut&shy;zer&shy;pro&shy;fi&shy;len. Mit Piwik werden die User-Daten auf dem eigenen Server gehostet. Damit klinkt man seine eigene Website aus dem Google-Netzwerk aus. (Das Gleiche gilt für die Nicht-Nutzung von Facebook- oder Twitter-Widgets.)</p>
-<p>Daher wollte ich her&shy;aus&shy;fin&shy;den, ob man wirklich auf die Features von Google Analytics angewiesen ist. Sicher: das Tool ist das beste kostenlose Tracking-Tool auf dem Markt. Aber solang man auf die In&shy;te&shy;gra&shy;ti&shy;on mit Google AdWords verzichten kann, braucht man die Funktionen vielleicht nicht alle?</p>
-<p>Nachdem ich ein paar Monate völlig zufrieden war mit Piwik, entschloss ich mich, noch einen "Schritt zurück" zu gehen und die ser&shy;ver&shy;sei&shy;ti&shy;ge Software AWStats zu testen. Die wertet die Apache Logfiles aus (welche stan&shy;dard&shy;mä&shy;ßig sowieso angelegt werden), und stellt die Ergebnisse dar. AWStats ist bei vielen Hostings inklusive und von Anfang an in&shy;stal&shy;liert.</p>
-<p>Die Kern&shy;funk&shy;tio&shy;nen, die ich nutze, bieten tat&shy;säch&shy;lich alle 3 Systeme:</p>
+<p>Mit der Nutzung von Google Analytics leistet man Google Beihilfe zur Erstellung von Nutzerprofilen. Mit Piwik werden die User-Daten auf dem eigenen Server gehostet. Damit klinkt man seine eigene Website aus dem Google-Netzwerk aus. (Das Gleiche gilt für die Nicht-Nutzung von Facebook- oder Twitter-Widgets.)</p>
+<p>Daher wollte ich herausfinden, ob man wirklich auf die Features von Google Analytics angewiesen ist. Sicher: das Tool ist das beste kostenlose Tracking-Tool auf dem Markt. Aber solang man auf die Integration mit Google AdWords verzichten kann, braucht man die Funktionen vielleicht nicht alle?</p>
+<p>Nachdem ich ein paar Monate völlig zufrieden war mit Piwik, entschloss ich mich, noch einen "Schritt zurück" zu gehen und die serverseitige Software AWStats zu testen. Die wertet die Apache Logfiles aus (welche standardmäßig sowieso angelegt werden), und stellt die Ergebnisse dar. AWStats ist bei vielen Hostings inklusive und von Anfang an installiert.</p>
+<p>Die Kernfunktionen, die ich nutze, bieten tatsächlich alle 3 Systeme:</p>
 <ul>
 <li>Besucher pro Tag, Monat</li>
-<li>Be&shy;su&shy;cher&shy;quel&shy;le: Referrer-Website bzw. Such&shy;ma&shy;schi&shy;ne</li>
-<li>Such&shy;be&shy;grif&shy;fe, über die Besucher auf die Seite kamen</li>
+<li>Besucherquelle: Referrer-Website bzw. Suchmaschine</li>
+<li>Suchbegriffe, über die Besucher auf die Seite kamen</li>
 <li>Mobile Nutzer</li>
-<li>Ver&shy;weil&shy;dau&shy;er</li>
+<li>Verweildauer</li>
 </ul>
-<p>AWStats zeigt nicht den Anteil neuer bzw. wie&shy;der&shy;keh&shy;ren&shy;der Besucher an. Google Analytics hat zudem eine "Track&shy;back"-Übersicht mit Seiten, die auf Bun&shy;dest&shy;wit&shy;ter verlinken (auch ohne dass Besucher darüber kamen). Dafür gibt es aber auch Dienste, und die Google-Suche lässt sich ent&shy;spre&shy;chend nutzen (<a href="https://www.google.com/search?q=link%3A+%22bundestwitter.de%22+-site%3Abundestwitter.de">link: "bun&shy;dest&shy;wit&shy;ter.de" -site:bun&shy;dest&shy;wit&shy;ter.de</a> sucht Seiten, die auf bun&shy;dest&shy;wit&shy;ter.de verlinken und schließt dabei bun&shy;dest&shy;wit&shy;ter.de aus).</p>
-<p>Ein weiteres Al&shy;lein&shy;stel&shy;lungs&shy;merk&shy;mal von Google Analytics ist die Messung der Website Per&shy;for&shy;mance. Diese Funktion finde ich sehr stark, aber auch sie lässt sich ersetzen durch andere Dienste wie Pingdom RUM (die man auch temporär nutzen kann, und nicht ständig aktiv haben muss).</p>
+<p>AWStats zeigt nicht den Anteil neuer bzw. wiederkehrender Besucher an. Google Analytics hat zudem eine "Trackback"-Übersicht mit Seiten, die auf Bundestwitter verlinken (auch ohne dass Besucher darüber kamen). Dafür gibt es aber auch Dienste, und die Google-Suche lässt sich entsprechend nutzen (<a href="https://www.google.com/search?q=link%3A+%22bundestwitter.de%22+-site%3Abundestwitter.de">link: "bundestwitter.de" -site:bundestwitter.de</a> sucht Seiten, die auf bundestwitter.de verlinken und schließt dabei bundestwitter.de aus).</p>
+<p>Ein weiteres Alleinstellungsmerkmal von Google Analytics ist die Messung der Website Performance. Diese Funktion finde ich sehr stark, aber auch sie lässt sich ersetzen durch andere Dienste wie Pingdom RUM (die man auch temporär nutzen kann, und nicht ständig aktiv haben muss).</p>
 <p>Dafür bietet AWStats sogar Vorteile, die die anderen Tools nicht bieten:</p>
 <ul>
 <li>Der Client muss kein JS laden und ausführen.</li>
-<li>Ich habe die Rohdaten und kann sie her&shy;un&shy;ter&shy;la&shy;den.</li>
+<li>Ich habe die Rohdaten und kann sie herunterladen.</li>
 <li>Liste von 404 Responses. Ich sehe also, auf welche Seiten fehlerhaft verlinkt wird.</li>
-<li>Anzeige der ver&shy;brauch&shy;ten Bandbreite pro Ressource. Nicht wichtig bei meinem Hosting, aber für die Per&shy;for&shy;mance-Op&shy;ti&shy;mie&shy;rung nützlich.</li>
+<li>Anzeige der verbrauchten Bandbreite pro Ressource. Nicht wichtig bei meinem Hosting, aber für die Performance-Optimierung nützlich.</li>
 </ul>
-<p>In&shy;ter&shy;es&shy;sant ist auch, dass die Anzahl der gezählten Besucher stark variiert. AWStats zeigt ca. doppelt so viele Besucher an wie Piwik (für Google Analytics habe ich keinen Vergleich, weil dies nicht parallel in&shy;stal&shy;liert war). Daher genieße ich die Zahlen aller Dienste mit Vorsicht, und achte eher auf Auf- und Ab&shy;wärts&shy;trends statt absolute Zahlen.</p>
-<p><strong>Fazit: für den normalen Gebrauch bietet AWStats alles, was der Website-Betreiber begehrt. Wer auf cli&shy;ent&shy;sei&shy;ti&shy;ges Tracking von Google Analytics oder Piwik verzichtet, tut seinem Besucher etwas Gutes ohne auf Be&shy;su&shy;cher&shy;sta&shy;tis&shy;ti&shy;ken verzichten zu müssen. Mit der Liste von 404 Fehlern verfügt AWStats sogar über ein nützliches Al&shy;lein&shy;stel&shy;lungs&shy;merk&shy;mal.</strong></p>
+<p>Interessant ist auch, dass die Anzahl der gezählten Besucher stark variiert. AWStats zeigt ca. doppelt so viele Besucher an wie Piwik (für Google Analytics habe ich keinen Vergleich, weil dies nicht parallel installiert war). Daher genieße ich die Zahlen aller Dienste mit Vorsicht, und achte eher auf Auf- und Abwärtstrends statt absolute Zahlen.</p>
+<p><strong>Fazit: für den normalen Gebrauch bietet AWStats alles, was der Website-Betreiber begehrt. Wer auf clientseitiges Tracking von Google Analytics oder Piwik verzichtet, tut seinem Besucher etwas Gutes ohne auf Besucherstatistiken verzichten zu müssen. Mit der Liste von 404 Fehlern verfügt AWStats sogar über ein nützliches Alleinstellungsmerkmal.</strong></p>
 
 </article>
 </body>

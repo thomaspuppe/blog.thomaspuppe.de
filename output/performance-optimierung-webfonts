@@ -36,11 +36,11 @@
 </ul>
 <h3>woff2 statt woff</h3>
 <ul>
-<li>nutze ja derzeit nur die eine. Weil: wie viele Browser un&shy;ter&shy;stüt&shy;zen die? Und: Font ist ein Optisches Schmankerl. Ein En&shy;han&shy;ce&shy;ment.</li>
+<li>nutze ja derzeit nur die eine. Weil: wie viele Browser unterstützen die? Und: Font ist ein Optisches Schmankerl. Ein Enhancement.</li>
 </ul>
 <h3>Subset</h3>
 <ul>
-<li>https://trans&shy;fon&shy;ter.org/ (oder https://github.com/bramstein/homebrew-web&shy;font&shy;tools)</li>
+<li>https://transfonter.org/ (oder https://github.com/bramstein/homebrew-webfonttools)</li>
 <li>
 <h3>https://parall.ax/blog/view/3072/tutorial-reducing-the-file-size-of-custom-web-fonts</h3>
 </li>
@@ -55,19 +55,19 @@
   -</p>
 <h2>FOIT/FOUT</h2>
 <ul>
-<li>Cookie-Variante https://www.fil&shy;ament&shy;group.com/lab/font-events.html</li>
+<li>Cookie-Variante https://www.filamentgroup.com/lab/font-events.html</li>
 <li>Font Loading API (wann kommt die wo?)</li>
-<li>JS Gehampel (http://bdadam.com/blog/better-webfont-loading-with-lo&shy;cal&shy;sto&shy;r&shy;a&shy;ge-and-woff2.html) für mich keine Option</li>
-<li>Al&shy;ter&shy;na&shy;ti&shy;ven noch nicht Browser&shy;san&shy;dard(?): https://www.bramstein.com/writing/web-font-loading-patterns.html#&shy;cust&shy;om-font-display</li>
+<li>JS Gehampel (http://bdadam.com/blog/better-webfont-loading-with-localstorage-and-woff2.html) für mich keine Option</li>
+<li>Alternativen noch nicht Browsersandard(?): https://www.bramstein.com/writing/web-font-loading-patterns.html#custom-font-display</li>
 </ul>
-<h3>optische An&shy;glei&shy;chung</h3>
+<h3>optische Angleichung</h3>
 <ul>
 <li>letter-spacing, line-height, font-weight, font-variant, font-style</li>
 <li>
-<p>http://web&shy;de&shy;si&shy;gner&shy;note&shy;book.com/css/the-little-known-font-size-adjust-css3-property/</p>
+<p>http://webdesignernotebook.com/css/the-little-known-font-size-adjust-css3-property/</p>
 </li>
 <li>
-<p>https://helpx.adobe.com/typekit/using/font-events.html#&shy;Sty&shy;ling&shy;fall&shy;back&shy;font&shy;su&shy;s&shy;ing&shy;fon&shy;te&shy;vents</p>
+<p>https://helpx.adobe.com/typekit/using/font-events.html#Stylingfallbackfontsusingfontevents</p>
 </li>
 <li>http://webfont-test.com/</li>
 <li>Wenn es da kein Tool gibt, mach selber eines (Codepen)</li>
@@ -78,11 +78,11 @@
 </ul>
 <h3>Links</h3>
 <ul>
-<li>http://fontfamily.io/An&shy;da&shy;le_&shy;Mo&shy;no,monospace</li>
+<li>http://fontfamily.io/Andale_Mono,monospace</li>
 </ul>
 <h3>Links</h3>
 <ul>
-<li>https://www.zachleat.com/web/com&shy;pre&shy;hen&shy;si&shy;ve-webfonts/</li>
+<li>https://www.zachleat.com/web/comprehensive-webfonts/</li>
 </ul>
 
 </article>

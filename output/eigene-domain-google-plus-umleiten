@@ -30,7 +30,7 @@
 
     <h1 class="post__title">domain.de+ auf Google+ Profil umleiten</h1>
 
-    <p>Ein Tipp für die Leute mit eigener Domain: Wei&shy;ter&shy;lei&shy;tung von <strong>tho&shy;ma&shy;s&shy;pup&shy;pe.de/+</strong> auf das Google-Profil via .htaccess:</p>
+    <p>Ein Tipp für die Leute mit eigener Domain: Weiterleitung von <strong>thomaspuppe.de/+</strong> auf das Google-Profil via .htaccess:</p>
 <p><code>RewriteEngine on
 RewriteCond %{REQUEST_URI} ^/+
 RewriteRule ^(.*)$ https://plus.google.com/u/0/109992889758306031081/ [R=permanent,L]</code></p>

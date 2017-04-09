@@ -215,6 +215,24 @@ Eine noch simplere Variante der aspect-ratio. Nimmt die Werte `landscape` oder `
 
 <pre>@media all and (orientation: portrait) { ... }</pre>
 
+<style type="text/css" scoped>
+.orientationContainer > strong { display: none; }
+@media all and (orientation: portrait) {
+ 	.orientationContainer > * { display: none; }
+ 	.orientationContainer > .portrait { display: inline; }
+}
+@media all and (orientation: landscape) {
+ 	.orientationContainer > * { display: none; }
+ 	.orientationContainer > .landscape { display: inline; }
+}
+</style>
+
+> In diesem Browser: <span class="orientationContainer">
+> 	<em class="undefined">undefined</em>
+> 	<strong class="portrait">portrait</strong>
+> 	<strong class="landscape">landscape</strong>
+> 	</span>
+
 
 ## resolution
 

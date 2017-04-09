@@ -30,7 +30,7 @@
 
     <h1 class="post__title">URL-unshortening</h1>
 
-    <p>Für ein aktuelles Feature bei Bun&shy;dest&shy;wit&shy;ter trage ich gerade zusammen, welche Links von Politikern via Twitter verbreitet wurden. Dabei stellt sich heraus, dass mehr als 20% der geposteten Links sogenannte Shortlinks sind. Also nicht nur die Kürzung von Twitter selbst via <code>t.co</code> (deren echte URLs werden über die APIs mit&shy;ge&shy;lie&shy;fert), sondern es werden schon Short-URLs beim Schreiben der Tweets eingegeben.</p>
+    <p>Für ein aktuelles Feature bei Bundestwitter trage ich gerade zusammen, welche Links von Politikern via Twitter verbreitet wurden. Dabei stellt sich heraus, dass mehr als 20% der geposteten Links sogenannte Shortlinks sind. Also nicht nur die Kürzung von Twitter selbst via <code>t.co</code> (deren echte URLs werden über die APIs mitgeliefert), sondern es werden schon Short-URLs beim Schreiben der Tweets eingegeben.</p>
 <p>In Zahlen drückt sich das so aus (bei insgesamt 48.000 Links):</p>
 <ul>
 <li>6404 &times; fb.me</li>
@@ -40,10 +40,10 @@
 <li>187 &times; goo.gl</li>
 <li>138 &times; ift.tt</li>
 </ul>
-<p>Diese URLs möchte ich nun also auflösen. Im Internet findet man darüber <a href="http://security.thejoshmeister.com/2009/04/how-to-preview-shortened-urls-tinyurl.html">Artikel</a>, <a href="http://www.toolsvoid.com/unshorten-url">einige</a> <a href="https://www.unshorten.it/">ver&shy;schie&shy;de&shy;ne</a> <a href="http://checkshorturl.com/">Dienste </a> und <a href="https://github.com/quark-zju/unshorten">diverse</a> <a href="https://github.com/mathiasbynens/node-unshorten">Scripte</a>, <a href="https://github.com/nodeca/url-unshort">Bi&shy;blio&shy;the&shy;ken</a> und <a href="https://gist.github.com/zhasm/986361">Snippets</a> bei GitHub.</p>
+<p>Diese URLs möchte ich nun also auflösen. Im Internet findet man darüber <a href="http://security.thejoshmeister.com/2009/04/how-to-preview-shortened-urls-tinyurl.html">Artikel</a>, <a href="http://www.toolsvoid.com/unshorten-url">einige</a> <a href="https://www.unshorten.it/">verschiedene</a> <a href="http://checkshorturl.com/">Dienste </a> und <a href="https://github.com/quark-zju/unshorten">diverse</a> <a href="https://github.com/mathiasbynens/node-unshorten">Scripte</a>, <a href="https://github.com/nodeca/url-unshort">Bibliotheken</a> und <a href="https://gist.github.com/zhasm/986361">Snippets</a> bei GitHub.</p>
 <h2>Eigentlich ist es viel einfacher!</h2>
 <p>Es stellt sich heraus, dass <em>im Prinzip</em> ein Curl-Aufruf ausreicht. Alle genannten Dienste antworten mit einem HTTP Status 301 und dem Location-Header. <strong>Das Internet ist also doch noch nicht so kaputt wie ich dachte.</strong></p>
-<p>In Bash ist das ganz simpel: <code>curl -I http://fb.me/16MEzokwA</code>. Fertig. Wegen der Anbindung an meine Datenbank habe ich die Arbeit mit PHP erledigt, was auch mit Bord&shy;mit&shy;teln und ein paar Codezeilen funk&shy;tio&shy;niert:</p>
+<p>In Bash ist das ganz simpel: <code>curl -I http://fb.me/16MEzokwA</code>. Fertig. Wegen der Anbindung an meine Datenbank habe ich die Arbeit mit PHP erledigt, was auch mit Bordmitteln und ein paar Codezeilen funktioniert:</p>
 <pre>function get_resp_from_url($url)
 {
     $curlConnection = curl_init();
@@ -64,8 +64,8 @@
     }
 }</pre>
 
-<p>Einzig Facebook konnte damit nicht abgegrast werden. <code>fb.me</code>-Adressen liefern mir zu&shy;ver&shy;läs&shy;sig Status 301 bei Abfrage per Bash, und Status 200 mit Facebook-HTML im Body bei der Abfrage per PHP.</p>
-<p>Weder Google noch die curl-Referenz für PHP konnten helfen, also musste Python herhalten. Nach dem üblichen er&shy;folg&shy;lo&shy;sen Herumirren auf mehreren Wegen (<code>httplib</code> und <code>urllib2</code>) funk&shy;tio&shy;niert es dann auf diese Art:</p>
+<p>Einzig Facebook konnte damit nicht abgegrast werden. <code>fb.me</code>-Adressen liefern mir zuverlässig Status 301 bei Abfrage per Bash, und Status 200 mit Facebook-HTML im Body bei der Abfrage per PHP.</p>
+<p>Weder Google noch die curl-Referenz für PHP konnten helfen, also musste Python herhalten. Nach dem üblichen erfolglosen Herumirren auf mehreren Wegen (<code>httplib</code> und <code>urllib2</code>) funktioniert es dann auf diese Art:</p>
 <pre>import requests
 r = requests.get(url, allow_redirects=False)
 if r.status_code == 301:
