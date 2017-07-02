@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Website Performance Optimierung ohne Zukunft?</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="None" />
+    <meta name="keywords" content="Webentwicklung" />
+</head>
+<body>
+  <header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Webentwicklung
+		</span>
+		<time datetime="2017-07-01">
+			
+			02. Juli 2017
+		</time>
+	</div>
+
+    <h1 class="post__title">Website Performance Optimierung ohne Zukunft?</h1>
+
+    <p>CSS per JavaScript nachladen ist ein NoGo! (Wenn du "Strategien" brauchst, um dein CSS zu laden, ist es vermutlich zu viel - dann liegt dein problem woanders.)
+Critical CSS rendern: ok, aber eigentlich nicht richtig.
+Per Progressive Web App und Service Worker Inhalte schonmal vorzuhalten ist ok, aber der normale Browsercache soltle das meiste davon schon tun.</p>
+<p>Wenn bei uns alles super ist, dann 3rd parties lehren</p>
+<p>Manuelle Audits</p>
+<p>Wahldaten, Datawrapper (ungecachte 200k für Balkngraphen)</p>
+<p>Der britische Guardian stellt für seine Redaktion ein <a href="https://www.theguardian.com/info/developer-blog/2017/mar/06/empowering-our-editorial-teams-to-impact-page-performance">Dashboard mit den langsamsten Artikeln</a> bereit. Häufig reicht das Wissen um eine langsame Seite, und die Anpassung eines Embeds (z.B.), um das Problem zu lösen.</p>
+<blockquote>
+<p>The tool has had significant impact. In terms of direct performance improvements, sixty percent of the pages alerted since the tool was implemented had performance problems resolved by editorial action.</p>
+</blockquote>
+<p>Wir bei ZEIT Online haben ein</p>
+<p>Screenshot von unserem Sitespeed Dashboard</p>
+<p>Werbebranche hoffnungslos?</p>
+
+</article>
+</body>
+</html>
