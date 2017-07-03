@@ -9,6 +9,14 @@ draft: false
 description:
 ---
 
+Why is Webperf so hard these days?
+
+Früher: Dateien zusammenfügen, Bilder usw komprimieren, richtige Load Order, Cachine Header -> Das galt universell. Alle Seiten, alle Besuche.
+
+Heute: Critical CSS (unterschiedlich, auch pro Device), Preload (weiß man nicht, welche Datei), Server Push Async (aber nur beim ersten Besuch).
+
+Sind also alle einfachen Sachen (niedrig hängende Früchte) abgearbeitet?
+
 
 CSS per JavaScript nachladen ist ein NoGo! (Wenn du "Strategien" brauchst, um dein CSS zu laden, ist es vermutlich zu viel - dann liegt dein problem woanders.)
 Critical CSS rendern: ok, aber eigentlich nicht richtig.

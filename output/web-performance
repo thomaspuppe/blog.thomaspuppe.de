@@ -30,7 +30,11 @@
 
     <h1 class="post__title">Website Performance Optimierung ohne Zukunft?</h1>
 
-    <p>CSS per JavaScript nachladen ist ein NoGo! (Wenn du "Strategien" brauchst, um dein CSS zu laden, ist es vermutlich zu viel - dann liegt dein problem woanders.)
+    <p>Why is Webperf so hard these days?</p>
+<p>Früher: Dateien zusammenfügen, Bilder usw komprimieren, richtige Load Order, Cachine Header -&gt; Das galt universell. Alle Seiten, alle Besuche.</p>
+<p>Heute: Critical CSS (unterschiedlich, auch pro Device), Preload (weiß man nicht, welche Datei), Server Push Async (aber nur beim ersten Besuch).</p>
+<p>Sind also alle einfachen Sachen (niedrig hängende Früchte) abgearbeitet?</p>
+<p>CSS per JavaScript nachladen ist ein NoGo! (Wenn du "Strategien" brauchst, um dein CSS zu laden, ist es vermutlich zu viel - dann liegt dein problem woanders.)
 Critical CSS rendern: ok, aber eigentlich nicht richtig.
 Per Progressive Web App und Service Worker Inhalte schonmal vorzuhalten ist ok, aber der normale Browsercache soltle das meiste davon schon tun.</p>
 <p>Wenn bei uns alles super ist, dann 3rd parties lehren</p>
