@@ -76,5 +76,5 @@ DEPLOYMENT = {
     "ls": "ls $OUTPUT_DIR",
     "echo": "echo '$OUTPUT_DIR'",
     #"default": "rsync -av --delete $OUTPUT_DIR www@server:~/blog.example.org/"
-    "default": "scp -vr ./output/* bundestwitter:/var/www/blog_thomaspuppe_de/"
+    "default": "scp -vr ./output/* bundestwitter:/var/www/blog.thomaspuppe.de/"
 }
