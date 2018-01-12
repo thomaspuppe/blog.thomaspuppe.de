@@ -39,3 +39,18 @@ Wir bei ZEIT Online haben ein
 Screenshot von unserem Sitespeed Dashboard
 
 Werbebranche hoffnungslos?
+
+
+
+- Anfänge
+- Hype
+- Ernüchterung
+
+Bücher, Konferenzthemen der Velocity, Blogposts.
+
+Diskussion: wo stehen wir? Wie geht es weiter?
+
+AMP: Standards statt Technik.
+
+
+https://www.cdn77.com/blog/web-performance-expert-insights-2018/
