@@ -11,8 +11,79 @@
     <link rel="self" type="application/atom+xml" href="http://blog.thomaspuppe.de/feed/atom/" />
     <icon>http://blog.thomaspuppe.de/favicon.ico</icon>
     <logo>http://blog.thomaspuppe.de/feed-logo.png</logo>
-    <updated>2017-07-07T23:00:00Z</updated>
+    <updated>2018-02-28T23:00:00Z</updated>
     <generator uri="https://github.com/posativ/acrylamid/" version="0.7.10">acrylamid</generator>
+        <entry>
+        <title>Notizen März 2018</title>
+        <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.denotizen-maerz-2018" />
+        <id>tag:blog.thomaspuppe.de,2018-03-01:notizen-maerz-2018</id>
+        <updated>2018-02-28T23:00:00Z</updated>
+        <category term="Notizen" />
+        
+        <author>
+            <name>Thomas Puppe</name>
+            <uri>http://blog.thomaspuppe.de/</uri>
+            <email>info@thomaspuppe.de</email>
+        </author>
+        <content type="html">&lt;p&gt;Ich versuche mich mal am beliebten &#34;this month I learned&#34; Format. Weil ich in den letzten Monaten aber immer gesammelt und nie gepublished habe, versuche ich es so: zu Monatsbeginn schreibe ich einen Anfang, und dann ergänze ich im Laufe des Monats. Das gibt auch Raum für kleine Sachen, die es nie zu eigenen Blogposts schaffen. Mal schauen wie das wird.&lt;/p&gt;
+&lt;h4&gt;Default Parameters in Javascript ... nicht im IE 11&lt;/h4&gt;
+&lt;p&gt;Fangen wir gleich mal an mit dem Fail der Woche. Einmal ZEIT Online Production kaputtmachen für alte Browser. Wie? Durch den Gebrauch von default Parametern in JavaScript:&lt;/p&gt;
+&lt;pre&gt;function(myParam, optionalParam = true) { ... }&lt;/pre&gt;
+
+&lt;p&gt;Das ist ein Feature aus ES2015 funktioniert deshalb leider nicht für den Internet Explorer 11 abwärts. Also, wenn man nicht babelt, muss man das wieder einkassieren und in der Funktion selbst den Default-Wert definieren:&lt;/p&gt;
+&lt;pre&gt;function(myParam, optionalParam) {
+    optionalParam = (typeof optionalParam !== &#39;undefined&#39;) ?  optionalParam : true;
+}&lt;/pre&gt;
+
+&lt;h4&gt;document.currentScript&lt;/h4&gt;
+&lt;p&gt;Das zweite JS Learning des Tages: man kann im JS Code dasjenige &lt;code&gt;script&lt;/code&gt;-DOM-Element selektieren, in dem der Code läuft. Einfach via &lt;code&gt;document.currentScript&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://2ality.com/2014/05/current-script.html&#34;&gt;Detaillierter Artikel zu currentScript von Dr. Axel Rauschmayer&lt;/a&gt; mit veralteten Angaben zur Browser-Unterstützung. Caniuse bestätigt eine gute Unterstützung: &lt;a href=&#34;http://blog.thomaspuppe.denotizen-maerz-2018/Browser-Unterstützung von document.currentScript bei caniuse.com&#34;&gt;https://www.caniuse.com/#search=currentScript&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Allerdings wieder ohne den IE11. Und weil wir da ja keinen Bug haben wollen (siehe oben), gibt es einen schönen Polyfill:&lt;/p&gt;
+&lt;pre&gt;var currentScript = document.currentScript || (function() {
+    var scripts = document.getElementsByTagName(&#39;script&#39;);
+    return scripts[scripts.length - 1];
+})();&lt;/pre&gt;
+
+&lt;p&gt;Wozu braucht man das? Um z.B. ein Script-Tag wegzuräumen, nachdem es seine Arbeit getan hat.&lt;/p&gt;
+&lt;pre&gt;&amp;lt;script&amp;gt;
+    var currentScript = document.currentScript;
+    var parent = currentScript.parentNode;
+    var newDiv = document.createElement(&#39;div&#39;);
+    newDiv.setAttribute(&#39;class&#39;, &#39;wurstbrot&#39;);
+    parent.replaceChild(newDiv, currentScript);
+&amp;lt;/script&amp;gt;&lt;/pre&gt;
+
+&lt;p&gt;Im Übrigen, unintuitiverweise:&lt;/p&gt;
+&lt;pre&gt;// String.replace Parameter Reihenfolge: search, replace
+str.replace(regexp|substr, newSubStr|function);
+
+// Node. Parameter Reihenfolge: replace, search
+parentNode.replaceChild(newChild, oldChild);
+&lt;/pre&gt;
+
+&lt;p&gt;Ich dachte das sei eine Spezialität von PHP.&lt;/p&gt;
+&lt;h4&gt;Newsletter&lt;/h4&gt;
+&lt;p&gt;Ich lese begeistert den &lt;strong&gt;&lt;a href=&#34;http://softwareleadweekly.com/&#34;&gt;Software Lead Weekly Newsletter&lt;/a&gt;&lt;/strong&gt; von &lt;a href=&#34;https://twitter.com/orenellenbogen&#34;&gt;Oren Ellenbogen&lt;/a&gt;, der auch das lesenswerte Buch &lt;a href=&#34;http://leadingsnowflakes.com/&#34;&gt;Leading Snowflakes&lt;/a&gt; geschrieben hat.&lt;/p&gt;
+&lt;p&gt;Normalerweise interessiert mich der &lt;strong&gt;&lt;a href=&#34;https://martingiesler.de/social-media-watchblog/&#34;&gt;Social Media Watchblog&lt;/a&gt;&lt;/strong&gt; von Martin Giesler nicht so sehr, aber diese Woche mit drei&lt;/p&gt;
+&lt;h4&gt;Accessibility Dashboard&lt;/h4&gt;
+&lt;p&gt;Bin letztens über das &#34;&lt;a href=&#34;https://github.com/pa11y/pa11y-dashboard&#34;&gt;pa11y Dashboard&lt;/a&gt;&#34; gestolpert, was Acessibility-Test-Scores für verschiedene Seiten auf einem Dashboard aufmalt. Das ist aber gerade im Umbruch. Ein Rewrite namens &#34;&lt;a href=&#34;https://github.com/pa11y/sidekick&#34;&gt;Sidekick&lt;/a&gt;&#34; ist WIP und funktioniert noch nicht. Da sind mein Kollege Valentin und ich auf die Idee gekommen, dass wir ja schon ein Dashboard haben, in das man pa11y-Testergebnisse reinmalen kann. Und zwar ein Graphite/Grafana, das wir für &lt;a href=&#34;https://www.sitespeed.io/&#34;&gt;Sitespeed&lt;/a&gt; Performance Monitoring benutzen.&lt;/p&gt;
+&lt;p&gt;Also haben wir ein kleines CSript geschrieben, das pa11y-tests parallel laufen lässt und die Ergebnisse an eine Graphite Instanz sendet.  Ergebnis ist ein kleines Repo: &lt;a href=&#34;https://github.com/ZeitOnline/a11y-dashboard-connector&#34;&gt;a11y-dashboard-connector&lt;/a&gt;: Es ist ein zaghafter Anfang, und noch hardcoded für unsere Zwecke, aber immerhin.&lt;/p&gt;
+&lt;h4&gt;CSS Keylogger und andere Schweinereien&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Keylogging via CSS&lt;/strong&gt;: vor einigen Tagen ging ein GitHub Repo um, das zeigte, wie man CSS als Keylogger missbrauchen kann: &lt;a href=&#34;https://github.com/maxchehab/CSS-Keylogging&#34;&gt;CSS Keylogger&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;input[type=&#34;password&#34;][value$=&#34;p&#34;] {
+  background: url(&#39;/password?p&#39;);
+}&lt;/pre&gt;
+
+&lt;p&gt;In seinem Blogpost &lt;a href=&#34;https://jakearchibald.com/2018/third-party-css-is-not-safe/&#34;&gt;Third party CSS is not safe&lt;/a&gt; erfindet Jake Archibald weitere Möglichkeiten, wie 3rd Party CSS eine Seite manipulieren kann. Sehr spannend, aber nur nebenbei im Artikel erwähnt: wenn ein Angreifer die Cache Storage vollschreibt, kann er Clients dauerhaft kompromittieren, auch wenn das schadhafte Script längst von der Seite entfernt wurde. Fazit:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Third party content is not safe
+– Jake Archibald&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Lesetipps&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Lasagne Code&lt;/strong&gt; ist eine schöne neue Metapher, die ich im Artikel &lt;a href=&#34;https://matthiasnoback.nl/2018/02/lasagna-code-too-many-layers/&#34;&gt;Lasagna code - too many layers?&lt;/a&gt; gelernt habe. Der Autor plädiert nicht gegen Layer im Code, sondern für die richtige Dosis und Art. Ich finde die Metapher auch noch auf einer anderen Ebene (no pun intended) spannend: bei der Infrastruktur. Einmal Proxy-Cache ist cool. Mehrere Ebenen mit eigenen Regeln und Verzweigungen führt zu einer Situation wie bei Spaghetti Code, nur als Lasagne.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Dieser Artikel wird gerade fortgeschrieben, und wird im Laufe des Monats wachsen.&lt;/em&gt;&lt;/p&gt;</content>
+    </entry>
+    
         <entry>
         <title>Front Trends 2017 in Warsaw</title>
         <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.defront-trends-2017-warsaw" />
@@ -6040,23 +6111,5 @@ jsOutput.innerHTML+= navigator.userAgent + &#34;\n&#34;;
     &lt;li&gt;&lt;a href=&#34;http://www.ndr.de/fernsehen/sendungen/hallo_niedersachsen/media/hallonds13283.html&#34;&gt;&amp;quot;Wahlkampf im Internet&amp;quot;&lt;/a&gt; Hallo Niedersachsen - 02.01.2013 19:30 Uhr&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/p&gt;</content>
-    </entry>
-    
-        <entry>
-        <title>domain.de+ auf Google+ Profil umleiten</title>
-        <link rel="alternate" type="text/html" href="http://blog.thomaspuppe.deeigene-domain-google-plus-umleiten" />
-        <id>tag:blog.thomaspuppe.de,2013-01-17:eigene-domain-google-plus-umleiten</id>
-        <updated>2013-01-16T23:00:00Z</updated>
-        <category term="Web-Entwicklung" />
-        
-        <author>
-            <name>Thomas Puppe</name>
-            <uri>http://blog.thomaspuppe.de/</uri>
-            <email>info@thomaspuppe.de</email>
-        </author>
-        <content type="html">&lt;p&gt;Ein Tipp für die Leute mit eigener Domain: Weiterleitung von &lt;strong&gt;thomaspuppe.de/+&lt;/strong&gt; auf das Google-Profil via .htaccess:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;RewriteEngine on
-RewriteCond %{REQUEST_URI} ^/+
-RewriteRule ^(.*)$ https://plus.google.com/u/0/109992889758306031081/ [R=permanent,L]&lt;/code&gt;&lt;/p&gt;</content>
     </entry>
     </feed>

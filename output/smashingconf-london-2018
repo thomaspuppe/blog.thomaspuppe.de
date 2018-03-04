@@ -46,7 +46,50 @@
     <figcaption>TODO Smashing Conf</figcaption>
 </figure>
 
-<h3>Opening by <a href="https://twitter.com/twholman">Tim Holman</a></h3>
+<h3>See yourself: the conference papers and videos</h3>
+<h3>Performance Culture</h3>
+<p><a href="https://twitter.com/TODO">Phil Hawksworth</a> spoke about deployments at/via netlify (where he works). Each version (tag) of your software results in a build which is (and stays) available as a stable resource. That way you can easily allocate traffic to different versions (gradual release of a new thing, fast rollback) and have a history available to check out your site in earlier states. Further advice: Move unknowns to the start of your projects, so you can tacke them early. And: use services. The complexity of modern web development is still there, but you don't have to own everything.</p>
+<blockquote>
+<p>Human interventions in deployments are undesirable
+– Phil Hawksworth</p>
+</blockquote>
+<h3>Measuring Performance</h3>
+<p><a href="https://twitter.com/TODO">Andy Davies</a> had a brilliant talk on 3rd party scripts, how they harm your site, and how to analyze what they do.</p>
+<p>Webpagetest allows blocking 3rd party scripts (by domain blacklists). That way you can directly compare the load behaviour of your site with(out) certain 3rd party tools.</p>
+<p>Andy demonstrated how to use the Chrome developer tools to detect which scripts use network and memory. That way you can find things that the usual testing tools dont show (eg heavy CPU load on unload event, when some tracking scripts start to calculate and send data home).</p>
+<p>Some specific tricks on Optimizely: You can tune it, for example remove its jQuery <em>(I was shocked that it comes with jQuery at all)</em> if you provide your own version in the global namespace. You can read the number of examples from outside via JS - that way you can track what Optimizely does on each page, and relate that to load times or bounce rates.</p>
+<p>And in the end, Andy spoke about general failures on A/B tests. Some use redirects for variant B, which totally destroys comparability. Or business people use uncompressed images on the B variant, which of course performs worse than the optimized A variant which is already in production.</p>
+<p>Which brought him to the conclusion, that maybe sometimes the benefits of A/B testing or other 3rd party tools are destroyed by the bad performance.</p>
+<p>TODO: meinen Tweet einfügen</p>
+<blockquote>
+<p>3rd parties cost us money
+– Andy Davies</p>
+</blockquote>
+<p>TODO: Zitat von Tim Kadlec</p>
+<h3>Improving Performance</h3>
+<p><a href="https://twitter.com/TODO">Una TODO</a> and <a href="https://twitter.com/TODO">Martin TODO</a> blew my mind with image optimization wizardry. After briefly covering the basics (formats, responsive images, compression) they went beyond the regular stuff. My favorite techniques:</p>
+<ul>
+<li>blur unimportant parts of a photo (eg the sky behind a portrait)</li>
+<li>show small (scaled-up + blurry via CSS) image placeholders while the big image loads</li>
+<li>black/white images combined with CSS blend modes/filters give great dual tone or gradient effects, and are much smaller than a colored image</li>
+<li>contrast swap: decrease contrast on the image file (so it is smaller on transfer) and increase contrast via CSS filter.</li>
+</ul>
+<p>You cannot apply everything automatically on your whole site. But might be worth the effort for your home page or landing page artwork which does not change often.</p>
+<p>--</p>
+<p><a href="https://twitter.com/TODO">Zach TODO</a> had a talk about font loading. Most things I knew (FOIT, FOUT, font-display).</p>
+<p>Next thing was font-synthesis what was quite cool. TODO</p>
+<p>Two more optimizations: If you know the set of characters that will be used, you can create subsets of webfonts, so the font file gets smaller. You might strip all non-latin characters (plus special characters or maybe umlauts) from the font. Or, if you use it only for a specific text (your page header) you could create a subset of only these characters. Which could be included base64 encoded as data-uri inside your page or CSS file. (Assuming you have only one format, which should be the case IMHO).</p>
+<h3>Things to review and resarch</h3>
+<h3>My personal todo list</h3>
+<ul>
+<li>Use responsive images on this blog ... done on this article :-).</li>
+<li>Use modern compression.</li>
+<li>Finally try netlify. Just because it is hot this year.</li>
+<li>Try image previews (blurry technique or svg preview).</li>
+<li>Check out (JS Manners)[http://jsmanners.com/]</li>
+</ul>
+<hr />
+<h3>Promoting Performance trhough <a href="https://twitter.com/twholman">Tim Holman</a></h3>
 <ul>
 <li>Fun with [CSS pranks](http://slides.com/tholman/css</li>
 </ul>

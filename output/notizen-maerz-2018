@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Notizen März 2018</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="Eine Art this-month-I-learned meets Lesetipps meets Notizblock" />
+    <meta name="keywords" content="Notizen" />
+</head>
+<body>
+  <header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Notizen
+		</span>
+		<time datetime="2018-03-01">
+			
+			01. März 2018
+		</time>
+	</div>
+
+    <h1 class="post__title">Notizen März 2018</h1>
+
+    <p>Ich versuche mich mal am beliebten "this month I learned" Format. Weil ich in den letzten Monaten aber immer gesammelt und nie gepublished habe, versuche ich es so: zu Monatsbeginn schreibe ich einen Anfang, und dann ergänze ich im Laufe des Monats. Das gibt auch Raum für kleine Sachen, die es nie zu eigenen Blogposts schaffen. Mal schauen wie das wird.</p>
+<h3>Default Parameters in Javascript ... nicht im IE 11</h3>
+<p>Fangen wir gleich mal an mit dem Fail der Woche. Einmal ZEIT Online Production kaputtmachen für alte Browser. Wie? Durch den Gebrauch von default Parametern in JavaScript:</p>
+<pre>function(myParam, optionalParam = true) { ... }</pre>
+
+<p>Das ist ein Feature aus ES2015 funktioniert deshalb leider nicht für den Internet Explorer 11 abwärts. Also, wenn man nicht babelt, muss man das wieder einkassieren und in der Funktion selbst den Default-Wert definieren:</p>
+<pre>function(myParam, optionalParam) {
+    optionalParam = (typeof optionalParam !== 'undefined') ?  optionalParam : true;
+}</pre>
+
+<h3>document.currentScript</h3>
+<p>Das zweite JS Learning des Tages: man kann im JS Code dasjenige <code>script</code>-DOM-Element selektieren, in dem der Code läuft. Einfach via <code>document.currentScript</code>.</p>
+<p><a href="http://2ality.com/2014/05/current-script.html">Detaillierter Artikel zu currentScript von Dr. Axel Rauschmayer</a> mit veralteten Angaben zur Browser-Unterstützung. Caniuse bestätigt eine gute Unterstützung: <a href="Browser-Unterstützung von document.currentScript bei caniuse.com">https://www.caniuse.com/#search=currentScript</a>.</p>
+<p>Allerdings wieder ohne den IE11. Und weil wir da ja keinen Bug haben wollen (siehe oben), gibt es einen schönen Polyfill:</p>
+<pre>var currentScript = document.currentScript || (function() {
+    var scripts = document.getElementsByTagName('script');
+    return scripts[scripts.length - 1];
+})();</pre>
+
+<p>Wozu braucht man das? Um z.B. ein Script-Tag wegzuräumen, nachdem es seine Arbeit getan hat.</p>
+<pre>&lt;script&gt;
+    var currentScript = document.currentScript;
+    var parent = currentScript.parentNode;
+    var newDiv = document.createElement('div');
+    newDiv.setAttribute('class', 'wurstbrot');
+    parent.replaceChild(newDiv, currentScript);
+&lt;/script&gt;</pre>
+
+<p>Im Übrigen, unintuitiverweise:</p>
+<pre>// String.replace Parameter Reihenfolge: search, replace
+str.replace(regexp|substr, newSubStr|function);
+
+// Node. Parameter Reihenfolge: replace, search
+parentNode.replaceChild(newChild, oldChild);
+</pre>
+
+<p>Ich dachte das sei eine Spezialität von PHP.</p>
+<h3>Newsletter</h3>
+<p>Ich lese begeistert den <strong><a href="http://softwareleadweekly.com/">Software Lead Weekly Newsletter</a></strong> von <a href="https://twitter.com/orenellenbogen">Oren Ellenbogen</a>, der auch das lesenswerte Buch <a href="http://leadingsnowflakes.com/">Leading Snowflakes</a> geschrieben hat.</p>
+<p>Normalerweise interessiert mich der <strong><a href="https://martingiesler.de/social-media-watchblog/">Social Media Watchblog</a></strong> von Martin Giesler nicht so sehr, aber diese Woche mit drei</p>
+<h3>Accessibility Dashboard</h3>
+<p>Bin letztens über das "<a href="https://github.com/pa11y/pa11y-dashboard">pa11y Dashboard</a>" gestolpert, was Acessibility-Test-Scores für verschiedene Seiten auf einem Dashboard aufmalt. Das ist aber gerade im Umbruch. Ein Rewrite namens "<a href="https://github.com/pa11y/sidekick">Sidekick</a>" ist WIP und funktioniert noch nicht. Da sind mein Kollege Valentin und ich auf die Idee gekommen, dass wir ja schon ein Dashboard haben, in das man pa11y-Testergebnisse reinmalen kann. Und zwar ein Graphite/Grafana, das wir für <a href="https://www.sitespeed.io/">Sitespeed</a> Performance Monitoring benutzen.</p>
+<p>Also haben wir ein kleines CSript geschrieben, das pa11y-tests parallel laufen lässt und die Ergebnisse an eine Graphite Instanz sendet.  Ergebnis ist ein kleines Repo: <a href="https://github.com/ZeitOnline/a11y-dashboard-connector">a11y-dashboard-connector</a>: Es ist ein zaghafter Anfang, und noch hardcoded für unsere Zwecke, aber immerhin.</p>
+<h3>CSS Keylogger und andere Schweinereien</h3>
+<p><strong>Keylogging via CSS</strong>: vor einigen Tagen ging ein GitHub Repo um, das zeigte, wie man CSS als Keylogger missbrauchen kann: <a href="https://github.com/maxchehab/CSS-Keylogging">CSS Keylogger</a>.</p>
+<pre>input[type="password"][value$="p"] {
+  background: url('/password?p');
+}</pre>
+
+<p>In seinem Blogpost <a href="https://jakearchibald.com/2018/third-party-css-is-not-safe/">Third party CSS is not safe</a> erfindet Jake Archibald weitere Möglichkeiten, wie 3rd Party CSS eine Seite manipulieren kann. Sehr spannend, aber nur nebenbei im Artikel erwähnt: wenn ein Angreifer die Cache Storage vollschreibt, kann er Clients dauerhaft kompromittieren, auch wenn das schadhafte Script längst von der Seite entfernt wurde. Fazit:</p>
+<blockquote>
+<p>Third party content is not safe
+– Jake Archibald</p>
+</blockquote>
+<h3>Lesetipps</h3>
+<p><strong>Lasagne Code</strong> ist eine schöne neue Metapher, die ich im Artikel <a href="https://matthiasnoback.nl/2018/02/lasagna-code-too-many-layers/">Lasagna code - too many layers?</a> gelernt habe. Der Autor plädiert nicht gegen Layer im Code, sondern für die richtige Dosis und Art. Ich finde die Metapher auch noch auf einer anderen Ebene (no pun intended) spannend: bei der Infrastruktur. Einmal Proxy-Cache ist cool. Mehrere Ebenen mit eigenen Regeln und Verzweigungen führt zu einer Situation wie bei Spaghetti Code, nur als Lasagne.</p>
+<p><em>Dieser Artikel wird gerade fortgeschrieben, und wird im Laufe des Monats wachsen.</em></p>
+
+</article>
+</body>
+</html>
