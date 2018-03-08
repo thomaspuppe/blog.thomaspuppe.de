@@ -60,6 +60,10 @@ TODO: meinen Tweet einfügen
 
 TODO: Zitat von Tim Kadlec
 
+--
+
+[Patrick Meenan](https://twitter.com/TODO), the inventor[TODO:???] of Webpagetest
+
 ## Improving Performance
 
 
@@ -76,9 +80,11 @@ You cannot apply everything automatically on your whole site. But might be worth
 
 [Zach TODO](https://twitter.com/TODO) had a talk about font loading. Most things I knew (FOIT, FOUT, font-display).
 
-Next thing was font-synthesis what was quite cool. TODO
+Next thing was [font-synthesis](https://www.igvita.com/2014/09/16/optimizing-webfont-selection-and-synthesis/). Basically: use a substitute which is close to your font to be loaded, while it loads (eg the normal style of your webfont plus font-weight:bold, while the bold style loads ... which in this case might be the second page, because you use [font-display: fallback/optional](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display)).
 
 Two more optimizations: If you know the set of characters that will be used, you can create subsets of webfonts, so the font file gets smaller. You might strip all non-latin characters (plus special characters or maybe umlauts) from the font. Or, if you use it only for a specific text (your page header) you could create a subset of only these characters. Which could be included base64 encoded as data-uri inside your page or CSS file. (Assuming you have only one format, which should be the case IMHO).
+
+A tool for checking the character subset of your page is [Glyphhanger](https://github.com/filamentgroup/glyphhanger). Another toolset: [Fonttools (Python)](https://github.com/fonttools/fonttools) for format conversion, subsets and more.
 
 
 
