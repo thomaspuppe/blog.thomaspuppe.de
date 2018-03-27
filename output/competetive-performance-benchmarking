@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Competetive Frontend Performance Benachmarking</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="None" />
+    <meta name="keywords" content="Webentwicklung" />
+</head>
+<body>
+  <header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category">#Webentwicklung
+		</span>
+		<time datetime="2018-03-06">
+			
+			06. March 2018
+		</time>
+	</div>
+
+    <h1 class="post__title">Competetive Frontend Performance Benachmarking</h1>
+
+    <p>[TOC mit Anker-Deeplinks]</p>
+<h3>Manual tests inside the browser</h3>
+<h3>Manual tests</h3>
+<h3>One-time comparison tools</h3>
+<h3>Continuous benchmarks in synthetic tools</h3>
+<h3>RUM (real user monitoring) data about your competitors with CrUX</h3>
+<p>... eigentlich gehts nicht</p>
+<p>Chrome Real User Experience ("CrUX") Report hat Daten, die im Chrome Browser gesammelt werden. Diese decken allerdings nur die 10000 größten Seiten ab, und sind eben nur von neueren Versionen des Chrome-Browsers.</p>
+<p>https://developers.google.com/web/tools/chrome-user-experience-report/</p>
+<p><a href="https://developers.google.com/speed/pagespeed/insights/">Page Speed Insights</a></p>
+<p>Google Big Query has a CrUX data set (latest one from January 2018) https://bigquery.cloud.google.com/table/chrome-ux-report:all.201801 . And you can query this set for free, if you have a Google account.</p>
+<p>Google provides some <a href="https://developers.google.com/web/tools/chrome-user-experience-report/getting-started#example-queries">example queries</a>, which work well with the 2017 dataset. Just change the URL. For 2018 you need to change the queries, because they renamed some fields.</p>
+<p>https://bigquery.cloud.google.com/savedquery/415027649228:2e0411a31423477892f0a27aa990f5ed</p>
+
+</article>
+</body>
+</html>

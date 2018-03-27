@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/social-bots/</loc>
-    <lastmod>2018-03-03</lastmod>
+    <lastmod>2018-03-14</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -55,7 +55,7 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/notizen/</loc>
-    <lastmod>2018-03-03</lastmod>
+    <lastmod>2018-03-14</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -78,17 +78,17 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/bundestwitter/</loc>
-    <lastmod>2018-03-03</lastmod>
+    <lastmod>2018-03-14</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/page/2/</loc>
-    <lastmod>2018-03-03</lastmod>
+    <lastmod>2018-03-14</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/webentwicklung/</loc>
-    <lastmod>2018-03-03</lastmod>
+    <lastmod>2018-03-14</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -99,17 +99,17 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/web-entwicklung/</loc>
-    <lastmod>2018-03-03</lastmod>
+    <lastmod>2018-03-14</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/web-development/</loc>
-    <lastmod>2018-03-03</lastmod>
+    <lastmod>2018-03-14</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/daten-visualisierung/</loc>
-    <lastmod>2018-03-03</lastmod>
+    <lastmod>2018-03-14</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -180,7 +180,7 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/notizen-maerz-2018</loc>
-    <lastmod>2018-03-03</lastmod>
+    <lastmod>2018-03-14</lastmod>
     <changefreq>never</changefreq>
     <priority>1.0</priority>
   </url>
@@ -192,17 +192,23 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/kategorie/news-watch/</loc>
-    <lastmod>2018-03-03</lastmod>
+    <lastmod>2018-03-14</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>http://blog.thomaspuppe.de/mein-smarterphone</loc>
+    <lastmod>2018-03-14</lastmod>
+    <changefreq>never</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>http://blog.thomaspuppe.de/feed/rss/</loc>
-    <lastmod>2018-03-03</lastmod>
+    <lastmod>2018-03-14</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/feed/atom/</loc>
-    <lastmod>2018-03-03</lastmod>
+    <lastmod>2018-03-14</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -213,7 +219,7 @@
   </url>
   <url>
     <loc>http://blog.thomaspuppe.de/</loc>
-    <lastmod>2018-03-03</lastmod>
+    <lastmod>2018-03-14</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

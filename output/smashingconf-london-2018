@@ -66,6 +66,8 @@
 – Andy Davies</p>
 </blockquote>
 <p>TODO: Zitat von Tim Kadlec</p>
+<p>--</p>
+<p><a href="https://twitter.com/TODO">Patrick Meenan</a>, the inventor[TODO:???] of Webpagetest</p>
 <h3>Improving Performance</h3>
 <p><a href="https://twitter.com/TODO">Una TODO</a> and <a href="https://twitter.com/TODO">Martin TODO</a> blew my mind with image optimization wizardry. After briefly covering the basics (formats, responsive images, compression) they went beyond the regular stuff. My favorite techniques:</p>
 <ul>
@@ -77,8 +79,9 @@
 <p>You cannot apply everything automatically on your whole site. But might be worth the effort for your home page or landing page artwork which does not change often.</p>
 <p>--</p>
 <p><a href="https://twitter.com/TODO">Zach TODO</a> had a talk about font loading. Most things I knew (FOIT, FOUT, font-display).</p>
-<p>Next thing was font-synthesis what was quite cool. TODO</p>
+<p>Next thing was <a href="https://www.igvita.com/2014/09/16/optimizing-webfont-selection-and-synthesis/">font-synthesis</a>. Basically: use a substitute which is close to your font to be loaded, while it loads (eg the normal style of your webfont plus font-weight:bold, while the bold style loads ... which in this case might be the second page, because you use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display">font-display: fallback/optional</a>).</p>
 <p>Two more optimizations: If you know the set of characters that will be used, you can create subsets of webfonts, so the font file gets smaller. You might strip all non-latin characters (plus special characters or maybe umlauts) from the font. Or, if you use it only for a specific text (your page header) you could create a subset of only these characters. Which could be included base64 encoded as data-uri inside your page or CSS file. (Assuming you have only one format, which should be the case IMHO).</p>
+<p>A tool for checking the character subset of your page is <a href="https://github.com/filamentgroup/glyphhanger">Glyphhanger</a>. Another toolset: <a href="https://github.com/fonttools/fonttools">Fonttools (Python)</a> for format conversion, subsets and more.</p>
 <h3>Things to review and resarch</h3>
 <h3>My personal todo list</h3>
 <ul>

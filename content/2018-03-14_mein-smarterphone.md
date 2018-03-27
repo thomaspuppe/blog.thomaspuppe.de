@@ -62,4 +62,4 @@ Ich nehme mir immer wieder mal vor, das Handy vor dem Frühstück nicht zu benut
 Wenn du nicht gerade Kinder hast, oder kranke Eltern, gibt es keinen vernünftigen Grund jederzeit erreichbar zu sein.
 
 
-Ich ~sende den Kettenbrief~ werfe das Stöckchen weiter zu [Arne Seemann](https://arnalyse.de/).
+Ich <strike>sende den Kettenbrief</strike> werfe das Stöckchen weiter zu [Arne Seemann](https://arnalyse.de/).

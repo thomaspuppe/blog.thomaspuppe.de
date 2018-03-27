@@ -1,10 +1,10 @@
 ---
-title:
+title: Easto: a static-site generator
 date: 2018-03-06
 datelabel: 06. March 2018
 language: en
 tags: [Webentwicklung]
-permalink: competetive-performance-benchmarking
+permalink: easto-static-site-generator
 draft: true
 description:
 ---

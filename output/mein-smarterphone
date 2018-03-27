@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Mein Smarterphone</title>
+  <link media="all" href="/styles.css" rel="stylesheet" />
+  <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
+  <link href="/" rel="home start" />
+  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <meta name="description" content="Man nennt es Blogstöckchen: ein Interview zu meiner Smartphone-Nutzung" />
+    <meta name="keywords" content="" />
+</head>
+<body>
+  <header>
+		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+  	
+
+  </header><article class="post">
+
+	<div class="post__meta">
+		<span class="post__category"></span>
+		<time datetime="2018-03-14">
+			
+			14. März 2018
+		</time>
+	</div>
+
+    <h1 class="post__title">Mein Smarterphone</h1>
+
+    <p>Mein Kollege und Chef <a href="https://twitter.com/nicobruenjes/">Nico Brünjes</a> warf mir folgendes Interview als <a href="https://couchblog.de/blog/2018/03/13/mein-smarterphone/">Blogstöckchen</a> zu.</p>
+<h3>…und ich, Name:</h3>
+<p>Thomas Puppe</p>
+<h3>verbringt seinen Tag…</h3>
+<p>mit Frontend-Webentwicklung bei ZEIT Online</p>
+<h3>nutzt ein:</h3>
+<p>Samsung Galaxy S7, das mir die Firma zur Verfügung stellt. Eigentlich wollte ich mal ein iPhone ausprobieren, aber zugunsten der Vielfalt im Frontend-Team wurde es doch wieder ein Android.</p>
+<h3>Wie würdest Du dein Verhältnis zu Deinem Smartphone bezeichnen?</h3>
+<p>Eng, aber unemotional. Wie zu meiner Hose. Ich habe das Smartphone ständig dabei und nutze es viel, aber es ist austauschbar – und am Wochenende geht es auch mal ohne.</p>
+<h3>Welche App/Funktion nutzt du am häufigsten (gerne in den Statistiken nachschauen oder aus dem Bauch schätzen)</h3>
+<p>Twitter, Whatsapp, Browser, Evernote, den Wecker.</p>
+<h3>Welche App/Funktion nutzt du gar nicht?</h3>
+<p>Ich spiele nicht auf dem Handy. Ich mache kein Mobile Banking.</p>
+<h3>Arbeit und Handy — wie regelst Du das?</h3>
+<p>Rufbereitschaft braucht es im hochqualitativen Zero-Bug-Frontend von ZEIT Online nicht ;-). Und wenn, wäre ich auch nicht der Ansprechpartner. Daher ist alle arbeitsbezogene Handynutzung in der Freizeit freiwillig. Und beschränkt sich auf Sachen wie mal-Slack-checken.</p>
+<p>Andersherum nutze ich das "Diensthandy" auch privat. Auch im Büro. Während technische Recherche und Weiterbildung viel in der Freizeit passiert -- ich denke das gleicht sich aus.</p>
+<h3>Welche Notification hast Du eingeschaltet?</h3>
+<p>So wenig wie möglich. Ich schalte prinzipiell alles aus, und gewählte Apps wieder ein. Dazu gehören Twitter, Whatsapp, E-Mails, Pushover und die DHL. (Und ein paar kürzlich installierte, die ich noch nicht abgeklemmt habe ... gleich mal machen!)</p>
+<h3>Warum?</h3>
+<p>Weil die Scheiße nervt. Die meisten Apps richten die Dringlichkeit für Pushes nicht nach mir (etwas Schlimmes ist passiert, oder mein Bus verspätet sich), sondern nach sich (Generalsekretär wie geplant gewählt, Busticket-Sonderangebot).</p>
+<h3>Hälst du dich an soziale Regeln bei der Smartphone-Nutzung? Wenn ja: Welche?</h3>
+<p>Ich hab mein Handy niemals laut. Und versuche seit neuestem sogar, die Vibration aus zu lassen. In der Regel will ich den Griff zum Handy aus eigener Motivation tun, und nicht weil es sich meldet.</p>
+<h3>Gibt es Regeln, die du wieder verworfen hast?</h3>
+<p>Ich nehme mir immer wieder mal vor, das Handy vor dem Frühstück nicht zu benutzen, oder nicht im Schlafzimmer. Aber das klappt bisher nicht.</p>
+<h3>Zum Abschluss: Was sollten mehr Menschen im Umgang mit Smartphones wissen?</h3>
+<p>Wenn du nicht gerade Kinder hast, oder kranke Eltern, gibt es keinen vernünftigen Grund jederzeit erreichbar zu sein.</p>
+<p>Ich <strike>sende den Kettenbrief</strike> werfe das Stöckchen weiter zu <a href="https://arnalyse.de/">Arne Seemann</a>.</p>
+
+</article>
+</body>
+</html>

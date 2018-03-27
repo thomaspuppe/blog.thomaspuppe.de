@@ -1,5 +1,5 @@
 ---
-title:
+title: Competetive Frontend Performance Benachmarking
 date: 2018-03-06
 datelabel: 06. March 2018
 language: en
