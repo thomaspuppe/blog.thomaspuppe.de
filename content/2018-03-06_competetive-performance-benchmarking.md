@@ -38,6 +38,9 @@ https://developers.google.com/web/tools/chrome-user-experience-report/
 
 [Page Speed Insights](https://developers.google.com/speed/pagespeed/insights/)
 
+Report kann jeder nutzen, zB https://beta.httparchive.org/reports/chrome-ux-report
+
+https://gist.github.com/RatulSaha/c06a31354ccb07b02584088659cd328f
 
 Google Big Query has a CrUX data set (latest one from January 2018) https://bigquery.cloud.google.com/table/chrome-ux-report:all.201801 . And you can query this set for free, if you have a Google account.
 
