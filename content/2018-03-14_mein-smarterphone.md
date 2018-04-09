@@ -6,7 +6,7 @@ language: de
 tags: []
 permalink: mein-smarterphone
 draft: false
-description: Man nennt es Blogstöckchen: ein Interview zu meiner Smartphone-Nutzung
+description: "Man nennt es Blogstöckchen: ein Interview zu meiner Smartphone-Nutzung"
 ---
 
 Mein Kollege und Chef [Nico Brünjes](https://twitter.com/nicobruenjes/) warf mir folgendes Interview als [Blogstöckchen](https://couchblog.de/blog/2018/03/13/mein-smarterphone/) zu.

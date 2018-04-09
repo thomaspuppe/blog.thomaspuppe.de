@@ -6,7 +6,7 @@ language: de
 tags: [web development]
 permalink: produktives-prokrastinieren
 draft: true
-description: TODO: Die Description
+description:
 ---
 
 

@@ -6,7 +6,7 @@ language: en
 tags: [web development]
 permalink: fast-brutalist-websites
 draft: false
-description: Intentionally ugly websites are one of the trends in 2017. What I like most about this: ugly is fast!
+description: "Intentionally ugly websites are one of the trends in 2017. What I like most about this: ugly is fast!"
 ---
 
 <link href="/images/2017/02/brutalist/styles.css" type="text/css" rel="stylesheet" />

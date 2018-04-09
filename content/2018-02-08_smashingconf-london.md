@@ -1,5 +1,5 @@
 ---
-title: Smashing Conf 2018 in London: #perfmatters
+title: "Smashing Conf 2018 in London: #perfmatters"
 date: 2018-02-08
 datelabel: 08. February 2018
 language: en

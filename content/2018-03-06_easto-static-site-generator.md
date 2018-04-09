@@ -1,5 +1,5 @@
 ---
-title: Easto: a static-site generator
+title: "Easto: a static-site generator"
 date: 2018-03-06
 datelabel: 06. March 2018
 language: en

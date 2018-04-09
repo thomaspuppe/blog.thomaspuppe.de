@@ -1,5 +1,5 @@
 ---
-title: Front Trends 2016 in Warsaw: Day 3
+title: "Front Trends 2016 in Warsaw: Day 3"
 date: 2016-05-20
 datelabel: 20. Mai 2016
 language: en
