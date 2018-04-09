@@ -13,7 +13,7 @@ Mit dem doNotTrack Befehl können User signalisieren, dass sie nicht von Website
 Chrome und Safari haben eine andere Schreibweise für die doNotTrack Property als der Firefox Browser. Der IE 9/10 verwendet einen eigenen Namen. Und der IE 8 unterstützt diese Einstellung laut Microsoft auf <a href="http://ie.microsoft.com/TEStdrive/Browser/DoNotTrack/Default.html">sehr krude Art und Weise</a>.
 
 
-##Getestete Browser:
+## Getestete Browser:
 
 <table>
 	<thead>
@@ -46,7 +46,7 @@ Chrome und Safari haben eine andere Schreibweise für die doNotTrack Property al
 <em>Die Tabelle wird nach und nach ergänzt. Input bitte an <a href="https://twitter.com/thomaspuppe">@thomaspuppe</a></em>
 
 
-##Live-Test in Ihrem Browser
+## Live-Test in Ihrem Browser
 
 
 <pre id="jsOutput"></pre>

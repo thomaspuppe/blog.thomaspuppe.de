@@ -14,7 +14,7 @@ Ziel ist nicht, dass der Blog auf allen Geräten gleich aussieht (was auch nicht
 
 Anhand des sehr einfachen Blog-Layouts öchte ich drei grundlegende Regeln von Responsive Websites erläutern.
 
-##1. Anpassung des Viewport
+## 1. Anpassung des Viewport
 
 Mit der Einführung des iPhone wurde quasi eine neue Geräteklasse geschaffen, auf die das Web nicht vorbereitet war. Websites, die zuvor auf einem Bildschirm mit 1024 und mehr Pixeln dargestellt wurden, sollten nun auf einem 320 oder 480 Pixel breiten Display gezeigt werden. Vor dieser Herausforderung stand Apple. Eine Variante dafür wäre, nur die linke obere Ecke der Website zu zeigen. Ein anderer, die Website klein zu skalieren. Für die zweite Variante hatte sich Apple entschieden. Websites wurden auf eine feste Breite von 980 Pixel gerendert und dann auf die Breite des iPhones herunterskaliert. (Für Android-Browser gilt das gleiche, mit 800 Pixeln Breite.)
 
@@ -30,7 +30,7 @@ Dieser Meta-Tag im Head-Bereich der Website sagt dem Browser, dass die Seite nic
 
 Auf Desktop-Browsern spielt der Viewport übrigens keine Rolle. Hier gilt die Fensterbreite wie sie ist, weil es ja keinen Grund zum Skalieren gibt.
 
-##2. Flexible Seitenbreite und Raster
+## 2. Flexible Seitenbreite und Raster
 
 Als nächstes muss die Seite flexibel auf die (nun auch auf kleinen Geräten erkannte) Breite reagieren. Statt einer festen Breite in Pixeln geben wir den Elementen auf der Seite eine flexible Breite in Prozent, die sich an der größe des Browserfensters (oder des mobilen Gerätes) orientiert.
 
@@ -46,7 +46,7 @@ Soeben haben wir mobile Geräte mittels Viewport dazu gezwungen, die Seite in Or
 
 Da die Artikel selbst noch breit laufen sollen (bunter Rand rechts), begrenzen wir nur Überschriften und Absätze in der Breite. Ḿan erkennt, dass die Inhalte der rechten Spalte sich dem Menü
 
-##3. Breakpoints für unterschiedliche Styles
+## 3. Breakpoints für unterschiedliche Styles
 
 Anhand von sogenannten Media Queries kann bestimmtes CSS für bestimmte Gerätetypen ausgeliefert werden. Für Responsive Websites richtet man sich meist nach der Breite des Bildschirms. Anhand von Grenzwerten (&ldquo;Breakpoints&rdquo;) werden unterschiedliche Regeln für unterschiedliche Bildschirm edefiniert. Für den Einsatz von Breakpoints gibt es zwei verschiedene Ansätze. **Desktop-First** funktioniert mit absteigenden max-width Werten:
 
@@ -89,6 +89,6 @@ Beachte: für alle Bildschirme über dem größten max-width-Wert (oder unter de
 Da mobile (kleine) Geräte tendentiell schwächer sind als große, halte ich Mobile-First für einen guten Ansatz.
 
 
-##Linktipp
+## Linktipp
 
 <a href="http://bradfrost.github.io/this-is-responsive/">&ldquo;This is responsive&rdquo; von Brad Frost</a>.

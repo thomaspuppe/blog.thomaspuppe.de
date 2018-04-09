@@ -19,13 +19,13 @@ Out of scope:
 - Erstellen einer Twitter App und Generieren der Authentifizierungsdaten
 - Anmelden bei AWS und die Details fürs Einrichten einer Instanz.
 
-##Schritt 1: AWS Instanz erstellen und hochfahren
+## Schritt 1: AWS Instanz erstellen und hochfahren
 
 Für das Sammeln reicht die kleinste EC2 Instanz von AWS (t2.micro), die kostenlos ist. Der kostenlose Festplattenspeicher kann bis zu 30 GB reichen, je größer desto besser wird auch die IO Performance sein. Zugriff braucht man nur per SSH, daher lege ich kein eigenes VPC an.
 
 Mit meinem (oder einem neu generierten) Key melde ich mich via SSH auf der Instanz an.
 
-##Schritt 2: Twitter-Collecor installieren und anwerfen
+## Schritt 2: Twitter-Collecor installieren und anwerfen
 
 <pre>// Update
 $ sudo apt-get update
@@ -96,12 +96,12 @@ $ while true; do ( wc -l tweets.json ; sleep 5 ) done;</pre>
 Fertig. Ein Update zur Zuverlässigkeit und eine Auswertung der Tweets gibt es dann später hier im Blog.
 
 
-##Update zur Zuverlässigkeit:
+## Update zur Zuverlässigkeit:
 
 Das lief nicht so toll. Die Sammlung ist mehrfach abgebrochen, ohne dass Infos im Error-Log gelandet sind. Ob der Server mit dem Speichern nicht nachgekommen ist, oder ob die Streaming API Aussetzer hatte, lässt sich nicht mehr feststellen. Lesson learned: während der Sammlung sollte ein externer "Dienst" (Cronjob, Daemon, whatever) prüfen ob das Programm noch läuft und falls nötig neu starten. Sicher lässt sich auch das
 
 
-##Auswertung der Tweets:
+## Auswertung der Tweets:
 
 Insgesamt wurden 71180 Tweets erfasst. Da die Aufzeichnung ausgerechnet am Abend des 8.11. abbrach und ich bis Spätabends am 9.11. nicht online war, fehlen alle Tweets vom Tag des Mauerfalls. Aber immerhin gibt es die kleine Sammlung der Tage zuvor.
 

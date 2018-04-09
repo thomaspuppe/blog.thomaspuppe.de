@@ -11,18 +11,18 @@ description: Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaSc
 
 Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleichzeitig sollen Less und JSLint genutzt werden. Ein wunderbares Einsatzgebiet für Gulp!
 
-##Das Projekt
+## Das Projekt
 
 Unter der Domain <a href="http://meetingtimer.biz">meetingtimer.biz</a> betreibe ich eine kleine Website. Ein Nachmittagsprojekt, das während eines Meetings anhand der Teilnehmerzahl die Kosten des Meetings hochzählt und anzeigt.
 
 Die Seite ist einfach und benötigt nur wenig JavaScript und CSS. Dem Performance-Junkie in mir hat es gestört, dass für 2,8 KB CSS (nicht minimiert und unkomprimiert) extra ein Request gestartet werden muss. Weil ich außerdem mit Gulp experimentieren wollte, nahm ich diese Seite zum Anlass.
 
-##Herausforderungen
+## Herausforderungen
 
 1. Möglichst wenige Requests im Live-betrieb ... es wäre schade, für 6 kB JavaScript und 3 kB CSS zwei Roundtrips zu starten.
 2. Beim Programmieren möchte ich dennoch nicht alles in einer großen HTML Datei horten.
 
-##Lösung mittels Gulp
+## Lösung mittels Gulp
 
 Grundlage bei der Arbeit mit CSS und JS sind natürlich die klassischen Werkzeuge wie less, minify-css, slint, uglify und concat. Die sind in jedem Gulp-Tutorial enthalten und sollen hier nicht behandelt werden. Spannend für meine Zwecke sind zwei weitere Tasks:
 
@@ -68,7 +68,7 @@ Die Datei aus "src" wird gelesen und die Vorkommen des Suchpatterns ersetzt. Dan
 
 Das Ergebnis ist eine 4,4 kB große HTML Datei (die damit einen Bruchteil des 27,7 kB großen Touch Icons hat). Zu sehen unter <a href="http://meetingtimer.biz">meetingtimer.biz</a>. Die Quellen, .gulpfile und das Ergebnis sind bei GitHub zu finden: <a href="https://github.com/thomaspuppe/meetingtimer.biz">https://github.com/thomaspuppe/meetingtimer.biz</a>
 
-##Potential
+## Potential
 
 - Gulp entschlanken. Die Concat Funktionen werden für jeweils eine Datei jar gar nicht gebraucht.
 - Innerhalb des JS Codes könnten nicht-native Bezeichner noch automatisch gegen kürzere ersetzt werden.
