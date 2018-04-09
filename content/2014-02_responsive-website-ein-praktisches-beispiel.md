@@ -2,6 +2,7 @@
 title: Umstellung auf Responsive Web Design - ein praktisches Beispiel
 date: 2014-02-13
 datelabel: 13. Februar 2014
+language: de
 tags: [Web-Entwicklung]
 permalink: responsive-website-ein-praktisches-beispiel
 draft: false

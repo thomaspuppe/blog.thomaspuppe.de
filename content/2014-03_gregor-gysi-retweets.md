@@ -2,6 +2,7 @@
 title: Die Unterstützer des @GregorGysi
 date: 2014-03-16
 datelabel: 16. März 2014
+language: de
 tags: [Bundestwitter]
 permalink: gregor-gysi-retweets
 draft: false

@@ -2,6 +2,7 @@
 title: Wie twittern Politiker?
 date: 2013-01-22
 datelabel: 22. Januar 2013
+language: de
 tags: [Bundestwitter]
 permalink: twitter-verhalten-mdb-und-nds
 draft: false

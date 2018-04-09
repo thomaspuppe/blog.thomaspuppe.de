@@ -2,6 +2,7 @@
 title: VISUALIZED.iO Berlin 2013
 date: 2013-10-09
 datelabel: 09. Oktober 2013
+language: de
 tags: [Daten-Visualisierung]
 permalink: visualized-io-berlin-2013
 draft: false

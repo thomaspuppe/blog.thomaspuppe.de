@@ -2,6 +2,7 @@
 title: Twitterdaten sammeln mit AWS
 date: 2014-11-06
 datelabel: 06. November 2014
+language: de
 tags: [Webentwicklung]
 permalink: twitterdaten-sammeln-mit-aws
 draft: false

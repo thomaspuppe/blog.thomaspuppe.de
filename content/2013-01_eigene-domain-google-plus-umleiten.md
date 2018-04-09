@@ -2,6 +2,7 @@
 title: domain.de+ auf Google+ Profil umleiten
 date: 2013-01-17
 datelabel: 17. Januar 2013
+language: de
 tags: [Web-Entwicklung]
 permalink: eigene-domain-google-plus-umleiten
 draft: false

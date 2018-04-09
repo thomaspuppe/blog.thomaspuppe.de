@@ -2,6 +2,7 @@
 title: Twitterdaten mappen mit Leaflet
 date: 2014-11-19
 datelabel: 19. November 2014
+language: de
 tags: [Webentwicklung]
 permalink: twitterdaten-mappen-mit-leaflet
 draft: false
