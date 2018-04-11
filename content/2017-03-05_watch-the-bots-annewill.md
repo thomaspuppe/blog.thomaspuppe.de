@@ -1,5 +1,5 @@
 ---
-title: Twitter-Bot-Beobachtung zu #AnneWill
+title: "Twitter-Bot-Beobachtung zu #AnneWill"
 date: 2017-03-10
 datelabel: 10. März 2017
 language: de
