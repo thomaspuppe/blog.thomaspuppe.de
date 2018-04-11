@@ -1,37 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <title>Notizen März 2018</title>
-  <link media="all" href="/styles.css" rel="stylesheet" />
-  <link href="/favicon.ico" rel="shortcut icon" />
-    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="/" rel="home start" />
-  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="Eine Art this-month-I-learned meets Lesetipps meets Notizblock" />
-    <meta name="keywords" content="Notizen" />
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Notizen März 2018</title>
+    <meta name="description" content="Eine Art this-month-I-learned meets Lesetipps meets Notizblock">
+    <meta name="date" content="Fri Mar 23 2018 01:00:00 GMT+0100 (CET)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 </head>
 <body>
-  <header>
-		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
-  	
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
 
-  </header><article class="post">
+        <div class="post__meta">
+            <span class="post__category">#Notizen</span>
+            <time datetime="Fri Mar 23 2018 01:00:00 GMT+0100 (CET)">01. März 2018 – 23. März 2018</time>
+        </div>
 
-	<div class="post__meta">
-		<span class="post__category">#Notizen
-		</span>
-		<time datetime="2018-03-01">
-			
-			01. März 2018
-		</time>
-	</div>
+        <h1 class="post__title">Notizen März 2018</h1>
 
-    <h1 class="post__title">Notizen März 2018</h1>
-
-    <p>Ich versuche mich mal am beliebten "this month I learned" Format. Weil ich in den letzten Monaten aber immer gesammelt und nie gepublished habe, versuche ich es so: zu Monatsbeginn schreibe ich einen Anfang, und dann ergänze ich im Laufe des Monats. Das gibt auch Raum für kleine Sachen, die es nie zu eigenen Blogposts schaffen. Mal schauen wie das wird.</p>
-<h3>Default Parameters in Javascript ... nicht im IE 11</h3>
+        <p>Ich versuche mich mal am beliebten &quot;this month I learned&quot; Format. Weil ich in den letzten Monaten aber immer gesammelt und nie gepublished habe, versuche ich es so: zu Monatsbeginn schreibe ich einen Anfang, und dann ergänze ich im Laufe des Monats. Das gibt auch Raum für kleine Sachen, die es nie zu eigenen Blogposts schaffen. Mal schauen wie das wird.</p>
+<h2 id="default-parameters-in-javascript-nicht-im-ie-11">Default Parameters in Javascript ... nicht im IE 11</h2>
 <p>Fangen wir gleich mal an mit dem Fail der Woche. Einmal ZEIT Online Production kaputtmachen für alte Browser. Wie? Durch den Gebrauch von default Parametern in JavaScript:</p>
 <pre>function(myParam, optionalParam = true) { ... }</pre>
 
@@ -40,9 +36,10 @@
     optionalParam = (typeof optionalParam !== 'undefined') ?  optionalParam : true;
 }</pre>
 
-<h3>document.currentScript</h3>
+
+<h2 id="document-currentscript">document.currentScript</h2>
 <p>Das zweite JS Learning des Tages: man kann im JS Code dasjenige <code>script</code>-DOM-Element selektieren, in dem der Code läuft. Einfach via <code>document.currentScript</code>.</p>
-<p><a href="http://2ality.com/2014/05/current-script.html">Detaillierter Artikel zu currentScript von Dr. Axel Rauschmayer</a> mit veralteten Angaben zur Browser-Unterstützung. Caniuse bestätigt eine gute Unterstützung: <a href="Browser-Unterstützung von document.currentScript bei caniuse.com">https://www.caniuse.com/#search=currentScript</a>.</p>
+<p><a href="http://2ality.com/2014/05/current-script.html">Detaillierter Artikel zu currentScript von Dr. Axel Rauschmayer</a> mit veralteten Angaben zur Browser-Unterstützung. Caniuse bestätigt eine gute Unterstützung: <a href="Browser-Unterstützung von `document.currentScript` bei caniuse.com">https://www.caniuse.com/#search=currentScript</a>.</p>
 <p>Allerdings wieder ohne den IE11. Und weil wir da ja keinen Bug haben wollen (siehe oben), gibt es einen schönen Polyfill:</p>
 <pre>var currentScript = document.currentScript || (function() {
     var scripts = document.getElementsByTagName('script');
@@ -67,19 +64,14 @@ parentNode.replaceChild(newChild, oldChild);
 </pre>
 
 <p>Ich dachte das sei eine Spezialität von PHP.</p>
-<h3>Newsletter</h3>
+<h2 id="newsletter">Newsletter</h2>
 <p>Ich lese begeistert den <strong><a href="http://softwareleadweekly.com/">Software Lead Weekly Newsletter</a></strong> von <a href="https://twitter.com/orenellenbogen">Oren Ellenbogen</a>, der auch das lesenswerte Buch <a href="http://leadingsnowflakes.com/">Leading Snowflakes</a> geschrieben hat.</p>
-<p>Normalerweise interessiert mich der <strong><a href="https://martingiesler.de/social-media-watchblog/">Social Media Watchblog</a></strong> von Martin Giesler nicht so sehr, aber diese Woche mit drei HIghlights:</p>
-<ul>
-<li>A</li>
-<li>B</li>
-<li>C</li>
-</ul>
+<p>Früher interessierte mich der <strong><a href="https://martingiesler.de/social-media-watchblog/">Social Media Watchblog</a></strong> von Martin Giesler nicht so sehr. Für meinen Geschmack ging es zu sehr um &quot;Plattform X hat jetzt Funktion Y&quot; und &quot;die 10 besten Tipps für Whatever&quot;. Ich habe ihn aber erneut abonniert, und freue mich dass es um mehr Meta-Theman geht. Mobile Payment via Wechat und Whatsapp, wie gehts bei der Google News Initiative weiter, Facebooks Rolle bei der Verfolgung der Rohinja oder eine Zusammenfassung zum Cambridge Analytics &quot;Skandal&quot;. Themen wie Entlassungen von Mitarbeitern bei Snapchat überlese ich weiterhin.</p>
 <p><a href="http://a11yweekly.com/">Accessibility Weekly</a> von David A. Kennedy: schöner wöchentlicher Digest zu Accessibility.</p>
-<h3>Accessibility Dashboard</h3>
-<p>Bin letztens über das "<a href="https://github.com/pa11y/pa11y-dashboard">pa11y Dashboard</a>" gestolpert, was Acessibility-Test-Scores für verschiedene Seiten auf einem Dashboard aufmalt. Das ist aber gerade im Umbruch. Ein Rewrite namens "<a href="https://github.com/pa11y/sidekick">Sidekick</a>" ist WIP und funktioniert noch nicht. Da sind mein Kollege Valentin und ich auf die Idee gekommen, dass wir ja schon ein Dashboard haben, in das man pa11y-Testergebnisse reinmalen kann. Und zwar ein Graphite/Grafana, das wir für <a href="https://www.sitespeed.io/">Sitespeed</a> Performance Monitoring benutzen.</p>
+<h2 id="accessibility-dashboard">Accessibility Dashboard</h2>
+<p>Bin letztens über das &quot;<a href="https://github.com/pa11y/pa11y-dashboard">pa11y Dashboard</a>&quot; gestolpert, was Acessibility-Test-Scores für verschiedene Seiten auf einem Dashboard aufmalt. Das ist aber gerade im Umbruch. Ein Rewrite namens &quot;<a href="https://github.com/pa11y/sidekick">Sidekick</a>&quot; ist WIP und funktioniert noch nicht. Da sind mein Kollege Valentin und ich auf die Idee gekommen, dass wir ja schon ein Dashboard haben, in das man pa11y-Testergebnisse reinmalen kann. Und zwar ein Graphite/Grafana, das wir für <a href="https://www.sitespeed.io/">Sitespeed</a> Performance Monitoring benutzen.</p>
 <p>Also haben wir ein kleines CSript geschrieben, das pa11y-tests parallel laufen lässt und die Ergebnisse an eine Graphite Instanz sendet.  Ergebnis ist ein kleines Repo: <a href="https://github.com/ZeitOnline/a11y-dashboard-connector">a11y-dashboard-connector</a>: Es ist ein zaghafter Anfang, und noch hardcoded für unsere Zwecke, aber immerhin.</p>
-<h3>CSS Keylogger und andere Schweinereien</h3>
+<h2 id="css-keylogger-und-andere-schweinereien">CSS Keylogger und andere Schweinereien</h2>
 <p><strong>Keylogging via CSS</strong>: vor einigen Tagen ging ein GitHub Repo um, das zeigte, wie man CSS als Keylogger missbrauchen kann: <a href="https://github.com/maxchehab/CSS-Keylogging">CSS Keylogger</a>.</p>
 <pre>input[type="password"][value$="p"] {
   background: url('/password?p');
@@ -90,12 +82,24 @@ parentNode.replaceChild(newChild, oldChild);
 <p>Third party content is not safe
 – Jake Archibald</p>
 </blockquote>
-<h3>Performance bei Wikimedia</h3>
+<h2 id="performance-bei-wikimedia">Performance bei Wikimedia</h2>
 <p>Wikimedia hat ein eigenes <a href="https://www.mediawiki.org/wiki/Wikimedia_Performance_Team">Performance Team</a> (Traumjob!), und wie es sicht gehört arbeiten die transparent. Also kann man in deren <a href="https://phabricator.wikimedia.org/tag/performance-team/">Backlog</a> verfolgen, alle <a href="https://grafana.wikimedia.org/dashboard/db/webpagetest?orgId=1">Dashboards</a> ansehen, und sie veröffentlichen auch <a href="https://phabricator.wikimedia.org/phame/blog/view/7/">Blog-Posts</a>.</p>
-<h3>Lesetipps</h3>
-<p><strong>Lasagne Code</strong> ist eine schöne neue Metapher, die ich im Artikel <a href="https://matthiasnoback.nl/2018/02/lasagna-code-too-many-layers/">Lasagna code - too many layers?</a> gelernt habe. Der Autor plädiert nicht gegen Layer im Code, sondern für die richtige Dosis und Art. Ich finde die Metapher auch noch auf einer anderen Ebene (no pun intended) spannend: bei der Infrastruktur. Einmal Proxy-Cache ist cool. Mehrere Ebenen mit eigenen Regeln und Verzweigungen führt zu einer Situation wie bei Spaghetti Code, nur als Lasagne.</p>
-<p><em>Dieser Artikel wird gerade fortgeschrieben, und wird im Laufe des Monats wachsen.</em></p>
+<h2 id="ethical-design-and-development">Ethical Design and Development</h2>
+<p>Zwei schöne Artikel dazu: <a href="https://www.smashingmagazine.com/2018/03/ethical-design-practical-getting-started-guide/">Ethical Design: The Practical Getting-Started Guide</a> im Smashing Magazine und <a href="Oaths, pledges and manifestos: a master list of ethical tech values">https://medium.com/doteveryone/oaths-pledges-and-manifestos-a-master-list-of-ethical-tech-values-26e2672e161c</a> auf Medium.</p>
+<p>Zu dem Thema ist mir das Buch &quot;<a href="https://shop.smashingmagazine.com/products/white-hat-ux-the-next-generation-in-user-experience">White hat UX</a>&quot; untergekommen, was ich mit gleich mal gekauft habe. Ich werde in diesem Blog berichten. Das eBook kostet nur $7.50, das kann man auch mal anonym an seine Produktentwicklung spenden.</p>
+<h2 id="next-gerenartion-clearfix">Next Gerenartion Clearfix</h2>
+<p>Es gibt ein natives Clearfix in CSS. <a href="https://css-tricks.com/display-flow-root/">Chris Coyier</a> schrieb schon 2016 darüber, <a href="https://rachelandrew.co.uk/archives/2017/01/24/the-end-of-the-clearfix-hack/">Rachel Andrew</a> Anfang 2017. Allerdings ist die <a href="https://www.caniuse.com/#search=flow-root">Browser-Unterstützung</a> recht mager: nur Firefox und Chrome unterstützen <code>display: flow-root</code>. Wenn ich jetzt den Draft-Revision-usw. Lebenszyklus der <a href="https://drafts.csswg.org/css-display-3/#valdef-display-flow-root">CSSWG</a> verstehen würde...</p>
+<h2 id="hinter-docker-herr-umen">Hinter Docker herräumen</h2>
+<p>Mein Kollege Wolfgang hat was schönes entdeckt: Docker-Container werden nicht automatisch gelöscht nachdem ein Job mit ihnen lief. Wir benutzen Docker für Sitespeed-Tests, die alle paar Minuten laufen. Das nimmt nicht viel Platz weg, aber summiert sich und verlangsamt auch einige Befehle. Man findet die Dinger via <code>docker container ls --all</code>, kann einmal durchwischen mit <code>docker container prune</code> und verhindert das Ansammeln, indem man den Job mit <code>docker run --rm</code> startet.</p>
+<h2 id="resilient-css">Resilient CSS</h2>
+<p>Jen Simmons <a href="https://hacks.mozilla.org/2018/03/how-to-write-css-that-works-in-every-browser-even-the-old-ones/">https://hacks.mozilla.org/2018/03/how-to-write-css-that-works-in-every-browser-even-the-old-ones/</a></p>
+<p>The idea of the web is, to work for everyone, independent of the device. A good reminder by Jen Simmons what the idea of the web is <a href="https://www.youtube.com/watch?v=u00FY9vADfQ">https://www.youtube.com/watch?v=u00FY9vADfQ</a></p>
+<h2 id="lesetipps">Lesetipps</h2>
+<p><strong>Lasagne Code</strong> ist eine schöne neue Metapher, die ich im Artikel <a href="https://matthiasnoback.nl/2018/02/lasagna-code-too-many-layers/">Lasagna code - too many layers?</a> gelernt habe. Der Autor plädiert nicht gegen Layer im Code, sondern für die richtige Dosis und Art. Ich finde das Gleichnis auch noch auf einer anderen Ebene (no pun intended) spannend: bei der Infrastruktur. Einmal Proxy-Cache ist cool. Mehrere Ebenen mit eigenen Regeln und Verzweigungen führt zu einer Situation wie bei Spaghetti Code, nur als Lasagne.</p>
+<p>&quot;Die Sicherheitstechnik funktionierte wie vorgesehen - auf dem Niveau der 1960er Jahre, dem Tiefpunkt der Gesetzgebung in der Kerntechnik.&quot; – <a href="https://www.golem.de/news/fukushima-die-technik-tat-genau-was-sie-sollte-1803-133234.html">Sehr spannender postmortem Artikel zur Fukushima-Kernschmelze bei Golem.de</a>.</p>
+<p>China setzt eine neue Marke im Bereich Geo-Engineering: <a href="http://www.scmp.com/news/china/society/article/2138866/china-needs-more-water-so-its-building-rain-making-network-three">China needs more water. So it&#39;s building a rain-making network three times the size of Spain</a></p>
 
-</article>
+
+    </article>
 </body>
 </html>

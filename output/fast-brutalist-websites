@@ -1,63 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>How to make your shiny new brutalist website brutally fast</title>
-  <link media="all" href="/styles.css" rel="stylesheet" />
-  <link href="/favicon.ico" rel="shortcut icon" />
-    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="/" rel="home start" />
-  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="Intentionally ugly websites are one of the trends in 2017. What I like most about this: ugly is fast!" />
-    <meta name="keywords" content="web development" />
+    <meta charset="utf-8">
+    <meta name="language" content="en">
+    <title>How to make your shiny new brutalist website brutally fast</title>
+    <meta name="description" content="Intentionally ugly websites are one of the trends in 2017. What I like most about this: ugly is fast!">
+    <meta name="date" content="Thu Feb 09 2017 01:00:00 GMT+0100 (CET)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 </head>
 <body>
-  <header>
-		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
-  	
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
 
-  </header><article class="post">
+        <div class="post__meta">
+            <span class="post__category">#web development</span>
+            <time datetime="Thu Feb 09 2017 01:00:00 GMT+0100 (CET)">February 9th, 2017</time>
+        </div>
 
-	<div class="post__meta">
-		<span class="post__category">#web development
-		</span>
-		<time datetime="2017-02-09">
-			
-			February 9th, 2017
-		</time>
-	</div>
+        <h1 class="post__title">How to make your shiny new brutalist website brutally fast</h1>
 
-    <h1 class="post__title">How to make your shiny new brutalist website brutally fast</h1>
+        <link href="/images/2017/02/brutalist/styles.css" type="text/css" rel="stylesheet" />
 
-    <p><link href="/images/2017/02/brutalist/styles.css" type="text/css" rel="stylesheet" /></p>
 <p>Websites which are intentionally ugly are one of the hottest trends in webdesign in early 2017, according to the <a href="https://www.washingtonpost.com/news/the-intersect/wp/2016/05/09/the-hottest-trend-in-web-design-is-intentionally-ugly-unusable-sites/">Washington Post</a>, <a href="http://www.webdesignerdepot.com/2016/08/the-rise-and-rise-of-the-brutalist-design-trend/">webdesignerdepot</a> or the <a href="http://t3n.de/news/web-brutalism-design-trend-705490/">t3n magazine</a>.</p>
 <p>After <a href="https://www.templatemonster.com/infographics/web-design-trends-years-2004-2014.php">years</a> of flash, wood patterns, skeuomorphism, webfonts, grunge handwriting, full screen images, ambient background videos, parallax bullshit and interactive <strike>crap</strike>cards, this is a trend that I actually like. <strong>Because: ugly is fast!</strong></p>
 <p>Well, it can be fast. Scanning a <a href="http://brutalistwebsites.com/">collection of brutalist websites</a>, I have seen everything from pages with 10 kilobytes to dozens of megabytes. In this article I want to explore and explain some tricks for building ugly websites simply and fast.</p>
-<h2>1. Backgrounds</h2>
+<h1 id="1-backgrounds">1. Backgrounds</h1>
 <p>Use small background images and either tile them, or show them in full size - even if the image is actually much smaller than the screen.</p>
 <div class="bgkermitphoto larger"></div>
-
 <div class="bgkermiticon larger"></div>
 
 <p>I really like CSS backgrounds which repeat a pattern or symbol. There is a beautiful collection of <a href="http://lea.verou.me/css3patterns/">CSS3 patterns by Lea Verou</a>. You can even have <a href="http://codepen.io/mistic100/pen/GFHkm">moving color tiles</a>. My absoute favourite are the <a href="https://codepen.io/collection/XORbRd/">fruits by Angela Valasquez</a>.</p>
 <div class="bgcssananas full"></div>
 
-<p>At this point I want to point out that I do not want to describe the sources or the techniques as "ugly". But they can help you to create effects that might be used in so-called brutalist webdesign. That being said, let me continue with <a href="http://angrytools.com/gradient/">CSS gradients</a>:</p>
+<p>At this point I want to point out that I do not want to describe the sources or the techniques as &quot;ugly&quot;. But they can help you to create effects that might be used in so-called brutalist webdesign. That being said, let me continue with <a href="http://angrytools.com/gradient/">CSS gradients</a>:</p>
 <div class="bgcssgradient larger"></div>
 
-<h2>2. Fonts</h2>
+<h1 id="2-fonts">2. Fonts</h1>
 <p>You can go absolutely crazy with <a href="https://css3gen.com/css3-text-effects/">CSS text effects</a>. Just google it. Without even touching the font size or font face (aka webfont), you can make a lot of impact. The best: you do not need to load a huge web font file (maybe even from the Google servers), but can use these effects with any system font. Which viewer cares about rounded serifs and handcrafted ligatures, if you put these in their face?</p>
 <p><span class="textshadow">Text-Shadow and <u>underline</u></span>,
 <span class="textneon">Crazy Neon</span> or <span class="textfire">fire effects</span>.</p>
 <p>Take care that you do not get <span class="textdeepshadow">too classy</span> by accident.</p>
-<p>You might want to use text which fills the screen. Which fills <strong>any</strong> screen, from smartphone to cinema display. There's a unit for that:</p>
+<p>You might want to use text which fills the screen. Which fills <strong>any</strong> screen, from smartphone to cinema display. There&#39;s a unit for that:</p>
 <div class="full"><span class="texthuge"><a href="https://css-tricks.com/viewport-sized-typography/">Viewport sized typography</a></span></div>
 
 <p>More properties that you can play with: line-heights, alignment (center, right), <a href="https://davidwalsh.name/demo/css-vertical-text.php">vertical text</a>, <a href="http://line25.com/tutorials/how-to-create-a-cool-anaglyphic-text-effect-with-css">3D glasses effect</a>, <a href="http://codepen.io/squarecat/pen/KuHsl">star wars scrolling</a> and <span class="texthover" data-letters="hover animations">hover animations</span> (<a href="https://tympanus.net/codrops/2015/05/13/inspiration-for-text-styles-and-hover-effects/">1</a>, <a href="http://codepen.io/boldfacedesign/pen/EoGgD">2</a>, <a href="http://codepen.io/lbebber/pen/BzoHi">3</a>)!</p>
-<h2>3. Images</h2>
+<h1 id="3-images">3. Images</h1>
 <p>Holy shit, there is a <a href="https://css-tricks.com/almanac/properties/f/filter/">huge amount</a> of <a href="https://blog.kulturbanause.de/2015/03/css-filter-effekte/">CSS filters</a> that you can apply on images in modern browsers. Plus: everything Photoshop.</p>
-<p>But we want a tiny fast brutal website, don't we? So we only use small images. Which can either be scaled, repeated (with varying effects) or heavily compressed.</p>
+<p>But we want a tiny fast brutal website, don&#39;t we? So we only use small images. Which can either be scaled, repeated (with varying effects) or heavily compressed.</p>
 <div class="larger">
 <table>
 <tr>
@@ -129,7 +125,8 @@
     </tr></table>
 </div>
 
-<h2>4. ASCII Art</h2>
+
+<h1 id="4-ascii-art">4. ASCII Art</h1>
 <pre>
  _______________________________________
 < Are you old enough to know ASCII art? >
@@ -140,10 +137,11 @@
                 ||----w |
                 ||     ||</pre>
 
-<h2>5. Unicode Writing</h2>
+
+<h1 id="5-unicode-writing">5. Unicode Writing</h1>
 <p>I can write &#x24d8;&#x24dd; &#x24d1;&#x24e4;&#x24d1;&#x24d1;&#x24db;&#x24d4;&#x24e2; or &#x73;&#x20e3;&#xa0;&#xa0;&#xa0;&#x71;&#x20e3;&#xa0;&#xa0;&#xa0;&#x75;&#x20e3;&#xa0;&#xa0;&#xa0;&#x61;&#x20e3;&#xa0;&#xa0;&#xa0;&#x72;&#x20e3;&#xa0;&#xa0;&#xa0;&#x65;&#x20e3;&#xa0;&#xa0;&#xa0;&#x73;&#x20e3; and even &#x105; &#x282;&#x567;&#x57e;&#x4c0;&#x4bd; &#xe7;&#x105;&#x4c0;&#x4c0;&#x4bd;&#x56a; &#x48d;&#x4bd;&#x572;&#x567; just using <a href="http://lunicode.com/">unicode characters</a>.</p>
 <p>There are many more on the ➥ <a href="https://unicode-table.com/en/">unicode table</a> <span style="font-size:200%">😎</span>.</p>
-<h2>6. Oldschool HTML without styles</h2>
+<h1 id="6-oldschool-html-without-styles">6. Oldschool HTML without styles</h1>
 <p>This was more fun when <code>&lt;hr&gt;</code> had a dropshadow and tables had borders and table-padding and stuff. But some HTML elements look quite brutal when unstyled. <code>fieldset</code> elements are handy for creating boxes:</p>
 <div><form><fieldset>
     <legend>form fieldset legend</legend>
@@ -155,11 +153,12 @@
     <progress>progress</progress>
 </fieldset></form></div>
 
-<h2>7. Share this page! &#10084;</h2>
+
+<h1 id="7-share-this-page-">7. Share this page! &#10084;</h1>
 <p>Never never ever use Twitter and Facebook widgets! They are the worst! They force your users to connect to twitter/facebook servers and load tons of crap, even when they do not click.</p>
 <p>Instead, use simple links which you can style on your own behalf. It is really fast, it is safe, and it works. Just try it out:</p>
-<p><a href="https://twitter.com/share?url=https%3A%2F%2Fblog.thomaspuppe.de/fast-brutalist-websites&hashtags=brutalist%2Cwebdesign&text=How%20to%20make%20your%20shiny%20new%20brutalist%20website%20brutally%20fast">
-<p style="font-family:monospace;white-space:pre;">
+<p><a href="https://twitter.com/share?url=https%3A%2F%2Fblog.thomaspuppe.de/fast-brutalist-websites&hashtags=brutalist%2Cwebdesign&text=How%20to%20make%20your%20shiny%20new%20brutalist%20website%20brutally%20fast"></p>
+<p><p style="font-family:monospace;white-space:pre;">
 ┊┊┊┊┊┊┊┊┊┊┊┊╭━━━━━╮
 ┊┊┊┊╱▔▔╲┊┊╭━╯TWEET╰━╮
 ┊┊┊▕┈┈▋▋▏╭┫THIS HOLY┃
@@ -172,6 +171,7 @@
 <p><br><br><br><br><br><br>
 <strong>Credits:</strong> <a href="https://pixabay.com/de/kermit-frosch-schneeball-werfen-601711/">Kermit photo</a>, <a href="https://dribbble.com/shots/1787673-Kermit">Kermit icon</a>, <a href="http://xahlee.info/comp/unicode_ascii_art.html">Twitter Button</a>, <a href="http://www.mburnette.com/blog/create-simple-faux-3d-css-button">Facebook Button</a>.</p>
 
-</article>
+
+    </article>
 </body>
 </html>

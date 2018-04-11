@@ -1,90 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <title>Performance-Optimierung von Webfonts</title>
-  <link media="all" href="/styles.css" rel="stylesheet" />
-  <link href="/favicon.ico" rel="shortcut icon" />
-    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="/" rel="home start" />
-  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="None" />
-    <meta name="keywords" content="Webentwicklung" />
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Performance-Optimierung von Webfonts</title>
+    <meta name="description" content="null">
+    <meta name="date" content="Wed Mar 15 2017 01:00:00 GMT+0100 (CET)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 </head>
 <body>
-  <header>
-		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
-  	
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
 
-  </header><article class="post">
+        <div class="post__meta">
+            <span class="post__category">#Webentwicklung</span>
+            <time datetime="Wed Mar 15 2017 01:00:00 GMT+0100 (CET)">15. März 2017</time>
+        </div>
 
-	<div class="post__meta">
-		<span class="post__category">#Webentwicklung
-		</span>
-		<time datetime="2017-03-15">
-			
-			15. März 2017
-		</time>
-	</div>
+        <h1 class="post__title">Performance-Optimierung von Webfonts</h1>
 
-    <h1 class="post__title">Performance-Optimierung von Webfonts</h1>
-
-    <h3>braucht man überhaupt Webfonts?</h3>
+        <h2 id="braucht-man-berhaupt-webfonts-">braucht man überhaupt Webfonts?</h2>
 <ul>
 <li>Screenshot mit/ohne</li>
 </ul>
-<h3>woff2 statt woff</h3>
+<h2 id="woff2-statt-woff">woff2 statt woff</h2>
 <ul>
 <li>nutze ja derzeit nur die eine. Weil: wie viele Browser unterstützen die? Und: Font ist ein Optisches Schmankerl. Ein Enhancement.</li>
 </ul>
-<h3>Subset</h3>
+<h2 id="subset">Subset</h2>
 <ul>
-<li>https://transfonter.org/ (oder https://github.com/bramstein/homebrew-webfonttools)</li>
-<li>
-<h3>https://parall.ax/blog/view/3072/tutorial-reducing-the-file-size-of-custom-web-fonts</h3>
+<li><a href="https://transfonter.org/">https://transfonter.org/</a> (oder <a href="https://github.com/bramstein/homebrew-webfonttools">https://github.com/bramstein/homebrew-webfonttools</a>)</li>
+<li><a href="https://parall.ax/blog/view/3072/tutorial-reducing-the-file-size-of-custom-web-fonts">https://parall.ax/blog/view/3072/tutorial-reducing-the-file-size-of-custom-web-fonts</a>
+-</li>
+</ul>
+<p>Beispiel:</p>
+<ul>
+<li>195 KB Montserrat Black in ttf</li>
+<li>Formate mit allen Subsets:<ul>
+<li>eot 220, svg 566, ttf 220, woff 99, woff2 65</li>
+</ul>
 </li>
+<li>Subset Latin:<ul>
+<li>eot 37, svg 83, ttf 37, woff 21, woff2 16</li>
 </ul>
-<p>Beispiel:
-- 195 KB Montserrat Black in ttf
-- Formate mit allen Subsets:
-  - eot 220, svg 566, ttf 220, woff 99, woff2 65
-- Subset Latin:
-  - eot 37, svg 83, ttf 37, woff 21, woff2 16
-- Subset Buchstaben ("Do one thing today."):
-  -</p>
-<h2>FOIT/FOUT</h2>
+</li>
+<li>Subset Buchstaben (&quot;Do one thing today.&quot;):
+-</li>
+</ul>
+<h1 id="foit-fout">FOIT/FOUT</h1>
 <ul>
-<li>Cookie-Variante https://www.filamentgroup.com/lab/font-events.html</li>
+<li>Cookie-Variante <a href="https://www.filamentgroup.com/lab/font-events.html">https://www.filamentgroup.com/lab/font-events.html</a></li>
 <li>Font Loading API (wann kommt die wo?)</li>
-<li>JS Gehampel (http://bdadam.com/blog/better-webfont-loading-with-localstorage-and-woff2.html) für mich keine Option</li>
-<li>Alternativen noch nicht Browsersandard(?): https://www.bramstein.com/writing/web-font-loading-patterns.html#custom-font-display</li>
+<li>JS Gehampel (<a href="http://bdadam.com/blog/better-webfont-loading-with-localstorage-and-woff2.html">http://bdadam.com/blog/better-webfont-loading-with-localstorage-and-woff2.html</a>) für mich keine Option</li>
+<li>Alternativen noch nicht Browsersandard(?): <a href="https://www.bramstein.com/writing/web-font-loading-patterns.html#custom-font-display">https://www.bramstein.com/writing/web-font-loading-patterns.html#custom-font-display</a></li>
 </ul>
-<h3>optische Angleichung</h3>
+<h2 id="optische-angleichung">optische Angleichung</h2>
 <ul>
 <li>letter-spacing, line-height, font-weight, font-variant, font-style</li>
-<li>
-<p>http://webdesignernotebook.com/css/the-little-known-font-size-adjust-css3-property/</p>
+<li><p><a href="http://webdesignernotebook.com/css/the-little-known-font-size-adjust-css3-property/">http://webdesignernotebook.com/css/the-little-known-font-size-adjust-css3-property/</a></p>
 </li>
-<li>
-<p>https://helpx.adobe.com/typekit/using/font-events.html#Stylingfallbackfontsusingfontevents</p>
+<li><p><a href="https://helpx.adobe.com/typekit/using/font-events.html#Stylingfallbackfontsusingfontevents">https://helpx.adobe.com/typekit/using/font-events.html#Stylingfallbackfontsusingfontevents</a></p>
 </li>
-<li>http://webfont-test.com/</li>
+<li><a href="http://webfont-test.com/">http://webfont-test.com/</a></li>
 <li>Wenn es da kein Tool gibt, mach selber eines (Codepen)</li>
 </ul>
-<h3>Laden bei guter Verbindung</h3>
+<h2 id="laden-bei-guter-verbindung">Laden bei guter Verbindung</h2>
 <ul>
 <li>wie gesagt: optisches Schmankerl. Also: Network checken.</li>
 </ul>
-<h3>Links</h3>
+<h2 id="links">Links</h2>
 <ul>
-<li>http://fontfamily.io/Andale_Mono,monospace</li>
+<li><a href="http://fontfamily.io/Andale_Mono,monospace">http://fontfamily.io/Andale_Mono,monospace</a></li>
 </ul>
-<h3>Links</h3>
+<h2 id="links">Links</h2>
 <ul>
-<li>https://www.zachleat.com/web/comprehensive-webfonts/</li>
+<li><a href="https://www.zachleat.com/web/comprehensive-webfonts/">https://www.zachleat.com/web/comprehensive-webfonts/</a></li>
 </ul>
 
-</article>
+
+    </article>
 </body>
 </html>

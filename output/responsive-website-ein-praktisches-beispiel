@@ -1,39 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <title>Umstellung auf Responsive Web Design - ein praktisches Beispiel</title>
-  <link media="all" href="/styles.css" rel="stylesheet" />
-  <link href="/favicon.ico" rel="shortcut icon" />
-    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="/" rel="home start" />
-  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="Wie baut man eine einfache Website von nicht-responsive auf responsive um? Eine Schritt-für-Schritt Anleitung anhand dieses Blogs." />
-    <meta name="keywords" content="Web-Entwicklung" />
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Umstellung auf Responsive Web Design - ein praktisches Beispiel</title>
+    <meta name="description" content="Wie baut man eine einfache Website von nicht-responsive auf responsive um? Eine Schritt-für-Schritt Anleitung anhand dieses Blogs.">
+    <meta name="date" content="Thu Feb 13 2014 01:00:00 GMT+0100 (CET)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 </head>
 <body>
-  <header>
-		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
-  	
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
 
-  </header><article class="post">
+        <div class="post__meta">
+            <span class="post__category">#Web-Entwicklung</span>
+            <time datetime="Thu Feb 13 2014 01:00:00 GMT+0100 (CET)">13. Februar 2014</time>
+        </div>
 
-	<div class="post__meta">
-		<span class="post__category">#Web-Entwicklung
-		</span>
-		<time datetime="2014-02-13">
-			
-			13. Februar 2014
-		</time>
-	</div>
+        <h1 class="post__title">Umstellung auf Responsive Web Design - ein praktisches Beispiel</h1>
 
-    <h1 class="post__title">Umstellung auf Responsive Web Design - ein praktisches Beispiel</h1>
-
-    <p>Wie baut man eine einfache Website von nicht-responsive auf responsive um? Eine Schritt-für-Schritt Anleitung anhand dieses Blogs.</p>
+        <p>Wie baut man eine einfache Website von nicht-responsive auf responsive um? Eine Schritt-für-Schritt Anleitung anhand dieses Blogs.</p>
 <p>Ziel ist nicht, dass der Blog auf allen Geräten gleich aussieht (was auch nicht der Sinn von RWD ist). Sondern dass er auf allen Geräten gut aussieht und vor Allem funktioniert (was der Sinn von RWD ist).</p>
 <p>Anhand des sehr einfachen Blog-Layouts öchte ich drei grundlegende Regeln von Responsive Websites erläutern.</p>
-<h3>1. Anpassung des Viewport</h3>
+<h2 id="1-anpassung-des-viewport">1. Anpassung des Viewport</h2>
 <p>Mit der Einführung des iPhone wurde quasi eine neue Geräteklasse geschaffen, auf die das Web nicht vorbereitet war. Websites, die zuvor auf einem Bildschirm mit 1024 und mehr Pixeln dargestellt wurden, sollten nun auf einem 320 oder 480 Pixel breiten Display gezeigt werden. Vor dieser Herausforderung stand Apple. Eine Variante dafür wäre, nur die linke obere Ecke der Website zu zeigen. Ein anderer, die Website klein zu skalieren. Für die zweite Variante hatte sich Apple entschieden. Websites wurden auf eine feste Breite von 980 Pixel gerendert und dann auf die Breite des iPhones herunterskaliert. (Für Android-Browser gilt das gleiche, mit 800 Pixeln Breite.)</p>
 <figure><img src="/images/2014/02/responsive_01_ohneviewport.png" alt="Abb. 1: Darstellung ohne Viewport"><figcaption>Abb. 1: Darstellung ohne Viewport</figcaption></figure>
 
@@ -44,7 +40,7 @@
 <figure><img src="/images/2014/02/responsive_02_mitviewport.png" alt="Abb. 2: Darstellung mit Viewport (noch nicht schön, aber man sieht die automatische Anpassung der Breite)"><figcaption>Abb. 2: Darstellung mit Viewport (noch nicht schön, aber man sieht die automatische Anpassung der Breite).</figcaption></figure>
 
 <p>Auf Desktop-Browsern spielt der Viewport übrigens keine Rolle. Hier gilt die Fensterbreite wie sie ist, weil es ja keinen Grund zum Skalieren gibt.</p>
-<h3>2. Flexible Seitenbreite und Raster</h3>
+<h2 id="2-flexible-seitenbreite-und-raster">2. Flexible Seitenbreite und Raster</h2>
 <p>Als nächstes muss die Seite flexibel auf die (nun auch auf kleinen Geräten erkannte) Breite reagieren. Statt einer festen Breite in Pixeln geben wir den Elementen auf der Seite eine flexible Breite in Prozent, die sich an der größe des Browserfensters (oder des mobilen Gerätes) orientiert.</p>
 <p>Feste oder minimale Breiten können im Responsive Web Design für kleine Elemente nützlich sein. Für große Elemente sind sie es meist nicht. Böser Fehler in der ersten Version dieses Blogs:</p>
 <pre>.posts { width: 100%; min-width:710px; }</pre>
@@ -54,7 +50,7 @@
 <pre>.posts p, .posts h1, .posts h2 { max-width:600px; }</pre>
 
 <p>Da die Artikel selbst noch breit laufen sollen (bunter Rand rechts), begrenzen wir nur Überschriften und Absätze in der Breite. Ḿan erkennt, dass die Inhalte der rechten Spalte sich dem Menü</p>
-<h3>3. Breakpoints für unterschiedliche Styles</h3>
+<h2 id="3-breakpoints-f-r-unterschiedliche-styles">3. Breakpoints für unterschiedliche Styles</h2>
 <p>Anhand von sogenannten Media Queries kann bestimmtes CSS für bestimmte Gerätetypen ausgeliefert werden. Für Responsive Websites richtet man sich meist nach der Breite des Bildschirms. Anhand von Grenzwerten (&ldquo;Breakpoints&rdquo;) werden unterschiedliche Regeln für unterschiedliche Bildschirm edefiniert. Für den Einsatz von Breakpoints gibt es zwei verschiedene Ansätze. <strong>Desktop-First</strong> funktioniert mit absteigenden max-width Werten:</p>
 <pre>h1 {
 font-size: 3.5em;
@@ -91,9 +87,10 @@ font-size: 2em;
 
 <p>Beachte: für alle Bildschirme über dem größten max-width-Wert (oder unter dem kleinsten min-width-Wert) muss ein Standardwert definiert werden.</p>
 <p>Da mobile (kleine) Geräte tendentiell schwächer sind als große, halte ich Mobile-First für einen guten Ansatz.</p>
-<h3>Linktipp</h3>
+<h2 id="linktipp">Linktipp</h2>
 <p><a href="http://bradfrost.github.io/this-is-responsive/">&ldquo;This is responsive&rdquo; von Brad Frost</a>.</p>
 
-</article>
+
+    </article>
 </body>
 </html>

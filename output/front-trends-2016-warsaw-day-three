@@ -1,52 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Front Trends 2016 in Warsaw: Day 3</title>
-  <link media="all" href="/styles.css" rel="stylesheet" />
-  <link href="/favicon.ico" rel="shortcut icon" />
-    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="/" rel="home start" />
-  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="Summarizing the third day presentations of the Front Trends 2016 conference in Warsaw, including the Nyan cat, pixel bonding, modern(izer) tools, CSS engineering principles, Origami, offline pages, real programmers and Trojan CVs." />
-    <meta name="keywords" content="Webentwicklung" />
+    <meta charset="utf-8">
+    <meta name="language" content="en">
+    <title>Front Trends 2016 in Warsaw: Day 3</title>
+    <meta name="description" content="Summarizing the third day presentations of the Front Trends 2016 conference in Warsaw, including the Nyan cat, pixel bonding, modern(izer) tools, CSS engineering principles, Origami, offline pages, real programmers and Trojan CVs.">
+    <meta name="date" content="Fri May 20 2016 02:00:00 GMT+0200 (CEST)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 </head>
 <body>
-  <header>
-		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
-  	
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
 
-  </header><article class="post">
+        <div class="post__meta">
+            <span class="post__category">#Webentwicklung</span>
+            <time datetime="Fri May 20 2016 02:00:00 GMT+0200 (CEST)">20. Mai 2016</time>
+        </div>
 
-	<div class="post__meta">
-		<span class="post__category">#Webentwicklung
-		</span>
-		<time datetime="2016-05-20">
-			
-			20. Mai 2016
-		</time>
-	</div>
+        <h1 class="post__title">Front Trends 2016 in Warsaw: Day 3</h1>
 
-    <h1 class="post__title">Front Trends 2016 in Warsaw: Day 3</h1>
-
-    <p>Summarizing the third day presentations of the Front Trends 2016 conference in Warsaw, including the Nyan cat, pixel bonding, modern(izer) tools, CSS engineering principles, Origami, offline pages, real programmers and Trojan CVs.. A speakers list can also be found on <a href="https://2016.front-trends.com/speakers/">2016.front-trends.com/speakers/</a>.</p>
+        <p>Summarizing the third day presentations of the Front Trends 2016 conference in Warsaw, including the Nyan cat, pixel bonding, modern(izer) tools, CSS engineering principles, Origami, offline pages, real programmers and Trojan CVs.. A speakers list can also be found on <a href="https://2016.front-trends.com/speakers/">2016.front-trends.com/speakers/</a>.</p>
 <figure>
     <img src="/images/2016/05/front-trends-emotions.jpg" alt="Photograph of a slide with Nyan Cat"/>
     <figcaption>If an interface is more human, it allow us to be more human.<br>&mdash;Tammie Lister</figcaption>
 </figure>
 
-<h3>Opening by <a href="https://twitter.com/stas">Staś Małolepszy</a></h3>
+
+<h2 id="opening-by-sta-ma-olepszy">Opening by <a href="https://twitter.com/stas">Staś Małolepszy</a></h2>
 <p>Trigger a bit of interest, be available to help. And many cool things will happen.</p>
 <ul>
 <li><a href="https://www.scirra.com/construct2">Construct 2</a>: HTML5 game maker</li>
 </ul>
-<h3>Exploring the Universal Library by <a href="http://treesmovethemost.com/">Szymon Kalinski</a></h3>
-<p>Szymon showed some work he had done. It looked <a href="http://treesmovethemost.com/">really cool</a>, but honestly I don't know what he wanted to tell us ;-)</p>
-<h3>Pixel Bonding by <a href="http://diaryofawebsite.com/">Tammie Lister</a></h3>
+<h2 id="exploring-the-universal-library-by-szymon-kalinski">Exploring the Universal Library by <a href="http://treesmovethemost.com/">Szymon Kalinski</a></h2>
+<p>Szymon showed some work he had done. It looked <a href="http://treesmovethemost.com/">really cool</a>, but honestly I don&#39;t know what he wanted to tell us ;-)</p>
+<h2 id="pixel-bonding-by-tammie-lister">Pixel Bonding by <a href="http://diaryofawebsite.com/">Tammie Lister</a></h2>
 <p>People long for connection with others. By creating emotional UX and positive experience, you create trust and users will come back.</p>
-<p>As a user, you recognize if an interface (the people behind it) care for you, or simply don't care. For example, friends don't let friends make mistakes.</p>
-<p>Even little UI eastereggs can be incredibly delightful. But don't get creepy. Nobody likes stalker interfaces.</p>
+<p>As a user, you recognize if an interface (the people behind it) care for you, or simply don&#39;t care. For example, friends don&#39;t let friends make mistakes.</p>
+<p>Even little UI eastereggs can be incredibly delightful. But don&#39;t get creepy. Nobody likes stalker interfaces.</p>
 <blockquote>
 <p>If an interface is more human, it allow us to be more human.</p>
 </blockquote>
@@ -54,15 +51,15 @@
 <li>Slides of the Presentation: <a href="https://speakerdeck.com/tammielis/pixel-bonding">Pixel Bonding</a>, including lots of cool interface details.</li>
 <li>Tammies Twitter Account: <a href="https://twitter.com/karmatosed">karmatosed</a></li>
 </ul>
-<h3>Modern Websites for the Modern Web by <a href="https://twitter.com/PatrickKettner">Patrick Kettner</a></h3>
+<h2 id="modern-websites-for-the-modern-web-by-patrick-kettner">Modern Websites for the Modern Web by <a href="https://twitter.com/PatrickKettner">Patrick Kettner</a></h2>
 <p>Use of tools inside the new version of the Modernizr website and downloader: Service workers, clipboard.js, download binary blobs of service-worker-generated files, <a href="https://twitter.com/thomaspuppe/status/733603489067245568">decent markup</a>, custom Modernizr versions via npm install,</p>
 <blockquote>
-<p>Make cool stuff. Don't be afraid to use new shiny things.</p>
+<p>Make cool stuff. Don&#39;t be afraid to use new shiny things.</p>
 </blockquote>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=UPrlA8I9dm8">Video of this talk</a> (at JSConf US)</li>
 </ul>
-<h3>CSS for Software Engineers for CSS Developers by <a href="https://twitter.com/csswizardry">Harry Roberts</a></h3>
+<h2 id="css-for-software-engineers-for-css-developers-by-harry-roberts">CSS for Software Engineers for CSS Developers by <a href="https://twitter.com/csswizardry">Harry Roberts</a></h2>
 <p>Harry applies software engineering principles to CSS development: DRY, Single Source of Truth, Single Responsibility, Seperation of Concerns(!), Immutability, Open/Closed Principle,</p>
 <p>Good and funny talk with lots of code examples. One of the <a href="front-trends-2016-warschau-fazit">conference highlights</a>!</p>
 <blockquote>
@@ -73,42 +70,42 @@
 <li>two <a href="https://vimeo.com/140641366">video</a> <a href="https://vimeo.com/153895841">recordings</a> of this talk</li>
 <li>You should take 10 minutes and read about <a href="https://en.wikipedia.org/wiki/Grace_Hopper">Grace Hopper</a>.</li>
 </ul>
-<h3>Can't you make it more like Bootstrap? by <a href="http://alicebartlett.co.uk/">Alice Bartlett</a></h3>
-<p>Subtitle: "Considerations for building front end systems". Alice leads a team whose aim is to unify and DRY frontend work at the Financial Times (project "Origami".</p>
+<h2 id="can-t-you-make-it-more-like-bootstrap-by-alice-bartlett">Can&#39;t you make it more like Bootstrap? by <a href="http://alicebartlett.co.uk/">Alice Bartlett</a></h2>
+<p>Subtitle: &quot;Considerations for building front end systems&quot;. Alice leads a team whose aim is to unify and DRY frontend work at the Financial Times (project &quot;Origami&quot;.</p>
 <p>On the different FT branded websites, there are a lot of things which have been implemented differently, even on atomic scale (4 implementations of a close button which looks the same, 3 different Twitter icons).</p>
 <p>First step was to use components to keep HTML, CSS, JS for one thing in one place (this seems to be a hot topic this year).</p>
 <p>The websites also have different tooling, which should be unified so all websites (implemented in different languages) can use the same components.</p>
-<p>You can move the JS to bower packages, for example. But for (customizable) HTML templates or CSS ths is more complicated. So they implemented a build service that "everyone" can use to request Origamis CSS, JS and HTML. People liked using it, but the documentation was not good. -&gt; I wish it was more like bootstrap.</p>
+<p>You can move the JS to bower packages, for example. But for (customizable) HTML templates or CSS ths is more complicated. So they implemented a build service that &quot;everyone&quot; can use to request Origamis CSS, JS and HTML. People liked using it, but the documentation was not good. -&gt; I wish it was more like bootstrap.</p>
 <p>And: they created a documentation styleguide(!), whcih includes a communication plan for new releases, incident reports, ...</p>
 <blockquote>
 <p>Documentation is not complicated. It is just hard.</p>
 </blockquote>
 <ul>
-<li>Alice Bartlett on Twitter: [@alicebartlett](https://twitter.com/alicebartlett</li>
-<li>talk recommendation: "Thingness" Mark Boulton (should be on vimeo, but I could not find the link)</li>
+<li>Alice Bartlett on Twitter: [@alicebartlett](<a href="https://twitter.com/alicebartlett">https://twitter.com/alicebartlett</a></li>
+<li>talk recommendation: &quot;Thingness&quot; Mark Boulton (should be on vimeo, but I could not find the link)</li>
 <li><a href="https://github.com/financial-times/ft-origami">Origami on GitHub</a></li>
 </ul>
-<h3>Building an Offline Page for The Guardian <a href="https://oliverjash.me/">Oliver Joseph Ash</a></h3>
-<p>The Guardian's Native app caches articles offline, to provide content even if the user (or the servers) are offline. The website is not available offline. Oliver built a prototype for an offline page in less than a day! And provided a detailes step-by-step walkthrough on how it works.</p>
+<h2 id="building-an-offline-page-for-the-guardian-oliver-joseph-ash">Building an Offline Page for The Guardian <a href="https://oliverjash.me/">Oliver Joseph Ash</a></h2>
+<p>The Guardian&#39;s Native app caches articles offline, to provide content even if the user (or the servers) are offline. The website is not available offline. Oliver built a prototype for an offline page in less than a day! And provided a detailes step-by-step walkthrough on how it works.</p>
 <ul>
 <li>Oliver Ashs Twitter Account: <a href="https://twitter.com/oliverjash">@oliverjash</a></li>
 <li><a href="https://speakerdeck.com/oliverjash/building-an-offline-page-for-theguardian-dot-com-front-trends-may-2016">The slides</a> of this talk</li>
 <li>This talk on video: <a href="https://www.youtube.com/watch?v=dZU6_2xXeVk">Building an offline page for theguardian.com</a></li>
-<li><a href="https://www.theguardian.com/info/developer-blog">the Guardian's digital development team blog</a></li>
+<li><a href="https://www.theguardian.com/info/developer-blog">the Guardian&#39;s digital development team blog</a></li>
 </ul>
-<h3>The Myth of the "Real JavaScript Programmer" by <a href="http://brennaobrien.com/">Brenna O'Brian</a></h3>
-<p>Great talk about what seems to be expected from "good programmers" today, and what really is.</p>
-<p>We don't need to know everything, finding a niche is cool. This is not a test. Real developers use resources wisely. Code has not to be perfect or even correct on the first try (or at all). Learn from mistakes. Show your work, not only your finished and polishes products. Encourage each other. We don't have to code all the day and everyday. Being a developer does not have to kill your hobbies (or parentship).</p>
+<h2 id="the-myth-of-the-real-javascript-programmer-by-brenna-o-brian">The Myth of the &quot;Real JavaScript Programmer&quot; by <a href="http://brennaobrien.com/">Brenna O&#39;Brian</a></h2>
+<p>Great talk about what seems to be expected from &quot;good programmers&quot; today, and what really is.</p>
+<p>We don&#39;t need to know everything, finding a niche is cool. This is not a test. Real developers use resources wisely. Code has not to be perfect or even correct on the first try (or at all). Learn from mistakes. Show your work, not only your finished and polishes products. Encourage each other. We don&#39;t have to code all the day and everyday. Being a developer does not have to kill your hobbies (or parentship).</p>
 <blockquote>
-<p>My biggest professional development was admitting what I don't know.
+<p>My biggest professional development was admitting what I don&#39;t know.
 &mdash; Jessica Rose</p>
 </blockquote>
 <ul>
-<li>Brenna O'Brian on Twitter: <a href="https://twitter.com/brnnbrn">@brnnbrn</a></li>
+<li>Brenna O&#39;Brian on Twitter: <a href="https://twitter.com/brnnbrn">@brnnbrn</a></li>
 <li>Slides should come up <a href="http://brennaobrien.com/speaking/">here</a> soon, a <a href="http://talks.brennaobrien.com/real-developer/myth-of-the-real-javascript-developer.pdf">pdf version</a> is already available.</li>
 <li>Hashtag <a href="https://twitter.com/search?q=%23juniordevforlife">#juniordevforlife</a></li>
 </ul>
-<h3>Don't hate the player, hate the game by <a href="http://tholman.com/">Tim Holman</a></h3>
+<h2 id="don-t-hate-the-player-hate-the-game-by-tim-holman">Don&#39;t hate the player, hate the game by <a href="http://tholman.com/">Tim Holman</a></h2>
 <blockquote>
 <p>please be less ridiculous</p>
 </blockquote>
@@ -123,6 +120,7 @@ Projects are a journey, be fluid.
 &mdash; Tim Holman</p>
 </blockquote>
 
-</article>
+
+    </article>
 </body>
 </html>

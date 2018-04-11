@@ -1,36 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <title>Twitterdaten mappen mit Leaflet</title>
-  <link media="all" href="/styles.css" rel="stylesheet" />
-  <link href="/favicon.ico" rel="shortcut icon" />
-    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="/" rel="home start" />
-  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="Meine Sammlung von Tweets zum #Mauerfall umfasst über 70.000 Tweets. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden." />
-    <meta name="keywords" content="Webentwicklung" />
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Twitterdaten mappen mit Leaflet</title>
+    <meta name="description" content="Meine Sammlung von Tweets zum">
+    <meta name="date" content="Wed Nov 19 2014 01:00:00 GMT+0100 (CET)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 </head>
 <body>
-  <header>
-		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
-  	
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
 
-  </header><article class="post">
+        <div class="post__meta">
+            <span class="post__category">#Webentwicklung</span>
+            <time datetime="Wed Nov 19 2014 01:00:00 GMT+0100 (CET)">19. November 2014</time>
+        </div>
 
-	<div class="post__meta">
-		<span class="post__category">#Webentwicklung
-		</span>
-		<time datetime="2014-11-19">
-			
-			19. November 2014
-		</time>
-	</div>
+        <h1 class="post__title">Twitterdaten mappen mit Leaflet</h1>
 
-    <h1 class="post__title">Twitterdaten mappen mit Leaflet</h1>
-
-    <p>Meine <a href="https://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.</p>
+        <p>Meine <a href="https://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.</p>
 <p>In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aussortieren usw.</p>
 <pre>//Alle Tweets in einer großen Datei:
 $ wc -l tweets.json
@@ -122,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </a>
 </figure>
 
-</article>
+
+    </article>
 </body>
 </html>

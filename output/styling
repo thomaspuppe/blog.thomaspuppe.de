@@ -1,63 +1,59 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html lang="{{ META_LANGUAGE }}">
 <head>
-  <meta charset="utf-8" />
-  <title>Blog Styling</title>
-  <link media="all" href="/styles.css" rel="stylesheet" />
-  <link href="/favicon.ico" rel="shortcut icon" />
-    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="/" rel="home start" />
-  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="Styleguide für diesen Blog, der alle Arten von Inhalten enthält" />
-    <meta name="keywords" content="Webentwicklung" />
+    <meta charset="utf-8">
+    <meta name="language" content="{{ META_LANGUAGE }}">
+    <title>Blog Styling</title>
+    <meta name="description" content="Styleguide für diesen Blog, der alle Arten von Inhalten enthält">
+    <meta name="date" content="Sun Jun 19 2016 02:00:00 GMT+0200 (CEST)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 </head>
 <body>
-  <header>
-		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
-  	
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
 
-  </header><article class="post">
+        <div class="post__meta">
+            <span class="post__category">#Webentwicklung</span>
+            <time datetime="Sun Jun 19 2016 02:00:00 GMT+0200 (CEST)">19. Juni 2016</time>
+        </div>
 
-	<div class="post__meta">
-		<span class="post__category">#Webentwicklung
-		</span>
-		<time datetime="2016-06-19">
-			
-			19. Juni 2016
-		</time>
-	</div>
+        <h1 class="post__title">Blog Styling</h1>
 
-    <h1 class="post__title">Blog Styling</h1>
-
-    <p>Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.</p>
-<p>Als Freund <a href="http://ia.net/blog/100e2r">&ldquo;großer&rdquo; Schrift</a> auf Websites stelle ich fest, dass die Unterstreichung von Links ab 20 Pixeln Schriftgröße (bei meinem Setup von font-family: Georgia, "Times New Roman", Times, serif;) recht breit ist. Das stört auch die Lesbarkeit des Textes &mdash; zumindest im Vergleich zu einer Variante mit schmalerer Unterstreichung. Hier im Blog kommt das nicht zum Tragen. Groß sind nur die Überschriften, die eine dicke Unterstreichung vertragen. Der Fließtext ist kleiner als 20px und hat daher moderate Unterstreichung. Auf meiner Website mit vielen Links störte die Unterstreichung schon mehr (siehe Screenshot):</p>
-<h2>HTML Ipsum Presents</h2>
+        <p>Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.</p>
+<p>Als Freund <a href="http://ia.net/blog/100e2r">&ldquo;großer&rdquo; Schrift</a> auf Websites stelle ich fest, dass die Unterstreichung von Links ab 20 Pixeln Schriftgröße (bei meinem Setup von font-family: Georgia, &quot;Times New Roman&quot;, Times, serif;) recht breit ist. Das stört auch die Lesbarkeit des Textes &mdash; zumindest im Vergleich zu einer Variante mit schmalerer Unterstreichung. Hier im Blog kommt das nicht zum Tragen. Groß sind nur die Überschriften, die eine dicke Unterstreichung vertragen. Der Fließtext ist kleiner als 20px und hat daher moderate Unterstreichung. Auf meiner Website mit vielen Links störte die Unterstreichung schon mehr (siehe Screenshot):</p>
+<h1>HTML Ipsum Presents</h1>
 
 <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
 
-<h3>Header Level 2</h3>
+<h2>Header Level 2</h2>
 
 <ol>
      <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
      <li>Aliquam tincidunt mauris eu risus.</li>
 </ol>
 
-<h3>Highlighted Paragraph</h3>
+<h2>Highlighted Paragraph</h2>
 
 <p>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.</p>
 
 <p><em>This is a quote -- but by me.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.</p></p>
-<h4>Header Level 3: Blockquotes</h4>
+<h3>Header Level 3: Blockquotes</h3>
 
 <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
 
 <blockquote>
-<p>Everything on your page should have a _value_, because everything has a _cost_.</p>
+<p>Everything on your page should have a <em>value</em>, because everything has a <em>cost</em>.</p>
 <cite><a href="https://twitter.com/tkadlec" title="Tim Kadlec on Twitter">Tim Kadlec</a></cite>
 </blockquote>
 
-<h5>Header Level 4: Lists</h5>
+<h4>Header Level 4: Lists</h4>
 
 <ul>
      <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
@@ -84,11 +80,13 @@
      <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
 </ul>
 
+
 <ol>
      <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
      <li>Aliquam tincidunt mauris eu risus.</li>
      <li>Vestibulum auctor dapibus neque.</li>
 </ol>
+
 
 <dl>
      <dt>Definition list</dt>
@@ -101,7 +99,8 @@ aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
 commodo consequat.</dd>
 </dl>
 
-<h3>überlanger Code (unten wegen dem Grid)</h3>
+
+<h2>überlanger Code (unten wegen dem Grid)</h2>
 
 <p>Kürzlich bin ich auf einen Artikel von <a href="https://medium.com/@mwichary">Marcin Wichary</a> gestoßen, der dieses Problem löst: <a href="https://medium.com/p/7c03a9274f9">&ldquo;Crafting link underlines on Medium&rdquo;</a>. In dem sehr lesenswerten Artikel wird auf pro und contra von Link-Unterstreichung im Allgemeinen und verschiedenen Techniken im Speziellen eingegangen. Am Ende schaut die Lösung so aus:</p>
 <pre>a, a:link, a:visited {
@@ -131,7 +130,7 @@ a:hover, a:focus {
 <p><strong>Trick 1:</strong> Links bekommen ein Hintergrundbild, das keine Datei oder DataURI nutzt, sondern Gradients.</p>
 <p><strong>Trick 2:</strong> Ein Text-Shadow, unterbricht die Linie bei Buchstaben mit Unterlänge.</p>
 <p>Achtgeben muss man auf Links, die nicht nur Text enthalten. Wird z.B. ein Bild verlinkt, erhält dieses auch eine solche Unterstreichung. Das muss dann mittels &ldquo;background-image:none;&rdquo; unterbunden werden &mdash; und zwar am Link statt am Bild. Bei großen Seiten kann es hier haarig werden und der Nutzen rechtfertigt den Aufwand vielleicht nicht mehr. Dasselbe gilt für Links im Button-Stil usw.</p>
-<h3>Bilder (unten wegen dem Grid)</h3>
+<h2>Bilder (unten wegen dem Grid)</h2>
 
 <figure>
     <img src="/images/2016/05/warschau-panorama.jpg" alt="beautiful city of Warsaw" />
@@ -144,6 +143,7 @@ a:hover, a:focus {
     <figcaption>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</figcaption>
 </figure>
 
-</article>
+
+    </article>
 </body>
 </html>

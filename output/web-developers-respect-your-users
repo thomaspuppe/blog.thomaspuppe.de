@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="language" content="de">
-    <title>Produktives Prokrastinieren</title>
+    <meta name="language" content="en">
+    <title>Web developers, respect your users!</title>
     <meta name="description" content="null">
-    <meta name="date" content="Fri Mar 10 2017 01:00:00 GMT+0100 (CET)">
+    <meta name="date" content="Sun Mar 18 2018 01:00:00 GMT+0100 (CET)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -20,22 +20,16 @@
     <article class="post">
 
         <div class="post__meta">
-            <span class="post__category">#web development</span>
-            <time datetime="Fri Mar 10 2017 01:00:00 GMT+0100 (CET)">3. März 2017</time>
+            <span class="post__category">#webdevelopment</span>
+            <time datetime="Sun Mar 18 2018 01:00:00 GMT+0100 (CET)">18. March 2018</time>
         </div>
 
-        <h1 class="post__title">Produktives Prokrastinieren</h1>
+        <h1 class="post__title">Web developers, respect your users!</h1>
 
-        <p>Verstecktes Prokrastinieren</p>
-<p>-</p>
-<p>Produktives Prokrastinieren</p>
-<ul>
-<li>Blogpost</li>
-<li>kleine Apps</li>
-<li>Design-Tricks ausprobieren</li>
-</ul>
-<p>Alles nur, um die Kandidaten bei Bundestwitter nicht bauen zu müssen.</p>
-<p>... vllt für die doch wieder so ein Symphony-Ding? Damit nur den Admin. Und Frontend selbstgebaut???</p>
+        <h2 id="dnt">DNT</h2>
+<h2 id="data-saver">data-saver</h2>
+<h2 id="prefers-reduced-motion">prefers-reduced-motion</h2>
+<p><a href="https://twitter.com/justmarkup/status/974581638637142016">https://twitter.com/justmarkup/status/974581638637142016</a></p>
 
 
     </article>

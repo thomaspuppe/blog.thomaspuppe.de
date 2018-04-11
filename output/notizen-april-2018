@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Notizen April 2018</title>
+    <meta name="description" content="this-month-I-learned und Lesetipps für April 2018">
+    <meta name="date" content="Tue Apr 03 2018 02:00:00 GMT+0200 (CEST)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+</head>
+<body>
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
+
+        <div class="post__meta">
+            <span class="post__category">#Notizen</span>
+            <time datetime="Tue Apr 03 2018 02:00:00 GMT+0200 (CEST)">01. April 2018 – 11. April 2018</time>
+        </div>
+
+        <h1 class="post__title">Notizen April 2018</h1>
+
+        <h2 id="magical-auto-jump-statt-cd">Magical Auto-Jump statt CD</h2>
+<p>brew install autojump</p>
+<pre><code>puppe:~ $ j blog
+/Users/puppe/code/private/blog/blog.thomaspuppe.de
+
+puppe:~ $ j a11
+/Users/puppe/code/zon/a11y-dashboard
+</code></pre><h2 id="color-blindness">Color Blindness</h2>
+<p>Funkify als Chrome_Extension</p>
+<p>Real world: <a href="https://www.colorblindsim.com/">https://www.colorblindsim.com/</a></p>
+<h2 id="request-map">Request Map</h2>
+<p><a href="http://requestmap.webperf.tools/">http://requestmap.webperf.tools/</a></p>
+<h2 id="lesetipps">Lesetipps</h2>
+<ul>
+<li><p><a href="https://hackernoon.com/cost-per-reasonable-decision-cprd-ed1ca8c6147">https://hackernoon.com/cost-per-reasonable-decision-cprd-ed1ca8c6147</a></p>
+</li>
+<li><p><a href="https://www.theguardian.com/media/2013/apr/12/news-is-bad-rolf-dobelli">https://www.theguardian.com/media/2013/apr/12/news-is-bad-rolf-dobelli</a></p>
+</li>
+</ul>
+<ul>
+<li>&quot;What I&#39;m not seeing, however, is any real change to the way publishers use data&quot;: <a href="https://baekdal.com/strategy/publishers-havent-realized-just-how-big-a-deal-gdpr-is/">https://baekdal.com/strategy/publishers-havent-realized-just-how-big-a-deal-gdpr-is/</a>. Sehr gute Analyse. Die Frage ist nicht &quot;<em>Wie</em> kann ich meine unbedachte Datensammelwut legal rechtfertigen?&quot; Sondern &quot;<em>Wozu</em> brauche ich denn überhaupt <em>welche</em> Daten?&quot;</li>
+</ul>
+<ul>
+<li><a href="https://medium.com/global-editors-network/mark-little-no-we-are-not-building-a-netflix-for-news-af9901fcffae">https://medium.com/global-editors-network/mark-little-no-we-are-not-building-a-netflix-for-news-af9901fcffae</a> - &quot;Completeness&quot;</li>
+</ul>
+<p><em>Dieser Artikel wird gerade fortgeschrieben, und wird im Laufe des Monats wachsen.</em></p>
+
+
+    </article>
+</body>
+</html>

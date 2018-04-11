@@ -1,37 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <title>Perfekte Link-Unterstreichung</title>
-  <link media="all" href="/styles.css" rel="stylesheet" />
-  <link href="/favicon.ico" rel="shortcut icon" />
-    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="/" rel="home start" />
-  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen." />
-    <meta name="keywords" content="Webentwicklung" />
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Perfekte Link-Unterstreichung</title>
+    <meta name="description" content="Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.">
+    <meta name="date" content="Tue May 06 2014 02:00:00 GMT+0200 (CEST)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 </head>
 <body>
-  <header>
-		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
-  	
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
 
-  </header><article class="post">
+        <div class="post__meta">
+            <span class="post__category">#Webentwicklung</span>
+            <time datetime="Tue May 06 2014 02:00:00 GMT+0200 (CEST)">06. Mai 2014</time>
+        </div>
 
-	<div class="post__meta">
-		<span class="post__category">#Webentwicklung
-		</span>
-		<time datetime="2014-05-06">
-			
-			06. Mai 2014
-		</time>
-	</div>
+        <h1 class="post__title">Perfekte Link-Unterstreichung</h1>
 
-    <h1 class="post__title">Perfekte Link-Unterstreichung</h1>
-
-    <p>Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.</p>
-<p>Als Freund <a href="http://ia.net/blog/100e2r">&ldquo;großer&rdquo; Schrift</a> auf Websites stelle ich fest, dass die Unterstreichung von Links ab 20 Pixeln Schriftgröße (bei meinem Setup von font-family: Georgia, "Times New Roman", Times, serif;) recht breit ist. Das stört auch die Lesbarkeit des Textes &mdash; zumindest im Vergleich zu einer Variante mit schmalerer Unterstreichung. Hier im Blog kommt das nicht zum Tragen. Groß sind nur die Überschriften, die eine dicke Unterstreichung vertragen. Der Fließtext ist kleiner als 20px und hat daher moderate Unterstreichung. Auf meiner Website mit vielen Links störte die Unterstreichung schon mehr (siehe Screenshot):</p>
+        <p>Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.</p>
+<p>Als Freund <a href="http://ia.net/blog/100e2r">&ldquo;großer&rdquo; Schrift</a> auf Websites stelle ich fest, dass die Unterstreichung von Links ab 20 Pixeln Schriftgröße (bei meinem Setup von font-family: Georgia, &quot;Times New Roman&quot;, Times, serif;) recht breit ist. Das stört auch die Lesbarkeit des Textes &mdash; zumindest im Vergleich zu einer Variante mit schmalerer Unterstreichung. Hier im Blog kommt das nicht zum Tragen. Groß sind nur die Überschriften, die eine dicke Unterstreichung vertragen. Der Fließtext ist kleiner als 20px und hat daher moderate Unterstreichung. Auf meiner Website mit vielen Links störte die Unterstreichung schon mehr (siehe Screenshot):</p>
 <figure>
     <img src="/images/2014/05/link-underline.png" alt="Abb. 1: Link-Unterstreichung nativ und trickreich">
     <figcaption>Abb. 1: Link-Unterstreichung nativ und trickreich</figcaption>
@@ -66,6 +62,7 @@ a:hover, a:focus {
 <p><strong>Trick 2:</strong> Ein Text-Shadow, unterbricht die Linie bei Buchstaben mit Unterlänge.</p>
 <p>Achtgeben muss man auf Links, die nicht nur Text enthalten. Wird z.B. ein Bild verlinkt, erhält dieses auch eine solche Unterstreichung. Das muss dann mittels &ldquo;background-image:none;&rdquo; unterbunden werden &mdash; und zwar am Link statt am Bild. Bei großen Seiten kann es hier haarig werden und der Nutzen rechtfertigt den Aufwand vielleicht nicht mehr. Dasselbe gilt für Links im Button-Stil usw.</p>
 
-</article>
+
+    </article>
 </body>
 </html>

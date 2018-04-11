@@ -1,62 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <title>Browser APIs und CSS Media Queries</title>
-  <link media="all" href="/styles.css" rel="stylesheet" />
-  <link href="/favicon.ico" rel="shortcut icon" />
-    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="/" rel="home start" />
-  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="Der Einsatz von Media Queries und Browser APIs beschränkt sich häufig auf min-width und navigator.userAgent. Aber in modernen Browsern gibt es cooles Zeug." />
-    <meta name="keywords" content="Webentwicklung" />
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Browser APIs und CSS Media Queries</title>
+    <meta name="description" content="Der Einsatz von Media Queries und Browser APIs beschränkt sich häufig auf min-width und navigator.userAgent. Aber in modernen Browsern gibt es cooles Zeug.">
+    <meta name="date" content="Sat Apr 08 2017 02:00:00 GMT+0200 (CEST)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 </head>
 <body>
-  <header>
-		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
-  	
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
 
-  </header><article class="post">
+        <div class="post__meta">
+            <span class="post__category">#Webentwicklung</span>
+            <time datetime="Sat Apr 08 2017 02:00:00 GMT+0200 (CEST)">08. April 2017</time>
+        </div>
 
-	<div class="post__meta">
-		<span class="post__category">#Webentwicklung
-		</span>
-		<time datetime="2017-04-08">
-			
-			08. April 2017
-		</time>
-	</div>
+        <h1 class="post__title">Browser APIs und CSS Media Queries</h1>
 
-    <h1 class="post__title">Browser APIs und CSS Media Queries</h1>
-
-    <p>In der Regel denkt man bei Media Queries an nicht viel mehr als <code>min-width</code> oder <code>device-pixel-ratio</code> und bei Browser APIs an <code>navigator.userAgent</code>. Moderne Browser können natürlich viel mehr.</p>
+        <p>In der Regel denkt man bei Media Queries an nicht viel mehr als <code>min-width</code> oder <code>device-pixel-ratio</code> und bei Browser APIs an <code>navigator.userAgent</code>. Moderne Browser können natürlich viel mehr.</p>
 <p>Kürzlich sah ich in einer interessanten <a href="https://speakerdeck.com/grigs/why-you-should-build-a-progressive-web-app-now-1">Präsentation über Progressive Web Apps</a> dies:</p>
-<pre>@media (display-mode: standalone), (display-mode: fullscreen) {
+<p><pre>@media (display-mode: standalone), (display-mode: fullscreen) {
     .backButton {
         display: block;
     }
-}</pre>
-
+}</pre></p>
 <p>Mit dieser Media Query stellt man fest, ob die Website (bzw Web App) das Browser-GUI (und damit den Back-Button des Browsers ) zur Verfügung hat, oder nicht. Und kann dann einen eigenen Button einblenden.</p>
 <p>Das war für mich ein Anlass, mal zu schauen, welche Media/Feature Queries und Browser APIs heutzutage zur Verfügung stehen.</p>
-<h2>(1) Browser APIs</h2>
-<h3>navigator.cookieEnabled</h3>
+<h1 id="-1-browser-apis">(1) Browser APIs</h1>
+<h2 id="navigator-cookieenabled">navigator.cookieEnabled</h2>
 <p>Eigentlich ganz simpel, kannte ich aber bis heute noch nicht. Diese Abfrage ist natürlich der  Methode, ein Cookie zu setzen und dann auszulesen, zu bevorzugen. Sehr gute Browser-Unterstützung.</p>
 <blockquote>
-<p>In diesem Browser: <script>document.write(navigator.cookieEnabled || '<em>undefined</em>')</script></p>
+<p>In diesem Browser: <script>document.write(navigator.cookieEnabled || &#39;<em>undefined</em>&#39;)</script></p>
 </blockquote>
-<h3>navigator.doNotTrack</h3>
-<p>Zeigt an, ob im Browser "Do not track" gesetzt wurde -- und auf welchen Wert. Ist in vielen Browsern implementiert, aber der <a href="https://blog.thomaspuppe.de/do-not-track-header-crossbrowser">Rückgabewert ist unterschiedlich</a> und muss geparsed werden.</p>
+<h2 id="navigator-donottrack">navigator.doNotTrack</h2>
+<p>Zeigt an, ob im Browser &quot;Do not track&quot; gesetzt wurde -- und auf welchen Wert. Ist in vielen Browsern implementiert, aber der <a href="https://blog.thomaspuppe.de/do-not-track-header-crossbrowser">Rückgabewert ist unterschiedlich</a> und muss geparsed werden.</p>
 <blockquote>
-<p>In diesem Browser: <script>document.write(navigator.doNotTrack || '<em>undefined</em>')</script></p>
+<p>In diesem Browser: <script>document.write(navigator.doNotTrack || &#39;<em>undefined</em>&#39;)</script></p>
 </blockquote>
-<h3>navigator.hardwareConcurrency</h3>
+<h2 id="navigator-hardwareconcurrency">navigator.hardwareConcurrency</h2>
 <p>Gibt die Zahl der verfügbaren Prozessoren zurück. Das ist ein grober Indikator dafür, ob der Browser auf einem ein starken neuen Gerät läuft, oder einer alten Möhre. (Vielleicht kann man auch auf die sinnvolle Anzahl an Service Workern oder Web Workern schließen? Gibt ein Browser-Tab, das in einem Prozess läuft, solche Möglichkeiten her?)</p>
 <blockquote>
-<p>In diesem Browser: <script>document.write(navigator.hardwareConcurrency || '<em>undefined</em>')</script></p>
+<p>In diesem Browser: <script>document.write(navigator.hardwareConcurrency || &#39;<em>undefined</em>&#39;)</script></p>
 </blockquote>
-<h3>navigator.geolocation</h3>
+<h2 id="navigator-geolocation">navigator.geolocation</h2>
 <p>Selbsterklärend. Neben der aktuellen Position kann man auch Positions (oder Genauigkeits-) Änderungen als Event-Handler empfangen. Was macht man mit der Position des Users? Man füttert sie in eine Routenplanung, oder nutzt sie, um Ort und Land des Besuchers herauszufinden.</p>
 <pre>navigator.geolocation.getCurrentPosition(function(position) {
   console.log(position.coords.latitude, position.coords.longitude);
@@ -81,9 +76,9 @@ document.getElementById('geolocationInfoTrigger').addEventListener('click', func
 </script>
 
 <p>Geolocation hat eine sehr gute <a href="http://caniuse.com/#search=geolocation">Browser-Unterstützung</a>, erfordert aber die Berechtigung durch den User und ist im Chrome Browser nur unter SSL verfügbar.</p>
-<h3>navigator.onLine</h3>
+<h2 id="navigator-online">navigator.onLine</h2>
 <blockquote>
-<p>In diesem Browser: <script>document.write(navigator.onLine || '<em>undefined</em>')</script></p>
+<p>In diesem Browser: <script>document.write(navigator.onLine || &#39;<em>undefined</em>&#39;)</script></p>
 </blockquote>
 <p>Selbsterklärend. Die Änderung des online-Status lässt sich über ein Event abfangen:</p>
 <pre>window.addEventListener('online', function(e) {
@@ -94,7 +89,8 @@ window.addEventListener('offline', function(e) {
     console.log("You are offline");
 }, false);</pre>
 
-<h3>navigator.connection</h3>
+
+<h2 id="navigator-connection">navigator.connection</h2>
 <p>Mehr Details zur Internetverbindung des Users (cellular, wifi).</p>
 <blockquote>
 <p>In diesem Browser: <span id="connectionInfo"></span></p>
@@ -110,7 +106,7 @@ if (connection && connection.type) {
 </script>
 
 <p><code>navigator.connection</code> ist nur im Firefox Mobile und auf Android verfügbar.</p>
-<h3>navigator.getBattery()</h3>
+<h2 id="navigator-getbattery-">navigator.getBattery()</h2>
 <p>Der Batteriestand des Devices kann abgefragt werden! Traurige Berühmtheit erlangte das Feature, als Uber denjenigen Kunden, deren Smartphone nur noch wenig Saft hatte, die Preise erhöht hat -- weil sie schnell das erstbeste Fahrzeug buchen würden.</p>
 <blockquote>
 <p>In diesem Browser: <span id="batteryInfo">waiting...</span></p>
@@ -137,8 +133,8 @@ if (navigator.getBattery) {
 });</pre>
 
 <p>Für die Änderung der Werte kann man auch wieder Event Handler registrieren, damit die Website/App informiert wird.</p>
-<p>Eine schöne Einführung findet man bei <a href="https://developer.mozilla.org/en-US/docs/Web/API/BatteryManager">MDN</a>. Das Feature wird <a href="http://caniuse.com/#search=battery">unterstützt</a> im Firefox (nur in "privilegiertem Code" -- diesen Term recherchiere ich jetzt nicht), Chrome und Opera.</p>
-<h3>navigator.share()</h3>
+<p>Eine schöne Einführung findet man bei <a href="https://developer.mozilla.org/en-US/docs/Web/API/BatteryManager">MDN</a>. Das Feature wird <a href="http://caniuse.com/#search=battery">unterstützt</a> im Firefox (nur in &quot;privilegiertem Code&quot; -- diesen Term recherchiere ich jetzt nicht), Chrome und Opera.</p>
+<h2 id="navigator-share-">navigator.share()</h2>
 <p>Mit dieser Funktion kann man per JS die Sharing-Funktion auslösen, die sonst aus dem Menü des Browsers getriggert wird. Der Vorteil gegenüber individuellen Sharing-Buttons: die Leute bekommen genau die Dienste angeboten, die sie zur Verfügung haben -- und nicht die der Seitenbetreiber für wichtig hielt.</p>
 <pre>navigator.share({
     title: document.title,
@@ -147,7 +143,7 @@ if (navigator.getBattery) {
 
 <p>Alle Parameter müssen Strings sein. Ob diese aus JavaScript kommen oder hardcoded sind, ist egal. Test oder URL können weggelasssen werden, eines von beiden muss vorhanden sein.</p>
 <p>Zurückgegeben wird eine Promise. Man kann den User also fürs Sharen belohnen oder Abbruchraten tracken.</p>
-<p>Ein paar Einschränkungen hat die Technik: Sie ist nur auf HTTPS-Seiten verfügbar, und kann nur durch User-Interaktion getriggert werden (nicht etwa onLoad oder onScroll -- Sorry liebe "User Engager"). Navigator.share() ist derzeit nur im Chrome (ab Version 55) verfügbar. Wie bei allen aktuellen Features wird der Entwickler also progressively enhancen.</p>
+<p>Ein paar Einschränkungen hat die Technik: Sie ist nur auf HTTPS-Seiten verfügbar, und kann nur durch User-Interaktion getriggert werden (nicht etwa onLoad oder onScroll -- Sorry liebe &quot;User Engager&quot;). Navigator.share() ist derzeit nur im Chrome (ab Version 55) verfügbar. Wie bei allen aktuellen Features wird der Entwickler also progressively enhancen.</p>
 <script>
 function sharePage() {
     if (navigator.share) {
@@ -164,56 +160,54 @@ function sharePage() {
 <blockquote>
 <p>In diesem Browser: <span id="shareWrapper"><button id="shareButton" onClick="sharePage();">Share</button></span></p>
 </blockquote>
-<h3>navigator.sendBeacon</h3>
+<h2 id="navigator-sendbeacon">navigator.sendBeacon</h2>
 <p>Kann genutzt werden, um kleine Datenmengen asynchron an einen Server zu senden. Das Verfahren ist für Event Tracking und Monitoring gedacht. Vor allem das Rumeiern mit Requests bei window.unload soll erleichtert werden.</p>
 <pre>navigator.sendBeacon("/log", data);</pre>
 
 <p>Das <code>data</code> können Form Objekte, Arrays oder normale JS Objekte sein.</p>
 <p>Der Browser-Support ist <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon#Browser_compatibility">durchwachsen</a> und das Verfahren ist als experimentell eingestuft. Auf GitHub liegt eine <a href="https://googlechrome.github.io/samples/beacon/">clevere kleine Testseite</a> bereit.</p>
-<h3>navigator.vibrate(500)</h3>
+<h2 id="navigator-vibrate-500-">navigator.vibrate(500)</h2>
 <p>Lässt das Gerät vibrieren, wenn das verfügbar ist. Als Parameter nimmt die Funktion einen Integer (einmalige Vibration für x Millisekunden) oder ein Array (Pattern von Vibration und Pause) entgegen. <code>navigator.vibrate([100,200,300])</code> vibriert also 100 ms, pausiert 200 ms, vibriert 300 ms. <a href="http://caniuse.com/#search=vibration">Verfügbar</a> in modernen mobilen Browsern.</p>
 <blockquote>
 <p>In diesem Browser: <button id="vibrateButton" onClick="if (navigator.vibrate) { navigator.vibrate([200,100,200]); }">Vibrieren</button></p>
 </blockquote>
 <p>Die Funktion steht auch in nicht-vibrierfähigen Geräten zur Verfügung und man kann nicht prüfen, ob sie tatsächlich etwas tun wird. Zur Erkennung müsste man also über die Device-Detection gehen.</p>
-<h2>(2) Media Queries</h2>
+<h1 id="-2-media-queries">(2) Media Queries</h1>
 <p>Die am häufigsten eingesetzten Media Queries dürften <code>(min/max-)(device-)width</code> sein, die für responsive Layouts genutzt werden. Das <code>device</code> macht den wichtigen Unterschied zwischen der Größe des Gerätes und des eigentlichen Viewports (also Fensters oder Split Screens).</p>
 <p>Besonders auf großen Bildschirmen, wo man im Split Screen arbeitet (was mittlerweile auch auf Tablets kein Problem mehr ist), kann das Fenster komplett anders als das Gerät sein.</p>
 <p>Doch Media Queries können viel mehr:</p>
-<h3>(device-)aspect-ratio</h3>
+<h2 id="-device-aspect-ratio">(device-)aspect-ratio</h2>
 <p>... ist das Seitenverhältnis des geräts (bzw Viewports). Damit kann man im simpelsten Fall quer- von Hochformat unterscheiden, oder beispielsweise Panorama-Bildschirmen spezielel Stile oder Inhalte ausliefern.</p>
-<pre>@media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) { ... }</pre>
-
-<h3>orientation</h3>
+<p><pre>@media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) { ... }</pre></p>
+<h2 id="orientation">orientation</h2>
 <p>Eine noch simplere Variante der aspect-ratio. Nimmt die Werte <code>landscape</code> oder <code>portrait</code> an.</p>
-<pre>@media all and (orientation: portrait) { ... }</pre>
-
+<p><pre>@media all and (orientation: portrait) { ... }</pre></p>
 <style type="text/css" scoped>
 .orientationContainer > strong { display: none; }
 @media all and (orientation: portrait) {
-    .orientationContainer > * { display: none; }
-    .orientationContainer > .portrait { display: inline; }
+     .orientationContainer > * { display: none; }
+     .orientationContainer > .portrait { display: inline; }
 }
 @media all and (orientation: landscape) {
-    .orientationContainer > * { display: none; }
-    .orientationContainer > .landscape { display: inline; }
+     .orientationContainer > * { display: none; }
+     .orientationContainer > .landscape { display: inline; }
 }
 </style>
 
 <blockquote>
 <p>In diesem Browser: <span class="orientationContainer">
-  <em class="undefined">undefined</em>
-  <strong class="portrait">portrait</strong>
-  <strong class="landscape">landscape</strong>
-  </span></p>
+    <em class="undefined">undefined</em>
+    <strong class="portrait">portrait</strong>
+    <strong class="landscape">landscape</strong>
+    </span></p>
 </blockquote>
-<h3>resolution</h3>
+<h2 id="resolution">resolution</h2>
 <p>Erkennt die Pixeldichte auf einem Gerät, und wird vor Allem genutzt, um Retina-optimierte Bilder auszuliefern (<code>min-resolution: 300dpi</code>).</p>
-<h3>display-mode</h3>
+<h2 id="display-mode">display-mode</h2>
 <p>Mit dieser Media Query stellt man fest, ob die Website (bzw Web App) das Browser-GUI (und damit den Back-Button des Browsers ) zur Verfügung hat. Mögliche Werte: <code>fullscreen</code>, <code>standalone</code>, <code>minimal-ui</code> und <code>browser</code>.</p>
-<h3>light-level</h3>
-<p>Beschreibt die Lichtverhältnisse in der Umgebung, und nimmt die Werte <code>dim</code> (gedämpft), <code>normal</code> und <code>washed</code> (sehr hell) an. Eigentlich praktisch für so etwas wie den Nacht-Lese-Modus. Andererseits sehe ich hier die Gefahr, dass man mit seinen Queries die Nutzereinstellungen oder automatische Helligkeitsanpassung des Smartphones überschreibt -- "das Gegenteil von gut ist gut gemeint". Unterstützt wird <code>light-level</code> nur im Edge und im Firefox für OS X.</p>
-<h3>supports</h3>
+<h2 id="light-level">light-level</h2>
+<p>Beschreibt die Lichtverhältnisse in der Umgebung, und nimmt die Werte <code>dim</code> (gedämpft), <code>normal</code> und <code>washed</code> (sehr hell) an. Eigentlich praktisch für so etwas wie den Nacht-Lese-Modus. Andererseits sehe ich hier die Gefahr, dass man mit seinen Queries die Nutzereinstellungen oder automatische Helligkeitsanpassung des Smartphones überschreibt -- &quot;das Gegenteil von gut ist gut gemeint&quot;. Unterstützt wird <code>light-level</code> nur im Edge und im Firefox für OS X.</p>
+<h2 id="supports">supports</h2>
 <p>Erst diese Woche in einem <a href="https://github.com/codecandies/grid-talk">Vortrag meines Kollegen Nico Brünjes</a> gesehen. Außerhalb leider selten. Mit dieser Feature Query prüft man, ob der Browser bestimmte CSS-Eigenschaften unterstützt. Zum Beispiel <code>@supports(blink)</code> oder <code>@supports (display: grid)</code>.</p>
 <p>In den meisten Fällen lässt sich die Abfrage bzw. das progressive Enhancement direkt in die CSS-Regeln einbauen. Zum Beispiel bei Schriftgrößen via <code>font-size:16px; font-size: 1rem;</code> für den IE8. Der ignoriert die zweite Angabe, mit der er nicht klarkommt, und nutzt die erste. Moderne Browser überschreiben die erste mit der zweiten.</p>
 <p>Die Query <code>@supports</code> sorgt aber für Klarheit, wenn man größere Blöcke umstylen will, sobald eine Technik verfügbar ist. Oder aber, um eine ganz andere CSS-Datei zu laden.</p>
@@ -224,15 +218,16 @@ function sharePage() {
 <p>Der Support von Features lässt sich übrigens auch via JavaScript über die CSS-API des Browsers abfragen:</p>
 <pre>var canuiseCSSGrid = CSS.supports("(display: grid)");</pre>
 
-<h3>Exotische Queries</h3>
+
+<h2 id="exotische-queries">Exotische Queries</h2>
 <p>Der Vollständigkeit halber noch ein paar Media Features, die eher selten genutzt werden.</p>
 <p><code>scan</code> unterscheidet in der Art des Bildaufbaus am Bildschirm (interlace vs progressive), und ist relevant bei schnellen Bewegungen.</p>
 <p><code>color</code> und <code>color-index</code> geben an, wie viele Farben verfügbar sind und wie sie gespeichert werden, <code>monochrome</code> erkennt Geräte die nur mit Graustufen arbeiten (und mit wie vielen). <code>grid</code> spricht auf Monospace-Font Displays an, also alle die feste Plätze und Breiten für jedes Zeichen haben. Theoretisch ist das cool, um reduzierte Bilder (oder auf Kontrast optimiertes CSS) an Geräte wie den Kindle auszuliefern. Weil diese Mikrooptimierung aber kaum jemand betreibt, machen die Geräte selbst was Gutes aus dem CSS -- weshalb wiederum niemand diese Mikrooptimierung betreibt.</p>
 <p>Im Firefox kann man Windows-Versionen und Betriebssystem-Stile erkennen und mit seienm Styling darauf reagieren. Feature-Queries wie <code></code>-moz-os-version:windows-win10<code>,</code>-moz-mac-graphite-theme<code>und</code>-moz-windows-theme:aero` regeln das.</p>
-<h3>Media Queries Level 4</h3>
+<h2 id="media-queries-level-4">Media Queries Level 4</h2>
 <p>Noch im <a href="https://drafts.csswg.org/mediaqueries-4/#media">Draft-Status</a> sind Media Queries Level 4. Sie versprechen Features wie <code>hover</code> (kann ich über Elemente hovern?), <code>pointer</code> (wie genau kann ich Elemente treffen -- Mauszeiger vs Wurstfinger), <code>update</code> (Schnelligkeit beim Bildaufbau, quasi frames-per-second) und mehr.</p>
 <p><code>device-width</code>, <code>device-height</code>, und damit auch device-aspect-ratio` sind deprecated.</p>
-<h2>(3) Was mir fehlt</h2>
+<h1 id="-3-was-mir-fehlt">(3) Was mir fehlt</h1>
 <ul>
 <li>Bessere Erkennung von Bandbreite/Netzwerkgeschwindigkeit. Zum Beispiel kann Wifi langsamer sein als Cellular via LTE. Da hilft <code>navigator.connection.type</code> nicht unbedingt weiter.</li>
 <li>Statt Wifi/Cellular will man eigentlich wissen: Hat der User eine Flatrate, oder zählt jedes MB? Andererseits will ich beim Surfen diese Info auch nicht unbedingt preisgeben.</li>
@@ -244,6 +239,8 @@ function sharePage() {
 &lt;script media="screen and (bandwidth:high)" src="/immersiveEffects.js" defer integrity="xyz"&gt;
 </script></pre>
 
-</article>
+
+
+    </article>
 </body>
 </html>

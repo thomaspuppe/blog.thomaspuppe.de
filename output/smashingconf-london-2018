@@ -1,36 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Smashing Conf 2018 in London: #perfmatters</title>
-  <link media="all" href="/styles.css" rel="stylesheet" />
-  <link href="/favicon.ico" rel="shortcut icon" />
-    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="/" rel="home start" />
-  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="Summarizing the first day presentations of the Front Trends 2016 conference in Warsaw. Covering pranks, animations, static sites, RxJS, performance, and leadership." />
-    <meta name="keywords" content="Webentwicklung" />
+    <meta charset="utf-8">
+    <meta name="language" content="en">
+    <title>Smashing Conf 2018 in London: #perfmatters</title>
+    <meta name="description" content="Summarizing the first day presentations of the Front Trends 2016 conference in Warsaw. Covering pranks, animations, static sites, RxJS, performance, and leadership.">
+    <meta name="date" content="Thu Feb 08 2018 01:00:00 GMT+0100 (CET)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 </head>
 <body>
-  <header>
-		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
-  	
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
 
-  </header><article class="post">
+        <div class="post__meta">
+            <span class="post__category">#Webentwicklung</span>
+            <time datetime="Thu Feb 08 2018 01:00:00 GMT+0100 (CET)">08. February 2018</time>
+        </div>
 
-	<div class="post__meta">
-		<span class="post__category">#Webentwicklung
-		</span>
-		<time datetime="2018-02-08">
-			
-			08. February 2018
-		</time>
-	</div>
+        <h1 class="post__title">Smashing Conf 2018 in London: #perfmatters</h1>
 
-    <h1 class="post__title">Smashing Conf 2018 in London: #perfmatters</h1>
-
-    <p>Summarizing the first day presentations of the Front Trends 2016 conference in Warsaw. Covering pranks, animations, static sites, RxJS, performance, and leadership. A speakers list can also be found on <a href="https://2016.front-trends.com/speakers/">2016.front-trends.com/speakers/</a>.</p>
+        <p>Summarizing the first day presentations of the Front Trends 2016 conference in Warsaw. Covering pranks, animations, static sites, RxJS, performance, and leadership. A speakers list can also be found on <a href="https://2016.front-trends.com/speakers/">2016.front-trends.com/speakers/</a>.</p>
 <figure>
     <picture>
         <img
@@ -46,14 +42,15 @@
     <figcaption>TODO Smashing Conf</figcaption>
 </figure>
 
-<h3>See yourself: the conference papers and videos</h3>
-<h3>Performance Culture</h3>
-<p><a href="https://twitter.com/TODO">Phil Hawksworth</a> spoke about deployments at/via netlify (where he works). Each version (tag) of your software results in a build which is (and stays) available as a stable resource. That way you can easily allocate traffic to different versions (gradual release of a new thing, fast rollback) and have a history available to check out your site in earlier states. Further advice: Move unknowns to the start of your projects, so you can tacke them early. And: use services. The complexity of modern web development is still there, but you don't have to own everything.</p>
+
+<h2 id="see-yourself-the-conference-papers-and-videos">See yourself: the conference papers and videos</h2>
+<h2 id="performance-culture">Performance Culture</h2>
+<p><a href="https://twitter.com/TODO">Phil Hawksworth</a> spoke about deployments at/via netlify (where he works). Each version (tag) of your software results in a build which is (and stays) available as a stable resource. That way you can easily allocate traffic to different versions (gradual release of a new thing, fast rollback) and have a history available to check out your site in earlier states. Further advice: Move unknowns to the start of your projects, so you can tacke them early. And: use services. The complexity of modern web development is still there, but you don&#39;t have to own everything.</p>
 <blockquote>
 <p>Human interventions in deployments are undesirable
 – Phil Hawksworth</p>
 </blockquote>
-<h3>Measuring Performance</h3>
+<h2 id="measuring-performance">Measuring Performance</h2>
 <p><a href="https://twitter.com/TODO">Andy Davies</a> had a brilliant talk on 3rd party scripts, how they harm your site, and how to analyze what they do.</p>
 <p>Webpagetest allows blocking 3rd party scripts (by domain blacklists). That way you can directly compare the load behaviour of your site with(out) certain 3rd party tools.</p>
 <p>Andy demonstrated how to use the Chrome developer tools to detect which scripts use network and memory. That way you can find things that the usual testing tools dont show (eg heavy CPU load on unload event, when some tracking scripts start to calculate and send data home).</p>
@@ -68,7 +65,7 @@
 <p>TODO: Zitat von Tim Kadlec</p>
 <p>--</p>
 <p><a href="https://twitter.com/TODO">Patrick Meenan</a>, the inventor[TODO:???] of Webpagetest</p>
-<h3>Improving Performance</h3>
+<h2 id="improving-performance">Improving Performance</h2>
 <p><a href="https://twitter.com/TODO">Una TODO</a> and <a href="https://twitter.com/TODO">Martin TODO</a> blew my mind with image optimization wizardry. After briefly covering the basics (formats, responsive images, compression) they went beyond the regular stuff. My favorite techniques:</p>
 <ul>
 <li>blur unimportant parts of a photo (eg the sky behind a portrait)</li>
@@ -82,21 +79,22 @@
 <p>Next thing was <a href="https://www.igvita.com/2014/09/16/optimizing-webfont-selection-and-synthesis/">font-synthesis</a>. Basically: use a substitute which is close to your font to be loaded, while it loads (eg the normal style of your webfont plus font-weight:bold, while the bold style loads ... which in this case might be the second page, because you use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display">font-display: fallback/optional</a>).</p>
 <p>Two more optimizations: If you know the set of characters that will be used, you can create subsets of webfonts, so the font file gets smaller. You might strip all non-latin characters (plus special characters or maybe umlauts) from the font. Or, if you use it only for a specific text (your page header) you could create a subset of only these characters. Which could be included base64 encoded as data-uri inside your page or CSS file. (Assuming you have only one format, which should be the case IMHO).</p>
 <p>A tool for checking the character subset of your page is <a href="https://github.com/filamentgroup/glyphhanger">Glyphhanger</a>. Another toolset: <a href="https://github.com/fonttools/fonttools">Fonttools (Python)</a> for format conversion, subsets and more.</p>
-<h3>Things to review and resarch</h3>
-<h3>My personal todo list</h3>
+<h2 id="things-to-review-and-resarch">Things to review and resarch</h2>
+<h2 id="my-personal-todo-list">My personal todo list</h2>
 <ul>
 <li>Use responsive images on this blog ... done on this article :-).</li>
 <li>Use modern compression.</li>
 <li>Finally try netlify. Just because it is hot this year.</li>
 <li>Try image previews (blurry technique or svg preview).</li>
-<li>Check out (JS Manners)[http://jsmanners.com/]</li>
+<li>Check out (JS Manners)[<a href="http://jsmanners.com/]">http://jsmanners.com/]</a></li>
 </ul>
-<hr />
-<h3>Promoting Performance trhough <a href="https://twitter.com/twholman">Tim Holman</a></h3>
+<hr>
+<h2 id="promoting-performance-trhough-tim-holman">Promoting Performance trhough <a href="https://twitter.com/twholman">Tim Holman</a></h2>
 <ul>
-<li>Fun with [CSS pranks](http://slides.com/tholman/css</li>
+<li>Fun with [CSS pranks](<a href="http://slides.com/tholman/css">http://slides.com/tholman/css</a></li>
 </ul>
 
-</article>
+
+    </article>
 </body>
 </html>

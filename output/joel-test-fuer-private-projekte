@@ -1,39 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <title>Joel Test</title>
-  <link media="all" href="/styles.css" rel="stylesheet" />
-  <link href="/favicon.ico" rel="shortcut icon" />
-    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="/" rel="home start" />
-  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="None" />
-    <meta name="keywords" content="Webentwicklung" />
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Joel Test</title>
+    <meta name="description" content="null">
+    <meta name="date" content="Thu Apr 06 2017 02:00:00 GMT+0200 (CEST)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 </head>
 <body>
-  <header>
-		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
-  	
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
 
-  </header><article class="post">
+        <div class="post__meta">
+            <span class="post__category">#Webentwicklung</span>
+            <time datetime="Thu Apr 06 2017 02:00:00 GMT+0200 (CEST)">06. April 2017</time>
+        </div>
 
-	<div class="post__meta">
-		<span class="post__category">#Webentwicklung
-		</span>
-		<time datetime="2017-04-06">
-			
-			06. April 2017
-		</time>
-	</div>
+        <h1 class="post__title">Joel Test</h1>
 
-    <h1 class="post__title">Joel Test</h1>
-
-    <h2>Joel Test 2017</h2>
-<p>http://www.joelonsoftware.com/articles/fog0000000043.html
-http://couchblog.de/nico/2016/08/joel-test-score-1012/</p>
-<p>https://myers.io/2017/04/04/the-joel-test-for-2017/</p>
+        <h1 id="joel-test-2017">Joel Test 2017</h1>
+<p><a href="http://www.joelonsoftware.com/articles/fog0000000043.html">http://www.joelonsoftware.com/articles/fog0000000043.html</a>
+<a href="http://couchblog.de/nico/2016/08/joel-test-score-1012/">http://couchblog.de/nico/2016/08/joel-test-score-1012/</a></p>
+<p><a href="https://myers.io/2017/04/04/the-joel-test-for-2017/">https://myers.io/2017/04/04/the-joel-test-for-2017/</a></p>
 <p>[/] 1. Are all builds handled automatically by a Continuous Integration server? 
 [X] 2. Do you make and use daily builds? 
 [X] 3. Do you use an issue tracker?
@@ -46,8 +42,9 @@ http://couchblog.de/nico/2016/08/joel-test-score-1012/</p>
 [X] 10. Does all code go through code review?
 [X] 11. Do you have coding standards?
 [X] 12. Are new employees given training?</p>
-<h2>Joel Test für private Projekte</h2>
+<h1 id="joel-test-f-r-private-projekte">Joel Test für private Projekte</h1>
 
-</article>
+
+    </article>
 </body>
 </html>

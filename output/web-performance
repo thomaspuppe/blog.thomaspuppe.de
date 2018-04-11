@@ -1,40 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <title>Website Performance Optimierung ohne Zukunft?</title>
-  <link media="all" href="/styles.css" rel="stylesheet" />
-  <link href="/favicon.ico" rel="shortcut icon" />
-    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="/" rel="home start" />
-  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="None" />
-    <meta name="keywords" content="Webentwicklung" />
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Website Performance Optimierung ohne Zukunft?</title>
+    <meta name="description" content="null">
+    <meta name="date" content="Sat Jul 01 2017 02:00:00 GMT+0200 (CEST)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 </head>
 <body>
-  <header>
-		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
-  	
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
 
-  </header><article class="post">
+        <div class="post__meta">
+            <span class="post__category">#Webentwicklung</span>
+            <time datetime="Sat Jul 01 2017 02:00:00 GMT+0200 (CEST)">02. Juli 2017</time>
+        </div>
 
-	<div class="post__meta">
-		<span class="post__category">#Webentwicklung
-		</span>
-		<time datetime="2017-07-01">
-			
-			02. Juli 2017
-		</time>
-	</div>
+        <h1 class="post__title">Website Performance Optimierung ohne Zukunft?</h1>
 
-    <h1 class="post__title">Website Performance Optimierung ohne Zukunft?</h1>
-
-    <p>Why is Webperf so hard these days?</p>
+        <p>Why is Webperf so hard these days?</p>
 <p>Früher: Dateien zusammenfügen, Bilder usw komprimieren, richtige Load Order, Cachine Header -&gt; Das galt universell. Alle Seiten, alle Besuche.</p>
 <p>Heute: Critical CSS (unterschiedlich, auch pro Device), Preload (weiß man nicht, welche Datei), Server Push Async (aber nur beim ersten Besuch).</p>
 <p>Sind also alle einfachen Sachen (niedrig hängende Früchte) abgearbeitet?</p>
-<p>CSS per JavaScript nachladen ist ein NoGo! (Wenn du "Strategien" brauchst, um dein CSS zu laden, ist es vermutlich zu viel - dann liegt dein problem woanders.)
+<p>CSS per JavaScript nachladen ist ein NoGo! (Wenn du &quot;Strategien&quot; brauchst, um dein CSS zu laden, ist es vermutlich zu viel - dann liegt dein problem woanders.)
 Critical CSS rendern: ok, aber eigentlich nicht richtig.
 Per Progressive Web App und Service Worker Inhalte schonmal vorzuhalten ist ok, aber der normale Browsercache soltle das meiste davon schon tun.</p>
 <p>Wenn bei uns alles super ist, dann 3rd parties lehren</p>
@@ -55,8 +51,9 @@ Per Progressive Web App und Service Worker Inhalte schonmal vorzuhalten ist ok, 
 <p>Bücher, Konferenzthemen der Velocity, Blogposts.</p>
 <p>Diskussion: wo stehen wir? Wie geht es weiter?</p>
 <p>AMP: Standards statt Technik.</p>
-<p>https://www.cdn77.com/blog/web-performance-expert-insights-2018/</p>
+<p><a href="https://www.cdn77.com/blog/web-performance-expert-insights-2018/">https://www.cdn77.com/blog/web-performance-expert-insights-2018/</a></p>
 
-</article>
+
+    </article>
 </body>
 </html>

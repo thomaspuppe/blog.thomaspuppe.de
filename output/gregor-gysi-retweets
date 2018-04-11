@@ -1,36 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <title>Die Unterstützer des @GregorGysi</title>
-  <link media="all" href="/styles.css" rel="stylesheet" />
-  <link href="/favicon.ico" rel="shortcut icon" />
-    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="/" rel="home start" />
-  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="Gregor Gysi führt in den letzten Wochen die Retweet-Charts von Bundestwitter an. Ist das systematische Unterstützung durch Wenige? Oder eine breite Basis?" />
-    <meta name="keywords" content="Bundestwitter" />
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Die Unterstützer des @GregorGysi</title>
+    <meta name="description" content="Gregor Gysi führt in den letzten Wochen die Retweet-Charts von Bundestwitter an. Ist das systematische Unterstützung durch Wenige? Oder eine breite Basis?">
+    <meta name="date" content="Sun Mar 16 2014 01:00:00 GMT+0100 (CET)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 </head>
 <body>
-  <header>
-		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
-  	
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
 
-  </header><article class="post">
+        <div class="post__meta">
+            <span class="post__category">#Bundestwitter</span>
+            <time datetime="Sun Mar 16 2014 01:00:00 GMT+0100 (CET)">16. März 2014</time>
+        </div>
 
-	<div class="post__meta">
-		<span class="post__category">#Bundestwitter
-		</span>
-		<time datetime="2014-03-16">
-			
-			16. März 2014
-		</time>
-	</div>
+        <h1 class="post__title">Die Unterstützer des @GregorGysi</h1>
 
-    <h1 class="post__title">Die Unterstützer des @GregorGysi</h1>
-
-    <p>Der Fraktionsführer der Linken im Deutschen Bundestag, <a href="http://www.bundestwitter.de/politiker/dr-gregor-gysi/">Gregor Gysi</a>, führt in den letzten Wochen die <a href="http://www.bundestwitter.de">Retweet-Charts von Bundestwitter</a> an. Ist das systematische Unterstützung durch Wenige? Oder eine breite Basis?</p>
+        <p>Der Fraktionsführer der Linken im Deutschen Bundestag, <a href="http://www.bundestwitter.de/politiker/dr-gregor-gysi/">Gregor Gysi</a>, führt in den letzten Wochen die <a href="http://www.bundestwitter.de">Retweet-Charts von Bundestwitter</a> an. Ist das systematische Unterstützung durch Wenige? Oder eine breite Basis?</p>
 <p>Grundlage der Analyse sind alle Tweets von Gregor Gysi aus dem Jahr 2014 (Stand 16.02.). Diese habe ich nach Retweet-Häufigkeit sortiert, und die Top 25 dann genauer untersucht. Von jedem Tweet wurden die Profildaten aller Retweeter geladen, und die <a href="#tabelleGesamt">Daten in einer Tabelle zusammengeführt</a> (Link führt zur Tabelle am Fuß dieses Posts).</p>
 <p>Insgesamt haben 920 verschiedene Profile die <a href="http://www.bundestwitter.de/politiker/dr-gregor-gysi/tweets/">Top-Tweets von Gregor Gysi</a> weiterverbreitet. Manche Accounts retweeten fast jeden dieser Beiträge:</p>
 <ol>
@@ -41,24 +37,24 @@
 <li>NimA (<a href="https://www.twitter.com/Nima_1990">Nima_1990</a>) schickte 12 Retweets an 29 Follower.</li>
 </ol>
 
-<p>Mit @politlinkx und @ProDemokratie sind "Gruppen" (Begriff als Gegensatz zu einzelnen Privatpersonen) an der Spitze der Unterstützer. Die @linksfraktion ist mit 6 Retweets an Position 19. Mit jeweils 1 Retweet sind @katjakipping, Petra_Sitte_MdB, MWBirkwald und @DerRostocker von der Linksfraktion dabei. Andere MdB haben die untersuchten Tweets nicht weiterverbreitet.</p>
+<p>Mit @politlinkx und @ProDemokratie sind &quot;Gruppen&quot; (Begriff als Gegensatz zu einzelnen Privatpersonen) an der Spitze der Unterstützer. Die @linksfraktion ist mit 6 Retweets an Position 19. Mit jeweils 1 Retweet sind @katjakipping, Petra_Sitte_MdB, MWBirkwald und @DerRostocker von der Linksfraktion dabei. Andere MdB haben die untersuchten Tweets nicht weiterverbreitet.</p>
 <p>Die große Unterstützung kommt aber aus einer breiten Basis. 668 Personen haben 1 Retweet gemacht, 140 Personen 2 Retweets. Es folgen 45 Personen mit 3 Retweets, 38 Personen mit 4 Retweets und 20 Personen mit 5 Retweets. Mehr als 10 Retweets hatten nur die 5 oben genannten Accounts.</p>
 <p>1 Retweet: 668 Personen. 2 Retweets: 140 Personen. 3 Retweets: 45 Personen.4 Retweets: 38 Personen. 5 Retweets: 20 Personen. 6 Retweets: 4 Personen. 7 Retweets: 6 Personen. 8 Retweets: 8 Personen. 10 Retweets: 2 Personen. 12 Retweets: 1 Person. 13 Retweets: 1 Person. 15 Retweets: 1 Person. 21 Retweets: 1 Person. 23 Retweets: 1 Person.</p>
-<h3>Wer sind die Unterstützer mit den meisten Followern?</h3>
-
+<h2>Wer sind die Unterstützer mit den meisten Followern?</h2>
 <ol>
     <li>Selami İnce (<a href="https://www.twitter.com/selamiince">selamiince</a>) 27703 Follower, 1 Retweet.<br>
-        <i>"#Hitzlsperger Respekt! In allen Bereichen mit antiquiertem Männlichkeitsbild spielt hoffentlich bald keine Rolle mehr, wer mit wem wie lebt."</i></li>
+        <i>&quot;#Hitzlsperger Respekt! In allen Bereichen mit antiquiertem Männlichkeitsbild spielt hoffentlich bald keine Rolle mehr, wer mit wem wie lebt.&quot;</i></li>
     <li>Christopher Lauer (<a href="https://www.twitter.com/Schmidtlepp">Schmidtlepp</a>) 26669 Follower, 1 Retweet.<br>
-        <i>"(mi) #Gysi zu #Merkel: Unter Kohl war die Marktwirtschaft noch sozialer als heute. Hier das Video @linksfraktion http://t.co/SlH8NTMTRr"</i></li>
+        <i>&quot;(mi) #Gysi zu #Merkel: Unter Kohl war die Marktwirtschaft noch sozialer als heute. Hier das Video @linksfraktion <a href="http://t.co/SlH8NTMTRr&quot;">http://t.co/SlH8NTMTRr&quot;</a></i></li>
     <li>Jörg Tauss (<a href="https://www.twitter.com/tauss">tauss</a>) 15508 Follower, 1 Retweet.<br>
-        <i>"Durch ihre Enthaltung verhindert die Bundesregierung eine qualifizierte Mehrheit der EU-Agrarministern gegen die Einführung von #GenMais1507"</i></li>
+        <i>&quot;Durch ihre Enthaltung verhindert die Bundesregierung eine qualifizierte Mehrheit der EU-Agrarministern gegen die Einführung von #GenMais1507&quot;</i></li>
     <li>Katja Kipping (<a href="https://www.twitter.com/katjakipping">katjakipping</a>) 13858 Follower, 1 Retweet.<br>
-        <i>"Durch ihre Enthaltung verhindert die Bundesregierung eine qualifizierte Mehrheit der EU-Agrarministern gegen die Einführung von #GenMais1507"</i></li>
+        <i>&quot;Durch ihre Enthaltung verhindert die Bundesregierung eine qualifizierte Mehrheit der EU-Agrarministern gegen die Einführung von #GenMais1507&quot;</i></li>
     <li>linksfraktion (<a href="https://www.twitter.com/Linksfraktion">Linksfraktion</a>) 12378 Follower, 6 Retweets.</li>
 </ol>
 
-<h3 id="tabelleGesamt">Hier die Tabelle aller Accounts mit mehr als 2 Retweets:</h3>
+
+<h2 id="tabelleGesamt">Hier die Tabelle aller Accounts mit mehr als 2 Retweets:</h2>
 
 <table>
 <tr>
@@ -1497,7 +1493,7 @@
                         </tr>
                 <tr>
         <td>43</td>
-                                <td>k.&k.Hoflieferant (Reichsvikar)</td>
+                                <td>k.&amp;k.Hoflieferant (Reichsvikar)</td>
                                 <td>1047</td>
                                 <td>4</td>
                                 <td>X</td>
@@ -2417,7 +2413,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>/td>
+                                <td>/td&gt;
                                 <td></td>
                                 <td></td>
                                 <td>X</td>
@@ -3639,12 +3635,15 @@
                         </tr>
 </table>
 
+
 <p>Hinweise:</p>
 <ul>
     <li>Wie man sieht, habe ich die Masse der 1-mal und 2-mal Retweter ausgelassen.</li>
     <li>Die Zahl der Follower ist auch vom 16.03.2014, und nicht vom Tag der Retweets.</li>
 </ul>
 
-</article>
+
+
+    </article>
 </body>
 </html>

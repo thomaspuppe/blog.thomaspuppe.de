@@ -1,45 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <title>Eine Single-Page-App minimieren mit Gulp</title>
-  <link media="all" href="/styles.css" rel="stylesheet" />
-  <link href="/favicon.ico" rel="shortcut icon" />
-    <link href="/sitemap.xml" type="application/xml" rel="sitemap" title="Sitemap">
-  <link href="/" rel="home start" />
-  <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-  <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
-    <meta name="description" content="Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleichzeitig sollen Less und JSLint genutzt werden. Ein wunderbares Einsatzgebiet für Gulp!" />
-    <meta name="keywords" content="Webentwicklung" />
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Eine Single-Page-App minimieren mit Gulp</title>
+    <meta name="description" content="Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleichzeitig sollen Less und JSLint genutzt werden. Ein wunderbares Einsatzgebiet für Gulp!">
+    <meta name="date" content="Fri Jan 23 2015 01:00:00 GMT+0100 (CET)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 </head>
 <body>
-  <header>
-		<p><a href="/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
-  	
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
 
-  </header><article class="post">
+        <div class="post__meta">
+            <span class="post__category">#Webentwicklung</span>
+            <time datetime="Fri Jan 23 2015 01:00:00 GMT+0100 (CET)">23. Januar 2015</time>
+        </div>
 
-	<div class="post__meta">
-		<span class="post__category">#Webentwicklung
-		</span>
-		<time datetime="2015-01-23">
-			
-			23. Januar 2015
-		</time>
-	</div>
+        <h1 class="post__title">Eine Single-Page-App minimieren mit Gulp</h1>
 
-    <h1 class="post__title">Eine Single-Page-App minimieren mit Gulp</h1>
-
-    <p>Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleichzeitig sollen Less und JSLint genutzt werden. Ein wunderbares Einsatzgebiet für Gulp!</p>
-<h3>Das Projekt</h3>
+        <p>Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleichzeitig sollen Less und JSLint genutzt werden. Ein wunderbares Einsatzgebiet für Gulp!</p>
+<h2 id="das-projekt">Das Projekt</h2>
 <p>Unter der Domain <a href="http://meetingtimer.biz">meetingtimer.biz</a> betreibe ich eine kleine Website. Ein Nachmittagsprojekt, das während eines Meetings anhand der Teilnehmerzahl die Kosten des Meetings hochzählt und anzeigt.</p>
 <p>Die Seite ist einfach und benötigt nur wenig JavaScript und CSS. Dem Performance-Junkie in mir hat es gestört, dass für 2,8 KB CSS (nicht minimiert und unkomprimiert) extra ein Request gestartet werden muss. Weil ich außerdem mit Gulp experimentieren wollte, nahm ich diese Seite zum Anlass.</p>
-<h3>Herausforderungen</h3>
+<h2 id="herausforderungen">Herausforderungen</h2>
 <ol>
 <li>Möglichst wenige Requests im Live-betrieb ... es wäre schade, für 6 kB JavaScript und 3 kB CSS zwei Roundtrips zu starten.</li>
 <li>Beim Programmieren möchte ich dennoch nicht alles in einer großen HTML Datei horten.</li>
 </ol>
-<h3>Lösung mittels Gulp</h3>
+<h2 id="l-sung-mittels-gulp">Lösung mittels Gulp</h2>
 <p>Grundlage bei der Arbeit mit CSS und JS sind natürlich die klassischen Werkzeuge wie less, minify-css, slint, uglify und concat. Die sind in jedem Gulp-Tutorial enthalten und sollen hier nicht behandelt werden. Spannend für meine Zwecke sind zwei weitere Tasks:</p>
 <pre>var replace = require('gulp-replace-task'),
     cleanhtml = require('gulp-cleanhtml');</pre>
@@ -75,10 +71,10 @@
         .pipe(gulp.dest('./web'));
 });</pre>
 
-<p>Ich habe auch mit "gulp-inline-source" experimentiert, aber der hat den JavaScript Code zerstört. Replace macht dasselbe und kann außerdem banutzt werden um andere Platzhalter zu erstezen - z.B. den aktuellen Timestamp, eine Release-Nummer, Dateigrößen, Subtemplates, MD5-Hashes von Downloads oder was auch immer.</p>
-<p>Die Datei aus "src" wird gelesen und die Vorkommen des Suchpatterns ersetzt. Danach entfernt "cleanhtml" alle Whitespaces und "dest" schreibt die Datei in ihren Zielordner (das VErzeichnis was dann deployed wird). So einfach geht es.</p>
+<p>Ich habe auch mit &quot;gulp-inline-source&quot; experimentiert, aber der hat den JavaScript Code zerstört. Replace macht dasselbe und kann außerdem banutzt werden um andere Platzhalter zu erstezen - z.B. den aktuellen Timestamp, eine Release-Nummer, Dateigrößen, Subtemplates, MD5-Hashes von Downloads oder was auch immer.</p>
+<p>Die Datei aus &quot;src&quot; wird gelesen und die Vorkommen des Suchpatterns ersetzt. Danach entfernt &quot;cleanhtml&quot; alle Whitespaces und &quot;dest&quot; schreibt die Datei in ihren Zielordner (das VErzeichnis was dann deployed wird). So einfach geht es.</p>
 <p>Das Ergebnis ist eine 4,4 kB große HTML Datei (die damit einen Bruchteil des 27,7 kB großen Touch Icons hat). Zu sehen unter <a href="http://meetingtimer.biz">meetingtimer.biz</a>. Die Quellen, .gulpfile und das Ergebnis sind bei GitHub zu finden: <a href="https://github.com/thomaspuppe/meetingtimer.biz">https://github.com/thomaspuppe/meetingtimer.biz</a></p>
-<h3>Potential</h3>
+<h2 id="potential">Potential</h2>
 <ul>
 <li>Gulp entschlanken. Die Concat Funktionen werden für jeweils eine Datei jar gar nicht gebraucht.</li>
 <li>Innerhalb des JS Codes könnten nicht-native Bezeichner noch automatisch gegen kürzere ersetzt werden.</li>
@@ -88,6 +84,7 @@
 </ul>
 <p>Das kommt später. Das wäre auch ein guter Anreiz, die Minimierung auszureizen. Wieso sollte ein simpler Timer KB groß sein, wenn man <a href="http://js1k.com/2014-dragons/demo/1854">Minecraft in 1024 bytes</a> oder <a href="http://js1k.com/2014-dragons/demo/1934">Wolfenstein 2D in 2K</a> programmieren kann?</p>
 
-</article>
+
+    </article>
 </body>
 </html>
