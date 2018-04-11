@@ -2,17 +2,17 @@
 /** REMIFY! https://gist.github.com/colinmeinke/6607359 */
 @font-face {
   font-family: "League Spartan";
-  src: url("assets/webfonts/leaguespartan/leaguespartan-bold.woff2"), url("assets/webfonts/leaguespartan/leaguespartan-bold.woff");
+  src: url("webfonts/leaguespartan/leaguespartan-bold.woff2"), url("webfonts/leaguespartan/leaguespartan-bold.woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: "Sina Nova";
-  src: url("assets/webfonts/sinanova/sinanova-regular.woff2"), url("assets/webfonts/sinanova/sinanova-regular.woff");
+  src: url("webfonts/sinanova/sinanova-regular.woff2"), url("webfonts/sinanova/sinanova-regular.woff");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: "PT Mono";
-  src: url("assets/webfonts/ptmono/ptmono-regular.woff");
+  src: url("webfonts/ptmono/ptmono-regular.woff");
   font-weight: normal;
   font-style: normal; }
 body {
