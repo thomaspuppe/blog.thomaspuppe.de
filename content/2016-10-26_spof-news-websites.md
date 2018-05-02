@@ -40,7 +40,7 @@ Mein Vorgehen: im jeweiligen Quellcode der Seite habe ich nach den beiden Trigge
 
 Von der Liste der gefundenen Dateien habe ich diejenigen ausgenommen, die unter der Domain der Zeitung selbst laufen. Auch wenn Subdomains in der Art `scripts.zeit.de` oder `code.bildstatic.de` vielleicht schon Third-Party sind (CDN bzw Proxy-Server zu einem anderen Hoster), habe ich das als selbst gehostet gewertet. Im Sinne von "wenn das ausfällt, ist kein Fremder schuld sondern du selber".
 
-Die übrigen Hosts habe ich dann in meiner `/etc/hosts`-Datei blockiert, indem ich sie auf die IP des Webpagetest Blackhole schicke: `72.66.115.13	www.googletagmanager.com`. Das funktioniert auch in [anderen Betriebssystemen](https://de.wikipedia.org/wiki/Hosts_(Datei)#Pfade_unter_verschiedenen_Betriebssystemen).
+Die übrigen Hosts habe ich dann in meiner `/etc/hosts`-Datei blockiert, indem ich sie auf die IP des Webpagetest Blackhole schicke: `72.66.115.13	www.googletagmanager.com`. Das funktioniert auch in [anderen Betriebssystemen]("https://de.wikipedia.org/wiki/Hosts_(Datei)#Pfade_unter_verschiedenen_Betriebssystemen").
 
 ## Test 1: IVW Zählung
 
