@@ -38,6 +38,30 @@ Summarizing the first day presentations of the Front Trends 2016 conference in W
 > Human interventions in deployments are undesirable
 > – Phil Hawksworth
 
+[Allison McKnight](https://twitter.com/TODO) from Etsy - Building performance for the long term (not only direct optimization to the page, but also change in infrastructure, tooling and culture.) Five steps:
+
+1. Get buy-in for performance.
+	- Which business metric is most important?
+	- How does performance influence that?
+	- test bounce rate with a slower page
+	- Show, dont tell, how the page performs under suboptimal conditions (WPT video capture).
+2. Metrics
+	- status
+	- changes
+	- competition
+	- synthetic + RUM
+3. Introduce performance into company workflows.
+	- graphs
+	- monitoring/alerts
+	- A/B testing on performance
+	- remove frictions on testing
+4. Teach tools and practice
+	- perf budgets (make informed decisions about tradeoffs)
+5. Maintain!
+	- expand: there is more ground to cover
+	- iterate on your metrics (and everythig else)
+	- maintain and teach expertise
+	- celebrate performance
 
 ## Measuring Performance
 
@@ -98,6 +122,12 @@ A tool for checking the character subset of your page is [Glyphhanger](https://g
 - Finally try netlify. Just because it is hot this year.
 - Try image previews (blurry technique or svg preview).
 - Check out (JS Manners)[http://jsmanners.com/]
+
+
+## quotes
+
+- dont fight the browser. let it help you!
+- performance is a business optimization
 
 ----
 
