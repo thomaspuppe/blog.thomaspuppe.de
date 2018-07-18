@@ -1,4 +1,14 @@
-Small improvements
+---
+title: Small improvements for a simple blog
+date: 2018-04-10
+datelabel: 10. Juli 2018
+language: en
+tags: [webdevelopment]
+permalink: small-improvements-blog
+draft: true
+description: todo
+---
+
 
 ## Checks
 
