@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="{{ META_LANGUAGE }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>{{ META_TITLE }}</title>
+    <meta name="description" content="{{ META_DESCRIPTION }}">
+    <meta name="date" content="{{ META_DATE }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+</head>
+<body>
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
+
+        <div class="post__meta">
+            <span class="post__category">#{{ META_TAGS }}</span>
+            <time datetime="{{ META_DATE }}">{{ META_DATELABEL }}</time>
+        </div>
+
+        <h1 class="post__title">{{ META_TITLE }}</h1>
+
+        {{ CONTENT_BODY }}
+
+    </article>
+</body>
+</html>
