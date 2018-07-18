@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Inodes im Linux: Volle Festplatte, obwohl noch Platz ist?</title>
     <meta name="description" content="Kürzlich fiel mein Bundestwitter-Server aus. Bei der Suche nach der Ursache habe ich einige neue Dinge über Linux gelernt, die ich hier dokumentieren möchte.">
-    <meta name="date" content="Tue Oct 18 2016 02:00:00 GMT+0200 (CEST)">
+    <meta name="date" content="Tue Oct 18 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Tue Oct 18 2016 02:00:00 GMT+0200 (CEST)">18. Oktober 2016</time>
+            <time datetime="Tue Oct 18 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">18. Oktober 2016</time>
         </div>
 
         <h1 class="post__title">Inodes im Linux: Volle Festplatte, obwohl noch Platz ist?</h1>

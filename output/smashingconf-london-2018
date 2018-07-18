@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="language" content="en">
+    <meta name="language" content="de">
     <title>Smashing Conf 2018 in London: #perfmatters</title>
     <meta name="description" content="Summarizing the first day presentations of the Front Trends 2016 conference in Warsaw. Covering pranks, animations, static sites, RxJS, performance, and leadership.">
-    <meta name="date" content="Thu Feb 08 2018 01:00:00 GMT+0100 (CET)">
+    <meta name="date" content="Thu Feb 08 2018 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Thu Feb 08 2018 01:00:00 GMT+0100 (CET)">08. February 2018</time>
+            <time datetime="Thu Feb 08 2018 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">08. February 2018</time>
         </div>
 
         <h1 class="post__title">Smashing Conf 2018 in London: #perfmatters</h1>
@@ -50,6 +50,41 @@
 <p>Human interventions in deployments are undesirable
 – Phil Hawksworth</p>
 </blockquote>
+<p><a href="https://twitter.com/TODO">Allison McKnight</a> from Etsy - Building performance for the long term (not only direct optimization to the page, but also change in infrastructure, tooling and culture.) Five steps:</p>
+<ol>
+<li>Get buy-in for performance.<ul>
+<li>Which business metric is most important?</li>
+<li>How does performance influence that?</li>
+<li>test bounce rate with a slower page</li>
+<li>Show, dont tell, how the page performs under suboptimal conditions (WPT video capture).</li>
+</ul>
+</li>
+<li>Metrics<ul>
+<li>status</li>
+<li>changes</li>
+<li>competition</li>
+<li>synthetic + RUM</li>
+</ul>
+</li>
+<li>Introduce performance into company workflows.<ul>
+<li>graphs</li>
+<li>monitoring/alerts</li>
+<li>A/B testing on performance</li>
+<li>remove frictions on testing</li>
+</ul>
+</li>
+<li>Teach tools and practice<ul>
+<li>perf budgets (make informed decisions about tradeoffs)</li>
+</ul>
+</li>
+<li>Maintain!<ul>
+<li>expand: there is more ground to cover</li>
+<li>iterate on your metrics (and everythig else)</li>
+<li>maintain and teach expertise</li>
+<li>celebrate performance</li>
+</ul>
+</li>
+</ol>
 <h2 id="measuring-performance">Measuring Performance</h2>
 <p><a href="https://twitter.com/TODO">Andy Davies</a> had a brilliant talk on 3rd party scripts, how they harm your site, and how to analyze what they do.</p>
 <p>Webpagetest allows blocking 3rd party scripts (by domain blacklists). That way you can directly compare the load behaviour of your site with(out) certain 3rd party tools.</p>
@@ -86,7 +121,12 @@
 <li>Use modern compression.</li>
 <li>Finally try netlify. Just because it is hot this year.</li>
 <li>Try image previews (blurry technique or svg preview).</li>
-<li>Check out (JS Manners)[<a href="http://jsmanners.com/]">http://jsmanners.com/]</a></li>
+<li>Check out (JS Manners)[<a href="http://jsmanners.com/%5D">http://jsmanners.com/]</a></li>
+</ul>
+<h2 id="quotes">quotes</h2>
+<ul>
+<li>dont fight the browser. let it help you!</li>
+<li>performance is a business optimization</li>
 </ul>
 <hr>
 <h2 id="promoting-performance-trhough-tim-holman">Promoting Performance trhough <a href="https://twitter.com/twholman">Tim Holman</a></h2>

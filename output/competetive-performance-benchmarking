@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="language" content="en">
+    <meta name="language" content="de">
     <title>Competetive Frontend Performance Benachmarking</title>
     <meta name="description" content="null">
-    <meta name="date" content="Tue Mar 06 2018 01:00:00 GMT+0100 (CET)">
+    <meta name="date" content="Tue Mar 06 2018 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Tue Mar 06 2018 01:00:00 GMT+0100 (CET)">06. March 2018</time>
+            <time datetime="Tue Mar 06 2018 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">06. March 2018</time>
         </div>
 
         <h1 class="post__title">Competetive Frontend Performance Benachmarking</h1>

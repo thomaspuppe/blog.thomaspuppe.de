@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="language" content="en">
+    <meta name="language" content="de">
     <title>Front Trends 2016 in Warsaw: Day 2</title>
     <meta name="description" content="Summarizing the second day presentations of the Front Trends 2016 conference in Warsaw. Todays talks were about components, digital afterlife, tiny JS, typography, knitting and frontend tooling.">
-    <meta name="date" content="Thu May 19 2016 02:00:00 GMT+0200 (CEST)">
+    <meta name="date" content="Thu May 19 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Thu May 19 2016 02:00:00 GMT+0200 (CEST)">19. Mai 2016</time>
+            <time datetime="Thu May 19 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">19. Mai 2016</time>
         </div>
 
         <h1 class="post__title">Front Trends 2016 in Warsaw: Day 2</h1>

@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="language" content="en">
+    <meta name="language" content="de">
     <title>How to make your shiny new brutalist website brutally fast</title>
     <meta name="description" content="Intentionally ugly websites are one of the trends in 2017. What I like most about this: ugly is fast!">
-    <meta name="date" content="Thu Feb 09 2017 01:00:00 GMT+0100 (CET)">
+    <meta name="date" content="Thu Feb 09 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#web development</span>
-            <time datetime="Thu Feb 09 2017 01:00:00 GMT+0100 (CET)">February 9th, 2017</time>
+            <time datetime="Thu Feb 09 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">February 9th, 2017</time>
         </div>
 
         <h1 class="post__title">How to make your shiny new brutalist website brutally fast</h1>
@@ -157,8 +157,8 @@
 <h1 id="7-share-this-page-">7. Share this page! &#10084;</h1>
 <p>Never never ever use Twitter and Facebook widgets! They are the worst! They force your users to connect to twitter/facebook servers and load tons of crap, even when they do not click.</p>
 <p>Instead, use simple links which you can style on your own behalf. It is really fast, it is safe, and it works. Just try it out:</p>
-<p><a href="https://twitter.com/share?url=https%3A%2F%2Fblog.thomaspuppe.de/fast-brutalist-websites&hashtags=brutalist%2Cwebdesign&text=How%20to%20make%20your%20shiny%20new%20brutalist%20website%20brutally%20fast"></p>
-<p><p style="font-family:monospace;white-space:pre;">
+<a href="https://twitter.com/share?url=https%3A%2F%2Fblog.thomaspuppe.de/fast-brutalist-websites&hashtags=brutalist%2Cwebdesign&text=How%20to%20make%20your%20shiny%20new%20brutalist%20website%20brutally%20fast">
+<p style="font-family:monospace;white-space:pre;">
 ┊┊┊┊┊┊┊┊┊┊┊┊╭━━━━━╮
 ┊┊┊┊╱▔▔╲┊┊╭━╯TWEET╰━╮
 ┊┊┊▕┈┈▋▋▏╭┫THIS HOLY┃
@@ -166,7 +166,9 @@
 ┊▏▕▂▂╱┈▕▔┊┊╰━━━━━━━━╯
 ┊╲▂▂▂▂▂╱┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊┊
 ━━━━┃━┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-</p></a></p>
+</p></a>
+
+
 <p><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.thomaspuppe.de%2Ffast-brutalist-websites" class="facebookbutton"><span style="font-size:150%">&#9996;</span> Share on facebook</a></p>
 <p><br><br><br><br><br><br>
 <strong>Credits:</strong> <a href="https://pixabay.com/de/kermit-frosch-schneeball-werfen-601711/">Kermit photo</a>, <a href="https://dribbble.com/shots/1787673-Kermit">Kermit icon</a>, <a href="http://xahlee.info/comp/unicode_ascii_art.html">Twitter Button</a>, <a href="http://www.mburnette.com/blog/create-simple-faux-3d-css-button">Facebook Button</a>.</p>

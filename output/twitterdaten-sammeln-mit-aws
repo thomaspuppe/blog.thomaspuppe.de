@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Twitterdaten sammeln mit AWS</title>
     <meta name="description" content="Um Tweets zu einem aktuellen Thema zu sammeln, muss man die Twitter Streaming API mitschneiden. In 20 Minuten ist dafür ein kostenloses always-online System aufgesetzt.">
-    <meta name="date" content="Thu Nov 06 2014 01:00:00 GMT+0100 (CET)">
+    <meta name="date" content="Thu Nov 06 2014 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Thu Nov 06 2014 01:00:00 GMT+0100 (CET)">06. November 2014</time>
+            <time datetime="Thu Nov 06 2014 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">06. November 2014</time>
         </div>
 
         <h1 class="post__title">Twitterdaten sammeln mit AWS</h1>

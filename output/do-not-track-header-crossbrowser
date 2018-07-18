@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>doNotTrack Browserübergreifend erkennen</title>
     <meta name="description" content="Der doNotTrack Flag des Browsers signalisiert, dass ein Nutzer nicht getrackt werden möchte. Diese Information lässt sich per JS auslesen &mdash; jedoch je nach browser unterschiedlch.">
-    <meta name="date" content="Thu Nov 07 2013 01:00:00 GMT+0100 (CET)">
+    <meta name="date" content="Thu Nov 07 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Web-Entwicklung</span>
-            <time datetime="Thu Nov 07 2013 01:00:00 GMT+0100 (CET)">07. November 2013</time>
+            <time datetime="Thu Nov 07 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">07. November 2013</time>
         </div>
 
         <h1 class="post__title">doNotTrack Browserübergreifend erkennen</h1>
@@ -34,28 +34,27 @@
     <tr><td>Browser</td><td>Abruf</td><td>Wert</td></tr>
     </thead>
 
-    <tbody>
-    <tr><td>Chrome 30 (Win 7)</td><td>navigator.doNotTrack</td><td>&quot;0&quot;, &quot;1&quot;, null</td></tr>
-    <tr><td>Chromium 30 (Ubuntu 13)</td><td>navigator.doNotTrack</td><td>&quot;0&quot;, &quot;1&quot;, null</td></tr>
+<pre><code>&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;Chrome 30 (Win 7)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&quot;0&quot;, &quot;1&quot;, null&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Chromium 30 (Ubuntu 13)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&quot;0&quot;, &quot;1&quot;, null&lt;/td&gt;&lt;/tr&gt;
 
-    <tr><td>Safari 5 (Win 7)</td><td>navigator.doNotTrack</td><td>&quot;0&quot;, &quot;1&quot;, null</td></tr>
+&lt;tr&gt;&lt;td&gt;Safari 5 (Win 7)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&quot;0&quot;, &quot;1&quot;, null&lt;/td&gt;&lt;/tr&gt;
 
-    <tr><td>Firefox 25 (Win 7)</td><td>navigator.doNotTrack</td><td>&quot;no&quot;, &quot;yes&quot;, &quot;unspecified&quot;</td></tr>
-    <tr><td>Firefox 25 (Ubuntu 13)</td><td>navigator.doNotTrack</td><td>&quot;no&quot;, &quot;yes&quot;, &quot;unspecified&quot;</td></tr>
+&lt;tr&gt;&lt;td&gt;Firefox 25 (Win 7)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&quot;no&quot;, &quot;yes&quot;, &quot;unspecified&quot;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Firefox 25 (Ubuntu 13)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&quot;no&quot;, &quot;yes&quot;, &quot;unspecified&quot;&lt;/td&gt;&lt;/tr&gt;
 
-    <tr><td>Opera 12 (Win 7)</td><td>navigator.doNotTrack</td><td><strike>&quot;0&quot;</strike>, &quot;1&quot;, null</td></tr>
+&lt;tr&gt;&lt;td&gt;Opera 12 (Win 7)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&lt;strike&gt;&quot;0&quot;&lt;/strike&gt;, &quot;1&quot;, null&lt;/td&gt;&lt;/tr&gt;
 
-    <tr><td>IE 10 (Win 7)</td><td>navigator.msDoNotTrack</td><td>&quot;0&quot;, &quot;1&quot;, TODO</td></tr>
-    <tr><td>IE 10 (Win 7)</td><td>window.external.InPrivateFilteringEnabled()</td><td>false, true, undefined</td></tr>
-    <tr><td>IE 9 (Win 7)</td><td>window.external.InPrivateFilteringEnabled()</td><td>false, true, undefined</td></tr>
-    <tr><td>IE 8 (Win 7)</td><td>window.external.InPrivateFilteringEnabled()</td><td>false, true, undefined</td></tr>
-    <tr><td>IE 7 (Win 7)</td><td colspan=2>nicht verfügbar</td></tr>
+&lt;tr&gt;&lt;td&gt;IE 10 (Win 7)&lt;/td&gt;&lt;td&gt;navigator.msDoNotTrack&lt;/td&gt;&lt;td&gt;&quot;0&quot;, &quot;1&quot;, TODO&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;IE 10 (Win 7)&lt;/td&gt;&lt;td&gt;window.external.InPrivateFilteringEnabled()&lt;/td&gt;&lt;td&gt;false, true, undefined&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;IE 9 (Win 7)&lt;/td&gt;&lt;td&gt;window.external.InPrivateFilteringEnabled()&lt;/td&gt;&lt;td&gt;false, true, undefined&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;IE 8 (Win 7)&lt;/td&gt;&lt;td&gt;window.external.InPrivateFilteringEnabled()&lt;/td&gt;&lt;td&gt;false, true, undefined&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;IE 7 (Win 7)&lt;/td&gt;&lt;td colspan=2&gt;nicht verfügbar&lt;/td&gt;&lt;/tr&gt;
 
-    <tr><td>Chrome Mobile (Android 4.3)</td><td>navigator.doNotTrack</td><td>&quot;0&quot;, &quot;1&quot;, null</td></tr>
-    <tr><td>Safari (iOS 5 / iPad 1)</td><td colspan=2>nicht verfügbar</td></tr>
-    <tr><td>Sony Tablet Browser (Android 4.0)</td><td colspan=2>nicht verfügbar</td></tr>
-    </tbody>
-</table>
+&lt;tr&gt;&lt;td&gt;Chrome Mobile (Android 4.3)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&quot;0&quot;, &quot;1&quot;, null&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Safari (iOS 5 / iPad 1)&lt;/td&gt;&lt;td colspan=2&gt;nicht verfügbar&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Sony Tablet Browser (Android 4.0)&lt;/td&gt;&lt;td colspan=2&gt;nicht verfügbar&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;</code></pre></table>
 
 <p><em>Die Tabelle wird nach und nach ergänzt. Input bitte an <a href="https://twitter.com/thomaspuppe">@thomaspuppe</a></em></p>
 <h2 id="live-test-in-ihrem-browser">Live-Test in Ihrem Browser</h2>

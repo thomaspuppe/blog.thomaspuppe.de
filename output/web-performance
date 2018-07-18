@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Website Performance Optimierung ohne Zukunft?</title>
     <meta name="description" content="null">
-    <meta name="date" content="Sat Jul 01 2017 02:00:00 GMT+0200 (CEST)">
+    <meta name="date" content="Sat Jul 01 2017 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Sat Jul 01 2017 02:00:00 GMT+0200 (CEST)">02. Juli 2017</time>
+            <time datetime="Sat Jul 01 2017 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">02. Juli 2017</time>
         </div>
 
         <h1 class="post__title">Website Performance Optimierung ohne Zukunft?</h1>

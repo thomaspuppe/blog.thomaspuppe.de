@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Eine Single-Page-App minimieren mit Gulp</title>
     <meta name="description" content="Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleichzeitig sollen Less und JSLint genutzt werden. Ein wunderbares Einsatzgebiet für Gulp!">
-    <meta name="date" content="Fri Jan 23 2015 01:00:00 GMT+0100 (CET)">
+    <meta name="date" content="Fri Jan 23 2015 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Fri Jan 23 2015 01:00:00 GMT+0100 (CET)">23. Januar 2015</time>
+            <time datetime="Fri Jan 23 2015 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">23. Januar 2015</time>
         </div>
 
         <h1 class="post__title">Eine Single-Page-App minimieren mit Gulp</h1>

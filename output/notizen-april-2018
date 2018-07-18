@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Notizen April 2018</title>
     <meta name="description" content="this-month-I-learned und Lesetipps für April 2018">
-    <meta name="date" content="Tue Apr 03 2018 02:00:00 GMT+0200 (CEST)">
+    <meta name="date" content="Tue Apr 03 2018 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Notizen</span>
-            <time datetime="Tue Apr 03 2018 02:00:00 GMT+0200 (CEST)">01. April 2018 – 11. April 2018</time>
+            <time datetime="Tue Apr 03 2018 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">01. April 2018 – 30. April 2018</time>
         </div>
 
         <h1 class="post__title">Notizen April 2018</h1>
@@ -32,12 +32,78 @@
 /Users/puppe/code/private/blog/blog.thomaspuppe.de
 
 puppe:~ $ j a11
-/Users/puppe/code/zon/a11y-dashboard
-</code></pre><h2 id="color-blindness">Color Blindness</h2>
+/Users/puppe/code/zon/a11y-dashboard</code></pre><h2 id="color-blindness">Color Blindness</h2>
 <p>Funkify als Chrome_Extension</p>
 <p>Real world: <a href="https://www.colorblindsim.com/">https://www.colorblindsim.com/</a></p>
 <h2 id="request-map">Request Map</h2>
 <p><a href="http://requestmap.webperf.tools/">http://requestmap.webperf.tools/</a></p>
+<p>TODO: Screenshot von ZON</p>
+<h2 id="erstes-wordpress-plugin-geschrieben">Erstes Wordpress-Plugin geschrieben</h2>
+<p>... und hoffentlich letztes</p>
+<p><a href="https://premium.wpmudev.org/blog/wordpress-plugin-development-guide/">https://premium.wpmudev.org/blog/wordpress-plugin-development-guide/</a></p>
+<p>Die Erfahrung in ein paar Sätze gefasst:</p>
+<ul>
+<li>Plugins anzulegen ist sehr einfach. Folder und Datei erstellen, im Admin aktivieren, fertig.</li>
+<li>Mit einem simplen Vierzeiler kann man Inhalte in die Seite injizieren, zum Beispiel im Head:</li>
+</ul>
+<pre>add_action( 'wp_head', 'my_meta_tags' );
+function my_meta_tags() {
+  echo '<meta name="generator" content="Thomas" />';
+}</pre>
+
+<ul>
+<li>Selbst Admin-Funktionen, wie eine Setting-Page für das Plugin, werden auf diese Art gebaut.</li>
+</ul>
+<p>Gute Quellen, die mir geholfen haben:</p>
+<ul>
+<li><a href="https://premium.wpmudev.org/blog/wordpress-plugin-development-guide/">https://premium.wpmudev.org/blog/wordpress-plugin-development-guide/</a></li>
+<li><a href="https://premium.wpmudev.org/blog/wordpress-hooks/">https://premium.wpmudev.org/blog/wordpress-hooks/</a></li>
+<li><p><a href="https://codex.wordpress.org/Template_Tags#Post_tags">https://codex.wordpress.org/Template_Tags#Post_tags</a></p>
+</li>
+<li><p><a href="http://codex.wordpress.org/Creating_Options_Pages">http://codex.wordpress.org/Creating_Options_Pages</a></p>
+</li>
+</ul>
+<h2 id="white-hat-ux">White Hat UX</h2>
+<blockquote>
+<p>&quot;Marketing, IT and sales people all over the world work hard every
+day to make deceptive user experiences. You are better than that.&quot;&quot;</p>
+<p>– White Hat UX (<a href="https://shop.smashingmagazine.com/products/white-hat-ux-the-next-generation-in-user-experience-ebook">https://shop.smashingmagazine.com/products/white-hat-ux-the-next-generation-in-user-experience-ebook</a>)</p>
+</blockquote>
+<h2 id="webperf-erkenntnisse-aus-einem-webinar-zur-deltav-conference">Webperf-Erkenntnisse aus einem Webinar zur DeltaV Conference</h2>
+<p>Aus einem kurzen Werbe-Webinar zur DeltaV Konferenz habe ich zwei interessante Sachen mitgenommen:</p>
+<p>(1) Die BBC konzentriert sich bei ihrem Performance-Monitoring auf zwei wichtige Werte: <em>time to Headline</em> (also ab wann kann der Leser Infos erfassen) und <em>time to Scroll</em> (wann beginnt er, den Artikel zu lesen). Ob drumherum Sachen geladen werden oder so ist ja eigentlich auch egal, aus UX-Perspektive. Die sollen schnell ihre Infos kriegen, und darauf hin wird optimiert. (Ganz so plump wird es nicht sein in der Praxis, aber das ist ein interessanter Ansatz.)</p>
+<p>(2) Trivago nutzt die NetworkInformation API, um an Leute mit verschiedenen Netzwerkbedingungen verschiedene Sachen zu senden. Dabei haben sie die Erfahrung gemacht:</p>
+<ul>
+<li>Reine Performance-Sachen wie &quot;Retina-Bilder nur wenn die Verbindung gut ist&quot; sind total gut.</li>
+<li>Verschiedene Features (Einzelbild statt Galerie oder Video) sind schlecht. Vor Allem wenn Leute mit verschiedenen Geräten oder anverschiedenen Orten denselben Inhalt aufrufen und dann plötzlich andere Features oder andere UX haben als erwartet.</li>
+<li>Okay sind Opt-In/ProgressiveEnhancement Sachen. Beispiel: Ein Einzelbild statt Galerie zeigen, und darunter ein Button mit dem Hinweis, dass man wegen seines Netzwerks verschont wurde, aber per Klick die Galerie laden kann.</li>
+</ul>
+<p>Eine Aufzeichnung des Webinars gibt es bei Youtube: <a href="youtube.com/watch?v=VamKs0HKvQA">https://www.youtube.com/watch?v=VamKs0HKvQA</a>.</p>
+<p>Die DeltaV Konferenz selbst hat ein <a href="https://2018.deltavconf.com/talks">mega geiles Lineup</a>. Hoffentlich veröffentlichen sie im Nachgang die Videos.</p>
+<h2 id="stress-testing-third-party-scripts">Stress-Testing third party scripts</h2>
+<p><a href="https://csswizardry.com/2017/07/performance-and-resilience-stress-testing-third-parties/">Harry Roberts</a> schreibt über Möglichkeiten, Third-Party-Scripts (oder andere Inhalte) auf der eigenen Website stress-zu-testen.</p>
+<p>Mein Lieblingstrick, aber nicht der einzige im Artikel, ist das Blackhole von Webpagetest. Via <code>/etc/hosts</code> Datei lässt man Requests an bestimmte Domains in einen Timeout laufen.</p>
+<p>Mit der Browser-Extension &quot;<a href="https://chrome.google.com/webstore/detail/spof-o-matic/plikhggfbplemddobondkeogomgoodeg">SPOF-o-Matic</a>&quot; lässt sich das auch machen.</p>
+<p>Mit beiden Tricks hatte ich mal <a href="https://blog.thomaspuppe.de/spof-auf-news-websites">deutsche News-Websites auf Single-Points-of-Failures getestet</a>.</p>
+<h2 id="aufholen-mit-javascript">Aufholen mit JavaScript</h2>
+<p><a href="https://hackernoon.com/how-i-stopped-worrying-and-learned-to-love-the-javascript-ecosystem-692c51030342">https://hackernoon.com/how-i-stopped-worrying-and-learned-to-love-the-javascript-ecosystem-692c51030342</a></p>
+<blockquote>
+<p>JavaScript was changing but I was resistant.</p>
+</blockquote>
+<p><a href="https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70">https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70</a></p>
+<p>Randnotiz: Ich finde es fürchterlich, dass heute alle (auch Hackernoon) mit Medium bloggen. Und wehre mich dagegen. Mal sehen, ob sich das obige in ein paar Jahren auch für die Blogging-Plattform wiederholt.</p>
+<h2 id="paste-clipboard-into-file-on-macos">Paste Clipboard into file on MacOS</h2>
+<pre>pbpaste > file.js</pre>
+
+
+<h2 id="webfont-preloading">Webfont Preloading</h2>
+<p>Zwei interessante Sachen gelernt. Erstens: ich dachte immer, das Preloading kann man doch gar nicht realistisch machen, weil man im HTML ja gar nicht weiß ob der Browser woff2, woff, oder ein älteres Format anfordern wird. Auf der JSUnconf Konferenz habe ich dann gelernt: Alle Browser, die <a href="https://www.caniuse.com/#search=preload">Preload</a> können, unterstützen auch <a href="https://www.caniuse.com/#search=woff2">woff2</a>. Womit es sich wunderbar einsetzen lässt, auch wenn man im CSS ältere Browser mit älteren Schriftformaten versorgt.</p>
+<p>Zweite Sache, die ich beim Benutzen schmerzhaft gelernt habe: Preload von Schriften braucht dringend das <code>crossorigin</code> Attribut, auch wenn die Schriften vom gleichen Host kommen! (Quellen: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content#Cross-origin_fetches">MDN</a>, <a href="https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#early-loading-of-fonts">Smashing</a>).</p>
+<h2 id="rendern-von-unicode-zeichen-als-emoji-unterdr-cken">Rendern von Unicode-Zeichen als Emoji unterdrücken</h2>
+<p>Das mobile iOS (und vermutlich auch andere) stellen Unicode-Zeichen auf Websites als Emoji dar. Das kann ganz witzig sein – aber als Zeitung willst du das nicht in deinen Artikeln haben.</p>
+<p>Lösung: Das Anhängen von <code>\00FE0E</code> unterdrückt das <a href="http://mts.io/2015/04/21/unicode-symbol-render-text-emoji/">Rendern als Emoji</a>.</p>
+<p>Reines Zeichen: &amp;#x1F435 (<code>&amp;#x1F435</code>); . Explizit kein Emoji: &#x1F435;&#xFE0E; (<code>&amp;#x1F435;&amp;#xFE0E;</code>)</p>
+<p>Das blöde ist nur: es funktioniert nicht (mehr) im Chrome auf Android :-(.</p>
 <h2 id="lesetipps">Lesetipps</h2>
 <ul>
 <li><p><a href="https://hackernoon.com/cost-per-reasonable-decision-cprd-ed1ca8c6147">https://hackernoon.com/cost-per-reasonable-decision-cprd-ed1ca8c6147</a></p>
@@ -46,11 +112,23 @@ puppe:~ $ j a11
 </li>
 </ul>
 <ul>
-<li>&quot;What I&#39;m not seeing, however, is any real change to the way publishers use data&quot;: <a href="https://baekdal.com/strategy/publishers-havent-realized-just-how-big-a-deal-gdpr-is/">https://baekdal.com/strategy/publishers-havent-realized-just-how-big-a-deal-gdpr-is/</a>. Sehr gute Analyse. Die Frage ist nicht &quot;<em>Wie</em> kann ich meine unbedachte Datensammelwut legal rechtfertigen?&quot; Sondern &quot;<em>Wozu</em> brauche ich denn überhaupt <em>welche</em> Daten?&quot;</li>
+<li><p>&quot;What I&#39;m not seeing, however, is any real change to the way publishers use data&quot;: <a href="https://baekdal.com/strategy/publishers-havent-realized-just-how-big-a-deal-gdpr-is/">https://baekdal.com/strategy/publishers-havent-realized-just-how-big-a-deal-gdpr-is/</a>. Sehr gute Analyse. Die Frage ist nicht &quot;<em>Wie</em> kann ich meine unbedachte Datensammelwut legal rechtfertigen?&quot; Sondern &quot;<em>Wozu</em> brauche ich denn überhaupt <em>welche</em> Daten?&quot;</p>
+</li>
+<li><p>Sam Altman on <a href="https://blog.samaltman.com/productivity">Productivity</a>. Yet another one. Bei diesen Posts lernt man ja nichts, was man nicht schon wüsste. Dennoch steh ich da drauf. Und auch bei diesem Artikel lautet einer der Tipps &quot;don’t fall into the trap of productivity porn&quot;. Naja.</p>
+</li>
 </ul>
 <ul>
 <li><a href="https://medium.com/global-editors-network/mark-little-no-we-are-not-building-a-netflix-for-news-af9901fcffae">https://medium.com/global-editors-network/mark-little-no-we-are-not-building-a-netflix-for-news-af9901fcffae</a> - &quot;Completeness&quot;</li>
 </ul>
+<ul>
+<li><p>Frank Chimero: <a href="https://frankchimero.com/writing/the-good-room/">The Good Room</a> über den Umgang mit moderner Technologie: was ist daran gut, was nicht? Und wie kann man die Balance verbessern? Außerdem ein sehr schön gestalteter &quot;Longread&quot;.</p>
+</li>
+<li><p><a href="https://sonniesedge.co.uk/talks/dear-developer">https://sonniesedge.co.uk/talks/dear-developer</a></p>
+</li>
+<li><p><a href="https://css-tricks.com/a-quick-way-to-remember-difference-between-justify-content-align-items/">https://css-tricks.com/a-quick-way-to-remember-difference-between-justify-content-align-items/</a></p>
+</li>
+</ul>
+<hr>
 <p><em>Dieser Artikel wird gerade fortgeschrieben, und wird im Laufe des Monats wachsen.</em></p>
 
 

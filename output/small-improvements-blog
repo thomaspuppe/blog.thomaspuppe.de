@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Small improvements for a simple blog</title>
+    <meta name="description" content="todo">
+    <meta name="date" content="Tue Apr 10 2018 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+</head>
+<body>
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
+
+        <div class="post__meta">
+            <span class="post__category">#webdevelopment</span>
+            <time datetime="Tue Apr 10 2018 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">10. Juli 2018</time>
+        </div>
+
+        <h1 class="post__title">Small improvements for a simple blog</h1>
+
+        <h2 id="checks">Checks</h2>
+<ul>
+<li><a href="https://tenon.io/">https://tenon.io/</a></li>
+<li><a href="https://developers.google.com/speed/pagespeed/insights/">https://developers.google.com/speed/pagespeed/insights/</a></li>
+<li><a href="https://validator.w3.org/">https://validator.w3.org/</a></li>
+</ul>
+<h2 id="syntax-check">Syntax check</h2>
+<h2 id="content-type">content-type</h2>
+<p><code>&quot;text/html; charset=utf-8&quot;</code> for html in <code>/etc/nginx/mime.types</code></p>
+<h2 id="security">Security</h2>
+<p>Not a real issue, but you can hide your webserver version from the HTTP headers by entering (or uncommenting) <code>server_tokens off;</code> in the http section of your nginx config (<code>/etc/nginx/nginx.conf</code>).</p>
+<p><code>add_header Strict-Transport-Security &quot;max-age=31536000; includeSubDomains&quot; always;</code> in site config. (In each and every section where headers are set.)</p>
+
+
+    </article>
+</body>
+</html>

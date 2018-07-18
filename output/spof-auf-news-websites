@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Single Point Of Failure auf News-Websites</title>
     <meta name="description" content="Kaputte Third-Party Scripts können Websites lahmlegen. Ich untersuche einige Nachrichten-Websites auf deren Robustheit gegen dieses Problem.">
-    <meta name="date" content="Mon Oct 31 2016 01:00:00 GMT+0100 (CET)">
+    <meta name="date" content="Mon Oct 31 2016 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Mon Oct 31 2016 01:00:00 GMT+0100 (CET)">31. Oktober 2016</time>
+            <time datetime="Mon Oct 31 2016 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">31. Oktober 2016</time>
         </div>
 
         <h1 class="post__title">Single Point Of Failure auf News-Websites</h1>
@@ -41,7 +41,7 @@
 <p>Für meinen Test habe ich acht deutsche Nachrichten-Websites herangezogen. Grundlage für meine Auswahl waren die Zugriffszahlen laut Statista, plus die taz aus eigenem Interesse.</p>
 <p>Mein Vorgehen: im jeweiligen Quellcode der Seite habe ich nach den beiden Triggern für blockierendes JavaScript gesucht: <code>document.write</code> und <code>&lt;script src=&quot;&quot;</code> ohne <code>async</code>.</p>
 <p>Von der Liste der gefundenen Dateien habe ich diejenigen ausgenommen, die unter der Domain der Zeitung selbst laufen. Auch wenn Subdomains in der Art <code>scripts.zeit.de</code> oder <code>code.bildstatic.de</code> vielleicht schon Third-Party sind (CDN bzw Proxy-Server zu einem anderen Hoster), habe ich das als selbst gehostet gewertet. Im Sinne von &quot;wenn das ausfällt, ist kein Fremder schuld sondern du selber&quot;.</p>
-<p>Die übrigen Hosts habe ich dann in meiner <code>/etc/hosts</code>-Datei blockiert, indem ich sie auf die IP des Webpagetest Blackhole schicke: <code>72.66.115.13    www.googletagmanager.com</code>. Das funktioniert auch in <a href="https://de.wikipedia.org/wiki/Hosts_(Datei">anderen Betriebssystemen</a>#Pfade_unter_verschiedenen_Betriebssystemen).</p>
+<p>Die übrigen Hosts habe ich dann in meiner <code>/etc/hosts</code>-Datei blockiert, indem ich sie auf die IP des Webpagetest Blackhole schicke: <code>72.66.115.13    www.googletagmanager.com</code>. Das funktioniert auch in <a href="%22https://de.wikipedia.org/wiki/Hosts_(Datei)#Pfade_unter_verschiedenen_Betriebssystemen%22">anderen Betriebssystemen</a>.</p>
 <h2 id="test-1-ivw-z-hlung">Test 1: IVW Zählung</h2>
 <p>Es gibt eine Sache, die alle betrachteten Websites gemeinsam haben. Und zwar die &quot;IVW-Zählung&quot;. Die IVW ist die &quot;<a href="https://de.wikipedia.org/wiki/Informationsgemeinschaft_zur_Feststellung_der_Verbreitung_von_Werbetr%C3%A4gern">Informationsgemeinschaft zur Feststellung der Verbreitung von Werbeträgern</a>&quot;. Sie erfasst die Reichweite vieler Medien, und dient damit nicht nur zur unabhängigen Zählung der Besucher, sondern auch zur Verteilung von Werbeerlösen.</p>
 <p>Da machen alle betrachteten Medien mit, und daher haben auch alle die Datei <code>https://script.ioam.de/iam.js</code> eingebunden. Was passiert also, wenn ich den Host <code>script.ioam.de</code> blockiere &mdash; oder er tatsächlich ausfällt bzw lahmt?</p>

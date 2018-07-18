@@ -2,10 +2,10 @@
 <html lang="{{ META_LANGUAGE }}">
 <head>
     <meta charset="utf-8">
-    <meta name="language" content="{{ META_LANGUAGE }}">
+    <meta name="language" content="de">
     <title>Blog Styling</title>
     <meta name="description" content="Styleguide für diesen Blog, der alle Arten von Inhalten enthält">
-    <meta name="date" content="Sun Jun 19 2016 02:00:00 GMT+0200 (CEST)">
+    <meta name="date" content="Sun Jun 19 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Sun Jun 19 2016 02:00:00 GMT+0200 (CEST)">19. Juni 2016</time>
+            <time datetime="Sun Jun 19 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">19. Juni 2016</time>
         </div>
 
         <h1 class="post__title">Blog Styling</h1>
@@ -49,7 +49,7 @@
 <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
 
 <blockquote>
-<p>Everything on your page should have a <em>value</em>, because everything has a <em>cost</em>.</p>
+<p>Everything on your page should have a _value_, because everything has a _cost_.</p>
 <cite><a href="https://twitter.com/tkadlec" title="Tim Kadlec on Twitter">Tim Kadlec</a></cite>
 </blockquote>
 

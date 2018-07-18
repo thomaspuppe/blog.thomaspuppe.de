@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Browser APIs und CSS Media Queries</title>
     <meta name="description" content="Der Einsatz von Media Queries und Browser APIs beschränkt sich häufig auf min-width und navigator.userAgent. Aber in modernen Browsern gibt es cooles Zeug.">
-    <meta name="date" content="Sat Apr 08 2017 02:00:00 GMT+0200 (CEST)">
+    <meta name="date" content="Sat Apr 08 2017 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,18 +21,19 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Sat Apr 08 2017 02:00:00 GMT+0200 (CEST)">08. April 2017</time>
+            <time datetime="Sat Apr 08 2017 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">08. April 2017</time>
         </div>
 
         <h1 class="post__title">Browser APIs und CSS Media Queries</h1>
 
         <p>In der Regel denkt man bei Media Queries an nicht viel mehr als <code>min-width</code> oder <code>device-pixel-ratio</code> und bei Browser APIs an <code>navigator.userAgent</code>. Moderne Browser können natürlich viel mehr.</p>
 <p>Kürzlich sah ich in einer interessanten <a href="https://speakerdeck.com/grigs/why-you-should-build-a-progressive-web-app-now-1">Präsentation über Progressive Web Apps</a> dies:</p>
-<p><pre>@media (display-mode: standalone), (display-mode: fullscreen) {
+<pre>@media (display-mode: standalone), (display-mode: fullscreen) {
     .backButton {
         display: block;
     }
-}</pre></p>
+}</pre>
+
 <p>Mit dieser Media Query stellt man fest, ob die Website (bzw Web App) das Browser-GUI (und damit den Back-Button des Browsers ) zur Verfügung hat, oder nicht. Und kann dann einen eigenen Button einblenden.</p>
 <p>Das war für mich ein Anlass, mal zu schauen, welche Media/Feature Queries und Browser APIs heutzutage zur Verfügung stehen.</p>
 <h1 id="-1-browser-apis">(1) Browser APIs</h1>
@@ -178,10 +179,13 @@ function sharePage() {
 <p>Doch Media Queries können viel mehr:</p>
 <h2 id="-device-aspect-ratio">(device-)aspect-ratio</h2>
 <p>... ist das Seitenverhältnis des geräts (bzw Viewports). Damit kann man im simpelsten Fall quer- von Hochformat unterscheiden, oder beispielsweise Panorama-Bildschirmen spezielel Stile oder Inhalte ausliefern.</p>
-<p><pre>@media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) { ... }</pre></p>
+<pre>@media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) { ... }</pre>
+
+
 <h2 id="orientation">orientation</h2>
 <p>Eine noch simplere Variante der aspect-ratio. Nimmt die Werte <code>landscape</code> oder <code>portrait</code> an.</p>
-<p><pre>@media all and (orientation: portrait) { ... }</pre></p>
+<pre>@media all and (orientation: portrait) { ... }</pre>
+
 <style type="text/css" scoped>
 .orientationContainer > strong { display: none; }
 @media all and (orientation: portrait) {

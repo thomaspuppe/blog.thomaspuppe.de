@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="language" content="en">
+    <meta name="language" content="de">
     <title>Front Trends 2017 in Warsaw</title>
     <meta name="description" content="A list of talks from the Front Trends 2017 conference in Warsaw, and some remarks.">
-    <meta name="date" content="Sat Jul 08 2017 02:00:00 GMT+0200 (CEST)">
+    <meta name="date" content="Sat Jul 08 2017 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Web Development</span>
-            <time datetime="Sat Jul 08 2017 02:00:00 GMT+0200 (CEST)">08. July 2017</time>
+            <time datetime="Sat Jul 08 2017 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">08. July 2017</time>
         </div>
 
         <h1 class="post__title">Front Trends 2017 in Warsaw</h1>

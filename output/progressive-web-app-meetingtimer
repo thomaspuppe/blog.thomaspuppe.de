@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Progressive Web App erstellen</title>
     <meta name="description" content="null">
-    <meta name="date" content="Wed Mar 15 2017 01:00:00 GMT+0100 (CET)">
+    <meta name="date" content="Wed Mar 15 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Wed Mar 15 2017 01:00:00 GMT+0100 (CET)">15. März 2017</time>
+            <time datetime="Wed Mar 15 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">15. März 2017</time>
         </div>
 
         <h1 class="post__title">Progressive Web App erstellen</h1>

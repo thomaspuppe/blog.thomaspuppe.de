@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Wie twittern Politiker?</title>
     <meta name="description" content="Ein Überblick über das Twitter-Verhalten der MdB und der Wahlkämpfer der niedersächsischen Landtagswahl 2013">
-    <meta name="date" content="Tue Jan 22 2013 01:00:00 GMT+0100 (CET)">
+    <meta name="date" content="Tue Jan 22 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Bundestwitter</span>
-            <time datetime="Tue Jan 22 2013 01:00:00 GMT+0100 (CET)">22. Januar 2013</time>
+            <time datetime="Tue Jan 22 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">22. Januar 2013</time>
         </div>
 
         <h1 class="post__title">Wie twittern Politiker?</h1>
@@ -100,7 +100,7 @@
 
 <h2>Wer hat die meisten Follower?</h2>
 
-<p><table>
+<table>
     <tr>
         <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_schroeder_k.jpg" alt="Profilbild Kristina Schröder"></td>
         <td>Dr. Kristina Schröder (<a href="http://www.bundestwitter.de/mdb/schroeder_k/">@schroeder_k</a>)<br />32.757 Follower</td>
@@ -121,20 +121,20 @@
         <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_sigmargabriel.jpg" alt="Profilbild Sigmar Gabriel"></td>
         <td>Sigmar Gabriel (<a href="http://www.bundestwitter.de/mdb/sigmargabriel/">@sigmargabriel</a>)<br />18.731 Follower</td>
     </tr>
-</table></p>
+</table>
 <p><em>(Stand: Januar 2013)</em></p>
 
 <p>Zum Vergleich: Barack Obama hat 25.000.000 Follower, David Cameron 200.000 und sein Amtsaccount als Prime Minister, 2.000.000 Follower.</p>
 
 
-<p><h2>Welche Inhalte werden verschickt?</h2></p>
-<p>Es findet – mit 7% der Nachrichten – relativ wenig Dialog statt. (Relativ zu meiner Erwartung. Ich kenne keine Twitter-weiten Zahlen hierzu.) Umso mehr werden Links verschickt (zu Pressemitteilungen, Artikeln, Fotos) und geretweetet (was eine sehr einfache Form der &quot;Inhaltsgenerierung&quot; ist).</p>
+<h2>Welche Inhalte werden verschickt?</h2>
+<p>Es findet – mit 7% der Nachrichten – relativ wenig Dialog statt. (Relativ zu meiner Erwartung. Ich kenne keine Twitter-weiten Zahlen hierzu.) Umso mehr werden Links verschickt (zu Pressemitteilungen, Artikeln, Fotos) und geretweetet (was eine sehr einfache Form der "Inhaltsgenerierung" ist).</p>
 <figure>
 <img src="images/2013/01/bundestwitter-mdb-verhalten/inhaltsverteilung.png" alt="Graph: Verteilung der Inhalte">
 </figure>
-<p>Wobei zu beachten ist: aus dieser Statistik entfallen direkte Tweets an Persionen via &quot;@Screenname&quot; am Anfang des Tweets, weil diese Nachrichten nicht in der öffentlichen Timeline erscheinen und somit nicht von Bundestwitter ausgewertet werden.</p>
+<p>Wobei zu beachten ist: aus dieser Statistik entfallen direkte Tweets an Persionen via "@Screenname" am Anfang des Tweets, weil diese Nachrichten nicht in der öffentlichen Timeline erscheinen und somit nicht von Bundestwitter ausgewertet werden.</p>
 
-<p><h1>Wahllkampf in Niedersachsen</h1></p>
+<h1>Wahllkampf in Niedersachsen</h1>
 <p>Im Landtagswahlkampf 2013 für Niedersachsen habe ich die Accounts der amtierenden Abgeordneten sowie aller twitternden Kandidaten beobachtet. Hier einige Impressionen (die ich noch vor der Wahl beispielhaft zusammengetragen habe).</p>
 <figure>
     <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweet-mcallister.png" alt="Tweets von David McAllister">
@@ -158,7 +158,7 @@
 </figure>
 
 
-<p>Die Beispiele zeigen, dass das Twitter-Verhalten stark variiert. Jede Partei hat &quot;gute&quot; (authentisch, dialogfreudig) und &quot;schlechte&quot; (unpersönliches Broadcasting) Twitter-Accounts. In der Tendenz war mein Eindruck, dass die FDP und CDU Twitter eher zum Verbreiten von Statements und Meldungen benutzen. Die SPD war um mehr Bürgernähe bemüht, aber das war eher selten. Die Linke war in Niedersachsen wenig aktiv (mit Ausnahme von <a href="http://kandidaten.niedersachsen-tweets.de/mdb/victorperli/">Victor Perli</a>), aber authentisch und dialogfreudig. Die Grünen waren fleißig und authentisch, ebenso wie die Piraten, die natürlich in diesem Medium viel Erfahrung haben. Bei ihnen vermischen sich politische Inhalte aber stark mit privaten, sodass man beim Folgen den Privatpersonen näher kommt als den Politikern.</p>
+<p>Die Beispiele zeigen, dass das Twitter-Verhalten stark variiert. Jede Partei hat "gute" (authentisch, dialogfreudig) und "schlechte" (unpersönliches Broadcasting) Twitter-Accounts. In der Tendenz war mein Eindruck, dass die FDP und CDU Twitter eher zum Verbreiten von Statements und Meldungen benutzen. Die SPD war um mehr Bürgernähe bemüht, aber das war eher selten. Die Linke war in Niedersachsen wenig aktiv (mit Ausnahme von <a href="http://kandidaten.niedersachsen-tweets.de/mdb/victorperli/">Victor Perli</a>), aber authentisch und dialogfreudig. Die Grünen waren fleißig und authentisch, ebenso wie die Piraten, die natürlich in diesem Medium viel Erfahrung haben. Bei ihnen vermischen sich politische Inhalte aber stark mit privaten, sodass man beim Folgen den Privatpersonen näher kommt als den Politikern.</p>
 <p></p>
 <p>In der Nachbetrachtung – wo man immer schlauer ist – kann man sagen: CDU twitterte zu professionall (= nicht authentisch). SPD hat es hinbekommen. FDP zu passiv. Piraten nicht professionell (im klassischen Politik-Sinn) genug. Grüne aktiv und authentisch. Die Freien Wähler waren auch auf Twitter aktiv, aber fielen nicht ins Gewicht. Die Kandidaten anderer Parteien hatten keine Twitter-Accounts.</p>
 <p>Natürlich haben auch die Medien sich die Onlinekompetenz im Wahlkampf angesehen. Ein Auszug von Beiträgen:
