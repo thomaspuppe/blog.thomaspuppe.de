@@ -50,7 +50,7 @@ The typical device is Android on cheap hardware. Opera Mini is really big in Afr
 >
 > &mdash; Maciej Cegłowski
 
-**The First Meaningful Paint** by [Patrick Hamann](patrickhamann) ([video](https://www.youtube.com/watch?v=4pQ2byAoIX0) on CSSConf) talks about ways to speed up the first meaningful paint on a website. Nice example: Google renders the header of its result page, even before the search request is sent to the server. Measures you can take are: inlining critital CSS. `<link rel=preload>` (which also works via HTTP header). And HTTP/2 server push, which could even be done by your proxy cache, before the actual backend server renders a response.
+**The First Meaningful Paint** by [Patrick Hamann](https://twitter.com/patrickhamann) ([video](https://www.youtube.com/watch?v=4pQ2byAoIX0) on CSSConf) talks about ways to speed up the first meaningful paint on a website. Nice example: Google renders the header of its result page, even before the search request is sent to the server. Measures you can take are: inlining critital CSS. `<link rel=preload>` (which also works via HTTP header). And HTTP/2 server push, which could even be done by your proxy cache, before the actual backend server renders a response.
 
 **Motion In Design Systems: Animation, Style Guides, and the Design Process** by [Val Head](https://twitter.com/vlh): Very cool presentation about designer-developer-collaboration with sketches, storyboards (anyone can do. quick tests with little commitment. trigger, what happens, how does it happen?), motion comps (HTML5 tool: Tumult Hype) and interactive prototypes (tool: atomic, codepen). [Slides](https://www.slideshare.net/valhead/animation-in-design-systems-and-process-val-head), [Codepen](https://codepen.io/valhead).
 
@@ -74,7 +74,7 @@ The typical device is Android on cheap hardware. Opera Mini is really big in Afr
 
 **Microservices - The FAAS and the Furious** by [Phil Hawksworth](https://twitter.com/philhawksworth) gave examples on how static sites can be enhanced with microservices (comments and search, for example). In the end, the setup was rather complex ;-) ... but the basic message is: start by outsourcing simple things.
 
-**Demystifying Deep Neural Networks** by [Rosie Campbell](@RosieCampbell)  gave an introduction to machine leaning. Conventional programs have explicit algorithms, deep learning is trained with data. The talk was based on an [article](https://medium.com/manchester-futurists/demystifying-deep-neural-nets-efb726eae941) which explains the principles behind neural networks.
+**Demystifying Deep Neural Networks** by [Rosie Campbell](https://twitter.com/RosieCampbell)  gave an introduction to machine leaning. Conventional programs have explicit algorithms, deep learning is trained with data. The talk was based on an [article](https://medium.com/manchester-futurists/demystifying-deep-neural-nets-efb726eae941) which explains the principles behind neural networks.
 
 **I'm in IoT**: [Vadim Makeev](https://twitter.com/pepelsbey_/) controlled lamps and drones on stage with his browser. His drone was highjacked by someone in the audience :-). [Slides](https://pepelsbey.net/pres/im-in-iot/).
 

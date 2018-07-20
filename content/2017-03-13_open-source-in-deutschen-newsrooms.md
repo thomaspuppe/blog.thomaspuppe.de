@@ -17,7 +17,7 @@ Ich folge seit einiger Zeit dem Twitter-Account [@NewsNerdRepos](https://twitter
 
 Die großen englischen Zeitungen erzeugen viel Open Source Code. Die [Washington Post](https://github.com/washingtonpost) hostet bei GitHub Daten zu Police-Shootings und Cloud-Tools, und pflegt ein [Developer-Blog](https://developer.washingtonpost.com/pb/blog/). Die Financial Times hat einen [Account mit Frontend-Repositories](https://github.com/Financial-Times) von der productiv-seite, sowie ein [FT Labs Konto](https://github.com/ftlabs) mit Experimenten und Tools. Auch New York Times hat verschiedene Accounts: einen für die [Website](https://github.com/NYTimes), ein [NYT Labs](https://github.com/nytlabs) und eins für den [NYT Newsroom](https://github.com/newsdev). Außerdem gibt es ein [Development-Blog](https://open.blogs.nytimes.com/) und eine [Artikel-Such-API](https://developers.nytimes.com/). In Europa tut sich bekanntlich der Guardian hervor mit [GitHub-Repositories](https://github.com/guardian) -- unter anderem eines mit dem [Frontend-Code von www.theguardian.com](https://github.com/guardian/frontend) -- und einem empfehlenswerten [Developer-Blog](https://www.theguardian.com/info/developer-blog). Zudem gibt es eine Art [Entwickler-Recruiting-Seite](https://developers.theguardian.com/).
 
-Natürlich sind auch anderssprache Zeitungen vertreten, wie z.B. [https://github.com/lemonde](Le Monde) oder [Hürriyet](https://github.com/hurriyet). Aber es soll hier um deutsche Medien gehen. Also?
+Natürlich sind auch anderssprache Zeitungen vertreten, wie z.B. [Le Monde](https://github.com/lemonde) oder [Hürriyet](https://github.com/hurriyet). Aber es soll hier um deutsche Medien gehen. Also?
 
 
 # Und in Deutschland?
