@@ -17,3 +17,7 @@ description:
 ## prefers-reduced-motion
 
 https://twitter.com/justmarkup/status/974581638637142016
+
+
+
+- https://docs.google.com/presentation/d/169gop22hzmu-NEUiNQyoIZ_oRiMqNLFMKNJVvX42iC8/present?slide=id.g13f7190665_1_484

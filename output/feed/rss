@@ -4,11 +4,96 @@
         <title>Blog von Thomas Puppe, Web Developer.</title>
         <link>https://blog.thomaspuppe.de</link>
         <description></description>
-        <lastBuildDate>Wed, 18 Jul 2018 14:23:11 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 20 Jul 2018 14:30:44 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>easto 0.6.0 (https://github.com/thomaspuppe/easto)</generator>
         <copyright>All rights reserved 2018, Thomas Puppe</copyright>
         <atom:link href="https://blog.thomaspuppe.de/feed/atom" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Notizen Juli 2018]]></title>
+            <link>https://blog.thomaspuppe.de/notizen-juli-2018</link>
+            <guid>https://blog.thomaspuppe.de/notizen-juli-2018</guid>
+            <pubDate>Fri, 20 Jul 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[this-month-I-learned und Lesetipps für Juli 2018]]></description>
+            <content:encoded><![CDATA[<h2 id="accessibility-for-collapsible-sections">Accessibility for Collapsible sections</h2>
+<p>Um eine typische <a href="https://www.berliner-philharmoniker.de/hilfe/">Liste von togglebaren Überschriften</a> per Tastatus bedienbar zu machen, konnte ich endlich mal ein <a href="https://inclusive-components.design">Inclusive Components</a> Beispiel von Heydon Pickering benutzen: <a href="https://inclusive-components.design/collapsible-sections/">collapsible sections</a>. Kurz zusammengefasst: man macht die Überschriften zu <code>&lt;button&gt;</code> Elementen, damit die ganze Tabindex/Focus/&quot;click&quot; Sache funktioniert. Und entfernt die Button-Stile via <code>all: inherit;</code> im CSS. Der Artikel von Heydon geht natürlich noch viel mehr in die Tiefe und behandelt JS und Screen Reader.</p>
+<h2 id="todonext">TODONEXT</h2>
+<p>Ein kleiner alter Trick, um am Morgen einen guten Kickstart beim Arbeiten hinzubekommen: zum Feierabend versuche ich, die aktuelle Aufgabe nicht abzuschließen. Sondern als letzte Tat schreibe ich einen failenden Test (wenn man denn welche hat) oder eine Funktion die den Build kaputtmacht oder so. Und daneben einen Kommentar in der Form <code>// TODONEXT: consider negative input</code>. So kommt man schnell wieder in die Arbeit, und muss sich morgens nicht erst orientieren.</p>
+<h2 id="leankoala">Leankoala</h2>
+<p>Etwas Neues aus der Reihe &quot;Tools für Qualitätssicherung&quot;: <a href="https://www.leankoala.com/">Leankoala</a> ist ein sympathisches Hamburger Startup, bei dem man verschiedenste Tests gegen seine Website laufen lässt. Neben Klassikern wie dem Broken-Link-Checker und Ping gibt es auch Bufgets für Dateigrößen und Pagespeed-Score. Außerdem natürlich eigene Tests (prüfen ob ein CSS-Selektor/XPath auf der Seite enthalten ist, z.B.) und einen  Smoke-Test, bei dem Cache-Header, gzip usw geprüft werden. Das ist alles ziemlich smart, und Wizards helfen bei der Einrichtung indem sie Dinge auf der Seite finden (hat man Analytics eingebunden?) und daraus Checks vorschlagen. Kann man 14 Tage kostenlos testen.</p>
+<h2 id="lesetipps">Lesetipps</h2>
+<p>Das Buch <a href="https://www.safaribooksonline.com/library/view/calm-technology/9781491925874/">Calm Technology</a> habe ich in einem <a href="https://twitter.com/christowski/status/1013453707076423680">Tweet von Christoph Rauscher</a> entdeckt und sofort bestellt. Leider noch nicht gelesen. Wenns soweit ist, komme ich hier drauf zurück.</p>
+<p>Wieder einmal was Geiles von Heydon Pickering: <a href="https://mutable.gallery/">Generative Art</a>.</p>
+<p>Der Freitag erklärt <a href="https://www.freitag.de/autoren/the-guardian/5-mythen-ueber-die-fluechtlingskrise">5 Mythen über die Flüchtligskrise</a></p>
+<blockquote>
+<p>Menschen ohne Rechte, so warnte Hannah Arendt, sind „erste Anzeichen für eine mögliche Rückentwicklung der Zivilisation“.</p>
+</blockquote>
+<hr>
+<p><em>Dieser Artikel wird gerade fortgeschrieben, und wird im Laufe des Monats wachsen.</em></p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Notizen Juni 2018]]></title>
+            <link>https://blog.thomaspuppe.de/notizen-juni-2018</link>
+            <guid>https://blog.thomaspuppe.de/notizen-juni-2018</guid>
+            <pubDate>Sat, 30 Jun 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[this-month-I-learned und Lesetipps für Juni 2018]]></description>
+            <content:encoded><![CDATA[<h2 id="wm-ticker">WM Ticker</h2>
+<p>Ich habe mir zwei Tools geschrieben, um mir fix aktuelle WM-Spielstände anzuschauen. Ein winziges Tool für die <a href="https://github.com/thomaspuppe/worldcup-cli">Kommandozeile</a>, und eine kleine <a href="https://github.com/thomaspuppe/worldcup">progressive Web App</a>. Beide greifen eine API ab und zeigen die heutigen Spiele mit Live-Spielstand. Alles kein Hexenwerk, aber eine kleine feine Freude. Bei Twitter gibts nen <a href="https://twitter.com/thomaspuppe/status/1009046595915132928">Screenshot</a>.</p>
+<h2 id="a11y-club-conference">A11y Club Conference</h2>
+<p>Im November wird die <a href="https://accessibility-club.org/">Accessibility Club Conference in Berlin</a> stattfinden. Da freu ich mich drauf, Tickets kosten auch nur 80 Euro. Letztes Jahr gab es den Club schon einmal, und das war eine tolle Veranstaltung. Meine Lieblingszitate vom letzten Jahr:</p>
+<blockquote>
+<p>Your brand is not your color palette.<br>
+Your brand is what people think of you.</p>
+<cite>Heydon Pickering</cite>
+</blockquote>
+
+<p>und</p>
+<blockquote>
+<p>Privacy: you dont send a "private message" to your friend. You send it to facebook, and they show it to your friend.</p>
+<cite>Laura Kalbag</cite>
+</blockquote>
+
+
+<h2 id="tooltipps">Tooltipps</h2>
+<p><a href="http://gitstats.sourceforge.net/">GitStats</a> generiert aus einem Git-Repo Statistiken: Commits pro Wochentag oder im Laufe der Zeit, Top-Committer usw. Was man GitHub im Interface eingebaut hat, kann man sich hier für beliebige Git-Repositories generieren lassen. Das Ergebnis sind lokale HTML-Dateien mit einigen Graphen. GitStats muss nicht installiert werden, erwartet aber <em>gnuplot</em> auf dem System.</p>
+<p><a href="3rdparty.io">https://3rdparty.io/</a> zeigt für einzelne 3rd-Party-Scripts, wie sehr sie einer Website schaden. Also man analysiert nicht seine Seite mit allen Scripts (was die klassischen Webperf-Tools tun), sondern schaut sich ein spezifisches Script an und bekommt eine Auswertung, wie gut sich das benimmt. Ist es komprimiert? Blockiert es den Browser? Schreibt es globale JS Variablen oder Cookies? Lädt es ein eigenes jQuery nach? usw. Auf einer Übersichtsseite sind die <a href="https://3rdparty.io/products">Resultate für die üblichen Verdächtigen</a> (Facebook Connect, Google Analytics) aufgelistst.</p>
+<p><a href="https://cookiepedia.co.uk/">Cookiepedia</a> und <a href="https://trackography.org/">Trackography</a> zeigen Auswertungen zu Cookies und Trackern auf Websites, Trackography konzentriert sich dabei auf News.</p>
+<h2 id="lesetipps">Lesetipps</h2>
+<p>Die beiden Cookie-Tools fand ich in <a href="https://netzpolitik.org/2018/tracking-um-jeden-preis-das-stockholm-syndrom-der-presseverlage/">Tracking um jeden Preis: Das Stockholm-Syndrom der Presseverlage</a> auf Netzpolitik. Ein Artikel über DSGVO und ePrivacy, die Haltung deutscher Verlage dazu, und wie ihre Websites tatsächlich tracken. Highlight:</p>
+<blockquote>
+<p>2016 konnte beispielsweise ein Recherche-Team des NDR von einem Databroker einen Datensatz mit angeblich anonymisierten Browserverläufen erwerben. Darin fanden sich hochsensible Informationen unter anderem über einen Polizisten, einen Richter und Bundestagsmitarbeiterinnen.</p>
+</blockquote>
+<p>Sven Wolfermann mit einer schönen umfassenden <a href="http://maddesigns.de/wpo2018/">Website-Performance-Präsentation</a>. Mein Highlight ist die Folie zu <a href="http://maddesigns.de/wpo2018/#/61">serve breakpoint specific JS</a>:</p>
+<pre>&lt;link rel="preload" as="script" href="map.js" media="(min-width: 601px)"&gt;</pre>
+
+<p><a href="https://generativeartistry.com/">Generative Artistry</a>: coole interaktive(!) Tutorials von Tim Holman.</p>
+<p><a href="https://onym.co/">onym.co</a> bietet massenhaft Theorie, Inspiration, und Quellen für <em>Naming Things</em>. gefunden von unserem Designer <a href="https://twitter.com/nandorocker">Nando</a>.</p>
+<p>Die <a href="https://directive2102.eu/">Direktive 2102</a> ist eine EU-Verodnung zu Accessibility im Web. Betrifft nur den öffentlichen Sektor, aber wird ähnlich wie die DSGVO zu Last-Minute-Panik führen, obwohl man alles schon jahrelang wusste. Marcus Herrmann erklärt das Ganze auf einer hübschen Website.</p>
+<p>Sehr schöne Longread von The Intercept zur NSA: <a href="https://theintercept.com/2018/06/25/att-internet-nsa-spy-hubs/">The Wiretap Rooms</a>.</p>
+<p><a href="https://dev.tube/">dev.tube</a> listet Konferenztalks zu Entwicklerthemen, mit einer eigenen Rubrik für Performance. Es gibt keine Deeplinks auf Kategorien, aber der Code ist Open Source bei GitHub, da kann man also helfen ;-)</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Notizen Mai 2018]]></title>
+            <link>https://blog.thomaspuppe.de/notizen-mai-2018</link>
+            <guid>https://blog.thomaspuppe.de/notizen-mai-2018</guid>
+            <pubDate>Thu, 31 May 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[this-month-I-learned und Lesetipps für Mai 2018]]></description>
+            <content:encoded><![CDATA[<h2 id="bullshit-jobs-by-david-graeber">Bullshit Jobs by David Graeber</h2>
+<p>Nachdem ich vor einer Weile das Essay <a href="https://strikemag.org/bullshit-jobs/">On the Phenomenon of Bullshit Jobs: A Work Rant by David Graeber</a> gelesen hatte, hab ich mich sehr auf das dazugehörige Buch gefreut (<a href="https://en.wikipedia.org/wiki/Bullshit_Jobs">Wikipedia-Seite</a>, <a href="https://www.theguardian.com/books/2018/may/25/bullshit-jobs-a-theory-by-david-graeber-review">Rezension im Guardian</a>). Es war meine Urlaubslektüre, und ich kann es sehr empfehlen. Auf jeden Fall aber das Essay!</p>
+<blockquote>
+<p>The paradox of modern work:</p>
+<ol>
+<li>Most people&#39;s sense of dignity and self-worth is caught up in working for a living.</li>
+<li>Most people hate their jobs.</li>
+</ol>
+</blockquote>
+<h2 id="handy-sync-via-syncthing">Handy-Sync via Syncthing</h2>
+<p><a href="https://syncthing.net/">Syncthing</a> ist eine praktische Software, um Inhalte vom Handy auf den Rechner zu backuppen. Funktioniert prima mit Ubuntu und MacOS. Zuvor hatte ich Resilio Sync benutzt, aber das war weniger intuitiv und ich hatte manchmal das Gefühl dass Daten fehlten.</p>
+<p>Gefunden habe ich Syncthing in Martin Pitts Artikel <a href="https://piware.de/post/2018-05-01-android-degoogle/">De-Googling my phone</a>.</p>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Generate static sites from markdown files with the Caddy server]]></title>
             <link>https://blog.thomaspuppe.de/static-sites-from-markdown-with-caddy-server</link>
@@ -172,6 +257,105 @@ markdown / {
 </ul>
 <h2 id="wrap-up">Wrap-up</h2>
 <p>Caddys built-in features for static-site generation do a good job for putting together a simple and fast static site. With templating, logical conditions and string manipulation you get pretty far with few lines of code. If you reach the limits of what Caddy can do, you won&#39;t have wasted much time. So it is worth a try.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Notizen April 2018]]></title>
+            <link>https://blog.thomaspuppe.de/notizen-april-2018</link>
+            <guid>https://blog.thomaspuppe.de/notizen-april-2018</guid>
+            <pubDate>Tue, 03 Apr 2018 00:00:00 GMT</pubDate>
+            <description><![CDATA[this-month-I-learned und Lesetipps für April 2018]]></description>
+            <content:encoded><![CDATA[<h2 id="magical-auto-jump-statt-cd">Magical Auto-Jump statt CD</h2>
+<p>Autojump ist ein schönes kleines Tool für die Kommandozeile. Es merkt sich häufig benutzte Verzeichnisse, und weiß dann wo ich hinwill wenn ich irgendwo <code>j a11</code> eingebe.</p>
+<pre>brew install autojump
+
+puppe:~ $ j blog
+/Users/puppe/code/private/blog/blog.thomaspuppe.de
+
+puppe:~ $ j a11
+/Users/puppe/code/zon/a11y-dashboard</pre>
+
+
+<h2 id="a11y-zwei-tools-um-einschr-nkungen-zu-simulieren">A11y: Zwei Tools um Einschränkungen zu simulieren</h2>
+<p><a href="https://www.colorblindsim.com/">colorblindsim.com</a>ist eine offlinefähige Web-App fürs Spartphone, die auf dem Display anzeigt wie das Drumherum denn aussehen würde wenn man farbenblind wäre.</p>
+<p><a href="https://chrome.google.com/webstore/detail/funkify-disability-simula/ojcijjdchelkddboickefhnbdpeajdjg">Funkify</a> ist eine Chrome-Extension, die beim Surfen Dinge wie Farbenblindheit, verschwommenes Sehen, oder Zittern simuliert.</p>
+<h2 id="request-map">Request Map</h2>
+<p>Die <a href="http://requestmap.webperf.tools/">Request Map</a> ist ein wunderbares Tool von <a href="https://twitter.com/simonhearne">Simon Hearne</a>, das alle Requests die eine Seite auslöst, schön übersichtlich als Graph darstellt. Schön zum Gruseln und Argumentieren.</p></p>
+<figure>
+    <img src="/images/2018/04/notizen-april-2018/requestmap.png" alt="Graphen-Darstellung von Requests auf ZEIT Online" />
+    <figcaption>Requests auf ZEIT Online</figcaption>
+</figure>
+
+
+<h2 id="wordpress-plugin-primer">Wordpress-Plugin Primer</h2>
+<p>Ich habe mein erstes Wordpress-Plugin geschrieben ... und hoffentlich mein letztes. Die Erfahrung in ein paar Sätze gefasst:</p>
+<ul>
+<li>Plugins anzulegen ist sehr einfach. Folder und Datei erstellen, im Admin aktivieren, fertig.</li>
+<li>Mit einem simplen Vierzeiler kann man Inhalte in die Seite injizieren, zum Beispiel im Head:</li>
+</ul>
+<pre>add_action( 'wp_head', 'my_meta_tags' );
+function my_meta_tags() {
+  echo '&lt;meta name="generator" content="Thomas" /&gt;';
+}</pre>
+
+<ul>
+<li>Selbst Admin-Funktionen, wie eine Setting-Page für das Plugin, werden auf diese Art gebaut.</li>
+</ul>
+<p>Gute Quellen, die mir geholfen haben:</p>
+<ul>
+<li><a href="https://premium.wpmudev.org/blog/wordpress-plugin-development-guide/">https://premium.wpmudev.org/blog/wordpress-plugin-development-guide/</a></li>
+<li><a href="https://premium.wpmudev.org/blog/wordpress-hooks/">https://premium.wpmudev.org/blog/wordpress-hooks/</a></li>
+<li><a href="https://codex.wordpress.org/Template_Tags#Post_tags">https://codex.wordpress.org/Template_Tags#Post_tags</a></li>
+<li><a href="http://codex.wordpress.org/Creating_Options_Pages">http://codex.wordpress.org/Creating_Options_Pages</a></li>
+</ul>
+<h2 id="buchtipp-white-hat-ux">Buchtipp: White Hat UX</h2>
+<blockquote>
+<p>Marketing, IT and sales people all over the world work hard every
+day to make deceptive user experiences. You are better than that.</p>
+</blockquote>
+
+<p><a href="https://shop.smashingmagazine.com/products/white-hat-ux-the-next-generation-in-user-experience-ebook">White Hat UX</a> kostet als eBook 7,50 $.</p>
+<h2 id="webperf-erkenntnisse-aus-einem-webinar-zur-deltav-conference">Webperf-Erkenntnisse aus einem Webinar zur DeltaV Conference</h2>
+<p>Aus einem kurzen Werbe-Webinar zur DeltaV Konferenz habe ich zwei interessante Sachen mitgenommen:</p>
+<p>(1) Die BBC konzentriert sich bei ihrem Performance-Monitoring auf zwei wichtige Werte: <em>time to Headline</em> (also ab wann kann der Leser Infos erfassen) und <em>time to Scroll</em> (wann beginnt er, den Artikel zu lesen). Ob drumherum Sachen geladen werden oder so ist ja eigentlich auch egal, aus UX-Perspektive. Die sollen schnell ihre Infos kriegen, und darauf hin wird optimiert. (Ganz so plump wird es nicht sein in der Praxis, aber das ist ein interessanter Ansatz.)</p>
+<p>(2) Trivago nutzt die NetworkInformation API, um an Leute mit verschiedenen Netzwerkbedingungen verschiedene Sachen zu senden. Dabei haben sie die Erfahrung gemacht:</p>
+<ul>
+<li>Reine Performance-Sachen wie &quot;Retina-Bilder nur wenn die Verbindung gut ist&quot; sind total gut.</li>
+<li>Verschiedene Features (Einzelbild statt Galerie oder Video) sind schlecht. Vor Allem wenn Leute mit verschiedenen Geräten oder anverschiedenen Orten denselben Inhalt aufrufen und dann plötzlich andere Features oder andere UX haben als erwartet.</li>
+<li>Okay sind Opt-In/ProgressiveEnhancement Sachen. Beispiel: Ein Einzelbild statt Galerie zeigen, und darunter ein Button mit dem Hinweis, dass man wegen seines Netzwerks verschont wurde, aber per Klick die Galerie laden kann.</li>
+</ul>
+<p>Eine Aufzeichnung des Webinars gibt es bei Youtube: <a href="https://www.youtube.com/watch?v=VamKs0HKvQA">youtube.com/watch?v=VamKs0HKvQA</a>.</p>
+<p>Die DeltaV Konferenz selbst hat ein <a href="https://2018.deltavconf.com/talks">mega geiles Lineup</a>. Hoffentlich veröffentlichen sie im Nachgang die Videos.</p>
+<h2 id="stress-testing-third-party-scripts">Stress-Testing third party scripts</h2>
+<p><a href="https://csswizardry.com/2017/07/performance-and-resilience-stress-testing-third-parties">Harry Roberts</a> schreibt über Möglichkeiten, Third-Party-Scripts (oder andere Inhalte) auf der eigenen Website stress-zu-testen.</p>
+<p>Mein Lieblingstrick, aber nicht der einzige im Artikel, ist das Blackhole von Webpagetest. Via <code>/etc/hosts</code> Datei lässt man Requests an bestimmte Domains in einen Timeout laufen.</p>
+<p>Mit der Browser-Extension &quot;<a href="https://chrome.google.com/webstore/detail/spof-o-matic/plikhggfbplemddobondkeogomgoodeg">SPOF-o-Matic</a>&quot; lässt sich das auch machen.</p>
+<p>Mit beiden Tricks hatte ich mal <a href="https://blog.thomaspuppe.de/spof-auf-news-websites">deutsche News-Websites auf Single-Points-of-Failures getestet</a>.</p>
+<h2 id="paste-clipboard-into-file-on-macos">Paste Clipboard into file on MacOS</h2>
+<pre>pbpaste > file.js</pre>
+
+
+<h2 id="webfont-preloading">Webfont Preloading</h2>
+<p>Zwei interessante Sachen gelernt. Erstens: ich dachte immer, das Preloading kann man doch gar nicht realistisch machen, weil man im HTML ja gar nicht weiß ob der Browser woff2, woff, oder ein älteres Format anfordern wird. Auf der JSUnconf Konferenz habe ich dann gelernt: Alle Browser, die <a href="https://www.caniuse.com/#search=preload">Preload</a> können, unterstützen auch <a href="https://www.caniuse.com/#search=woff2">woff2</a>. Womit es sich wunderbar einsetzen lässt, auch wenn man im CSS ältere Browser mit älteren Schriftformaten versorgt.</p>
+<p>Zweite Sache, die ich beim Benutzen schmerzhaft gelernt habe: Preload von Schriften braucht dringend das <code>crossorigin</code> Attribut, auch wenn die Schriften vom gleichen Host kommen! (Quellen: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content#Cross-origin_fetches">MDN</a>, <a href="https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#early-loading-of-fonts">Smashing</a>).</p>
+<h2 id="rendern-von-unicode-zeichen-als-emoji-unterdr-cken">Rendern von Unicode-Zeichen als Emoji unterdrücken</h2>
+<p>Das mobile iOS (und vermutlich auch andere) stellen Unicode-Zeichen auf Websites als Emoji dar. Das kann ganz witzig sein – aber als Zeitung willst du das nicht in deinen Artikeln haben.</p>
+<p>Lösung: Das Anhängen von <code>\00FE0E</code> unterdrückt das <a href="http://mts.io/2015/04/21/unicode-symbol-render-text-emoji/">Rendern als Emoji</a>.</p>
+<p>Reines Zeichen: &amp;#x1F435 (<code>&amp;amp;#x1F435</code>); . Explizit kein Emoji: &#x1F435;&#xFE0E; (<code>&amp;amp;#x1F435;&amp;amp;#xFE0E;</code>)</p>
+<p>Das blöde ist nur: es funktioniert nicht (mehr) im Chrome auf Android :-(.</p>
+<h2 id="lesetipps">Lesetipps</h2>
+<p>Rolf Dobelli über den Verzicht auf News: <a href="https://www.theguardian.com/media/2013/apr/12/news-is-bad-rolf-dobelli">News is bad for you – and giving up reading it will make you happier</a>.</p>
+<p><a href="https://baekdal.com/strategy/publishers-havent-realized-just-how-big-a-deal-gdpr-is/">Sehr gute Analyse zur DSGVO</a>: &quot;What I&#39;m not seeing, however, is any real change to the way publishers use data&quot;. Die Frage ist nicht &quot;<em>Wie</em> kann ich meine unbedachte Datensammelwut legal rechtfertigen?&quot; Sondern &quot;<em>Wozu</em> brauche ich denn überhaupt <em>welche</em> Daten?&quot;</p>
+<p>Sam Altman on <a href="https://blog.samaltman.com/productivity">Productivity</a>. Yet another one. Bei diesen Posts lernt man ja nichts, was man nicht schon wüsste. Dennoch steh ich da drauf. Und auch bei diesem Artikel lautet einer der Tipps &quot;don’t fall into the trap of productivity porn&quot;. Naja.</p>
+<p>Frank Chimero: <a href="https://frankchimero.com/writing/the-good-room/">The Good Room</a> über den Umgang mit moderner Technologie: was ist daran gut, was nicht? Und wie kann man die Balance verbessern? Außerdem ein sehr schön gestalteter &quot;Longread&quot;.</p>
+<p><a href="https://sonniesedge.co.uk/talks/dear-developer">Dear Developer, The Web Isn&#39;t About You</a>.</p>
+<p>Aufholen beim Thema JavaScript: <a href="https://hackernoon.com/how-i-stopped-worrying-and-learned-to-love-the-javascript-ecosystem-692c51030342">How I stopped worrying and learned to love the JavaScript ecosystem</a>.</p>
+<blockquote>
+<p>JavaScript was changing but I was resistant.</p>
+<cite><a href="https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70">Modern JavaScript for dinosaurs</a></cite>
+</blockquote>
+
+<p>Randnotiz: Ich finde es fürchterlich, dass heute alle (auch Hackernoon) mit Medium bloggen. Und wehre mich dagegen. Mal sehen, ob sich das obige in ein paar Jahren auch für die Blogging-Plattform wiederholt.</p>
 ]]></content:encoded>
         </item>
         <item>

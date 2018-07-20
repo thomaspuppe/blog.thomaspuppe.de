@@ -41,6 +41,13 @@
 <p>Google Big Query has a CrUX data set (latest one from January 2018) <a href="https://bigquery.cloud.google.com/table/chrome-ux-report:all.201801">https://bigquery.cloud.google.com/table/chrome-ux-report:all.201801</a> . And you can query this set for free, if you have a Google account.</p>
 <p>Google provides some <a href="https://developers.google.com/web/tools/chrome-user-experience-report/getting-started#example-queries">example queries</a>, which work well with the 2017 dataset. Just change the URL. For 2018 you need to change the queries, because they renamed some fields.</p>
 <p><a href="https://bigquery.cloud.google.com/savedquery/415027649228:2e0411a31423477892f0a27aa990f5ed">https://bigquery.cloud.google.com/savedquery/415027649228:2e0411a31423477892f0a27aa990f5ed</a></p>
+<hr>
+<ul>
+<li><a href="https://www.dareboost.com/en/comparison/">https://www.dareboost.com/en/comparison/</a> ---&gt; das auch bei competetive perf in den blogpost! (neben <a href="https://gtmetrix.com/reports/">https://gtmetrix.com/reports/</a> , <a href="https://gtmetrix.com/compare/">https://gtmetrix.com/compare/</a>)<ul>
+<li><a href="https://passmarked.com/reports/20180626c516d0f07137P?section=performance">https://passmarked.com/reports/20180626c516d0f07137P?section=performance</a> (also einen webperf-Aschnitt im Blogpost machen ... ausgezeichnet :-)</li>
+</ul>
+</li>
+</ul>
 
 
     </article>

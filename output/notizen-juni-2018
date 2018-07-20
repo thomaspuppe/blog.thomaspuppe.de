@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Notizen Juni 2018</title>
+    <meta name="description" content="this-month-I-learned und Lesetipps für Juni 2018">
+    <meta name="date" content="Sat Jun 30 2018 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+</head>
+<body>
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
+
+        <div class="post__meta">
+            <span class="post__category">#Notizen</span>
+            <time datetime="Sat Jun 30 2018 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">01. Juni 2018 – 30. Juni 2018</time>
+        </div>
+
+        <h1 class="post__title">Notizen Juni 2018</h1>
+
+        <h2 id="wm-ticker">WM Ticker</h2>
+<p>Ich habe mir zwei Tools geschrieben, um mir fix aktuelle WM-Spielstände anzuschauen. Ein winziges Tool für die <a href="https://github.com/thomaspuppe/worldcup-cli">Kommandozeile</a>, und eine kleine <a href="https://github.com/thomaspuppe/worldcup">progressive Web App</a>. Beide greifen eine API ab und zeigen die heutigen Spiele mit Live-Spielstand. Alles kein Hexenwerk, aber eine kleine feine Freude. Bei Twitter gibts nen <a href="https://twitter.com/thomaspuppe/status/1009046595915132928">Screenshot</a>.</p>
+<h2 id="a11y-club-conference">A11y Club Conference</h2>
+<p>Im November wird die <a href="https://accessibility-club.org/">Accessibility Club Conference in Berlin</a> stattfinden. Da freu ich mich drauf, Tickets kosten auch nur 80 Euro. Letztes Jahr gab es den Club schon einmal, und das war eine tolle Veranstaltung. Meine Lieblingszitate vom letzten Jahr:</p>
+<blockquote>
+<p>Your brand is not your color palette.<br>
+Your brand is what people think of you.</p>
+<cite>Heydon Pickering</cite>
+</blockquote>
+
+<p>und</p>
+<blockquote>
+<p>Privacy: you dont send a "private message" to your friend. You send it to facebook, and they show it to your friend.</p>
+<cite>Laura Kalbag</cite>
+</blockquote>
+
+
+<h2 id="tooltipps">Tooltipps</h2>
+<p><a href="http://gitstats.sourceforge.net/">GitStats</a> generiert aus einem Git-Repo Statistiken: Commits pro Wochentag oder im Laufe der Zeit, Top-Committer usw. Was man GitHub im Interface eingebaut hat, kann man sich hier für beliebige Git-Repositories generieren lassen. Das Ergebnis sind lokale HTML-Dateien mit einigen Graphen. GitStats muss nicht installiert werden, erwartet aber <em>gnuplot</em> auf dem System.</p>
+<p><a href="3rdparty.io">https://3rdparty.io/</a> zeigt für einzelne 3rd-Party-Scripts, wie sehr sie einer Website schaden. Also man analysiert nicht seine Seite mit allen Scripts (was die klassischen Webperf-Tools tun), sondern schaut sich ein spezifisches Script an und bekommt eine Auswertung, wie gut sich das benimmt. Ist es komprimiert? Blockiert es den Browser? Schreibt es globale JS Variablen oder Cookies? Lädt es ein eigenes jQuery nach? usw. Auf einer Übersichtsseite sind die <a href="https://3rdparty.io/products">Resultate für die üblichen Verdächtigen</a> (Facebook Connect, Google Analytics) aufgelistst.</p>
+<p><a href="https://cookiepedia.co.uk/">Cookiepedia</a> und <a href="https://trackography.org/">Trackography</a> zeigen Auswertungen zu Cookies und Trackern auf Websites, Trackography konzentriert sich dabei auf News.</p>
+<h2 id="lesetipps">Lesetipps</h2>
+<p>Die beiden Cookie-Tools fand ich in <a href="https://netzpolitik.org/2018/tracking-um-jeden-preis-das-stockholm-syndrom-der-presseverlage/">Tracking um jeden Preis: Das Stockholm-Syndrom der Presseverlage</a> auf Netzpolitik. Ein Artikel über DSGVO und ePrivacy, die Haltung deutscher Verlage dazu, und wie ihre Websites tatsächlich tracken. Highlight:</p>
+<blockquote>
+<p>2016 konnte beispielsweise ein Recherche-Team des NDR von einem Databroker einen Datensatz mit angeblich anonymisierten Browserverläufen erwerben. Darin fanden sich hochsensible Informationen unter anderem über einen Polizisten, einen Richter und Bundestagsmitarbeiterinnen.</p>
+</blockquote>
+<p>Sven Wolfermann mit einer schönen umfassenden <a href="http://maddesigns.de/wpo2018/">Website-Performance-Präsentation</a>. Mein Highlight ist die Folie zu <a href="http://maddesigns.de/wpo2018/#/61">serve breakpoint specific JS</a>:</p>
+<pre>&lt;link rel="preload" as="script" href="map.js" media="(min-width: 601px)"&gt;</pre>
+
+<p><a href="https://generativeartistry.com/">Generative Artistry</a>: coole interaktive(!) Tutorials von Tim Holman.</p>
+<p><a href="https://onym.co/">onym.co</a> bietet massenhaft Theorie, Inspiration, und Quellen für <em>Naming Things</em>. gefunden von unserem Designer <a href="https://twitter.com/nandorocker">Nando</a>.</p>
+<p>Die <a href="https://directive2102.eu/">Direktive 2102</a> ist eine EU-Verodnung zu Accessibility im Web. Betrifft nur den öffentlichen Sektor, aber wird ähnlich wie die DSGVO zu Last-Minute-Panik führen, obwohl man alles schon jahrelang wusste. Marcus Herrmann erklärt das Ganze auf einer hübschen Website.</p>
+<p>Sehr schöne Longread von The Intercept zur NSA: <a href="https://theintercept.com/2018/06/25/att-internet-nsa-spy-hubs/">The Wiretap Rooms</a>.</p>
+<p><a href="https://dev.tube/">dev.tube</a> listet Konferenztalks zu Entwicklerthemen, mit einer eigenen Rubrik für Performance. Es gibt keine Deeplinks auf Kategorien, aber der Code ist Open Source bei GitHub, da kann man also helfen ;-)</p>
+
+
+    </article>
+</body>
+</html>

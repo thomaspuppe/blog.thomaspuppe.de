@@ -27,28 +27,36 @@
         <h1 class="post__title">Notizen April 2018</h1>
 
         <h2 id="magical-auto-jump-statt-cd">Magical Auto-Jump statt CD</h2>
-<p>brew install autojump</p>
-<pre><code>puppe:~ $ j blog
+<p>Autojump ist ein schönes kleines Tool für die Kommandozeile. Es merkt sich häufig benutzte Verzeichnisse, und weiß dann wo ich hinwill wenn ich irgendwo <code>j a11</code> eingebe.</p>
+<pre>brew install autojump
+
+puppe:~ $ j blog
 /Users/puppe/code/private/blog/blog.thomaspuppe.de
 
 puppe:~ $ j a11
-/Users/puppe/code/zon/a11y-dashboard</code></pre><h2 id="color-blindness">Color Blindness</h2>
-<p>Funkify als Chrome_Extension</p>
-<p>Real world: <a href="https://www.colorblindsim.com/">https://www.colorblindsim.com/</a></p>
+/Users/puppe/code/zon/a11y-dashboard</pre>
+
+
+<h2 id="a11y-zwei-tools-um-einschr-nkungen-zu-simulieren">A11y: Zwei Tools um Einschränkungen zu simulieren</h2>
+<p><a href="https://www.colorblindsim.com/">colorblindsim.com</a>ist eine offlinefähige Web-App fürs Spartphone, die auf dem Display anzeigt wie das Drumherum denn aussehen würde wenn man farbenblind wäre.</p>
+<p><a href="https://chrome.google.com/webstore/detail/funkify-disability-simula/ojcijjdchelkddboickefhnbdpeajdjg">Funkify</a> ist eine Chrome-Extension, die beim Surfen Dinge wie Farbenblindheit, verschwommenes Sehen, oder Zittern simuliert.</p>
 <h2 id="request-map">Request Map</h2>
-<p><a href="http://requestmap.webperf.tools/">http://requestmap.webperf.tools/</a></p>
-<p>TODO: Screenshot von ZON</p>
-<h2 id="erstes-wordpress-plugin-geschrieben">Erstes Wordpress-Plugin geschrieben</h2>
-<p>... und hoffentlich letztes</p>
-<p><a href="https://premium.wpmudev.org/blog/wordpress-plugin-development-guide/">https://premium.wpmudev.org/blog/wordpress-plugin-development-guide/</a></p>
-<p>Die Erfahrung in ein paar Sätze gefasst:</p>
+<p>Die <a href="http://requestmap.webperf.tools/">Request Map</a> ist ein wunderbares Tool von <a href="https://twitter.com/simonhearne">Simon Hearne</a>, das alle Requests die eine Seite auslöst, schön übersichtlich als Graph darstellt. Schön zum Gruseln und Argumentieren.</p></p>
+<figure>
+    <img src="/images/2018/04/notizen-april-2018/requestmap.png" alt="Graphen-Darstellung von Requests auf ZEIT Online" />
+    <figcaption>Requests auf ZEIT Online</figcaption>
+</figure>
+
+
+<h2 id="wordpress-plugin-primer">Wordpress-Plugin Primer</h2>
+<p>Ich habe mein erstes Wordpress-Plugin geschrieben ... und hoffentlich mein letztes. Die Erfahrung in ein paar Sätze gefasst:</p>
 <ul>
 <li>Plugins anzulegen ist sehr einfach. Folder und Datei erstellen, im Admin aktivieren, fertig.</li>
 <li>Mit einem simplen Vierzeiler kann man Inhalte in die Seite injizieren, zum Beispiel im Head:</li>
 </ul>
 <pre>add_action( 'wp_head', 'my_meta_tags' );
 function my_meta_tags() {
-  echo '<meta name="generator" content="Thomas" />';
+  echo '&lt;meta name="generator" content="Thomas" /&gt;';
 }</pre>
 
 <ul>
@@ -58,17 +66,16 @@ function my_meta_tags() {
 <ul>
 <li><a href="https://premium.wpmudev.org/blog/wordpress-plugin-development-guide/">https://premium.wpmudev.org/blog/wordpress-plugin-development-guide/</a></li>
 <li><a href="https://premium.wpmudev.org/blog/wordpress-hooks/">https://premium.wpmudev.org/blog/wordpress-hooks/</a></li>
-<li><p><a href="https://codex.wordpress.org/Template_Tags#Post_tags">https://codex.wordpress.org/Template_Tags#Post_tags</a></p>
-</li>
-<li><p><a href="http://codex.wordpress.org/Creating_Options_Pages">http://codex.wordpress.org/Creating_Options_Pages</a></p>
-</li>
+<li><a href="https://codex.wordpress.org/Template_Tags#Post_tags">https://codex.wordpress.org/Template_Tags#Post_tags</a></li>
+<li><a href="http://codex.wordpress.org/Creating_Options_Pages">http://codex.wordpress.org/Creating_Options_Pages</a></li>
 </ul>
-<h2 id="white-hat-ux">White Hat UX</h2>
+<h2 id="buchtipp-white-hat-ux">Buchtipp: White Hat UX</h2>
 <blockquote>
-<p>&quot;Marketing, IT and sales people all over the world work hard every
-day to make deceptive user experiences. You are better than that.&quot;&quot;</p>
-<p>– White Hat UX (<a href="https://shop.smashingmagazine.com/products/white-hat-ux-the-next-generation-in-user-experience-ebook">https://shop.smashingmagazine.com/products/white-hat-ux-the-next-generation-in-user-experience-ebook</a>)</p>
+<p>Marketing, IT and sales people all over the world work hard every
+day to make deceptive user experiences. You are better than that.</p>
 </blockquote>
+
+<p><a href="https://shop.smashingmagazine.com/products/white-hat-ux-the-next-generation-in-user-experience-ebook">White Hat UX</a> kostet als eBook 7,50 $.</p>
 <h2 id="webperf-erkenntnisse-aus-einem-webinar-zur-deltav-conference">Webperf-Erkenntnisse aus einem Webinar zur DeltaV Conference</h2>
 <p>Aus einem kurzen Werbe-Webinar zur DeltaV Konferenz habe ich zwei interessante Sachen mitgenommen:</p>
 <p>(1) Die BBC konzentriert sich bei ihrem Performance-Monitoring auf zwei wichtige Werte: <em>time to Headline</em> (also ab wann kann der Leser Infos erfassen) und <em>time to Scroll</em> (wann beginnt er, den Artikel zu lesen). Ob drumherum Sachen geladen werden oder so ist ja eigentlich auch egal, aus UX-Perspektive. Die sollen schnell ihre Infos kriegen, und darauf hin wird optimiert. (Ganz so plump wird es nicht sein in der Praxis, aber das ist ein interessanter Ansatz.)</p>
@@ -78,20 +85,13 @@ day to make deceptive user experiences. You are better than that.&quot;&quot;</p
 <li>Verschiedene Features (Einzelbild statt Galerie oder Video) sind schlecht. Vor Allem wenn Leute mit verschiedenen Geräten oder anverschiedenen Orten denselben Inhalt aufrufen und dann plötzlich andere Features oder andere UX haben als erwartet.</li>
 <li>Okay sind Opt-In/ProgressiveEnhancement Sachen. Beispiel: Ein Einzelbild statt Galerie zeigen, und darunter ein Button mit dem Hinweis, dass man wegen seines Netzwerks verschont wurde, aber per Klick die Galerie laden kann.</li>
 </ul>
-<p>Eine Aufzeichnung des Webinars gibt es bei Youtube: <a href="youtube.com/watch?v=VamKs0HKvQA">https://www.youtube.com/watch?v=VamKs0HKvQA</a>.</p>
+<p>Eine Aufzeichnung des Webinars gibt es bei Youtube: <a href="https://www.youtube.com/watch?v=VamKs0HKvQA">youtube.com/watch?v=VamKs0HKvQA</a>.</p>
 <p>Die DeltaV Konferenz selbst hat ein <a href="https://2018.deltavconf.com/talks">mega geiles Lineup</a>. Hoffentlich veröffentlichen sie im Nachgang die Videos.</p>
 <h2 id="stress-testing-third-party-scripts">Stress-Testing third party scripts</h2>
-<p><a href="https://csswizardry.com/2017/07/performance-and-resilience-stress-testing-third-parties/">Harry Roberts</a> schreibt über Möglichkeiten, Third-Party-Scripts (oder andere Inhalte) auf der eigenen Website stress-zu-testen.</p>
+<p><a href="https://csswizardry.com/2017/07/performance-and-resilience-stress-testing-third-parties">Harry Roberts</a> schreibt über Möglichkeiten, Third-Party-Scripts (oder andere Inhalte) auf der eigenen Website stress-zu-testen.</p>
 <p>Mein Lieblingstrick, aber nicht der einzige im Artikel, ist das Blackhole von Webpagetest. Via <code>/etc/hosts</code> Datei lässt man Requests an bestimmte Domains in einen Timeout laufen.</p>
 <p>Mit der Browser-Extension &quot;<a href="https://chrome.google.com/webstore/detail/spof-o-matic/plikhggfbplemddobondkeogomgoodeg">SPOF-o-Matic</a>&quot; lässt sich das auch machen.</p>
 <p>Mit beiden Tricks hatte ich mal <a href="https://blog.thomaspuppe.de/spof-auf-news-websites">deutsche News-Websites auf Single-Points-of-Failures getestet</a>.</p>
-<h2 id="aufholen-mit-javascript">Aufholen mit JavaScript</h2>
-<p><a href="https://hackernoon.com/how-i-stopped-worrying-and-learned-to-love-the-javascript-ecosystem-692c51030342">https://hackernoon.com/how-i-stopped-worrying-and-learned-to-love-the-javascript-ecosystem-692c51030342</a></p>
-<blockquote>
-<p>JavaScript was changing but I was resistant.</p>
-</blockquote>
-<p><a href="https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70">https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70</a></p>
-<p>Randnotiz: Ich finde es fürchterlich, dass heute alle (auch Hackernoon) mit Medium bloggen. Und wehre mich dagegen. Mal sehen, ob sich das obige in ein paar Jahren auch für die Blogging-Plattform wiederholt.</p>
 <h2 id="paste-clipboard-into-file-on-macos">Paste Clipboard into file on MacOS</h2>
 <pre>pbpaste > file.js</pre>
 
@@ -102,34 +102,21 @@ day to make deceptive user experiences. You are better than that.&quot;&quot;</p
 <h2 id="rendern-von-unicode-zeichen-als-emoji-unterdr-cken">Rendern von Unicode-Zeichen als Emoji unterdrücken</h2>
 <p>Das mobile iOS (und vermutlich auch andere) stellen Unicode-Zeichen auf Websites als Emoji dar. Das kann ganz witzig sein – aber als Zeitung willst du das nicht in deinen Artikeln haben.</p>
 <p>Lösung: Das Anhängen von <code>\00FE0E</code> unterdrückt das <a href="http://mts.io/2015/04/21/unicode-symbol-render-text-emoji/">Rendern als Emoji</a>.</p>
-<p>Reines Zeichen: &amp;#x1F435 (<code>&amp;#x1F435</code>); . Explizit kein Emoji: &#x1F435;&#xFE0E; (<code>&amp;#x1F435;&amp;#xFE0E;</code>)</p>
+<p>Reines Zeichen: &amp;#x1F435 (<code>&amp;amp;#x1F435</code>); . Explizit kein Emoji: &#x1F435;&#xFE0E; (<code>&amp;amp;#x1F435;&amp;amp;#xFE0E;</code>)</p>
 <p>Das blöde ist nur: es funktioniert nicht (mehr) im Chrome auf Android :-(.</p>
 <h2 id="lesetipps">Lesetipps</h2>
-<ul>
-<li><p><a href="https://hackernoon.com/cost-per-reasonable-decision-cprd-ed1ca8c6147">https://hackernoon.com/cost-per-reasonable-decision-cprd-ed1ca8c6147</a></p>
-</li>
-<li><p><a href="https://www.theguardian.com/media/2013/apr/12/news-is-bad-rolf-dobelli">https://www.theguardian.com/media/2013/apr/12/news-is-bad-rolf-dobelli</a></p>
-</li>
-</ul>
-<ul>
-<li><p>&quot;What I&#39;m not seeing, however, is any real change to the way publishers use data&quot;: <a href="https://baekdal.com/strategy/publishers-havent-realized-just-how-big-a-deal-gdpr-is/">https://baekdal.com/strategy/publishers-havent-realized-just-how-big-a-deal-gdpr-is/</a>. Sehr gute Analyse. Die Frage ist nicht &quot;<em>Wie</em> kann ich meine unbedachte Datensammelwut legal rechtfertigen?&quot; Sondern &quot;<em>Wozu</em> brauche ich denn überhaupt <em>welche</em> Daten?&quot;</p>
-</li>
-<li><p>Sam Altman on <a href="https://blog.samaltman.com/productivity">Productivity</a>. Yet another one. Bei diesen Posts lernt man ja nichts, was man nicht schon wüsste. Dennoch steh ich da drauf. Und auch bei diesem Artikel lautet einer der Tipps &quot;don’t fall into the trap of productivity porn&quot;. Naja.</p>
-</li>
-</ul>
-<ul>
-<li><a href="https://medium.com/global-editors-network/mark-little-no-we-are-not-building-a-netflix-for-news-af9901fcffae">https://medium.com/global-editors-network/mark-little-no-we-are-not-building-a-netflix-for-news-af9901fcffae</a> - &quot;Completeness&quot;</li>
-</ul>
-<ul>
-<li><p>Frank Chimero: <a href="https://frankchimero.com/writing/the-good-room/">The Good Room</a> über den Umgang mit moderner Technologie: was ist daran gut, was nicht? Und wie kann man die Balance verbessern? Außerdem ein sehr schön gestalteter &quot;Longread&quot;.</p>
-</li>
-<li><p><a href="https://sonniesedge.co.uk/talks/dear-developer">https://sonniesedge.co.uk/talks/dear-developer</a></p>
-</li>
-<li><p><a href="https://css-tricks.com/a-quick-way-to-remember-difference-between-justify-content-align-items/">https://css-tricks.com/a-quick-way-to-remember-difference-between-justify-content-align-items/</a></p>
-</li>
-</ul>
-<hr>
-<p><em>Dieser Artikel wird gerade fortgeschrieben, und wird im Laufe des Monats wachsen.</em></p>
+<p>Rolf Dobelli über den Verzicht auf News: <a href="https://www.theguardian.com/media/2013/apr/12/news-is-bad-rolf-dobelli">News is bad for you – and giving up reading it will make you happier</a>.</p>
+<p><a href="https://baekdal.com/strategy/publishers-havent-realized-just-how-big-a-deal-gdpr-is/">Sehr gute Analyse zur DSGVO</a>: &quot;What I&#39;m not seeing, however, is any real change to the way publishers use data&quot;. Die Frage ist nicht &quot;<em>Wie</em> kann ich meine unbedachte Datensammelwut legal rechtfertigen?&quot; Sondern &quot;<em>Wozu</em> brauche ich denn überhaupt <em>welche</em> Daten?&quot;</p>
+<p>Sam Altman on <a href="https://blog.samaltman.com/productivity">Productivity</a>. Yet another one. Bei diesen Posts lernt man ja nichts, was man nicht schon wüsste. Dennoch steh ich da drauf. Und auch bei diesem Artikel lautet einer der Tipps &quot;don’t fall into the trap of productivity porn&quot;. Naja.</p>
+<p>Frank Chimero: <a href="https://frankchimero.com/writing/the-good-room/">The Good Room</a> über den Umgang mit moderner Technologie: was ist daran gut, was nicht? Und wie kann man die Balance verbessern? Außerdem ein sehr schön gestalteter &quot;Longread&quot;.</p>
+<p><a href="https://sonniesedge.co.uk/talks/dear-developer">Dear Developer, The Web Isn&#39;t About You</a>.</p>
+<p>Aufholen beim Thema JavaScript: <a href="https://hackernoon.com/how-i-stopped-worrying-and-learned-to-love-the-javascript-ecosystem-692c51030342">How I stopped worrying and learned to love the JavaScript ecosystem</a>.</p>
+<blockquote>
+<p>JavaScript was changing but I was resistant.</p>
+<cite><a href="https://medium.com/the-node-js-collection/modern-javascript-explained-for-dinosaurs-f695e9747b70">Modern JavaScript for dinosaurs</a></cite>
+</blockquote>
+
+<p>Randnotiz: Ich finde es fürchterlich, dass heute alle (auch Hackernoon) mit Medium bloggen. Und wehre mich dagegen. Mal sehen, ob sich das obige in ein paar Jahren auch für die Blogging-Plattform wiederholt.</p>
 
 
     </article>

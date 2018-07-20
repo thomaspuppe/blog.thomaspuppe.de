@@ -48,3 +48,9 @@ Google provides some [example queries](https://developers.google.com/web/tools/c
 
 
 https://bigquery.cloud.google.com/savedquery/415027649228:2e0411a31423477892f0a27aa990f5ed
+
+
+------------------------
+
+- https://www.dareboost.com/en/comparison/ ---> das auch bei competetive perf in den blogpost! (neben https://gtmetrix.com/reports/ , https://gtmetrix.com/compare/)
+  - https://passmarked.com/reports/20180626c516d0f07137P?section=performance (also einen webperf-Aschnitt im Blogpost machen ... ausgezeichnet :-)

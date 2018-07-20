@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Notizen Mai 2018</title>
+    <meta name="description" content="this-month-I-learned und Lesetipps für Mai 2018">
+    <meta name="date" content="Thu May 31 2018 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+</head>
+<body>
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
+
+        <div class="post__meta">
+            <span class="post__category">#Notizen</span>
+            <time datetime="Thu May 31 2018 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">01. Mai 2018 – 31. Mai 2018</time>
+        </div>
+
+        <h1 class="post__title">Notizen Mai 2018</h1>
+
+        <h2 id="bullshit-jobs-by-david-graeber">Bullshit Jobs by David Graeber</h2>
+<p>Nachdem ich vor einer Weile das Essay <a href="https://strikemag.org/bullshit-jobs/">On the Phenomenon of Bullshit Jobs: A Work Rant by David Graeber</a> gelesen hatte, hab ich mich sehr auf das dazugehörige Buch gefreut (<a href="https://en.wikipedia.org/wiki/Bullshit_Jobs">Wikipedia-Seite</a>, <a href="https://www.theguardian.com/books/2018/may/25/bullshit-jobs-a-theory-by-david-graeber-review">Rezension im Guardian</a>). Es war meine Urlaubslektüre, und ich kann es sehr empfehlen. Auf jeden Fall aber das Essay!</p>
+<blockquote>
+<p>The paradox of modern work:</p>
+<ol>
+<li>Most people&#39;s sense of dignity and self-worth is caught up in working for a living.</li>
+<li>Most people hate their jobs.</li>
+</ol>
+</blockquote>
+<h2 id="handy-sync-via-syncthing">Handy-Sync via Syncthing</h2>
+<p><a href="https://syncthing.net/">Syncthing</a> ist eine praktische Software, um Inhalte vom Handy auf den Rechner zu backuppen. Funktioniert prima mit Ubuntu und MacOS. Zuvor hatte ich Resilio Sync benutzt, aber das war weniger intuitiv und ich hatte manchmal das Gefühl dass Daten fehlten.</p>
+<p>Gefunden habe ich Syncthing in Martin Pitts Artikel <a href="https://piware.de/post/2018-05-01-android-degoogle/">De-Googling my phone</a>.</p>
+
+
+    </article>
+</body>
+</html>
