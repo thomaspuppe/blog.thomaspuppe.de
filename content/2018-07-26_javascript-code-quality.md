@@ -87,6 +87,62 @@ We will have a deeper look at that later.
 [TODO: minute-Formatierung in Funktionen auslagern.]
 
 
+
+## currying
+
+TODO: make it currying, or change the headline :-)
+
+<pre>updateTime = function (elapsedTime) {
+	let elapsedTimeSeconds = Math.floor((elapsedTime / 1000) % 60);
+	let elapsedTimeMinutes = Math.floor((elapsedTime / 60000) % 60);
+	const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
+
+	elapsedTimeSeconds = (elapsedTimeSeconds > 9) ? elapsedTimeSeconds : '0' + elapsedTimeSeconds.toString();
+	elapsedTimeMinutes = (elapsedTimeMinutes > 9) ? elapsedTimeMinutes : '0' + elapsedTimeMinutes.toString();
+
+	timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
+	}</pre>
+
+We cannot have the `elapsedTimeSeconds` as constant, because we need to manipulate it later. That manipulation has, in a strict sense, nothing to do with the updateTime(), and is only a cosmetical enhancement. Further, the code is redundant because we want to apply the same logic to `elapsedTimeMinutes`.
+
+So, of course, a first step would be to extract that into a function:
+
+<pre>addLeadingZero = function(num) {
+	return (num > 9) ? num.toString() : '0' + num.toString();
+},
+updateTime = function (elapsedTime) {
+	let elapsedTimeSeconds = Math.floor((elapsedTime / 1000) % 60);
+	let elapsedTimeMinutes = Math.floor((elapsedTime / 60000) % 60);
+	const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
+
+	elapsedTimeSeconds = addLeadingZero(elapsedTimeSeconds);
+	elapsedTimeMinutes = addLeadingZero(elapsedTimeMinutes);
+
+	timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
+}</pre>
+
+Since this is a utility for formatting, one could consider moving it somewhere else. But for now this stays right above the updateTime() function.
+
+After we extracted that code into a function, we can also wrap that one around our calculation ... and have the desired constant.
+
+<pre>addLeadingZero = function(num) {
+	return (num > 9) ? num.toString() : '0' + num.toString();
+},
+updateTime = function (elapsedTime) {
+	const elapsedTimeSeconds = addLeadingZero(Math.floor((elapsedTime / 1000) % 60));
+	const elapsedTimeMinutes = addLeadingZero(Math.floor((elapsedTime / 60000) % 60));
+	const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
+
+	timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
+}</pre>
+
+
+
+
+This is calles currying and a lot sexier in ES6 notation, but in my case I want to spare the Babel transpiler and can live without the narrow syntax. Also, in this example you could argue that the inline code is easier to comprehend (and probably more performant) than the seperate function. But here it serves as an example.
+
+
+
 ## Code formatting
 
 - editorconf
