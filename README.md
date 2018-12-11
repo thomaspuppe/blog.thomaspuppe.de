@@ -1,15 +1,9 @@
 # Installation
 
-	$ virtualenv blog
-	$ cd blog
-	$ source bin/activate
-	$ pip install acrylamid
-	$ git clone git@github.com:thomaspuppe/blog.thomaspuppe.de.git
-	$ git cd blog.thomaspuppe.de
-	$ npm install
+	yarn install
 
 # Run it
 
-    // during development open two consoles:
-    $ acrylamid autocompile
-    $ npm run build-css
+    rm -rf ./output && mkdir output && node ./node_modules/easto/index.js --content=/var/www/blog.thomaspuppe.de/content  --data=/var/www/blog.thomaspuppe.de/static --output=/var/www/blog.thomaspuppe.de/output --templates=/var/www/blog.thomaspuppe.de/themes/easto --verbose=true
+
+TODO: this needs to be improved, of course!

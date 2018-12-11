@@ -3,12 +3,15 @@
   "version": "2.0.0",
   "description": "Software and Content for blog.thomaspuppe.de",
   "author": "Thomas Puppe",
-  "repository": { 
-      "type": "git", 
+  "repository": {
+      "type": "git",
       "url": "https://github.com/thomaspuppe/blog.thomaspuppe.de.git"
   },
   "license": "BSD-2-Clause",
   "scripts": {
     "build-css": "sass --watch themes/thomaspuppe/sass/styles.sass:themes/thomaspuppe/styles.css"
+  },
+  "dependencies": {
+  	"easto": "thomaspuppe/easto"
   }
 }
