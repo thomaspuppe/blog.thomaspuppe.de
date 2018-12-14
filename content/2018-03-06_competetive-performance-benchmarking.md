@@ -26,7 +26,8 @@ description:
 
 ## Continuous benchmarks in synthetic tools
 
-
+- bsp speedcurve
+- bsp unser sitespeed dashboard
 
 ## RUM (real user monitoring) data about your competitors with CrUX
 
@@ -49,6 +50,8 @@ Google provides some [example queries](https://developers.google.com/web/tools/c
 
 https://bigquery.cloud.google.com/savedquery/415027649228:2e0411a31423477892f0a27aa990f5ed
 
+
+https://calendar.perfplanet.com/2017/finding-your-competitive-edge-with-the-chrome-user-experience-report/
 
 ------------------------
 
