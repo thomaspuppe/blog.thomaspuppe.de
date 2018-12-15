@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Blog Styling</title>
     <meta name="description" content="Styleguide für diesen Blog, der alle Arten von Inhalten enthält">
-    <meta name="date" content="Sun Jun 19 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
+    <meta name="date" content="Sun Jun 19 2016 02:00:00 GMT+0200 (CEST)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Sun Jun 19 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">19. Juni 2016</time>
+            <time datetime="Sun Jun 19 2016 02:00:00 GMT+0200 (CEST)">19. Juni 2016</time>
         </div>
 
         <h1 class="post__title">Blog Styling</h1>

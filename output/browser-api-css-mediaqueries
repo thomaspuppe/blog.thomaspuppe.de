@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Browser APIs und CSS Media Queries</title>
     <meta name="description" content="Der Einsatz von Media Queries und Browser APIs beschränkt sich häufig auf min-width und navigator.userAgent. Aber in modernen Browsern gibt es cooles Zeug.">
-    <meta name="date" content="Sat Apr 08 2017 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
+    <meta name="date" content="Sat Apr 08 2017 02:00:00 GMT+0200 (CEST)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Sat Apr 08 2017 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">08. April 2017</time>
+            <time datetime="Sat Apr 08 2017 02:00:00 GMT+0200 (CEST)">08. April 2017</time>
         </div>
 
         <h1 class="post__title">Browser APIs und CSS Media Queries</h1>

@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Notizen Juli 2018</title>
     <meta name="description" content="this-month-I-learned und Lesetipps für Juli 2018">
-    <meta name="date" content="Fri Jul 20 2018 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
+    <meta name="date" content="Fri Jul 20 2018 02:00:00 GMT+0200 (CEST)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Notizen</span>
-            <time datetime="Fri Jul 20 2018 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">01. Juli 2018 – 20. Juli 2018</time>
+            <time datetime="Fri Jul 20 2018 02:00:00 GMT+0200 (CEST)">01. Juli 2018 – 31. Juli 2018</time>
         </div>
 
         <h1 class="post__title">Notizen Juli 2018</h1>
@@ -32,6 +32,8 @@
 <p>Ein kleiner alter Trick, um am Morgen einen guten Kickstart beim Arbeiten hinzubekommen: zum Feierabend versuche ich, die aktuelle Aufgabe nicht abzuschließen. Sondern als letzte Tat schreibe ich einen failenden Test (wenn man denn welche hat) oder eine Funktion die den Build kaputtmacht oder so. Und daneben einen Kommentar in der Form <code>// TODONEXT: consider negative input</code>. So kommt man schnell wieder in die Arbeit, und muss sich morgens nicht erst orientieren.</p>
 <h2 id="leankoala">Leankoala</h2>
 <p>Etwas Neues aus der Reihe &quot;Tools für Qualitätssicherung&quot;: <a href="https://www.leankoala.com/">Leankoala</a> ist ein sympathisches Hamburger Startup, bei dem man verschiedenste Tests gegen seine Website laufen lässt. Neben Klassikern wie dem Broken-Link-Checker und Ping gibt es auch Bufgets für Dateigrößen und Pagespeed-Score. Außerdem natürlich eigene Tests (prüfen ob ein CSS-Selektor/XPath auf der Seite enthalten ist, z.B.) und einen  Smoke-Test, bei dem Cache-Header, gzip usw geprüft werden. Das ist alles ziemlich smart, und Wizards helfen bei der Einrichtung indem sie Dinge auf der Seite finden (hat man Analytics eingebunden?) und daraus Checks vorschlagen. Kann man 14 Tage kostenlos testen.</p>
+<h2 id="web-performance-bei-wikipedia">Web Performance bei Wikipedia</h2>
+<p>Wikimedia hat ein eigenes Performance Team (natürlich) und sie arbeiten öffentlich (natürlich). Eine super interessante Quelle für alle die sich für Web Performance interessieren. Auf der <a href="https://www.mediawiki.org/wiki/Wikimedia_Performance_Team">Performance Team Page</a> sind viele Ressourcen verlinkt, z.B. <a href="https://performance.wikimedia.org/">Dashboards</a>, das <a href="https://phabricator.wikimedia.org/phame/live/7/">Blog</a> des Teams, und ihr <a href="https://phabricator.wikimedia.org/tag/performance-team/">Ticket-Board</a>.</p>
 <h2 id="lesetipps">Lesetipps</h2>
 <p>Das Buch <a href="https://www.safaribooksonline.com/library/view/calm-technology/9781491925874/">Calm Technology</a> habe ich in einem <a href="https://twitter.com/christowski/status/1013453707076423680">Tweet von Christoph Rauscher</a> entdeckt und sofort bestellt. Leider noch nicht gelesen. Wenns soweit ist, komme ich hier drauf zurück.</p>
 <p>Wieder einmal was Geiles von Heydon Pickering: <a href="https://mutable.gallery/">Generative Art</a>.</p>
@@ -39,8 +41,6 @@
 <blockquote>
 <p>Menschen ohne Rechte, so warnte Hannah Arendt, sind „erste Anzeichen für eine mögliche Rückentwicklung der Zivilisation“.</p>
 </blockquote>
-<hr>
-<p><em>Dieser Artikel wird gerade fortgeschrieben, und wird im Laufe des Monats wachsen.</em></p>
 
 
     </article>

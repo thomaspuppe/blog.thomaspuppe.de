@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Front Trends 2017 in Warsaw</title>
     <meta name="description" content="A list of talks from the Front Trends 2017 conference in Warsaw, and some remarks.">
-    <meta name="date" content="Sat Jul 08 2017 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
+    <meta name="date" content="Sat Jul 08 2017 02:00:00 GMT+0200 (CEST)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Web Development</span>
-            <time datetime="Sat Jul 08 2017 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">08. July 2017</time>
+            <time datetime="Sat Jul 08 2017 02:00:00 GMT+0200 (CEST)">08. July 2017</time>
         </div>
 
         <h1 class="post__title">Front Trends 2017 in Warsaw</h1>
@@ -51,7 +51,7 @@
 <p>You have a choice what you work for. If you work for mass surveillance. If you base your business model on evil. <strong>You are not only technicians. You are also citicens and human beings.</strong></p>
 <p>&mdash; Maciej Cegłowski</p>
 </blockquote>
-<p><strong>The First Meaningful Paint</strong> by <a href="patrickhamann">Patrick Hamann</a> (<a href="https://www.youtube.com/watch?v=4pQ2byAoIX0">video</a> on CSSConf) talks about ways to speed up the first meaningful paint on a website. Nice example: Google renders the header of its result page, even before the search request is sent to the server. Measures you can take are: inlining critital CSS. <code>&lt;link rel=preload&gt;</code> (which also works via HTTP header). And HTTP/2 server push, which could even be done by your proxy cache, before the actual backend server renders a response.</p>
+<p><strong>The First Meaningful Paint</strong> by <a href="https://twitter.com/patrickhamann">Patrick Hamann</a> (<a href="https://www.youtube.com/watch?v=4pQ2byAoIX0">video</a> on CSSConf) talks about ways to speed up the first meaningful paint on a website. Nice example: Google renders the header of its result page, even before the search request is sent to the server. Measures you can take are: inlining critital CSS. <code>&lt;link rel=preload&gt;</code> (which also works via HTTP header). And HTTP/2 server push, which could even be done by your proxy cache, before the actual backend server renders a response.</p>
 <p><strong>Motion In Design Systems: Animation, Style Guides, and the Design Process</strong> by <a href="https://twitter.com/vlh">Val Head</a>: Very cool presentation about designer-developer-collaboration with sketches, storyboards (anyone can do. quick tests with little commitment. trigger, what happens, how does it happen?), motion comps (HTML5 tool: Tumult Hype) and interactive prototypes (tool: atomic, codepen). <a href="https://www.slideshare.net/valhead/animation-in-design-systems-and-process-val-head">Slides</a>, <a href="https://codepen.io/valhead">Codepen</a>.</p>
 <p><strong>Experimenting your way to a better product</strong> by <a href="https://twitter.com/zomigi/">Zoe Mickley Gillenwater</a> was about A/B-Tests. It&#39;s clear that experiments help to avoid biases and opinions. The goal is that users drive the product direction. Zoe shared her process (observe, hypotesis, test, measure, avaluate, repeat) and experience (create smallest change possible, iterate quickly, most tests fail, one out of ten tiny changes has a huge impact). Cool talk, spiced up with some cognitive biases (Texas sharpshooter fallacy, HARPing). <a href="https://www.slideshare.net/zomigi/experimenting-your-way-to-a-better-product-fronttrends-2017">Slides</a></p>
 <blockquote>
@@ -65,7 +65,7 @@
 <p><strong>On How Your Brain is Conspiring Against You Making Good Software</strong> by <a href="https://twitter.com/zeigenvector">Jenna Zeigen</a> (<a href="http://jenna.is/slides/at-front-trends.pdf">slides</a>) applies cognitive biases to software development. The effects everyone knows (pair programming and breaks are good, debugging your own code is hard, people are bad at estimating the time to program something) are explained by the cognitive biases humans have.</p>
 <p><strong>Let&#39;s save the internet: How to make browsers compatible with the web</strong> by <a href="https://twitter.com/misprintedtype">Ola Gasidlo</a> introduced us to the history of browser wars and led to the W3C and WHATWG specs. <a href="https://slidr.io/zoepage/let-s-save-the-internet-how-to-make-browsers-compatible-with-the-web#1">Slides</a>. Takeaway: WHATWG specs are available on GitHub, you can contribute to prevent single companies from deciding on the webs future.</p>
 <p><strong>Microservices - The FAAS and the Furious</strong> by <a href="https://twitter.com/philhawksworth">Phil Hawksworth</a> gave examples on how static sites can be enhanced with microservices (comments and search, for example). In the end, the setup was rather complex ;-) ... but the basic message is: start by outsourcing simple things.</p>
-<p><strong>Demystifying Deep Neural Networks</strong> by <a href="@RosieCampbell">Rosie Campbell</a>  gave an introduction to machine leaning. Conventional programs have explicit algorithms, deep learning is trained with data. The talk was based on an <a href="https://medium.com/manchester-futurists/demystifying-deep-neural-nets-efb726eae941">article</a> which explains the principles behind neural networks.</p>
+<p><strong>Demystifying Deep Neural Networks</strong> by <a href="https://twitter.com/RosieCampbell">Rosie Campbell</a>  gave an introduction to machine leaning. Conventional programs have explicit algorithms, deep learning is trained with data. The talk was based on an <a href="https://medium.com/manchester-futurists/demystifying-deep-neural-nets-efb726eae941">article</a> which explains the principles behind neural networks.</p>
 <p><strong>I&#39;m in IoT</strong>: <a href="https://twitter.com/pepelsbey_/">Vadim Makeev</a> controlled lamps and drones on stage with his browser. His drone was highjacked by someone in the audience :-). <a href="https://pepelsbey.net/pres/im-in-iot/">Slides</a>.</p>
 <p><strong>Big Bang Redesign: Smashing Magazine’s 2017 Relaunch</strong>: <a href="https://twitter.com/smashingmag/">Vitaly Friedman</a> gave insights on why and how Smashing Magazine was rebuilt. Because of the rise of ad blockers, they shifted focus on membership and selling products. They used atomic design and a living styleguide (which is already outdated).</p>
 <p><strong>A Cartoon Intro to React Fiber</strong> by <a href="https://twitter.com/linclark/">Lin Clark</a> was a deep dive into how React Fiber improves the perceived performance of react apps. I only understood that it prioritizes updates during rendering. You can watch the talk on <a href="https://www.youtube.com/watch?v=qAs1bHnSn7I">youtube</a>.</p>

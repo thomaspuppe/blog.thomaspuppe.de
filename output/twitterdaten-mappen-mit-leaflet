@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Twitterdaten mappen mit Leaflet</title>
     <meta name="description" content="Meine Sammlung von Tweets zum">
-    <meta name="date" content="Wed Nov 19 2014 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
+    <meta name="date" content="Wed Nov 19 2014 01:00:00 GMT+0100 (CET)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Wed Nov 19 2014 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">19. November 2014</time>
+            <time datetime="Wed Nov 19 2014 01:00:00 GMT+0100 (CET)">19. November 2014</time>
         </div>
 
         <h1 class="post__title">Twitterdaten mappen mit Leaflet</h1>

@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Competetive Frontend Performance Benachmarking</title>
     <meta name="description" content="null">
-    <meta name="date" content="Tue Mar 06 2018 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
+    <meta name="date" content="Tue Mar 06 2018 01:00:00 GMT+0100 (CET)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Tue Mar 06 2018 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">06. March 2018</time>
+            <time datetime="Tue Mar 06 2018 01:00:00 GMT+0100 (CET)">06. March 2018</time>
         </div>
 
         <h1 class="post__title">Competetive Frontend Performance Benachmarking</h1>
@@ -31,6 +31,10 @@
 <h2 id="manual-tests">Manual tests</h2>
 <h2 id="one-time-comparison-tools">One-time comparison tools</h2>
 <h2 id="continuous-benchmarks-in-synthetic-tools">Continuous benchmarks in synthetic tools</h2>
+<ul>
+<li>bsp speedcurve</li>
+<li>bsp unser sitespeed dashboard</li>
+</ul>
 <h2 id="rum-real-user-monitoring-data-about-your-competitors-with-crux">RUM (real user monitoring) data about your competitors with CrUX</h2>
 <p>... eigentlich gehts nicht</p>
 <p>Chrome Real User Experience (&quot;CrUX&quot;) Report hat Daten, die im Chrome Browser gesammelt werden. Diese decken allerdings nur die 10000 größten Seiten ab, und sind eben nur von neueren Versionen des Chrome-Browsers.</p>
@@ -41,6 +45,7 @@
 <p>Google Big Query has a CrUX data set (latest one from January 2018) <a href="https://bigquery.cloud.google.com/table/chrome-ux-report:all.201801">https://bigquery.cloud.google.com/table/chrome-ux-report:all.201801</a> . And you can query this set for free, if you have a Google account.</p>
 <p>Google provides some <a href="https://developers.google.com/web/tools/chrome-user-experience-report/getting-started#example-queries">example queries</a>, which work well with the 2017 dataset. Just change the URL. For 2018 you need to change the queries, because they renamed some fields.</p>
 <p><a href="https://bigquery.cloud.google.com/savedquery/415027649228:2e0411a31423477892f0a27aa990f5ed">https://bigquery.cloud.google.com/savedquery/415027649228:2e0411a31423477892f0a27aa990f5ed</a></p>
+<p><a href="https://calendar.perfplanet.com/2017/finding-your-competitive-edge-with-the-chrome-user-experience-report/">https://calendar.perfplanet.com/2017/finding-your-competitive-edge-with-the-chrome-user-experience-report/</a></p>
 <hr>
 <ul>
 <li><a href="https://www.dareboost.com/en/comparison/">https://www.dareboost.com/en/comparison/</a> ---&gt; das auch bei competetive perf in den blogpost! (neben <a href="https://gtmetrix.com/reports/">https://gtmetrix.com/reports/</a> , <a href="https://gtmetrix.com/compare/">https://gtmetrix.com/compare/</a>)<ul>

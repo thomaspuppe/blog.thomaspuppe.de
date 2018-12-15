@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>How to make your shiny new brutalist website brutally fast</title>
     <meta name="description" content="Intentionally ugly websites are one of the trends in 2017. What I like most about this: ugly is fast!">
-    <meta name="date" content="Thu Feb 09 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
+    <meta name="date" content="Thu Feb 09 2017 01:00:00 GMT+0100 (CET)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#web development</span>
-            <time datetime="Thu Feb 09 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">February 9th, 2017</time>
+            <time datetime="Thu Feb 09 2017 01:00:00 GMT+0100 (CET)">February 9th, 2017</time>
         </div>
 
         <h1 class="post__title">How to make your shiny new brutalist website brutally fast</h1>

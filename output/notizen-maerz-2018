@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Notizen März 2018</title>
     <meta name="description" content="Eine Art this-month-I-learned meets Lesetipps meets Notizblock">
-    <meta name="date" content="Fri Mar 23 2018 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
+    <meta name="date" content="Fri Mar 23 2018 01:00:00 GMT+0100 (CET)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Notizen</span>
-            <time datetime="Fri Mar 23 2018 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">01. März 2018 – 23. März 2018</time>
+            <time datetime="Fri Mar 23 2018 01:00:00 GMT+0100 (CET)">01. März 2018 – 23. März 2018</time>
         </div>
 
         <h1 class="post__title">Notizen März 2018</h1>
@@ -85,7 +85,7 @@ parentNode.replaceChild(newChild, oldChild);
 <h2 id="performance-bei-wikimedia">Performance bei Wikimedia</h2>
 <p>Wikimedia hat ein eigenes <a href="https://www.mediawiki.org/wiki/Wikimedia_Performance_Team">Performance Team</a> (Traumjob!), und wie es sicht gehört arbeiten die transparent. Also kann man in deren <a href="https://phabricator.wikimedia.org/tag/performance-team/">Backlog</a> verfolgen, alle <a href="https://grafana.wikimedia.org/dashboard/db/webpagetest?orgId=1">Dashboards</a> ansehen, und sie veröffentlichen auch <a href="https://phabricator.wikimedia.org/phame/blog/view/7/">Blog-Posts</a>.</p>
 <h2 id="ethical-design-and-development">Ethical Design and Development</h2>
-<p>Zwei schöne Artikel dazu: <a href="https://www.smashingmagazine.com/2018/03/ethical-design-practical-getting-started-guide/">Ethical Design: The Practical Getting-Started Guide</a> im Smashing Magazine und [<a href="https://medium.com/doteveryone/oaths-pledges-and-manifestos-a-master-list-of-ethical-tech-values-26e2672e161c%5D">https://medium.com/doteveryone/oaths-pledges-and-manifestos-a-master-list-of-ethical-tech-values-26e2672e161c]</a>(Oaths, pledges and manifestos: a master list of ethical tech values) auf Medium.</p>
+<p>Zwei schöne Artikel dazu: <a href="https://www.smashingmagazine.com/2018/03/ethical-design-practical-getting-started-guide/">Ethical Design: The Practical Getting-Started Guide</a> im Smashing Magazine und <a href="https://medium.com/doteveryone/oaths-pledges-and-manifestos-a-master-list-of-ethical-tech-values-26e2672e161c">Oaths, pledges and manifestos: a master list of ethical tech values</a> auf Medium.</p>
 <p>Zu dem Thema ist mir das Buch &quot;<a href="https://shop.smashingmagazine.com/products/white-hat-ux-the-next-generation-in-user-experience">White hat UX</a>&quot; untergekommen, was ich mit gleich mal gekauft habe. Ich werde in diesem Blog berichten. Das eBook kostet nur $7.50, das kann man auch mal anonym an seine Produktentwicklung spenden.</p>
 <h2 id="next-gerenartion-clearfix">Next Gerenartion Clearfix</h2>
 <p>Es gibt ein natives Clearfix in CSS. <a href="https://css-tricks.com/display-flow-root/">Chris Coyier</a> schrieb schon 2016 darüber, <a href="https://rachelandrew.co.uk/archives/2017/01/24/the-end-of-the-clearfix-hack/">Rachel Andrew</a> Anfang 2017. Allerdings ist die <a href="https://www.caniuse.com/#search=flow-root">Browser-Unterstützung</a> recht mager: nur Firefox und Chrome unterstützen <code>display: flow-root</code>. Wenn ich jetzt den Draft-Revision-usw. Lebenszyklus der <a href="https://drafts.csswg.org/css-display-3/#valdef-display-flow-root">CSSWG</a> verstehen würde...</p>
@@ -97,7 +97,7 @@ parentNode.replaceChild(newChild, oldChild);
 <h2 id="lesetipps">Lesetipps</h2>
 <p><strong>Lasagne Code</strong> ist eine schöne neue Metapher, die ich im Artikel <a href="https://matthiasnoback.nl/2018/02/lasagna-code-too-many-layers/">Lasagna code - too many layers?</a> gelernt habe. Der Autor plädiert nicht gegen Layer im Code, sondern für die richtige Dosis und Art. Ich finde das Gleichnis auch noch auf einer anderen Ebene (no pun intended) spannend: bei der Infrastruktur. Einmal Proxy-Cache ist cool. Mehrere Ebenen mit eigenen Regeln und Verzweigungen führt zu einer Situation wie bei Spaghetti Code, nur als Lasagne.</p>
 <p>&quot;Die Sicherheitstechnik funktionierte wie vorgesehen - auf dem Niveau der 1960er Jahre, dem Tiefpunkt der Gesetzgebung in der Kerntechnik.&quot; – <a href="https://www.golem.de/news/fukushima-die-technik-tat-genau-was-sie-sollte-1803-133234.html">Sehr spannender postmortem Artikel zur Fukushima-Kernschmelze bei Golem.de</a>.</p>
-<p>China setzt eine neue Marke im Bereich Geo-Engineering: <a href="http://www.scmp.com/news/china/society/article/2138866/china-needs-more-water-so-its-building-rain-making-network-three">China needs more water. So it&#39;s building a rain-making network three times the size of Spain</a></p>
+<p>China setzt eine neue Marke im Bereich Geo-Engineering: <a href="https://www.scmp.com/news/china/society/article/2138866/china-needs-more-water-so-its-building-rain-making-network-three">China needs more water. So it&#39;s building a rain-making network three times the size of Spain</a></p>
 
 
     </article>

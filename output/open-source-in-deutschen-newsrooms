@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Open Source in deutschen Newsrooms</title>
     <meta name="description" content="Ein Überblick über Open Source, offene Daten und Development-Blogs aus deutschen Nachrichtenportalen.">
-    <meta name="date" content="Tue Mar 14 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
+    <meta name="date" content="Tue Mar 14 2017 01:00:00 GMT+0100 (CET)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#News-Watch</span>
-            <time datetime="Tue Mar 14 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">14. März 2017</time>
+            <time datetime="Tue Mar 14 2017 01:00:00 GMT+0100 (CET)">14. März 2017</time>
         </div>
 
         <h1 class="post__title">Open Source in deutschen Newsrooms</h1>
@@ -30,7 +30,7 @@
 <p>Ich folge seit einiger Zeit dem Twitter-Account <a href="https://twitter.com/newsnerdrepos">@NewsNerdRepos</a>. Er versendet jedes mal einen Tweet, wenn eine große Onlinezeitung ein GitHub-Repository veröffentlicht. Mir fiel auf, dass dort keine deutschen Medien vertreten sind -- obwohl diese laut <a href="https://ifttt.com/p/newsnerdrepos/shared">Liste</a> durchaus zum Teil beobachtet werden. Also habe ich selbst mal recherchiert, und einen Überblick über offenen Code und offene Blogs in deutschen Newsrooms erstellt.</p>
 <h1 id="gro-e-zeitungen-gro-e-vorbilder">Große Zeitungen: große Vorbilder</h1>
 <p>Die großen englischen Zeitungen erzeugen viel Open Source Code. Die <a href="https://github.com/washingtonpost">Washington Post</a> hostet bei GitHub Daten zu Police-Shootings und Cloud-Tools, und pflegt ein <a href="https://developer.washingtonpost.com/pb/blog/">Developer-Blog</a>. Die Financial Times hat einen <a href="https://github.com/Financial-Times">Account mit Frontend-Repositories</a> von der productiv-seite, sowie ein <a href="https://github.com/ftlabs">FT Labs Konto</a> mit Experimenten und Tools. Auch New York Times hat verschiedene Accounts: einen für die <a href="https://github.com/NYTimes">Website</a>, ein <a href="https://github.com/nytlabs">NYT Labs</a> und eins für den <a href="https://github.com/newsdev">NYT Newsroom</a>. Außerdem gibt es ein <a href="https://open.blogs.nytimes.com/">Development-Blog</a> und eine <a href="https://developers.nytimes.com/">Artikel-Such-API</a>. In Europa tut sich bekanntlich der Guardian hervor mit <a href="https://github.com/guardian">GitHub-Repositories</a> -- unter anderem eines mit dem <a href="https://github.com/guardian/frontend">Frontend-Code von www.theguardian.com</a> -- und einem empfehlenswerten <a href="https://www.theguardian.com/info/developer-blog">Developer-Blog</a>. Zudem gibt es eine Art <a href="https://developers.theguardian.com/">Entwickler-Recruiting-Seite</a>.</p>
-<p>Natürlich sind auch anderssprache Zeitungen vertreten, wie z.B. [<a href="https://github.com/lemonde%5D">https://github.com/lemonde]</a>(Le Monde) oder <a href="https://github.com/hurriyet">Hürriyet</a>. Aber es soll hier um deutsche Medien gehen. Also?</p>
+<p>Natürlich sind auch anderssprache Zeitungen vertreten, wie z.B. <a href="https://github.com/lemonde">Le Monde</a> oder <a href="https://github.com/hurriyet">Hürriyet</a>. Aber es soll hier um deutsche Medien gehen. Also?</p>
 <h1 id="und-in-deutschland-">Und in Deutschland?</h1>
 <p>Ich habe mich auf die Suche gemacht nach offenen Repositories, Entwicklungs-Blogs, oder zumindest Twitter-Accounts, mit denen Newsrooms und Entwicklungsabteilungen Teile ihrer Arbeit veröffentlichen.</p>
 <h2 id="die-gro-en-15-">Die großen 15:</h2>

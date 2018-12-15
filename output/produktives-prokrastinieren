@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Produktives Prokrastinieren</title>
     <meta name="description" content="null">
-    <meta name="date" content="Fri Mar 10 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
+    <meta name="date" content="Fri Mar 10 2017 01:00:00 GMT+0100 (CET)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#web development</span>
-            <time datetime="Fri Mar 10 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">3. März 2017</time>
+            <time datetime="Fri Mar 10 2017 01:00:00 GMT+0100 (CET)">3. März 2017</time>
         </div>
 
         <h1 class="post__title">Produktives Prokrastinieren</h1>

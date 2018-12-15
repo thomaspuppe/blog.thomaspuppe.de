@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Die Unterstützer des @GregorGysi</title>
     <meta name="description" content="Gregor Gysi führt in den letzten Wochen die Retweet-Charts von Bundestwitter an. Ist das systematische Unterstützung durch Wenige? Oder eine breite Basis?">
-    <meta name="date" content="Sun Mar 16 2014 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
+    <meta name="date" content="Sun Mar 16 2014 01:00:00 GMT+0100 (CET)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Bundestwitter</span>
-            <time datetime="Sun Mar 16 2014 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">16. März 2014</time>
+            <time datetime="Sun Mar 16 2014 01:00:00 GMT+0100 (CET)">16. März 2014</time>
         </div>
 
         <h1 class="post__title">Die Unterstützer des @GregorGysi</h1>

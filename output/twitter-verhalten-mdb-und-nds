@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Wie twittern Politiker?</title>
     <meta name="description" content="Ein Überblick über das Twitter-Verhalten der MdB und der Wahlkämpfer der niedersächsischen Landtagswahl 2013">
-    <meta name="date" content="Tue Jan 22 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
+    <meta name="date" content="Tue Jan 22 2013 01:00:00 GMT+0100 (CET)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Bundestwitter</span>
-            <time datetime="Tue Jan 22 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">22. Januar 2013</time>
+            <time datetime="Tue Jan 22 2013 01:00:00 GMT+0100 (CET)">22. Januar 2013</time>
         </div>
 
         <h1 class="post__title">Wie twittern Politiker?</h1>

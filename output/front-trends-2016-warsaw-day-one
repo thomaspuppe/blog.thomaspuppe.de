@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Front Trends 2016 in Warsaw: Day 1</title>
     <meta name="description" content="Summarizing the first day presentations of the Front Trends 2016 conference in Warsaw. Covering pranks, animations, static sites, RxJS, performance, and leadership.">
-    <meta name="date" content="Wed May 18 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
+    <meta name="date" content="Wed May 18 2016 02:00:00 GMT+0200 (CEST)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -21,7 +21,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Wed May 18 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">18. Mai 2016</time>
+            <time datetime="Wed May 18 2016 02:00:00 GMT+0200 (CEST)">18. Mai 2016</time>
         </div>
 
         <h1 class="post__title">Front Trends 2016 in Warsaw: Day 1</h1>
