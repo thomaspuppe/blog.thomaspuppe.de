@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.thomaspuppe.de</id>
     <title>Blog von Thomas Puppe, Web Developer.</title>
-    <updated>2018-12-15T01:01:42Z</updated>
+    <updated>2018-12-15T01:21:42Z</updated>
     <generator>easto 0.6.0 (https://github.com/thomaspuppe/easto)</generator>
     <author>
         <name>Thomas Puppe</name>
@@ -18,7 +18,7 @@
         <link href="https://blog.thomaspuppe.de/notizen-juli-2018">
         </link>
         <updated>2018-07-20T00:00:00Z</updated>
-        <summary type="html"><![CDATA[this-month-I-learned und Lesetipps für Juli 2018]]></summary>
+        <summary type="html"><![CDATA[this-month-I-learned und Lesetipps für Juli 2018: Accessibility für Toggles, Leankoala Testing, und Calm Technology.]]></summary>
         <content type="html"><![CDATA[<h2 id="accessibility-for-collapsible-sections">Accessibility for Collapsible sections</h2>
 <p>Um eine typische <a href="https://www.berliner-philharmoniker.de/hilfe/">Liste von togglebaren Überschriften</a> per Tastatus bedienbar zu machen, konnte ich endlich mal ein <a href="https://inclusive-components.design">Inclusive Components</a> Beispiel von Heydon Pickering benutzen: <a href="https://inclusive-components.design/collapsible-sections/">collapsible sections</a>. Kurz zusammengefasst: man macht die Überschriften zu <code>&lt;button&gt;</code> Elementen, damit die ganze Tabindex/Focus/&quot;click&quot; Sache funktioniert. Und entfernt die Button-Stile via <code>all: inherit;</code> im CSS. Der Artikel von Heydon geht natürlich noch viel mehr in die Tiefe und behandelt JS und Screen Reader.</p>
 <h2 id="todonext">TODONEXT</h2>
@@ -42,7 +42,7 @@
         <link href="https://blog.thomaspuppe.de/notizen-juni-2018">
         </link>
         <updated>2018-06-30T00:00:00Z</updated>
-        <summary type="html"><![CDATA[this-month-I-learned und Lesetipps für Juni 2018]]></summary>
+        <summary type="html"><![CDATA[this-month-I-learned und Lesetipps für Juni 2018: sauschneller WM Ticker, Git Statistiken, und Naming Things.]]></summary>
         <content type="html"><![CDATA[<h2 id="wm-ticker">WM Ticker</h2>
 <p>Ich habe mir zwei Tools geschrieben, um mir fix aktuelle WM-Spielstände anzuschauen. Ein winziges Tool für die <a href="https://github.com/thomaspuppe/worldcup-cli">Kommandozeile</a>, und eine kleine <a href="https://github.com/thomaspuppe/worldcup">progressive Web App</a>. Beide greifen eine API ab und zeigen die heutigen Spiele mit Live-Spielstand. Alles kein Hexenwerk, aber eine kleine feine Freude. Bei Twitter gibts nen <a href="https://twitter.com/thomaspuppe/status/1009046595915132928">Screenshot</a>.</p>
 <h2 id="a11y-club-conference">A11y Club Conference</h2>
@@ -85,7 +85,7 @@ Your brand is what people think of you.</p>
         <link href="https://blog.thomaspuppe.de/notizen-mai-2018">
         </link>
         <updated>2018-05-31T00:00:00Z</updated>
-        <summary type="html"><![CDATA[this-month-I-learned und Lesetipps für Mai 2018]]></summary>
+        <summary type="html"><![CDATA[this-month-I-learned und Lesetipps für Mai 2018: Bullshit Jobs]]></summary>
         <content type="html"><![CDATA[<h2 id="bullshit-jobs-by-david-graeber">Bullshit Jobs by David Graeber</h2>
 <p>Nachdem ich vor einer Weile das Essay <a href="https://strikemag.org/bullshit-jobs/">On the Phenomenon of Bullshit Jobs: A Work Rant by David Graeber</a> gelesen hatte, hab ich mich sehr auf das dazugehörige Buch gefreut (<a href="https://en.wikipedia.org/wiki/Bullshit_Jobs">Wikipedia-Seite</a>, <a href="https://www.theguardian.com/books/2018/may/25/bullshit-jobs-a-theory-by-david-graeber-review">Rezension im Guardian</a>). Es war meine Urlaubslektüre, und ich kann es sehr empfehlen. Auf jeden Fall aber das Essay!</p>
 <blockquote>
