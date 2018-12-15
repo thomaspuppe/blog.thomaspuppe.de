@@ -1,0 +1,28 @@
+{
+	"content_dir": "/var/www/blog.thomaspuppe.de/content",
+	"output_dir": "/var/www/blog.thomaspuppe.de/output",
+	"templates_dir" : "/var/www/blog.thomaspuppe.de/themes/easto",
+	"data_dir": "/var/www/blog.thomaspuppe.de/static",
+
+	"feed": {
+		"title": "Blog von Thomas Puppe, Web Developer.",
+		"description__": "This is my personal feed!",
+		"id": "https://blog.thomaspuppe.de",
+		"link": "https://blog.thomaspuppe.de",
+		"image__": "http://example.com/image.png",
+		"favicon__": "http://example.com/favicon.ico",
+		"copyright": "All rights reserved 2018, Thomas Puppe",
+		"updated__": "new Date(2013, 06, 14) // optional, default = today",
+		"generator": "easto 0.6.0 (https://github.com/thomaspuppe/easto)",
+		"feedLinks": {
+			"json": "https://blog.thomaspuppe.de/feed/json",
+			"atom": "https://blog.thomaspuppe.de/feed/atom",
+			"rss": "https://blog.thomaspuppe.de/feed/rss"
+		},
+		"author": {
+			"name": "Thomas Puppe",
+			"email": "info@thomaspuppe.de",
+			"link": "https://www.thomaspuppe.de"
+		}
+	}
+}
