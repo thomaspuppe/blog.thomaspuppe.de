@@ -5,13 +5,21 @@
     <meta name="language" content="de">
     <title>Umstellung auf Responsive Web Design - ein praktisches Beispiel</title>
     <meta name="description" content="Wie baut man eine einfache Website von nicht-responsive auf responsive um? Eine Schritt-für-Schritt Anleitung anhand dieses Blogs.">
-    <meta name="date" content="Thu Feb 13 2014 01:00:00 GMT+0100 (CET)">
+    <meta name="date" content="Thu Feb 13 2014 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
+
     <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
     <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
     <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+
+    <meta property="og:title" content="Umstellung auf Responsive Web Design - ein praktisches Beispiel" />
+    <meta property="og:url" content="https://blog.thomaspuppe.de/responsive-website-ein-praktisches-beispiel" />
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="Thu Feb 13 2014 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)" />
+    <meta property="og:article:author" content="Thomas Puppe" />
+
 </head>
 <body>
     <header>
@@ -21,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Web-Entwicklung</span>
-            <time datetime="Thu Feb 13 2014 01:00:00 GMT+0100 (CET)">13. Februar 2014</time>
+            <time datetime="Thu Feb 13 2014 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">13. Februar 2014</time>
         </div>
 
         <h1 class="post__title">Umstellung auf Responsive Web Design - ein praktisches Beispiel</h1>

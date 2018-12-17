@@ -2,16 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="language" content="de">
+    <meta name="language" content="en">
     <title>Small improvements for a simple blog</title>
     <meta name="description" content="todo">
-    <meta name="date" content="Tue Apr 10 2018 02:00:00 GMT+0200 (CEST)">
+    <meta name="date" content="Tue Apr 10 2018 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
+
     <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
     <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
     <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+
+    <meta property="og:title" content="Small improvements for a simple blog" />
+    <meta property="og:url" content="https://blog.thomaspuppe.de/small-improvements-blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="Tue Apr 10 2018 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)" />
+    <meta property="og:article:author" content="Thomas Puppe" />
+
 </head>
 <body>
     <header>
@@ -21,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#webdevelopment</span>
-            <time datetime="Tue Apr 10 2018 02:00:00 GMT+0200 (CEST)">10. Juli 2018</time>
+            <time datetime="Tue Apr 10 2018 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">10. Juli 2018</time>
         </div>
 
         <h1 class="post__title">Small improvements for a simple blog</h1>
@@ -38,6 +46,51 @@
 <h2 id="security">Security</h2>
 <p>Not a real issue, but you can hide your webserver version from the HTTP headers by entering (or uncommenting) <code>server_tokens off;</code> in the http section of your nginx config (<code>/etc/nginx/nginx.conf</code>).</p>
 <p><code>add_header Strict-Transport-Security &quot;max-age=31536000; includeSubDomains&quot; always;</code> in site config. (In each and every section where headers are set.)</p>
+<h2 id="tools">Tools</h2>
+<h3 id="dareboost">Dareboost</h3>
+<p><a href="https://www.dareboost.com/en/report/d_5c157f90e96790544a1b4003">https://www.dareboost.com/en/report/d_5c157f90e96790544a1b4003</a></p>
+<p>85% (4 Issues, 6 Improvements, 61 Successes)</p>
+<p>(1) Schriften mit falschem Content-Type HTTP Header überliefert</p>
+<p>Meine Schriften im woff 2 Format (<a href="https://blog.thomaspuppe.de/assets/webfonts/leaguespartan/leaguespartan-bold.woff2">https://blog.thomaspuppe.de/assets/webfonts/leaguespartan/leaguespartan-bold.woff2</a>) haben den HTTP-Header <code>Content-Type: ext/html</code>. Lösung: <code>font/woff2   woff2;</code> in <code>/etc/nginx/mime.types</code> eintragen.</p>
+<p>(2) XSS und CSP</p>
+<p>Dareboost moniert,dass ich keine CSP und XSS protection header aktiviert habe. Da das Blog reinstatisch ist, sollte das _eigentlich_(TM) nicht nötig sein. Aber schaden tut es auch nicht, und ich bin ja auf hohe Scores aus, also:</p>
+<pre><code># nur Ressourcen von derselben Domain einbinden
+add_header Content-Security-Policy &quot;default-src &#39;self&#39;&quot;;
+# kein Laden der Seite in (i)Frames erlauben
+add_header X-Frame-Options SAMEORIGIN always;
+# XSS Protection
+add_header X-XSS-Protection &quot;1; mode=block&quot; always;</code></pre><p>Zur weiteren Recherche: in einem Stackoverflow Kommentar <a href="https://stackoverflow.com/a/43492470">https://stackoverflow.com/a/43492470</a> habe ich ein ausführliches Github Repo über nginx Config gefunden: <a href="https://github.com/h5bp/server-configs-nginx">https://github.com/h5bp/server-configs-nginx</a></p>
+<p>(3) Charset im HTTT-Header von HTML und Schriften angeben, um das Rendern zu beschleunigen.</p>
+<p>Das klingt schon nach einer homöopatischen Mikro-Optimierung, aber warum nicht?</p>
+<p>Hinzugefügt zu den <code>/etc/nginx/mime.types</code>: <code>&quot;text/html; charset=UTF-8&quot; html htm shtml;</code></p>
+<p>(4) Fehlende robots.txt Datei</p>
+<p>txt-Files im Root macht mein Blog-Generator [Link zu easto] leider noch nicht mit, aber händisch angelegt habe ich eien simple robots.txt Datei, die allen alles erlaubt:</p>
+<pre><code>User-agent: *
+Disallow:</code></pre><p>(5) Überschriebene CSS-Properties</p>
+<p>Es ist cool, dass Dareboost auf solche Details eingeht.</p>
+<pre><code>https://blog.thomaspuppe.de/assets/styles.css
+.post table thead td:not(:first-child): &quot;background&quot; resets &quot;background-color&quot; property set earlier (line 125, col 5)
+.post table thead td:not(:first-child): &quot;background&quot; resets &quot;background-color&quot; property set earlier (line 125, col 5)</code></pre><p>Weitere CSS Probleme:</p>
+<ul>
+<li><code>body</code> CSS selector is duplicated</li>
+<li>superfluous selectors (<a href="https://blog.thomaspuppe.de/assets/styles.css">https://blog.thomaspuppe.de/assets/styles.css</a>: .grid body (line 52, col 3))</li>
+</ul>
+<p>(6) Favicon</p>
+<p>... wie die robots.txt</p>
+<p>(7)</p>
+<p>Your site doesn&#39;t use Open Graph properties</p>
+<meta property="og:title" content="The title" />
+<meta property="og:type" content="The type" />
+<meta property="og:url" content="http://url.com/" />
+<meta property="og:image" content="http://image.jpg" />
+
+<p>... auch was für Easto und mein Blogtheme</p>
+<p>(8)</p>
+<ul>
+<li><code>integrity</code> Attribut für 3rd Party Ressourcen (die ich ja nicht habe)</li>
+</ul>
+<p>(9) HSTS Header</p>
+<p>... den hab ich doch eigentlich? Fixen!</p>
 
 
     </article>

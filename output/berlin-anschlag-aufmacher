@@ -5,13 +5,21 @@
     <meta name="language" content="de">
     <title>Online-Aufmacher nach dem Anschlag in Berlin</title>
     <meta name="description" content="Die Aufmacher der großen Online-Medien zwei Tage nach dem Anschlag im Vergleich">
-    <meta name="date" content="Thu Jan 05 2017 01:00:00 GMT+0100 (CET)">
+    <meta name="date" content="Thu Jan 05 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
+
     <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
     <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
     <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+
+    <meta property="og:title" content="Online-Aufmacher nach dem Anschlag in Berlin" />
+    <meta property="og:url" content="https://blog.thomaspuppe.de/berlin-anschlag-aufmacher" />
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="Thu Jan 05 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)" />
+    <meta property="og:article:author" content="Thomas Puppe" />
+
 </head>
 <body>
     <header>
@@ -21,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#News-Watch</span>
-            <time datetime="Thu Jan 05 2017 01:00:00 GMT+0100 (CET)">05. Januar 2017</time>
+            <time datetime="Thu Jan 05 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">05. Januar 2017</time>
         </div>
 
         <h1 class="post__title">Online-Aufmacher nach dem Anschlag in Berlin</h1>

@@ -5,13 +5,21 @@
     <meta name="language" content="de">
     <title>Das Anti-agile Manifest</title>
     <meta name="description" content="Wie klingt es, wenn man das agile Manifest umkehrt?">
-    <meta name="date" content="Tue Dec 13 2016 01:00:00 GMT+0100 (CET)">
+    <meta name="date" content="Tue Dec 13 2016 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
+
     <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
     <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
     <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+
+    <meta property="og:title" content="Das Anti-agile Manifest" />
+    <meta property="og:url" content="https://blog.thomaspuppe.de/das-anti-agile-manifest" />
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="Tue Dec 13 2016 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)" />
+    <meta property="og:article:author" content="Thomas Puppe" />
+
 </head>
 <body>
     <header>
@@ -21,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Tue Dec 13 2016 01:00:00 GMT+0100 (CET)">13. Dezember 2016</time>
+            <time datetime="Tue Dec 13 2016 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">13. Dezember 2016</time>
         </div>
 
         <h1 class="post__title">Das Anti-agile Manifest</h1>
@@ -36,16 +44,16 @@
 <h2 id="zw-lf-prinzipien-anti-agiler-softwareentwicklung">Zwölf Prinzipien Anti-agiler Softwareentwicklung</h2>
 <p>Wir sollten nicht ständig kleinteiligen Code releasen, sondern große Würfe in großen Release-Paketen abliefern.</p>
 <p>Während der Entwicklung möchten wir keine Änderungen an der Anforderung mehr sehen. Was einmal festgeschrieben wurde, soll dann auch gelten. Selbst Schuld, wenn nicht alles bedacht wurde.</p>
-<p>Ein Feature ist fertig, wenn der Code lokal läuft. Das geht dann auch auf produktiven Systemen. Falls nicht, merkt das <em>jemand</em> im Testsystem. Dafür ist genug Zeit, weil nicht so oft released wird (siehe auch &quot;<em>große Würfe</em>&quot;).</p>
+<p>Ein Feature ist fertig, wenn der Code lokal läuft. Das geht dann auch auf produktiven Systemen. Falls nicht, merkt das <em>jemand</em> im Testsystem. Dafür ist genug Zeit, weil nicht so oft released wird (siehe auch &quot;_große Würfe_&quot;).</p>
 <p>Everyone, <strong>please leave me alone</strong>. Die tägliche Zusammenarbeit stört. Alle wichtigen Infos sind in der User Story zusammengefasst. Nachfragen können so erst gar nicht entstehen. Falls doch, lässt sich das auch noch in der Review klären (&quot;ich konnte nicht, weil...&quot;).</p>
-<p>Errichte Projekte rund um unmotivierte Gruppen. Wirf ihnen regelmäßig Aufgaben zu. Wenn die abgehakt sind, wirf neue nach. Wenn nicht, siehe &quot;<em>Leave me alone</em>&quot;.</p>
-<p>Die effizienteste und effektivste Methode, Informationen an und innerhalb eines Entwicklungsteams zu übermitteln, ist schriftlich und allumfassend im Vorfeld (siehe auch &quot;<em>Leave me alone</em>&quot;).</p>
+<p>Errichte Projekte rund um unmotivierte Gruppen. Wirf ihnen regelmäßig Aufgaben zu. Wenn die abgehakt sind, wirf neue nach. Wenn nicht, siehe &quot;_Leave me alone_&quot;.</p>
+<p>Die effizienteste und effektivste Methode, Informationen an und innerhalb eines Entwicklungsteams zu übermitteln, ist schriftlich und allumfassend im Vorfeld (siehe auch &quot;_Leave me alone_&quot;).</p>
 <p>Beschäftigtgewesensein ist das wichtigste Fortschrittsmaß.</p>
 <p>Agil sein bedeutet, wechselweise sprinten und spurten zu können. Wir springen flexibel zwischen dringenden Deadlines, akuten Notfällen und wichtigen Bugs.</p>
-<p>Lieber schnelles Mittelmaß (&quot;reicht doch so&quot;) als sinnloser Perfektionismus. Denn Code wird nicht gelesen, kopiert oder erweitert. Falls doch, kann man sich dann die Zeit zum refactorieren nehmen (siehe auch &quot;<em>sprinten und spurten</em>&quot;).</p>
+<p>Lieber schnelles Mittelmaß (&quot;reicht doch so&quot;) als sinnloser Perfektionismus. Denn Code wird nicht gelesen, kopiert oder erweitert. Falls doch, kann man sich dann die Zeit zum refactorieren nehmen (siehe auch &quot;_sprinten und spurten_&quot;).</p>
 <p>Lines of Code und Features pro Sprint sind der beste Indikator für hochwertige Arbeit.</p>
 <p>Die besten Architekturen, Anforderungen und Entwürfe entstehen außerhalb des ausführenden Teams. Sie fallen dann in Stein gemeißelt auf das Team herab.</p>
-<p>Team-interne Meetings sind zu vermeiden (siehe auch &quot;<em>Leave me alone</em>&quot;). Wird dennoch hin und wieder eine Retrospektive erzwungen, lässt man die still über sich ergehen und macht weiter wie zuvor.</p>
+<p>Team-interne Meetings sind zu vermeiden (siehe auch &quot;_Leave me alone_&quot;). Wird dennoch hin und wieder eine Retrospektive erzwungen, lässt man die still über sich ergehen und macht weiter wie zuvor.</p>
 
 
     </article>

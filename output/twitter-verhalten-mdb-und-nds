@@ -5,13 +5,21 @@
     <meta name="language" content="de">
     <title>Wie twittern Politiker?</title>
     <meta name="description" content="Ein Überblick über das Twitter-Verhalten der MdB und der Wahlkämpfer der niedersächsischen Landtagswahl 2013">
-    <meta name="date" content="Tue Jan 22 2013 01:00:00 GMT+0100 (CET)">
+    <meta name="date" content="Tue Jan 22 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
+
     <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
     <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
     <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+
+    <meta property="og:title" content="Wie twittern Politiker?" />
+    <meta property="og:url" content="https://blog.thomaspuppe.de/twitter-verhalten-mdb-und-nds" />
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="Tue Jan 22 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)" />
+    <meta property="og:article:author" content="Thomas Puppe" />
+
 </head>
 <body>
     <header>
@@ -21,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Bundestwitter</span>
-            <time datetime="Tue Jan 22 2013 01:00:00 GMT+0100 (CET)">22. Januar 2013</time>
+            <time datetime="Tue Jan 22 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">22. Januar 2013</time>
         </div>
 
         <h1 class="post__title">Wie twittern Politiker?</h1>

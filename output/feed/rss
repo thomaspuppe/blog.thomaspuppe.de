@@ -4,7 +4,7 @@
         <title>Blog von Thomas Puppe, Web Developer.</title>
         <link>https://blog.thomaspuppe.de</link>
         <description></description>
-        <lastBuildDate>Sat, 15 Dec 2018 01:21:42 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 17 Dec 2018 18:05:39 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>easto 0.6.0 (https://github.com/thomaspuppe/easto)</generator>
         <copyright>All rights reserved 2018, Thomas Puppe</copyright>
@@ -562,17 +562,17 @@ parentNode.replaceChild(newChild, oldChild);
 <h2 id="navigator-cookieenabled">navigator.cookieEnabled</h2>
 <p>Eigentlich ganz simpel, kannte ich aber bis heute noch nicht. Diese Abfrage ist natürlich der  Methode, ein Cookie zu setzen und dann auszulesen, zu bevorzugen. Sehr gute Browser-Unterstützung.</p>
 <blockquote>
-<p>In diesem Browser: <script>document.write(navigator.cookieEnabled || &#39;<em>undefined</em>&#39;)</script></p>
+<p>In diesem Browser: <script>document.write(navigator.cookieEnabled || '<em>undefined</em>')</script></p>
 </blockquote>
 <h2 id="navigator-donottrack">navigator.doNotTrack</h2>
 <p>Zeigt an, ob im Browser &quot;Do not track&quot; gesetzt wurde -- und auf welchen Wert. Ist in vielen Browsern implementiert, aber der <a href="https://blog.thomaspuppe.de/do-not-track-header-crossbrowser">Rückgabewert ist unterschiedlich</a> und muss geparsed werden.</p>
 <blockquote>
-<p>In diesem Browser: <script>document.write(navigator.doNotTrack || &#39;<em>undefined</em>&#39;)</script></p>
+<p>In diesem Browser: <script>document.write(navigator.doNotTrack || '<em>undefined</em>')</script></p>
 </blockquote>
 <h2 id="navigator-hardwareconcurrency">navigator.hardwareConcurrency</h2>
 <p>Gibt die Zahl der verfügbaren Prozessoren zurück. Das ist ein grober Indikator dafür, ob der Browser auf einem ein starken neuen Gerät läuft, oder einer alten Möhre. (Vielleicht kann man auch auf die sinnvolle Anzahl an Service Workern oder Web Workern schließen? Gibt ein Browser-Tab, das in einem Prozess läuft, solche Möglichkeiten her?)</p>
 <blockquote>
-<p>In diesem Browser: <script>document.write(navigator.hardwareConcurrency || &#39;<em>undefined</em>&#39;)</script></p>
+<p>In diesem Browser: <script>document.write(navigator.hardwareConcurrency || '<em>undefined</em>')</script></p>
 </blockquote>
 <h2 id="navigator-geolocation">navigator.geolocation</h2>
 <p>Selbsterklärend. Neben der aktuellen Position kann man auch Positions (oder Genauigkeits-) Änderungen als Event-Handler empfangen. Was macht man mit der Position des Users? Man füttert sie in eine Routenplanung, oder nutzt sie, um Ort und Land des Besuchers herauszufinden.</p>
@@ -601,7 +601,7 @@ document.getElementById('geolocationInfoTrigger').addEventListener('click', func
 <p>Geolocation hat eine sehr gute <a href="http://caniuse.com/#search=geolocation">Browser-Unterstützung</a>, erfordert aber die Berechtigung durch den User und ist im Chrome Browser nur unter SSL verfügbar.</p>
 <h2 id="navigator-online">navigator.onLine</h2>
 <blockquote>
-<p>In diesem Browser: <script>document.write(navigator.onLine || &#39;<em>undefined</em>&#39;)</script></p>
+<p>In diesem Browser: <script>document.write(navigator.onLine || '<em>undefined</em>')</script></p>
 </blockquote>
 <p>Selbsterklärend. Die Änderung des online-Status lässt sich über ein Event abfangen:</p>
 <pre>window.addEventListener('online', function(e) {
@@ -787,7 +787,7 @@ function sharePage() {
 <p>Zu Focus Online und n-tv.de habe ich nichts gefunden.</p>
 <p><strong>upday</strong> pflegt einen <a href="https://github.com/upday">GitHub-Account</a> sowie ein <a href="http://upday.github.io/">Tech Blog</a>.</p>
 <p><strong>Die Welt</strong> hat einen sehr aktiven <a href="https://github.com/WeltN24">GitHub</a> Account, der von AWS über Swift bis Frontend und Kantinen-Slackbot einige Projekte umfasst.</p>
-<p>Von <strong>ZEIT Online:</strong> gibt es einen <a href="https://github.com/ZeitOnline">GitHub-Account</a>, in dem vor allem Module des selbst geschriebenen ZOPE-CMS veröffentlicht sind. Außerdem sind die <a href="https://github.com/ZeitOnline/coding-guidelines">Coding-Guidelines</a> und der Sourcecode des anonymen <a href="https://github.com/ZeitOnline/briefkasten">Whistleblower-Briefkastens</a> öffentlich. Ein <a href="http://blog.zeit.de/dev/">Dev-Blog</a> berichtet über technische Entwicklungen -- leider viel zu selten. Oh, und es gibt einen scheintoten <a href="https://twitter.com/zeitonline_dev">Twitter-Account</a>. (<em>Disclaimer: ZEIT Online ist mein Arbeitgeber.</em>)</p>
+<p>Von <strong>ZEIT Online:</strong> gibt es einen <a href="https://github.com/ZeitOnline">GitHub-Account</a>, in dem vor allem Module des selbst geschriebenen ZOPE-CMS veröffentlicht sind. Außerdem sind die <a href="https://github.com/ZeitOnline/coding-guidelines">Coding-Guidelines</a> und der Sourcecode des anonymen <a href="https://github.com/ZeitOnline/briefkasten">Whistleblower-Briefkastens</a> öffentlich. Ein <a href="http://blog.zeit.de/dev/">Dev-Blog</a> berichtet über technische Entwicklungen -- leider viel zu selten. Oh, und es gibt einen scheintoten <a href="https://twitter.com/zeitonline_dev">Twitter-Account</a>. (_Disclaimer: ZEIT Online ist mein Arbeitgeber._)</p>
 <p><strong>Sueddeutsche.de:</strong> Im <a href="https://github.com/sueddeutsche">GitHub-Account</a> liegen Frontend-Experimente und Daten-Tools.</p>
 <p>Zu FAZ.net, Stern.de, Gruner + Jahr, Huffington Post, Funke Medien Gruppe, RP Online, Express Online und Handelsblatt.com habe ich keine Repositories oder Blogs gefunden.</p>
 <h2 id="kleinere-medien">Kleinere Medien</h2>
@@ -1251,16 +1251,16 @@ span.gitadd { background: #ecffec; }
 <h2 id="zw-lf-prinzipien-anti-agiler-softwareentwicklung">Zwölf Prinzipien Anti-agiler Softwareentwicklung</h2>
 <p>Wir sollten nicht ständig kleinteiligen Code releasen, sondern große Würfe in großen Release-Paketen abliefern.</p>
 <p>Während der Entwicklung möchten wir keine Änderungen an der Anforderung mehr sehen. Was einmal festgeschrieben wurde, soll dann auch gelten. Selbst Schuld, wenn nicht alles bedacht wurde.</p>
-<p>Ein Feature ist fertig, wenn der Code lokal läuft. Das geht dann auch auf produktiven Systemen. Falls nicht, merkt das <em>jemand</em> im Testsystem. Dafür ist genug Zeit, weil nicht so oft released wird (siehe auch &quot;<em>große Würfe</em>&quot;).</p>
+<p>Ein Feature ist fertig, wenn der Code lokal läuft. Das geht dann auch auf produktiven Systemen. Falls nicht, merkt das <em>jemand</em> im Testsystem. Dafür ist genug Zeit, weil nicht so oft released wird (siehe auch &quot;_große Würfe_&quot;).</p>
 <p>Everyone, <strong>please leave me alone</strong>. Die tägliche Zusammenarbeit stört. Alle wichtigen Infos sind in der User Story zusammengefasst. Nachfragen können so erst gar nicht entstehen. Falls doch, lässt sich das auch noch in der Review klären (&quot;ich konnte nicht, weil...&quot;).</p>
-<p>Errichte Projekte rund um unmotivierte Gruppen. Wirf ihnen regelmäßig Aufgaben zu. Wenn die abgehakt sind, wirf neue nach. Wenn nicht, siehe &quot;<em>Leave me alone</em>&quot;.</p>
-<p>Die effizienteste und effektivste Methode, Informationen an und innerhalb eines Entwicklungsteams zu übermitteln, ist schriftlich und allumfassend im Vorfeld (siehe auch &quot;<em>Leave me alone</em>&quot;).</p>
+<p>Errichte Projekte rund um unmotivierte Gruppen. Wirf ihnen regelmäßig Aufgaben zu. Wenn die abgehakt sind, wirf neue nach. Wenn nicht, siehe &quot;_Leave me alone_&quot;.</p>
+<p>Die effizienteste und effektivste Methode, Informationen an und innerhalb eines Entwicklungsteams zu übermitteln, ist schriftlich und allumfassend im Vorfeld (siehe auch &quot;_Leave me alone_&quot;).</p>
 <p>Beschäftigtgewesensein ist das wichtigste Fortschrittsmaß.</p>
 <p>Agil sein bedeutet, wechselweise sprinten und spurten zu können. Wir springen flexibel zwischen dringenden Deadlines, akuten Notfällen und wichtigen Bugs.</p>
-<p>Lieber schnelles Mittelmaß (&quot;reicht doch so&quot;) als sinnloser Perfektionismus. Denn Code wird nicht gelesen, kopiert oder erweitert. Falls doch, kann man sich dann die Zeit zum refactorieren nehmen (siehe auch &quot;<em>sprinten und spurten</em>&quot;).</p>
+<p>Lieber schnelles Mittelmaß (&quot;reicht doch so&quot;) als sinnloser Perfektionismus. Denn Code wird nicht gelesen, kopiert oder erweitert. Falls doch, kann man sich dann die Zeit zum refactorieren nehmen (siehe auch &quot;_sprinten und spurten_&quot;).</p>
 <p>Lines of Code und Features pro Sprint sind der beste Indikator für hochwertige Arbeit.</p>
 <p>Die besten Architekturen, Anforderungen und Entwürfe entstehen außerhalb des ausführenden Teams. Sie fallen dann in Stein gemeißelt auf das Team herab.</p>
-<p>Team-interne Meetings sind zu vermeiden (siehe auch &quot;<em>Leave me alone</em>&quot;). Wird dennoch hin und wieder eine Retrospektive erzwungen, lässt man die still über sich ergehen und macht weiter wie zuvor.</p>
+<p>Team-interne Meetings sind zu vermeiden (siehe auch &quot;_Leave me alone_&quot;). Wird dennoch hin und wieder eine Retrospektive erzwungen, lässt man die still über sich ergehen und macht weiter wie zuvor.</p>
 ]]></content:encoded>
         </item>
         <item>
@@ -1906,7 +1906,7 @@ Projects are a journey, be fluid.
 <li>Fun with <a href="http://slides.com/tholman/css-pranks/#/">CSS pranks</a></li>
 </ul>
 <h2 id="keynote-the-web-in-motion-by-rachel-nabors">Keynote: The Web in Motion by <a href="https://twitter.com/RachelNabors">Rachel Nabors</a></h2>
-<p>Rachel talked about Apps vs Websites, and how Apps often provide the same content, but look much nicer because transitions between states are animated. If there is only <em>old state -&gt; new state</em>, the users brain needs to do heavy interpolation work. If the transition is animated, there is less cognitive workload on the user. So the goal is to eliminate sudden visual changes. Rachel takes two excurses to dark patterns/ads and technical history of animations (Flash, SMIL. CSS Animations) and closes with the Web Animation API.</p>
+<p>Rachel talked about Apps vs Websites, and how Apps often provide the same content, but look much nicer because transitions between states are animated. If there is only _old state -&gt; new state_, the users brain needs to do heavy interpolation work. If the transition is animated, there is less cognitive workload on the user. So the goal is to eliminate sudden visual changes. Rachel takes two excurses to dark patterns/ads and technical history of animations (Flash, SMIL. CSS Animations) and closes with the Web Animation API.</p>
 <blockquote>
 <p>The difference between web and native starts to blur. The Web is moving forward.</p>
 </blockquote>
@@ -1961,7 +1961,7 @@ Projects are a journey, be fluid.
 <p>Tim Kadlec held yet another performance talk, making fun of the fact that this topic has been talked about a lot in the last years. (&quot;There&#39;s a secret club of people who need to say &#39;The fastest Request is no Request&#39; two times each year.&quot;)</p>
 <p>Measurable performance improvement (DNS-prefetch, preconnect, preload, prerender, async, defer, inline critical CSS) is important. If there is nothing left to speed up, you can increase the perceived speed (skeleton rendering, changing status text on progress bars). And sometimes you need to add an artificial delay, because people do not trust a credit card validation which runs too fast.</p>
 <blockquote>
-<p>Everything on your page should have a <em>value</em>, because everything has a <em>cost</em>.</p>
+<p>Everything on your page should have a <em>value_, because everything has a _cost</em>.</p>
 </blockquote>
 <ul>
 <li>Twitter: <a href="https://twitter.com/tkadlec">@tkadlec</a></li>

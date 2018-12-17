@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.thomaspuppe.de</id>
     <title>Blog von Thomas Puppe, Web Developer.</title>
-    <updated>2018-12-15T01:21:42Z</updated>
+    <updated>2018-12-17T18:05:39.509Z</updated>
     <generator>easto 0.6.0 (https://github.com/thomaspuppe/easto)</generator>
     <author>
         <name>Thomas Puppe</name>
@@ -17,7 +17,7 @@
         <id>https://blog.thomaspuppe.de/notizen-juli-2018</id>
         <link href="https://blog.thomaspuppe.de/notizen-juli-2018">
         </link>
-        <updated>2018-07-20T00:00:00Z</updated>
+        <updated>2018-07-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[this-month-I-learned und Lesetipps für Juli 2018: Accessibility für Toggles, Leankoala Testing, und Calm Technology.]]></summary>
         <content type="html"><![CDATA[<h2 id="accessibility-for-collapsible-sections">Accessibility for Collapsible sections</h2>
 <p>Um eine typische <a href="https://www.berliner-philharmoniker.de/hilfe/">Liste von togglebaren Überschriften</a> per Tastatus bedienbar zu machen, konnte ich endlich mal ein <a href="https://inclusive-components.design">Inclusive Components</a> Beispiel von Heydon Pickering benutzen: <a href="https://inclusive-components.design/collapsible-sections/">collapsible sections</a>. Kurz zusammengefasst: man macht die Überschriften zu <code>&lt;button&gt;</code> Elementen, damit die ganze Tabindex/Focus/&quot;click&quot; Sache funktioniert. Und entfernt die Button-Stile via <code>all: inherit;</code> im CSS. Der Artikel von Heydon geht natürlich noch viel mehr in die Tiefe und behandelt JS und Screen Reader.</p>
@@ -41,7 +41,7 @@
         <id>https://blog.thomaspuppe.de/notizen-juni-2018</id>
         <link href="https://blog.thomaspuppe.de/notizen-juni-2018">
         </link>
-        <updated>2018-06-30T00:00:00Z</updated>
+        <updated>2018-06-30T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[this-month-I-learned und Lesetipps für Juni 2018: sauschneller WM Ticker, Git Statistiken, und Naming Things.]]></summary>
         <content type="html"><![CDATA[<h2 id="wm-ticker">WM Ticker</h2>
 <p>Ich habe mir zwei Tools geschrieben, um mir fix aktuelle WM-Spielstände anzuschauen. Ein winziges Tool für die <a href="https://github.com/thomaspuppe/worldcup-cli">Kommandozeile</a>, und eine kleine <a href="https://github.com/thomaspuppe/worldcup">progressive Web App</a>. Beide greifen eine API ab und zeigen die heutigen Spiele mit Live-Spielstand. Alles kein Hexenwerk, aber eine kleine feine Freude. Bei Twitter gibts nen <a href="https://twitter.com/thomaspuppe/status/1009046595915132928">Screenshot</a>.</p>
@@ -84,7 +84,7 @@ Your brand is what people think of you.</p>
         <id>https://blog.thomaspuppe.de/notizen-mai-2018</id>
         <link href="https://blog.thomaspuppe.de/notizen-mai-2018">
         </link>
-        <updated>2018-05-31T00:00:00Z</updated>
+        <updated>2018-05-31T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[this-month-I-learned und Lesetipps für Mai 2018: Bullshit Jobs]]></summary>
         <content type="html"><![CDATA[<h2 id="bullshit-jobs-by-david-graeber">Bullshit Jobs by David Graeber</h2>
 <p>Nachdem ich vor einer Weile das Essay <a href="https://strikemag.org/bullshit-jobs/">On the Phenomenon of Bullshit Jobs: A Work Rant by David Graeber</a> gelesen hatte, hab ich mich sehr auf das dazugehörige Buch gefreut (<a href="https://en.wikipedia.org/wiki/Bullshit_Jobs">Wikipedia-Seite</a>, <a href="https://www.theguardian.com/books/2018/may/25/bullshit-jobs-a-theory-by-david-graeber-review">Rezension im Guardian</a>). Es war meine Urlaubslektüre, und ich kann es sehr empfehlen. Auf jeden Fall aber das Essay!</p>
@@ -105,7 +105,7 @@ Your brand is what people think of you.</p>
         <id>https://blog.thomaspuppe.de/static-sites-from-markdown-with-caddy-server</id>
         <link href="https://blog.thomaspuppe.de/static-sites-from-markdown-with-caddy-server">
         </link>
-        <updated>2018-04-10T00:00:00Z</updated>
+        <updated>2018-04-10T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Caddy can not only serve files fast and safely. It can also generate static files from markdown, so you dont need a generator.]]></summary>
         <content type="html"><![CDATA[<p>Lately, I am experimenting with different forms of static-site generation. While investigating the server <a href="https://caddyserver.com">Caddy</a> for <em>serving</em> pages, I found that it can also <em>generate</em> these pages from markdown.</p>
 <h2 id="render-markdown-as-html">Render markdown as HTML</h2>
@@ -271,7 +271,7 @@ markdown / {
         <id>https://blog.thomaspuppe.de/notizen-april-2018</id>
         <link href="https://blog.thomaspuppe.de/notizen-april-2018">
         </link>
-        <updated>2018-04-03T00:00:00Z</updated>
+        <updated>2018-04-03T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[this-month-I-learned und Lesetipps für April 2018]]></summary>
         <content type="html"><![CDATA[<h2 id="magical-auto-jump-statt-cd">Magical Auto-Jump statt CD</h2>
 <p>Autojump ist ein schönes kleines Tool für die Kommandozeile. Es merkt sich häufig benutzte Verzeichnisse, und weiß dann wo ich hinwill wenn ich irgendwo <code>j a11</code> eingebe.</p>
@@ -371,7 +371,7 @@ day to make deceptive user experiences. You are better than that.</p>
         <id>https://blog.thomaspuppe.de/mein-smarterphone</id>
         <link href="https://blog.thomaspuppe.de/mein-smarterphone">
         </link>
-        <updated>2018-03-14T00:00:00Z</updated>
+        <updated>2018-03-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Man nennt es Blogstöckchen: ein Interview zu meiner Smartphone-Nutzung]]></summary>
         <content type="html"><![CDATA[<p>Mein Kollege und Chef <a href="https://twitter.com/nicobruenjes/">Nico Brünjes</a> warf mir folgendes Interview als <a href="https://couchblog.de/blog/2018/03/13/mein-smarterphone/">Blogstöckchen</a> zu.</p>
 <h2 id="-und-ich-name-">…und ich, Name:</h2>
@@ -407,7 +407,7 @@ day to make deceptive user experiences. You are better than that.</p>
         <id>https://blog.thomaspuppe.de/notizen-maerz-2018</id>
         <link href="https://blog.thomaspuppe.de/notizen-maerz-2018">
         </link>
-        <updated>2018-03-23T00:00:00Z</updated>
+        <updated>2018-03-23T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Eine Art this-month-I-learned meets Lesetipps meets Notizblock]]></summary>
         <content type="html"><![CDATA[<p>Ich versuche mich mal am beliebten &quot;this month I learned&quot; Format. Weil ich in den letzten Monaten aber immer gesammelt und nie gepublished habe, versuche ich es so: zu Monatsbeginn schreibe ich einen Anfang, und dann ergänze ich im Laufe des Monats. Das gibt auch Raum für kleine Sachen, die es nie zu eigenen Blogposts schaffen. Mal schauen wie das wird.</p>
 <h2 id="default-parameters-in-javascript-nicht-im-ie-11">Default Parameters in Javascript ... nicht im IE 11</h2>
@@ -488,7 +488,7 @@ parentNode.replaceChild(newChild, oldChild);
         <id>https://blog.thomaspuppe.de/front-trends-2017-warsaw</id>
         <link href="https://blog.thomaspuppe.de/front-trends-2017-warsaw">
         </link>
-        <updated>2017-07-08T00:00:00Z</updated>
+        <updated>2017-07-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[A list of talks from the Front Trends 2017 conference in Warsaw, and some remarks.]]></summary>
         <content type="html"><![CDATA[<p>A list of talks from the Front Trends 2017 conference in Warsaw, and some remarks.</p>
 <p>There are other summaries available. First of all, the <a href="https://2017.front-trends.com/schedule/">official schedule</a>, which also contains descriptions of each talk. <a href="https://github.com/nienkedekker/Front-Trends-2017">Nienke Dekker</a> put her detailed notes on GitHub. Syb Wartna has a <a href="http://waarissyb.nl/articles/fronttrends-2017-highlights.html">blog post about his highlights</a>. These sources provide more detail. My list is more of a link collection.</p>
@@ -558,7 +558,7 @@ parentNode.replaceChild(newChild, oldChild);
         <id>https://blog.thomaspuppe.de/browser-api-css-mediaqueries</id>
         <link href="https://blog.thomaspuppe.de/browser-api-css-mediaqueries">
         </link>
-        <updated>2017-04-08T00:00:00Z</updated>
+        <updated>2017-04-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Der Einsatz von Media Queries und Browser APIs beschränkt sich häufig auf min-width und navigator.userAgent. Aber in modernen Browsern gibt es cooles Zeug.]]></summary>
         <content type="html"><![CDATA[<p>In der Regel denkt man bei Media Queries an nicht viel mehr als <code>min-width</code> oder <code>device-pixel-ratio</code> und bei Browser APIs an <code>navigator.userAgent</code>. Moderne Browser können natürlich viel mehr.</p>
 <p>Kürzlich sah ich in einer interessanten <a href="https://speakerdeck.com/grigs/why-you-should-build-a-progressive-web-app-now-1">Präsentation über Progressive Web Apps</a> dies:</p>
@@ -574,17 +574,17 @@ parentNode.replaceChild(newChild, oldChild);
 <h2 id="navigator-cookieenabled">navigator.cookieEnabled</h2>
 <p>Eigentlich ganz simpel, kannte ich aber bis heute noch nicht. Diese Abfrage ist natürlich der  Methode, ein Cookie zu setzen und dann auszulesen, zu bevorzugen. Sehr gute Browser-Unterstützung.</p>
 <blockquote>
-<p>In diesem Browser: <script>document.write(navigator.cookieEnabled || &#39;<em>undefined</em>&#39;)</script></p>
+<p>In diesem Browser: <script>document.write(navigator.cookieEnabled || '<em>undefined</em>')</script></p>
 </blockquote>
 <h2 id="navigator-donottrack">navigator.doNotTrack</h2>
 <p>Zeigt an, ob im Browser &quot;Do not track&quot; gesetzt wurde -- und auf welchen Wert. Ist in vielen Browsern implementiert, aber der <a href="https://blog.thomaspuppe.de/do-not-track-header-crossbrowser">Rückgabewert ist unterschiedlich</a> und muss geparsed werden.</p>
 <blockquote>
-<p>In diesem Browser: <script>document.write(navigator.doNotTrack || &#39;<em>undefined</em>&#39;)</script></p>
+<p>In diesem Browser: <script>document.write(navigator.doNotTrack || '<em>undefined</em>')</script></p>
 </blockquote>
 <h2 id="navigator-hardwareconcurrency">navigator.hardwareConcurrency</h2>
 <p>Gibt die Zahl der verfügbaren Prozessoren zurück. Das ist ein grober Indikator dafür, ob der Browser auf einem ein starken neuen Gerät läuft, oder einer alten Möhre. (Vielleicht kann man auch auf die sinnvolle Anzahl an Service Workern oder Web Workern schließen? Gibt ein Browser-Tab, das in einem Prozess läuft, solche Möglichkeiten her?)</p>
 <blockquote>
-<p>In diesem Browser: <script>document.write(navigator.hardwareConcurrency || &#39;<em>undefined</em>&#39;)</script></p>
+<p>In diesem Browser: <script>document.write(navigator.hardwareConcurrency || '<em>undefined</em>')</script></p>
 </blockquote>
 <h2 id="navigator-geolocation">navigator.geolocation</h2>
 <p>Selbsterklärend. Neben der aktuellen Position kann man auch Positions (oder Genauigkeits-) Änderungen als Event-Handler empfangen. Was macht man mit der Position des Users? Man füttert sie in eine Routenplanung, oder nutzt sie, um Ort und Land des Besuchers herauszufinden.</p>
@@ -613,7 +613,7 @@ document.getElementById('geolocationInfoTrigger').addEventListener('click', func
 <p>Geolocation hat eine sehr gute <a href="http://caniuse.com/#search=geolocation">Browser-Unterstützung</a>, erfordert aber die Berechtigung durch den User und ist im Chrome Browser nur unter SSL verfügbar.</p>
 <h2 id="navigator-online">navigator.onLine</h2>
 <blockquote>
-<p>In diesem Browser: <script>document.write(navigator.onLine || &#39;<em>undefined</em>&#39;)</script></p>
+<p>In diesem Browser: <script>document.write(navigator.onLine || '<em>undefined</em>')</script></p>
 </blockquote>
 <p>Selbsterklärend. Die Änderung des online-Status lässt sich über ein Event abfangen:</p>
 <pre>window.addEventListener('online', function(e) {
@@ -784,7 +784,7 @@ function sharePage() {
         <id>https://blog.thomaspuppe.de/open-source-in-deutschen-newsrooms</id>
         <link href="https://blog.thomaspuppe.de/open-source-in-deutschen-newsrooms">
         </link>
-        <updated>2017-03-14T00:00:00Z</updated>
+        <updated>2017-03-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ein Überblick über Open Source, offene Daten und Development-Blogs aus deutschen Nachrichtenportalen.]]></summary>
         <content type="html"><![CDATA[<p><strong>Vorab: bei Recherchen weiß man ja nie, was man übersehen hat. Daher bin ich dankbar für jeden Hinweis, Ergänzung oder Korrektur. Am besten per Twitter: <a href="https://twitter.com/thomaspuppe">@thomaspuppe</a>.</strong></p>
 <p>Ich folge seit einiger Zeit dem Twitter-Account <a href="https://twitter.com/newsnerdrepos">@NewsNerdRepos</a>. Er versendet jedes mal einen Tweet, wenn eine große Onlinezeitung ein GitHub-Repository veröffentlicht. Mir fiel auf, dass dort keine deutschen Medien vertreten sind -- obwohl diese laut <a href="https://ifttt.com/p/newsnerdrepos/shared">Liste</a> durchaus zum Teil beobachtet werden. Also habe ich selbst mal recherchiert, und einen Überblick über offenen Code und offene Blogs in deutschen Newsrooms erstellt.</p>
@@ -800,7 +800,7 @@ function sharePage() {
 <p>Zu Focus Online und n-tv.de habe ich nichts gefunden.</p>
 <p><strong>upday</strong> pflegt einen <a href="https://github.com/upday">GitHub-Account</a> sowie ein <a href="http://upday.github.io/">Tech Blog</a>.</p>
 <p><strong>Die Welt</strong> hat einen sehr aktiven <a href="https://github.com/WeltN24">GitHub</a> Account, der von AWS über Swift bis Frontend und Kantinen-Slackbot einige Projekte umfasst.</p>
-<p>Von <strong>ZEIT Online:</strong> gibt es einen <a href="https://github.com/ZeitOnline">GitHub-Account</a>, in dem vor allem Module des selbst geschriebenen ZOPE-CMS veröffentlicht sind. Außerdem sind die <a href="https://github.com/ZeitOnline/coding-guidelines">Coding-Guidelines</a> und der Sourcecode des anonymen <a href="https://github.com/ZeitOnline/briefkasten">Whistleblower-Briefkastens</a> öffentlich. Ein <a href="http://blog.zeit.de/dev/">Dev-Blog</a> berichtet über technische Entwicklungen -- leider viel zu selten. Oh, und es gibt einen scheintoten <a href="https://twitter.com/zeitonline_dev">Twitter-Account</a>. (<em>Disclaimer: ZEIT Online ist mein Arbeitgeber.</em>)</p>
+<p>Von <strong>ZEIT Online:</strong> gibt es einen <a href="https://github.com/ZeitOnline">GitHub-Account</a>, in dem vor allem Module des selbst geschriebenen ZOPE-CMS veröffentlicht sind. Außerdem sind die <a href="https://github.com/ZeitOnline/coding-guidelines">Coding-Guidelines</a> und der Sourcecode des anonymen <a href="https://github.com/ZeitOnline/briefkasten">Whistleblower-Briefkastens</a> öffentlich. Ein <a href="http://blog.zeit.de/dev/">Dev-Blog</a> berichtet über technische Entwicklungen -- leider viel zu selten. Oh, und es gibt einen scheintoten <a href="https://twitter.com/zeitonline_dev">Twitter-Account</a>. (_Disclaimer: ZEIT Online ist mein Arbeitgeber._)</p>
 <p><strong>Sueddeutsche.de:</strong> Im <a href="https://github.com/sueddeutsche">GitHub-Account</a> liegen Frontend-Experimente und Daten-Tools.</p>
 <p>Zu FAZ.net, Stern.de, Gruner + Jahr, Huffington Post, Funke Medien Gruppe, RP Online, Express Online und Handelsblatt.com habe ich keine Repositories oder Blogs gefunden.</p>
 <h2 id="kleinere-medien">Kleinere Medien</h2>
@@ -823,7 +823,7 @@ function sharePage() {
         <id>https://blog.thomaspuppe.de/twitter-bots-anne-will</id>
         <link href="https://blog.thomaspuppe.de/twitter-bots-anne-will">
         </link>
-        <updated>2017-03-10T00:00:00Z</updated>
+        <updated>2017-03-10T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Social Bots sind aktell ein großes Thema. Zu Recht? Ich habe am Sonntag]]></summary>
         <content type="html"><![CDATA[<p>Social Bots sind aktuell ein großes Thema. Die Medien berichten darüber, wie die <a href="http://www.zeit.de/digital/internet/2017-01/social-bots-bundestagswahl-twitter-studie">bösen Roboter</a> unsere <a href="http://www.zeit.de/2017/09/bundestagswahl-fake-news-manipulation-russland-hacker-cyberkrieg">Demokratie hacken</a> werden. Sogar Verbote werden gefordert -- ich nehme an, der Quatsch soll Schlagzeilen bringen und ist nicht ernst gemeint. &quot;Forscher&quot; und &quot;Experten&quot; versuchen, die vom Untergang bedrohten Parteien zu beraten. Besonders aufgefallen ist mir kürzlich das Projekt <a href="http://botswatch.de/projects/anne-will-am-04-12-2016/">Botswatch</a>, das Bot-Reaktionen auf Talkshows beleuchtet -- mit der simplen Heuristik, dass User mit 50 oder mehr Tweets pro Tag Bots seien.</p>
 <p>Ich halte das alles für sinnlose Panikmache. War aber neugierig, wie denn die Zahlen zustande kommen, was sie bedeuten, und welche Techniken heute zum Einsatz kommen, um Social Bots zu identifizieren.</p>
@@ -913,7 +913,7 @@ function sharePage() {
         <id>https://blog.thomaspuppe.de/fast-brutalist-websites</id>
         <link href="https://blog.thomaspuppe.de/fast-brutalist-websites">
         </link>
-        <updated>2017-02-09T00:00:00Z</updated>
+        <updated>2017-02-09T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Intentionally ugly websites are one of the trends in 2017. What I like most about this: ugly is fast!]]></summary>
         <content type="html"><![CDATA[<link href="/images/2017/02/brutalist/styles.css" type="text/css" rel="stylesheet" />
 
@@ -1068,7 +1068,7 @@ function sharePage() {
         <id>https://blog.thomaspuppe.de/url-unshortening</id>
         <link href="https://blog.thomaspuppe.de/url-unshortening">
         </link>
-        <updated>2017-01-06T00:00:00Z</updated>
+        <updated>2017-01-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Auflösen von bit.ly, fb.me und co im großen Stil]]></summary>
         <content type="html"><![CDATA[<p>Für ein aktuelles Feature bei Bundestwitter trage ich gerade zusammen, welche Links von Politikern via Twitter verbreitet wurden. Dabei stellt sich heraus, dass mehr als 20% der geposteten Links sogenannte Shortlinks sind. Also nicht nur die Kürzung von Twitter selbst via <code>t.co</code> (deren echte URLs werden über die APIs mitgeliefert), sondern es werden schon Short-URLs beim Schreiben der Tweets eingegeben.</p>
 <p>In Zahlen drückt sich das so aus (bei insgesamt 48.000 Links):</p>
@@ -1119,7 +1119,7 @@ if r.status_code == 301:
         <id>https://blog.thomaspuppe.de/berlin-anschlag-aufmacher</id>
         <link href="https://blog.thomaspuppe.de/berlin-anschlag-aufmacher">
         </link>
-        <updated>2017-01-05T00:00:00Z</updated>
+        <updated>2017-01-05T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Die Aufmacher der großen Online-Medien zwei Tage nach dem Anschlag im Vergleich]]></summary>
         <content type="html"><![CDATA[<p>Die Aufmacher der großen Online-Medien am 21. Dezember 2016, zwei Tage nach dem Anschlag. Entspringt einer kleinen Übung zu Crawling und Scraping. Ohne Auswertung.</p>
 <style type="text/css" scoped>
@@ -1257,7 +1257,7 @@ span.gitadd { background: #ecffec; }
         <id>https://blog.thomaspuppe.de/das-anti-agile-manifest</id>
         <link href="https://blog.thomaspuppe.de/das-anti-agile-manifest">
         </link>
-        <updated>2016-12-13T00:00:00Z</updated>
+        <updated>2016-12-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Wie klingt es, wenn man das agile Manifest umkehrt?]]></summary>
         <content type="html"><![CDATA[<p>Das <a href="http://agilemanifesto.org/iso/de/manifesto.html">Agile Manifest</a> und seine <a href="http://agilemanifesto.org/iso/de/principles.html">agilen Prinzipien</a> sind die Basis agiler Software-Entwicklung. An diesen Leitplanken (nicht ehernen Gesetzen) orientieren sich viele moderne Entwickler-Teams.</p>
 <p>Wie klingt es, wenn man das agile Manifest umkehrt?</p>
@@ -1269,16 +1269,16 @@ span.gitadd { background: #ecffec; }
 <h2 id="zw-lf-prinzipien-anti-agiler-softwareentwicklung">Zwölf Prinzipien Anti-agiler Softwareentwicklung</h2>
 <p>Wir sollten nicht ständig kleinteiligen Code releasen, sondern große Würfe in großen Release-Paketen abliefern.</p>
 <p>Während der Entwicklung möchten wir keine Änderungen an der Anforderung mehr sehen. Was einmal festgeschrieben wurde, soll dann auch gelten. Selbst Schuld, wenn nicht alles bedacht wurde.</p>
-<p>Ein Feature ist fertig, wenn der Code lokal läuft. Das geht dann auch auf produktiven Systemen. Falls nicht, merkt das <em>jemand</em> im Testsystem. Dafür ist genug Zeit, weil nicht so oft released wird (siehe auch &quot;<em>große Würfe</em>&quot;).</p>
+<p>Ein Feature ist fertig, wenn der Code lokal läuft. Das geht dann auch auf produktiven Systemen. Falls nicht, merkt das <em>jemand</em> im Testsystem. Dafür ist genug Zeit, weil nicht so oft released wird (siehe auch &quot;_große Würfe_&quot;).</p>
 <p>Everyone, <strong>please leave me alone</strong>. Die tägliche Zusammenarbeit stört. Alle wichtigen Infos sind in der User Story zusammengefasst. Nachfragen können so erst gar nicht entstehen. Falls doch, lässt sich das auch noch in der Review klären (&quot;ich konnte nicht, weil...&quot;).</p>
-<p>Errichte Projekte rund um unmotivierte Gruppen. Wirf ihnen regelmäßig Aufgaben zu. Wenn die abgehakt sind, wirf neue nach. Wenn nicht, siehe &quot;<em>Leave me alone</em>&quot;.</p>
-<p>Die effizienteste und effektivste Methode, Informationen an und innerhalb eines Entwicklungsteams zu übermitteln, ist schriftlich und allumfassend im Vorfeld (siehe auch &quot;<em>Leave me alone</em>&quot;).</p>
+<p>Errichte Projekte rund um unmotivierte Gruppen. Wirf ihnen regelmäßig Aufgaben zu. Wenn die abgehakt sind, wirf neue nach. Wenn nicht, siehe &quot;_Leave me alone_&quot;.</p>
+<p>Die effizienteste und effektivste Methode, Informationen an und innerhalb eines Entwicklungsteams zu übermitteln, ist schriftlich und allumfassend im Vorfeld (siehe auch &quot;_Leave me alone_&quot;).</p>
 <p>Beschäftigtgewesensein ist das wichtigste Fortschrittsmaß.</p>
 <p>Agil sein bedeutet, wechselweise sprinten und spurten zu können. Wir springen flexibel zwischen dringenden Deadlines, akuten Notfällen und wichtigen Bugs.</p>
-<p>Lieber schnelles Mittelmaß (&quot;reicht doch so&quot;) als sinnloser Perfektionismus. Denn Code wird nicht gelesen, kopiert oder erweitert. Falls doch, kann man sich dann die Zeit zum refactorieren nehmen (siehe auch &quot;<em>sprinten und spurten</em>&quot;).</p>
+<p>Lieber schnelles Mittelmaß (&quot;reicht doch so&quot;) als sinnloser Perfektionismus. Denn Code wird nicht gelesen, kopiert oder erweitert. Falls doch, kann man sich dann die Zeit zum refactorieren nehmen (siehe auch &quot;_sprinten und spurten_&quot;).</p>
 <p>Lines of Code und Features pro Sprint sind der beste Indikator für hochwertige Arbeit.</p>
 <p>Die besten Architekturen, Anforderungen und Entwürfe entstehen außerhalb des ausführenden Teams. Sie fallen dann in Stein gemeißelt auf das Team herab.</p>
-<p>Team-interne Meetings sind zu vermeiden (siehe auch &quot;<em>Leave me alone</em>&quot;). Wird dennoch hin und wieder eine Retrospektive erzwungen, lässt man die still über sich ergehen und macht weiter wie zuvor.</p>
+<p>Team-interne Meetings sind zu vermeiden (siehe auch &quot;_Leave me alone_&quot;). Wird dennoch hin und wieder eine Retrospektive erzwungen, lässt man die still über sich ergehen und macht weiter wie zuvor.</p>
 ]]></content>
     </entry>
     <entry>
@@ -1286,7 +1286,7 @@ span.gitadd { background: #ecffec; }
         <id>https://blog.thomaspuppe.de/us-wahl-aufmacher-auf-news-websites</id>
         <link href="https://blog.thomaspuppe.de/us-wahl-aufmacher-auf-news-websites">
         </link>
-        <updated>2016-11-09T00:00:00Z</updated>
+        <updated>2016-11-09T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Was war der Aufmacher auf deutschen News-Websites rund um das Wahl-Wochenende? Und wer hat den Sieger als erster verkündet?]]></summary>
         <content type="html"><![CDATA[<p>Kürzlich habe ich mit dem Python-Framework <a href="https://scrapy.org/">Scrapy</a> herumgespielt. Erstens wollte ich ausprobieren, wie gut es sich bedienen lässt. Zweitens war ich neugierig, wie die Aufmacher von News-Websies vor und bei der US-Präsidentschaftswahl bestückt werden. Beides lässt sich praktischerweise gut kombinieren :-)</p>
 <h1 id="das-vorgehen">Das Vorgehen</h1>
@@ -1372,7 +1372,7 @@ class LocalSpider(scrapy.Spider):
         <id>https://blog.thomaspuppe.de/spof-auf-news-websites</id>
         <link href="https://blog.thomaspuppe.de/spof-auf-news-websites">
         </link>
-        <updated>2016-10-31T00:00:00Z</updated>
+        <updated>2016-10-31T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Kaputte Third-Party Scripts können Websites lahmlegen. Ich untersuche einige Nachrichten-Websites auf deren Robustheit gegen dieses Problem.]]></summary>
         <content type="html"><![CDATA[<p>Moderne Websites binden häufig Inhalte und Code von fremden Servern ein. Seien es Social-Media-Widgets, Tracking, oder Werbung. News-Websites verwenden all diese Dinge. Und damit ist die Verfügbarkeit und Geschwindigkeit der News-Website unter Umständen abhängig von der Verfügbarkeit und Geschwindigkeit der fremden Anbieter. Was diese Umstände sind, wie man sie erkennt, und ausschaltet, erkläre ich in diesem Artikel an einigen Beispielen.</p>
 <h1 id="was-ist-ein-spof-und-was-ist-daran-schlimm-">Was ist ein SPOF und was ist daran schlimm?</h1>
@@ -1639,7 +1639,7 @@ class LocalSpider(scrapy.Spider):
         <id>https://blog.thomaspuppe.de/inodes-linux-festplatte-voll</id>
         <link href="https://blog.thomaspuppe.de/inodes-linux-festplatte-voll">
         </link>
-        <updated>2016-10-18T00:00:00Z</updated>
+        <updated>2016-10-18T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Kürzlich fiel mein Bundestwitter-Server aus. Bei der Suche nach der Ursache habe ich einige neue Dinge über Linux gelernt, die ich hier dokumentieren möchte.]]></summary>
         <content type="html"><![CDATA[<p>Kürzlich fiel mein <a href="http://www.bundestwitter.de">Bundestwitter</a>-Server aus. Bei der Suche nach der Ursache habe ich einige neue Dinge über Linux gelernt, die ich hier dokumentieren möchte.</p>
 <p>Die Tweet-Sammel-Cronjobs auf meinem Linux (Ubuntu) Server meldeten sich, dass sie keine Daten mehr schreiben könnten. Ich kenne das Problem schon, wenn zu viele Logs und Backups herumliegen ohne aufgeräumt zu werden.</p>
@@ -1738,7 +1738,7 @@ Inodes      IUsed     IFree    IUse%
         <id>https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-three</id>
         <link href="https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-three">
         </link>
-        <updated>2016-05-20T00:00:00Z</updated>
+        <updated>2016-05-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Summarizing the third day presentations of the Front Trends 2016 conference in Warsaw, including the Nyan cat, pixel bonding, modern(izer) tools, CSS engineering principles, Origami, offline pages, real programmers and Trojan CVs.]]></summary>
         <content type="html"><![CDATA[<p>Summarizing the third day presentations of the Front Trends 2016 conference in Warsaw, including the Nyan cat, pixel bonding, modern(izer) tools, CSS engineering principles, Origami, offline pages, real programmers and Trojan CVs.. A speakers list can also be found on <a href="https://2016.front-trends.com/speakers/">2016.front-trends.com/speakers/</a>.</p>
 <figure>
@@ -1840,7 +1840,7 @@ Projects are a journey, be fluid.
         <id>https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-two</id>
         <link href="https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-two">
         </link>
-        <updated>2016-05-19T00:00:00Z</updated>
+        <updated>2016-05-19T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Summarizing the second day presentations of the Front Trends 2016 conference in Warsaw. Todays talks were about components, digital afterlife, tiny JS, typography, knitting and frontend tooling.]]></summary>
         <content type="html"><![CDATA[<p>Summarizing the second day presentations of the Front Trends 2016 conference in Warsaw. Todays talks were about components, digital afterlife, tiny JS, typography, knitting and frontend tooling. A speakers list can also be found on <a href="https://2016.front-trends.com/speakers/">2016.front-trends.com/speakers/</a>.</p>
 <figure>
@@ -1917,7 +1917,7 @@ Projects are a journey, be fluid.
         <id>https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-one</id>
         <link href="https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-one">
         </link>
-        <updated>2016-05-18T00:00:00Z</updated>
+        <updated>2016-05-18T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Summarizing the first day presentations of the Front Trends 2016 conference in Warsaw. Covering pranks, animations, static sites, RxJS, performance, and leadership.]]></summary>
         <content type="html"><![CDATA[<p>Summarizing the first day presentations of the Front Trends 2016 conference in Warsaw. Covering pranks, animations, static sites, RxJS, performance, and leadership. A speakers list can also be found on <a href="https://2016.front-trends.com/speakers/">2016.front-trends.com/speakers/</a>.</p>
 <figure>
@@ -1930,7 +1930,7 @@ Projects are a journey, be fluid.
 <li>Fun with <a href="http://slides.com/tholman/css-pranks/#/">CSS pranks</a></li>
 </ul>
 <h2 id="keynote-the-web-in-motion-by-rachel-nabors">Keynote: The Web in Motion by <a href="https://twitter.com/RachelNabors">Rachel Nabors</a></h2>
-<p>Rachel talked about Apps vs Websites, and how Apps often provide the same content, but look much nicer because transitions between states are animated. If there is only <em>old state -&gt; new state</em>, the users brain needs to do heavy interpolation work. If the transition is animated, there is less cognitive workload on the user. So the goal is to eliminate sudden visual changes. Rachel takes two excurses to dark patterns/ads and technical history of animations (Flash, SMIL. CSS Animations) and closes with the Web Animation API.</p>
+<p>Rachel talked about Apps vs Websites, and how Apps often provide the same content, but look much nicer because transitions between states are animated. If there is only _old state -&gt; new state_, the users brain needs to do heavy interpolation work. If the transition is animated, there is less cognitive workload on the user. So the goal is to eliminate sudden visual changes. Rachel takes two excurses to dark patterns/ads and technical history of animations (Flash, SMIL. CSS Animations) and closes with the Web Animation API.</p>
 <blockquote>
 <p>The difference between web and native starts to blur. The Web is moving forward.</p>
 </blockquote>
@@ -1985,7 +1985,7 @@ Projects are a journey, be fluid.
 <p>Tim Kadlec held yet another performance talk, making fun of the fact that this topic has been talked about a lot in the last years. (&quot;There&#39;s a secret club of people who need to say &#39;The fastest Request is no Request&#39; two times each year.&quot;)</p>
 <p>Measurable performance improvement (DNS-prefetch, preconnect, preload, prerender, async, defer, inline critical CSS) is important. If there is nothing left to speed up, you can increase the perceived speed (skeleton rendering, changing status text on progress bars). And sometimes you need to add an artificial delay, because people do not trust a credit card validation which runs too fast.</p>
 <blockquote>
-<p>Everything on your page should have a <em>value</em>, because everything has a <em>cost</em>.</p>
+<p>Everything on your page should have a <em>value_, because everything has a _cost</em>.</p>
 </blockquote>
 <ul>
 <li>Twitter: <a href="https://twitter.com/tkadlec">@tkadlec</a></li>
@@ -2011,7 +2011,7 @@ Projects are a journey, be fluid.
         <id>https://blog.thomaspuppe.de/single-page-apps-minimieren-mit-gulp</id>
         <link href="https://blog.thomaspuppe.de/single-page-apps-minimieren-mit-gulp">
         </link>
-        <updated>2015-01-23T00:00:00Z</updated>
+        <updated>2015-01-23T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleichzeitig sollen Less und JSLint genutzt werden. Ein wunderbares Einsatzgebiet für Gulp!]]></summary>
         <content type="html"><![CDATA[<p>Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleichzeitig sollen Less und JSLint genutzt werden. Ein wunderbares Einsatzgebiet für Gulp!</p>
 <h2 id="das-projekt">Das Projekt</h2>
@@ -2077,7 +2077,7 @@ Projects are a journey, be fluid.
         <id>https://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws</id>
         <link href="https://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws">
         </link>
-        <updated>2014-11-06T00:00:00Z</updated>
+        <updated>2014-11-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Um Tweets zu einem aktuellen Thema zu sammeln, muss man die Twitter Streaming API mitschneiden. In 20 Minuten ist dafür ein kostenloses always-online System aufgesetzt.]]></summary>
         <content type="html"><![CDATA[<p>Um Tweets zu einem aktuellen Thema zu sammeln, muss man die Twitter Streaming API mitschneiden. In 20 Minuten ist dafür ein kostenloses always-online System aufgesetzt.</p>
 <p>Bei kurzen Events (TV-Duell vor der Bundestagswahl) habe ich die Sammlung von Tweets einfach auf meinem lokalen Rechner gemacht. Für die anstehenden Feierlichkeiten zum #Mauerfall soll die Sammlung mehrere Tage dauern. Mein Rechner soll dabei aber nicht im Dauerbetrieb laufen. Daher habe ich einfach eine AWS Instanz hochgefahren und lasse die die Arbeit tun. Zum Mitschneiden des Streams dient diesmal auch nicht die PHP-Lib Phirehose, sondern das Python-Tool Tweepy.</p>
@@ -2168,7 +2168,7 @@ $ while true; do ( wc -l tweets.json ; sleep 5 ) done;</pre>
         <id>https://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet</id>
         <link href="https://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet">
         </link>
-        <updated>2014-11-19T00:00:00Z</updated>
+        <updated>2014-11-19T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Meine Sammlung von Tweets zum]]></summary>
         <content type="html"><![CDATA[<p>Meine <a href="https://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.</p>
 <p>In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aussortieren usw.</p>
@@ -2268,7 +2268,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <id>https://blog.thomaspuppe.de/link-unterstreichung</id>
         <link href="https://blog.thomaspuppe.de/link-unterstreichung">
         </link>
-        <updated>2014-05-06T00:00:00Z</updated>
+        <updated>2014-05-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.]]></summary>
         <content type="html"><![CDATA[<p>Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.</p>
 <p>Als Freund <a href="http://ia.net/blog/100e2r">&ldquo;großer&rdquo; Schrift</a> auf Websites stelle ich fest, dass die Unterstreichung von Links ab 20 Pixeln Schriftgröße (bei meinem Setup von font-family: Georgia, &quot;Times New Roman&quot;, Times, serif;) recht breit ist. Das stört auch die Lesbarkeit des Textes &mdash; zumindest im Vergleich zu einer Variante mit schmalerer Unterstreichung. Hier im Blog kommt das nicht zum Tragen. Groß sind nur die Überschriften, die eine dicke Unterstreichung vertragen. Der Fließtext ist kleiner als 20px und hat daher moderate Unterstreichung. Auf meiner Website mit vielen Links störte die Unterstreichung schon mehr (siehe Screenshot):</p>
@@ -2312,7 +2312,7 @@ a:hover, a:focus {
         <id>https://blog.thomaspuppe.de/gregor-gysi-retweets</id>
         <link href="https://blog.thomaspuppe.de/gregor-gysi-retweets">
         </link>
-        <updated>2014-03-16T00:00:00Z</updated>
+        <updated>2014-03-16T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Gregor Gysi führt in den letzten Wochen die Retweet-Charts von Bundestwitter an. Ist das systematische Unterstützung durch Wenige? Oder eine breite Basis?]]></summary>
         <content type="html"><![CDATA[<p>Der Fraktionsführer der Linken im Deutschen Bundestag, <a href="http://www.bundestwitter.de/politiker/dr-gregor-gysi/">Gregor Gysi</a>, führt in den letzten Wochen die <a href="http://www.bundestwitter.de">Retweet-Charts von Bundestwitter</a> an. Ist das systematische Unterstützung durch Wenige? Oder eine breite Basis?</p>
 <p>Grundlage der Analyse sind alle Tweets von Gregor Gysi aus dem Jahr 2014 (Stand 16.02.). Diese habe ich nach Retweet-Häufigkeit sortiert, und die Top 25 dann genauer untersucht. Von jedem Tweet wurden die Profildaten aller Retweeter geladen, und die <a href="#tabelleGesamt">Daten in einer Tabelle zusammengeführt</a> (Link führt zur Tabelle am Fuß dieses Posts).</p>
@@ -5936,7 +5936,7 @@ a:hover, a:focus {
         <id>https://blog.thomaspuppe.de/responsive-website-ein-praktisches-beispiel</id>
         <link href="https://blog.thomaspuppe.de/responsive-website-ein-praktisches-beispiel">
         </link>
-        <updated>2014-02-13T00:00:00Z</updated>
+        <updated>2014-02-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Wie baut man eine einfache Website von nicht-responsive auf responsive um? Eine Schritt-für-Schritt Anleitung anhand dieses Blogs.]]></summary>
         <content type="html"><![CDATA[<p>Wie baut man eine einfache Website von nicht-responsive auf responsive um? Eine Schritt-für-Schritt Anleitung anhand dieses Blogs.</p>
 <p>Ziel ist nicht, dass der Blog auf allen Geräten gleich aussieht (was auch nicht der Sinn von RWD ist). Sondern dass er auf allen Geräten gut aussieht und vor Allem funktioniert (was der Sinn von RWD ist).</p>
@@ -6008,7 +6008,7 @@ font-size: 2em;
         <id>https://blog.thomaspuppe.de/do-not-track-header-crossbrowser</id>
         <link href="https://blog.thomaspuppe.de/do-not-track-header-crossbrowser">
         </link>
-        <updated>2013-11-07T00:00:00Z</updated>
+        <updated>2013-11-07T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Der doNotTrack Flag des Browsers signalisiert, dass ein Nutzer nicht getrackt werden möchte. Diese Information lässt sich per JS auslesen &mdash; jedoch je nach browser unterschiedlch.]]></summary>
         <content type="html"><![CDATA[<p>Mit dem doNotTrack Befehl können User signalisieren, dass sie nicht von Websites getrackt werden möchten. Browser senden dafür einen HTTP-Header mit ihren Requests an den Webserver. Via JavaScript lässt sich diese Einstellung auch im Client auslesen. Dieses Auslesen funktioniert leider nicht einheitlich.</p>
 <p>Chrome und Safari haben eine andere Schreibweise für die doNotTrack Property als der Firefox Browser. Der IE 9/10 verwendet einen eigenen Namen. Und der IE 8 unterstützt diese Einstellung laut Microsoft auf <a href="http://ie.microsoft.com/TEStdrive/Browser/DoNotTrack/Default.html">sehr krude Art und Weise</a>.</p>
@@ -6092,7 +6092,7 @@ jsOutput.innerHTML+= navigator.userAgent + "\n";
         <id>https://blog.thomaspuppe.de/visualized-io-berlin-2013</id>
         <link href="https://blog.thomaspuppe.de/visualized-io-berlin-2013">
         </link>
-        <updated>2013-10-09T00:00:00Z</updated>
+        <updated>2013-10-09T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Eine Zusammenfassung der Themen auf der VISUALIZED.iO Konferenz  2013 in Berlin.]]></summary>
         <content type="html"><![CDATA[<p>Eine grobe Zusammenfassung der Themen auf der VISUALIZED.iO Konferenz am 05. Oktober 2013 in Berlin. Es ist wenig ausformuliert, sondern eher eine Liste an Stichpunkten, Links zu den vorgestellten Projekten und einige Zitate.</p>
 <blockquote>"Knowledge is the reason for change. Data Visualization helps spreading knowledge." &mdash; Moritz Stefaner</blockquote>
@@ -6170,7 +6170,7 @@ jsOutput.innerHTML+= navigator.userAgent + "\n";
         <id>https://blog.thomaspuppe.de/goodbye-google-analytics-goodbye-piwik</id>
         <link href="https://blog.thomaspuppe.de/goodbye-google-analytics-goodbye-piwik">
         </link>
-        <updated>2013-10-22T00:00:00Z</updated>
+        <updated>2013-10-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Warum ich mein Website-Tracking von Google Analytics über Piwik zu AWStats zurück entwickelte und trotzdem nichts vermisse.]]></summary>
         <content type="html"><![CDATA[<p>Warum ich mein Website-Tracking von Google Analytics über Piwik zu AWStats zurück entwickelte und trotzdem nichts vermisse.</p>
 <p><img src="/images/2013/10/tracking_graphen.png" alt="Die Graphen von drei Analysetools gegenübergestellt"></p>
@@ -6208,7 +6208,7 @@ jsOutput.innerHTML+= navigator.userAgent + "\n";
         <id>https://blog.thomaspuppe.de/twitter-verhalten-mdb-und-nds</id>
         <link href="https://blog.thomaspuppe.de/twitter-verhalten-mdb-und-nds">
         </link>
-        <updated>2013-01-22T00:00:00Z</updated>
+        <updated>2013-01-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ein Überblick über das Twitter-Verhalten der MdB und der Wahlkämpfer der niedersächsischen Landtagswahl 2013]]></summary>
         <content type="html"><![CDATA[<p>Wie viele Politiker sind auf Twitter aktiv? Wie häufig twittern sie? Was wird geschrieben? Erzeugt das Bürgernähe? Hilft es im Wahlkampf?</p><p><em>Ein Überblick über das Twitter-Verhalten der MdB und der Wahlkämpfer der niedersächsischen Landtagswahl 2013.</em></p>
 
@@ -6358,7 +6358,7 @@ jsOutput.innerHTML+= navigator.userAgent + "\n";
         <id>https://blog.thomaspuppe.de/eigene-domain-google-plus-umleiten</id>
         <link href="https://blog.thomaspuppe.de/eigene-domain-google-plus-umleiten">
         </link>
-        <updated>2013-01-17T00:00:00Z</updated>
+        <updated>2013-01-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Weiterleitung von thomaspuppe.de/+ auf das Google-Profil via .htaccess]]></summary>
         <content type="html"><![CDATA[<p>Ein Tipp für die Leute mit eigener Domain: Weiterleitung von <code>thomaspuppe.de/+</code> auf das Google-Profil via .htaccess:</p>
 <pre>RewriteEngine on

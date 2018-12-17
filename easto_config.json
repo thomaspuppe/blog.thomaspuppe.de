@@ -4,6 +4,9 @@
 	"templates_dir" : "./themes/easto",
 	"data_dir": "./static",
 
+	"author": "Thomas Puppe",
+	"baseurl": "https://blog.thomaspuppe.de/",
+
 	"feed": {
 		"title": "Blog von Thomas Puppe, Web Developer.",
 		"description__": "This is my personal feed!",

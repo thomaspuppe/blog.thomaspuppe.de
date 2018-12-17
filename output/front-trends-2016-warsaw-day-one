@@ -2,16 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="language" content="de">
+    <meta name="language" content="en">
     <title>Front Trends 2016 in Warsaw: Day 1</title>
     <meta name="description" content="Summarizing the first day presentations of the Front Trends 2016 conference in Warsaw. Covering pranks, animations, static sites, RxJS, performance, and leadership.">
-    <meta name="date" content="Wed May 18 2016 02:00:00 GMT+0200 (CEST)">
+    <meta name="date" content="Wed May 18 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
+
     <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
     <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
     <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+
+    <meta property="og:title" content="Front Trends 2016 in Warsaw: Day 1" />
+    <meta property="og:url" content="https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-one" />
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="Wed May 18 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)" />
+    <meta property="og:article:author" content="Thomas Puppe" />
+
 </head>
 <body>
     <header>
@@ -21,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Wed May 18 2016 02:00:00 GMT+0200 (CEST)">18. Mai 2016</time>
+            <time datetime="Wed May 18 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">18. Mai 2016</time>
         </div>
 
         <h1 class="post__title">Front Trends 2016 in Warsaw: Day 1</h1>
@@ -37,7 +45,7 @@
 <li>Fun with <a href="http://slides.com/tholman/css-pranks/#/">CSS pranks</a></li>
 </ul>
 <h2 id="keynote-the-web-in-motion-by-rachel-nabors">Keynote: The Web in Motion by <a href="https://twitter.com/RachelNabors">Rachel Nabors</a></h2>
-<p>Rachel talked about Apps vs Websites, and how Apps often provide the same content, but look much nicer because transitions between states are animated. If there is only <em>old state -&gt; new state</em>, the users brain needs to do heavy interpolation work. If the transition is animated, there is less cognitive workload on the user. So the goal is to eliminate sudden visual changes. Rachel takes two excurses to dark patterns/ads and technical history of animations (Flash, SMIL. CSS Animations) and closes with the Web Animation API.</p>
+<p>Rachel talked about Apps vs Websites, and how Apps often provide the same content, but look much nicer because transitions between states are animated. If there is only _old state -&gt; new state_, the users brain needs to do heavy interpolation work. If the transition is animated, there is less cognitive workload on the user. So the goal is to eliminate sudden visual changes. Rachel takes two excurses to dark patterns/ads and technical history of animations (Flash, SMIL. CSS Animations) and closes with the Web Animation API.</p>
 <blockquote>
 <p>The difference between web and native starts to blur. The Web is moving forward.</p>
 </blockquote>
@@ -92,7 +100,7 @@
 <p>Tim Kadlec held yet another performance talk, making fun of the fact that this topic has been talked about a lot in the last years. (&quot;There&#39;s a secret club of people who need to say &#39;The fastest Request is no Request&#39; two times each year.&quot;)</p>
 <p>Measurable performance improvement (DNS-prefetch, preconnect, preload, prerender, async, defer, inline critical CSS) is important. If there is nothing left to speed up, you can increase the perceived speed (skeleton rendering, changing status text on progress bars). And sometimes you need to add an artificial delay, because people do not trust a credit card validation which runs too fast.</p>
 <blockquote>
-<p>Everything on your page should have a <em>value</em>, because everything has a <em>cost</em>.</p>
+<p>Everything on your page should have a <em>value_, because everything has a _cost</em>.</p>
 </blockquote>
 <ul>
 <li>Twitter: <a href="https://twitter.com/tkadlec">@tkadlec</a></li>
