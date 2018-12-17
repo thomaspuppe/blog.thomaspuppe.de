@@ -1,8 +1,8 @@
 {
-	"content_dir": "/var/www/blog.thomaspuppe.de/content",
-	"output_dir": "/var/www/blog.thomaspuppe.de/output",
-	"templates_dir" : "/var/www/blog.thomaspuppe.de/themes/easto",
-	"data_dir": "/var/www/blog.thomaspuppe.de/static",
+	"content_dir": "./content",
+	"output_dir": "./output",
+	"templates_dir" : "./themes/easto",
+	"data_dir": "./static",
 
 	"feed": {
 		"title": "Blog von Thomas Puppe, Web Developer.",
