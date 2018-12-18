@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.thomaspuppe.de</id>
     <title>Blog von Thomas Puppe, Web Developer.</title>
-    <updated>2018-12-17T18:05:39.509Z</updated>
+    <updated>2018-12-17T18:14:32.497Z</updated>
     <generator>easto 0.6.0 (https://github.com/thomaspuppe/easto)</generator>
     <author>
         <name>Thomas Puppe</name>
