@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (httpRequest.readyState === 4) {
 			if (httpRequest.status === 200) {
 				var data = JSON.parse(httpRequest.responseText);
-				for (var i=0; i < data['tweets'].length; i++) {
+				for (var i=0; i &lt; data['tweets'].length; i++) {
 					var currentData = data['tweets'][i];
 					markerOptions['alt'] = currentData['media_url'];
 					L.marker(

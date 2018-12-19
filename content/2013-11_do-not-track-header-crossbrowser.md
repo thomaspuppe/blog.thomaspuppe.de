@@ -30,7 +30,7 @@ Chrome und Safari haben eine andere Schreibweise für die doNotTrack Property al
 	<tr><td>Firefox 25 (Win 7)</td><td>navigator.doNotTrack</td><td>"no", "yes", "unspecified"</td></tr>
 	<tr><td>Firefox 25 (Ubuntu 13)</td><td>navigator.doNotTrack</td><td>"no", "yes", "unspecified"</td></tr>
 
-	<tr><td>Opera 12 (Win 7)</td><td>navigator.doNotTrack</td><td><strike>"0"</strike>, "1", null</td></tr>
+	<tr><td>Opera 12 (Win 7)</td><td>navigator.doNotTrack</td><td><del>"0"</del>, "1", null</td></tr>
 
 	<tr><td>IE 10 (Win 7)</td><td>navigator.msDoNotTrack</td><td>"0", "1", TODO</td></tr>
 	<tr><td>IE 10 (Win 7)</td><td>window.external.InPrivateFilteringEnabled()</td><td>false, true, undefined</td></tr>

@@ -12,9 +12,10 @@ description: todo
 
 ## Checks
 
-- https://tenon.io/
-- https://developers.google.com/speed/pagespeed/insights/
-- https://validator.w3.org/
+[ ] https://tenon.io/
+[ ] https://developers.google.com/speed/pagespeed/insights/
+[x] https://validator.w3.org/
+[ ] W3C Link-Checker https://validator.w3.org/checklink?uri=https%3A%2F%2Fblog.thomaspuppe.de&summary=on&hide_type=all&recursive=on&depth=1&check=Check
 
 
 ## Syntax check

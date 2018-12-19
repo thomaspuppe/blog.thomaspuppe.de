@@ -135,7 +135,7 @@ date: April 10th 2018
 
 ... which then can be used inside your template file:
 
-<pre>&lt;a href="{{.Doc.author_url}}"&gt;{{.Doc.author}}&lt;/a&gt; on {{.Doc.date}}</footer></pre>
+<pre>&lt;a href="{{.Doc.author_url}}"&gt;{{.Doc.author}}&lt;/a&gt; on {{.Doc.date}}&lt;/footer&gt;</pre>
 
 Caddy even offers some own template variables like `{{.Cookie "cookiename"}}` or `{{.RandomString 100 10000}}`, sanitizing functions and control statements. A [complete list of template actions](https://caddyserver.com/docs/template-actions) can be found in the Caddy docs.
 

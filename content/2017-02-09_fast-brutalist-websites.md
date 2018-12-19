@@ -13,7 +13,7 @@ description: "Intentionally ugly websites are one of the trends in 2017. What I 
 
 Websites which are intentionally ugly are one of the hottest trends in webdesign in early 2017, according to the [Washington Post](https://www.washingtonpost.com/news/the-intersect/wp/2016/05/09/the-hottest-trend-in-web-design-is-intentionally-ugly-unusable-sites/), [webdesignerdepot](http://www.webdesignerdepot.com/2016/08/the-rise-and-rise-of-the-brutalist-design-trend/) or the [t3n magazine](http://t3n.de/news/web-brutalism-design-trend-705490/).
 
-After [years](https://www.templatemonster.com/infographics/web-design-trends-years-2004-2014.php) of flash, wood patterns, skeuomorphism, webfonts, grunge handwriting, full screen images, ambient background videos, parallax bullshit and interactive <strike>crap</strike>cards, this is a trend that I actually like. **Because: ugly is fast!**
+After [years](https://www.templatemonster.com/infographics/web-design-trends-years-2004-2014.php) of flash, wood patterns, skeuomorphism, webfonts, grunge handwriting, full screen images, ambient background videos, parallax bullshit and interactive <del>crap</del>cards, this is a trend that I actually like. **Because: ugly is fast!**
 
 Well, it can be fast. Scanning a [collection of brutalist websites](http://brutalistwebsites.com/), I have seen everything from pages with 10 kilobytes to dozens of megabytes. In this article I want to explore and explain some tricks for building ugly websites simply and fast.
 
@@ -131,7 +131,7 @@ But we want a tiny fast brutal website, don't we? So we only use small images. W
 
 <pre>
  _______________________________________
-< Are you old enough to know ASCII art? >
+&lt; Are you old enough to know ASCII art? &gt;
  ---------------------------------------
         \   ^__^
          \  (oo)\_______

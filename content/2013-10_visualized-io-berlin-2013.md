@@ -60,7 +60,7 @@ Eine grobe Zusammenfassung der Themen auf der VISUALIZED.iO Konferenz am 05. Okt
 
 <h3>11) <a href="http://www.uhsless.de/">Ulli Hendrik Streckenbach</a>: Why I am Visualizing Information</h3>
 <p>In einem tollen Votrag erzählte Ulli Streckenbach, wie er zur Visualisierung fand (wegen seiner Vortragsangst) und stellte zwei seiner Arbeiten vor: <a href="http://www.uhsless.de/?p=25">The overfishing of the oceans</a> und <a href="http://www.uhsless.de/?p=963">Let's talk about soil</a></p>
-<p>"People are <strike>busy</strike> lazy."</p>
+<p>"People are <del>busy</del> lazy."</p>
 
 <h3>12) <a href="http://www.pitchinteractive.com/">Wesley Grubbs</a> (<a href="https://twitter.com/pitchinc">@pitchinc</a>): Drones</h3>
 <p>In einem bewegenden Vortrag stellte Wesley Grubbs das <a href="http://drones.pitchinteractive.com/">Out of Sight Out of Mind</a> Projekt vor, das alle bekannten Drohnenangriffe der Amerikaner auf Pakistan visualisiert.</p>
