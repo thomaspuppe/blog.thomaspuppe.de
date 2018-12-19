@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
 
-    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
-    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <link href="/feed/atom" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 
     <meta property="og:title" content="Small improvements for a simple blog" />
     <meta property="og:url" content="https://blog.thomaspuppe.de/small-improvements-blog" />
@@ -38,7 +38,8 @@
 <p>[ ] <a href="https://tenon.io/">https://tenon.io/</a>
 [ ] <a href="https://developers.google.com/speed/pagespeed/insights/">https://developers.google.com/speed/pagespeed/insights/</a>
 [x] <a href="https://validator.w3.org/">https://validator.w3.org/</a>
-[ ] W3C Link-Checker <a href="https://validator.w3.org/checklink?uri=https%3A%2F%2Fblog.thomaspuppe.de&amp;summary=on&amp;hide_type=all&amp;recursive=on&amp;depth=1&amp;check=Check">https://validator.w3.org/checklink?uri=https%3A%2F%2Fblog.thomaspuppe.de&amp;summary=on&amp;hide_type=all&amp;recursive=on&amp;depth=1&amp;check=Check</a></p>
+[ ] W3C Link-Checker <a href="https://validator.w3.org/checklink?uri=https%3A%2F%2Fblog.thomaspuppe.de&amp;summary=on&amp;hide_type=all&amp;recursive=on&amp;depth=1&amp;check=Check">https://validator.w3.org/checklink?uri=https%3A%2F%2Fblog.thomaspuppe.de&amp;summary=on&amp;hide_type=all&amp;recursive=on&amp;depth=1&amp;check=Check</a>
+[ ] Mach Metrics</p>
 <h2 id="syntax-check">Syntax check</h2>
 <h2 id="content-type">content-type</h2>
 <p><code>&quot;text/html; charset=utf-8&quot;</code> for html in <code>/etc/nginx/mime.types</code></p>

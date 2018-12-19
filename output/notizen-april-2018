@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
 
-    <link href="/feed/atom/" type="application/atom+xml" rel="alternate" title="Atom Feed" />
-    <link href="/feed/json/" type="application/json" rel="alternate" title="JSON Feed" />
-    <link href="/feed/rss/" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+    <link href="/feed/atom" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 
     <meta property="og:title" content="Notizen April 2018" />
     <meta property="og:url" content="https://blog.thomaspuppe.de/notizen-april-2018" />
