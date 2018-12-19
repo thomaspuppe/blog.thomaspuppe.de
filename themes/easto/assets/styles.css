@@ -156,4 +156,7 @@ header {
     padding-left: 0.5ch;
     padding-right: 0.5ch; }
 
-/*# sourceMappingURL=styles.css.map */
+ins {
+	text-decoration-style: wavy;
+	text-decoration-color: #ecf0f1;
+}
