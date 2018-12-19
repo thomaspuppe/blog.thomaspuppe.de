@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Twitter-Bot-Beobachtung zu #AnneWill</title>
     <meta name="description" content="Social Bots sind aktell ein großes Thema. Zu Recht? Ich habe am Sonntag">
-    <meta name="date" content="Fri Mar 10 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
+    <meta name="date" content="2017-03-10">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="Twitter-Bot-Beobachtung zu #AnneWill" />
     <meta property="og:url" content="https://blog.thomaspuppe.de/twitter-bots-anne-will" />
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content="Fri Mar 10 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)" />
+    <meta property="og:article:published_time" content="2017-03-10" />
     <meta property="og:article:author" content="Thomas Puppe" />
 
 </head>
@@ -29,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Social Bots</span>
-            <time datetime="Fri Mar 10 2017 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">10. März 2017</time>
+            <time datetime="2017-03-10">10. März 2017</time>
         </div>
 
         <h1 class="post__title">Twitter-Bot-Beobachtung zu #AnneWill</h1>

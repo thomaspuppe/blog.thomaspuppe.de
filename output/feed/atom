@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.thomaspuppe.de</id>
     <title>Blog von Thomas Puppe, Web Developer.</title>
-    <updated>2018-12-17T18:14:32.497Z</updated>
+    <updated>2018-12-19T01:19:43.076Z</updated>
     <generator>easto 0.6.0 (https://github.com/thomaspuppe/easto)</generator>
     <author>
         <name>Thomas Puppe</name>
@@ -12,6 +12,64 @@
     <link rel="alternate" href="https://blog.thomaspuppe.de"/>
     <link rel="self" href="https://blog.thomaspuppe.de/feed/atom"/>
     <rights>All rights reserved 2018, Thomas Puppe</rights>
+    <entry>
+        <title type="html"><![CDATA[High Score – Mikrooptimierung mit ... W3C-Validator]]></title>
+        <id>https://blog.thomaspuppe.de/high-score-optimierung-w3c-validator</id>
+        <link href="https://blog.thomaspuppe.de/high-score-optimierung-w3c-validator">
+        </link>
+        <updated>2018-12-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[In dieser neuen Serie versuche ich, mit meinem Blog verschiedene Website-Testing-Tools zufriedenzustellen. Den Anfang macht der W3C-Validator.]]></summary>
+        <content type="html"><![CDATA[<p>Valides HTML – eigentlich selbstverständlich für jeden seriösen Web-Entwickler, aber dennoch habe ich bisher kaum eine Seite gesehen die fehlerfrei validiert wird. Manchmal geht einem einfach etwas durch die Lappen. Manchmal gibt es Bedingungen die man nicht erfüllen will: <code>target=&quot;_blank&quot;</code>, anyone?</p>
+<p>Den Auftakt meiner Blogserie &quot;High Score&quot; bildet also der HTML Validator vom W3C. Ist mein eigenes Blog in validem HTML geschrieben? Wie viele Fehler gibt es in meinen simplen Templates? Und wie gut kann ich die Anforderungen des Validators erfüllen?</p>
+<h2 id="der-test">Der Test</h2>
+<p>Der Validator des W3C ist online verfügbar unter <a href="https://validator.w3.org/">validator.w3.org</a>. Er prüft das Markup einer Website auf Validität. Es gibt vom W3C auch weitere Tools, um CSS zu validieren oder defekte Links zu finden. Ich schaue mir zunächst nur das HTML der Startseite an.</p>
+<p>Das <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fblog.thomaspuppe.de%2F&amp;showsource=yes&amp;showoutline=yes">Ergebnis</a> erschrickt mich zunächst: 32 Fehler! Allerdings ist das 32 mal derselbe Fehler.</p>
+<h3 id="1-fehlerhaftes-datumsformat">1) fehlerhaftes Datumsformat</h3>
+<p>In jedem Blogpost-Teaser auf der Indexseite ist das Datum in einem ungültigen Format angegeben. Neben dem lesbaren Datum für Menschen wollte ich es auch maschinenlesbar machen...</p>
+<pre>&lt;time datetime="Fri Jul 31 2018 02:00:00 GMT+0200 (CEST)"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</pre>
+
+<p>... und eben jenes <code>Fri Jul 20 2018 02:00:00 GMT+0200 (CEST)</code> ist nicht valide. Der W3C-Validator verlinkt auch gleich auf die <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-time-element">Spec des time-Elements</a>, die verletzt wird. Dort sind viele Beispiele gültiger Datumsformate aufgelistet.</p>
+<p>Ich <a href="https://github.com/thomaspuppe/easto/commit/392dee5b7fb71b562085f7261e8cd8a79ca1a12c">ändere also das Datumsformat</a> und kürze gleich noch die unnütze Uhrzeit raus.</p>
+<pre>&lt;time datetime="2018-07-31"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</pre>
+
+<p>Und schwupps: <strong>No errors or warnings to show</strong>!</p>
+<p>Das war zu einfach. Deshalb schaue ich mir noch die einzelnen Blogposts an.</p>
+<h2 id="rekursives-testen-aller-artikel">rekursives Testen aller Artikel</h2>
+<p>Das habe ich mir einfacher vorgestellt. Leider hat der Validator keine Funktion für rekursives Testen (oder eine Liste von Links), und ein entsprechendes einfaches Tool habe ich auf die Schnelle auch nicht gefunden. Also prüfe ich einige Artikel von Hand.</p>
+<h3 id="strike-tag">strike-Tag</h3>
+<p>Im Artikel <a href="https://blog.thomaspuppe.de/mein-smarterphone">Mein Smarterphone</a> benutze ich das <code>&lt;strike&gt;</code> Tag, um ein paar Worte durchzustreichen. Der Validator moniert, das sei obsolet und man solle lieber CSS benutzen. Die Erklärung ist erst einmal nicht zufriedenstellend, weil das eben <em>kein</em> optischer Effekt ist, sondern ich tatsächlich eine inhaltliche Aussage treffe: dieser Text wurde durchgestrichen.</p>
+<p>Wieder verlinkt der Validator die Specs, diesmal auf <a href="https://wiki.whatwg.org/wiki/Presentational_elements_and_attributes">Whatwg zum Thema &quot;Presentational Links and Attributes&quot;</a>. Hier wird genauer erklärt: <code>s</code> und <code>strike</code> sind zu ersetzen durch <code>del</code>. Das korrigiert den Fehler.</p>
+<p>Durch die Erklärung, ich wolle ja mit der Durchstreichung etwas ausdrücken, ist mir eines aufgefallen: wenn man den <em>entfernten</em> Text semantisch kennzeichnet, was ist dann mit dem <em>hinzugefügten</em> Text? Der besagte Artikel zu Präsentationselementen hat die Antwort: das <code>ins</code> Tag!</p>
+<p>Der default-Stil des <code>ins</code> Tags ist übrigens eine einfache Unterstreichung &mdash; genau wie es auch Links in meinem Blog sind. Da ich meine Links nicht einfärbe und in der Textfarbe unterstreiche, sehen nun die eingefügten Texte aus wie Links. (Nebenbei: das wäre schon ein Grund, nicht an Link-Stilen herumzufummeln: weil man dann genau solche Probleme erzeugt.) Da ich meine Link-Stile aber nicht ändern möchte, style ich also die <code>ins</code> Tags um. Der erste Ansatz war, <code>text-decoration: none</code> zu setzen und dann mit einem <code>border-bottom</code> in der <code>currentColor</code> zu arbeiten. Was aber viel besser ist: es gibt das CSS-Property <code>text-decoration-style</code>, mit dem man eben diese Unterstreichung ändern kann, zum Beispiel auf <code>dotted</code>, <code>dashed</code> oder <code>wavy</code>.</p>
+<p>Bonuswissen: man kann ebenso die <code>text-decoration-color</code> und die <code>text-decoration-line</code> ändern. Damit kann man einen Text z.B. wellig rot über- unter- und durchstreichen &mdash; sogar gleichzeitig.</p>
+<pre>text-decoration-style: wavy;
+text-decoration-line: overline underline line-through;
+text-decoration-color: red;</pre>
+
+<p>Das aber nur am Rande. Im Blog-CSS habe ich mich für eine wellige Unterstreichung in etwas hellerem Ton entschieden:</p>
+<p>Hier die Demo mit <del>Text im del-Tag</del> und <ins>Text im ins-Tag</ins>.</p>
+<h3 id="spitze-klammern-in-pre">spitze Klammern in pre</h3>
+<p>Innerhalb von <code>pre</code> Tags, die ich für Code-Beispiele im Blog benutze, sind keine spitzen Klammern erlaubt. Sie werden nämlich interpretiert, was mir an manchen Stellen im Browser nicht auffiel (das &quot;Element&quot; wurde versteckt, und der Teil des Codes nicht gezeigt). Dem Validator fiel es auf.</p>
+<p>Ob es besser wäre, anstelle von <code>pre</code> lieber <code>code</code> zu benutzen, prüfe ich ein andermal.</p>
+<h2 id="ergebnis-der-tests-mit-dem-w3c-validator">Ergebnis der Tests mit dem W3C-validator</h2>
+<p>Ich sage mal: fehlerfrei. Ich habe jetzt nicht jeden einzelnen Artikel getestet, aber auf den getesteten Seiten konnte ich alle Fehler korrigieren. Erwartet hatte ich eigentlich, dass ich mich über manche &quot;zu strenge&quot; Hinweise hinwegsetzen werde.</p>
+<h2 id="fazit-zum-w3c-validator">Fazit zum W3C-Validator</h2>
+<p><strong>pro</strong>:</p>
+<ul>
+<li>sehr gute Aufbereitung: Fehler werden im Quellcode markiert</li>
+<li>Fehler werden zu Specs und Erklärungen verlinkt, zum Teil gibt schon der Validator Lösungsvorschläge</li>
+</ul>
+<p><strong>contra</strong>:</p>
+<ul>
+<li>keine rekursive Validierung (der <a href="https://validator.w3.org/checklink">W3C-Linkchecker</a> kann rekursiv arbeiten)</li>
+<li>wiederholte Fehler auf einer Seite werden nicht zusammengefasst als <em>ein</em> Problem</li>
+</ul>
+<h2 id="meta-fazit">Meta-Fazit</h2>
+<p>Der Auftakt hat mir gut gefallen. Ich habe zwar keine groben Schnitzer gefunden, die man unbedingt korrigieren müsste. Aber die Blog-Serie heißt ja auch &quot;Mikrooptimierung&quot;, und ich möchte jeden kleinen Scheiß fixen.</p>
+<p>Das Schöne: man lernt viele Details hinzu. Wann im Arbeitsalltag stolpert man schon über das <code>&lt;ins&gt;</code> Tag, und wie man die <code>text-decoration-line</code> stylen kann?</p>
+<p>Ich bin heiß auf den nächsten Check!</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Notizen Juli 2018]]></title>
         <id>https://blog.thomaspuppe.de/notizen-juli-2018</id>
@@ -211,7 +269,7 @@ date: April 10th 2018
 ---</pre>
 
 <p>... which then can be used inside your template file:</p>
-<pre>&lt;a href="{{.Doc.author_url}}"&gt;{{.Doc.author}}&lt;/a&gt; on {{.Doc.date}}</footer></pre>
+<pre>&lt;a href="{{.Doc.author_url}}"&gt;{{.Doc.author}}&lt;/a&gt; on {{.Doc.date}}&lt;/footer&gt;</pre>
 
 <p>Caddy even offers some own template variables like <code>{{.Cookie &quot;cookiename&quot;}}</code> or <code>{{.RandomString 100 10000}}</code>, sanitizing functions and control statements. A <a href="https://caddyserver.com/docs/template-actions">complete list of template actions</a> can be found in the Caddy docs.</p>
 <p>This is pretty cool and you can get very far with that.</p>
@@ -399,7 +457,7 @@ day to make deceptive user experiences. You are better than that.</p>
 <p>Ich nehme mir immer wieder mal vor, das Handy vor dem Frühstück nicht zu benutzen, oder nicht im Schlafzimmer. Aber das klappt bisher nicht.</p>
 <h2 id="zum-abschluss-was-sollten-mehr-menschen-im-umgang-mit-smartphones-wissen-">Zum Abschluss: Was sollten mehr Menschen im Umgang mit Smartphones wissen?</h2>
 <p>Wenn du nicht gerade Kinder hast, oder kranke Eltern, gibt es keinen vernünftigen Grund jederzeit erreichbar zu sein.</p>
-<p>Ich <strike>sende den Kettenbrief</strike> werfe das Stöckchen weiter zu <a href="https://arnalyse.de/">Arne Seemann</a>.</p>
+<p>Ich <del>sende den Kettenbrief</del> <ins>werfe das Stöckchen</ins> weiter zu <a href="https://arnalyse.de/">Arne Seemann</a>.</p>
 ]]></content>
     </entry>
     <entry>
@@ -918,7 +976,7 @@ function sharePage() {
         <content type="html"><![CDATA[<link href="/images/2017/02/brutalist/styles.css" type="text/css" rel="stylesheet" />
 
 <p>Websites which are intentionally ugly are one of the hottest trends in webdesign in early 2017, according to the <a href="https://www.washingtonpost.com/news/the-intersect/wp/2016/05/09/the-hottest-trend-in-web-design-is-intentionally-ugly-unusable-sites/">Washington Post</a>, <a href="http://www.webdesignerdepot.com/2016/08/the-rise-and-rise-of-the-brutalist-design-trend/">webdesignerdepot</a> or the <a href="http://t3n.de/news/web-brutalism-design-trend-705490/">t3n magazine</a>.</p>
-<p>After <a href="https://www.templatemonster.com/infographics/web-design-trends-years-2004-2014.php">years</a> of flash, wood patterns, skeuomorphism, webfonts, grunge handwriting, full screen images, ambient background videos, parallax bullshit and interactive <strike>crap</strike>cards, this is a trend that I actually like. <strong>Because: ugly is fast!</strong></p>
+<p>After <a href="https://www.templatemonster.com/infographics/web-design-trends-years-2004-2014.php">years</a> of flash, wood patterns, skeuomorphism, webfonts, grunge handwriting, full screen images, ambient background videos, parallax bullshit and interactive <del>crap</del>cards, this is a trend that I actually like. <strong>Because: ugly is fast!</strong></p>
 <p>Well, it can be fast. Scanning a <a href="http://brutalistwebsites.com/">collection of brutalist websites</a>, I have seen everything from pages with 10 kilobytes to dozens of megabytes. In this article I want to explore and explain some tricks for building ugly websites simply and fast.</p>
 <h1 id="1-backgrounds">1. Backgrounds</h1>
 <p>Use small background images and either tile them, or show them in full size - even if the image is actually much smaller than the screen.</p>
@@ -1018,7 +1076,7 @@ function sharePage() {
 <h1 id="4-ascii-art">4. ASCII Art</h1>
 <pre>
  _______________________________________
-< Are you old enough to know ASCII art? >
+&lt; Are you old enough to know ASCII art? &gt;
  ---------------------------------------
         \   ^__^
          \  (oo)\_______
@@ -2238,7 +2296,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (httpRequest.readyState === 4) {
             if (httpRequest.status === 200) {
                 var data = JSON.parse(httpRequest.responseText);
-                for (var i=0; i < data['tweets'].length; i++) {
+                for (var i=0; i &lt; data['tweets'].length; i++) {
                     var currentData = data['tweets'][i];
                     markerOptions['alt'] = currentData['media_url'];
                     L.marker(
@@ -6027,7 +6085,7 @@ font-size: 2em;
 &lt;tr&gt;&lt;td&gt;Firefox 25 (Win 7)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&quot;no&quot;, &quot;yes&quot;, &quot;unspecified&quot;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;Firefox 25 (Ubuntu 13)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&quot;no&quot;, &quot;yes&quot;, &quot;unspecified&quot;&lt;/td&gt;&lt;/tr&gt;
 
-&lt;tr&gt;&lt;td&gt;Opera 12 (Win 7)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&lt;strike&gt;&quot;0&quot;&lt;/strike&gt;, &quot;1&quot;, null&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Opera 12 (Win 7)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&lt;del&gt;&quot;0&quot;&lt;/del&gt;, &quot;1&quot;, null&lt;/td&gt;&lt;/tr&gt;
 
 &lt;tr&gt;&lt;td&gt;IE 10 (Win 7)&lt;/td&gt;&lt;td&gt;navigator.msDoNotTrack&lt;/td&gt;&lt;td&gt;&quot;0&quot;, &quot;1&quot;, TODO&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;IE 10 (Win 7)&lt;/td&gt;&lt;td&gt;window.external.InPrivateFilteringEnabled()&lt;/td&gt;&lt;td&gt;false, true, undefined&lt;/td&gt;&lt;/tr&gt;
@@ -6144,7 +6202,7 @@ jsOutput.innerHTML+= navigator.userAgent + "\n";
 
 <h3>11) <a href="http://www.uhsless.de/">Ulli Hendrik Streckenbach</a>: Why I am Visualizing Information</h3>
 <p>In einem tollen Votrag erzählte Ulli Streckenbach, wie er zur Visualisierung fand (wegen seiner Vortragsangst) und stellte zwei seiner Arbeiten vor: <a href="http://www.uhsless.de/?p=25">The overfishing of the oceans</a> und <a href="http://www.uhsless.de/?p=963">Let's talk about soil</a></p>
-<p>"People are <strike>busy</strike> lazy."</p>
+<p>"People are <del>busy</del> lazy."</p>
 
 <h3>12) <a href="http://www.pitchinteractive.com/">Wesley Grubbs</a> (<a href="https://twitter.com/pitchinc">@pitchinc</a>): Drones</h3>
 <p>In einem bewegenden Vortrag stellte Wesley Grubbs das <a href="http://drones.pitchinteractive.com/">Out of Sight Out of Mind</a> Projekt vor, das alle bekannten Drohnenangriffe der Amerikaner auf Pakistan visualisiert.</p>

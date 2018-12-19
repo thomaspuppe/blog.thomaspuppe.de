@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Perfekte Link-Unterstreichung</title>
     <meta name="description" content="Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.">
-    <meta name="date" content="Tue May 06 2014 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
+    <meta name="date" content="2014-05-06">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="Perfekte Link-Unterstreichung" />
     <meta property="og:url" content="https://blog.thomaspuppe.de/link-unterstreichung" />
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content="Tue May 06 2014 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)" />
+    <meta property="og:article:published_time" content="2014-05-06" />
     <meta property="og:article:author" content="Thomas Puppe" />
 
 </head>
@@ -29,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Tue May 06 2014 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">06. Mai 2014</time>
+            <time datetime="2014-05-06">06. Mai 2014</time>
         </div>
 
         <h1 class="post__title">Perfekte Link-Unterstreichung</h1>

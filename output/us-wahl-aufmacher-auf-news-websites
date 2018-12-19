@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>News-Aufmacher zur Präsidentenwahl in den USA</title>
     <meta name="description" content="Was war der Aufmacher auf deutschen News-Websites rund um das Wahl-Wochenende? Und wer hat den Sieger als erster verkündet?">
-    <meta name="date" content="Wed Nov 09 2016 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
+    <meta name="date" content="2016-11-09">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="News-Aufmacher zur Präsidentenwahl in den USA" />
     <meta property="og:url" content="https://blog.thomaspuppe.de/us-wahl-aufmacher-auf-news-websites" />
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content="Wed Nov 09 2016 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)" />
+    <meta property="og:article:published_time" content="2016-11-09" />
     <meta property="og:article:author" content="Thomas Puppe" />
 
 </head>
@@ -29,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#News-Watch</span>
-            <time datetime="Wed Nov 09 2016 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">09. November 2016</time>
+            <time datetime="2016-11-09">09. November 2016</time>
         </div>
 
         <h1 class="post__title">News-Aufmacher zur Präsidentenwahl in den USA</h1>

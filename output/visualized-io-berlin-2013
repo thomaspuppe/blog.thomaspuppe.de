@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>VISUALIZED.iO Berlin 2013</title>
     <meta name="description" content="Eine Zusammenfassung der Themen auf der VISUALIZED.iO Konferenz  2013 in Berlin.">
-    <meta name="date" content="Wed Oct 09 2013 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
+    <meta name="date" content="2013-10-09">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="VISUALIZED.iO Berlin 2013" />
     <meta property="og:url" content="https://blog.thomaspuppe.de/visualized-io-berlin-2013" />
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content="Wed Oct 09 2013 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)" />
+    <meta property="og:article:published_time" content="2013-10-09" />
     <meta property="og:article:author" content="Thomas Puppe" />
 
 </head>
@@ -29,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Daten-Visualisierung</span>
-            <time datetime="Wed Oct 09 2013 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">09. Oktober 2013</time>
+            <time datetime="2013-10-09">09. Oktober 2013</time>
         </div>
 
         <h1 class="post__title">VISUALIZED.iO Berlin 2013</h1>
@@ -84,7 +84,7 @@
 
 <h3>11) <a href="http://www.uhsless.de/">Ulli Hendrik Streckenbach</a>: Why I am Visualizing Information</h3>
 <p>In einem tollen Votrag erzählte Ulli Streckenbach, wie er zur Visualisierung fand (wegen seiner Vortragsangst) und stellte zwei seiner Arbeiten vor: <a href="http://www.uhsless.de/?p=25">The overfishing of the oceans</a> und <a href="http://www.uhsless.de/?p=963">Let's talk about soil</a></p>
-<p>"People are <strike>busy</strike> lazy."</p>
+<p>"People are <del>busy</del> lazy."</p>
 
 <h3>12) <a href="http://www.pitchinteractive.com/">Wesley Grubbs</a> (<a href="https://twitter.com/pitchinc">@pitchinc</a>): Drones</h3>
 <p>In einem bewegenden Vortrag stellte Wesley Grubbs das <a href="http://drones.pitchinteractive.com/">Out of Sight Out of Mind</a> Projekt vor, das alle bekannten Drohnenangriffe der Amerikaner auf Pakistan visualisiert.</p>

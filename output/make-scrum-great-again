@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Make SCRUM great again!</title>
     <meta name="description" content="null">
-    <meta name="date" content="Wed Dec 21 2016 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
+    <meta name="date" content="2016-12-21">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="Make SCRUM great again!" />
     <meta property="og:url" content="https://blog.thomaspuppe.de/make-scrum-great-again" />
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content="Wed Dec 21 2016 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)" />
+    <meta property="og:article:published_time" content="2016-12-21" />
     <meta property="og:article:author" content="Thomas Puppe" />
 
 </head>
@@ -29,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Wed Dec 21 2016 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">21. Dezember 2016</time>
+            <time datetime="2016-12-21">21. Dezember 2016</time>
         </div>
 
         <h1 class="post__title">Make SCRUM great again!</h1>

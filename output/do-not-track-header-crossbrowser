@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>doNotTrack Browserübergreifend erkennen</title>
     <meta name="description" content="Der doNotTrack Flag des Browsers signalisiert, dass ein Nutzer nicht getrackt werden möchte. Diese Information lässt sich per JS auslesen &mdash; jedoch je nach browser unterschiedlch.">
-    <meta name="date" content="Thu Nov 07 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
+    <meta name="date" content="2013-11-07">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="doNotTrack Browserübergreifend erkennen" />
     <meta property="og:url" content="https://blog.thomaspuppe.de/do-not-track-header-crossbrowser" />
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content="Thu Nov 07 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)" />
+    <meta property="og:article:published_time" content="2013-11-07" />
     <meta property="og:article:author" content="Thomas Puppe" />
 
 </head>
@@ -29,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Web-Entwicklung</span>
-            <time datetime="Thu Nov 07 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">07. November 2013</time>
+            <time datetime="2013-11-07">07. November 2013</time>
         </div>
 
         <h1 class="post__title">doNotTrack Browserübergreifend erkennen</h1>
@@ -51,7 +51,7 @@
 &lt;tr&gt;&lt;td&gt;Firefox 25 (Win 7)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&quot;no&quot;, &quot;yes&quot;, &quot;unspecified&quot;&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;Firefox 25 (Ubuntu 13)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&quot;no&quot;, &quot;yes&quot;, &quot;unspecified&quot;&lt;/td&gt;&lt;/tr&gt;
 
-&lt;tr&gt;&lt;td&gt;Opera 12 (Win 7)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&lt;strike&gt;&quot;0&quot;&lt;/strike&gt;, &quot;1&quot;, null&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Opera 12 (Win 7)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&lt;del&gt;&quot;0&quot;&lt;/del&gt;, &quot;1&quot;, null&lt;/td&gt;&lt;/tr&gt;
 
 &lt;tr&gt;&lt;td&gt;IE 10 (Win 7)&lt;/td&gt;&lt;td&gt;navigator.msDoNotTrack&lt;/td&gt;&lt;td&gt;&quot;0&quot;, &quot;1&quot;, TODO&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;IE 10 (Win 7)&lt;/td&gt;&lt;td&gt;window.external.InPrivateFilteringEnabled()&lt;/td&gt;&lt;td&gt;false, true, undefined&lt;/td&gt;&lt;/tr&gt;

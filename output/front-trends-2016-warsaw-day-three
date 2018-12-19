@@ -5,7 +5,7 @@
     <meta name="language" content="en">
     <title>Front Trends 2016 in Warsaw: Day 3</title>
     <meta name="description" content="Summarizing the third day presentations of the Front Trends 2016 conference in Warsaw, including the Nyan cat, pixel bonding, modern(izer) tools, CSS engineering principles, Origami, offline pages, real programmers and Trojan CVs.">
-    <meta name="date" content="Fri May 20 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">
+    <meta name="date" content="2016-05-20">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="Front Trends 2016 in Warsaw: Day 3" />
     <meta property="og:url" content="https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-three" />
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content="Fri May 20 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)" />
+    <meta property="og:article:published_time" content="2016-05-20" />
     <meta property="og:article:author" content="Thomas Puppe" />
 
 </head>
@@ -29,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Webentwicklung</span>
-            <time datetime="Fri May 20 2016 02:00:00 GMT+0200 (Mitteleuropäische Sommerzeit)">20. Mai 2016</time>
+            <time datetime="2016-05-20">20. Mai 2016</time>
         </div>
 
         <h1 class="post__title">Front Trends 2016 in Warsaw: Day 3</h1>

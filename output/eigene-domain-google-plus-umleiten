@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>domain.de+ auf Google+ Profil umleiten</title>
     <meta name="description" content="Weiterleitung von thomaspuppe.de/+ auf das Google-Profil via .htaccess">
-    <meta name="date" content="Thu Jan 17 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">
+    <meta name="date" content="2013-01-17">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="domain.de+ auf Google+ Profil umleiten" />
     <meta property="og:url" content="https://blog.thomaspuppe.de/eigene-domain-google-plus-umleiten" />
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content="Thu Jan 17 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)" />
+    <meta property="og:article:published_time" content="2013-01-17" />
     <meta property="og:article:author" content="Thomas Puppe" />
 
 </head>
@@ -29,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Web-Entwicklung</span>
-            <time datetime="Thu Jan 17 2013 01:00:00 GMT+0100 (Mitteleuropäische Normalzeit)">17. Januar 2013</time>
+            <time datetime="2013-01-17">17. Januar 2013</time>
         </div>
 
         <h1 class="post__title">domain.de+ auf Google+ Profil umleiten</h1>
