@@ -10,8 +10,7 @@
   "license": "BSD-2-Clause",
   "scripts": {
     "build": "rm -rf ./output/* && node ./node_modules/easto/index.js --config=easto_config.json",
-    "build-verbose": "rm -rf ./output/* && node ./node_modules/easto/index.js --config=easto_config.json --verbose=true",
-    "build-css": "sass --watch themes/thomaspuppe/sass/styles.sass:themes/thomaspuppe/styles.css"
+    "build-verbose": "rm -rf ./output/* && node ./node_modules/easto/index.js --config=easto_config.json --verbose=true"
   },
   "dependencies": {
   	"easto": "thomaspuppe/easto"
