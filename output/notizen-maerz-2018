@@ -35,7 +35,7 @@
         <h1 class="post__title">Notizen März 2018</h1>
 
         <p>Ich versuche mich mal am beliebten &quot;this month I learned&quot; Format. Weil ich in den letzten Monaten aber immer gesammelt und nie gepublished habe, versuche ich es so: zu Monatsbeginn schreibe ich einen Anfang, und dann ergänze ich im Laufe des Monats. Das gibt auch Raum für kleine Sachen, die es nie zu eigenen Blogposts schaffen. Mal schauen wie das wird.</p>
-<h2 id="default-parameters-in-javascript-nicht-im-ie-11">Default Parameters in Javascript ... nicht im IE 11</h2>
+<h2 id="default-parameters-in-javascript--nicht-im-ie-11">Default Parameters in Javascript ... nicht im IE 11</h2>
 <p>Fangen wir gleich mal an mit dem Fail der Woche. Einmal ZEIT Online Production kaputtmachen für alte Browser. Wie? Durch den Gebrauch von default Parametern in JavaScript:</p>
 <pre>function(myParam, optionalParam = true) { ... }</pre>
 
@@ -45,7 +45,7 @@
 }</pre>
 
 
-<h2 id="document-currentscript">document.currentScript</h2>
+<h2 id="documentcurrentscript">document.currentScript</h2>
 <p>Das zweite JS Learning des Tages: man kann im JS Code dasjenige <code>script</code>-DOM-Element selektieren, in dem der Code läuft. Einfach via <code>document.currentScript</code>.</p>
 <p><a href="http://2ality.com/2014/05/current-script.html">Detaillierter Artikel zu currentScript von Dr. Axel Rauschmayer</a> mit veralteten Angaben zur Browser-Unterstützung. Caniuse bestätigt eine gute Unterstützung: [<a href="https://www.caniuse.com/#search=currentScript%5D">https://www.caniuse.com/#search=currentScript]</a>(Browser-Unterstützung von <code>document.currentScript</code> bei caniuse.com).</p>
 <p>Allerdings wieder ohne den IE11. Und weil wir da ja keinen Bug haben wollen (siehe oben), gibt es einen schönen Polyfill:</p>
@@ -97,7 +97,7 @@ parentNode.replaceChild(newChild, oldChild);
 <p>Zu dem Thema ist mir das Buch &quot;<a href="https://shop.smashingmagazine.com/products/white-hat-ux-the-next-generation-in-user-experience">White hat UX</a>&quot; untergekommen, was ich mit gleich mal gekauft habe. Ich werde in diesem Blog berichten. Das eBook kostet nur $7.50, das kann man auch mal anonym an seine Produktentwicklung spenden.</p>
 <h2 id="next-gerenartion-clearfix">Next Gerenartion Clearfix</h2>
 <p>Es gibt ein natives Clearfix in CSS. <a href="https://css-tricks.com/display-flow-root/">Chris Coyier</a> schrieb schon 2016 darüber, <a href="https://rachelandrew.co.uk/archives/2017/01/24/the-end-of-the-clearfix-hack/">Rachel Andrew</a> Anfang 2017. Allerdings ist die <a href="https://www.caniuse.com/#search=flow-root">Browser-Unterstützung</a> recht mager: nur Firefox und Chrome unterstützen <code>display: flow-root</code>. Wenn ich jetzt den Draft-Revision-usw. Lebenszyklus der <a href="https://drafts.csswg.org/css-display-3/#valdef-display-flow-root">CSSWG</a> verstehen würde...</p>
-<h2 id="hinter-docker-herr-umen">Hinter Docker herräumen</h2>
+<h2 id="hinter-docker-herräumen">Hinter Docker herräumen</h2>
 <p>Mein Kollege Wolfgang hat was schönes entdeckt: Docker-Container werden nicht automatisch gelöscht nachdem ein Job mit ihnen lief. Wir benutzen Docker für Sitespeed-Tests, die alle paar Minuten laufen. Das nimmt nicht viel Platz weg, aber summiert sich und verlangsamt auch einige Befehle. Man findet die Dinger via <code>docker container ls --all</code>, kann einmal durchwischen mit <code>docker container prune</code> und verhindert das Ansammeln, indem man den Job mit <code>docker run --rm</code> startet.</p>
 <h2 id="resilient-css">Resilient CSS</h2>
 <p>Jen Simmons <a href="https://hacks.mozilla.org/2018/03/how-to-write-css-that-works-in-every-browser-even-the-old-ones/">https://hacks.mozilla.org/2018/03/how-to-write-css-that-works-in-every-browser-even-the-old-ones/</a></p>

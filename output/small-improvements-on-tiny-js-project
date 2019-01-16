@@ -36,7 +36,7 @@
 
         <h2 id="the-project">The project</h2>
 <p>Meetingtimer erklären, GitHub Projekt verlinken.</p>
-<h2 id="const-let">const/let</h2>
+<h2 id="constlet">const/let</h2>
 <p>(TODO: theoretische )</p>
 <h2 id="make-it-more-functional">Make it more functional</h2>
 <p>Another thing to make the code more handable is to move variables from the &quot;global&quot; scope to a more local one. What I mean by this:</p>
@@ -86,7 +86,7 @@
     };</pre>
 
 <p>That way, the <code>updateTime()</code> function has no influence on the outside world (except DOM manipulation). It only takes the one argument that it needs, and handles internal stuff (seconds, minutes) internally.</p>
-<h2 id="let-const">let/const</h2>
+<h2 id="letconst">let/const</h2>
 <p>I also replaced <code>var</code> declarations with <code>let</code> and <code>const</code>. As long as we don&#39;t transpile the code, we loose users from IE10 and below. But we win a certain degree of safety, simply because we limit the ways to shoot ourselves in the foot.</p>
 <p>[TODO: eine etwas bessere &quot;akademische&quot; Argumentation finden.]</p>
 <p>We will have a deeper look at that later.</p>

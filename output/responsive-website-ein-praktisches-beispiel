@@ -58,7 +58,7 @@
 <pre>.posts p, .posts h1, .posts h2 { max-width:600px; }</pre>
 
 <p>Da die Artikel selbst noch breit laufen sollen (bunter Rand rechts), begrenzen wir nur Überschriften und Absätze in der Breite. Ḿan erkennt, dass die Inhalte der rechten Spalte sich dem Menü</p>
-<h2 id="3-breakpoints-f-r-unterschiedliche-styles">3. Breakpoints für unterschiedliche Styles</h2>
+<h2 id="3-breakpoints-für-unterschiedliche-styles">3. Breakpoints für unterschiedliche Styles</h2>
 <p>Anhand von sogenannten Media Queries kann bestimmtes CSS für bestimmte Gerätetypen ausgeliefert werden. Für Responsive Websites richtet man sich meist nach der Breite des Bildschirms. Anhand von Grenzwerten (&ldquo;Breakpoints&rdquo;) werden unterschiedliche Regeln für unterschiedliche Bildschirm edefiniert. Für den Einsatz von Breakpoints gibt es zwei verschiedene Ansätze. <strong>Desktop-First</strong> funktioniert mit absteigenden max-width Werten:</p>
 <pre>h1 {
 font-size: 3.5em;

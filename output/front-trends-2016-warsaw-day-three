@@ -41,7 +41,7 @@
 </figure>
 
 
-<h2 id="opening-by-sta-ma-olepszy">Opening by <a href="https://twitter.com/stas">Staś Małolepszy</a></h2>
+<h2 id="opening-by-staś-małolepszy">Opening by <a href="https://twitter.com/stas">Staś Małolepszy</a></h2>
 <p>Trigger a bit of interest, be available to help. And many cool things will happen.</p>
 <ul>
 <li><a href="https://www.scirra.com/construct2">Construct 2</a>: HTML5 game maker</li>
@@ -78,7 +78,7 @@
 <li>two <a href="https://vimeo.com/140641366">video</a> <a href="https://vimeo.com/153895841">recordings</a> of this talk</li>
 <li>You should take 10 minutes and read about <a href="https://en.wikipedia.org/wiki/Grace_Hopper">Grace Hopper</a>.</li>
 </ul>
-<h2 id="can-t-you-make-it-more-like-bootstrap-by-alice-bartlett">Can&#39;t you make it more like Bootstrap? by <a href="http://alicebartlett.co.uk/">Alice Bartlett</a></h2>
+<h2 id="cant-you-make-it-more-like-bootstrap-by-alice-bartlett">Can&#39;t you make it more like Bootstrap? by <a href="http://alicebartlett.co.uk/">Alice Bartlett</a></h2>
 <p>Subtitle: &quot;Considerations for building front end systems&quot;. Alice leads a team whose aim is to unify and DRY frontend work at the Financial Times (project &quot;Origami&quot;.</p>
 <p>On the different FT branded websites, there are a lot of things which have been implemented differently, even on atomic scale (4 implementations of a close button which looks the same, 3 different Twitter icons).</p>
 <p>First step was to use components to keep HTML, CSS, JS for one thing in one place (this seems to be a hot topic this year).</p>
@@ -101,7 +101,7 @@
 <li>This talk on video: <a href="https://www.youtube.com/watch?v=dZU6_2xXeVk">Building an offline page for theguardian.com</a></li>
 <li><a href="https://www.theguardian.com/info/developer-blog">the Guardian&#39;s digital development team blog</a></li>
 </ul>
-<h2 id="the-myth-of-the-real-javascript-programmer-by-brenna-o-brian">The Myth of the &quot;Real JavaScript Programmer&quot; by <a href="http://brennaobrien.com/">Brenna O&#39;Brian</a></h2>
+<h2 id="the-myth-of-the-real-javascript-programmer-by-brenna-obrian">The Myth of the &quot;Real JavaScript Programmer&quot; by <a href="http://brennaobrien.com/">Brenna O&#39;Brian</a></h2>
 <p>Great talk about what seems to be expected from &quot;good programmers&quot; today, and what really is.</p>
 <p>We don&#39;t need to know everything, finding a niche is cool. This is not a test. Real developers use resources wisely. Code has not to be perfect or even correct on the first try (or at all). Learn from mistakes. Show your work, not only your finished and polishes products. Encourage each other. We don&#39;t have to code all the day and everyday. Being a developer does not have to kill your hobbies (or parentship).</p>
 <blockquote>
@@ -113,7 +113,7 @@
 <li>Slides should come up <a href="http://brennaobrien.com/speaking/">here</a> soon, a <a href="http://talks.brennaobrien.com/real-developer/myth-of-the-real-javascript-developer.pdf">pdf version</a> is already available.</li>
 <li>Hashtag <a href="https://twitter.com/search?q=%23juniordevforlife">#juniordevforlife</a></li>
 </ul>
-<h2 id="don-t-hate-the-player-hate-the-game-by-tim-holman">Don&#39;t hate the player, hate the game by <a href="http://tholman.com/">Tim Holman</a></h2>
+<h2 id="dont-hate-the-player-hate-the-game-by-tim-holman">Don&#39;t hate the player, hate the game by <a href="http://tholman.com/">Tim Holman</a></h2>
 <blockquote>
 <p>please be less ridiculous</p>
 </blockquote>

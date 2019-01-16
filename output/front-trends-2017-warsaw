@@ -80,7 +80,7 @@
 <p><strong>The past and future of designing interfaces</strong> by <a href="https://www.twitter.com/mrmrs_">Adam Morse</a> was a bit abstract and about design systems (which are like Gutenbergs moveable type), spreadsheets (a study shows: almost all have errors) teams (if you have less or more than 3 people, you won&#39;t make any substantial progress). My highlight was the idea of a random content generator for design systems, which puts a stress test on styleguides by automatic permutation of content.</p>
 <p><strong>Prevent Default — The future of authoring tools</strong> by <a href="https://twitter.com/mcernusca/">Mihai Cernusca</a> showed a lot of examples and principles of authoring tools from the past, present and future. Even complex 3D software uses a heap of generic UI elements (sliders, input, radio buttons). How can we enhance this? The tool &quot;<a href="http://www.hemingwayapp.com/">Hemingway</a>&quot; lints your text while writing. But apart from that, most text editors look like Word 1.0. And it gets harder if you want to edit layout instead of vertical one-column text flow, have history, drag&amp;drop, selection, cursor navigation. Mihais Solutions: ContentEditable, Outliner, Workflowy, Notion.io.</p>
 <p><strong>Building a Progressive Web App</strong> by <a href="https://twitter.com/kirupa/">Kirupa Chinnathambi</a> was an intoductionto PWAs (<a href="https://onedrive.live.com/view.aspx?resid=1D3A48480C64E70E!163164&amp;ithint=file%2cpptx&amp;app=PowerPoint&amp;authkey=!ACeg0TvJaXr-rJk">Slides</a>). It was new to me that PWAs are available and installable from the Windows 10 app store.</p>
-<h2 id="random-facts-that-i-learned-">Random facts that I learned:</h2>
+<h2 id="random-facts-that-i-learned">Random facts that I learned:</h2>
 <ul>
 <li>There is a <a href="https://github.com/sgentle/caniuse-cmd">CLI for caniuse.com</a></li>
 <li>You can style the <code>caret-color</code> in CSS.</li>
@@ -89,7 +89,7 @@
 <li>Media queries are becoming increasingly complex. Solution is a more fluid design. But except from percentages and fluid font sizing, there are no good solutions.</li>
 <li><code>&lt;input type=&quot;text&quot; pattern=&quot;...&quot; /&gt;</code> is a thing</li>
 </ul>
-<h2 id="my-catch-up-list-">My catch-up list:</h2>
+<h2 id="my-catch-up-list">My catch-up list:</h2>
 <ul>
 <li>Play with new browser APIs</li>
 <li>Use CSS grids</li>

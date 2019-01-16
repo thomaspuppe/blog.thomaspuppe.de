@@ -34,7 +34,7 @@
 
         <h1 class="post__title">Web developers, respect your users!</h1>
 
-        <h2 id="do-not-track-">Do Not Track!</h2>
+        <h2 id="do-not-track">Do Not Track!</h2>
 <h2 id="data-saver">data-saver</h2>
 <h2 id="device-connection-speed">device connection speed</h2>
 <h2 id="device-battery">device battery</h2>

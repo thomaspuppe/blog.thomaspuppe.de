@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="language" content="de">
     <title>Notizen Januar 2019</title>
-    <meta name="description" content="this-month-I-learned und Lesetipps für Januar 2019: Performance, Privacy und das vorläufige Ende des Browser War">
+    <meta name="description" content="Notizen und Lesetipps für Januar 2019: Performance, Privacy und das vorläufige Ende des Browser War">
     <meta name="date" content="2018-07-20">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
@@ -41,9 +41,9 @@
 </blockquote>
 <p>Zum Thema Waste gibts dann eine schöne Milchmädchenrechnung: in einer Studie wurde errechnet, dass für jedes GB Daten im Internet 5 kWh an Energie benötigt werden (für die Übertragung, nehme ich an). Folglich sind das laut Kadlec 17.6 Millionen kWh pro Tag. Jetzt kann man als Hausaufgabe überschlagen wie viele Kernkraftwerke durch das Abschalten des Google Tag Managers eingespart würden ;-)</p>
 <p>Ein anderes Beispiel: beim <a href="http://blog.chriszacharias.com/page-weight-matters">Youtube Feather</a> Projekt hat <a href="https://twitter.com/zacman85">Chris Zacharias</a> entdeckt, dass Nutzer in nicht-so-reichen Ländern die Videoplattform überhaupt erst nutzen können, wenn man sie radikal beschleunigt. Also ganze Nutzergruppen <em>konnten</em> Youtube vorher gar nicht benutzen, obwohl sie es wollten. Das beweist erneut &quot;Performance is Accessibility&quot;.</p>
-<h3 id="-und-die-konomie-von-web-performance-">... und die Ökonomie von Web Performance?</h3>
+<h3 id="-und-die-ökonomie-von-web-performance">... und die Ökonomie von Web Performance?</h3>
 <p>Ich glaube ja, dass das gleiche für ... sagen wir ... News-Websites zutreffen würde. Die erste Seite die signifikant schneller ist als der Rest wird sicher viel mehr besucht. Erreichen könnte man das z.B. durch weniger nervige Werbung. Die Einkommensverluste pro Besucher/Klick würde man dann durch höhere Reichweite ausgleichen? Kann man nicht wissen, solange man es nicht probiert.</p>
-<h2 id="usability-findability-vergleich-von-flat-design-vs-traditional-design">Usability/Findability Vergleich von Flat Design vs Traditional Design</h2>
+<h2 id="usabilityfindability-vergleich-von-flat-design-vs-traditional-design">Usability/Findability Vergleich von Flat Design vs Traditional Design</h2>
 <p>Ein Paper aus dem Jahr 2015 wurde bei Hacker News hochgespült. Forscher aus Russland haben &quot;<a href="https://www.researchgate.net/publication/281628009_Flat_Design_vs_Traditional_Design_Comparative_Experimental_Study">Flat Design vs Traditional Design</a>&quot; verglichen, in Bezug auf Findbarkeit von User Interface Elementen. Flat Design schneidet schlechter ab.</p>
 <blockquote>
 <p>The results show that a search in ﬂat text mode (compared with the traditional mode) is associated with higher cognitive load. A search for ﬂat icons takes twice as long as for realistic icons and is also characterized by higher cognitive load. Identifying clickable objects on ﬂat web pages requires more time and is characterised by a signiﬁcantly greater number of errors.</p>
@@ -62,6 +62,12 @@
 <p>Apropos Dystopie und Microsoft und Dominanz: am Beispiel von Linkedin wird hier gezeigt, wie Websites herausfinden können welche Browser-Extensions ein Besucher installiert hat: <a href="https://github.com/dandrews/nefarious-linkedin">Nefarious LinkedIn</a></p>
 <p>tldr: man prüft, welche lokalen Extension-Dateien der Browser von <code>chrome://extensions</code> lädt, oder welche Manipulationen auf berühmten Websites vorgenommen werden. Und gleicht das dann mit seiner Datenbank bekannter Extensions ab.</p>
 <p>Das erinnert mich an die gute alte <a href="https://dbaron.org/mozilla/visited-privacy">Erkennung von visited Links</a> via <code>getComputedStyles()</code>, um herauszufinden welche anderen Seiten deine Besucher noch besucht hat.</p>
+<p>##</p>
+<p>Die New York Times</p>
+<blockquote>
+<p>The desirability of a brand may be stronger than the targeting capabilities.
+&mdash; <a href="https://digiday.com/media/new-york-times-gdpr-cut-off-ad-exchanges-europe-ad-revenue/">After GDPR, The New York Times cut off ad exchanges in Europe — and kept growing ad revenue</a></p>
+</blockquote>
 
 
     </article>

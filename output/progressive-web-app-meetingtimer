@@ -34,7 +34,7 @@
 
         <h1 class="post__title">Progressive Web App erstellen</h1>
 
-        <h1 id="progressive-web-app-was-ist-das-">Progressive Web App -- was ist das?</h1>
+        <h1 id="progressive-web-app----was-ist-das">Progressive Web App -- was ist das?</h1>
 <p>Progressive Web Apps sind der (mittlerweile nicht mehr ganz so) heiße Scheiß im mobilen Internet. Normale Websites und -apps werden mit bestimmten Features angereichert, um am Ende App-like benutzbar zu sein. Allerdings als richtiges HTML im richtigen (auch älteren) Browser, ohne Lock-In eines App Stores.</p>
 <p>Das Smashing Magazine behandelt Progressive Web Apps in einer sehr guten <a href="https://www.smashingmagazine.com/2016/08/a-beginners-guide-to-progressive-web-apps/">drei</a>-<a href="https://www.smashingmagazine.com/2016/09/the-building-blocks-of-progressive-web-apps/">teiligen</a>-<a href="https://www.smashingmagazine.com/2016/12/progressive-web-amps/">Serie</a>.</p>
 <p>Von einer Progressive Web App spricht man, wenn sie folgende zehn Kriterien erfüllt:</p>
@@ -73,7 +73,7 @@
 <p>Die drei ssl-Zeilen sind im Prinzip alles, was es zum Verschlüsseln braucht. Man kann das ganze optimieren: für eine Weiterleitung von nicht-www auf www braucht man zum Beispiel noch ein Zertifikat, wenn die Weiterleitung auch durch den Webserver erfolgen soll. Außerdem kann man die Verschlüsselung noch verbessern, laut einem Test von <a href="https://www.ssllabs.com/ssltest/">SSL Labs</a> erreichen das Zertifikat und die Server-Konfiguration noch nicht die volle Punktzahl. Aber für den Einstieg sind wir sehr gut versorgt.</p>
 <p>Eine andere Möglichkeit, eigene Inhalte kostenlos und einfach über eine HTTPS-Verbindung auszuliefern, sind <a href="https://pages.github.com/">GitHub Pages</a>. Für den lokalen Webserver kann man sich selbst ein Zertifikat <a href="https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04">erzeugen</a> und signieren. Beim Öffnen der Seite warnt der Browser zwar, lässt sich aber überreden, die Seite zu öffnen.</p>
 <p>Auch wenn Verschlüsselung an sich schon ein Wert ist, war sie hier nur die notwenige Vorbedingung für den nächsten Schritt:</p>
-<h1 id="schritt-2-ein-manifest-und-einen-service-worker-erstellen-um-die-app-installieren-zu-k-nnen">Schritt 2: Ein Manifest und einen Service Worker erstellen, um die App &quot;installieren&quot; zu können</h1>
+<h1 id="schritt-2-ein-manifest-und-einen-service-worker-erstellen-um-die-app-installieren-zu-können">Schritt 2: Ein Manifest und einen Service Worker erstellen, um die App &quot;installieren&quot; zu können</h1>
 <p>Progressive Web Apps lassen sich auf dem Smartphone zum Home-Screen oder menü hinzufügen.</p>
 <pre>{
     "lang": "en",
@@ -105,7 +105,7 @@ Dokumentation</a> im MDN.</p>
 <p>Mit den drei geschaffenen Voraussetzungen (HTTPS, Manifest und ServiceWorker) kann man die App nun auf seinem Home Screen installieren. Das könnte man schon immer mit dem Menüpunkt &quot;zum Startbildschirm hinzufügen&quot;, was einen Shortcut auf dem Startbildschirm hinterlegt. Die progressive-web-appige Lösung löst aber außerdem einen Installations-Hinweis des Chrome Browsers aus:</p>
 <p>Und zweitens</p>
 <p><a href="https://developers.google.com/web/fundamentals/engage-and-retain/app-install-banners/">https://developers.google.com/web/fundamentals/engage-and-retain/app-install-banners/</a></p>
-<h1 id="schritt-4-dateien-offline-verf-gbar-machen">Schritt 4: Dateien offline verfügbar machen</h1>
+<h1 id="schritt-4-dateien-offline-verfügbar-machen">Schritt 4: Dateien offline verfügbar machen</h1>
 
 
     </article>

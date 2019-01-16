@@ -34,7 +34,7 @@
 
         <h1 class="post__title">Performance-Optimierung von Webfonts</h1>
 
-        <h2 id="braucht-man-berhaupt-webfonts-">braucht man überhaupt Webfonts?</h2>
+        <h2 id="braucht-man-überhaupt-webfonts">braucht man überhaupt Webfonts?</h2>
 <ul>
 <li>Screenshot mit/ohne</li>
 </ul>
@@ -45,8 +45,8 @@
 <h2 id="subset">Subset</h2>
 <ul>
 <li><a href="https://transfonter.org/">https://transfonter.org/</a> (oder <a href="https://github.com/bramstein/homebrew-webfonttools">https://github.com/bramstein/homebrew-webfonttools</a>)</li>
-<li><a href="https://parall.ax/blog/view/3072/tutorial-reducing-the-file-size-of-custom-web-fonts">https://parall.ax/blog/view/3072/tutorial-reducing-the-file-size-of-custom-web-fonts</a>
--</li>
+<li><a href="https://parall.ax/blog/view/3072/tutorial-reducing-the-file-size-of-custom-web-fonts">https://parall.ax/blog/view/3072/tutorial-reducing-the-file-size-of-custom-web-fonts</a></li>
+<li></li>
 </ul>
 <p>Beispiel:</p>
 <ul>
@@ -62,7 +62,7 @@
 <li>Subset Buchstaben (&quot;Do one thing today.&quot;):
 -</li>
 </ul>
-<h1 id="foit-fout">FOIT/FOUT</h1>
+<h1 id="foitfout">FOIT/FOUT</h1>
 <ul>
 <li>Cookie-Variante <a href="https://www.filamentgroup.com/lab/font-events.html">https://www.filamentgroup.com/lab/font-events.html</a></li>
 <li>Font Loading API (wann kommt die wo?)</li>
@@ -90,7 +90,7 @@
 <ul>
 <li><a href="http://fontfamily.io/Andale_Mono,monospace">http://fontfamily.io/Andale_Mono,monospace</a></li>
 </ul>
-<h2 id="links">Links</h2>
+<h2 id="links-1">Links</h2>
 <ul>
 <li><a href="https://www.zachleat.com/web/comprehensive-webfonts/">https://www.zachleat.com/web/comprehensive-webfonts/</a></li>
 </ul>

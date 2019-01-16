@@ -45,7 +45,7 @@ puppe:~ $ j a11
 /Users/puppe/code/zon/a11y-dashboard</pre>
 
 
-<h2 id="a11y-zwei-tools-um-einschr-nkungen-zu-simulieren">A11y: Zwei Tools um Einschränkungen zu simulieren</h2>
+<h2 id="a11y-zwei-tools-um-einschränkungen-zu-simulieren">A11y: Zwei Tools um Einschränkungen zu simulieren</h2>
 <p><a href="https://www.colorblindsim.com/">colorblindsim.com</a>ist eine offlinefähige Web-App fürs Spartphone, die auf dem Display anzeigt wie das Drumherum denn aussehen würde wenn man farbenblind wäre.</p>
 <p><a href="https://chrome.google.com/webstore/detail/funkify-disability-simula/ojcijjdchelkddboickefhnbdpeajdjg">Funkify</a> ist eine Chrome-Extension, die beim Surfen Dinge wie Farbenblindheit, verschwommenes Sehen, oder Zittern simuliert.</p>
 <h2 id="request-map">Request Map</h2>
@@ -107,7 +107,7 @@ day to make deceptive user experiences. You are better than that.</p>
 <h2 id="webfont-preloading">Webfont Preloading</h2>
 <p>Zwei interessante Sachen gelernt. Erstens: ich dachte immer, das Preloading kann man doch gar nicht realistisch machen, weil man im HTML ja gar nicht weiß ob der Browser woff2, woff, oder ein älteres Format anfordern wird. Auf der JSUnconf Konferenz habe ich dann gelernt: Alle Browser, die <a href="https://www.caniuse.com/#search=preload">Preload</a> können, unterstützen auch <a href="https://www.caniuse.com/#search=woff2">woff2</a>. Womit es sich wunderbar einsetzen lässt, auch wenn man im CSS ältere Browser mit älteren Schriftformaten versorgt.</p>
 <p>Zweite Sache, die ich beim Benutzen schmerzhaft gelernt habe: Preload von Schriften braucht dringend das <code>crossorigin</code> Attribut, auch wenn die Schriften vom gleichen Host kommen! (Quellen: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content#Cross-origin_fetches">MDN</a>, <a href="https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#early-loading-of-fonts">Smashing</a>).</p>
-<h2 id="rendern-von-unicode-zeichen-als-emoji-unterdr-cken">Rendern von Unicode-Zeichen als Emoji unterdrücken</h2>
+<h2 id="rendern-von-unicode-zeichen-als-emoji-unterdrücken">Rendern von Unicode-Zeichen als Emoji unterdrücken</h2>
 <p>Das mobile iOS (und vermutlich auch andere) stellen Unicode-Zeichen auf Websites als Emoji dar. Das kann ganz witzig sein – aber als Zeitung willst du das nicht in deinen Artikeln haben.</p>
 <p>Lösung: Das Anhängen von <code>\00FE0E</code> unterdrückt das <a href="http://mts.io/2015/04/21/unicode-symbol-render-text-emoji/">Rendern als Emoji</a>.</p>
 <p>Reines Zeichen: &amp;#x1F435 (<code>&amp;amp;#x1F435</code>); . Explizit kein Emoji: &#x1F435;&#xFE0E; (<code>&amp;amp;#x1F435;&amp;amp;#xFE0E;</code>)</p>

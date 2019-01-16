@@ -43,7 +43,7 @@
 <li>Möglichst wenige Requests im Live-betrieb ... es wäre schade, für 6 kB JavaScript und 3 kB CSS zwei Roundtrips zu starten.</li>
 <li>Beim Programmieren möchte ich dennoch nicht alles in einer großen HTML Datei horten.</li>
 </ol>
-<h2 id="l-sung-mittels-gulp">Lösung mittels Gulp</h2>
+<h2 id="lösung-mittels-gulp">Lösung mittels Gulp</h2>
 <p>Grundlage bei der Arbeit mit CSS und JS sind natürlich die klassischen Werkzeuge wie less, minify-css, slint, uglify und concat. Die sind in jedem Gulp-Tutorial enthalten und sollen hier nicht behandelt werden. Spannend für meine Zwecke sind zwei weitere Tasks:</p>
 <pre>var replace = require('gulp-replace-task'),
     cleanhtml = require('gulp-cleanhtml');</pre>

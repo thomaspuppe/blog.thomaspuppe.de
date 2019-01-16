@@ -98,7 +98,7 @@ for i in /*; do echo $i; find $i | wc -l | sort ; done</pre>
 <pre>836836    /var/spool/postfix/maildrop</pre>
 
 <p>Das sind also felgeschlagene Versuche des Systems, E-Mails zu versenden. Stichproben (<code>cat /var/spool/postfix/maildrop/D7E6A90D4CA9</code>) ergeben, dass meine Cronjobs versuchen, Mails zu versenden.</p>
-<h3 id="ich-habe-also-meinen-belt-ter-nun-geht-es-ans-aufr-umen-">Ich habe also meinen Übeltäter. Nun geht es ans Aufräumen.</h3>
+<h3 id="ich-habe-also-meinen-übeltäter-nun-geht-es-ans-aufräumen">Ich habe also meinen Übeltäter. Nun geht es ans Aufräumen.</h3>
 <p>Die erste Maßnahme, für den Seelenfrieden, ist natürlich</p>
 <pre>sudo rm -rf /var/spool/postfix/maildrop/*
 bash: /bin/rm: Argument list too long</pre>

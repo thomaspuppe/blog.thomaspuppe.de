@@ -45,7 +45,7 @@
 <li>Fun with <a href="http://slides.com/tholman/css-pranks/#/">CSS pranks</a></li>
 </ul>
 <h2 id="keynote-the-web-in-motion-by-rachel-nabors">Keynote: The Web in Motion by <a href="https://twitter.com/RachelNabors">Rachel Nabors</a></h2>
-<p>Rachel talked about Apps vs Websites, and how Apps often provide the same content, but look much nicer because transitions between states are animated. If there is only _old state -&gt; new state_, the users brain needs to do heavy interpolation work. If the transition is animated, there is less cognitive workload on the user. So the goal is to eliminate sudden visual changes. Rachel takes two excurses to dark patterns/ads and technical history of animations (Flash, SMIL. CSS Animations) and closes with the Web Animation API.</p>
+<p>Rachel talked about Apps vs Websites, and how Apps often provide the same content, but look much nicer because transitions between states are animated. If there is only <em>old state -&gt; new state</em>, the users brain needs to do heavy interpolation work. If the transition is animated, there is less cognitive workload on the user. So the goal is to eliminate sudden visual changes. Rachel takes two excurses to dark patterns/ads and technical history of animations (Flash, SMIL. CSS Animations) and closes with the Web Animation API.</p>
 <blockquote>
 <p>The difference between web and native starts to blur. The Web is moving forward.</p>
 </blockquote>
@@ -84,12 +84,12 @@
 <li>&quot;50 Shades of #0089ff&quot; by Gabriel Agu</li>
 <li>&quot;Language&quot; by <a href="https://twitter.com/g16n">Gunnar Bittersman</a></li>
 </ul>
-<h2 id="rxjs-destroy-the-state-machine-by-stenver-jerkku">RxJS – Destroy the state machine by Stenver Jerkku</h2>
+<h2 id="rxjs--destroy-the-state-machine-by-stenver-jerkku">RxJS – Destroy the state machine by Stenver Jerkku</h2>
 <p>A technical talk with lots of code samples. In short: RxJS is like &quot;Promises on steroids&quot;, providing more possibilities and code which is easier to read. It also has brilliant testing tools and is available in various languages (Scala, Ruby, Java, ...).</p>
 <ul>
 <li><a href="http://www.reactivemanifesto.org">The reactive manifesto</a></li>
 </ul>
-<h2 id="untangle-your-code-with-yield-by-sta-ma-olepszy">Untangle your code with yield by <a href="https://twitter.com/stas">Staś Małolepszy</a></h2>
+<h2 id="untangle-your-code-with-yield-by-staś-małolepszy">Untangle your code with yield by <a href="https://twitter.com/stas">Staś Małolepszy</a></h2>
 <p>Very technical talk, completely in code. This was fascinating, in the sense of Clarke&#39;s law. I will need to check and work-through the presentation. Buzzwords: ES5, function generators, yield, iterators.</p>
 <p>Staś did some live coding (live-uncommenting, actually) with split-screen of code and results. Not sure if this setting is also part of the demo repo.</p>
 <ul>
@@ -100,7 +100,7 @@
 <p>Tim Kadlec held yet another performance talk, making fun of the fact that this topic has been talked about a lot in the last years. (&quot;There&#39;s a secret club of people who need to say &#39;The fastest Request is no Request&#39; two times each year.&quot;)</p>
 <p>Measurable performance improvement (DNS-prefetch, preconnect, preload, prerender, async, defer, inline critical CSS) is important. If there is nothing left to speed up, you can increase the perceived speed (skeleton rendering, changing status text on progress bars). And sometimes you need to add an artificial delay, because people do not trust a credit card validation which runs too fast.</p>
 <blockquote>
-<p>Everything on your page should have a <em>value_, because everything has a _cost</em>.</p>
+<p>Everything on your page should have a <em>value</em>, because everything has a <em>cost</em>.</p>
 </blockquote>
 <ul>
 <li>Twitter: <a href="https://twitter.com/tkadlec">@tkadlec</a></li>

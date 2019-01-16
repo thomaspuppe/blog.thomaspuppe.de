@@ -4,9 +4,9 @@
         <title>Blog von Thomas Puppe, Web Developer.</title>
         <link>https://blog.thomaspuppe.de</link>
         <description></description>
-        <lastBuildDate>Tue, 15 Jan 2019 22:44:57 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 16 Jan 2019 23:28:06 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
-        <generator>easto 0.6.0 (https://github.com/thomaspuppe/easto)</generator>
+        <generator>easto 2.0.0 (https://github.com/thomaspuppe/easto)</generator>
         <copyright>All rights reserved 2018, Thomas Puppe</copyright>
         <atom:link href="https://blog.thomaspuppe.de/feed/atom" rel="self" type="application/rss+xml"/>
         <item>
@@ -14,7 +14,7 @@
             <link>https://blog.thomaspuppe.de/notizen-januar-2019</link>
             <guid>https://blog.thomaspuppe.de/notizen-januar-2019</guid>
             <pubDate>Fri, 20 Jul 2018 00:00:00 GMT</pubDate>
-            <description><![CDATA[this-month-I-learned und Lesetipps für Januar 2019: Performance, Privacy und das vorläufige Ende des Browser War]]></description>
+            <description><![CDATA[Notizen und Lesetipps für Januar 2019: Performance, Privacy und das vorläufige Ende des Browser War]]></description>
             <content:encoded><![CDATA[<h2 id="tim-kadlec-the-ethics-of-web-performance">Tim Kadlec: The Ethics of Web Performance</h2>
 <p>Tim Kadlec räsoniert in seinem Artikel &quot;<a href="https://timkadlec.com/remembers/2019-01-09-the-ethics-of-performance/">The Ethics of Web Performance</a>&quot; darüber, dass imperformante Websites nicht nur ökonomisch sondern auch moralisch schlecht sind.</p>
 <blockquote>
@@ -22,9 +22,9 @@
 </blockquote>
 <p>Zum Thema Waste gibts dann eine schöne Milchmädchenrechnung: in einer Studie wurde errechnet, dass für jedes GB Daten im Internet 5 kWh an Energie benötigt werden (für die Übertragung, nehme ich an). Folglich sind das laut Kadlec 17.6 Millionen kWh pro Tag. Jetzt kann man als Hausaufgabe überschlagen wie viele Kernkraftwerke durch das Abschalten des Google Tag Managers eingespart würden ;-)</p>
 <p>Ein anderes Beispiel: beim <a href="http://blog.chriszacharias.com/page-weight-matters">Youtube Feather</a> Projekt hat <a href="https://twitter.com/zacman85">Chris Zacharias</a> entdeckt, dass Nutzer in nicht-so-reichen Ländern die Videoplattform überhaupt erst nutzen können, wenn man sie radikal beschleunigt. Also ganze Nutzergruppen <em>konnten</em> Youtube vorher gar nicht benutzen, obwohl sie es wollten. Das beweist erneut &quot;Performance is Accessibility&quot;.</p>
-<h3 id="-und-die-konomie-von-web-performance-">... und die Ökonomie von Web Performance?</h3>
+<h3 id="-und-die-ökonomie-von-web-performance">... und die Ökonomie von Web Performance?</h3>
 <p>Ich glaube ja, dass das gleiche für ... sagen wir ... News-Websites zutreffen würde. Die erste Seite die signifikant schneller ist als der Rest wird sicher viel mehr besucht. Erreichen könnte man das z.B. durch weniger nervige Werbung. Die Einkommensverluste pro Besucher/Klick würde man dann durch höhere Reichweite ausgleichen? Kann man nicht wissen, solange man es nicht probiert.</p>
-<h2 id="usability-findability-vergleich-von-flat-design-vs-traditional-design">Usability/Findability Vergleich von Flat Design vs Traditional Design</h2>
+<h2 id="usabilityfindability-vergleich-von-flat-design-vs-traditional-design">Usability/Findability Vergleich von Flat Design vs Traditional Design</h2>
 <p>Ein Paper aus dem Jahr 2015 wurde bei Hacker News hochgespült. Forscher aus Russland haben &quot;<a href="https://www.researchgate.net/publication/281628009_Flat_Design_vs_Traditional_Design_Comparative_Experimental_Study">Flat Design vs Traditional Design</a>&quot; verglichen, in Bezug auf Findbarkeit von User Interface Elementen. Flat Design schneidet schlechter ab.</p>
 <blockquote>
 <p>The results show that a search in ﬂat text mode (compared with the traditional mode) is associated with higher cognitive load. A search for ﬂat icons takes twice as long as for realistic icons and is also characterized by higher cognitive load. Identifying clickable objects on ﬂat web pages requires more time and is characterised by a signiﬁcantly greater number of errors.</p>
@@ -43,6 +43,12 @@
 <p>Apropos Dystopie und Microsoft und Dominanz: am Beispiel von Linkedin wird hier gezeigt, wie Websites herausfinden können welche Browser-Extensions ein Besucher installiert hat: <a href="https://github.com/dandrews/nefarious-linkedin">Nefarious LinkedIn</a></p>
 <p>tldr: man prüft, welche lokalen Extension-Dateien der Browser von <code>chrome://extensions</code> lädt, oder welche Manipulationen auf berühmten Websites vorgenommen werden. Und gleicht das dann mit seiner Datenbank bekannter Extensions ab.</p>
 <p>Das erinnert mich an die gute alte <a href="https://dbaron.org/mozilla/visited-privacy">Erkennung von visited Links</a> via <code>getComputedStyles()</code>, um herauszufinden welche anderen Seiten deine Besucher noch besucht hat.</p>
+<p>##</p>
+<p>Die New York Times</p>
+<blockquote>
+<p>The desirability of a brand may be stronger than the targeting capabilities.
+&mdash; <a href="https://digiday.com/media/new-york-times-gdpr-cut-off-ad-exchanges-europe-ad-revenue/">After GDPR, The New York Times cut off ad exchanges in Europe — and kept growing ad revenue</a></p>
+</blockquote>
 ]]></content:encoded>
         </item>
         <item>
@@ -369,7 +375,7 @@ puppe:~ $ j a11
 /Users/puppe/code/zon/a11y-dashboard</pre>
 
 
-<h2 id="a11y-zwei-tools-um-einschr-nkungen-zu-simulieren">A11y: Zwei Tools um Einschränkungen zu simulieren</h2>
+<h2 id="a11y-zwei-tools-um-einschränkungen-zu-simulieren">A11y: Zwei Tools um Einschränkungen zu simulieren</h2>
 <p><a href="https://www.colorblindsim.com/">colorblindsim.com</a>ist eine offlinefähige Web-App fürs Spartphone, die auf dem Display anzeigt wie das Drumherum denn aussehen würde wenn man farbenblind wäre.</p>
 <p><a href="https://chrome.google.com/webstore/detail/funkify-disability-simula/ojcijjdchelkddboickefhnbdpeajdjg">Funkify</a> ist eine Chrome-Extension, die beim Surfen Dinge wie Farbenblindheit, verschwommenes Sehen, oder Zittern simuliert.</p>
 <h2 id="request-map">Request Map</h2>
@@ -431,7 +437,7 @@ day to make deceptive user experiences. You are better than that.</p>
 <h2 id="webfont-preloading">Webfont Preloading</h2>
 <p>Zwei interessante Sachen gelernt. Erstens: ich dachte immer, das Preloading kann man doch gar nicht realistisch machen, weil man im HTML ja gar nicht weiß ob der Browser woff2, woff, oder ein älteres Format anfordern wird. Auf der JSUnconf Konferenz habe ich dann gelernt: Alle Browser, die <a href="https://www.caniuse.com/#search=preload">Preload</a> können, unterstützen auch <a href="https://www.caniuse.com/#search=woff2">woff2</a>. Womit es sich wunderbar einsetzen lässt, auch wenn man im CSS ältere Browser mit älteren Schriftformaten versorgt.</p>
 <p>Zweite Sache, die ich beim Benutzen schmerzhaft gelernt habe: Preload von Schriften braucht dringend das <code>crossorigin</code> Attribut, auch wenn die Schriften vom gleichen Host kommen! (Quellen: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content#Cross-origin_fetches">MDN</a>, <a href="https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#early-loading-of-fonts">Smashing</a>).</p>
-<h2 id="rendern-von-unicode-zeichen-als-emoji-unterdr-cken">Rendern von Unicode-Zeichen als Emoji unterdrücken</h2>
+<h2 id="rendern-von-unicode-zeichen-als-emoji-unterdrücken">Rendern von Unicode-Zeichen als Emoji unterdrücken</h2>
 <p>Das mobile iOS (und vermutlich auch andere) stellen Unicode-Zeichen auf Websites als Emoji dar. Das kann ganz witzig sein – aber als Zeitung willst du das nicht in deinen Artikeln haben.</p>
 <p>Lösung: Das Anhängen von <code>\00FE0E</code> unterdrückt das <a href="http://mts.io/2015/04/21/unicode-symbol-render-text-emoji/">Rendern als Emoji</a>.</p>
 <p>Reines Zeichen: &amp;#x1F435 (<code>&amp;amp;#x1F435</code>); . Explizit kein Emoji: &#x1F435;&#xFE0E; (<code>&amp;amp;#x1F435;&amp;amp;#xFE0E;</code>)</p>
@@ -458,30 +464,30 @@ day to make deceptive user experiences. You are better than that.</p>
             <pubDate>Wed, 14 Mar 2018 00:00:00 GMT</pubDate>
             <description><![CDATA[Man nennt es Blogstöckchen: ein Interview zu meiner Smartphone-Nutzung]]></description>
             <content:encoded><![CDATA[<p>Mein Kollege und Chef <a href="https://twitter.com/nicobruenjes/">Nico Brünjes</a> warf mir folgendes Interview als <a href="https://couchblog.de/blog/2018/03/13/mein-smarterphone/">Blogstöckchen</a> zu.</p>
-<h2 id="-und-ich-name-">…und ich, Name:</h2>
+<h2 id="und-ich-name">…und ich, Name:</h2>
 <p>Thomas Puppe</p>
-<h2 id="verbringt-seinen-tag-">verbringt seinen Tag…</h2>
+<h2 id="verbringt-seinen-tag">verbringt seinen Tag…</h2>
 <p>mit Frontend-Webentwicklung bei ZEIT Online</p>
-<h2 id="nutzt-ein-">nutzt ein:</h2>
+<h2 id="nutzt-ein">nutzt ein:</h2>
 <p>Samsung Galaxy S7, das mir die Firma zur Verfügung stellt. Eigentlich wollte ich mal ein iPhone ausprobieren, aber zugunsten der Vielfalt im Frontend-Team wurde es doch wieder ein Android.</p>
-<h2 id="wie-w-rdest-du-dein-verh-ltnis-zu-deinem-smartphone-bezeichnen-">Wie würdest Du dein Verhältnis zu Deinem Smartphone bezeichnen?</h2>
+<h2 id="wie-würdest-du-dein-verhältnis-zu-deinem-smartphone-bezeichnen">Wie würdest Du dein Verhältnis zu Deinem Smartphone bezeichnen?</h2>
 <p>Eng, aber unemotional. Wie zu meiner Hose. Ich habe das Smartphone ständig dabei und nutze es viel, aber es ist austauschbar – und am Wochenende geht es auch mal ohne.</p>
-<h2 id="welche-app-funktion-nutzt-du-am-h-ufigsten-gerne-in-den-statistiken-nachschauen-oder-aus-dem-bauch-sch-tzen-">Welche App/Funktion nutzt du am häufigsten (gerne in den Statistiken nachschauen oder aus dem Bauch schätzen)</h2>
+<h2 id="welche-appfunktion-nutzt-du-am-häufigsten-gerne-in-den-statistiken-nachschauen-oder-aus-dem-bauch-schätzen">Welche App/Funktion nutzt du am häufigsten (gerne in den Statistiken nachschauen oder aus dem Bauch schätzen)</h2>
 <p>Twitter, Whatsapp, Browser, Evernote, den Wecker.</p>
-<h2 id="welche-app-funktion-nutzt-du-gar-nicht-">Welche App/Funktion nutzt du gar nicht?</h2>
+<h2 id="welche-appfunktion-nutzt-du-gar-nicht">Welche App/Funktion nutzt du gar nicht?</h2>
 <p>Ich spiele nicht auf dem Handy. Ich mache kein Mobile Banking.</p>
-<h2 id="arbeit-und-handy-wie-regelst-du-das-">Arbeit und Handy — wie regelst Du das?</h2>
+<h2 id="arbeit-und-handy--wie-regelst-du-das">Arbeit und Handy — wie regelst Du das?</h2>
 <p>Rufbereitschaft braucht es im hochqualitativen Zero-Bug-Frontend von ZEIT Online nicht ;-). Und wenn, wäre ich auch nicht der Ansprechpartner. Daher ist alle arbeitsbezogene Handynutzung in der Freizeit freiwillig. Und beschränkt sich auf Sachen wie mal-Slack-checken.</p>
 <p>Andersherum nutze ich das &quot;Diensthandy&quot; auch privat. Auch im Büro. Während technische Recherche und Weiterbildung viel in der Freizeit passiert -- ich denke das gleicht sich aus.</p>
-<h2 id="welche-notification-hast-du-eingeschaltet-">Welche Notification hast Du eingeschaltet?</h2>
+<h2 id="welche-notification-hast-du-eingeschaltet">Welche Notification hast Du eingeschaltet?</h2>
 <p>So wenig wie möglich. Ich schalte prinzipiell alles aus, und gewählte Apps wieder ein. Dazu gehören Twitter, Whatsapp, E-Mails, Pushover und die DHL. (Und ein paar kürzlich installierte, die ich noch nicht abgeklemmt habe ... gleich mal machen!)</p>
-<h2 id="warum-">Warum?</h2>
+<h2 id="warum">Warum?</h2>
 <p>Weil die Scheiße nervt. Die meisten Apps richten die Dringlichkeit für Pushes nicht nach mir (etwas Schlimmes ist passiert, oder mein Bus verspätet sich), sondern nach sich (Generalsekretär wie geplant gewählt, Busticket-Sonderangebot).</p>
-<h2 id="h-lst-du-dich-an-soziale-regeln-bei-der-smartphone-nutzung-wenn-ja-welche-">Hälst du dich an soziale Regeln bei der Smartphone-Nutzung? Wenn ja: Welche?</h2>
+<h2 id="hälst-du-dich-an-soziale-regeln-bei-der-smartphone-nutzung-wenn-ja-welche">Hälst du dich an soziale Regeln bei der Smartphone-Nutzung? Wenn ja: Welche?</h2>
 <p>Ich hab mein Handy niemals laut. Und versuche seit neuestem sogar, die Vibration aus zu lassen. In der Regel will ich den Griff zum Handy aus eigener Motivation tun, und nicht weil es sich meldet.</p>
-<h2 id="gibt-es-regeln-die-du-wieder-verworfen-hast-">Gibt es Regeln, die du wieder verworfen hast?</h2>
+<h2 id="gibt-es-regeln-die-du-wieder-verworfen-hast">Gibt es Regeln, die du wieder verworfen hast?</h2>
 <p>Ich nehme mir immer wieder mal vor, das Handy vor dem Frühstück nicht zu benutzen, oder nicht im Schlafzimmer. Aber das klappt bisher nicht.</p>
-<h2 id="zum-abschluss-was-sollten-mehr-menschen-im-umgang-mit-smartphones-wissen-">Zum Abschluss: Was sollten mehr Menschen im Umgang mit Smartphones wissen?</h2>
+<h2 id="zum-abschluss-was-sollten-mehr-menschen-im-umgang-mit-smartphones-wissen">Zum Abschluss: Was sollten mehr Menschen im Umgang mit Smartphones wissen?</h2>
 <p>Wenn du nicht gerade Kinder hast, oder kranke Eltern, gibt es keinen vernünftigen Grund jederzeit erreichbar zu sein.</p>
 <p>Ich <del>sende den Kettenbrief</del> <ins>werfe das Stöckchen</ins> weiter zu <a href="https://arnalyse.de/">Arne Seemann</a>.</p>
 ]]></content:encoded>
@@ -493,7 +499,7 @@ day to make deceptive user experiences. You are better than that.</p>
             <pubDate>Fri, 23 Mar 2018 00:00:00 GMT</pubDate>
             <description><![CDATA[Eine Art this-month-I-learned meets Lesetipps meets Notizblock]]></description>
             <content:encoded><![CDATA[<p>Ich versuche mich mal am beliebten &quot;this month I learned&quot; Format. Weil ich in den letzten Monaten aber immer gesammelt und nie gepublished habe, versuche ich es so: zu Monatsbeginn schreibe ich einen Anfang, und dann ergänze ich im Laufe des Monats. Das gibt auch Raum für kleine Sachen, die es nie zu eigenen Blogposts schaffen. Mal schauen wie das wird.</p>
-<h2 id="default-parameters-in-javascript-nicht-im-ie-11">Default Parameters in Javascript ... nicht im IE 11</h2>
+<h2 id="default-parameters-in-javascript--nicht-im-ie-11">Default Parameters in Javascript ... nicht im IE 11</h2>
 <p>Fangen wir gleich mal an mit dem Fail der Woche. Einmal ZEIT Online Production kaputtmachen für alte Browser. Wie? Durch den Gebrauch von default Parametern in JavaScript:</p>
 <pre>function(myParam, optionalParam = true) { ... }</pre>
 
@@ -503,7 +509,7 @@ day to make deceptive user experiences. You are better than that.</p>
 }</pre>
 
 
-<h2 id="document-currentscript">document.currentScript</h2>
+<h2 id="documentcurrentscript">document.currentScript</h2>
 <p>Das zweite JS Learning des Tages: man kann im JS Code dasjenige <code>script</code>-DOM-Element selektieren, in dem der Code läuft. Einfach via <code>document.currentScript</code>.</p>
 <p><a href="http://2ality.com/2014/05/current-script.html">Detaillierter Artikel zu currentScript von Dr. Axel Rauschmayer</a> mit veralteten Angaben zur Browser-Unterstützung. Caniuse bestätigt eine gute Unterstützung: [<a href="https://www.caniuse.com/#search=currentScript%5D">https://www.caniuse.com/#search=currentScript]</a>(Browser-Unterstützung von <code>document.currentScript</code> bei caniuse.com).</p>
 <p>Allerdings wieder ohne den IE11. Und weil wir da ja keinen Bug haben wollen (siehe oben), gibt es einen schönen Polyfill:</p>
@@ -555,7 +561,7 @@ parentNode.replaceChild(newChild, oldChild);
 <p>Zu dem Thema ist mir das Buch &quot;<a href="https://shop.smashingmagazine.com/products/white-hat-ux-the-next-generation-in-user-experience">White hat UX</a>&quot; untergekommen, was ich mit gleich mal gekauft habe. Ich werde in diesem Blog berichten. Das eBook kostet nur $7.50, das kann man auch mal anonym an seine Produktentwicklung spenden.</p>
 <h2 id="next-gerenartion-clearfix">Next Gerenartion Clearfix</h2>
 <p>Es gibt ein natives Clearfix in CSS. <a href="https://css-tricks.com/display-flow-root/">Chris Coyier</a> schrieb schon 2016 darüber, <a href="https://rachelandrew.co.uk/archives/2017/01/24/the-end-of-the-clearfix-hack/">Rachel Andrew</a> Anfang 2017. Allerdings ist die <a href="https://www.caniuse.com/#search=flow-root">Browser-Unterstützung</a> recht mager: nur Firefox und Chrome unterstützen <code>display: flow-root</code>. Wenn ich jetzt den Draft-Revision-usw. Lebenszyklus der <a href="https://drafts.csswg.org/css-display-3/#valdef-display-flow-root">CSSWG</a> verstehen würde...</p>
-<h2 id="hinter-docker-herr-umen">Hinter Docker herräumen</h2>
+<h2 id="hinter-docker-herräumen">Hinter Docker herräumen</h2>
 <p>Mein Kollege Wolfgang hat was schönes entdeckt: Docker-Container werden nicht automatisch gelöscht nachdem ein Job mit ihnen lief. Wir benutzen Docker für Sitespeed-Tests, die alle paar Minuten laufen. Das nimmt nicht viel Platz weg, aber summiert sich und verlangsamt auch einige Befehle. Man findet die Dinger via <code>docker container ls --all</code>, kann einmal durchwischen mit <code>docker container prune</code> und verhindert das Ansammeln, indem man den Job mit <code>docker run --rm</code> startet.</p>
 <h2 id="resilient-css">Resilient CSS</h2>
 <p>Jen Simmons <a href="https://hacks.mozilla.org/2018/03/how-to-write-css-that-works-in-every-browser-even-the-old-ones/">https://hacks.mozilla.org/2018/03/how-to-write-css-that-works-in-every-browser-even-the-old-ones/</a></p>
@@ -618,7 +624,7 @@ parentNode.replaceChild(newChild, oldChild);
 <p><strong>The past and future of designing interfaces</strong> by <a href="https://www.twitter.com/mrmrs_">Adam Morse</a> was a bit abstract and about design systems (which are like Gutenbergs moveable type), spreadsheets (a study shows: almost all have errors) teams (if you have less or more than 3 people, you won&#39;t make any substantial progress). My highlight was the idea of a random content generator for design systems, which puts a stress test on styleguides by automatic permutation of content.</p>
 <p><strong>Prevent Default — The future of authoring tools</strong> by <a href="https://twitter.com/mcernusca/">Mihai Cernusca</a> showed a lot of examples and principles of authoring tools from the past, present and future. Even complex 3D software uses a heap of generic UI elements (sliders, input, radio buttons). How can we enhance this? The tool &quot;<a href="http://www.hemingwayapp.com/">Hemingway</a>&quot; lints your text while writing. But apart from that, most text editors look like Word 1.0. And it gets harder if you want to edit layout instead of vertical one-column text flow, have history, drag&amp;drop, selection, cursor navigation. Mihais Solutions: ContentEditable, Outliner, Workflowy, Notion.io.</p>
 <p><strong>Building a Progressive Web App</strong> by <a href="https://twitter.com/kirupa/">Kirupa Chinnathambi</a> was an intoductionto PWAs (<a href="https://onedrive.live.com/view.aspx?resid=1D3A48480C64E70E!163164&amp;ithint=file%2cpptx&amp;app=PowerPoint&amp;authkey=!ACeg0TvJaXr-rJk">Slides</a>). It was new to me that PWAs are available and installable from the Windows 10 app store.</p>
-<h2 id="random-facts-that-i-learned-">Random facts that I learned:</h2>
+<h2 id="random-facts-that-i-learned">Random facts that I learned:</h2>
 <ul>
 <li>There is a <a href="https://github.com/sgentle/caniuse-cmd">CLI for caniuse.com</a></li>
 <li>You can style the <code>caret-color</code> in CSS.</li>
@@ -627,7 +633,7 @@ parentNode.replaceChild(newChild, oldChild);
 <li>Media queries are becoming increasingly complex. Solution is a more fluid design. But except from percentages and fluid font sizing, there are no good solutions.</li>
 <li><code>&lt;input type=&quot;text&quot; pattern=&quot;...&quot; /&gt;</code> is a thing</li>
 </ul>
-<h2 id="my-catch-up-list-">My catch-up list:</h2>
+<h2 id="my-catch-up-list">My catch-up list:</h2>
 <ul>
 <li>Play with new browser APIs</li>
 <li>Use CSS grids</li>
@@ -651,23 +657,23 @@ parentNode.replaceChild(newChild, oldChild);
 
 <p>Mit dieser Media Query stellt man fest, ob die Website (bzw Web App) das Browser-GUI (und damit den Back-Button des Browsers ) zur Verfügung hat, oder nicht. Und kann dann einen eigenen Button einblenden.</p>
 <p>Das war für mich ein Anlass, mal zu schauen, welche Media/Feature Queries und Browser APIs heutzutage zur Verfügung stehen.</p>
-<h1 id="-1-browser-apis">(1) Browser APIs</h1>
-<h2 id="navigator-cookieenabled">navigator.cookieEnabled</h2>
+<h1 id="1-browser-apis">(1) Browser APIs</h1>
+<h2 id="navigatorcookieenabled">navigator.cookieEnabled</h2>
 <p>Eigentlich ganz simpel, kannte ich aber bis heute noch nicht. Diese Abfrage ist natürlich der  Methode, ein Cookie zu setzen und dann auszulesen, zu bevorzugen. Sehr gute Browser-Unterstützung.</p>
 <blockquote>
 <p>In diesem Browser: <script>document.write(navigator.cookieEnabled || '<em>undefined</em>')</script></p>
 </blockquote>
-<h2 id="navigator-donottrack">navigator.doNotTrack</h2>
+<h2 id="navigatordonottrack">navigator.doNotTrack</h2>
 <p>Zeigt an, ob im Browser &quot;Do not track&quot; gesetzt wurde -- und auf welchen Wert. Ist in vielen Browsern implementiert, aber der <a href="https://blog.thomaspuppe.de/do-not-track-header-crossbrowser">Rückgabewert ist unterschiedlich</a> und muss geparsed werden.</p>
 <blockquote>
 <p>In diesem Browser: <script>document.write(navigator.doNotTrack || '<em>undefined</em>')</script></p>
 </blockquote>
-<h2 id="navigator-hardwareconcurrency">navigator.hardwareConcurrency</h2>
+<h2 id="navigatorhardwareconcurrency">navigator.hardwareConcurrency</h2>
 <p>Gibt die Zahl der verfügbaren Prozessoren zurück. Das ist ein grober Indikator dafür, ob der Browser auf einem ein starken neuen Gerät läuft, oder einer alten Möhre. (Vielleicht kann man auch auf die sinnvolle Anzahl an Service Workern oder Web Workern schließen? Gibt ein Browser-Tab, das in einem Prozess läuft, solche Möglichkeiten her?)</p>
 <blockquote>
 <p>In diesem Browser: <script>document.write(navigator.hardwareConcurrency || '<em>undefined</em>')</script></p>
 </blockquote>
-<h2 id="navigator-geolocation">navigator.geolocation</h2>
+<h2 id="navigatorgeolocation">navigator.geolocation</h2>
 <p>Selbsterklärend. Neben der aktuellen Position kann man auch Positions (oder Genauigkeits-) Änderungen als Event-Handler empfangen. Was macht man mit der Position des Users? Man füttert sie in eine Routenplanung, oder nutzt sie, um Ort und Land des Besuchers herauszufinden.</p>
 <pre>navigator.geolocation.getCurrentPosition(function(position) {
   console.log(position.coords.latitude, position.coords.longitude);
@@ -692,7 +698,7 @@ document.getElementById('geolocationInfoTrigger').addEventListener('click', func
 </script>
 
 <p>Geolocation hat eine sehr gute <a href="http://caniuse.com/#search=geolocation">Browser-Unterstützung</a>, erfordert aber die Berechtigung durch den User und ist im Chrome Browser nur unter SSL verfügbar.</p>
-<h2 id="navigator-online">navigator.onLine</h2>
+<h2 id="navigatoronline">navigator.onLine</h2>
 <blockquote>
 <p>In diesem Browser: <script>document.write(navigator.onLine || '<em>undefined</em>')</script></p>
 </blockquote>
@@ -706,7 +712,7 @@ window.addEventListener('offline', function(e) {
 }, false);</pre>
 
 
-<h2 id="navigator-connection">navigator.connection</h2>
+<h2 id="navigatorconnection">navigator.connection</h2>
 <p>Mehr Details zur Internetverbindung des Users (cellular, wifi).</p>
 <blockquote>
 <p>In diesem Browser: <span id="connectionInfo"></span></p>
@@ -722,7 +728,7 @@ if (connection && connection.type) {
 </script>
 
 <p><code>navigator.connection</code> ist nur im Firefox Mobile und auf Android verfügbar.</p>
-<h2 id="navigator-getbattery-">navigator.getBattery()</h2>
+<h2 id="navigatorgetbattery">navigator.getBattery()</h2>
 <p>Der Batteriestand des Devices kann abgefragt werden! Traurige Berühmtheit erlangte das Feature, als Uber denjenigen Kunden, deren Smartphone nur noch wenig Saft hatte, die Preise erhöht hat -- weil sie schnell das erstbeste Fahrzeug buchen würden.</p>
 <blockquote>
 <p>In diesem Browser: <span id="batteryInfo">waiting...</span></p>
@@ -750,7 +756,7 @@ if (navigator.getBattery) {
 
 <p>Für die Änderung der Werte kann man auch wieder Event Handler registrieren, damit die Website/App informiert wird.</p>
 <p>Eine schöne Einführung findet man bei <a href="https://developer.mozilla.org/en-US/docs/Web/API/BatteryManager">MDN</a>. Das Feature wird <a href="http://caniuse.com/#search=battery">unterstützt</a> im Firefox (nur in &quot;privilegiertem Code&quot; -- diesen Term recherchiere ich jetzt nicht), Chrome und Opera.</p>
-<h2 id="navigator-share-">navigator.share()</h2>
+<h2 id="navigatorshare">navigator.share()</h2>
 <p>Mit dieser Funktion kann man per JS die Sharing-Funktion auslösen, die sonst aus dem Menü des Browsers getriggert wird. Der Vorteil gegenüber individuellen Sharing-Buttons: die Leute bekommen genau die Dienste angeboten, die sie zur Verfügung haben -- und nicht die der Seitenbetreiber für wichtig hielt.</p>
 <pre>navigator.share({
     title: document.title,
@@ -776,23 +782,23 @@ function sharePage() {
 <blockquote>
 <p>In diesem Browser: <span id="shareWrapper"><button id="shareButton" onClick="sharePage();">Share</button></span></p>
 </blockquote>
-<h2 id="navigator-sendbeacon">navigator.sendBeacon</h2>
+<h2 id="navigatorsendbeacon">navigator.sendBeacon</h2>
 <p>Kann genutzt werden, um kleine Datenmengen asynchron an einen Server zu senden. Das Verfahren ist für Event Tracking und Monitoring gedacht. Vor allem das Rumeiern mit Requests bei window.unload soll erleichtert werden.</p>
 <pre>navigator.sendBeacon("/log", data);</pre>
 
 <p>Das <code>data</code> können Form Objekte, Arrays oder normale JS Objekte sein.</p>
 <p>Der Browser-Support ist <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon#Browser_compatibility">durchwachsen</a> und das Verfahren ist als experimentell eingestuft. Auf GitHub liegt eine <a href="https://googlechrome.github.io/samples/beacon/">clevere kleine Testseite</a> bereit.</p>
-<h2 id="navigator-vibrate-500-">navigator.vibrate(500)</h2>
+<h2 id="navigatorvibrate500">navigator.vibrate(500)</h2>
 <p>Lässt das Gerät vibrieren, wenn das verfügbar ist. Als Parameter nimmt die Funktion einen Integer (einmalige Vibration für x Millisekunden) oder ein Array (Pattern von Vibration und Pause) entgegen. <code>navigator.vibrate([100,200,300])</code> vibriert also 100 ms, pausiert 200 ms, vibriert 300 ms. <a href="http://caniuse.com/#search=vibration">Verfügbar</a> in modernen mobilen Browsern.</p>
 <blockquote>
 <p>In diesem Browser: <button id="vibrateButton" onClick="if (navigator.vibrate) { navigator.vibrate([200,100,200]); }">Vibrieren</button></p>
 </blockquote>
 <p>Die Funktion steht auch in nicht-vibrierfähigen Geräten zur Verfügung und man kann nicht prüfen, ob sie tatsächlich etwas tun wird. Zur Erkennung müsste man also über die Device-Detection gehen.</p>
-<h1 id="-2-media-queries">(2) Media Queries</h1>
+<h1 id="2-media-queries">(2) Media Queries</h1>
 <p>Die am häufigsten eingesetzten Media Queries dürften <code>(min/max-)(device-)width</code> sein, die für responsive Layouts genutzt werden. Das <code>device</code> macht den wichtigen Unterschied zwischen der Größe des Gerätes und des eigentlichen Viewports (also Fensters oder Split Screens).</p>
 <p>Besonders auf großen Bildschirmen, wo man im Split Screen arbeitet (was mittlerweile auch auf Tablets kein Problem mehr ist), kann das Fenster komplett anders als das Gerät sein.</p>
 <p>Doch Media Queries können viel mehr:</p>
-<h2 id="-device-aspect-ratio">(device-)aspect-ratio</h2>
+<h2 id="device-aspect-ratio">(device-)aspect-ratio</h2>
 <p>... ist das Seitenverhältnis des geräts (bzw Viewports). Damit kann man im simpelsten Fall quer- von Hochformat unterscheiden, oder beispielsweise Panorama-Bildschirmen spezielel Stile oder Inhalte ausliefern.</p>
 <pre>@media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) { ... }</pre>
 
@@ -846,7 +852,7 @@ function sharePage() {
 <h2 id="media-queries-level-4">Media Queries Level 4</h2>
 <p>Noch im <a href="https://drafts.csswg.org/mediaqueries-4/#media">Draft-Status</a> sind Media Queries Level 4. Sie versprechen Features wie <code>hover</code> (kann ich über Elemente hovern?), <code>pointer</code> (wie genau kann ich Elemente treffen -- Mauszeiger vs Wurstfinger), <code>update</code> (Schnelligkeit beim Bildaufbau, quasi frames-per-second) und mehr.</p>
 <p><code>device-width</code>, <code>device-height</code>, und damit auch device-aspect-ratio` sind deprecated.</p>
-<h1 id="-3-was-mir-fehlt">(3) Was mir fehlt</h1>
+<h1 id="3-was-mir-fehlt">(3) Was mir fehlt</h1>
 <ul>
 <li>Bessere Erkennung von Bandbreite/Netzwerkgeschwindigkeit. Zum Beispiel kann Wifi langsamer sein als Cellular via LTE. Da hilft <code>navigator.connection.type</code> nicht unbedingt weiter.</li>
 <li>Statt Wifi/Cellular will man eigentlich wissen: Hat der User eine Flatrate, oder zählt jedes MB? Andererseits will ich beim Surfen diese Info auch nicht unbedingt preisgeben.</li>
@@ -868,26 +874,26 @@ function sharePage() {
             <description><![CDATA[Ein Überblick über Open Source, offene Daten und Development-Blogs aus deutschen Nachrichtenportalen.]]></description>
             <content:encoded><![CDATA[<p><strong>Vorab: bei Recherchen weiß man ja nie, was man übersehen hat. Daher bin ich dankbar für jeden Hinweis, Ergänzung oder Korrektur. Am besten per Twitter: <a href="https://twitter.com/thomaspuppe">@thomaspuppe</a>.</strong></p>
 <p>Ich folge seit einiger Zeit dem Twitter-Account <a href="https://twitter.com/newsnerdrepos">@NewsNerdRepos</a>. Er versendet jedes mal einen Tweet, wenn eine große Onlinezeitung ein GitHub-Repository veröffentlicht. Mir fiel auf, dass dort keine deutschen Medien vertreten sind -- obwohl diese laut <a href="https://ifttt.com/p/newsnerdrepos/shared">Liste</a> durchaus zum Teil beobachtet werden. Also habe ich selbst mal recherchiert, und einen Überblick über offenen Code und offene Blogs in deutschen Newsrooms erstellt.</p>
-<h1 id="gro-e-zeitungen-gro-e-vorbilder">Große Zeitungen: große Vorbilder</h1>
+<h1 id="große-zeitungen-große-vorbilder">Große Zeitungen: große Vorbilder</h1>
 <p>Die großen englischen Zeitungen erzeugen viel Open Source Code. Die <a href="https://github.com/washingtonpost">Washington Post</a> hostet bei GitHub Daten zu Police-Shootings und Cloud-Tools, und pflegt ein <a href="https://developer.washingtonpost.com/pb/blog/">Developer-Blog</a>. Die Financial Times hat einen <a href="https://github.com/Financial-Times">Account mit Frontend-Repositories</a> von der productiv-seite, sowie ein <a href="https://github.com/ftlabs">FT Labs Konto</a> mit Experimenten und Tools. Auch New York Times hat verschiedene Accounts: einen für die <a href="https://github.com/NYTimes">Website</a>, ein <a href="https://github.com/nytlabs">NYT Labs</a> und eins für den <a href="https://github.com/newsdev">NYT Newsroom</a>. Außerdem gibt es ein <a href="https://open.blogs.nytimes.com/">Development-Blog</a> und eine <a href="https://developers.nytimes.com/">Artikel-Such-API</a>. In Europa tut sich bekanntlich der Guardian hervor mit <a href="https://github.com/guardian">GitHub-Repositories</a> -- unter anderem eines mit dem <a href="https://github.com/guardian/frontend">Frontend-Code von www.theguardian.com</a> -- und einem empfehlenswerten <a href="https://www.theguardian.com/info/developer-blog">Developer-Blog</a>. Zudem gibt es eine Art <a href="https://developers.theguardian.com/">Entwickler-Recruiting-Seite</a>.</p>
 <p>Natürlich sind auch anderssprache Zeitungen vertreten, wie z.B. <a href="https://github.com/lemonde">Le Monde</a> oder <a href="https://github.com/hurriyet">Hürriyet</a>. Aber es soll hier um deutsche Medien gehen. Also?</p>
-<h1 id="und-in-deutschland-">Und in Deutschland?</h1>
+<h1 id="und-in-deutschland">Und in Deutschland?</h1>
 <p>Ich habe mich auf die Suche gemacht nach offenen Repositories, Entwicklungs-Blogs, oder zumindest Twitter-Accounts, mit denen Newsrooms und Entwicklungsabteilungen Teile ihrer Arbeit veröffentlichen.</p>
-<h2 id="die-gro-en-15-">Die großen 15:</h2>
+<h2 id="die-großen-15">Die großen 15:</h2>
 <p>Zunächst zu den reichweitenstärksten Nachrichtenportalen in Deutschland laut <a href="https://de.statista.com/statistik/daten/studie/154154/umfrage/anzahl-der-visits-von-nachrichtenportalen/">Statista/IWV</a>.</p>
 <p><strong>Bild.de:</strong> unter der Marke Bild habe ich nichts gefunden. Der Axel Springer Verlag hat einen aktiven <a href="https://github.com/axelspringer">GitHub-Account</a> samt vielversprechender <a href="https://axelspringer.github.io/">github.io</a>-Seite. Es gibt außerdem eine Ideen-und-Strategie-Abteilung mit eigenen <a href="https://github.com/as-ideas">Repositories</a> sowie eine (offenbar eingestellte?) Abteilung namens &quot;<a href="https://github.com/ipool">iPool</a>&quot;.</p>
 <p><strong>Spiegel Online:</strong> zweieinhalb ältere Projekte bei <a href="https://github.com/spiegelonline">GitHub</a> -- da gab es wohl mal einen Versuch.</p>
 <p>Zu Focus Online und n-tv.de habe ich nichts gefunden.</p>
 <p><strong>upday</strong> pflegt einen <a href="https://github.com/upday">GitHub-Account</a> sowie ein <a href="http://upday.github.io/">Tech Blog</a>.</p>
 <p><strong>Die Welt</strong> hat einen sehr aktiven <a href="https://github.com/WeltN24">GitHub</a> Account, der von AWS über Swift bis Frontend und Kantinen-Slackbot einige Projekte umfasst.</p>
-<p>Von <strong>ZEIT Online:</strong> gibt es einen <a href="https://github.com/ZeitOnline">GitHub-Account</a>, in dem vor allem Module des selbst geschriebenen ZOPE-CMS veröffentlicht sind. Außerdem sind die <a href="https://github.com/ZeitOnline/coding-guidelines">Coding-Guidelines</a> und der Sourcecode des anonymen <a href="https://github.com/ZeitOnline/briefkasten">Whistleblower-Briefkastens</a> öffentlich. Ein <a href="http://blog.zeit.de/dev/">Dev-Blog</a> berichtet über technische Entwicklungen -- leider viel zu selten. Oh, und es gibt einen scheintoten <a href="https://twitter.com/zeitonline_dev">Twitter-Account</a>. (_Disclaimer: ZEIT Online ist mein Arbeitgeber._)</p>
+<p>Von <strong>ZEIT Online:</strong> gibt es einen <a href="https://github.com/ZeitOnline">GitHub-Account</a>, in dem vor allem Module des selbst geschriebenen ZOPE-CMS veröffentlicht sind. Außerdem sind die <a href="https://github.com/ZeitOnline/coding-guidelines">Coding-Guidelines</a> und der Sourcecode des anonymen <a href="https://github.com/ZeitOnline/briefkasten">Whistleblower-Briefkastens</a> öffentlich. Ein <a href="http://blog.zeit.de/dev/">Dev-Blog</a> berichtet über technische Entwicklungen -- leider viel zu selten. Oh, und es gibt einen scheintoten <a href="https://twitter.com/zeitonline_dev">Twitter-Account</a>. (<em>Disclaimer: ZEIT Online ist mein Arbeitgeber.</em>)</p>
 <p><strong>Sueddeutsche.de:</strong> Im <a href="https://github.com/sueddeutsche">GitHub-Account</a> liegen Frontend-Experimente und Daten-Tools.</p>
 <p>Zu FAZ.net, Stern.de, Gruner + Jahr, Huffington Post, Funke Medien Gruppe, RP Online, Express Online und Handelsblatt.com habe ich keine Repositories oder Blogs gefunden.</p>
 <h2 id="kleinere-medien">Kleinere Medien</h2>
 <p>Das preisgekrönte <a href="http://www.morgenpost.de/interaktiv/">Interaktiv</a>-Team der Berliner Morgenpost stellt bei <a href="https://github.com/berlinermorgenpost">GitHub</a> Rohdaten seiner Anwendungen zur Verfügung. Tools und Quellcode der Anwendungen sind zahlreich bei <a href="https://github.com/wbkd">Webkid</a>, den Codern hinter den Projekten, zu finden. Die <a href="https://blog.webkid.io/">bloggen</a> auch.</p>
 <p>Beim Tagesspiegel gibt es einen fast leeren <a href="https://github.com/tagesspiegel">GitHub</a> Account. Deren Data Scientist <a href="https://github.com/yetzt">Sebastian Vollnhals</a> ist aber sehr aktiv im eigenen Account und im ausgegründeten &quot;<a href="https://github.com/dsstio">Data Department</a>&quot; des Tagespiegel.</p>
 <p>Ähnlich verhält es sich mit <a href="https://github.com/stekhn">Steffen Kühne</a> vom BR Data Team. Apropos:</p>
-<h2 id="-ffentlich-rechtliche">Öffentlich-Rechtliche</h2>
+<h2 id="öffentlich-rechtliche">Öffentlich-Rechtliche</h2>
 <p>Der Norddeutsche Rundfunk veröffentlicht Tools auf <a href="https://github.com/NorddeutscherRundfunk">GitHub</a>. Vom ZDF ist das Projekt <a href="https://github.com/lobbyradar">Lobbyradar</a> (mittlerweile unter der Obhut von Netzpolitik.org) auf GitHub zu finden. Das &quot;junge Angebot von ARD und ZDF&quot; betreibt einen <a href="https://github.com/JungesAngebot">GitHub-Account</a> mit aktuellen Repos.</p>
 <h2 id="it-medien">IT-Medien</h2>
 <p>Der Heise-Verlag hat einen kaum noch aktiven <a href="https://github.com/heise">GitHub</a>-Account, Golem ein einziges, aber schönes <a href="https://github.com/GolemMediaGmbH/OfficeTemperature">Nerd-Repo</a>. Von <a href="https://github.com/t3n">t3n</a> gibt es ein verwaistes Repository, von Netzpolitik gar nichts.</p>
@@ -974,11 +980,11 @@ function sharePage() {
 <p>In absoluten Zahlen ist das nach meiner Ansicht eh nicht relevant. Accounts wie @AnneWillTalk, @HeikoMaas, @berlinerzeitung oder @jungeunion haben eine große Reichweite, stehen aber nicht im Verdacht Bots zu sein.</p>
 <p>Der patriotische Vielschreiber @darksideoftheeg kommt auf 13.000 Follower, hat viele Beiträge und einen mittleren Score von 51% bei BotOrNot. Dass er exakt so viele Follower wie Friends hat, weist auf Strategie hin -- aber nicht zwingend auf einen Bot. Netzwerk und Inhalt sprechen laut <a href="https://github.com/thomaspuppe/watch-the-bots/blob/master/data/annewill/original/botornot-user-score.json#L1618">BotOrNot-Daten</a> für einen Bot. Die Aktivitäts-Zeiten dagegen. Ein Grenzfall. In dubio pro reo würde ich sagen, da ist jemand einfach aktiv und erfolgreich.</p>
 <p>Die deutlich als Bots erkannten Accounts haben hingegen keine großen Follower-Zahlen. Und damit keinen großen Einfluss. Außer, wie so oft bei Twitter, indirekt über die Medien, die das Thema Bots aufgreifen und die, als wirksamer Aufreger, extreme Ansichten weiterverbreiten.</p>
-<h2 id="was-hilft-denn-wie-erkennt-man-bots-">Was hilft denn? Wie erkennt man Bots?</h2>
+<h2 id="was-hilft-denn-wie-erkennt-man-bots">Was hilft denn? Wie erkennt man Bots?</h2>
 <p>Ganz wichtig: Bots schreiben eh keine Inhalte. Sie dienen als Multiplikatoren (einer schreibt, zehn künstliche Accounts veröffentlichen), oder sie verbreiten bestimmte Inhalte weiter. Dabei müsste der Algorithmus aber auch erkennen, ob merkelmussweg nun ernst oder ironisch benutzt wurde. Was eines der großen Probleme in der Sprachverarbeitung ist. Und beim stumpfen verbreiten von Ausländerhass ist es auch egal, ob das ein identitärer Fanboy mit zu viel Zeit macht, oder ein automatisches Programm.</p>
 <p>Als konkrete Maßnahme für ein Thema, z.B. Polit-Talkshows, hilft nur die Einordnung der Tweets ins Thema. Passt das Geschriebene zur Sendung? Das kann dann nicht vorbereitet aus der Dose kommen. (Witze über die Vorhersagbarkeit von Polit-Talkshows überspringen wir.) Dann ist es wohl von Menschen geschrieben. So etwas ist aufwändig, und nur begrenzt automatisierbar. Da müsste man Mühe und Hirnschmalz reinstecken. Das ist nichts für simple Lösungen und plakative &quot;jeder Fünfte ist kein Mensch&quot; Schlagzeilen.</p>
 <p><em>Die Bot-Detektoren jedenfalls helfen nicht.</em> Noch nicht. Noch nicht gut genug. Es gibt sicher weitere Ansätze, aber so etwas ist immer ein Wettrennen. Die Bot-Programmierer wissen ja auch, mit welchen Methoden die Detektoren arbeiten. Und haben sich, wie gesehen, daran angepasst. Ich erinnere an die Accounts, die sehr viel schreiben und gleich wieder löschen. Oder die automatischen Trend-Bots und Spam-Bots. Bei solch groben Unschärfen kann man nur raten. Eine Angabe im Nachkommabereich, dass nun 22,81% der Akteure Bots seien, täuscht eine Wissenschaftlichkeit vor, die nicht gegeben ist.</p>
-<h2 id="p-s-">P.S.</h2>
+<h2 id="ps">P.S.</h2>
 <p>Es macht wirklich keinen Spaß, sich durch politische Tweets durchzuarbeiten.</p>
 <blockquote>"Die Talkshow #annewill ist noch nicht mal als Trinkspiel zu gebrauchen. Sad /o\" <br>&mdash; @NicolePunkt</blockquote>
 
@@ -1121,7 +1127,7 @@ function sharePage() {
 </fieldset></form></div>
 
 
-<h1 id="7-share-this-page-">7. Share this page! &#10084;</h1>
+<h1 id="7-share-this-page-❤">7. Share this page! &#10084;</h1>
 <p>Never never ever use Twitter and Facebook widgets! They are the worst! They force your users to connect to twitter/facebook servers and load tons of crap, even when they do not click.</p>
 <p>Instead, use simple links which you can style on your own behalf. It is really fast, it is safe, and it works. Just try it out:</p>
 <a href="https://twitter.com/share?url=https%3A%2F%2Fblog.thomaspuppe.de/fast-brutalist-websites&hashtags=brutalist%2Cwebdesign&text=How%20to%20make%20your%20shiny%20new%20brutalist%20website%20brutally%20fast">
@@ -1158,7 +1164,7 @@ function sharePage() {
 <li>138 &times; ift.tt</li>
 </ul>
 <p>Diese URLs möchte ich nun also auflösen. Im Internet findet man darüber <a href="http://security.thejoshmeister.com/2009/04/how-to-preview-shortened-urls-tinyurl.html">Artikel</a>, <a href="http://www.toolsvoid.com/unshorten-url">einige</a> <a href="https://www.unshorten.it/">verschiedene</a> <a href="http://checkshorturl.com/">Dienste </a> und <a href="https://github.com/quark-zju/unshorten">diverse</a> <a href="https://github.com/mathiasbynens/node-unshorten">Scripte</a>, <a href="https://github.com/nodeca/url-unshort">Bibliotheken</a> und <a href="https://gist.github.com/zhasm/986361">Snippets</a> bei GitHub.</p>
-<h1 id="eigentlich-ist-es-viel-einfacher-">Eigentlich ist es viel einfacher!</h1>
+<h1 id="eigentlich-ist-es-viel-einfacher">Eigentlich ist es viel einfacher!</h1>
 <p>Es stellt sich heraus, dass <em>im Prinzip</em> ein Curl-Aufruf ausreicht. Alle genannten Dienste antworten mit einem HTTP Status 301 und dem Location-Header. <strong>Das Internet ist also doch noch nicht so kaputt wie ich dachte.</strong></p>
 <p>In Bash ist das ganz simpel: <code>curl -I http://fb.me/16MEzokwA</code>. Fertig. Wegen der Anbindung an meine Datenbank habe ich die Arbeit mit PHP erledigt, was auch mit Bordmitteln und ein paar Codezeilen funktioniert:</p>
 <pre>function get_resp_from_url($url)
@@ -1341,19 +1347,19 @@ span.gitadd { background: #ecffec; }
 <p>Dokumentation sagt uns was die Software tut. Der super-clevere Quellcode ist eh nicht lesbar.</p>
 <p>Schriftliches geht über Kunden-Absprachen.</p>
 <p>Pläne werden befolgt und nicht einfach umgeworfen, nur weil es neue Fragen und Erkenntnisse gibt.</p>
-<h2 id="zw-lf-prinzipien-anti-agiler-softwareentwicklung">Zwölf Prinzipien Anti-agiler Softwareentwicklung</h2>
+<h2 id="zwölf-prinzipien-anti-agiler-softwareentwicklung">Zwölf Prinzipien Anti-agiler Softwareentwicklung</h2>
 <p>Wir sollten nicht ständig kleinteiligen Code releasen, sondern große Würfe in großen Release-Paketen abliefern.</p>
 <p>Während der Entwicklung möchten wir keine Änderungen an der Anforderung mehr sehen. Was einmal festgeschrieben wurde, soll dann auch gelten. Selbst Schuld, wenn nicht alles bedacht wurde.</p>
-<p>Ein Feature ist fertig, wenn der Code lokal läuft. Das geht dann auch auf produktiven Systemen. Falls nicht, merkt das <em>jemand</em> im Testsystem. Dafür ist genug Zeit, weil nicht so oft released wird (siehe auch &quot;_große Würfe_&quot;).</p>
+<p>Ein Feature ist fertig, wenn der Code lokal läuft. Das geht dann auch auf produktiven Systemen. Falls nicht, merkt das <em>jemand</em> im Testsystem. Dafür ist genug Zeit, weil nicht so oft released wird (siehe auch &quot;<em>große Würfe</em>&quot;).</p>
 <p>Everyone, <strong>please leave me alone</strong>. Die tägliche Zusammenarbeit stört. Alle wichtigen Infos sind in der User Story zusammengefasst. Nachfragen können so erst gar nicht entstehen. Falls doch, lässt sich das auch noch in der Review klären (&quot;ich konnte nicht, weil...&quot;).</p>
-<p>Errichte Projekte rund um unmotivierte Gruppen. Wirf ihnen regelmäßig Aufgaben zu. Wenn die abgehakt sind, wirf neue nach. Wenn nicht, siehe &quot;_Leave me alone_&quot;.</p>
-<p>Die effizienteste und effektivste Methode, Informationen an und innerhalb eines Entwicklungsteams zu übermitteln, ist schriftlich und allumfassend im Vorfeld (siehe auch &quot;_Leave me alone_&quot;).</p>
+<p>Errichte Projekte rund um unmotivierte Gruppen. Wirf ihnen regelmäßig Aufgaben zu. Wenn die abgehakt sind, wirf neue nach. Wenn nicht, siehe &quot;<em>Leave me alone</em>&quot;.</p>
+<p>Die effizienteste und effektivste Methode, Informationen an und innerhalb eines Entwicklungsteams zu übermitteln, ist schriftlich und allumfassend im Vorfeld (siehe auch &quot;<em>Leave me alone</em>&quot;).</p>
 <p>Beschäftigtgewesensein ist das wichtigste Fortschrittsmaß.</p>
 <p>Agil sein bedeutet, wechselweise sprinten und spurten zu können. Wir springen flexibel zwischen dringenden Deadlines, akuten Notfällen und wichtigen Bugs.</p>
-<p>Lieber schnelles Mittelmaß (&quot;reicht doch so&quot;) als sinnloser Perfektionismus. Denn Code wird nicht gelesen, kopiert oder erweitert. Falls doch, kann man sich dann die Zeit zum refactorieren nehmen (siehe auch &quot;_sprinten und spurten_&quot;).</p>
+<p>Lieber schnelles Mittelmaß (&quot;reicht doch so&quot;) als sinnloser Perfektionismus. Denn Code wird nicht gelesen, kopiert oder erweitert. Falls doch, kann man sich dann die Zeit zum refactorieren nehmen (siehe auch &quot;<em>sprinten und spurten</em>&quot;).</p>
 <p>Lines of Code und Features pro Sprint sind der beste Indikator für hochwertige Arbeit.</p>
 <p>Die besten Architekturen, Anforderungen und Entwürfe entstehen außerhalb des ausführenden Teams. Sie fallen dann in Stein gemeißelt auf das Team herab.</p>
-<p>Team-interne Meetings sind zu vermeiden (siehe auch &quot;_Leave me alone_&quot;). Wird dennoch hin und wieder eine Retrospektive erzwungen, lässt man die still über sich ergehen und macht weiter wie zuvor.</p>
+<p>Team-interne Meetings sind zu vermeiden (siehe auch &quot;<em>Leave me alone</em>&quot;). Wird dennoch hin und wieder eine Retrospektive erzwungen, lässt man die still über sich ergehen und macht weiter wie zuvor.</p>
 ]]></content:encoded>
         </item>
         <item>
@@ -1448,9 +1454,9 @@ class LocalSpider(scrapy.Spider):
             <pubDate>Mon, 31 Oct 2016 00:00:00 GMT</pubDate>
             <description><![CDATA[Kaputte Third-Party Scripts können Websites lahmlegen. Ich untersuche einige Nachrichten-Websites auf deren Robustheit gegen dieses Problem.]]></description>
             <content:encoded><![CDATA[<p>Moderne Websites binden häufig Inhalte und Code von fremden Servern ein. Seien es Social-Media-Widgets, Tracking, oder Werbung. News-Websites verwenden all diese Dinge. Und damit ist die Verfügbarkeit und Geschwindigkeit der News-Website unter Umständen abhängig von der Verfügbarkeit und Geschwindigkeit der fremden Anbieter. Was diese Umstände sind, wie man sie erkennt, und ausschaltet, erkläre ich in diesem Artikel an einigen Beispielen.</p>
-<h1 id="was-ist-ein-spof-und-was-ist-daran-schlimm-">Was ist ein SPOF und was ist daran schlimm?</h1>
+<h1 id="was-ist-ein-spof-und-was-ist-daran-schlimm">Was ist ein SPOF und was ist daran schlimm?</h1>
 <p>Ein &quot;Single Point of Failure&quot; (SPOF) ist ein Bestandteil eines Systems, dessen Ausfall das gesamte System beeinträchtigt. Auf einer Website heißt das: ein Element der Website, das die gesamte Seite beeinträchtigt, wenn es einen Fehler hat, langsam ist, oder überhaupt nicht verfügbar ist. Was eine &quot;Beeinträchtigung der Seite&quot; ist, darüber kann man streiten. Im Kontext dieses Artikels ist eine News-Website beeinträchtigt, wenn man keine Inhalte lesen kann.</p>
-<h1 id="wie-entsteht-so-etwas-">Wie entsteht so etwas?</h1>
+<h1 id="wie-entsteht-so-etwas">Wie entsteht so etwas?</h1>
 <p>Der SPOF kann auf einer Website an verschiedenen Stellen sitzen. Offensichtlich ist der Fall, dass der Server, der die HTML-Seiten ausliefert, nicht verfügbar ist. Dann gibt es schlicht keine Inhalte. Das ist der Worst Case, und es gibt Strategien dagegen, aber das soll hier nicht das Thema sein.</p>
 <p>Interessant sind die Situationen, in denen der eigentliche Inhalt &mdash; das HTML &mdash; sehr wohl verfügbar ist. Aber externe Scripte den schon geladenen Inhalt dann verzögern, beschädigen, oder blockieren. Ein nicht notwendiger Bestandteil der Seite blockiert also den wichtigen Teil. Das ist ärgerlich, weil unnötig. Diesen Fällen möchte ich mich hier widmen.</p>
 <h1 id="simulation-von-spof">Simulation von SPOF</h1>
@@ -1463,7 +1469,7 @@ class LocalSpider(scrapy.Spider):
 <p>Mein Vorgehen: im jeweiligen Quellcode der Seite habe ich nach den beiden Triggern für blockierendes JavaScript gesucht: <code>document.write</code> und <code>&lt;script src=&quot;&quot;</code> ohne <code>async</code>.</p>
 <p>Von der Liste der gefundenen Dateien habe ich diejenigen ausgenommen, die unter der Domain der Zeitung selbst laufen. Auch wenn Subdomains in der Art <code>scripts.zeit.de</code> oder <code>code.bildstatic.de</code> vielleicht schon Third-Party sind (CDN bzw Proxy-Server zu einem anderen Hoster), habe ich das als selbst gehostet gewertet. Im Sinne von &quot;wenn das ausfällt, ist kein Fremder schuld sondern du selber&quot;.</p>
 <p>Die übrigen Hosts habe ich dann in meiner <code>/etc/hosts</code>-Datei blockiert, indem ich sie auf die IP des Webpagetest Blackhole schicke: <code>72.66.115.13    www.googletagmanager.com</code>. Das funktioniert auch in <a href="%22https://de.wikipedia.org/wiki/Hosts_(Datei)#Pfade_unter_verschiedenen_Betriebssystemen%22">anderen Betriebssystemen</a>.</p>
-<h2 id="test-1-ivw-z-hlung">Test 1: IVW Zählung</h2>
+<h2 id="test-1-ivw-zählung">Test 1: IVW Zählung</h2>
 <p>Es gibt eine Sache, die alle betrachteten Websites gemeinsam haben. Und zwar die &quot;IVW-Zählung&quot;. Die IVW ist die &quot;<a href="https://de.wikipedia.org/wiki/Informationsgemeinschaft_zur_Feststellung_der_Verbreitung_von_Werbetr%C3%A4gern">Informationsgemeinschaft zur Feststellung der Verbreitung von Werbeträgern</a>&quot;. Sie erfasst die Reichweite vieler Medien, und dient damit nicht nur zur unabhängigen Zählung der Besucher, sondern auch zur Verteilung von Werbeerlösen.</p>
 <p>Da machen alle betrachteten Medien mit, und daher haben auch alle die Datei <code>https://script.ioam.de/iam.js</code> eingebunden. Was passiert also, wenn ich den Host <code>script.ioam.de</code> blockiere &mdash; oder er tatsächlich ausfällt bzw lahmt?</p>
 <table>
@@ -1777,7 +1783,7 @@ for i in /*; do echo $i; find $i | wc -l | sort ; done</pre>
 <pre>836836    /var/spool/postfix/maildrop</pre>
 
 <p>Das sind also felgeschlagene Versuche des Systems, E-Mails zu versenden. Stichproben (<code>cat /var/spool/postfix/maildrop/D7E6A90D4CA9</code>) ergeben, dass meine Cronjobs versuchen, Mails zu versenden.</p>
-<h3 id="ich-habe-also-meinen-belt-ter-nun-geht-es-ans-aufr-umen-">Ich habe also meinen Übeltäter. Nun geht es ans Aufräumen.</h3>
+<h3 id="ich-habe-also-meinen-übeltäter-nun-geht-es-ans-aufräumen">Ich habe also meinen Übeltäter. Nun geht es ans Aufräumen.</h3>
 <p>Die erste Maßnahme, für den Seelenfrieden, ist natürlich</p>
 <pre>sudo rm -rf /var/spool/postfix/maildrop/*
 bash: /bin/rm: Argument list too long</pre>
@@ -1818,7 +1824,7 @@ Inodes      IUsed     IFree    IUse%
 </figure>
 
 
-<h2 id="opening-by-sta-ma-olepszy">Opening by <a href="https://twitter.com/stas">Staś Małolepszy</a></h2>
+<h2 id="opening-by-staś-małolepszy">Opening by <a href="https://twitter.com/stas">Staś Małolepszy</a></h2>
 <p>Trigger a bit of interest, be available to help. And many cool things will happen.</p>
 <ul>
 <li><a href="https://www.scirra.com/construct2">Construct 2</a>: HTML5 game maker</li>
@@ -1855,7 +1861,7 @@ Inodes      IUsed     IFree    IUse%
 <li>two <a href="https://vimeo.com/140641366">video</a> <a href="https://vimeo.com/153895841">recordings</a> of this talk</li>
 <li>You should take 10 minutes and read about <a href="https://en.wikipedia.org/wiki/Grace_Hopper">Grace Hopper</a>.</li>
 </ul>
-<h2 id="can-t-you-make-it-more-like-bootstrap-by-alice-bartlett">Can&#39;t you make it more like Bootstrap? by <a href="http://alicebartlett.co.uk/">Alice Bartlett</a></h2>
+<h2 id="cant-you-make-it-more-like-bootstrap-by-alice-bartlett">Can&#39;t you make it more like Bootstrap? by <a href="http://alicebartlett.co.uk/">Alice Bartlett</a></h2>
 <p>Subtitle: &quot;Considerations for building front end systems&quot;. Alice leads a team whose aim is to unify and DRY frontend work at the Financial Times (project &quot;Origami&quot;.</p>
 <p>On the different FT branded websites, there are a lot of things which have been implemented differently, even on atomic scale (4 implementations of a close button which looks the same, 3 different Twitter icons).</p>
 <p>First step was to use components to keep HTML, CSS, JS for one thing in one place (this seems to be a hot topic this year).</p>
@@ -1878,7 +1884,7 @@ Inodes      IUsed     IFree    IUse%
 <li>This talk on video: <a href="https://www.youtube.com/watch?v=dZU6_2xXeVk">Building an offline page for theguardian.com</a></li>
 <li><a href="https://www.theguardian.com/info/developer-blog">the Guardian&#39;s digital development team blog</a></li>
 </ul>
-<h2 id="the-myth-of-the-real-javascript-programmer-by-brenna-o-brian">The Myth of the &quot;Real JavaScript Programmer&quot; by <a href="http://brennaobrien.com/">Brenna O&#39;Brian</a></h2>
+<h2 id="the-myth-of-the-real-javascript-programmer-by-brenna-obrian">The Myth of the &quot;Real JavaScript Programmer&quot; by <a href="http://brennaobrien.com/">Brenna O&#39;Brian</a></h2>
 <p>Great talk about what seems to be expected from &quot;good programmers&quot; today, and what really is.</p>
 <p>We don&#39;t need to know everything, finding a niche is cool. This is not a test. Real developers use resources wisely. Code has not to be perfect or even correct on the first try (or at all). Learn from mistakes. Show your work, not only your finished and polishes products. Encourage each other. We don&#39;t have to code all the day and everyday. Being a developer does not have to kill your hobbies (or parentship).</p>
 <blockquote>
@@ -1890,7 +1896,7 @@ Inodes      IUsed     IFree    IUse%
 <li>Slides should come up <a href="http://brennaobrien.com/speaking/">here</a> soon, a <a href="http://talks.brennaobrien.com/real-developer/myth-of-the-real-javascript-developer.pdf">pdf version</a> is already available.</li>
 <li>Hashtag <a href="https://twitter.com/search?q=%23juniordevforlife">#juniordevforlife</a></li>
 </ul>
-<h2 id="don-t-hate-the-player-hate-the-game-by-tim-holman">Don&#39;t hate the player, hate the game by <a href="http://tholman.com/">Tim Holman</a></h2>
+<h2 id="dont-hate-the-player-hate-the-game-by-tim-holman">Don&#39;t hate the player, hate the game by <a href="http://tholman.com/">Tim Holman</a></h2>
 <blockquote>
 <p>please be less ridiculous</p>
 </blockquote>
@@ -1936,7 +1942,7 @@ Projects are a journey, be fluid.
 <ul>
 <li>Film recommendation: Black Mirror, Season 02, Episode 01: &quot;be right back&quot;</li>
 </ul>
-<h2 id="demo-reel-tiny-javascript-by-mathieu-henry">Demo Reel &amp; Tiny JavaSCript by <a href="http://www.p01.org/">Mathieu Henry</a></h2>
+<h2 id="demo-reel--tiny-javascript-by-mathieu-henry">Demo Reel &amp; Tiny JavaSCript by <a href="http://www.p01.org/">Mathieu Henry</a></h2>
 <p>The creative coder and code golfer did exactly this: vanilla JS coding of a cool visualization with sound in just a few lines. First some dirty tricks, then some jawdropping live coding.</p>
 <ul>
 <li>check <a href="http://www.p01.org/">Henrys Website</a> with really cool stuff!</li>
@@ -1999,7 +2005,7 @@ Projects are a journey, be fluid.
 <li>Fun with <a href="http://slides.com/tholman/css-pranks/#/">CSS pranks</a></li>
 </ul>
 <h2 id="keynote-the-web-in-motion-by-rachel-nabors">Keynote: The Web in Motion by <a href="https://twitter.com/RachelNabors">Rachel Nabors</a></h2>
-<p>Rachel talked about Apps vs Websites, and how Apps often provide the same content, but look much nicer because transitions between states are animated. If there is only _old state -&gt; new state_, the users brain needs to do heavy interpolation work. If the transition is animated, there is less cognitive workload on the user. So the goal is to eliminate sudden visual changes. Rachel takes two excurses to dark patterns/ads and technical history of animations (Flash, SMIL. CSS Animations) and closes with the Web Animation API.</p>
+<p>Rachel talked about Apps vs Websites, and how Apps often provide the same content, but look much nicer because transitions between states are animated. If there is only <em>old state -&gt; new state</em>, the users brain needs to do heavy interpolation work. If the transition is animated, there is less cognitive workload on the user. So the goal is to eliminate sudden visual changes. Rachel takes two excurses to dark patterns/ads and technical history of animations (Flash, SMIL. CSS Animations) and closes with the Web Animation API.</p>
 <blockquote>
 <p>The difference between web and native starts to blur. The Web is moving forward.</p>
 </blockquote>
@@ -2038,12 +2044,12 @@ Projects are a journey, be fluid.
 <li>&quot;50 Shades of #0089ff&quot; by Gabriel Agu</li>
 <li>&quot;Language&quot; by <a href="https://twitter.com/g16n">Gunnar Bittersman</a></li>
 </ul>
-<h2 id="rxjs-destroy-the-state-machine-by-stenver-jerkku">RxJS – Destroy the state machine by Stenver Jerkku</h2>
+<h2 id="rxjs--destroy-the-state-machine-by-stenver-jerkku">RxJS – Destroy the state machine by Stenver Jerkku</h2>
 <p>A technical talk with lots of code samples. In short: RxJS is like &quot;Promises on steroids&quot;, providing more possibilities and code which is easier to read. It also has brilliant testing tools and is available in various languages (Scala, Ruby, Java, ...).</p>
 <ul>
 <li><a href="http://www.reactivemanifesto.org">The reactive manifesto</a></li>
 </ul>
-<h2 id="untangle-your-code-with-yield-by-sta-ma-olepszy">Untangle your code with yield by <a href="https://twitter.com/stas">Staś Małolepszy</a></h2>
+<h2 id="untangle-your-code-with-yield-by-staś-małolepszy">Untangle your code with yield by <a href="https://twitter.com/stas">Staś Małolepszy</a></h2>
 <p>Very technical talk, completely in code. This was fascinating, in the sense of Clarke&#39;s law. I will need to check and work-through the presentation. Buzzwords: ES5, function generators, yield, iterators.</p>
 <p>Staś did some live coding (live-uncommenting, actually) with split-screen of code and results. Not sure if this setting is also part of the demo repo.</p>
 <ul>
@@ -2054,7 +2060,7 @@ Projects are a journey, be fluid.
 <p>Tim Kadlec held yet another performance talk, making fun of the fact that this topic has been talked about a lot in the last years. (&quot;There&#39;s a secret club of people who need to say &#39;The fastest Request is no Request&#39; two times each year.&quot;)</p>
 <p>Measurable performance improvement (DNS-prefetch, preconnect, preload, prerender, async, defer, inline critical CSS) is important. If there is nothing left to speed up, you can increase the perceived speed (skeleton rendering, changing status text on progress bars). And sometimes you need to add an artificial delay, because people do not trust a credit card validation which runs too fast.</p>
 <blockquote>
-<p>Everything on your page should have a <em>value_, because everything has a _cost</em>.</p>
+<p>Everything on your page should have a <em>value</em>, because everything has a <em>cost</em>.</p>
 </blockquote>
 <ul>
 <li>Twitter: <a href="https://twitter.com/tkadlec">@tkadlec</a></li>
@@ -2090,7 +2096,7 @@ Projects are a journey, be fluid.
 <li>Möglichst wenige Requests im Live-betrieb ... es wäre schade, für 6 kB JavaScript und 3 kB CSS zwei Roundtrips zu starten.</li>
 <li>Beim Programmieren möchte ich dennoch nicht alles in einer großen HTML Datei horten.</li>
 </ol>
-<h2 id="l-sung-mittels-gulp">Lösung mittels Gulp</h2>
+<h2 id="lösung-mittels-gulp">Lösung mittels Gulp</h2>
 <p>Grundlage bei der Arbeit mit CSS und JS sind natürlich die klassischen Werkzeuge wie less, minify-css, slint, uglify und concat. Die sind in jedem Gulp-Tutorial enthalten und sollen hier nicht behandelt werden. Spannend für meine Zwecke sind zwei weitere Tasks:</p>
 <pre>var replace = require('gulp-replace-task'),
     cleanhtml = require('gulp-cleanhtml');</pre>
@@ -2222,9 +2228,9 @@ $ while true; do ( wc -l tweets.json ; sleep 5 ) done;</pre>
 
 
 <p>Fertig. Ein Update zur Zuverlässigkeit und eine Auswertung der Tweets gibt es dann später hier im Blog.</p>
-<h2 id="update-zur-zuverl-ssigkeit-">Update zur Zuverlässigkeit:</h2>
+<h2 id="update-zur-zuverlässigkeit">Update zur Zuverlässigkeit:</h2>
 <p>Das lief nicht so toll. Die Sammlung ist mehrfach abgebrochen, ohne dass Infos im Error-Log gelandet sind. Ob der Server mit dem Speichern nicht nachgekommen ist, oder ob die Streaming API Aussetzer hatte, lässt sich nicht mehr feststellen. Lesson learned: während der Sammlung sollte ein externer &quot;Dienst&quot; (Cronjob, Daemon, whatever) prüfen ob das Programm noch läuft und falls nötig neu starten. Sicher lässt sich auch das</p>
-<h2 id="auswertung-der-tweets-">Auswertung der Tweets:</h2>
+<h2 id="auswertung-der-tweets">Auswertung der Tweets:</h2>
 <p>Insgesamt wurden 71180 Tweets erfasst. Da die Aufzeichnung ausgerechnet am Abend des 8.11. abbrach und ich bis Spätabends am 9.11. nicht online war, fehlen alle Tweets vom Tag des Mauerfalls. Aber immerhin gibt es die kleine Sammlung der Tage zuvor.</p>
 <p>Die Datei lässt sich via scp vom AWS Server herunterladen, dann kann man die Maschien stoppen oder terminieren.</p>
 <p>Die Tweets, die ein Foto enthalten und mit Geodaten versehen waren, habe ich auf einer Karte dargestellt: <a href="http://lab.thomaspuppe.de/mauerfall-tweets/">Karte</a>, <a href="https://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet">Blog-Beitrag</a>.</p>
@@ -6025,7 +6031,7 @@ a:hover, a:focus {
 <pre>.posts p, .posts h1, .posts h2 { max-width:600px; }</pre>
 
 <p>Da die Artikel selbst noch breit laufen sollen (bunter Rand rechts), begrenzen wir nur Überschriften und Absätze in der Breite. Ḿan erkennt, dass die Inhalte der rechten Spalte sich dem Menü</p>
-<h2 id="3-breakpoints-f-r-unterschiedliche-styles">3. Breakpoints für unterschiedliche Styles</h2>
+<h2 id="3-breakpoints-für-unterschiedliche-styles">3. Breakpoints für unterschiedliche Styles</h2>
 <p>Anhand von sogenannten Media Queries kann bestimmtes CSS für bestimmte Gerätetypen ausgeliefert werden. Für Responsive Websites richtet man sich meist nach der Breite des Bildschirms. Anhand von Grenzwerten (&ldquo;Breakpoints&rdquo;) werden unterschiedliche Regeln für unterschiedliche Bildschirm edefiniert. Für den Einsatz von Breakpoints gibt es zwei verschiedene Ansätze. <strong>Desktop-First</strong> funktioniert mit absteigenden max-width Werten:</p>
 <pre>h1 {
 font-size: 3.5em;
@@ -6074,7 +6080,7 @@ font-size: 2em;
             <description><![CDATA[Der doNotTrack Flag des Browsers signalisiert, dass ein Nutzer nicht getrackt werden möchte. Diese Information lässt sich per JS auslesen &mdash; jedoch je nach browser unterschiedlch.]]></description>
             <content:encoded><![CDATA[<p>Mit dem doNotTrack Befehl können User signalisieren, dass sie nicht von Websites getrackt werden möchten. Browser senden dafür einen HTTP-Header mit ihren Requests an den Webserver. Via JavaScript lässt sich diese Einstellung auch im Client auslesen. Dieses Auslesen funktioniert leider nicht einheitlich.</p>
 <p>Chrome und Safari haben eine andere Schreibweise für die doNotTrack Property als der Firefox Browser. Der IE 9/10 verwendet einen eigenen Namen. Und der IE 8 unterstützt diese Einstellung laut Microsoft auf <a href="http://ie.microsoft.com/TEStdrive/Browser/DoNotTrack/Default.html">sehr krude Art und Weise</a>.</p>
-<h2 id="getestete-browser-">Getestete Browser:</h2>
+<h2 id="getestete-browser">Getestete Browser:</h2>
 <table>
     <thead>
     <tr><td>Browser</td><td>Abruf</td><td>Wert</td></tr>

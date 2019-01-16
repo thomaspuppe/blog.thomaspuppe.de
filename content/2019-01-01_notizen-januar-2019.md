@@ -6,7 +6,7 @@ language: de
 tags: [Notizen]
 permalink: notizen-januar-2019
 draft: false
-description: "this-month-I-learned und Lesetipps für Januar 2019: Performance, Privacy und das vorläufige Ende des Browser War"
+description: "Notizen und Lesetipps für Januar 2019: Performance, Privacy und das vorläufige Ende des Browser War"
 ---
 
 ## Tim Kadlec: The Ethics of Web Performance
@@ -53,3 +53,9 @@ tldr: man prüft, welche lokalen Extension-Dateien der Browser von `chrome://ext
 Das erinnert mich an die gute alte [Erkennung von visited Links](https://dbaron.org/mozilla/visited-privacy) via `getComputedStyles()`, um herauszufinden welche anderen Seiten deine Besucher noch besucht hat.
 
 
+##
+
+Die New York Times
+
+> The desirability of a brand may be stronger than the targeting capabilities.
+> &mdash; [After GDPR, The New York Times cut off ad exchanges in Europe — and kept growing ad revenue](https://digiday.com/media/new-york-times-gdpr-cut-off-ad-exchanges-europe-ad-revenue/)

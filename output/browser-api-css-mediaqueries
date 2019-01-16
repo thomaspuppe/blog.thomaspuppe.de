@@ -44,23 +44,23 @@
 
 <p>Mit dieser Media Query stellt man fest, ob die Website (bzw Web App) das Browser-GUI (und damit den Back-Button des Browsers ) zur Verfügung hat, oder nicht. Und kann dann einen eigenen Button einblenden.</p>
 <p>Das war für mich ein Anlass, mal zu schauen, welche Media/Feature Queries und Browser APIs heutzutage zur Verfügung stehen.</p>
-<h1 id="-1-browser-apis">(1) Browser APIs</h1>
-<h2 id="navigator-cookieenabled">navigator.cookieEnabled</h2>
+<h1 id="1-browser-apis">(1) Browser APIs</h1>
+<h2 id="navigatorcookieenabled">navigator.cookieEnabled</h2>
 <p>Eigentlich ganz simpel, kannte ich aber bis heute noch nicht. Diese Abfrage ist natürlich der  Methode, ein Cookie zu setzen und dann auszulesen, zu bevorzugen. Sehr gute Browser-Unterstützung.</p>
 <blockquote>
 <p>In diesem Browser: <script>document.write(navigator.cookieEnabled || '<em>undefined</em>')</script></p>
 </blockquote>
-<h2 id="navigator-donottrack">navigator.doNotTrack</h2>
+<h2 id="navigatordonottrack">navigator.doNotTrack</h2>
 <p>Zeigt an, ob im Browser &quot;Do not track&quot; gesetzt wurde -- und auf welchen Wert. Ist in vielen Browsern implementiert, aber der <a href="https://blog.thomaspuppe.de/do-not-track-header-crossbrowser">Rückgabewert ist unterschiedlich</a> und muss geparsed werden.</p>
 <blockquote>
 <p>In diesem Browser: <script>document.write(navigator.doNotTrack || '<em>undefined</em>')</script></p>
 </blockquote>
-<h2 id="navigator-hardwareconcurrency">navigator.hardwareConcurrency</h2>
+<h2 id="navigatorhardwareconcurrency">navigator.hardwareConcurrency</h2>
 <p>Gibt die Zahl der verfügbaren Prozessoren zurück. Das ist ein grober Indikator dafür, ob der Browser auf einem ein starken neuen Gerät läuft, oder einer alten Möhre. (Vielleicht kann man auch auf die sinnvolle Anzahl an Service Workern oder Web Workern schließen? Gibt ein Browser-Tab, das in einem Prozess läuft, solche Möglichkeiten her?)</p>
 <blockquote>
 <p>In diesem Browser: <script>document.write(navigator.hardwareConcurrency || '<em>undefined</em>')</script></p>
 </blockquote>
-<h2 id="navigator-geolocation">navigator.geolocation</h2>
+<h2 id="navigatorgeolocation">navigator.geolocation</h2>
 <p>Selbsterklärend. Neben der aktuellen Position kann man auch Positions (oder Genauigkeits-) Änderungen als Event-Handler empfangen. Was macht man mit der Position des Users? Man füttert sie in eine Routenplanung, oder nutzt sie, um Ort und Land des Besuchers herauszufinden.</p>
 <pre>navigator.geolocation.getCurrentPosition(function(position) {
   console.log(position.coords.latitude, position.coords.longitude);
@@ -85,7 +85,7 @@ document.getElementById('geolocationInfoTrigger').addEventListener('click', func
 </script>
 
 <p>Geolocation hat eine sehr gute <a href="http://caniuse.com/#search=geolocation">Browser-Unterstützung</a>, erfordert aber die Berechtigung durch den User und ist im Chrome Browser nur unter SSL verfügbar.</p>
-<h2 id="navigator-online">navigator.onLine</h2>
+<h2 id="navigatoronline">navigator.onLine</h2>
 <blockquote>
 <p>In diesem Browser: <script>document.write(navigator.onLine || '<em>undefined</em>')</script></p>
 </blockquote>
@@ -99,7 +99,7 @@ window.addEventListener('offline', function(e) {
 }, false);</pre>
 
 
-<h2 id="navigator-connection">navigator.connection</h2>
+<h2 id="navigatorconnection">navigator.connection</h2>
 <p>Mehr Details zur Internetverbindung des Users (cellular, wifi).</p>
 <blockquote>
 <p>In diesem Browser: <span id="connectionInfo"></span></p>
@@ -115,7 +115,7 @@ if (connection && connection.type) {
 </script>
 
 <p><code>navigator.connection</code> ist nur im Firefox Mobile und auf Android verfügbar.</p>
-<h2 id="navigator-getbattery-">navigator.getBattery()</h2>
+<h2 id="navigatorgetbattery">navigator.getBattery()</h2>
 <p>Der Batteriestand des Devices kann abgefragt werden! Traurige Berühmtheit erlangte das Feature, als Uber denjenigen Kunden, deren Smartphone nur noch wenig Saft hatte, die Preise erhöht hat -- weil sie schnell das erstbeste Fahrzeug buchen würden.</p>
 <blockquote>
 <p>In diesem Browser: <span id="batteryInfo">waiting...</span></p>
@@ -143,7 +143,7 @@ if (navigator.getBattery) {
 
 <p>Für die Änderung der Werte kann man auch wieder Event Handler registrieren, damit die Website/App informiert wird.</p>
 <p>Eine schöne Einführung findet man bei <a href="https://developer.mozilla.org/en-US/docs/Web/API/BatteryManager">MDN</a>. Das Feature wird <a href="http://caniuse.com/#search=battery">unterstützt</a> im Firefox (nur in &quot;privilegiertem Code&quot; -- diesen Term recherchiere ich jetzt nicht), Chrome und Opera.</p>
-<h2 id="navigator-share-">navigator.share()</h2>
+<h2 id="navigatorshare">navigator.share()</h2>
 <p>Mit dieser Funktion kann man per JS die Sharing-Funktion auslösen, die sonst aus dem Menü des Browsers getriggert wird. Der Vorteil gegenüber individuellen Sharing-Buttons: die Leute bekommen genau die Dienste angeboten, die sie zur Verfügung haben -- und nicht die der Seitenbetreiber für wichtig hielt.</p>
 <pre>navigator.share({
     title: document.title,
@@ -169,23 +169,23 @@ function sharePage() {
 <blockquote>
 <p>In diesem Browser: <span id="shareWrapper"><button id="shareButton" onClick="sharePage();">Share</button></span></p>
 </blockquote>
-<h2 id="navigator-sendbeacon">navigator.sendBeacon</h2>
+<h2 id="navigatorsendbeacon">navigator.sendBeacon</h2>
 <p>Kann genutzt werden, um kleine Datenmengen asynchron an einen Server zu senden. Das Verfahren ist für Event Tracking und Monitoring gedacht. Vor allem das Rumeiern mit Requests bei window.unload soll erleichtert werden.</p>
 <pre>navigator.sendBeacon("/log", data);</pre>
 
 <p>Das <code>data</code> können Form Objekte, Arrays oder normale JS Objekte sein.</p>
 <p>Der Browser-Support ist <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon#Browser_compatibility">durchwachsen</a> und das Verfahren ist als experimentell eingestuft. Auf GitHub liegt eine <a href="https://googlechrome.github.io/samples/beacon/">clevere kleine Testseite</a> bereit.</p>
-<h2 id="navigator-vibrate-500-">navigator.vibrate(500)</h2>
+<h2 id="navigatorvibrate500">navigator.vibrate(500)</h2>
 <p>Lässt das Gerät vibrieren, wenn das verfügbar ist. Als Parameter nimmt die Funktion einen Integer (einmalige Vibration für x Millisekunden) oder ein Array (Pattern von Vibration und Pause) entgegen. <code>navigator.vibrate([100,200,300])</code> vibriert also 100 ms, pausiert 200 ms, vibriert 300 ms. <a href="http://caniuse.com/#search=vibration">Verfügbar</a> in modernen mobilen Browsern.</p>
 <blockquote>
 <p>In diesem Browser: <button id="vibrateButton" onClick="if (navigator.vibrate) { navigator.vibrate([200,100,200]); }">Vibrieren</button></p>
 </blockquote>
 <p>Die Funktion steht auch in nicht-vibrierfähigen Geräten zur Verfügung und man kann nicht prüfen, ob sie tatsächlich etwas tun wird. Zur Erkennung müsste man also über die Device-Detection gehen.</p>
-<h1 id="-2-media-queries">(2) Media Queries</h1>
+<h1 id="2-media-queries">(2) Media Queries</h1>
 <p>Die am häufigsten eingesetzten Media Queries dürften <code>(min/max-)(device-)width</code> sein, die für responsive Layouts genutzt werden. Das <code>device</code> macht den wichtigen Unterschied zwischen der Größe des Gerätes und des eigentlichen Viewports (also Fensters oder Split Screens).</p>
 <p>Besonders auf großen Bildschirmen, wo man im Split Screen arbeitet (was mittlerweile auch auf Tablets kein Problem mehr ist), kann das Fenster komplett anders als das Gerät sein.</p>
 <p>Doch Media Queries können viel mehr:</p>
-<h2 id="-device-aspect-ratio">(device-)aspect-ratio</h2>
+<h2 id="device-aspect-ratio">(device-)aspect-ratio</h2>
 <p>... ist das Seitenverhältnis des geräts (bzw Viewports). Damit kann man im simpelsten Fall quer- von Hochformat unterscheiden, oder beispielsweise Panorama-Bildschirmen spezielel Stile oder Inhalte ausliefern.</p>
 <pre>@media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) { ... }</pre>
 
@@ -239,7 +239,7 @@ function sharePage() {
 <h2 id="media-queries-level-4">Media Queries Level 4</h2>
 <p>Noch im <a href="https://drafts.csswg.org/mediaqueries-4/#media">Draft-Status</a> sind Media Queries Level 4. Sie versprechen Features wie <code>hover</code> (kann ich über Elemente hovern?), <code>pointer</code> (wie genau kann ich Elemente treffen -- Mauszeiger vs Wurstfinger), <code>update</code> (Schnelligkeit beim Bildaufbau, quasi frames-per-second) und mehr.</p>
 <p><code>device-width</code>, <code>device-height</code>, und damit auch device-aspect-ratio` sind deprecated.</p>
-<h1 id="-3-was-mir-fehlt">(3) Was mir fehlt</h1>
+<h1 id="3-was-mir-fehlt">(3) Was mir fehlt</h1>
 <ul>
 <li>Bessere Erkennung von Bandbreite/Netzwerkgeschwindigkeit. Zum Beispiel kann Wifi langsamer sein als Cellular via LTE. Da hilft <code>navigator.connection.type</code> nicht unbedingt weiter.</li>
 <li>Statt Wifi/Cellular will man eigentlich wissen: Hat der User eine Flatrate, oder zählt jedes MB? Andererseits will ich beim Surfen diese Info auch nicht unbedingt preisgeben.</li>

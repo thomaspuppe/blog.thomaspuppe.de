@@ -35,9 +35,9 @@
         <h1 class="post__title">Single Point Of Failure auf News-Websites</h1>
 
         <p>Moderne Websites binden häufig Inhalte und Code von fremden Servern ein. Seien es Social-Media-Widgets, Tracking, oder Werbung. News-Websites verwenden all diese Dinge. Und damit ist die Verfügbarkeit und Geschwindigkeit der News-Website unter Umständen abhängig von der Verfügbarkeit und Geschwindigkeit der fremden Anbieter. Was diese Umstände sind, wie man sie erkennt, und ausschaltet, erkläre ich in diesem Artikel an einigen Beispielen.</p>
-<h1 id="was-ist-ein-spof-und-was-ist-daran-schlimm-">Was ist ein SPOF und was ist daran schlimm?</h1>
+<h1 id="was-ist-ein-spof-und-was-ist-daran-schlimm">Was ist ein SPOF und was ist daran schlimm?</h1>
 <p>Ein &quot;Single Point of Failure&quot; (SPOF) ist ein Bestandteil eines Systems, dessen Ausfall das gesamte System beeinträchtigt. Auf einer Website heißt das: ein Element der Website, das die gesamte Seite beeinträchtigt, wenn es einen Fehler hat, langsam ist, oder überhaupt nicht verfügbar ist. Was eine &quot;Beeinträchtigung der Seite&quot; ist, darüber kann man streiten. Im Kontext dieses Artikels ist eine News-Website beeinträchtigt, wenn man keine Inhalte lesen kann.</p>
-<h1 id="wie-entsteht-so-etwas-">Wie entsteht so etwas?</h1>
+<h1 id="wie-entsteht-so-etwas">Wie entsteht so etwas?</h1>
 <p>Der SPOF kann auf einer Website an verschiedenen Stellen sitzen. Offensichtlich ist der Fall, dass der Server, der die HTML-Seiten ausliefert, nicht verfügbar ist. Dann gibt es schlicht keine Inhalte. Das ist der Worst Case, und es gibt Strategien dagegen, aber das soll hier nicht das Thema sein.</p>
 <p>Interessant sind die Situationen, in denen der eigentliche Inhalt &mdash; das HTML &mdash; sehr wohl verfügbar ist. Aber externe Scripte den schon geladenen Inhalt dann verzögern, beschädigen, oder blockieren. Ein nicht notwendiger Bestandteil der Seite blockiert also den wichtigen Teil. Das ist ärgerlich, weil unnötig. Diesen Fällen möchte ich mich hier widmen.</p>
 <h1 id="simulation-von-spof">Simulation von SPOF</h1>
@@ -50,7 +50,7 @@
 <p>Mein Vorgehen: im jeweiligen Quellcode der Seite habe ich nach den beiden Triggern für blockierendes JavaScript gesucht: <code>document.write</code> und <code>&lt;script src=&quot;&quot;</code> ohne <code>async</code>.</p>
 <p>Von der Liste der gefundenen Dateien habe ich diejenigen ausgenommen, die unter der Domain der Zeitung selbst laufen. Auch wenn Subdomains in der Art <code>scripts.zeit.de</code> oder <code>code.bildstatic.de</code> vielleicht schon Third-Party sind (CDN bzw Proxy-Server zu einem anderen Hoster), habe ich das als selbst gehostet gewertet. Im Sinne von &quot;wenn das ausfällt, ist kein Fremder schuld sondern du selber&quot;.</p>
 <p>Die übrigen Hosts habe ich dann in meiner <code>/etc/hosts</code>-Datei blockiert, indem ich sie auf die IP des Webpagetest Blackhole schicke: <code>72.66.115.13    www.googletagmanager.com</code>. Das funktioniert auch in <a href="%22https://de.wikipedia.org/wiki/Hosts_(Datei)#Pfade_unter_verschiedenen_Betriebssystemen%22">anderen Betriebssystemen</a>.</p>
-<h2 id="test-1-ivw-z-hlung">Test 1: IVW Zählung</h2>
+<h2 id="test-1-ivw-zählung">Test 1: IVW Zählung</h2>
 <p>Es gibt eine Sache, die alle betrachteten Websites gemeinsam haben. Und zwar die &quot;IVW-Zählung&quot;. Die IVW ist die &quot;<a href="https://de.wikipedia.org/wiki/Informationsgemeinschaft_zur_Feststellung_der_Verbreitung_von_Werbetr%C3%A4gern">Informationsgemeinschaft zur Feststellung der Verbreitung von Werbeträgern</a>&quot;. Sie erfasst die Reichweite vieler Medien, und dient damit nicht nur zur unabhängigen Zählung der Besucher, sondern auch zur Verteilung von Werbeerlösen.</p>
 <p>Da machen alle betrachteten Medien mit, und daher haben auch alle die Datei <code>https://script.ioam.de/iam.js</code> eingebunden. Was passiert also, wenn ich den Host <code>script.ioam.de</code> blockiere &mdash; oder er tatsächlich ausfällt bzw lahmt?</p>
 <table>
