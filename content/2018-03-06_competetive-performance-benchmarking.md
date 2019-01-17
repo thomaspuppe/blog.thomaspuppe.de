@@ -29,6 +29,12 @@ description:
 - bsp speedcurve
 - bsp unser sitespeed dashboard
 
+
+[At work](TODO:ZON-FE-Manual) we haveset up our sitespeed manually. That way, we can send everything we can imagine to our Graphite, and display at Grafana. So we startet expanding our tests from performance to [accessibility, quality or CSS stats](TODO:a11ydashboardRepo).
+
+TODO: Screenshot der HTML Errors competetive
+
+
 ## RUM (real user monitoring) data about your competitors with CrUX
 
 ... eigentlich gehts nicht

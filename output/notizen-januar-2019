@@ -5,7 +5,7 @@
     <meta name="language" content="de">
     <title>Notizen Januar 2019</title>
     <meta name="description" content="Notizen und Lesetipps für Januar 2019: Performance, Privacy und das vorläufige Ende des Browser War">
-    <meta name="date" content="2018-07-20">
+    <meta name="date" content="2019-01-17">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="Notizen Januar 2019" />
     <meta property="og:url" content="https://blog.thomaspuppe.de/notizen-januar-2019" />
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content="2018-07-20" />
+    <meta property="og:article:published_time" content="2019-01-17" />
     <meta property="og:article:author" content="Thomas Puppe" />
 
 </head>
@@ -29,7 +29,7 @@
 
         <div class="post__meta">
             <span class="post__category">#Notizen</span>
-            <time datetime="2018-07-20">01. Januar 2019 – 15. Januar 2019</time>
+            <time datetime="2019-01-17">01. Januar 2019 – 17. Januar 2019</time>
         </div>
 
         <h1 class="post__title">Notizen Januar 2019</h1>
@@ -43,6 +43,18 @@
 <p>Ein anderes Beispiel: beim <a href="http://blog.chriszacharias.com/page-weight-matters">Youtube Feather</a> Projekt hat <a href="https://twitter.com/zacman85">Chris Zacharias</a> entdeckt, dass Nutzer in nicht-so-reichen Ländern die Videoplattform überhaupt erst nutzen können, wenn man sie radikal beschleunigt. Also ganze Nutzergruppen <em>konnten</em> Youtube vorher gar nicht benutzen, obwohl sie es wollten. Das beweist erneut &quot;Performance is Accessibility&quot;.</p>
 <h3 id="-und-die-ökonomie-von-web-performance">... und die Ökonomie von Web Performance?</h3>
 <p>Ich glaube ja, dass das gleiche für ... sagen wir ... News-Websites zutreffen würde. Die erste Seite die signifikant schneller ist als der Rest wird sicher viel mehr besucht. Erreichen könnte man das z.B. durch weniger nervige Werbung. Die Einkommensverluste pro Besucher/Klick würde man dann durch höhere Reichweite ausgleichen? Kann man nicht wissen, solange man es nicht probiert.</p>
+<p>Zumal: die große Verbreitung von Adblockern kommt ja nicht daher, dass die Menschen Werbung an sich blöd finden. Vielmehr stören sie sich an der schlechten Performance und am unkontrollierten Tracking. Wenn man durch ehrliches Ausliefern eigener guter Inhalte mit ganz normaler Werbung die Leute überzeugen kann, ihre Adblocker auszuschalten, kommen gleich mal 30% zählbare Nutzer hinzu. Damit überholt man locker seine nächsten beiden Mitbewerber.</p>
+<p>Aus den gleichen Motiven, aus denen Leser Adblocker benutzen, benutzen sie den Reader-Mode im Browser, oder auch Pocket. Dass (und wie) wir mit unseren Websites gegen die schöne text-only Darstellung der Browser konkurrieren, legt Eric Bailey dar in <a href="https://css-tricks.com/reader-mode-the-button-to-beat/">Reader Mode: The Button to Beat</a>:</p>
+<blockquote>
+<p>And what if we’re on a slow, intermittent, and/or metered connection? Top-of-the-line MacBooks still have to use hotel wifi, just like everyone else.</p>
+</blockquote>
+<p>Zwei Tage später habe ich im Smashing Magazine den Artikel <a href="https://www.smashingmagazine.com/2019/01/save-planet-improving-website-performance/">How Improving Website Performance Can Help Save The Planet</a> entdeckt. Auch hier ist &quot;save the Planet&quot; aus meiner Sicht ein wenig übertrieben. Aber die Intention ist fein. Mach Sachen schlank und performant, dann hilfst du dem Planeten. Und wenn ein Berliner Webdev-Hipster sich <em>dadurch</em> überzeugen lässt, Preact statt React zu benutzen &mdash; auch gut.</p>
+<p>Weiterführende Links zum Thema:</p>
+<ul>
+<li>Heydon Pickering: <a href="https://vimeo.com/190834530">writing less damn code</a> (Video bei vimeo)</li>
+<li>Brad Frost: <a href="http://deathtobullshit.com/">Death to Bullshit</a></li>
+<li>Adam Silver: <a href="https://adamsilver.io/articles/designing-for-actual-performance/">Designing For Actual Performance</a></li>
+</ul>
 <h2 id="usabilityfindability-vergleich-von-flat-design-vs-traditional-design">Usability/Findability Vergleich von Flat Design vs Traditional Design</h2>
 <p>Ein Paper aus dem Jahr 2015 wurde bei Hacker News hochgespült. Forscher aus Russland haben &quot;<a href="https://www.researchgate.net/publication/281628009_Flat_Design_vs_Traditional_Design_Comparative_Experimental_Study">Flat Design vs Traditional Design</a>&quot; verglichen, in Bezug auf Findbarkeit von User Interface Elementen. Flat Design schneidet schlechter ab.</p>
 <blockquote>
@@ -62,11 +74,10 @@
 <p>Apropos Dystopie und Microsoft und Dominanz: am Beispiel von Linkedin wird hier gezeigt, wie Websites herausfinden können welche Browser-Extensions ein Besucher installiert hat: <a href="https://github.com/dandrews/nefarious-linkedin">Nefarious LinkedIn</a></p>
 <p>tldr: man prüft, welche lokalen Extension-Dateien der Browser von <code>chrome://extensions</code> lädt, oder welche Manipulationen auf berühmten Websites vorgenommen werden. Und gleicht das dann mit seiner Datenbank bekannter Extensions ab.</p>
 <p>Das erinnert mich an die gute alte <a href="https://dbaron.org/mozilla/visited-privacy">Erkennung von visited Links</a> via <code>getComputedStyles()</code>, um herauszufinden welche anderen Seiten deine Besucher noch besucht hat.</p>
-<p>##</p>
-<p>Die New York Times</p>
+<h2 id="sonstiges">Sonstiges</h2>
+<p>Die New York Times hat wegen der DSGVO in Europa auf targeted Ads verzichtet, und ist davon nciht pleite gegangen: <a href="https://digiday.com/media/new-york-times-gdpr-cut-off-ad-exchanges-europe-ad-revenue/">After GDPR, The New York Times cut off ad exchanges in Europe — and kept growing ad revenue</a></p>
 <blockquote>
-<p>The desirability of a brand may be stronger than the targeting capabilities.
-&mdash; <a href="https://digiday.com/media/new-york-times-gdpr-cut-off-ad-exchanges-europe-ad-revenue/">After GDPR, The New York Times cut off ad exchanges in Europe — and kept growing ad revenue</a></p>
+<p>The desirability of a brand may be stronger than the targeting capabilities.</p>
 </blockquote>
 
 

@@ -1,7 +1,7 @@
 ---
 title: Notizen Januar 2019
-date: 2018-07-20
-datelabel: 01. Januar 2019 – 15. Januar 2019
+date: 2019-01-17
+datelabel: 01. Januar 2019 – 17. Januar 2019
 language: de
 tags: [Notizen]
 permalink: notizen-januar-2019
@@ -22,6 +22,20 @@ Ein anderes Beispiel: beim [Youtube Feather](http://blog.chriszacharias.com/page
 ### ... und die Ökonomie von Web Performance?
 
 Ich glaube ja, dass das gleiche für ... sagen wir ... News-Websites zutreffen würde. Die erste Seite die signifikant schneller ist als der Rest wird sicher viel mehr besucht. Erreichen könnte man das z.B. durch weniger nervige Werbung. Die Einkommensverluste pro Besucher/Klick würde man dann durch höhere Reichweite ausgleichen? Kann man nicht wissen, solange man es nicht probiert.
+
+Zumal: die große Verbreitung von Adblockern kommt ja nicht daher, dass die Menschen Werbung an sich blöd finden. Vielmehr stören sie sich an der schlechten Performance und am unkontrollierten Tracking. Wenn man durch ehrliches Ausliefern eigener guter Inhalte mit ganz normaler Werbung die Leute überzeugen kann, ihre Adblocker auszuschalten, kommen gleich mal 30% zählbare Nutzer hinzu. Damit überholt man locker seine nächsten beiden Mitbewerber.
+
+Aus den gleichen Motiven, aus denen Leser Adblocker benutzen, benutzen sie den Reader-Mode im Browser, oder auch Pocket. Dass (und wie) wir mit unseren Websites gegen die schöne text-only Darstellung der Browser konkurrieren, legt Eric Bailey dar in [Reader Mode: The Button to Beat](https://css-tricks.com/reader-mode-the-button-to-beat/):
+
+> And what if we’re on a slow, intermittent, and/or metered connection? Top-of-the-line MacBooks still have to use hotel wifi, just like everyone else.
+
+Zwei Tage später habe ich im Smashing Magazine den Artikel [How Improving Website Performance Can Help Save The Planet](https://www.smashingmagazine.com/2019/01/save-planet-improving-website-performance/) entdeckt. Auch hier ist "save the Planet" aus meiner Sicht ein wenig übertrieben. Aber die Intention ist fein. Mach Sachen schlank und performant, dann hilfst du dem Planeten. Und wenn ein Berliner Webdev-Hipster sich _dadurch_ überzeugen lässt, Preact statt React zu benutzen &mdash; auch gut.
+
+Weiterführende Links zum Thema:
+
+- Heydon Pickering: [writing less damn code](https://vimeo.com/190834530) (Video bei vimeo)
+- Brad Frost: [Death to Bullshit](http://deathtobullshit.com/)
+- Adam Silver: [Designing For Actual Performance](https://adamsilver.io/articles/designing-for-actual-performance/)
 
 
 ## Usability/Findability Vergleich von Flat Design vs Traditional Design
@@ -53,9 +67,8 @@ tldr: man prüft, welche lokalen Extension-Dateien der Browser von `chrome://ext
 Das erinnert mich an die gute alte [Erkennung von visited Links](https://dbaron.org/mozilla/visited-privacy) via `getComputedStyles()`, um herauszufinden welche anderen Seiten deine Besucher noch besucht hat.
 
 
-##
+## Sonstiges
 
-Die New York Times
+Die New York Times hat wegen der DSGVO in Europa auf targeted Ads verzichtet, und ist davon nciht pleite gegangen: [After GDPR, The New York Times cut off ad exchanges in Europe — and kept growing ad revenue](https://digiday.com/media/new-york-times-gdpr-cut-off-ad-exchanges-europe-ad-revenue/)
 
 > The desirability of a brand may be stronger than the targeting capabilities.
-> &mdash; [After GDPR, The New York Times cut off ad exchanges in Europe — and kept growing ad revenue](https://digiday.com/media/new-york-times-gdpr-cut-off-ad-exchanges-europe-ad-revenue/)

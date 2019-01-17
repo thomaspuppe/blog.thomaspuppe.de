@@ -43,6 +43,8 @@
 <li>bsp speedcurve</li>
 <li>bsp unser sitespeed dashboard</li>
 </ul>
+<p><a href="TODO:ZON-FE-Manual">At work</a> we haveset up our sitespeed manually. That way, we can send everything we can imagine to our Graphite, and display at Grafana. So we startet expanding our tests from performance to <a href="TODO:a11ydashboardRepo">accessibility, quality or CSS stats</a>.</p>
+<p>TODO: Screenshot der HTML Errors competetive</p>
 <h2 id="rum-real-user-monitoring-data-about-your-competitors-with-crux">RUM (real user monitoring) data about your competitors with CrUX</h2>
 <p>... eigentlich gehts nicht</p>
 <p>Chrome Real User Experience (&quot;CrUX&quot;) Report hat Daten, die im Chrome Browser gesammelt werden. Diese decken allerdings nur die 10000 größten Seiten ab, und sind eben nur von neueren Versionen des Chrome-Browsers.</p>

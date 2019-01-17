@@ -59,6 +59,8 @@ Dareboost moniert,dass ich keine CSP und XSS protection header aktiviert habe. D
 	# XSS Protection
 	add_header X-XSS-Protection "1; mode=block" always;
 
+**Update: es schadet doch! ;-)** Die `Content-Security-Policy "default-src 'self'";` sorgt dafür, dass nur Scripte und Styles vom eigenen Host eingebunden werden können. [Das schließt aber auch Inline-Styles und Scripte aus](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP#Writing_a_policy)! Klar, es soll ja z.B. auch ins HTML injizierte Inhalte unterbinden. Da ich aber inline JS und CSS verwende, und kein Input von außen in meine statischen Seiten möglich ist, lasse ich das mit der CSP bleiben.
+
 Zur weiteren Recherche: in einem Stackoverflow Kommentar https://stackoverflow.com/a/43492470 habe ich ein ausführliches Github Repo über nginx Config gefunden: https://github.com/h5bp/server-configs-nginx
 
 (3) Charset im HTTT-Header von HTML und Schriften angeben, um das Rendern zu beschleunigen.
