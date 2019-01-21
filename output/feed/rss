@@ -4,7 +4,7 @@
         <title>Blog von Thomas Puppe, Web Developer.</title>
         <link>https://blog.thomaspuppe.de</link>
         <description></description>
-        <lastBuildDate>Thu, 17 Jan 2019 22:44:54 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 21 Jan 2019 17:27:47 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>easto 2.0.0 (https://github.com/thomaspuppe/easto)</generator>
         <copyright>All rights reserved 2018, Thomas Puppe</copyright>
@@ -13,7 +13,7 @@
             <title><![CDATA[Notizen Januar 2019]]></title>
             <link>https://blog.thomaspuppe.de/notizen-januar-2019</link>
             <guid>https://blog.thomaspuppe.de/notizen-januar-2019</guid>
-            <pubDate>Thu, 17 Jan 2019 00:00:00 GMT</pubDate>
+            <pubDate>Mon, 21 Jan 2019 00:00:00 GMT</pubDate>
             <description><![CDATA[Notizen und Lesetipps für Januar 2019: Performance, Privacy und das vorläufige Ende des Browser War]]></description>
             <content:encoded><![CDATA[<h2 id="tim-kadlec-the-ethics-of-web-performance">Tim Kadlec: The Ethics of Web Performance</h2>
 <p>Tim Kadlec räsoniert in seinem Artikel &quot;<a href="https://timkadlec.com/remembers/2019-01-09-the-ethics-of-performance/">The Ethics of Web Performance</a>&quot; darüber, dass imperformante Websites nicht nur ökonomisch sondern auch moralisch schlecht sind.</p>
@@ -55,10 +55,16 @@
 <p>Apropos Dystopie und Microsoft und Dominanz: am Beispiel von Linkedin wird hier gezeigt, wie Websites herausfinden können welche Browser-Extensions ein Besucher installiert hat: <a href="https://github.com/dandrews/nefarious-linkedin">Nefarious LinkedIn</a></p>
 <p>tldr: man prüft, welche lokalen Extension-Dateien der Browser von <code>chrome://extensions</code> lädt, oder welche Manipulationen auf berühmten Websites vorgenommen werden. Und gleicht das dann mit seiner Datenbank bekannter Extensions ab.</p>
 <p>Das erinnert mich an die gute alte <a href="https://dbaron.org/mozilla/visited-privacy">Erkennung von visited Links</a> via <code>getComputedStyles()</code>, um herauszufinden welche anderen Seiten deine Besucher noch besucht hat.</p>
+<h2 id="hiring-engineers">Hiring Engineers</h2>
+<p>Wer Software-Entwickler einstellt, ist heutzutage kein &quot;Käufer&quot; der sich den Entwickler aussucht, sondern er ist &quot;Verkäufer&quot; der vor allem die Firma gut darstellen muss. Die Firmen müssen sich bei den Entwicklern bewerben, nicht andersherum. Das ist alles etwas arrogant geschrieben, aber inhaltlich hat der Autor (gegenwärtig) recht. Welche Aspakte es da zu berücksichtigen gilt, und ein paar schöne Analogien, findet man bei <a href="https://hiringengineersbook.com/post/trouble-hiring/">Trouble hiring senior engineers? It&#39;s probably you</a>.</p>
 <h2 id="sonstiges">Sonstiges</h2>
 <p>Die New York Times hat wegen der DSGVO in Europa auf targeted Ads verzichtet, und ist davon nciht pleite gegangen: <a href="https://digiday.com/media/new-york-times-gdpr-cut-off-ad-exchanges-europe-ad-revenue/">After GDPR, The New York Times cut off ad exchanges in Europe — and kept growing ad revenue</a></p>
 <blockquote>
 <p>The desirability of a brand may be stronger than the targeting capabilities.</p>
+</blockquote>
+<p>Im Guardian erklärt Paul Dolan in einem Exzerpt seines neuen Buches, dass das Erfüllen von gesellschaftlichen Erwartungen nicht automatisch glücklich macht (social narrative vs personal experience): <a href="https://www.theguardian.com/books/2019/jan/06/happiness-index-wellbeing-survey-uk-population-paul-dolan-happy-ever-after">The money, job, marriage myth: are you happy yet?</a>.</p>
+<blockquote>
+<p>To be happier we need to move from a culture of “more please” to one of “just enough”.</p>
 </blockquote>
 ]]></content:encoded>
         </item>

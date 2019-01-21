@@ -1,7 +1,7 @@
 ---
 title: Notizen Januar 2019
-date: 2019-01-17
-datelabel: 01. Januar 2019 – 17. Januar 2019
+date: 2019-01-21
+datelabel: 01. Januar 2019 – 21. Januar 2019
 language: de
 tags: [Notizen]
 permalink: notizen-januar-2019
@@ -67,8 +67,21 @@ tldr: man prüft, welche lokalen Extension-Dateien der Browser von `chrome://ext
 Das erinnert mich an die gute alte [Erkennung von visited Links](https://dbaron.org/mozilla/visited-privacy) via `getComputedStyles()`, um herauszufinden welche anderen Seiten deine Besucher noch besucht hat.
 
 
+## Hiring Engineers
+
+Wer Software-Entwickler einstellt, ist heutzutage kein "Käufer" der sich den Entwickler aussucht, sondern er ist "Verkäufer" der vor allem die Firma gut darstellen muss. Die Firmen müssen sich bei den Entwicklern bewerben, nicht andersherum. Das ist alles etwas arrogant geschrieben, aber inhaltlich hat der Autor (gegenwärtig) recht. Welche Aspakte es da zu berücksichtigen gilt, und ein paar schöne Analogien, findet man bei [Trouble hiring senior engineers? It's probably you](https://hiringengineersbook.com/post/trouble-hiring/).
+
+
 ## Sonstiges
 
 Die New York Times hat wegen der DSGVO in Europa auf targeted Ads verzichtet, und ist davon nciht pleite gegangen: [After GDPR, The New York Times cut off ad exchanges in Europe — and kept growing ad revenue](https://digiday.com/media/new-york-times-gdpr-cut-off-ad-exchanges-europe-ad-revenue/)
 
 > The desirability of a brand may be stronger than the targeting capabilities.
+
+
+Im Guardian erklärt Paul Dolan in einem Exzerpt seines neuen Buches, dass das Erfüllen von gesellschaftlichen Erwartungen nicht automatisch glücklich macht (social narrative vs personal experience): [The money, job, marriage myth: are you happy yet?](https://www.theguardian.com/books/2019/jan/06/happiness-index-wellbeing-survey-uk-population-paul-dolan-happy-ever-after).
+
+> To be happier we need to move from a culture of “more please” to one of “just enough”.
+
+
+
