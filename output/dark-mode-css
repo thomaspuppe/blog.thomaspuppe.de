@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Dark Mode für Websites</title>
+    <meta name="description" content="Bisher nur experimentell, aber ein schönes Bastelfeature: den MacOS Dark Mode via CSS unterstützen">
+    <meta name="date" content="2019-01-26">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+
+    <link href="/feed/atom" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+
+    <meta property="og:title" content="Dark Mode für Websites" />
+    <meta property="og:url" content="https://blog.thomaspuppe.de/dark-mode-css" />
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="2019-01-26" />
+    <meta property="og:article:author" content="Thomas Puppe" />
+
+</head>
+<body>
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
+
+        <div class="post__meta">
+            <span class="post__category">#Webentwicklung</span>
+            <time datetime="2019-01-26">26. Januar 2019</time>
+        </div>
+
+        <h1 class="post__title">Dark Mode für Websites</h1>
+
+        <p>Mit Version 10.14 Mojave von macOS <a href="https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/">hat Apple den &quot;Dark Mode&quot; eingeführt</a>. Über seine Systemeinstellungen kann man das Farbschema des Betriebssystems in einen Modus versetzen, der alle Interfaces abdunkelt.</p>
+<p>Das funktioniert für native Software und die GUI des Browsers, aber schlägt natürlich nicht auf Websites durch. (Außer man benutzt des Reader-Modus im Safari.) Für seine Website kann man aber einen Dark Mode via CSS bauen.</p>
+<figure>
+    <img src="/images/2019/01/dark-mode-css/blog-both.jpg" alt="Screenshots von www.thomaspuppe.de im Dark Mode und Light Mode"/>
+    <figcaption>www.thomaspuppe.de und die MacOS Systemeinstellung im Light Mode (links) und Dark Mode (rechts)</figcaption>
+</figure>
+
+<p>Der aktivierte Dark Mode wird via Media Query an CSS und JS des Browsers exponiert, sodass man als Programmierer einer Website auf diesen bevorzugten Modus seiner Besucher eingehen kann. Menschen, die auf ihrem Computer helle Schrift auf dunklem Hintergrund bevorzugen, bekommen dies auch auf meiner Website. Die Umsetzung ist, wie bei anderen Media Queries auch, sehr einfach:</p>
+<pre>body {
+    background: #fff;
+    color: #333;
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #333;
+        color: #fff;
+    }
+}</pre>
+
+<p>Die Query nimmt drei Werte an: <code>dark</code>, <code>light</code> und <code>no-preference</code>. Eine normalerweise dunkle Website kann also auch ins Helle umschwenken, wenn gewünscht. Wobei in der Praxis ist im Safari ja immer hell, das GUI für Systemeinstellung im MacOS gibt kein &quot;no preference&quot; her.</p>
+<h2 id="der-teufel-steckt-im-detail">Der Teufel steckt im Detail</h2>
+<p>Die obigen Zeilen sind das, was ich immer als &quot;Toy Example&quot; bezeichne. Zunächst sieht es sehr einfach aus. Aber natürlich ist es mit dem Umdrehen von Hintergrund- und Textfarbe in den meisten Fällen nicht getan.</p>
+<p>Je fancier das Design einer Website ist, desto mehr muss man auch für den Dark Mode hinterherräumen. Selbst auf meiner Homepage und in meinem Blog hat es nicht ausgereicht, zwei Farben zu invertieren.</p>
+<p>Meine <a href="/link-unterstreichung">spezielle Unterstreichung von Links</a> erfordert einen Text-Shadow, der im Dark Mode schlecht aussieht:</p>
+<figure>
+    <img src="/images/2019/01/dark-mode-css/text-shadow.jpg" alt="Screenshot: Schlecht lesbarer Text, weil weißer Schatten um weiße Schrift herum"/>
+    <figcaption>Die Umkehrung von Hintergrund- und Schriftfarbe ist nicht genug, wenn man farbige Schlagschatten am Text definiert hat.</figcaption>
+</figure>
+
+<p>Und schon ist man dabei, seinen kleinen Hacks hinterherzuräumen.</p>
+<pre>@media (prefers-color-scheme: dark) {
+    a {
+        color: currentColor;
+        background-image: none;
+        text-shadow: none;
+        text-decoration: underline;
+    }
+}</pre>
+
+<p><strong>Complexity is killing us.</strong></p>
+<p>Auch sonst ist man gut beraten, seine Designs im Dark Mode ausführlich zu testen. Denn der Teufel steckt im Detail. Ein Artikel bei <a href="https://css-tricks.com/dark-modes-with-css/#article-header-id-0">CSS-Tricks</a> empfiehlt, helle Bilder per CSS abzudunkeln, weil sie sonst auf dunklem Hintergrund zu grell sind. Apple hat Beispiele für <a href="https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/#images-icons-glyphs">Schatten und Glow-Effekte an Icons</a>.</p>
+<p>Alle Farben im Dark Mode muss man erneut auf ihren Kontrast überprüfen.</p>
+<p>Bei größeren Projekten helfen Sass-Variablen oder <a href="https://css-tricks.com/dark-modes-with-css/#article-header-id-1">CSS Custom Properties</a> bei der Organisation der Farben.</p>
+<h2 id="noch-nicht-in-browsern-verfügbar">Noch nicht in Browsern verfügbar</h2>
+<p>In der Praxis ist die <code>prefers-color-scheme</code> Media Query noch nicht sinnvoll. Dafür ist die Unterstützung viel zu schlecht. Erstens stellt sich die Frage, wer den Dark Mode in seinem MacOS überhaupt aktiviert. Und dann muss man noch den Safari Browser nutzen ... in dem der Dark Mode bisher auch nur in der Developer Preview verfügbar ist.</p>
+<p>Sobald aber Chrome und Firefox das Feature unterstützen, könnte es sich lohnen in diesen Modus einzusteigen. Bei Firefox sucht das <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1494034">Feature</a> gerade nach einem Assignee ;-)</p>
+<h2 id="ähnliche-queries">Ähnliche Queries</h2>
+<p>Im W3C Draft für Media Queries Level 5 gibt es weitere Ideen, die <a href="https://drafts.csswg.org/mediaqueries-5/#mf-user-preferences">Präferenzen von Usern zu berücksichtigen</a>:</p>
+<ul>
+<li><code>inverted-colors</code></li>
+<li><code>prefers-reduced-motion</code>, was heute schon im Safari und Firefox <a href="https://www.caniuse.com/#feat=prefers-reduced-motion">unterstützt wird</a>, und ich sehr empfehle.</li>
+<li><code>prefers-reduced-transparency</code></li>
+<li><code>prefers-contrast</code> ... halte ich auch für sehr nützlich aus Accessibility-Gesichtspunten!</li>
+</ul>
+<h2 id="weiterführende-artikel">Weiterführende Artikel:</h2>
+<ul>
+<li><a href="https://medium.com/@mwichary/dark-theme-in-a-day-3518dde2955a">Dark theme in a day</a></li>
+<li><a href="https://css-tricks.com/dark-modes-with-css/">Dark Mode in CSS</a></li>
+<li><a href="https://stuffandnonsense.co.uk/blog/redesigning-your-product-and-website-for-dark-mode">Redesigning your product and website for dark mode</a></li>
+</ul>
+
+
+    </article>
+</body>
+</html>
