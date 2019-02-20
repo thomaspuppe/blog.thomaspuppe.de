@@ -56,7 +56,7 @@ fs.readdirSync('content')
     const contentHtml = marked(contentMarkdown)
 
     const targetFilename = sourceFilename.replace('.md', '.html')
-    const targetPath = `output/` + targetFilename
+    const targetPath = `output/${targetFilename}`
 
     fs.writeFileSync(targetPath, contentHtml)
   })</pre>
@@ -66,11 +66,18 @@ Im Befehl `const contentHtml = marked(contentMarkdown)` steckt die Magie. Texte,
 Aber zurück zum Generator. Obiges Textbeispiel als JavaScript-Datei reicht (fast) schon aus, um ein kleines simples Blog zu erzeugen.
 
 <pre>$ node index.js
-Hello World
-✨  Done in 0.19s.</pre>
+🚀 Easto: 170.456ms</pre>
 
 Wie in der modernen JavaScript-Welt üblich, muss man vorher noch das "marked" Modul als Dependency mit dem aktuell coolen Paketmanager installieren.
 
+Die Laufzeit des Scripts messe ich übrigens mit
+
+<pre>console.time('🚀 Easto')
+...
+console.timeEnd('🚀 Easto')
+</pre>
+
+am Anfang und Ende des Scripts.
 
 
 ## 2: Templating
@@ -137,7 +144,7 @@ Ich setze weitere Platzhalter in das Template, und ersetze diese beim Zusammenba
 
 Das Template sieht nun so aus:
 
-<pre><pre>&lt;!doctype html&gt;
+<pre>&lt;!doctype html&gt;
 &lt;html lang="{{ META_LANGUAGE }}"&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8"&gt;
@@ -147,7 +154,7 @@ Das Template sieht nun so aus:
         &lt;h1&gt;{{ META_TITLE }}&lt;/h1&gt;
         {{ CONTENT }}
     &lt;/body&gt;
-&lt;/html&gt;</pre></pre>
+&lt;/html&gt;</pre>
 
 und im JavaScript füge ich hinter das Transformieren von Markdown in HTML die Schleife zur Ersetzung aller Metadaten ein.
 
@@ -160,7 +167,7 @@ const frontmatter = yaml.loadFront(content)
 let contentHtml = marked(frontmatter.__content)
 let contentPage = template.replace('{{ CONTENT }}', contentHtml)
 
-// die Yaml-Teile über dem Trenner sind nun Felder im "contentMarkdown" Objekt
+// die Yaml-Teile über dem Trenner sind nun Felder im "frontmatter" Objekt
 contentPage = contentPage.replace('{{ META_title }}', frontmatter['title'])
 contentPage = contentPage.replace('{{ META_language }}', frontmatter['language'])</pre>
 
@@ -187,14 +194,34 @@ Wenn man die Struktur häufiger erweitert, oder es etwas bequemer haben möchte,
 
 Bei der Entwicklung von diesen Algorithmen kann man wunderbar in kleinen Schritten vorgehen, weil man binnen Milliskunden das Ergebnis seiner Bemhung im Browser betrachten kann. Hoch lebe die handgestrickte Webentwicklung!
 
-## 4: Statische Dateien kopieren
+## 4: Inhaltsverzeichnis
 
+Mit dem bisherigen Code wurden also allerlei Inhalts-Seiten oder Blog-Artikel generiert. Eine dieser Seiten könnte die Startseite sein, die man natürlich händisch anlegen und pflegen kann. Ich möchte aber, dass die Startseite meines Blog austomatisch eine Liste aller Blogposts enthält und darauf verlinkt. Auch das habe ich easto beigebracht.
 
-## 5: Inhaltsverzeichnis
+Beim Iterieren über alle Inhalte baue ich nicht nur die jeweilige Seite zusammen, sondern jeweils auch einen Link zur Seite. Und die gesammelten Links werden am Ende als Index-Seite gespeichert.
 
+<pre>
+let teaserList = [];
+
+... .forEach(sourceFilename => {
 ...
+	teaserList.push(`<li><a href="${frontmatter['permalink']}">${frontmatter['title']}</a></li>`)
+}
 
-Jetzt fällt auf, dass die in "zufälliger" Reihenfolge von der Platte gelesen werden. Ich löse das, indem ich als Suffix für meine Dateinamen das Datum jedes Blogposts benutze, und zwischen Auslesen und Verarbeiten eine Sortierung setze:
+const indexTemplate = fs.readFileSync('template_index.html', {encoding: 'utf-8'})
+
+let indexContent = indexTemplate.replace(
+  '{{ CONTENT_BODY }}',
+  teaserList.join()
+)
+
+fs.writeFileSync('output/index.html', indexContent)</pre>
+
+Das lässt sich nun mit der bekannten Technik der Templates erweitern, damit aus der simplen Linkliste schöne Teaser-Blöcke werden.
+
+<pre></pre>
+
+Beim Ansehen der index-Seite fällt auf, dass die Quelldatien in "zufälliger" Reihenfolge von der Platte gelesen werden. Ich löse das, indem ich als Präfix für meine Dateinamen das Datum jedes Blogposts benutze, und zwischen Auslesen und Verarbeiten eine Sortierung setze:
 
 <pre>fs
   .readdirSync('content')
@@ -202,6 +229,17 @@ Jetzt fällt auf, dass die in "zufälliger" Reihenfolge von der Platte gelesen w
     return b.localeCompare(a)
   })
   .forEach(sourcFilename => { ...</pre>
+
+
+## 5: Statische Dateien kopieren
+
+Assets, Bilder und andere statische Dateien kopiere ich einfach in den Output-Folder.
+
+<pre>const ncp = require('ncp').ncp
+ncp('static', 'output', err => {
+  if (err) return console.error(err)
+})
+</pre>
 
 
 ## 6: Feeds generieren
