@@ -72,6 +72,15 @@ Das erinnert mich an die gute alte [Erkennung von visited Links](https://dbaron.
 Wer Software-Entwickler einstellt, ist heutzutage kein "Käufer" der sich den Entwickler aussucht, sondern er ist "Verkäufer" der vor allem die Firma gut darstellen muss. Die Firmen müssen sich bei den Entwicklern bewerben, nicht andersherum. Das ist alles etwas arrogant geschrieben, aber inhaltlich hat der Autor (gegenwärtig) recht. Welche Aspakte es da zu berücksichtigen gilt, und ein paar schöne Analogien, findet man bei [Trouble hiring senior engineers? It's probably you](https://hiringengineersbook.com/post/trouble-hiring/).
 
 
+## Exclusive Design
+
+https://exclusive-design.vasilis.nl/
+
+> Roughly said, in the past 25 years we have been designing websites mostly for people who design websites.
+...
+> I have designed and created tailor made websites, exclusively for individual people with disabilities.
+
+
 ## Sonstiges
 
 Die New York Times hat wegen der DSGVO in Europa auf targeted Ads verzichtet, und ist davon nciht pleite gegangen: [After GDPR, The New York Times cut off ad exchanges in Europe — and kept growing ad revenue](https://digiday.com/media/new-york-times-gdpr-cut-off-ad-exchanges-europe-ad-revenue/)
