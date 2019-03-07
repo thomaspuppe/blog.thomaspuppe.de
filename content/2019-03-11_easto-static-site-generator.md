@@ -24,7 +24,7 @@ Rant 2 Ende.
 
 ## Easto: ein Static-Site Generator im Eigenbau
 
-Langes Meckern, kurzer Sinn: ich hatte mich entschieden, einen eigenen Generator zu schreiben. Den entscheidenden Impuls gab mir [TODO](TODO) bei einem [Static-Site Meetup in Berlin](TODO), bei dem er dafür warb, es einmal selbst zu probieren.
+Langes Meckern, kurzer Sinn: ich hatte mich entschieden, einen eigenen Generator zu schreiben. Den entscheidenden Impuls gab mir [Denis Defreyne](https://denis.ws/) beim ersten [Static-Site Meetup in Berlin](https://www.meetup.com/JAMStack_berlin/events/244478650/), bei dem er dafür warb, es einmal selbst zu probieren.
 
 Erste Gehversuche hatte ich vor <stroke>Monaten</stroke> Jahren mit Ruby gemacht ([https://github.com/thomaspuppe/easto-ruby](GitHub/thomaspuppe/easto-ruby)). Da ich mich 2018 aber entschieden hatte, mich auf JavaScript zu konzentrieren, startete ich einen zweiten Anlauf.
 
@@ -207,8 +207,8 @@ Beim Iterieren über alle Inhalte baue ich nicht nur die aktuelle Seite zusammen
 <pre>
 let teaserList = [];
 
-... .forEach(sourceFilename => {
-...
+.forEach(sourceFilename => {
+	...
 	teaserList.push(`<li><a href="${frontmatter['permalink']}">${frontmatter['title']}</a></li>`)
 }
 
@@ -227,8 +227,8 @@ Das lässt sich nun mit der bekannten Technik der Templates erweitern, damit aus
 let teaserList = [];
 const teaserTemplate = fs.readFileSync(`templates/teaser.html`, {encoding: 'utf-8'})
 
-... .forEach(sourceFilename => {
-...
+.forEach(sourceFilename => {
+	...
 	// in der Schleife, wo auch Artikel-Metadaten ersetzt werden:
 	teaserContent = teaserTemplate.replace(re, fileContentFrontmatter[key])
 	teaserList.push(teaserContent)

@@ -4,7 +4,7 @@
         <title>Blog von Thomas Puppe, Web Developer.</title>
         <link>https://blog.thomaspuppe.de</link>
         <description></description>
-        <lastBuildDate>Thu, 07 Mar 2019 21:17:50 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 07 Mar 2019 21:29:32 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>easto 2.0.0 (https://github.com/thomaspuppe/easto)</generator>
         <copyright>All rights reserved 2018, Thomas Puppe</copyright>
@@ -22,7 +22,7 @@
 <p>Ich will nicht den JS-ist-böse Meckerkopf spielen. Und für viele Anwendungen ist es eine gute Idee, einmal das Paket zu laden und dann bei jedem Klick Bytes zu sparen die nicht mehr durch die Leitung müssen. Aber für eine statische Seite oder ein Blog mit zwei oder drei Page Views pro Besuch ist das halt keine gute Idee. Und bei Gatsby wird es wohl wieder schwierig, das JS zu rauszufrickeln.</p>
 <p>Rant 2 Ende.</p>
 <h2 id="easto-ein-static-site-generator-im-eigenbau">Easto: ein Static-Site Generator im Eigenbau</h2>
-<p>Langes Meckern, kurzer Sinn: ich hatte mich entschieden, einen eigenen Generator zu schreiben. Den entscheidenden Impuls gab mir <a href="TODO">TODO</a> bei einem <a href="TODO">Static-Site Meetup in Berlin</a>, bei dem er dafür warb, es einmal selbst zu probieren.</p>
+<p>Langes Meckern, kurzer Sinn: ich hatte mich entschieden, einen eigenen Generator zu schreiben. Den entscheidenden Impuls gab mir <a href="https://denis.ws/">Denis Defreyne</a> beim ersten <a href="https://www.meetup.com/JAMStack_berlin/events/244478650/">Static-Site Meetup in Berlin</a>, bei dem er dafür warb, es einmal selbst zu probieren.</p>
 <p>Erste Gehversuche hatte ich vor <stroke>Monaten</stroke> Jahren mit Ruby gemacht (<a href="GitHub/thomaspuppe/easto-ruby">https://github.com/thomaspuppe/easto-ruby</a>). Da ich mich 2018 aber entschieden hatte, mich auf JavaScript zu konzentrieren, startete ich einen zweiten Anlauf.</p>
 <p>Diesen möchte ich nun beschreiben, und damit einen Fahrplan liefern, wie jeder mit 100 Zeilen Code seinen eigenen Static-Site Generator bauen kann.</p>
 <h2 id="schritt-1-markdown-dateien-iterieren-transformieren-und-speichern">Schritt 1: Markdown-Dateien iterieren, transformieren, und speichern</h2>
@@ -170,8 +170,8 @@ contentPage = contentPage.replace('{{ META_LANGUAGE }}', frontmatter['language']
 <pre>
 let teaserList = [];
 
-... .forEach(sourceFilename => {
-...
+.forEach(sourceFilename => {
+    ...
     teaserList.push(`<li><a href="${frontmatter['permalink']}">${frontmatter['title']}</a></li>`)
 }
 
@@ -189,8 +189,8 @@ fs.writeFileSync('output/index.html', indexContent)</pre>
 let teaserList = [];
 const teaserTemplate = fs.readFileSync(`templates/teaser.html`, {encoding: 'utf-8'})
 
-... .forEach(sourceFilename => {
-...
+.forEach(sourceFilename => {
+    ...
     // in der Schleife, wo auch Artikel-Metadaten ersetzt werden:
     teaserContent = teaserTemplate.replace(re, fileContentFrontmatter[key])
     teaserList.push(teaserContent)
