@@ -5,7 +5,7 @@ datelabel: 11. März 2019
 language: de
 tags: [Webentwicklung]
 permalink: easto-static-site-generator
-draft: true
+draft: false
 description: Um mein kleines Blog zu betreiben, brauche ich keine fremde Software. Einfache Prinzipien und ein paar Node-Module genügen, um mir selbst einen Static-Site Generator zu schreiben. Eine Schritt-für-Schritt Anleitung.
 ---
 

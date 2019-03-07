@@ -36,8 +36,45 @@
 
         <p>Mariekondo your Website</p>
 <ul>
-<li>Mariekondo und Declutter Bücher, und deren Grundlagen auf Web Perf übertragen</li>
+<li>Mariekondo und Declutter Bücher, und deren Grundlagen auf Web Perf übertragen<ul>
+<li>Blogposts und Podcasts</li>
 </ul>
+</li>
+</ul>
+<ul>
+<li>das ganze ding könnte eine eigene kleine website mit geilem Design werden :-) ... das wäre doch mal ein Monats-Projekt!<ul>
+<li>Overview und Kapitel wie in <a href="https://exclusive-design.vasilis.nl/the-defaults-suck/">https://exclusive-design.vasilis.nl/the-defaults-suck/</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="external-links">external links</h2>
+<p>Almost all webpages start with a navigation with all kinds of links that try to convince you to go to another page.</p>
+<ul>
+<li>ein paar Beispiele als Screenshots, zB den ZON Header, NYT, Guardian, Tchibo, whatever</li>
+</ul>
+<h1 id="inventory-of-your-stuff">Inventory of your stuff</h1>
+<ul>
+<li>make a big pile, watch things</li>
+</ul>
+<h1 id="are-things-tidy-and-in-line">are things tidy and in-line?</h1>
+<p>headline order?
+semantics?
+valid?</p>
+<h1 id="remove-duplicates">remove duplicates</h1>
+<h1 id="pre-papierkorb-werden-sachen-vermisst-schadet-die-abwesenheit-von-x-wenn-nicht-dann-endgültig-löschen">pre-Papierkorb: werden Sachen vermisst? Schadet die Abwesenheit von X? Wenn nicht, dann endgültig löschen.</h1>
+<p>can I get it back easily if I need it?
+GIT ist der ultimative pre-Papierkorb.</p>
+<h1 id="did-sth-serve-its-purpose-but-is-no-longer-needed-let-it-go">did sth serve its purpose, but is no longer needed? let it go.</h1>
+<h1 id="you-have-limited-time-and-attention-focus-it-on-the-important-things">you have limited time and attention. focus it on the important things.</h1>
+<h1 id="codebase">Codebase</h1>
+<ul>
+<li>useless/premature abstractions: yagni!</li>
+</ul>
+<h1 id="gibt-es-eine-analogie-dazu-dass-man-umzieht-und-kisten-trägt-die-man-nach-dem-letzten-umzug-nicht-ausgepackt-hat">gibt es eine Analogie dazu, dass man umzieht und Kisten trägt die man nach dem letzten Umzug nicht ausgepackt hat?</h1>
+<h1 id="sachen-stehen-im-weg-rum-stören-beim-umzug-fallen-dir-beim-erdbeben-auf-den-kopf">Sachen stehen im Weg rum. Stören beim Umzug. Fallen dir beim Erdbeben auf den Kopf.</h1>
+<h1 id="does-it-spark-joy">does it spark joy?</h1>
+<h1 id="durchs-filesystem-gehen-und-schauen-was-noch-gebraucht-wird">durchs Filesystem gehen und schauen was noch gebraucht wird.</h1>
+<p>Häufig sammeln sich Config-Dateien oder Assets an, deren Verwendungszweck gelöscht wurde – aber die Datei selber nicht.</p>
 
 
     </article>

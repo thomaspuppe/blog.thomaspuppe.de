@@ -4,11 +4,295 @@
         <title>Blog von Thomas Puppe, Web Developer.</title>
         <link>https://blog.thomaspuppe.de</link>
         <description></description>
-        <lastBuildDate>Sat, 26 Jan 2019 16:22:07 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 07 Mar 2019 21:17:50 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>easto 2.0.0 (https://github.com/thomaspuppe/easto)</generator>
         <copyright>All rights reserved 2018, Thomas Puppe</copyright>
         <atom:link href="https://blog.thomaspuppe.de/feed/atom" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Easto: ein kleiner schneller Static-Site Generator]]></title>
+            <link>https://blog.thomaspuppe.de/easto-static-site-generator</link>
+            <guid>https://blog.thomaspuppe.de/easto-static-site-generator</guid>
+            <pubDate>Mon, 11 Mar 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[Um mein kleines Blog zu betreiben, brauche ich keine fremde Software. Einfache Prinzipien und ein paar Node-Module genügen, um mir selbst einen Static-Site Generator zu schreiben. Eine Schritt-für-Schritt Anleitung.]]></description>
+            <content:encoded><![CDATA[<p>Dieses Blog wird über einen <a href="">Static-Site Generator</a> erzeugt. Zuletzt hatte ich die Open Source Software <a href="">Acrylamid</a> im Einsatz, die leider nicht mehr maintained wird.</p>
+<p>Als Acrylamid Probleme hatte, und ich mich nach Alternativen umsah, begann der Aufstieg des JAM-Stacks in Meetups und Blogposts. Der Ansatz wird oft als schlank und schnell beschrieben, aber das sehe ich anders. Der JAM-Stack ist ein Zusammenkleben mehrerer SAAS oder FAAS aus der Cloud. Inhalte werden auf fremdem Speicher abgelegt, eine <em>Serverless</em> Generator-Software wird pro Sekunde fürs Rendern bezahlt, und ein weiterer Service übernimmt das Hosting. Und das alles nur um meine 20 HTML Seiten abzulegen -- sind die verrückt geworden? Und alle machen mit! Der nächste Trend wird garantiert &quot;speed up your JAM Stack with a self-hosted hard disk&quot;.</p>
+<p>Rant 1 Ende.</p>
+<p>Ich möchte mein Blog also lokal auf meinem Rechner schreiben und erzeugen. <a href="">Static-Site Generatoren</a> gibt es wie Sand am Meer. Eigentlich fand ich Gatsby ganz interessant, weil (optional!) Möglichkeiten zur Integration in Richtung Contentful, Netlify, Algolia und co. Aber: das benutzt JS/React nicht nur zum Bauen der Seite, sondern müllt das auch alles in das Ergebnis. Und schon habe ich für ein &quot;Hello World&quot; vier JS-Requests mit 250 KB Download.</p>
+<p>Ich will nicht den JS-ist-böse Meckerkopf spielen. Und für viele Anwendungen ist es eine gute Idee, einmal das Paket zu laden und dann bei jedem Klick Bytes zu sparen die nicht mehr durch die Leitung müssen. Aber für eine statische Seite oder ein Blog mit zwei oder drei Page Views pro Besuch ist das halt keine gute Idee. Und bei Gatsby wird es wohl wieder schwierig, das JS zu rauszufrickeln.</p>
+<p>Rant 2 Ende.</p>
+<h2 id="easto-ein-static-site-generator-im-eigenbau">Easto: ein Static-Site Generator im Eigenbau</h2>
+<p>Langes Meckern, kurzer Sinn: ich hatte mich entschieden, einen eigenen Generator zu schreiben. Den entscheidenden Impuls gab mir <a href="TODO">TODO</a> bei einem <a href="TODO">Static-Site Meetup in Berlin</a>, bei dem er dafür warb, es einmal selbst zu probieren.</p>
+<p>Erste Gehversuche hatte ich vor <stroke>Monaten</stroke> Jahren mit Ruby gemacht (<a href="GitHub/thomaspuppe/easto-ruby">https://github.com/thomaspuppe/easto-ruby</a>). Da ich mich 2018 aber entschieden hatte, mich auf JavaScript zu konzentrieren, startete ich einen zweiten Anlauf.</p>
+<p>Diesen möchte ich nun beschreiben, und damit einen Fahrplan liefern, wie jeder mit 100 Zeilen Code seinen eigenen Static-Site Generator bauen kann.</p>
+<h2 id="schritt-1-markdown-dateien-iterieren-transformieren-und-speichern">Schritt 1: Markdown-Dateien iterieren, transformieren, und speichern</h2>
+<p>Das Grundprinzip eines Static-Site Generators lässt sich in wenigen Zeilen Code umsetzen. Lies Dateien (z.B. Blogposts) von der Festplatte aus, mach etwas mit ihnen, und speichere das Ergebnis wieder auf die Festplatte.</p>
+<pre>const fs = require('fs')
+fs.readdirSync('content')
+  .forEach(sourceFilename => {
+    const sourcePath = `content/${sourceFilename}`
+    const content = fs.readFileSync(sourcePath, {encoding: 'utf-8'})
+    // TODO: Verarbeiten
+    const targetFilename = sourceFilename.replace('.md', '.html')
+    const targetPath = `output/` + targetFilename
+    fs.writeFileSync(targetPath, content)
+  })</pre>
+
+<p>Nun habe alle Dateien aus einem Quellordner ausgelesen, und unter neuem Namen in einen Zielordner gespeichert. Das könnte ich auch kopieren, ohne auszulesen, aber ich möchte ja noch etwas damit anfangen:</p>
+<pre>const fs = require('fs')
+const marked = require('marked')
+
+fs.readdirSync('content')
+  .forEach(sourceFilename => {
+    const sourcePath = `content/${sourceFilename}`
+
+    const contentMarkdown = fs.readFileSync(sourcePath, {encoding: 'utf-8'})
+    const contentHtml = marked(contentMarkdown)
+
+    const targetFilename = sourceFilename.replace('.md', '.html')
+    const targetPath = `output/${targetFilename}`
+
+    fs.writeFileSync(targetPath, contentHtml)
+  })</pre>
+
+<p>Im Befehl <code>const contentHtml = marked(contentMarkdown)</code> steckt die Magie. Texte, die in Markdown verfasst wurden, werden in HTML umgewandelt. Natürlich könnte ich auch gleich in HTML schreiben. Schöner ist aber beides! Mit dem npm Modul marked kann ich sowohl schlankes Markdown schreiben (für Blogposts aus Überschriften, Texten, und Links), als auch im selben Text HTML verwenden, wenn Markdown nicht mehr ausreicht (für Figures, Tabellen, JS und CSS). Die <a href="https://github.com/thomaspuppe/blog.thomaspuppe.de/blob/master/content/2019-03-11_easto-static-site-generator.md">Quelldatei dieses Blog-Posts</a> veranschaulicht die Mischung. Ein Artikel über <a href="https://raw.githubusercontent.com/thomaspuppe/blog.thomaspuppe.de/master/content/2017-04-06_browser-api-css-mediaqueries.md">moderne Browser-APIs</a> enthält ausführbare Code-Beispiele aus CSS und JavaScript.</p>
+<p>Aber zurück zum Generator. Obiges Textbeispiel als JavaScript-Datei reicht schon aus, um ein kleines simples Blog zu erzeugen. Der Aufruf der JavaScript-Datei wird alle Markdown-Dateien im Content-Ordner als HTML im Output-Ordner ablegen.</p>
+<pre>$ node index.js
+🚀 Easto: 170.456ms</pre>
+
+<p>Wie in der modernen JavaScript-Welt üblich, musste ich vorher noch das &quot;marked&quot; Modul als Dependency mit dem aktuell coolen Paketmanager installieren.</p>
+<p>Die Laufzeit des Scripts messe ich übrigens mit</p>
+<pre>console.time('🚀 Easto')
+...
+console.timeEnd('🚀 Easto')
+</pre>
+
+<p>am Anfang und Ende des Scripts.</p>
+<h2 id="2-templating">2: Templating</h2>
+<p>Nun ist der Output von Inhalt im HTML Format noch keine anständige Website. Alles um den eigentlichen Inhalt herum (Header, Navigation, Footer) möchte ich ja auch nicht auf jeder einzelnen Seite pflegen. Also: Templating to the rescue!</p>
+<p>Aber bevor ich irgendwelche Template-Engines lade, benutze ich simple String-Ersetzung. Das soll ja schließlich ein einfacher Seiten-Editor werden, und kein Dependency-Monster.</p>
+<p>Als erstes Template für mein Blog dient eine HTMl-Datei, deren Inhalt nur aus einem Platzhalter besteht.</p>
+<pre>&lt;!doctype html&gt;
+&lt;html lang="de"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;title&gt;Mein Blog&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Willkommen auf Thomas Puppes Blog!&lt;/h1&gt;
+        {{ CONTENT }}
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<p>In meinem Generator lese ich nun zusätzlich das Template aus (außerhalb der Schleife, denn das bleibt ja gleich) und benutze es zum Zusammenbauen jeder einzelnen Seite.</p>
+<pre>// Module laden
+
+const template = fs.readFileSync('template.html', {encoding: 'utf-8'})
+
+fs.readdirSync('content')
+  .forEach(sourceFilename => {
+    const sourcePath = `content/${sourceFilename}`
+
+    const contentMarkdown = fs.readFileSync(sourcePath, {encoding: 'utf-8'})
+    const contentHtml = marked(contentMarkdown)
+
+    let contentPage = template.replace('{{ CONTENT }}', contentHtml)
+
+    const targetFilename = sourceFilename.replace('.md', '.html')
+    const targetPath = `output/` + targetFilename
+
+    fs.writeFileSync(targetPath, contentPage)
+  })</pre>
+
+<p>Und schon enthalten die generierten Dateien das HTML des Templates und alle Inhalte.</p>
+<p>Was sofort auffällt: der <code>title</code> ist gar nicht individuell. Den möchte ich aber gern setzen. Woraus eine zweite Frage folgt: woher bekomme ich den Titel, oder andere Metadaten?</p>
+<h2 id="3-metadaten-yamlfrontmatter">3: Metadaten (YAML/Frontmatter)</h2>
+<p>&quot;Frontmatter&quot; ist ein gängiges Format oder Prinzip, um in Dateien mit Inhalten außerdem noch Meta-Informationen zu schreiben.</p>
+<pre>---
+title: Perfekte Link-Unterstreichung
+language: de
+permalink: link-unterstreichung
+---
+Hier beginnt der Inhalt. Er ist beliebig lang...</pre>
+
+<p>In einen Block am Anfang der Datei werden die Meta-Informationen geschrieben. Nach einem Trenner (<code>---</code>) kommt dann der Inhalt. Weil diese Struktur schön einfach und definiert ist, kommen selbst Computer damit klar &mdash; und deswegen gibt es auch ein npm Modul dafür: <a href="https://www.npmjs.com/package/yaml-front-matter">yaml-front-matter</a>.</p>
+<p>Im Detail unterscheiden sich die Module (zum Beispiel brauchen manche den Trenner auch am Anfang der Datei), und es gibt kleine Fallstricke (wenn der Titel einen Doppelpunkt enthält, muss er in Anführungsstriche gesetzt werden, damit klar wird was Struktur und was Inhalt ist). Aber im Grunde parst das Modul die Datei, und gibt die Werte strukturiert zurück.</p>
+<p>Ich setze weitere Platzhalter in das Template, und ersetze diese beim Zusammenbauen der HTML-Seiten.</p>
+<p>Das Template sieht nun so aus:</p>
+<pre>&lt;!doctype html&gt;
+&lt;html lang="{{ META_LANGUAGE }}"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;title&gt;{{ META_TITLE }}&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;{{ META_TITLE }}&lt;/h1&gt;
+        {{ CONTENT }}
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<p>Im JavaScript füge ich hinter das Transformieren von Markdown in HTML die Schleife zur Ersetzung aller Metadaten ein.</p>
+<pre>const content = fs.readFileSync(sourcePath, {encoding: 'utf-8'})
+
+// parse die Datei mit Inhalt und Metadaten
+const frontmatter = yaml.loadFront(content)
+
+// der Teil unter dem Trenner steht als "__content" zur Verfügung
+let contentHtml = marked(frontmatter.__content)
+let contentPage = template.replace('{{ CONTENT }}', contentHtml)
+
+// die Yaml-Teile über dem Trenner sind nun Felder im "frontmatter" Objekt
+contentPage = contentPage.replace('{{ META_TITLE }}', frontmatter['title'])
+contentPage = contentPage.replace('{{ META_LANGUAGE }}', frontmatter['language'])</pre>
+
+<p>Das yaml-Modul habe ich am Anfang des Scripts via <code>const yaml = require(&#39;yaml-front-matter&#39;)</code> geladen, und vorher mit dem Paketmanager installiert.</p>
+<p>Die Werte aus dem Frontmatter kann ich natürlich nicht nur für den Inhalt der Seiten benutzen, sondern auch für den Dateinamen.</p>
+<pre>const targetFilename = frontmatter['permalink'] + '.html`</pre>
+
+<p>Wenn ich die Struktur häufiger erweitere, oder es etwas bequemer haben möchte, kann ich natürlich auch über alle Metadaten iterieren und diese im Template generisch ersetzen. Das ist dann schon etwas fortgeschrittener:</p>
+<pre>for (var key in contentFrontmatter) {
+    const re = new RegExp('{{ META_' + key.toUpperCase() + ' }}', 'g')
+
+    // Frontmatter unterstützt auch Arrays im Format
+    // "tags: [Webentwicklung, Magic, Internet]"
+    if ( key === 'tags') {
+        const tagsString = contentFrontmatter[key].join(', #')
+        contentPage = contentPage.replace(re, tagsString)
+    } else {
+        contentPage = contentPage.replace(re, contentFrontmatter[key])
+    }
+}</pre>
+
+<p>Bei der Entwicklung von diesen Algorithmus konnte ich wunderbar in kleinen Schritten vorgehen, weil ich binnen Milliskunden das Ergebnis meiner Bemühung im Browser betrachten konnte. Hoch lebe die handgestrickte Webentwicklung!</p>
+<h2 id="4-inhaltsverzeichnis">4: Inhaltsverzeichnis</h2>
+<p>Mit dem bisherigen Code wurden also allerlei Seiten oder Blog-Artikel generiert. Eine dieser Seiten war die Startseite, die ich anfangs händisch angelegt und die Links zu allen Artkeln eingepflegt habe. Ich möchte aber, dass die Startseite meines Blog austomatisch eine Liste aller Blogposts enthält und darauf verlinkt. Auch das habe ich easto beigebracht.</p>
+<p>Beim Iterieren über alle Inhalte baue ich nicht nur die aktuelle Seite zusammen, sondern jeweils auch einen Link zur Seite. Und die gesammelten Links werden am Ende als Index-Seite gespeichert.</p>
+<pre>
+let teaserList = [];
+
+... .forEach(sourceFilename => {
+...
+    teaserList.push(`<li><a href="${frontmatter['permalink']}">${frontmatter['title']}</a></li>`)
+}
+
+const indexTemplate = fs.readFileSync('template_index.html', {encoding: 'utf-8'})
+
+let indexContent = indexTemplate.replace(
+  '{{ CONTENT_BODY }}',
+  teaserList.join()
+)
+
+fs.writeFileSync('output/index.html', indexContent)</pre>
+
+<p>Das lässt sich nun mit der bekannten Technik der Templates erweitern, damit aus der simplen Linkliste schöne Teaser-Blöcke werden.</p>
+<pre>
+let teaserList = [];
+const teaserTemplate = fs.readFileSync(`templates/teaser.html`, {encoding: 'utf-8'})
+
+... .forEach(sourceFilename => {
+...
+    // in der Schleife, wo auch Artikel-Metadaten ersetzt werden:
+    teaserContent = teaserTemplate.replace(re, fileContentFrontmatter[key])
+    teaserList.push(teaserContent)
+}</pre>
+
+<p>Beim Ansehen der index-Seite fällt auf, dass die Quelldatien in &quot;zufälliger&quot; Reihenfolge von der Platte gelesen werden. Ich löse das, indem ich als Präfix für meine Dateinamen das Datum jedes Blogposts benutze (<code>/content/2019-03-11_easto-static-site-generator.md</code>), und zwischen Auslesen und Verarbeiten eine Sortierung setze:</p>
+<pre>fs
+  .readdirSync('content')
+  .sort((a, b) => {
+    return b.localeCompare(a)
+  })
+  .forEach(sourceFilename => { ...</pre>
+
+
+<h2 id="5-feeds-generieren">5: Feeds generieren</h2>
+<p>Wenn ich schon das chronologische Inhaltsverzeichnis erzeuge, kann ich im gleichen Zuge auch RSS-Feeds bauen, die im Grunde nichts anderes sind. Auch dafür gibt es ein Node-Package (&quot;feed&quot;), mit dem dies recht einfach gelingt.</p>
+<pre>
+    // Vorbereitung: Metadaten zum Feed
+
+    const Feedbuilder = require('feed')
+    feed_config = {
+        "title": "Blog von Thomas Puppe, Web Developer.",
+        "description": "This is my personal feed!"
+    }
+    let feed = new Feedbuilder.Feed(feed_config)
+
+    // ... in der Schleife der Blogposts: "Teaser" sammeln
+
+    const feedItem = {
+        title: contentFrontmatter['title'],
+        description: contentFrontmatter['description'],
+        date: contentFrontmatter['date'],
+        link: `https://blog.thomaspuppe.de/${targetFilename}`
+    }
+    feed.addItem(feedItem)
+
+    // ... nach der Schleife: Speichern der Feeds in den Output-Ordner
+
+    fs.mkdirSync(`output/feed`)
+    fs.writeFileSync(`output/feed/rss`, feed.rss2())
+    fs.writeFileSync(`output/feed/atom`, feed.atom1())
+    fs.writeFileSync(`output/feed/json`, feed.json1())
+</pre>
+
+<p>Die Domain des Blogs möchte ich am Ende lieber in einer Konfigurationsdatei haben als im Quellcode, aber das Beispiel zeigt, worauf ich hinaus will: mit wenigen Zeilen Code lassen sich Feeds in den gängigen Formaten RSS, Atom und JSON bauen.</p>
+<p>Eine XML Sitemap <em>sollte</em> ähnlich funktionieren sein, das habe ich aber noch nicht umgesetzt.</p>
+<h2 id="6-statische-dateien-kopieren">6: Statische Dateien kopieren</h2>
+<p>Zuletzt noch alles was den geschriebenen Inhalt anreichert: Assets (CSS, JS), Bilder und andere statische Dateien kopiere ich direkt aus einer Quelle in das Output-Verzeichis. Das Node-Modul <code>ncp</code>ermöglicht das rekursiv.</p>
+<pre>const ncp = require('ncp').ncp
+ncp('static', 'output', err => {
+  if (err) return console.error(err)
+})
+</pre>
+
+
+<h2 id="deployment">Deployment</h2>
+<p>Am Ende habe ich einen Output-Ordner, der alle Inhalte als HTML-Dateien enthält, und außerdem ein Inhaltsverzeichnis, Feeds, mein CSS, und Bilder.</p>
+<p>Das lässt sich am einfachsten per <code>scp</code> auf meinen Server kopieren. Optionen wären auch auch FTP, Github Pages, Netlify, whatever. Das ist einer der Vorteile statischer Websites :-)</p>
+<h2 id="struktur-und-übersicht">Struktur und Übersicht</h2>
+<p>Okay, das war ein langer Blogpost. Rekapitulieren wir das Ganze:</p>
+<ul>
+<li>Mit rund 100 Zeilen JavaScript-Code (und 5 Modulen als direkte Dependency) lässt sich ein Static-Site Generatorprogrammieren, der aus markdown-Dateien ein Blog rendert.</li>
+<li>Dieses Blog besteht aus Artikeln, einer Homapeg mit einer Liste aller Artikel, und aus Feeds in den Formaten RSS, Atom und JSON.</li>
+<li>Zwei HTML-Template-Dateien dienen als Rahmen für die Artikel und als Teaser-Ansicht auf der Homepage. Ich brauche dazu keine Template-Engine, sondern Suchen-und-Ersetzen genügt.</li>
+</ul>
+<p>Die Markdown-Dateien bestehen aus zwei Teilen</p>
+<ol>
+<li>Metadaten wie Titel, Permalink, Sprache, Beschreibung oder Datum. Diese werden im Frontmatter-Format hinterlegt, und können unter ihrem Namen in den Templates genutzt werden.</li>
+<li>Inhalte, die in Markdown geschrieben werden. Ich kann auch HTMl-Code verwenden, oder beides vermischen.</li>
+</ol>
+<p>Der Algorithmus besteht aus drei Teilen</p>
+<ol>
+<li>Einsammeln von Templates, Konfiguration und Inhalten</li>
+<li>Iterieren über die Inhalte. Dabei werden Artikel gerendert und gespeichert. Teaser und Feed-Items werden zusammengetragen.</li>
+<li>Abspeichern der Homepage und Feeds, Kopieren von statischen Dateien (Bilder und Assets).</li>
+</ol>
+<h2 id="fazit-und-ausblick">Fazit und Ausblick</h2>
+<p>Mit diesem Setup lassen sich Blogs in weniger als einer Sekunde generieren. Außerdem finde ich als Programmierer so ein Projekt sehr schön, weil ich mir neue Features direkt nach Bedarf selbt hinzufügen kann, und keinen Code habe den ich nicht benötige.</p>
+<p>Die nächsten Featues werden sein</p>
+<ul>
+<li>Code-Highlighting in Artikeln (wovon genau <em>dieser</em> Artikel hier profitieren wird)</li>
+<li>&quot;Komponenten als Inhaltstyp&quot;. Soll heißen: im Inhalt schreibe ich so etwas wie <code>!tweet {id: 1234, author: &#39;thomaspuppe&#39;, content: &#39;hello Twitter&#39;}</code>, und ein Template rendert schönes HTML daraus.</li>
+<li>Keyword/Tag-Seiten: alle Artikel zu einem Tag unter einer URL <code>/thema/webentwicklung</code> oder <code>/language/en</code> versammeln</li>
+<li>Paginierung der Übersichtsseiten</li>
+</ul>
+<p>... und die Abstrahierung von easto in ein Modul, das auch andere benutzen können. <a href="https://github.com/thomaspuppe/easto">Easto ist Open Source</a> und schon jetzt recht gut per Konfiguration steuerbar, aber bevor sie jeder benutzen <em>kann</em> und <em>möchte</em>, muss noch ein wenig Aufräumarbeit und Dokumentation geschehen.</p>
+<p>Ich freue mich über Feedback, am besten via Twitter an <a href="https://twitter.com/thomaspuppe">@thomaspuppe</a> oder <a href="https:/www.thomaspuppe.de">E-Mail</a>.</p>
+]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Notizen Februar 2019]]></title>
+            <link>https://blog.thomaspuppe.de/notizen-februar-2019</link>
+            <guid>https://blog.thomaspuppe.de/notizen-februar-2019</guid>
+            <pubDate>Wed, 06 Feb 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[...]]></description>
+            <content:encoded><![CDATA[<h1 id="forget-privacy-youre-terrible-at-targeting-anyway">Forget privacy: you&#39;re terrible at targeting anyway</h1>
+<p><a href="https://apenwarr.ca/log/20190201">https://apenwarr.ca/log/20190201</a></p>
+<p>caches work better if people are boring and average</p>
+<h1 id="httpscantunseespace"><a href="https://cantunsee.space/">https://cantunsee.space/</a></h1>
+<h1 id="httpsrachelandrewcoukarchives20190130html-css-and-our-vanishing-industry-entry-points"><a href="https://rachelandrew.co.uk/archives/2019/01/30/html-css-and-our-vanishing-industry-entry-points/">https://rachelandrew.co.uk/archives/2019/01/30/html-css-and-our-vanishing-industry-entry-points/</a></h1>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Dark Mode für Websites]]></title>
             <link>https://blog.thomaspuppe.de/dark-mode-css</link>
@@ -125,6 +409,13 @@
 <p>Das erinnert mich an die gute alte <a href="https://dbaron.org/mozilla/visited-privacy">Erkennung von visited Links</a> via <code>getComputedStyles()</code>, um herauszufinden welche anderen Seiten deine Besucher noch besucht hat.</p>
 <h2 id="hiring-engineers">Hiring Engineers</h2>
 <p>Wer Software-Entwickler einstellt, ist heutzutage kein &quot;Käufer&quot; der sich den Entwickler aussucht, sondern er ist &quot;Verkäufer&quot; der vor allem die Firma gut darstellen muss. Die Firmen müssen sich bei den Entwicklern bewerben, nicht andersherum. Das ist alles etwas arrogant geschrieben, aber inhaltlich hat der Autor (gegenwärtig) recht. Welche Aspakte es da zu berücksichtigen gilt, und ein paar schöne Analogien, findet man bei <a href="https://hiringengineersbook.com/post/trouble-hiring/">Trouble hiring senior engineers? It&#39;s probably you</a>.</p>
+<h2 id="exclusive-design">Exclusive Design</h2>
+<p><a href="https://exclusive-design.vasilis.nl/">https://exclusive-design.vasilis.nl/</a></p>
+<blockquote>
+<p>Roughly said, in the past 25 years we have been designing websites mostly for people who design websites.
+...
+I have designed and created tailor made websites, exclusively for individual people with disabilities.</p>
+</blockquote>
 <h2 id="sonstiges">Sonstiges</h2>
 <p>Die New York Times hat wegen der DSGVO in Europa auf targeted Ads verzichtet, und ist davon nciht pleite gegangen: <a href="https://digiday.com/media/new-york-times-gdpr-cut-off-ad-exchanges-europe-ad-revenue/">After GDPR, The New York Times cut off ad exchanges in Europe — and kept growing ad revenue</a></p>
 <blockquote>
