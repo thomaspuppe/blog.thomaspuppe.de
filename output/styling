@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="{{ META_LANGUAGE }}">
+<html lang="de">
 <head>
     <meta charset="utf-8">
-    <meta name="language" content="{{ META_LANGUAGE }}">
+    <meta name="language" content="de">
     <title>Blog Styling</title>
     <meta name="description" content="Styleguide für diesen Blog, der alle Arten von Inhalten enthält">
     <meta name="date" content="2016-06-19">

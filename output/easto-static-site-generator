@@ -139,13 +139,13 @@ Hier beginnt der Inhalt. Er ist beliebig lang...</pre>
 <p>Ich setze weitere Platzhalter in das Template, und ersetze diese beim Zusammenbauen der HTML-Seiten.</p>
 <p>Das Template sieht nun so aus:</p>
 <pre>&lt;!doctype html&gt;
-&lt;html lang="de"&gt;
+&lt;html lang="{{ META_LANGUAGE }}"&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8"&gt;
-        &lt;title&gt;Easto: ein kleiner schneller Static-Site Generator&lt;/title&gt;
+        &lt;title&gt;{{ META_TITLE }}&lt;/title&gt;
     &lt;/head&gt;
     &lt;body&gt;
-        &lt;h1&gt;Easto: ein kleiner schneller Static-Site Generator&lt;/h1&gt;
+        &lt;h1&gt;{{ META_TITLE }}&lt;/h1&gt;
         {{ CONTENT }}
     &lt;/body&gt;
 &lt;/html&gt;</pre>
@@ -161,8 +161,8 @@ let contentHtml = marked(frontmatter.__content)
 let contentPage = template.replace('{{ CONTENT }}', contentHtml)
 
 // die Yaml-Teile über dem Trenner sind nun Felder im "frontmatter" Objekt
-contentPage = contentPage.replace('Easto: ein kleiner schneller Static-Site Generator', frontmatter['title'])
-contentPage = contentPage.replace('de', frontmatter['language'])</pre>
+contentPage = contentPage.replace('{{ META_TITLE }}', frontmatter['title'])
+contentPage = contentPage.replace('{{ META_LANGUAGE }}', frontmatter['language'])</pre>
 
 <p>Das yaml-Modul habe ich am Anfang des Scripts via <code>const yaml = require(&#39;yaml-front-matter&#39;)</code> geladen, und vorher mit dem Paketmanager installiert.</p>
 <p>Die Werte aus dem Frontmatter kann ich natürlich nicht nur für den Inhalt der Seiten benutzen, sondern auch für den Dateinamen.</p>
