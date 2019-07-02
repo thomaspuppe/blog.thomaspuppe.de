@@ -1,11 +1,11 @@
-<!doctype html>
-<html lang="{{ META_LANGUAGE }}">
+`<!doctype html>
+<html lang="${ meta.language || 'de' }">
 <head>
     <meta charset="utf-8">
-    <meta name="language" content="{{ META_LANGUAGE }}">
-    <title>{{ META_TITLE }}</title>
-    <meta name="description" content="{{ META_DESCRIPTION }}">
-    <meta name="date" content="{{ META_DATE }}">
+    <meta name="language" content="${ meta.language || 'de' }">
+    <title>${ meta.title }</title>
+    <meta name="description" content="${ meta.description }">
+    <meta name="date" content="${ meta.date }">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
     <link href="/" rel="home start" />
@@ -14,28 +14,29 @@
     <link href="/feed/json" type="application/json" rel="alternate" title="JSON Feed" />
     <link href="/feed/rss" type="application/rss+xml" rel="alternate" title="RSS Feed" />
 
-    <meta property="og:title" content="{{ META_TITLE }}" />
-    <meta property="og:url" content="{{ BLOGMETA_BASEURL }}{{ META_PERMALINK }}" />
+    <meta property="og:title" content="${ meta.title }" />
+    <meta property="og:url" content="${ blogmeta.baseurl }${ meta.permalink }" />
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content="{{ META_DATE }}" />
-    <meta property="og:article:author" content="{{ BLOGMETA_AUTHOR }}" />
+    <meta property="og:article:published_time" content="${ meta.date }" />
+    <meta property="og:article:author" content="${ blogmeta.author }" />
 
 </head>
 <body>
     <header>
-        <p><a href="{{ BLOGMETA_BASEURL }}" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+        <p><a href="${ blogmeta.baseurl }" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
     <article class="post">
 
         <div class="post__meta">
-            <span class="post__category">#{{ META_TAGS }}</span>
-            <time datetime="{{ META_DATE }}">{{ META_DATELABEL }}</time>
+            <span class="post__category">#${ meta.tags.join(', #') }</span>
+            <time datetime="${ meta.date }">${ meta.datelabel }</time>
         </div>
 
-        <h1 class="post__title">{{ META_TITLE }}</h1>
+        <h1 class="post__title">${ meta.title }</h1>
 
-        {{ CONTENT_BODY }}
+        ${ content }
 
     </article>
 </body>
 </html>
+`
