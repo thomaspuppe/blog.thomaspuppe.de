@@ -74,6 +74,9 @@ GIT ist der ultimative pre-Papierkorb.
 Häufig sammeln sich Config-Dateien oder Assets an, deren Verwendungszweck gelöscht wurde – aber die Datei selber nicht.
 
 
+# If something went missing today, would you build it again tomorrow?
+(If something got stolen today, would you buy it again tomorrow?)
+
 #
 
 - Equivalent of Backpacking vs
