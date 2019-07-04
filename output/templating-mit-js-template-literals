@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Templating mit JS Template Literals</title>
+    <meta name="description" content="Wie natives JS Templating mein Suchen-und-Ersetzen im Blog-Generator ablöste">
+    <meta name="date" content="2019-07-02">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+
+    <link href="/feed/atom" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+
+    <meta property="og:title" content="Templating mit JS Template Literals" />
+    <meta property="og:url" content="https://blog.thomaspuppe.de/templating-mit-js-template-literals" />
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="2019-07-02" />
+    <meta property="og:article:author" content="Thomas Puppe" />
+
+</head>
+<body>
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
+
+        <div class="post__meta">
+            <span class="post__category">#Webentwicklung</span>
+            <time datetime="2019-07-02">02. Juli 2019</time>
+        </div>
+
+        <h1 class="post__title">Templating mit JS Template Literals</h1>
+
+        <p>Für meinen kleinen <a href="https://github.com/thomaspuppe/easto">Static-Site Generator easto</a> benutze ich keine Templating-Engine, sondern mache nur Suchen-und-Ersetzen in den Templates. Das sah so aus:</p>
+<h2 id="gut-genug-string-replacement">Gut genug: String-Replacement</h2>
+<pre>&lt;div class="post__meta"&gt
+    &lt;span class="post__category"&gt#{{ META_TAGS }}&lt;/span&gt
+    &lt;time datetime="{{ META_DATE }}"&gt{{ META_DATELABEL }}&lt;/time&gt
+&lt;/div&gt
+&lt;h1 class="post__title"&gt{{ META_TITLE }}&lt;/h1&gt
+{{ CONTENT }}
+</pre>
+
+<p>Im JavaScript habe ich dann über eien Liste von Metadaten iteriert und diese im Template ersetzt:</p>
+<pre>
+template.replace('{{ CONTENT }}', fileContentHtml)
+
+for (var key in metatata) {
+    const re = new RegExp('{{ META_' + key.toUpperCase() + ' }}', 'g')
+
+    if ( key === 'tags') {
+        const tagsString = metatata[key].join(', #')
+        template = template.replace(re, tagsString)
+    } else {
+        template = template.replace(re, metatata[key])
+    }
+}</pre>
+
+<p>... im Prinzip. In echt dann alles noch etwas umständlicher. Die Regex Nummer ist nötig, weil nur das erste Vorkommen ersetzt wird, wenn man einen String als Parameter verwendet. In Teasern benutze ich etwas andree Ausgaben als im Post oder den Feeds. Usw.</p>
+<h2 id="besser-template-literals">Besser: Template Literals</h2>
+<p>Bei einem <a href="https://github.com/thomaspuppe/news-benchmark">anderen Projekt</a> kam ich letztens auf die Idee, dass man in modernem JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">Template Literals</a> zur Verfügung hat. Wenn Strings in Back Ticks (&#715;) gefasst sind, werden enthaltene Ausdrücke ausgeführt.</p>
+<pre>var kitty = "Cheddar";
+console.log(`Meine Katze heißt ${kitty}`);
+=> Meine Katze heißt Cheddar.
+</pre>
+
+<p>Meine Template-Dateien sehen nun <a href="https://github.com/thomaspuppe/blog.thomaspuppe.de/commit/2223b3c22d4b1cba6c4d87151137a2f886c47f6c">etwas anders</a> aus. Erstens werden sie komplett mit Back Ticks umschlossen. Und zweitens verwende ich Ausdrücke mit Dollarzeichen und geschweiften Klammern anstelle der selbst ausgedachten Marker fürs Suchen-und-Ersetzen.</p>
+<pre>&lt;div class="post__meta"&gt;
+    &lt;span class="post__category"&gt;#${ meta.tags.join(', #') }&lt;/span&gt;
+    &lt;time datetime="{{ META_DATE }}"&gt;${ meta.datelabel }&lt;/time&gt;
+&lt;/div&gt;
+&lt;h1 class="post__title"&gt;${ meta.title }&lt;/h1&gt;
+${ content }
+</pre>
+
+<p>Im JavaScript stecke ich ein Objekt zusammen das alles enthält, was das Template braucht.</p>
+<pre>const output = eval_template(template, {
+    'blogmeta': CONFIG,
+    'meta': metatata,
+    'content': fileContentHtml
+})
+</pre>
+
+<p>Damit das mit mehreren Variablen und Objekten funktioniert, habe ich im Netz eine magische Funktion gefunden (deren Quelle ich leider nicht mehr weiß).</p>
+<pre>const eval_template = (s, params) => {
+    return Function(...Object.keys(params), "return " + s)
+    (...Object.values(params))
+}</pre>
+
+
+<h2 id="voilá">Voilá</h2>
+<p>Diese Änderung hat mehrere Vorteile.</p>
+<ul>
+<li>verschlankt den <a href="https://github.com/thomaspuppe/easto/commit/491949d33e41bdc4b781083066607e9bfaaa5932">Code</a></li>
+<li>kleine Operatioenn wie <code>join</code>, <code>toUpper</code> oder <code>if</code> kann ich im Template machen.</li>
+<li>Fallbacks <code>&lt;html lang=&quot;${ meta.language || &#39;de&#39; }&quot;&gt;</code></li>
+<li>Platzhalter im Template, die keine Werte haben, werfen jetzt Fehler (vorher wurden sie einfach nicht ersetzt).</li>
+<li>Template-Code-Beispiele aus dem Inhalt wurden vorher behandelt wie Templates selbst – und auch ersetzt. Das passiert jetzt <a href="https://github.com/thomaspuppe/blog.thomaspuppe.de/commit/9058e03eeaa00b16aa17826cdda3e57bd51674b1">nicht mehr</a>.</li>
+</ul>
+<p>Außerdem sieht das professioneller und sexier aus.</p>
+<h2 id="geht-da-noch-mehr">Geht da noch mehr?</h2>
+<p>Auf jeden Fall. Insbesondere <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Nesting_templates">Nesting Tempaltes</a> und <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates">Tagged Templates</a> sehen vielversprechend aus, um z.B. verschiedene Block-Typen zu rendern. (Im Content steht ein Objekt wie <code>quote = {text:&quot;Niemand hat das Recht zu gehorchen&quot;, name:&quot;Hannah Arendt&quot;}</code>), und das Blog rendert eine schöne Blockquote.</p>
+
+
+    </article>
+</body>
+</html>

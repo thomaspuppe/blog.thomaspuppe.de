@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.thomaspuppe.de</id>
     <title>Blog von Thomas Puppe, Web Developer.</title>
-    <updated>2019-03-07T21:29:32.056Z</updated>
+    <updated>2019-07-04T07:29:27.738Z</updated>
     <generator>easto 2.0.0 (https://github.com/thomaspuppe/easto)</generator>
     <author>
         <name>Thomas Puppe</name>
@@ -13,10 +13,86 @@
     <link rel="self" href="https://blog.thomaspuppe.de/feed/atom"/>
     <rights>All rights reserved 2018, Thomas Puppe</rights>
     <entry>
+        <title type="html"><![CDATA[Templating mit JS Template Literals]]></title>
+        <id>https://blog.thomaspuppe.de/templating-mit-js-template-literals</id>
+        <link href="https://blog.thomaspuppe.de/templating-mit-js-template-literals"/>
+        <updated>2019-07-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Wie natives JS Templating mein Suchen-und-Ersetzen im Blog-Generator ablöste]]></summary>
+        <content type="html"><![CDATA[<p>Für meinen kleinen <a href="https://github.com/thomaspuppe/easto">Static-Site Generator easto</a> benutze ich keine Templating-Engine, sondern mache nur Suchen-und-Ersetzen in den Templates. Das sah so aus:</p>
+<h2 id="gut-genug-string-replacement">Gut genug: String-Replacement</h2>
+<pre>&lt;div class="post__meta"&gt
+    &lt;span class="post__category"&gt#{{ META_TAGS }}&lt;/span&gt
+    &lt;time datetime="{{ META_DATE }}"&gt{{ META_DATELABEL }}&lt;/time&gt
+&lt;/div&gt
+&lt;h1 class="post__title"&gt{{ META_TITLE }}&lt;/h1&gt
+{{ CONTENT }}
+</pre>
+
+<p>Im JavaScript habe ich dann über eien Liste von Metadaten iteriert und diese im Template ersetzt:</p>
+<pre>
+template.replace('{{ CONTENT }}', fileContentHtml)
+
+for (var key in metatata) {
+    const re = new RegExp('{{ META_' + key.toUpperCase() + ' }}', 'g')
+
+    if ( key === 'tags') {
+        const tagsString = metatata[key].join(', #')
+        template = template.replace(re, tagsString)
+    } else {
+        template = template.replace(re, metatata[key])
+    }
+}</pre>
+
+<p>... im Prinzip. In echt dann alles noch etwas umständlicher. Die Regex Nummer ist nötig, weil nur das erste Vorkommen ersetzt wird, wenn man einen String als Parameter verwendet. In Teasern benutze ich etwas andree Ausgaben als im Post oder den Feeds. Usw.</p>
+<h2 id="besser-template-literals">Besser: Template Literals</h2>
+<p>Bei einem <a href="https://github.com/thomaspuppe/news-benchmark">anderen Projekt</a> kam ich letztens auf die Idee, dass man in modernem JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">Template Literals</a> zur Verfügung hat. Wenn Strings in Back Ticks (&#715;) gefasst sind, werden enthaltene Ausdrücke ausgeführt.</p>
+<pre>var kitty = "Cheddar";
+console.log(`Meine Katze heißt ${kitty}`);
+=> Meine Katze heißt Cheddar.
+</pre>
+
+<p>Meine Template-Dateien sehen nun <a href="https://github.com/thomaspuppe/blog.thomaspuppe.de/commit/2223b3c22d4b1cba6c4d87151137a2f886c47f6c">etwas anders</a> aus. Erstens werden sie komplett mit Back Ticks umschlossen. Und zweitens verwende ich Ausdrücke mit Dollarzeichen und geschweiften Klammern anstelle der selbst ausgedachten Marker fürs Suchen-und-Ersetzen.</p>
+<pre>&lt;div class="post__meta"&gt;
+    &lt;span class="post__category"&gt;#${ meta.tags.join(', #') }&lt;/span&gt;
+    &lt;time datetime="{{ META_DATE }}"&gt;${ meta.datelabel }&lt;/time&gt;
+&lt;/div&gt;
+&lt;h1 class="post__title"&gt;${ meta.title }&lt;/h1&gt;
+${ content }
+</pre>
+
+<p>Im JavaScript stecke ich ein Objekt zusammen das alles enthält, was das Template braucht.</p>
+<pre>const output = eval_template(template, {
+    'blogmeta': CONFIG,
+    'meta': metatata,
+    'content': fileContentHtml
+})
+</pre>
+
+<p>Damit das mit mehreren Variablen und Objekten funktioniert, habe ich im Netz eine magische Funktion gefunden (deren Quelle ich leider nicht mehr weiß).</p>
+<pre>const eval_template = (s, params) => {
+    return Function(...Object.keys(params), "return " + s)
+    (...Object.values(params))
+}</pre>
+
+
+<h2 id="voilá">Voilá</h2>
+<p>Diese Änderung hat mehrere Vorteile.</p>
+<ul>
+<li>verschlankt den <a href="https://github.com/thomaspuppe/easto/commit/491949d33e41bdc4b781083066607e9bfaaa5932">Code</a></li>
+<li>kleine Operatioenn wie <code>join</code>, <code>toUpper</code> oder <code>if</code> kann ich im Template machen.</li>
+<li>Fallbacks <code>&lt;html lang=&quot;${ meta.language || &#39;de&#39; }&quot;&gt;</code></li>
+<li>Platzhalter im Template, die keine Werte haben, werfen jetzt Fehler (vorher wurden sie einfach nicht ersetzt).</li>
+<li>Template-Code-Beispiele aus dem Inhalt wurden vorher behandelt wie Templates selbst – und auch ersetzt. Das passiert jetzt <a href="https://github.com/thomaspuppe/blog.thomaspuppe.de/commit/9058e03eeaa00b16aa17826cdda3e57bd51674b1">nicht mehr</a>.</li>
+</ul>
+<p>Außerdem sieht das professioneller und sexier aus.</p>
+<h2 id="geht-da-noch-mehr">Geht da noch mehr?</h2>
+<p>Auf jeden Fall. Insbesondere <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Nesting_templates">Nesting Tempaltes</a> und <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates">Tagged Templates</a> sehen vielversprechend aus, um z.B. verschiedene Block-Typen zu rendern. (Im Content steht ein Objekt wie <code>quote = {text:&quot;Niemand hat das Recht zu gehorchen&quot;, name:&quot;Hannah Arendt&quot;}</code>), und das Blog rendert eine schöne Blockquote.</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Easto: ein kleiner schneller Static-Site Generator]]></title>
         <id>https://blog.thomaspuppe.de/easto-static-site-generator</id>
-        <link href="https://blog.thomaspuppe.de/easto-static-site-generator">
-        </link>
+        <link href="https://blog.thomaspuppe.de/easto-static-site-generator"/>
         <updated>2019-03-11T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Um mein kleines Blog zu betreiben, brauche ich keine fremde Software. Einfache Prinzipien und ein paar Node-Module genügen, um mir selbst einen Static-Site Generator zu schreiben. Eine Schritt-für-Schritt Anleitung.]]></summary>
         <content type="html"><![CDATA[<p>Dieses Blog wird über einen <a href="">Static-Site Generator</a> erzeugt. Zuletzt hatte ich die Open Source Software <a href="">Acrylamid</a> im Einsatz, die leider nicht mehr maintained wird.</p>
@@ -287,8 +363,7 @@ ncp('static', 'output', err => {
     <entry>
         <title type="html"><![CDATA[Notizen Februar 2019]]></title>
         <id>https://blog.thomaspuppe.de/notizen-februar-2019</id>
-        <link href="https://blog.thomaspuppe.de/notizen-februar-2019">
-        </link>
+        <link href="https://blog.thomaspuppe.de/notizen-februar-2019"/>
         <updated>2019-02-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[...]]></summary>
         <content type="html"><![CDATA[<h1 id="forget-privacy-youre-terrible-at-targeting-anyway">Forget privacy: you&#39;re terrible at targeting anyway</h1>
@@ -301,8 +376,7 @@ ncp('static', 'output', err => {
     <entry>
         <title type="html"><![CDATA[Dark Mode für Websites]]></title>
         <id>https://blog.thomaspuppe.de/dark-mode-css</id>
-        <link href="https://blog.thomaspuppe.de/dark-mode-css">
-        </link>
+        <link href="https://blog.thomaspuppe.de/dark-mode-css"/>
         <updated>2019-01-26T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Bisher nur experimentell, aber ein schönes Bastelfeature: den MacOS Dark Mode via CSS unterstützen]]></summary>
         <content type="html"><![CDATA[<p>Mit Version 10.14 Mojave von macOS <a href="https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/">hat Apple den &quot;Dark Mode&quot; eingeführt</a>. Über seine Systemeinstellungen kann man das Farbschema des Betriebssystems in einen Modus versetzen, der alle Interfaces abdunkelt.</p>
@@ -370,8 +444,7 @@ ncp('static', 'output', err => {
     <entry>
         <title type="html"><![CDATA[Notizen Januar 2019]]></title>
         <id>https://blog.thomaspuppe.de/notizen-januar-2019</id>
-        <link href="https://blog.thomaspuppe.de/notizen-januar-2019">
-        </link>
+        <link href="https://blog.thomaspuppe.de/notizen-januar-2019"/>
         <updated>2019-01-21T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Notizen und Lesetipps für Januar 2019: Performance, Privacy und das vorläufige Ende des Browser War]]></summary>
         <content type="html"><![CDATA[<h2 id="tim-kadlec-the-ethics-of-web-performance">Tim Kadlec: The Ethics of Web Performance</h2>
@@ -437,8 +510,7 @@ I have designed and created tailor made websites, exclusively for individual peo
     <entry>
         <title type="html"><![CDATA[High Score – Mikrooptimierung mit ... W3C-Validator]]></title>
         <id>https://blog.thomaspuppe.de/high-score-optimierung-w3c-validator</id>
-        <link href="https://blog.thomaspuppe.de/high-score-optimierung-w3c-validator">
-        </link>
+        <link href="https://blog.thomaspuppe.de/high-score-optimierung-w3c-validator"/>
         <updated>2018-12-19T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[In dieser neuen Serie versuche ich, mit meinem Blog verschiedene Website-Testing-Tools zufriedenzustellen. Den Anfang macht der W3C-Validator.]]></summary>
         <content type="html"><![CDATA[<p>Valides HTML – eigentlich selbstverständlich für jeden seriösen Web-Entwickler, aber dennoch habe ich bisher kaum eine Seite gesehen die fehlerfrei validiert wird. Manchmal geht einem einfach etwas durch die Lappen. Manchmal gibt es Bedingungen die man nicht erfüllen will: <code>target=&quot;_blank&quot;</code>, anyone?</p>
@@ -495,8 +567,7 @@ text-decoration-color: red;</pre>
     <entry>
         <title type="html"><![CDATA[Notizen Juli 2018]]></title>
         <id>https://blog.thomaspuppe.de/notizen-juli-2018</id>
-        <link href="https://blog.thomaspuppe.de/notizen-juli-2018">
-        </link>
+        <link href="https://blog.thomaspuppe.de/notizen-juli-2018"/>
         <updated>2018-07-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[this-month-I-learned und Lesetipps für Juli 2018: Accessibility für Toggles, Leankoala Testing, und Calm Technology.]]></summary>
         <content type="html"><![CDATA[<h2 id="accessibility-for-collapsible-sections">Accessibility for Collapsible sections</h2>
@@ -519,8 +590,7 @@ text-decoration-color: red;</pre>
     <entry>
         <title type="html"><![CDATA[Notizen Juni 2018]]></title>
         <id>https://blog.thomaspuppe.de/notizen-juni-2018</id>
-        <link href="https://blog.thomaspuppe.de/notizen-juni-2018">
-        </link>
+        <link href="https://blog.thomaspuppe.de/notizen-juni-2018"/>
         <updated>2018-06-30T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[this-month-I-learned und Lesetipps für Juni 2018: sauschneller WM Ticker, Git Statistiken, und Naming Things.]]></summary>
         <content type="html"><![CDATA[<h2 id="wm-ticker">WM Ticker</h2>
@@ -562,8 +632,7 @@ Your brand is what people think of you.</p>
     <entry>
         <title type="html"><![CDATA[Notizen Mai 2018]]></title>
         <id>https://blog.thomaspuppe.de/notizen-mai-2018</id>
-        <link href="https://blog.thomaspuppe.de/notizen-mai-2018">
-        </link>
+        <link href="https://blog.thomaspuppe.de/notizen-mai-2018"/>
         <updated>2018-05-31T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[this-month-I-learned und Lesetipps für Mai 2018: Bullshit Jobs]]></summary>
         <content type="html"><![CDATA[<h2 id="bullshit-jobs-by-david-graeber">Bullshit Jobs by David Graeber</h2>
@@ -583,8 +652,7 @@ Your brand is what people think of you.</p>
     <entry>
         <title type="html"><![CDATA[Generate static sites from markdown files with the Caddy server]]></title>
         <id>https://blog.thomaspuppe.de/static-sites-from-markdown-with-caddy-server</id>
-        <link href="https://blog.thomaspuppe.de/static-sites-from-markdown-with-caddy-server">
-        </link>
+        <link href="https://blog.thomaspuppe.de/static-sites-from-markdown-with-caddy-server"/>
         <updated>2018-04-10T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Caddy can not only serve files fast and safely. It can also generate static files from markdown, so you dont need a generator.]]></summary>
         <content type="html"><![CDATA[<p>Lately, I am experimenting with different forms of static-site generation. While investigating the server <a href="https://caddyserver.com">Caddy</a> for <em>serving</em> pages, I found that it can also <em>generate</em> these pages from markdown.</p>
@@ -749,8 +817,7 @@ markdown / {
     <entry>
         <title type="html"><![CDATA[Notizen April 2018]]></title>
         <id>https://blog.thomaspuppe.de/notizen-april-2018</id>
-        <link href="https://blog.thomaspuppe.de/notizen-april-2018">
-        </link>
+        <link href="https://blog.thomaspuppe.de/notizen-april-2018"/>
         <updated>2018-04-03T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[this-month-I-learned und Lesetipps für April 2018]]></summary>
         <content type="html"><![CDATA[<h2 id="magical-auto-jump-statt-cd">Magical Auto-Jump statt CD</h2>
@@ -849,8 +916,7 @@ day to make deceptive user experiences. You are better than that.</p>
     <entry>
         <title type="html"><![CDATA[Mein Smarterphone]]></title>
         <id>https://blog.thomaspuppe.de/mein-smarterphone</id>
-        <link href="https://blog.thomaspuppe.de/mein-smarterphone">
-        </link>
+        <link href="https://blog.thomaspuppe.de/mein-smarterphone"/>
         <updated>2018-03-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Man nennt es Blogstöckchen: ein Interview zu meiner Smartphone-Nutzung]]></summary>
         <content type="html"><![CDATA[<p>Mein Kollege und Chef <a href="https://twitter.com/nicobruenjes/">Nico Brünjes</a> warf mir folgendes Interview als <a href="https://couchblog.de/blog/2018/03/13/mein-smarterphone/">Blogstöckchen</a> zu.</p>
@@ -885,8 +951,7 @@ day to make deceptive user experiences. You are better than that.</p>
     <entry>
         <title type="html"><![CDATA[Notizen März 2018]]></title>
         <id>https://blog.thomaspuppe.de/notizen-maerz-2018</id>
-        <link href="https://blog.thomaspuppe.de/notizen-maerz-2018">
-        </link>
+        <link href="https://blog.thomaspuppe.de/notizen-maerz-2018"/>
         <updated>2018-03-23T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Eine Art this-month-I-learned meets Lesetipps meets Notizblock]]></summary>
         <content type="html"><![CDATA[<p>Ich versuche mich mal am beliebten &quot;this month I learned&quot; Format. Weil ich in den letzten Monaten aber immer gesammelt und nie gepublished habe, versuche ich es so: zu Monatsbeginn schreibe ich einen Anfang, und dann ergänze ich im Laufe des Monats. Das gibt auch Raum für kleine Sachen, die es nie zu eigenen Blogposts schaffen. Mal schauen wie das wird.</p>
@@ -966,8 +1031,7 @@ parentNode.replaceChild(newChild, oldChild);
     <entry>
         <title type="html"><![CDATA[Front Trends 2017 in Warsaw]]></title>
         <id>https://blog.thomaspuppe.de/front-trends-2017-warsaw</id>
-        <link href="https://blog.thomaspuppe.de/front-trends-2017-warsaw">
-        </link>
+        <link href="https://blog.thomaspuppe.de/front-trends-2017-warsaw"/>
         <updated>2017-07-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[A list of talks from the Front Trends 2017 conference in Warsaw, and some remarks.]]></summary>
         <content type="html"><![CDATA[<p>A list of talks from the Front Trends 2017 conference in Warsaw, and some remarks.</p>
@@ -1036,8 +1100,7 @@ parentNode.replaceChild(newChild, oldChild);
     <entry>
         <title type="html"><![CDATA[Browser APIs und CSS Media Queries]]></title>
         <id>https://blog.thomaspuppe.de/browser-api-css-mediaqueries</id>
-        <link href="https://blog.thomaspuppe.de/browser-api-css-mediaqueries">
-        </link>
+        <link href="https://blog.thomaspuppe.de/browser-api-css-mediaqueries"/>
         <updated>2017-04-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Der Einsatz von Media Queries und Browser APIs beschränkt sich häufig auf min-width und navigator.userAgent. Aber in modernen Browsern gibt es cooles Zeug.]]></summary>
         <content type="html"><![CDATA[<p>In der Regel denkt man bei Media Queries an nicht viel mehr als <code>min-width</code> oder <code>device-pixel-ratio</code> und bei Browser APIs an <code>navigator.userAgent</code>. Moderne Browser können natürlich viel mehr.</p>
@@ -1262,8 +1325,7 @@ function sharePage() {
     <entry>
         <title type="html"><![CDATA[Open Source in deutschen Newsrooms]]></title>
         <id>https://blog.thomaspuppe.de/open-source-in-deutschen-newsrooms</id>
-        <link href="https://blog.thomaspuppe.de/open-source-in-deutschen-newsrooms">
-        </link>
+        <link href="https://blog.thomaspuppe.de/open-source-in-deutschen-newsrooms"/>
         <updated>2017-03-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ein Überblick über Open Source, offene Daten und Development-Blogs aus deutschen Nachrichtenportalen.]]></summary>
         <content type="html"><![CDATA[<p><strong>Vorab: bei Recherchen weiß man ja nie, was man übersehen hat. Daher bin ich dankbar für jeden Hinweis, Ergänzung oder Korrektur. Am besten per Twitter: <a href="https://twitter.com/thomaspuppe">@thomaspuppe</a>.</strong></p>
@@ -1301,8 +1363,7 @@ function sharePage() {
     <entry>
         <title type="html"><![CDATA[Twitter-Bot-Beobachtung zu #AnneWill]]></title>
         <id>https://blog.thomaspuppe.de/twitter-bots-anne-will</id>
-        <link href="https://blog.thomaspuppe.de/twitter-bots-anne-will">
-        </link>
+        <link href="https://blog.thomaspuppe.de/twitter-bots-anne-will"/>
         <updated>2017-03-10T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Social Bots sind aktell ein großes Thema. Zu Recht? Ich habe am Sonntag]]></summary>
         <content type="html"><![CDATA[<p>Social Bots sind aktuell ein großes Thema. Die Medien berichten darüber, wie die <a href="http://www.zeit.de/digital/internet/2017-01/social-bots-bundestagswahl-twitter-studie">bösen Roboter</a> unsere <a href="http://www.zeit.de/2017/09/bundestagswahl-fake-news-manipulation-russland-hacker-cyberkrieg">Demokratie hacken</a> werden. Sogar Verbote werden gefordert -- ich nehme an, der Quatsch soll Schlagzeilen bringen und ist nicht ernst gemeint. &quot;Forscher&quot; und &quot;Experten&quot; versuchen, die vom Untergang bedrohten Parteien zu beraten. Besonders aufgefallen ist mir kürzlich das Projekt <a href="http://botswatch.de/projects/anne-will-am-04-12-2016/">Botswatch</a>, das Bot-Reaktionen auf Talkshows beleuchtet -- mit der simplen Heuristik, dass User mit 50 oder mehr Tweets pro Tag Bots seien.</p>
@@ -1391,8 +1452,7 @@ function sharePage() {
     <entry>
         <title type="html"><![CDATA[How to make your shiny new brutalist website brutally fast]]></title>
         <id>https://blog.thomaspuppe.de/fast-brutalist-websites</id>
-        <link href="https://blog.thomaspuppe.de/fast-brutalist-websites">
-        </link>
+        <link href="https://blog.thomaspuppe.de/fast-brutalist-websites"/>
         <updated>2017-02-09T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Intentionally ugly websites are one of the trends in 2017. What I like most about this: ugly is fast!]]></summary>
         <content type="html"><![CDATA[<link href="/images/2017/02/brutalist/styles.css" type="text/css" rel="stylesheet" />
@@ -1546,8 +1606,7 @@ function sharePage() {
     <entry>
         <title type="html"><![CDATA[URL-unshortening]]></title>
         <id>https://blog.thomaspuppe.de/url-unshortening</id>
-        <link href="https://blog.thomaspuppe.de/url-unshortening">
-        </link>
+        <link href="https://blog.thomaspuppe.de/url-unshortening"/>
         <updated>2017-01-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Auflösen von bit.ly, fb.me und co im großen Stil]]></summary>
         <content type="html"><![CDATA[<p>Für ein aktuelles Feature bei Bundestwitter trage ich gerade zusammen, welche Links von Politikern via Twitter verbreitet wurden. Dabei stellt sich heraus, dass mehr als 20% der geposteten Links sogenannte Shortlinks sind. Also nicht nur die Kürzung von Twitter selbst via <code>t.co</code> (deren echte URLs werden über die APIs mitgeliefert), sondern es werden schon Short-URLs beim Schreiben der Tweets eingegeben.</p>
@@ -1597,8 +1656,7 @@ if r.status_code == 301:
     <entry>
         <title type="html"><![CDATA[Online-Aufmacher nach dem Anschlag in Berlin]]></title>
         <id>https://blog.thomaspuppe.de/berlin-anschlag-aufmacher</id>
-        <link href="https://blog.thomaspuppe.de/berlin-anschlag-aufmacher">
-        </link>
+        <link href="https://blog.thomaspuppe.de/berlin-anschlag-aufmacher"/>
         <updated>2017-01-05T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Die Aufmacher der großen Online-Medien zwei Tage nach dem Anschlag im Vergleich]]></summary>
         <content type="html"><![CDATA[<p>Die Aufmacher der großen Online-Medien am 21. Dezember 2016, zwei Tage nach dem Anschlag. Entspringt einer kleinen Übung zu Crawling und Scraping. Ohne Auswertung.</p>
@@ -1735,8 +1793,7 @@ span.gitadd { background: #ecffec; }
     <entry>
         <title type="html"><![CDATA[Das Anti-agile Manifest]]></title>
         <id>https://blog.thomaspuppe.de/das-anti-agile-manifest</id>
-        <link href="https://blog.thomaspuppe.de/das-anti-agile-manifest">
-        </link>
+        <link href="https://blog.thomaspuppe.de/das-anti-agile-manifest"/>
         <updated>2016-12-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Wie klingt es, wenn man das agile Manifest umkehrt?]]></summary>
         <content type="html"><![CDATA[<p>Das <a href="http://agilemanifesto.org/iso/de/manifesto.html">Agile Manifest</a> und seine <a href="http://agilemanifesto.org/iso/de/principles.html">agilen Prinzipien</a> sind die Basis agiler Software-Entwicklung. An diesen Leitplanken (nicht ehernen Gesetzen) orientieren sich viele moderne Entwickler-Teams.</p>
@@ -1764,8 +1821,7 @@ span.gitadd { background: #ecffec; }
     <entry>
         <title type="html"><![CDATA[News-Aufmacher zur Präsidentenwahl in den USA]]></title>
         <id>https://blog.thomaspuppe.de/us-wahl-aufmacher-auf-news-websites</id>
-        <link href="https://blog.thomaspuppe.de/us-wahl-aufmacher-auf-news-websites">
-        </link>
+        <link href="https://blog.thomaspuppe.de/us-wahl-aufmacher-auf-news-websites"/>
         <updated>2016-11-09T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Was war der Aufmacher auf deutschen News-Websites rund um das Wahl-Wochenende? Und wer hat den Sieger als erster verkündet?]]></summary>
         <content type="html"><![CDATA[<p>Kürzlich habe ich mit dem Python-Framework <a href="https://scrapy.org/">Scrapy</a> herumgespielt. Erstens wollte ich ausprobieren, wie gut es sich bedienen lässt. Zweitens war ich neugierig, wie die Aufmacher von News-Websies vor und bei der US-Präsidentschaftswahl bestückt werden. Beides lässt sich praktischerweise gut kombinieren :-)</p>
@@ -1850,8 +1906,7 @@ class LocalSpider(scrapy.Spider):
     <entry>
         <title type="html"><![CDATA[Single Point Of Failure auf News-Websites]]></title>
         <id>https://blog.thomaspuppe.de/spof-auf-news-websites</id>
-        <link href="https://blog.thomaspuppe.de/spof-auf-news-websites">
-        </link>
+        <link href="https://blog.thomaspuppe.de/spof-auf-news-websites"/>
         <updated>2016-10-31T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Kaputte Third-Party Scripts können Websites lahmlegen. Ich untersuche einige Nachrichten-Websites auf deren Robustheit gegen dieses Problem.]]></summary>
         <content type="html"><![CDATA[<p>Moderne Websites binden häufig Inhalte und Code von fremden Servern ein. Seien es Social-Media-Widgets, Tracking, oder Werbung. News-Websites verwenden all diese Dinge. Und damit ist die Verfügbarkeit und Geschwindigkeit der News-Website unter Umständen abhängig von der Verfügbarkeit und Geschwindigkeit der fremden Anbieter. Was diese Umstände sind, wie man sie erkennt, und ausschaltet, erkläre ich in diesem Artikel an einigen Beispielen.</p>
@@ -2117,8 +2172,7 @@ class LocalSpider(scrapy.Spider):
     <entry>
         <title type="html"><![CDATA[Inodes im Linux: Volle Festplatte, obwohl noch Platz ist?]]></title>
         <id>https://blog.thomaspuppe.de/inodes-linux-festplatte-voll</id>
-        <link href="https://blog.thomaspuppe.de/inodes-linux-festplatte-voll">
-        </link>
+        <link href="https://blog.thomaspuppe.de/inodes-linux-festplatte-voll"/>
         <updated>2016-10-18T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Kürzlich fiel mein Bundestwitter-Server aus. Bei der Suche nach der Ursache habe ich einige neue Dinge über Linux gelernt, die ich hier dokumentieren möchte.]]></summary>
         <content type="html"><![CDATA[<p>Kürzlich fiel mein <a href="http://www.bundestwitter.de">Bundestwitter</a>-Server aus. Bei der Suche nach der Ursache habe ich einige neue Dinge über Linux gelernt, die ich hier dokumentieren möchte.</p>
@@ -2216,8 +2270,7 @@ Inodes      IUsed     IFree    IUse%
     <entry>
         <title type="html"><![CDATA[Front Trends 2016 in Warsaw: Day 3]]></title>
         <id>https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-three</id>
-        <link href="https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-three">
-        </link>
+        <link href="https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-three"/>
         <updated>2016-05-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Summarizing the third day presentations of the Front Trends 2016 conference in Warsaw, including the Nyan cat, pixel bonding, modern(izer) tools, CSS engineering principles, Origami, offline pages, real programmers and Trojan CVs.]]></summary>
         <content type="html"><![CDATA[<p>Summarizing the third day presentations of the Front Trends 2016 conference in Warsaw, including the Nyan cat, pixel bonding, modern(izer) tools, CSS engineering principles, Origami, offline pages, real programmers and Trojan CVs.. A speakers list can also be found on <a href="https://2016.front-trends.com/speakers/">2016.front-trends.com/speakers/</a>.</p>
@@ -2318,8 +2371,7 @@ Projects are a journey, be fluid.
     <entry>
         <title type="html"><![CDATA[Front Trends 2016 in Warsaw: Day 2]]></title>
         <id>https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-two</id>
-        <link href="https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-two">
-        </link>
+        <link href="https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-two"/>
         <updated>2016-05-19T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Summarizing the second day presentations of the Front Trends 2016 conference in Warsaw. Todays talks were about components, digital afterlife, tiny JS, typography, knitting and frontend tooling.]]></summary>
         <content type="html"><![CDATA[<p>Summarizing the second day presentations of the Front Trends 2016 conference in Warsaw. Todays talks were about components, digital afterlife, tiny JS, typography, knitting and frontend tooling. A speakers list can also be found on <a href="https://2016.front-trends.com/speakers/">2016.front-trends.com/speakers/</a>.</p>
@@ -2395,8 +2447,7 @@ Projects are a journey, be fluid.
     <entry>
         <title type="html"><![CDATA[Front Trends 2016 in Warsaw: Day 1]]></title>
         <id>https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-one</id>
-        <link href="https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-one">
-        </link>
+        <link href="https://blog.thomaspuppe.de/front-trends-2016-warsaw-day-one"/>
         <updated>2016-05-18T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Summarizing the first day presentations of the Front Trends 2016 conference in Warsaw. Covering pranks, animations, static sites, RxJS, performance, and leadership.]]></summary>
         <content type="html"><![CDATA[<p>Summarizing the first day presentations of the Front Trends 2016 conference in Warsaw. Covering pranks, animations, static sites, RxJS, performance, and leadership. A speakers list can also be found on <a href="https://2016.front-trends.com/speakers/">2016.front-trends.com/speakers/</a>.</p>
@@ -2489,8 +2540,7 @@ Projects are a journey, be fluid.
     <entry>
         <title type="html"><![CDATA[Eine Single-Page-App minimieren mit Gulp]]></title>
         <id>https://blog.thomaspuppe.de/single-page-apps-minimieren-mit-gulp</id>
-        <link href="https://blog.thomaspuppe.de/single-page-apps-minimieren-mit-gulp">
-        </link>
+        <link href="https://blog.thomaspuppe.de/single-page-apps-minimieren-mit-gulp"/>
         <updated>2015-01-23T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleichzeitig sollen Less und JSLint genutzt werden. Ein wunderbares Einsatzgebiet für Gulp!]]></summary>
         <content type="html"><![CDATA[<p>Unter meetingtimer.biz habe ich eine kleine Web-App. CSS und JavaScript sind so gering, dass ich keine seperaten Requests starten möchte. Gleichzeitig sollen Less und JSLint genutzt werden. Ein wunderbares Einsatzgebiet für Gulp!</p>
@@ -2555,8 +2605,7 @@ Projects are a journey, be fluid.
     <entry>
         <title type="html"><![CDATA[Twitterdaten sammeln mit AWS]]></title>
         <id>https://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws</id>
-        <link href="https://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws">
-        </link>
+        <link href="https://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws"/>
         <updated>2014-11-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Um Tweets zu einem aktuellen Thema zu sammeln, muss man die Twitter Streaming API mitschneiden. In 20 Minuten ist dafür ein kostenloses always-online System aufgesetzt.]]></summary>
         <content type="html"><![CDATA[<p>Um Tweets zu einem aktuellen Thema zu sammeln, muss man die Twitter Streaming API mitschneiden. In 20 Minuten ist dafür ein kostenloses always-online System aufgesetzt.</p>
@@ -2646,8 +2695,7 @@ $ while true; do ( wc -l tweets.json ; sleep 5 ) done;</pre>
     <entry>
         <title type="html"><![CDATA[Twitterdaten mappen mit Leaflet]]></title>
         <id>https://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet</id>
-        <link href="https://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet">
-        </link>
+        <link href="https://blog.thomaspuppe.de/twitterdaten-mappen-mit-leaflet"/>
         <updated>2014-11-19T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Meine Sammlung von Tweets zum]]></summary>
         <content type="html"><![CDATA[<p>Meine <a href="https://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.</p>
@@ -2746,8 +2794,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <entry>
         <title type="html"><![CDATA[Perfekte Link-Unterstreichung]]></title>
         <id>https://blog.thomaspuppe.de/link-unterstreichung</id>
-        <link href="https://blog.thomaspuppe.de/link-unterstreichung">
-        </link>
+        <link href="https://blog.thomaspuppe.de/link-unterstreichung"/>
         <updated>2014-05-06T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.]]></summary>
         <content type="html"><![CDATA[<p>Link-Unterstreichung bei großen Schriftarten wirkt schnell klobig. Mit ein paar Zeilen CSS lässt sich die Seite optisch aufwerten und die Lesbarkeit erhöhen.</p>
@@ -2790,8 +2837,7 @@ a:hover, a:focus {
     <entry>
         <title type="html"><![CDATA[Die Unterstützer des @GregorGysi]]></title>
         <id>https://blog.thomaspuppe.de/gregor-gysi-retweets</id>
-        <link href="https://blog.thomaspuppe.de/gregor-gysi-retweets">
-        </link>
+        <link href="https://blog.thomaspuppe.de/gregor-gysi-retweets"/>
         <updated>2014-03-16T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Gregor Gysi führt in den letzten Wochen die Retweet-Charts von Bundestwitter an. Ist das systematische Unterstützung durch Wenige? Oder eine breite Basis?]]></summary>
         <content type="html"><![CDATA[<p>Der Fraktionsführer der Linken im Deutschen Bundestag, <a href="http://www.bundestwitter.de/politiker/dr-gregor-gysi/">Gregor Gysi</a>, führt in den letzten Wochen die <a href="http://www.bundestwitter.de">Retweet-Charts von Bundestwitter</a> an. Ist das systematische Unterstützung durch Wenige? Oder eine breite Basis?</p>
@@ -6414,8 +6460,7 @@ a:hover, a:focus {
     <entry>
         <title type="html"><![CDATA[Umstellung auf Responsive Web Design - ein praktisches Beispiel]]></title>
         <id>https://blog.thomaspuppe.de/responsive-website-ein-praktisches-beispiel</id>
-        <link href="https://blog.thomaspuppe.de/responsive-website-ein-praktisches-beispiel">
-        </link>
+        <link href="https://blog.thomaspuppe.de/responsive-website-ein-praktisches-beispiel"/>
         <updated>2014-02-13T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Wie baut man eine einfache Website von nicht-responsive auf responsive um? Eine Schritt-für-Schritt Anleitung anhand dieses Blogs.]]></summary>
         <content type="html"><![CDATA[<p>Wie baut man eine einfache Website von nicht-responsive auf responsive um? Eine Schritt-für-Schritt Anleitung anhand dieses Blogs.</p>
@@ -6486,8 +6531,7 @@ font-size: 2em;
     <entry>
         <title type="html"><![CDATA[doNotTrack Browserübergreifend erkennen]]></title>
         <id>https://blog.thomaspuppe.de/do-not-track-header-crossbrowser</id>
-        <link href="https://blog.thomaspuppe.de/do-not-track-header-crossbrowser">
-        </link>
+        <link href="https://blog.thomaspuppe.de/do-not-track-header-crossbrowser"/>
         <updated>2013-11-07T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Der doNotTrack Flag des Browsers signalisiert, dass ein Nutzer nicht getrackt werden möchte. Diese Information lässt sich per JS auslesen &mdash; jedoch je nach browser unterschiedlch.]]></summary>
         <content type="html"><![CDATA[<p>Mit dem doNotTrack Befehl können User signalisieren, dass sie nicht von Websites getrackt werden möchten. Browser senden dafür einen HTTP-Header mit ihren Requests an den Webserver. Via JavaScript lässt sich diese Einstellung auch im Client auslesen. Dieses Auslesen funktioniert leider nicht einheitlich.</p>
@@ -6570,8 +6614,7 @@ jsOutput.innerHTML+= navigator.userAgent + "\n";
     <entry>
         <title type="html"><![CDATA[VISUALIZED.iO Berlin 2013]]></title>
         <id>https://blog.thomaspuppe.de/visualized-io-berlin-2013</id>
-        <link href="https://blog.thomaspuppe.de/visualized-io-berlin-2013">
-        </link>
+        <link href="https://blog.thomaspuppe.de/visualized-io-berlin-2013"/>
         <updated>2013-10-09T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Eine Zusammenfassung der Themen auf der VISUALIZED.iO Konferenz  2013 in Berlin.]]></summary>
         <content type="html"><![CDATA[<p>Eine grobe Zusammenfassung der Themen auf der VISUALIZED.iO Konferenz am 05. Oktober 2013 in Berlin. Es ist wenig ausformuliert, sondern eher eine Liste an Stichpunkten, Links zu den vorgestellten Projekten und einige Zitate.</p>
@@ -6648,8 +6691,7 @@ jsOutput.innerHTML+= navigator.userAgent + "\n";
     <entry>
         <title type="html"><![CDATA[Good bye Google Analytics! Good bye Piwik! Hallo AWStats!]]></title>
         <id>https://blog.thomaspuppe.de/goodbye-google-analytics-goodbye-piwik</id>
-        <link href="https://blog.thomaspuppe.de/goodbye-google-analytics-goodbye-piwik">
-        </link>
+        <link href="https://blog.thomaspuppe.de/goodbye-google-analytics-goodbye-piwik"/>
         <updated>2013-10-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Warum ich mein Website-Tracking von Google Analytics über Piwik zu AWStats zurück entwickelte und trotzdem nichts vermisse.]]></summary>
         <content type="html"><![CDATA[<p>Warum ich mein Website-Tracking von Google Analytics über Piwik zu AWStats zurück entwickelte und trotzdem nichts vermisse.</p>
@@ -6686,8 +6728,7 @@ jsOutput.innerHTML+= navigator.userAgent + "\n";
     <entry>
         <title type="html"><![CDATA[Wie twittern Politiker?]]></title>
         <id>https://blog.thomaspuppe.de/twitter-verhalten-mdb-und-nds</id>
-        <link href="https://blog.thomaspuppe.de/twitter-verhalten-mdb-und-nds">
-        </link>
+        <link href="https://blog.thomaspuppe.de/twitter-verhalten-mdb-und-nds"/>
         <updated>2013-01-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Ein Überblick über das Twitter-Verhalten der MdB und der Wahlkämpfer der niedersächsischen Landtagswahl 2013]]></summary>
         <content type="html"><![CDATA[<p>Wie viele Politiker sind auf Twitter aktiv? Wie häufig twittern sie? Was wird geschrieben? Erzeugt das Bürgernähe? Hilft es im Wahlkampf?</p><p><em>Ein Überblick über das Twitter-Verhalten der MdB und der Wahlkämpfer der niedersächsischen Landtagswahl 2013.</em></p>
@@ -6836,8 +6877,7 @@ jsOutput.innerHTML+= navigator.userAgent + "\n";
     <entry>
         <title type="html"><![CDATA[domain.de+ auf Google+ Profil umleiten]]></title>
         <id>https://blog.thomaspuppe.de/eigene-domain-google-plus-umleiten</id>
-        <link href="https://blog.thomaspuppe.de/eigene-domain-google-plus-umleiten">
-        </link>
+        <link href="https://blog.thomaspuppe.de/eigene-domain-google-plus-umleiten"/>
         <updated>2013-01-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Weiterleitung von thomaspuppe.de/+ auf das Google-Profil via .htaccess]]></summary>
         <content type="html"><![CDATA[<p>Ein Tipp für die Leute mit eigener Domain: Weiterleitung von <code>thomaspuppe.de/+</code> auf das Google-Profil via .htaccess:</p>
