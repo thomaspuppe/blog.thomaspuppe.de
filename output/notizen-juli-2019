@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Notizen Juli 2019</title>
+    <meta name="description" content="...">
+    <meta name="date" content="2019-07-04">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+
+    <link href="/feed/atom" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+
+    <meta property="og:title" content="Notizen Juli 2019" />
+    <meta property="og:url" content="https://blog.thomaspuppe.de/notizen-juli-2019" />
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="2019-07-04" />
+    <meta property="og:article:author" content="Thomas Puppe" />
+
+</head>
+<body>
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
+
+        <div class="post__meta">
+            <span class="post__category">#Notizen</span>
+            <time datetime="2019-07-04">01. Juli 2019 – 04. Juli 2019</time>
+        </div>
+
+        <h1 class="post__title">Notizen Juli 2019</h1>
+
+        <h2 id="ui-fails-grumpy-website">UI fails: Grumpy Website</h2>
+<p>Über einen Artikel über <a href="https://grumpy.website/post/0S6F8ozn5">schlimmes Dashboard Design im Renault</a> stieß ich auf die [Grumpy Website(<a href="https://grumpy.website">https://grumpy.website</a>), wo jede Menge kleine und große UI fails gesammelt werden.</p>
+<blockquote>
+<p>My favorite theory (which is yet to be challenged) is that modern car interfaces are designed by people who have never even seen a car in their entire life.</p>
+</blockquote>
+
+
+    </article>
+</body>
+</html>
