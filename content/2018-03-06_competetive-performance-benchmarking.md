@@ -59,6 +59,8 @@ https://bigquery.cloud.google.com/savedquery/415027649228:2e0411a31423477892f0a2
 
 https://calendar.perfplanet.com/2017/finding-your-competitive-edge-with-the-chrome-user-experience-report/
 
+https://developer.akamai.com/akamai-mpulse/crux-benchmarking
+
 ------------------------
 
 - https://www.dareboost.com/en/comparison/ ---> das auch bei competetive perf in den blogpost! (neben https://gtmetrix.com/reports/ , https://gtmetrix.com/compare/)

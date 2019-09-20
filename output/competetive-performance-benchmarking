@@ -56,6 +56,7 @@
 <p>Google provides some <a href="https://developers.google.com/web/tools/chrome-user-experience-report/getting-started#example-queries">example queries</a>, which work well with the 2017 dataset. Just change the URL. For 2018 you need to change the queries, because they renamed some fields.</p>
 <p><a href="https://bigquery.cloud.google.com/savedquery/415027649228:2e0411a31423477892f0a27aa990f5ed">https://bigquery.cloud.google.com/savedquery/415027649228:2e0411a31423477892f0a27aa990f5ed</a></p>
 <p><a href="https://calendar.perfplanet.com/2017/finding-your-competitive-edge-with-the-chrome-user-experience-report/">https://calendar.perfplanet.com/2017/finding-your-competitive-edge-with-the-chrome-user-experience-report/</a></p>
+<p><a href="https://developer.akamai.com/akamai-mpulse/crux-benchmarking">https://developer.akamai.com/akamai-mpulse/crux-benchmarking</a></p>
 <hr>
 <ul>
 <li><a href="https://www.dareboost.com/en/comparison/">https://www.dareboost.com/en/comparison/</a> ---&gt; das auch bei competetive perf in den blogpost! (neben <a href="https://gtmetrix.com/reports/">https://gtmetrix.com/reports/</a> , <a href="https://gtmetrix.com/compare/">https://gtmetrix.com/compare/</a>)<ul>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.thomaspuppe.de</id>
     <title>Blog von Thomas Puppe, Web Developer.</title>
-    <updated>2019-07-04T07:29:27.738Z</updated>
+    <updated>2019-09-20T07:15:16.504Z</updated>
     <generator>easto 2.0.0 (https://github.com/thomaspuppe/easto)</generator>
     <author>
         <name>Thomas Puppe</name>
@@ -18,7 +18,7 @@
         <link href="https://blog.thomaspuppe.de/templating-mit-js-template-literals"/>
         <updated>2019-07-02T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Wie natives JS Templating mein Suchen-und-Ersetzen im Blog-Generator ablöste]]></summary>
-        <content type="html"><![CDATA[<p>Für meinen kleinen <a href="https://github.com/thomaspuppe/easto">Static-Site Generator easto</a> benutze ich keine Templating-Engine, sondern mache nur Suchen-und-Ersetzen in den Templates. Das sah so aus:</p>
+        <content type="html"><![CDATA[<p>Für meinen kleinen <a href="https://github.com/thomaspuppe/easto">Static-Site Generator easto</a> benutze ich keine Templating-Engine, sondern mache nur Suchen-und-Ersetzen in den Templates. Das sah bisher so aus:</p>
 <h2 id="gut-genug-string-replacement">Gut genug: String-Replacement</h2>
 <pre>&lt;div class="post__meta"&gt
     &lt;span class="post__category"&gt#{{ META_TAGS }}&lt;/span&gt
@@ -28,42 +28,42 @@
 {{ CONTENT }}
 </pre>
 
-<p>Im JavaScript habe ich dann über eien Liste von Metadaten iteriert und diese im Template ersetzt:</p>
+<p>Im JavaScript habe ich dann über eine Liste von Metadaten iteriert und diese im Template ersetzt:</p>
 <pre>
 template.replace('{{ CONTENT }}', fileContentHtml)
 
-for (var key in metatata) {
+for (var key in metadata) {
     const re = new RegExp('{{ META_' + key.toUpperCase() + ' }}', 'g')
 
     if ( key === 'tags') {
-        const tagsString = metatata[key].join(', #')
+        const tagsString = metadata[key].join(', #')
         template = template.replace(re, tagsString)
     } else {
-        template = template.replace(re, metatata[key])
+        template = template.replace(re, metadata[key])
     }
 }</pre>
 
-<p>... im Prinzip. In echt dann alles noch etwas umständlicher. Die Regex Nummer ist nötig, weil nur das erste Vorkommen ersetzt wird, wenn man einen String als Parameter verwendet. In Teasern benutze ich etwas andree Ausgaben als im Post oder den Feeds. Usw.</p>
+<p>... im Prinzip. In echt war dann alles noch etwas umständlicher. Die Regex Nummer ist nötig, weil nur das erste Vorkommen ersetzt wird, wenn man einen String als Parameter verwendet. In Teasern benutze ich etwas andere Ausgaben als im Post oder den Feeds. Usw.</p>
 <h2 id="besser-template-literals">Besser: Template Literals</h2>
-<p>Bei einem <a href="https://github.com/thomaspuppe/news-benchmark">anderen Projekt</a> kam ich letztens auf die Idee, dass man in modernem JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">Template Literals</a> zur Verfügung hat. Wenn Strings in Back Ticks (&#715;) gefasst sind, werden enthaltene Ausdrücke ausgeführt.</p>
+<p>Bei einem <a href="https://github.com/thomaspuppe/news-benchmark">anderen Projekt</a> wurde ich wieder daran erinnert, dass man in modernem JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">Template Literals</a> zur Verfügung hat. Wenn Strings in Back Ticks (&#715;) gefasst sind, werden enthaltene Ausdrücke ausgeführt.</p>
 <pre>var kitty = "Cheddar";
-console.log(`Meine Katze heißt ${kitty}`);
+console.log(`Meine Katze heißt ${kitty}.`);
 => Meine Katze heißt Cheddar.
 </pre>
 
 <p>Meine Template-Dateien sehen nun <a href="https://github.com/thomaspuppe/blog.thomaspuppe.de/commit/2223b3c22d4b1cba6c4d87151137a2f886c47f6c">etwas anders</a> aus. Erstens werden sie komplett mit Back Ticks umschlossen. Und zweitens verwende ich Ausdrücke mit Dollarzeichen und geschweiften Klammern anstelle der selbst ausgedachten Marker fürs Suchen-und-Ersetzen.</p>
-<pre>&lt;div class="post__meta"&gt;
+<pre>`&lt;div class="post__meta"&gt;
     &lt;span class="post__category"&gt;#${ meta.tags.join(', #') }&lt;/span&gt;
     &lt;time datetime="{{ META_DATE }}"&gt;${ meta.datelabel }&lt;/time&gt;
 &lt;/div&gt;
 &lt;h1 class="post__title"&gt;${ meta.title }&lt;/h1&gt;
 ${ content }
-</pre>
+`</pre>
 
 <p>Im JavaScript stecke ich ein Objekt zusammen das alles enthält, was das Template braucht.</p>
 <pre>const output = eval_template(template, {
     'blogmeta': CONFIG,
-    'meta': metatata,
+    'meta': metadata,
     'content': fileContentHtml
 })
 </pre>
@@ -80,8 +80,8 @@ ${ content }
 <ul>
 <li>verschlankt den <a href="https://github.com/thomaspuppe/easto/commit/491949d33e41bdc4b781083066607e9bfaaa5932">Code</a></li>
 <li>kleine Operatioenn wie <code>join</code>, <code>toUpper</code> oder <code>if</code> kann ich im Template machen.</li>
-<li>Fallbacks <code>&lt;html lang=&quot;${ meta.language || &#39;de&#39; }&quot;&gt;</code></li>
-<li>Platzhalter im Template, die keine Werte haben, werfen jetzt Fehler (vorher wurden sie einfach nicht ersetzt).</li>
+<li>Platzhalter im Template, für die es keine Variablen/Werte gibt, werfen jetzt Fehler (vorher wurden sie einfach nicht ersetzt).</li>
+<li>Fallbacks im Template <code>&lt;html lang=&quot;${ meta.language || &#39;de&#39; }&quot;&gt;</code></li>
 <li>Template-Code-Beispiele aus dem Inhalt wurden vorher behandelt wie Templates selbst – und auch ersetzt. Das passiert jetzt <a href="https://github.com/thomaspuppe/blog.thomaspuppe.de/commit/9058e03eeaa00b16aa17826cdda3e57bd51674b1">nicht mehr</a>.</li>
 </ul>
 <p>Außerdem sieht das professioneller und sexier aus.</p>
