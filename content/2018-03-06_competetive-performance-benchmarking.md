@@ -23,6 +23,9 @@ description:
 ## One-time comparison tools
 
 
+https://www.dareboost.com/en/comparison?reportIds=d_25d8a0695a0612f5a7d2702c0&reportIds=d_25d8a0695a0612f5a7d2702c1
+
+
 
 ## Continuous benchmarks in synthetic tools
 
