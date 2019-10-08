@@ -5,7 +5,7 @@ datelabel: 20. September 2019
 language: de
 tags: [Webentwicklung]
 permalink: webworkers-for-future
-draft: false
+draft: true
 description: "Produktives Streiken in der Klimawoche: wie Webentwickler das Klima vom Arbeitsplatz aus schützen können"
 ---
 

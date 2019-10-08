@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Webworkers for Future</title>
+    <meta name="description" content="Produktives Streiken in der Klimawoche: wie Webentwickler das Klima vom Arbeitsplatz aus schützen können">
+    <meta name="date" content="2019-09-20">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+
+    <link href="/feed/atom" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+
+    <meta property="og:title" content="Webworkers for Future" />
+    <meta property="og:url" content="https://blog.thomaspuppe.de/webworkers-for-future" />
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="2019-09-20" />
+    <meta property="og:article:author" content="Thomas Puppe" />
+
+</head>
+<body>
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
+
+        <div class="post__meta">
+            <span class="post__category">#Webentwicklung</span>
+            <time datetime="2019-09-20">20. September 2019</time>
+        </div>
+
+        <h1 class="post__title">Webworkers for Future</h1>
+
+        <p>Tim Kadlec schrieb einen schönen Artikel über die <a href="https://timkadlec.com/remembers/2019-01-09-the-ethics-of-performance/">Ethics of Web Performance</a>, in dem der Abschnitt &quot;Performance as waste&quot; auf die Auswirkungen von Bullshit den Energieverbrauch beim Übertragen udn Anzeigen von Websites eingeht.</p>
+<p>Jehr mehr Besucher die Seite hat, desto mehr Einfluss hat die Änderung.</p>
+<p>Die Wikipedia ...</p>
+<p><a href="https://phabricator.wikimedia.org/phame/post/view/175/wikipedia_s_javascript_initialisation_on_a_budget/">https://phabricator.wikimedia.org/phame/post/view/175/wikipedia_s_javascript_initialisation_on_a_budget/</a></p>
+<blockquote>
+<p>This week&#39;s deployment saves around 1.4 Terabytes a day.</p>
+</blockquote>
+<p>Aber auch kleine Änderungen multiplizieren sich über Masse und Zeit.</p>
+<h2 id="do-no-harm">Do no harm</h2>
+<p>Gibt es ungenutzten Webspace, der nur noch läuft weil er zu billig ist um endlich mal die Kündigung abzusenden? Gammeln VMs in der Cloud? Laufen irgendwo Cronjobs für ein altes Crawling-Projekt, das eh nicht mehr betreut wird? Liegt deine statische Website plus die Landingpages für nie umgesetzte Projekte auf einem mächtigen Server samt Datenbank?</p>
+<p>Lösch das! Vielleicht reicht ein kleiner Webspace bei Uberspace, die übrigens mit Ökostrom laufen, um deine kleinen Projekte und das Portfolio zu hosten. Vielleicht spart das nebenbei sogar noch Geld.</p>
+<p>Und im Beruf? Da stellen sich die gleichen Fragen. Die Chancen stehen sogar höher, dass komplett ungenutzte Stromfresser laufen, weil keiner dran denkt.</p>
+<h2 id="performance-optimierung-bedeutet-stromsparen">Performance-Optimierung bedeutet Stromsparen</h2>
+<ul>
+<li>Link zu Wikipedia</li>
+</ul>
+<h3 id="große-brocken">große Brocken</h3>
+<h3 id="mikro-optimierung">Mikro-Optimierung</h3>
+<ul>
+<li>Link zu Mozilla-Artikel</li>
+</ul>
+<p>Einen umfassenden Artikel zu (Mikro-)Optimierungen auf Websites hat Webit veröffentlicht:
+<a href="https://webkit.org/blog/8970/how-web-content-can-affect-power-usage/">How Web Content Can Affect Power Usage</a>. Da geht es um effiziente Animationen, und den sparsamen Umgang mit der CPU. Zum Beispiel brauchen Animationen nicht abgespielt werden, wenn die Website gar nicht sichtbar ist, sondern hinter anderen Fenstern verborgen.</p>
+<blockquote>
+<p>Webpages can be good citizens of battery life. It’s important to measure the battery impact in Web Inspector and drive those costs down. Doing so improves the user experience and battery life.</p>
+</blockquote>
+<ul>
+<li>Hosting mit Ökostrom</li>
+</ul>
+<h2 id="grün-suchen">Grün suchen</h2>
+<p>Die Suchmaschine <a href="https://www.ecosia.org/">Ecosia</a> wird mit Ökostrom betrieben und pflanzt mit ihren Gewinnen Bäume. Ich habe schon öfter versucht, von Google wegzukommen, aber die Suchergebnisse waren immer zu schlecht. Ecosia ist die erste Suchmaschine, bei der ich hängengeblieben bin.</p>
+<h2 id="kompensieren">Kompensieren</h2>
+<p><a href="https://news.ycombinator.com/item?id=21024358">https://news.ycombinator.com/item?id=21024358</a></p>
+<p><a href="https://www.goclimateneutral.org/">https://www.goclimateneutral.org/</a></p>
+<p>Closing mit &quot;Pornhub Baum-Aktion&quot;</p>
+<p>===============</p>
+<h2 id="mit-guten-taten-voran">Mit guten Taten voran</h2>
+<p>Bei ZEIT Online: das CSS für &quot;Nextread&quot;-Empfehlungen unter Artikeln wird nur geladen, wenn es tatsächlich eine Empfehlung gibt. Animationen außerhalb des sichtbaren Viewports werden deaktiviert (den Start machen animierte Job-Anzeigen).</p>
+<p>Privat: Newsdiffs einstampfen</p>
+
+
+    </article>
+</body>
+</html>
