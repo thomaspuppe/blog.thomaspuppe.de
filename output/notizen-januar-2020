@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="language" content="de">
+    <title>Notizen Januar 2020</title>
+    <meta name="description" content="this-month-I-learned meets Lesetipps meets Notizblock für Januar 2020">
+    <meta name="date" content="2020-11-01">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css"/>
+    <link href="/" rel="home start" />
+
+    <link href="/feed/atom" type="application/atom+xml" rel="alternate" title="Atom Feed" />
+    <link href="/feed/json" type="application/json" rel="alternate" title="JSON Feed" />
+    <link href="/feed/rss" type="application/rss+xml" rel="alternate" title="RSS Feed" />
+
+    <meta property="og:title" content="Notizen Januar 2020" />
+    <meta property="og:url" content="https://blog.thomaspuppe.de/notizen-januar-2020" />
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="2020-11-01" />
+    <meta property="og:article:author" content="Thomas Puppe" />
+
+</head>
+<body>
+    <header>
+        <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
+    </header>
+    <article class="post">
+
+        <div class="post__meta">
+            <span class="post__category">#Notizen</span>
+            <time datetime="2020-11-01">01. Januar 2020 – 01. Januar 2020</time>
+        </div>
+
+        <h1 class="post__title">Notizen Januar 2020</h1>
+
+        <h2 id="putting-devs-before-users">Putting Devs Before Users</h2>
+<p><a href="https://medium.com/@CM30/putting-devs-before-users-how-frameworks-destroyed-web-performance-6b2c2a506aab">https://medium.com/@CM30/putting-devs-before-users-how-frameworks-destroyed-web-performance-6b2c2a506aab</a></p>
+<h2 id="seven-ways-to-think-like-a-programmer">Seven Ways to Think Like a Programmer</h2>
+<p><a href="http://third-bit.com/2018/03/16/seven-ways.html">http://third-bit.com/2018/03/16/seven-ways.html</a></p>
+<blockquote>
+<p>As Alfred North Whitehead said, “Civilization advances by extending the number of important operations which we can perform without thinking about them.”</p>
+</blockquote>
+<h2 id="how-we-use-ship-small-to-rapidly-build-new-features-at-github">How we use &quot;ship small&quot; to rapidly build new features at GitHub</h2>
+<p><a href="https://dev.to/mscccc/how-we-use-ship-small-to-rapidly-build-new-features-at-github-5cl9">https://dev.to/mscccc/how-we-use-ship-small-to-rapidly-build-new-features-at-github-5cl9</a></p>
+<h2 id="the-unicorn-project">The Unicorn Project</h2>
+<p><a href="https://nodramadevops.com/2019/11/review-the-unicorn-project/">https://nodramadevops.com/2019/11/review-the-unicorn-project/</a></p>
+
+
+    </article>
+</body>
+</html>
