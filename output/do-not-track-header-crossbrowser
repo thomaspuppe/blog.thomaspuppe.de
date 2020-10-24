@@ -62,7 +62,8 @@
 &lt;tr&gt;&lt;td&gt;Chrome Mobile (Android 4.3)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&quot;0&quot;, &quot;1&quot;, null&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;Safari (iOS 5 / iPad 1)&lt;/td&gt;&lt;td colspan=2&gt;nicht verfügbar&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;Sony Tablet Browser (Android 4.0)&lt;/td&gt;&lt;td colspan=2&gt;nicht verfügbar&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;</code></pre></table>
+&lt;/tbody&gt;</code></pre>
+</table>
 
 <p><em>Die Tabelle wird nach und nach ergänzt. Input bitte an <a href="https://twitter.com/thomaspuppe">@thomaspuppe</a></em></p>
 <h2 id="live-test-in-ihrem-browser">Live-Test in Ihrem Browser</h2>

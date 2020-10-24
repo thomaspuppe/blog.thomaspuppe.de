@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Blog von Thomas Puppe, Web Developer.</title>
         <link>https://blog.thomaspuppe.de</link>
         <description>undefined</description>
-        <lastBuildDate>Tue, 11 Feb 2020 08:15:01 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 24 Oct 2020 10:19:23 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>easto 2.0.0 (https://github.com/thomaspuppe/easto)</generator>
         <copyright>All rights reserved 2018, Thomas Puppe</copyright>
-        <atom:link href="https://blog.thomaspuppe.de/feed/atom" rel="self" type="application/rss+xml"/>
+        <atom:link href="https://blog.thomaspuppe.de/feed/rss" rel="self" type="application/rss+xml"/>
         <item>
             <title><![CDATA[Quotes from Fronteers 2019 in Amsterdam]]></title>
             <link>https://blog.thomaspuppe.de/fronteers-conference-2019-amsterdam</link>
@@ -1172,7 +1172,7 @@ parentNode.replaceChild(newChild, oldChild);
 </blockquote>
 <p><strong>Changing the layout game</strong> by <a href="https://twitter.com/cwrightdesign/">Chris Wright</a> presented some examples on how people hack CSS to get near the features they actually would like to have. Fox example we have hacked layouts with tables, floats, flexbox ... and now CSS grids are available. The talk contains a lot of nice examples on how to solve common problems in CSS. You should check the <a href="https://speakerdeck.com/cwrightdesign/changing-the-layout-game">slides</a>.</p>
 <p><strong>Alternative Reality DevTools</strong> by <a href="https://twitter.com/kdzwinel/">Konrad Dzwinel</a> started with the history of browser dev tools, which have all been similar, and even today have seen not much improvement. So, Konrad tries new concepts, inspired by AutoCAD, video editing, processor design, game design, graphic design, and so on. Highlights: Context aware inspectors (for meta tags: docs and specs, for SVG: SVG editor). Concentrate on a certain element (hide all the others). Timeline (go back while using your app, e.g. un-click a radio button). Inionite canvas (multiple devices on one big screen). Good news: everyone can contribute! Firefox devtools are open source and written in React.</p>
-<p><strong>Components, patterns and sh*t it’s hard to deal with</strong> by <a href="https://twitter.com/cedmax">Marco Cedaro</a>: how do we manage and reuse patterns, without making them too rigid for day-to-day activities? Problems arise if you use BEM too dogmatic. Solutions: enable unbemmy/atomic CSS in some cases. Use open mixins where the author decides what to enforce, and what to expose to the user of the mixin. If you have a BEM-problem, step back and ask yourself: what problem are we actually trying to solve? <a href="https://speakerdeck.com/cedmax/components-patterns-and-sh-star-t-its-hard-to-deal-with-at-front-trends-2017">Slides</a></p>
+<p>*<em>Components, patterns and sh</em>t it’s hard to deal with** by <a href="https://twitter.com/cedmax">Marco Cedaro</a>: how do we manage and reuse patterns, without making them too rigid for day-to-day activities? Problems arise if you use BEM too dogmatic. Solutions: enable unbemmy/atomic CSS in some cases. Use open mixins where the author decides what to enforce, and what to expose to the user of the mixin. If you have a BEM-problem, step back and ask yourself: what problem are we actually trying to solve? <a href="https://speakerdeck.com/cedmax/components-patterns-and-sh-star-t-its-hard-to-deal-with-at-front-trends-2017">Slides</a></p>
 <p><strong>Monsters, mailboxes and other nonsense</strong> by <a href="https://twitter.com/rakaz">Niels Leenheer</a> was about fun wit IoT in his smart house <a href="https://speakerdeck.com/nielsleenheer/monsters-mailboxes-and-other-nonsense-at-front-trends">Slides</a>.</p>
 <p><strong>On How Your Brain is Conspiring Against You Making Good Software</strong> by <a href="https://twitter.com/zeigenvector">Jenna Zeigen</a> (<a href="http://jenna.is/slides/at-front-trends.pdf">slides</a>) applies cognitive biases to software development. The effects everyone knows (pair programming and breaks are good, debugging your own code is hard, people are bad at estimating the time to program something) are explained by the cognitive biases humans have.</p>
 <p><strong>Let&#39;s save the internet: How to make browsers compatible with the web</strong> by <a href="https://twitter.com/misprintedtype">Ola Gasidlo</a> introduced us to the history of browser wars and led to the W3C and WHATWG specs. <a href="https://slidr.io/zoepage/let-s-save-the-internet-how-to-make-browsers-compatible-with-the-web#1">Slides</a>. Takeaway: WHATWG specs are available on GitHub, you can contribute to prevent single companies from deciding on the webs future.</p>
@@ -1408,7 +1408,7 @@ function sharePage() {
 <p>Der Vollständigkeit halber noch ein paar Media Features, die eher selten genutzt werden.</p>
 <p><code>scan</code> unterscheidet in der Art des Bildaufbaus am Bildschirm (interlace vs progressive), und ist relevant bei schnellen Bewegungen.</p>
 <p><code>color</code> und <code>color-index</code> geben an, wie viele Farben verfügbar sind und wie sie gespeichert werden, <code>monochrome</code> erkennt Geräte die nur mit Graustufen arbeiten (und mit wie vielen). <code>grid</code> spricht auf Monospace-Font Displays an, also alle die feste Plätze und Breiten für jedes Zeichen haben. Theoretisch ist das cool, um reduzierte Bilder (oder auf Kontrast optimiertes CSS) an Geräte wie den Kindle auszuliefern. Weil diese Mikrooptimierung aber kaum jemand betreibt, machen die Geräte selbst was Gutes aus dem CSS -- weshalb wiederum niemand diese Mikrooptimierung betreibt.</p>
-<p>Im Firefox kann man Windows-Versionen und Betriebssystem-Stile erkennen und mit seienm Styling darauf reagieren. Feature-Queries wie <code></code>-moz-os-version:windows-win10<code>,</code>-moz-mac-graphite-theme<code>und</code>-moz-windows-theme:aero` regeln das.</p>
+<p>Im Firefox kann man Windows-Versionen und Betriebssystem-Stile erkennen und mit seienm Styling darauf reagieren. Feature-Queries wie <code> </code>-moz-os-version:windows-win10<code>, </code>-moz-mac-graphite-theme<code>und</code>-moz-windows-theme:aero` regeln das.</p>
 <h2 id="media-queries-level-4">Media Queries Level 4</h2>
 <p>Noch im <a href="https://drafts.csswg.org/mediaqueries-4/#media">Draft-Status</a> sind Media Queries Level 4. Sie versprechen Features wie <code>hover</code> (kann ich über Elemente hovern?), <code>pointer</code> (wie genau kann ich Elemente treffen -- Mauszeiger vs Wurstfinger), <code>update</code> (Schnelligkeit beim Bildaufbau, quasi frames-per-second) und mehr.</p>
 <p><code>device-width</code>, <code>device-height</code>, und damit auch device-aspect-ratio` sind deprecated.</p>
@@ -6550,7 +6550,8 @@ a:hover, a:focus {
                             &lt;td&gt;X&lt;/td&gt;
                             &lt;td&gt;&lt;/td&gt;
                             &lt;td&gt;&lt;/td&gt;
-                    &lt;/tr&gt;</code></pre></table>
+                    &lt;/tr&gt;</code></pre>
+</table>
 
 
 <p>Hinweise:</p>
@@ -6666,7 +6667,8 @@ font-size: 2em;
 &lt;tr&gt;&lt;td&gt;Chrome Mobile (Android 4.3)&lt;/td&gt;&lt;td&gt;navigator.doNotTrack&lt;/td&gt;&lt;td&gt;&quot;0&quot;, &quot;1&quot;, null&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;Safari (iOS 5 / iPad 1)&lt;/td&gt;&lt;td colspan=2&gt;nicht verfügbar&lt;/td&gt;&lt;/tr&gt;
 &lt;tr&gt;&lt;td&gt;Sony Tablet Browser (Android 4.0)&lt;/td&gt;&lt;td colspan=2&gt;nicht verfügbar&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;</code></pre></table>
+&lt;/tbody&gt;</code></pre>
+</table>
 
 <p><em>Die Tabelle wird nach und nach ergänzt. Input bitte an <a href="https://twitter.com/thomaspuppe">@thomaspuppe</a></em></p>
 <h2 id="live-test-in-ihrem-browser">Live-Test in Ihrem Browser</h2>
