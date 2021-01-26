@@ -4,8 +4,8 @@
   "description": "Software and Content for blog.thomaspuppe.de",
   "author": "Thomas Puppe",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/thomaspuppe/blog.thomaspuppe.de.git"
+    "type": "git",
+    "url": "https://github.com/thomaspuppe/blog.thomaspuppe.de.git"
   },
   "license": "BSD-2-Clause",
   "scripts": {
@@ -13,6 +13,6 @@
     "build-verbose": "rm -rf ./output/* && node ./node_modules/easto/index.js --config=easto_config.json --verbose=true"
   },
   "dependencies": {
-  	"easto": "thomaspuppe/easto"
+    "easto": "../easto"
   }
 }
