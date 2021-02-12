@@ -59,7 +59,8 @@ add_header Content-Security-Policy &quot;default-src &#39;self&#39;&quot;;
 # kein Laden der Seite in (i)Frames erlauben
 add_header X-Frame-Options SAMEORIGIN always;
 # XSS Protection
-add_header X-XSS-Protection &quot;1; mode=block&quot; always;</code></pre>
+add_header X-XSS-Protection &quot;1; mode=block&quot; always;
+</code></pre>
 <p><strong>Update: es schadet doch! ;-)</strong> Die <code>Content-Security-Policy &quot;default-src &#39;self&#39;&quot;;</code> sorgt dafür, dass nur Scripte und Styles vom eigenen Host eingebunden werden können. <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP#Writing_a_policy">Das schließt aber auch Inline-Styles und Scripte aus</a>! Klar, es soll ja z.B. auch ins HTML injizierte Inhalte unterbinden. Da ich aber inline JS und CSS verwende, und kein Input von außen in meine statischen Seiten möglich ist, lasse ich das mit der CSP bleiben.</p>
 <p>Zur weiteren Recherche: in einem Stackoverflow Kommentar <a href="https://stackoverflow.com/a/43492470">https://stackoverflow.com/a/43492470</a> habe ich ein ausführliches Github Repo über nginx Config gefunden: <a href="https://github.com/h5bp/server-configs-nginx">https://github.com/h5bp/server-configs-nginx</a></p>
 <p>(3) Charset im HTTT-Header von HTML und Schriften angeben, um das Rendern zu beschleunigen.</p>
@@ -68,12 +69,14 @@ add_header X-XSS-Protection &quot;1; mode=block&quot; always;</code></pre>
 <p>(4) Fehlende robots.txt Datei</p>
 <p>txt-Files im Root macht mein Blog-Generator [Link zu easto] leider noch nicht mit, aber händisch angelegt habe ich eien simple robots.txt Datei, die allen alles erlaubt:</p>
 <pre><code>User-agent: *
-Disallow:</code></pre>
+Disallow:
+</code></pre>
 <p>(5) Überschriebene CSS-Properties</p>
 <p>Es ist cool, dass Dareboost auf solche Details eingeht.</p>
 <pre><code>https://blog.thomaspuppe.de/assets/styles.css
 .post table thead td:not(:first-child): &quot;background&quot; resets &quot;background-color&quot; property set earlier (line 125, col 5)
-.post table thead td:not(:first-child): &quot;background&quot; resets &quot;background-color&quot; property set earlier (line 125, col 5)</code></pre>
+.post table thead td:not(:first-child): &quot;background&quot; resets &quot;background-color&quot; property set earlier (line 125, col 5)
+</code></pre>
 <p>Weitere CSS Probleme:</p>
 <ul>
 <li><code>body</code> CSS selector is duplicated</li>

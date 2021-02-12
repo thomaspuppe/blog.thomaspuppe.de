@@ -44,11 +44,13 @@
 <p><code>element.classList.toggle()</code> returns a boolean value, telling you if the class was added or removed. I used this to store the result directly into localstorage (or a variable). No value-checking needed.</p>
 <pre><code>document.querySelector(&#39;#darkmode&#39;).addEventListener(&#39;click&#39;, function(evt) {
     window.localStorage.setItem(&#39;wryte_darkmode&#39;, document.body.classList.toggle(&#39;dark&#39;));
-});</code></pre>
+});
+</code></pre>
 <p><code>element.classList.toggle()</code> accepts a second parameter, where you can command if the value shoud be set or removed. This is a shortcut to &quot;check a boolean, and then do add or remove&quot;.</p>
 <pre><code>document.querySelector(&#39;#darkmode&#39;).addEventListener(&#39;click&#39;, function(evt) {
     document.body.classList.toggle(&#39;dark&#39;, window.localStorage.getItem(&#39;wryte_darkmode&#39;)===&#39;true&#39;);
-});</code></pre>
+});
+</code></pre>
 <h2 id="caret-color">caret-color</h2>
 <p>You can style the color of the caret inside form inputs and contentEditables. <code>caret-color: pink;</code></p>
 <h2 id="css-vars-with-classes-and-native-dark-mode">CSS Vars with classes and native dark mode</h2>
