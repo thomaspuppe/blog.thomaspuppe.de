@@ -34,20 +34,20 @@ h1, h2, h3 {
 
 h1 {
 	font-size: 2.7rem;
-	font-size: 6vh;
+	font-size: clamp(2rem, 6vh, 4rem);
 	letter-spacing: 0.125rem;
 	text-transform: uppercase;
 }
 
 h2 {
 	font-size: 1.7rem;
-	font-size: 4vh;
+	font-size: clamp(1.6rem, 4vh, 3rem);
 	letter-spacing: 0.08333rem;
 }
 
 h3 {
 	font-size: 1.5rem;
-	font-size: 3vh;
+	font-size: clamp(1.4rem, 3vh, 2.5rem);
 	letter-spacing: 0.08333rem;
 }
 
