@@ -35,6 +35,14 @@
         <h1 class="post__title">Generate static sites from markdown files with the Caddy server</h1>
 
         <p>Lately, I am experimenting with different forms of static-site generation. While investigating the server <a href="https://caddyserver.com">Caddy</a> for <em>serving</em> pages, I found that it can also <em>generate</em> these pages from markdown.</p>
+<blockquote>
+<p>⚠️ Update 2022: This article is from 2018 and refers to Caddy version 1. User <a href="https://news.ycombinator.com/item?id=30145237#30146034">camkego on HN</a> provides links to the currend documentation of Caddy V2 markdown usage:</p>
+<ul>
+<li><a href="https://caddyserver.com/docs/caddyfile/directives/templates">https://caddyserver.com/docs/caddyfile/directives/templates</a></li>
+<li><a href="https://github.com/caddyserver/website/blob/master/src/docs/index.html">https://github.com/caddyserver/website/blob/master/src/docs/index.html</a></li>
+<li><a href="https://caddy.community/t/markdown-support-in-v2/6984">https://caddy.community/t/markdown-support-in-v2/6984</a></li>
+</ul>
+</blockquote>
 <h2 id="render-markdown-as-html">Render markdown as HTML</h2>
 <p>Basically it is enough to activate markdown in your <a href="https://caddyserver.com/docs/caddyfile">Caddyfile</a>:</p>
 <pre>localhost:8000

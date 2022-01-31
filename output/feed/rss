@@ -4,7 +4,7 @@
         <title>Blog von Thomas Puppe, Web Developer.</title>
         <link>https://blog.thomaspuppe.de</link>
         <description>undefined</description>
-        <lastBuildDate>Fri, 12 Feb 2021 16:53:31 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 31 Jan 2022 11:02:31 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>easto 2.0.0 (https://github.com/thomaspuppe/easto)</generator>
         <copyright>All rights reserved 2018, Thomas Puppe</copyright>
@@ -465,19 +465,6 @@ ncp('static', 'output', err => {
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[Notizen Februar 2019]]></title>
-            <link>https://blog.thomaspuppe.de/notizen-februar-2019</link>
-            <guid>https://blog.thomaspuppe.de/notizen-februar-2019</guid>
-            <pubDate>Wed, 06 Feb 2019 00:00:00 GMT</pubDate>
-            <description><![CDATA[...]]></description>
-            <content:encoded><![CDATA[<h1 id="forget-privacy-youre-terrible-at-targeting-anyway">Forget privacy: you&#39;re terrible at targeting anyway</h1>
-<p><a href="https://apenwarr.ca/log/20190201">https://apenwarr.ca/log/20190201</a></p>
-<p>caches work better if people are boring and average</p>
-<h1 id="httpscantunseespace"><a href="https://cantunsee.space/">https://cantunsee.space/</a></h1>
-<h1 id="httpsrachelandrewcoukarchives20190130html-css-and-our-vanishing-industry-entry-points"><a href="https://rachelandrew.co.uk/archives/2019/01/30/html-css-and-our-vanishing-industry-entry-points/">https://rachelandrew.co.uk/archives/2019/01/30/html-css-and-our-vanishing-industry-entry-points/</a></h1>
-]]></content:encoded>
-        </item>
-        <item>
             <title><![CDATA[Dark Mode für Websites]]></title>
             <link>https://blog.thomaspuppe.de/dark-mode-css</link>
             <guid>https://blog.thomaspuppe.de/dark-mode-css</guid>
@@ -760,6 +747,14 @@ Your brand is what people think of you.</p>
             <pubDate>Tue, 10 Apr 2018 00:00:00 GMT</pubDate>
             <description><![CDATA[Caddy can not only serve files fast and safely. It can also generate static files from markdown, so you dont need a generator.]]></description>
             <content:encoded><![CDATA[<p>Lately, I am experimenting with different forms of static-site generation. While investigating the server <a href="https://caddyserver.com">Caddy</a> for <em>serving</em> pages, I found that it can also <em>generate</em> these pages from markdown.</p>
+<blockquote>
+<p>⚠️ Update 2022: This article is from 2018 and refers to Caddy version 1. User <a href="https://news.ycombinator.com/item?id=30145237#30146034">camkego on HN</a> provides links to the currend documentation of Caddy V2 markdown usage:</p>
+<ul>
+<li><a href="https://caddyserver.com/docs/caddyfile/directives/templates">https://caddyserver.com/docs/caddyfile/directives/templates</a></li>
+<li><a href="https://github.com/caddyserver/website/blob/master/src/docs/index.html">https://github.com/caddyserver/website/blob/master/src/docs/index.html</a></li>
+<li><a href="https://caddy.community/t/markdown-support-in-v2/6984">https://caddy.community/t/markdown-support-in-v2/6984</a></li>
+</ul>
+</blockquote>
 <h2 id="render-markdown-as-html">Render markdown as HTML</h2>
 <p>Basically it is enough to activate markdown in your <a href="https://caddyserver.com/docs/caddyfile">Caddyfile</a>:</p>
 <pre>localhost:8000
