@@ -11,7 +11,7 @@ description: Caddy can not only serve files fast and safely. It can also generat
 
 Lately, I am experimenting with different forms of static-site generation. While investigating the server [Caddy](https://caddyserver.com) for _serving_ pages, I found that it can also _generate_ these pages from markdown.
 
-> ⚠️ Update 2022: This article is from 2018 and refers to Caddy version 1. User [camkego on HN](https://news.ycombinator.com/item?id=30145237#30146034) provides links to the currend documentation of Caddy V2 markdown usage:
+> ⚠️ Update 2022: This article is from 2018 and refers to Caddy version 1. User [camkego on HN](https://news.ycombinator.com/item?id=30145237#30146034) provides links to the current documentation of Caddy V2 markdown usage:
 > - [https://caddyserver.com/docs/caddyfile/directives/templates](https://caddyserver.com/docs/caddyfile/directives/templates)
 > - [https://github.com/caddyserver/website/blob/master/src/docs/index.html](https://github.com/caddyserver/website/blob/master/src/docs/index.html)
 > - [https://caddy.community/t/markdown-support-in-v2/6984](https://caddy.community/t/markdown-support-in-v2/6984)

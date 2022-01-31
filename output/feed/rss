@@ -4,7 +4,7 @@
         <title>Blog von Thomas Puppe, Web Developer.</title>
         <link>https://blog.thomaspuppe.de</link>
         <description>undefined</description>
-        <lastBuildDate>Mon, 31 Jan 2022 11:02:31 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 31 Jan 2022 11:22:03 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>easto 2.0.0 (https://github.com/thomaspuppe/easto)</generator>
         <copyright>All rights reserved 2018, Thomas Puppe</copyright>
@@ -748,7 +748,7 @@ Your brand is what people think of you.</p>
             <description><![CDATA[Caddy can not only serve files fast and safely. It can also generate static files from markdown, so you dont need a generator.]]></description>
             <content:encoded><![CDATA[<p>Lately, I am experimenting with different forms of static-site generation. While investigating the server <a href="https://caddyserver.com">Caddy</a> for <em>serving</em> pages, I found that it can also <em>generate</em> these pages from markdown.</p>
 <blockquote>
-<p>⚠️ Update 2022: This article is from 2018 and refers to Caddy version 1. User <a href="https://news.ycombinator.com/item?id=30145237#30146034">camkego on HN</a> provides links to the currend documentation of Caddy V2 markdown usage:</p>
+<p>⚠️ Update 2022: This article is from 2018 and refers to Caddy version 1. User <a href="https://news.ycombinator.com/item?id=30145237#30146034">camkego on HN</a> provides links to the current documentation of Caddy V2 markdown usage:</p>
 <ul>
 <li><a href="https://caddyserver.com/docs/caddyfile/directives/templates">https://caddyserver.com/docs/caddyfile/directives/templates</a></li>
 <li><a href="https://github.com/caddyserver/website/blob/master/src/docs/index.html">https://github.com/caddyserver/website/blob/master/src/docs/index.html</a></li>
