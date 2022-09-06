@@ -35,12 +35,14 @@
         <h1 class="post__title">Code your own presentations</h1>
 
         <ul>
-<li>richtige Software ist Scheiße</li>
-<li>HTML ist gut</li>
-<li>reveal (und die beiden anderen: impress und der prezi-klon) sind sehr gut</li>
-<li>eigene ist noch besser</li>
-</ul>
-<ul>
+<li><p>richtige Software ist Scheiße</p>
+</li>
+<li><p>HTML ist gut</p>
+</li>
+<li><p>reveal (und die beiden anderen: impress und der prezi-klon) sind sehr gut</p>
+</li>
+<li><p>eigene ist noch besser</p>
+</li>
 <li><p>wie die Slides funktionieren</p>
 </li>
 <li><p>Scroll-Fallback und Print-Ansicht</p>
