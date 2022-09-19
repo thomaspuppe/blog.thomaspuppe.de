@@ -1,3 +1,16 @@
+:root {
+	--color-background: #FFF;
+	--color-text: #292929;
+	--color-link-hover: #673AB7;
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-background: #292929;
+		--color-text: #FFF;
+		--color-link-hover: #C5A4FF;
+	}
+}
+
 @charset "UTF-8";
 @font-face {
 	font-family: "League Spartan";
@@ -18,7 +31,8 @@
 	font-style: normal;
 }
 body {
-	color: #292929;
+	background-color: var(--color-background);
+	color: var(--color-text);
 	font-family: "Sina Nova", "Georgia", "Palatino", "Palatino Linotype", "OpenSerif", "FreeSerif", serif;
 }
 
@@ -81,7 +95,7 @@ header {
 	max-width: 37.5rem;
 }
 header a {
-	color: #292929;
+	color: var(--color-text);
 }
 
 .teaser {
@@ -101,11 +115,12 @@ header a {
 	margin-top: 0.70833rem;
 }
 .teaser__title a {
-	color: #292929;
+	color: var(--color-text);
 	text-decoration: none;
 }
 .teaser__title a:hover {
 	text-decoration: underline;
+	text-underline-offset: 0.18em;
 }
 
 .post {
@@ -183,16 +198,14 @@ header a {
 .post table tbody .green {
 	background-color: #D6F7AD;
 }
-.post a, .post a:link, .post a:visited, .post a:hover, .post a:focus {
-	color: #292929;
-	text-decoration: none;
-	position: relative;
-	text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-	background-image: linear-gradient(to top, transparent, transparent 2px, #292929 2px, #292929 3px, transparent 3px);
+.post a, .post a:link, .post a:visited {
+	color: var(--color-text);
+	text-underline-offset: 0.18em;
+	text-decoration-skip-ink: auto;
+	text-decoration-thickness: 2px;
 }
 .post a:hover, .post a:focus {
-	color: #673AB7;
-	background-image: linear-gradient(to top, transparent, transparent 2px, #673AB7 2px, #673AB7 3px, transparent 3px);
+	color: var(--color-link-hover);
 }
 .post code {
 	font-size: 0.8em;

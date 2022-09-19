@@ -19,3 +19,5 @@ Broken link checker
     npx broken-link-checker https://blog.thomaspuppe.de -ro
 
     wget --spider --recursive --force-html https://blog.thomaspuppe.de
+
+    npx check-html-links https://blog.thomaspuppe.de
