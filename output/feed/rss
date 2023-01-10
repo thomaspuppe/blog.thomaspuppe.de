@@ -4,11 +4,84 @@
         <title>Blog von Thomas Puppe, Web Developer.</title>
         <link>https://blog.thomaspuppe.de</link>
         <description>undefined</description>
-        <lastBuildDate>Tue, 06 Sep 2022 10:01:36 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 10 Jan 2023 19:54:01 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>easto 2.0.0 (https://github.com/thomaspuppe/easto)</generator>
         <copyright>All rights reserved 2018, Thomas Puppe</copyright>
         <atom:link href="https://blog.thomaspuppe.de/feed/rss" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Quotes from SmashingConf 2022 in Freiburg]]></title>
+            <link>https://blog.thomaspuppe.de/smashing-conference-2022-freiburg</link>
+            <guid>https://blog.thomaspuppe.de/smashing-conference-2022-freiburg</guid>
+            <pubDate>Tue, 06 Sep 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[A summary of the conference in one quote per talk]]></description>
+            <content:encoded><![CDATA[<p>A summary of the conference in one quote per talk, and a few random notes. To get a better overview, you can visit the community coverage in the official Google Docs: <a href="https://docs.google.com/document/d/1KeaFJGm8SGMrhM4FUcPwo9q2SzHie79XmIR_7i6iIX4/edit#heading=h.oq9dlh6pjuml">smashed.by/kaese</a> (Day 1) and <a href="https://docs.google.com/document/d/1WwztiWf9DB5JBQr3SuZSbJlP2Pya0bYaVaYWL503pRE/edit#heading=h.oq9dlh6pjuml">smashed.by/wurst</a> (Day 2).</p>
+<p><strong><a href="http://twitter.com/nathanacurtis">Nathan Curtis</a></strong>: Components: Big, Small, or Do &#39;em All?</p>
+<blockquote>
+<p>It&#39;s not the driest thing. It&#39;s gonna smell.</p>
+</blockquote>
+<hr>
+
+<p><strong><a href="http://twitter.com/MicheBarks">Michelle Barker</a></strong>: Modern CSS Layout</p>
+<blockquote>
+<p>Designing for fixed breakpoints is hopefully long gone.</p>
+</blockquote>
+<hr>
+
+<p><strong><a href="http://twitter.com/hankchizljaw">Andy Bell</a></strong>: Be the Browser’s Mentor, not Its Micromanager</p>
+<blockquote>
+<p>We build for everyone, not just for ourselves or our peer groups.</p>
+</blockquote>
+<hr>
+
+<p><strong><a href="http://twitter.com/jawache">Asim Hussain</a></strong>: You’ve set a Net-zero Climate Target, Now What?!?</p>
+<blockquote>
+<p>There is just too much carbon in the athosphere. Reduce that — that&#39;s all.</p>
+</blockquote>
+<hr>
+
+<p><strong><a href="http://twitter.com/dinaaamin">dina Amin</a></strong>: Making by Breaking</p>
+<blockquote>
+<p>It confirmed the idea that I can actually do whatver I want.</p>
+</blockquote>
+<hr>
+
+<p><strong><a href="https://twitter.com/csswizardry">Harry Roberts</a></strong>: Get Your Head Straight</p>
+<blockquote>
+<p>Who used a spacer gif in the last 5 years? I actually did.</p>
+</blockquote>
+<hr>
+
+<p><strong><a href="http://twitter.com/HTeuMeuLeu">Rémi Parmentier</a></strong>: Shining the Light on HTML Email Dark Modes</p>
+<blockquote>
+<p>What matters is what works <em>now</em>.</p>
+</blockquote>
+<hr>
+
+<p><strong><a href="http://twitter.com/bencallahan">Ben Callahan</a></strong>: You have a Design System. Now What?</p>
+<blockquote>
+<p>... tries to serve everyone perfectly, serving nobody well.</p>
+</blockquote>
+<hr>
+
+<p><strong><a href="http://twitter.com/tejaskumar_">Tejas Kumar</a></strong>: Digging into Virtual Scrolling</p>
+<blockquote>
+<p>Browsers have finite memory, compared to your infinite ability to scroll.</p>
+</blockquote>
+<hr>
+
+<p><strong><a href="http://twitter.com/STahran">Sophie Tahran</a></strong>: Designing with Words</p>
+<blockquote>
+<p>Content design is a lot more than just filling text boxes.</p>
+</blockquote>
+<hr>
+
+<p><strong><a href="http://twitter.com/mmatuzo">Manuel Matuzović</a></strong>: Lost in Translation</p>
+<blockquote>
+<p>No matter the stack, most issues are caused by badly written HTML.</p>
+</blockquote>
+]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Quotes from Fronteers 2019 in Amsterdam]]></title>
             <link>https://blog.thomaspuppe.de/fronteers-conference-2019-amsterdam</link>
