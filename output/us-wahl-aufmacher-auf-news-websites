@@ -8,8 +8,8 @@
     <meta name="date" content="2016-11-09">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
-	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2">
-	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2">
+	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
+	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
     <link href="/" rel="home start" />
     <link href="/feed/atom" type="application/atom+xml" rel="alternate" title="Atom Feed" />
