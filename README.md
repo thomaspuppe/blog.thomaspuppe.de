@@ -4,7 +4,7 @@
 
 # Run it
 
-    npm build
+    npm run build
 
 ... which is the `package.json` script for ...
 
