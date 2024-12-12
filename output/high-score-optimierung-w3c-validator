@@ -39,7 +39,7 @@
 <p>Den Auftakt meiner Blogserie &quot;High Score&quot; bildet also der HTML Validator vom W3C. Ist mein eigenes Blog in validem HTML geschrieben? Wie viele Fehler gibt es in meinen simplen Templates? Und wie gut kann ich die Anforderungen des Validators erfüllen?</p>
 <h2 id="der-test">Der Test</h2>
 <p>Der Validator des W3C ist online verfügbar unter <a href="https://validator.w3.org/">validator.w3.org</a>. Er prüft das Markup einer Website auf Validität. Es gibt vom W3C auch weitere Tools, um CSS zu validieren oder defekte Links zu finden. Ich schaue mir zunächst nur das HTML der Startseite an.</p>
-<p>Das <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fblog.thomaspuppe.de%2F&showsource=yes&showoutline=yes">Ergebnis</a> erschrickt mich zunächst: 32 Fehler! Allerdings ist das 32 mal derselbe Fehler.</p>
+<p>Das <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fblog.thomaspuppe.de%2F&amp;showsource=yes&amp;showoutline=yes">Ergebnis</a> erschrickt mich zunächst: 32 Fehler! Allerdings ist das 32 mal derselbe Fehler.</p>
 <h3 id="1-fehlerhaftes-datumsformat">1) fehlerhaftes Datumsformat</h3>
 <p>In jedem Blogpost-Teaser auf der Indexseite ist das Datum in einem ungültigen Format angegeben. Neben dem lesbaren Datum für Menschen wollte ich es auch maschinenlesbar machen...</p>
 <pre>&lt;time datetime="Fri Jul 31 2018 02:00:00 GMT+0200 (CEST)"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</pre>

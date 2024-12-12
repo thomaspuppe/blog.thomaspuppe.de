@@ -39,7 +39,7 @@
 <p>[ ] <a href="https://tenon.io/">https://tenon.io/</a>
 [ ] <a href="https://developers.google.com/speed/pagespeed/insights/">https://developers.google.com/speed/pagespeed/insights/</a>
 [x] <a href="https://validator.w3.org/">https://validator.w3.org/</a>
-[ ] W3C Link-Checker <a href="https://validator.w3.org/checklink?uri=https%3A%2F%2Fblog.thomaspuppe.de&summary=on&hide_type=all&recursive=on&depth=1&check=Check">https://validator.w3.org/checklink?uri=https%3A%2F%2Fblog.thomaspuppe.de&amp;summary=on&amp;hide_type=all&amp;recursive=on&amp;depth=1&amp;check=Check</a>
+[ ] W3C Link-Checker <a href="https://validator.w3.org/checklink?uri=https%3A%2F%2Fblog.thomaspuppe.de&amp;summary=on&amp;hide_type=all&amp;recursive=on&amp;depth=1&amp;check=Check">https://validator.w3.org/checklink?uri=https%3A%2F%2Fblog.thomaspuppe.de&amp;summary=on&amp;hide_type=all&amp;recursive=on&amp;depth=1&amp;check=Check</a>
 [ ] Mach Metrics</p>
 <h2 id="syntax-check">Syntax check</h2>
 <h2 id="content-type">content-type</h2>
