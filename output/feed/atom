@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.thomaspuppe.de</id>
     <title>Blog von Thomas Puppe, Web Developer.</title>
-    <updated>2023-02-26T01:04:56.061Z</updated>
+    <updated>2024-12-12T20:45:27.490Z</updated>
     <generator>easto 2.0.0 (https://github.com/thomaspuppe/easto)</generator>
     <author>
         <name>Thomas Puppe</name>
@@ -12,6 +12,43 @@
     <link rel="alternate" href="https://blog.thomaspuppe.de"/>
     <link rel="self" href="https://blog.thomaspuppe.de/feed/atom"/>
     <rights>All rights reserved 2018, Thomas Puppe</rights>
+    <entry>
+        <title type="html"><![CDATA[Frontend Web Development Adventskalender 2024]]></title>
+        <id>https://blog.thomaspuppe.de/frontend-web-development-adventskalender-2024</id>
+        <link href="https://blog.thomaspuppe.de/frontend-web-development-adventskalender-2024"/>
+        <updated>2024-12-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Adventskalender mit Frontend Web Development Themen zum Lesen und Selbermachen]]></summary>
+        <content type="html"><![CDATA[<p>👉 <a href="https://advent2024.thomaspuppe.de/">https://advent2024.thomaspuppe.de/</a> 👈</p>
+<p>Ich habe dieses Jahr einen kleinen Webdev Adventskalender gebaut. Jeden Tag gibt es ein relativ unbekanntes Feature oder Detail aus der Vanilla-Welt von HTML, CSS und JavaScript. 🍬</p>
+<hr>
+
+<p>Und dies sind Kalender, die ich selbst gerne lese oder empfehlen würde:</p>
+<h2 id="web-adventskalender-zum-lesen">Web Adventskalender zum Lesen</h2>
+<h3 id="html-hell">HTML Hell</h3>
+<p><a href="https://htmhell.dev/adventcalendar/">https://htmhell.dev/adventcalendar/</a></p>
+<p>Ein Kalender von Manuel Matuzović mit kuratierten Blogposts zu moderner Webentwicklung, mit einem leichten Schwerpunkt auf Accessibility. Es gibt auch ein Archiv der letzten Jahre – eine Goldgrube!</p>
+<h3 id="perf-planet">Perf Planet</h3>
+<p><a href="https://calendar.perfplanet.com/2024/">https://calendar.perfplanet.com/2024/</a></p>
+<p>Ein Kalender nur über Web Performance – großartig! Seit einigen (16!) Jahren schon kuratiert Stoyan Stefanov Posts zum Thema Website Performance – allgemeine (&quot;Not every user owns an iPhone&quot;) und sehr nerdige &quot;How does the React Compiler perform on real code&quot;.</p>
+<h3 id="self-html">Self HTML</h3>
+<p><a href="https://forum.selfhtml.org/advent/2024">https://forum.selfhtml.org/advent/2024</a></p>
+<p>Ich wusste nicht, dass es selfhtml noch gibt. Da kann ich ja meine Offlineversion löschen ;-). Wie auch immer, die Pioniere des Web Teaching haben einen schönen Kalender zu Accessibility-Themen.</p>
+<h3 id="inclusive-design-24">inclusive design 24</h3>
+<p><a href="https://inclusivedesign24.org/2024/">https://inclusivedesign24.org/2024/</a></p>
+<p>Apropos Accessibility ... inclusive design 24 ist eine Art jährlich stattfindende Online-Konferenz. Auf dem zugehörigen <a href="https://www.youtube.com/inclusivedesign24">id24 Youtube Channel</a> findet man die die 24 einstündigen Videos davon. Zufällig also perfekt passend als Adventskalender.</p>
+<h2 id="web-adventskalender-zum-mitmachen">Web Adventskalender zum Mitmachen</h2>
+<p>Sehr schön finde ich die Idee von Mitmach-Kalendern, bei denen hinter jedem Türchen eien Coding Challenge steckt. Leider hatte ich dazu noch die die Zeit oder Muße. Aber diese hier sehen gut aus:</p>
+<p><em>Der</em> Klassiker ist der <a href="https://adventofcode.com/">Advent of Code</a> Kalender. Jeden Tag gibt es eine neue Coding-Aufgabe, die man in einer Sprache seiner Wahl erledigen kann. </p>
+<h3 id="advent-of-css-und-advent-of-js">Advent of CSS und Advent of JS</h3>
+<p>Amy Dutton hat Challenges in CSS und in JS vorbereitet. Jeden Tag gibt es eine Aufgabe</p>
+<ul>
+<li>zum Beispiel ein Briefing mit Figma-File für CSS</li>
+<li>HTML und CSS auf einer Seite – das JavaScript fehlt</li>
+</ul>
+<p>und diese Aufgabe kann dann gelöst werden. Ich habe die Challenges noch nicht angeschaut, aber die Aufmachung der Landing Pages – auch die der letzten Jahre – ist vielversprechend! </p>
+<p><a href="https://www.adventofjs.com/">https://www.adventofjs.com/</a> und <a href="https://www.adventofcss.com/">https://www.adventofcss.com/</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Quotes from SmashingConf 2022 in Freiburg]]></title>
         <id>https://blog.thomaspuppe.de/smashing-conference-2022-freiburg</id>
