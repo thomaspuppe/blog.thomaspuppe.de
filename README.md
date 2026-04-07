@@ -5,6 +5,7 @@
 # Run it
 
     npm run build
+    npm run serve    # http://localhost:8000
 
 # Local development with easto
 
