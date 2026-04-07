@@ -1,15 +1,22 @@
 # Installation
 
-	npm install
+    npm install
 
 # Run it
 
     npm run build
 
-... which is the `package.json` script for ...
+# Local development with easto
 
-    rm -rf ./output/* && node ./node_modules/easto/index.js --config=easto_config.json --verbose=true
-    // TODO: der node-Aufruf des Moduls im Unterverzeichnis fühlt sich noch nicht richtig an.
+To co-develop easto and this blog locally, use `npm link`:
+
+    cd /path/to/easto
+    npm link
+
+    cd /path/to/blog.thomaspuppe.de
+    npm link easto
+
+After linking, changes in the easto repo are immediately reflected in the blog build. Re-run `npm link` in the easto repo if you do a fresh `npm install` there.
 
 
 # Tools
