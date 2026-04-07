@@ -39,34 +39,33 @@ body {
 h1, h2, h3 {
 	font-family: "League Spartan", "Helvetica", "OpenSans", "FreeSans", sans-serif;
 	font-weight: 400;
-	line-height: 1.6em;
+	/* tighter line-height suits display type; body line-height is set separately */
+	line-height: 1.2em;
 	margin-top: 0.7em;
 	margin-bottom: 1.41667rem;
-	/* huge texts make messy screens */
 	word-wrap: break-word;
 }
 
+/* perfect fourth scale (×1.333): each level is 1.333× the previous */
 h1 {
-	font-size: 2.7rem;
-	font-size: clamp(2rem, 6vh, 3rem);
+	font-size: 2.369rem; /* 1.333³ × base */
 	letter-spacing: 0.125rem;
 	text-transform: uppercase;
 }
 
 h2 {
-	font-size: 1.7rem;
-	font-size: clamp(1.6rem, 4vh, 2.5rem);
+	font-size: 1.777rem; /* 1.333² × base */
 	letter-spacing: 0.08333rem;
 }
 
 h3 {
-	font-size: 1.5rem;
-	font-size: clamp(1.4rem, 3vh, 2rem);
+	font-size: 1.333rem; /* 1.333¹ × base */
 	letter-spacing: 0.08333rem;
 }
 
-html, body {
-	font-size: 24px;
+html {
+	/* fluid base: 18px at 375px → 24px at 900px, scales with viewport width */
+	font-size: clamp(18px, calc(1.14vw + 13.7px), 24px);
 }
 
 .grid {
