@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="language" content="de">
     <title>Progressive Web App erstellen</title>
-    <meta name="description" content="null">
+    <meta name="description" content="">
     <meta name="date" content="2017-03-15">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
@@ -60,15 +60,15 @@
 
 <p>Der Certbot gibt aus, wo das neu erzeugte Zertifikat liegt. Diesen Pfad benutze ich nun zur Konfiguration meines nginX Webservers:</p>
 <pre>server {
-        listen 443;
+		listen 443;
 
-        ssl on;
-        ssl_certificate /etc/letsencrypt/live/www.meetingtimer.biz/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/www.meetingtimer.biz/privkey.pem ;
+		ssl on;
+		ssl_certificate /etc/letsencrypt/live/www.meetingtimer.biz/fullchain.pem;
+		ssl_certificate_key /etc/letsencrypt/live/www.meetingtimer.biz/privkey.pem ;
 
-        server_name www.meetingtimer.biz;
-        root /var/www/www_meetingtimer_biz;
-        index index.html;
+		server_name www.meetingtimer.biz;
+		root /var/www/www_meetingtimer_biz;
+		index index.html;
 }</pre>
 
 <p>Die drei ssl-Zeilen sind im Prinzip alles, was es zum Verschlüsseln braucht. Man kann das ganze optimieren: für eine Weiterleitung von nicht-www auf www braucht man zum Beispiel noch ein Zertifikat, wenn die Weiterleitung auch durch den Webserver erfolgen soll. Außerdem kann man die Verschlüsselung noch verbessern, laut einem Test von <a href="https://www.ssllabs.com/ssltest/">SSL Labs</a> erreichen das Zertifikat und die Server-Konfiguration noch nicht die volle Punktzahl. Aber für den Einstieg sind wir sehr gut versorgt.</p>
@@ -77,18 +77,18 @@
 <h1 id="schritt-2-ein-manifest-und-einen-service-worker-erstellen-um-die-app-installieren-zu-können">Schritt 2: Ein Manifest und einen Service Worker erstellen, um die App &quot;installieren&quot; zu können</h1>
 <p>Progressive Web Apps lassen sich auf dem Smartphone zum Home-Screen oder menü hinzufügen.</p>
 <pre>{
-    "lang": "en",
-    "background_color": "#232323",
-    "name": "How Much does this meeting cost?",
-    "short_name": "MeetingTimer",
-    "display": "standalone",
-    "icons": [
-        {
-            "src": "icon_144.png",
-            "sizes": "144x144",
-            "type": "image/png"
-        },
-    ]
+	"lang": "en",
+	"background_color": "#232323",
+	"name": "How Much does this meeting cost?",
+	"short_name": "MeetingTimer",
+	"display": "standalone",
+	"icons": [
+		{
+			"src": "icon_144.png",
+			"sizes": "144x144",
+			"type": "image/png"
+		},
+	]
 }</pre>
 
 <p>Diese Datei wird unter dem Namen <a href="https://www.meetingtimer.biz/manifest.json">manifest.json</a> im Root der Domain abgelegt.</p>
@@ -99,7 +99,7 @@ Dokumentation</a> im MDN.</p>
 
 <p>Als nächstes erstellen wir einen ServiceWorker, und registrieren ihn in einem Script-Tag in der index.html Datei:</p>
 <pre>if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/serviceworker.js');
+	navigator.serviceWorker.register('/serviceworker.js');
 }</pre>
 
 <p>Die Datei <code>sericeworker.js</code> kann sogar leer sein, wenn man die Möglichkeiten der Worker nicht nutzen möchte -- was wir später tun werden. Aber sie muss existieren.</p>

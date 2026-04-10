@@ -43,40 +43,40 @@
 <p>Von 619 Abgeordneten twittern 230 aktiv (im letzten halben Jahr mindestens eine Nachricht gesendet).</p>
 <table>
 <thead>
-    <tr>
-        <td></td>
-        <td>CDU/CSU</td>
-        <td>SPD</td>
-        <td>FDP</td>
-        <td>Die LINKE</td>
-        <td>Bündnis 90/Die Grünen</td>
-    </tr>
+	<tr>
+		<td></td>
+		<td>CDU/CSU</td>
+		<td>SPD</td>
+		<td>FDP</td>
+		<td>Die LINKE</td>
+		<td>Bündnis 90/Die Grünen</td>
+	</tr>
 </thead>
 <tbody>
-    <tr>
-        <td>Sitze im Bundestag</td>
-        <td>237</td>
-        <td>146</td>
-        <td>93</td>
-        <td>76</td>
-        <td>68</td>
-    </tr>
-    <tr>
-        <td>Twitter-Accounts</td>
-        <td>64</td>
-        <td>50</td>
-        <td>48</td>
-        <td>34</td>
-        <td>44</td>
-    </tr>
-    <tr>
-        <td>Verhältnis</td>
-        <td>17%</td>
-        <td>34%</td>
-        <td>52%</td>
-        <td>45%</td>
-        <td>65%</td>
-    </tr>
+	<tr>
+		<td>Sitze im Bundestag</td>
+		<td>237</td>
+		<td>146</td>
+		<td>93</td>
+		<td>76</td>
+		<td>68</td>
+	</tr>
+	<tr>
+		<td>Twitter-Accounts</td>
+		<td>64</td>
+		<td>50</td>
+		<td>48</td>
+		<td>34</td>
+		<td>44</td>
+	</tr>
+	<tr>
+		<td>Verhältnis</td>
+		<td>17%</td>
+		<td>34%</td>
+		<td>52%</td>
+		<td>45%</td>
+		<td>65%</td>
+	</tr>
 </tbody>
 </table>
 
@@ -96,9 +96,9 @@
 <h2>Wie verteilen sich Accounts, Follower und Tweets auf die Parteien?</h2>
 <p>Verglichen mit der Zahl der Sitze im Bundestag sind die kleinen/jungen Parteien aktiver bei Twitter als die großen. Die FDP sticht bei Follower-Zahlen hervor, während die Grünen am meisten schreiben.</p>
 <figure>
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/verteilung-accounts.png" alt="Graph: Verteilung der Accounts"><br />
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/verteilung-follower.png" alt="Graph: Verteilung der Follower"><br />
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/verteilung-tweets.png" alt="Graph: Verteilung der Tweets"><br />
+	<img src="images/2013/01/bundestwitter-mdb-verhalten/verteilung-accounts.png" alt="Graph: Verteilung der Accounts"><br />
+	<img src="images/2013/01/bundestwitter-mdb-verhalten/verteilung-follower.png" alt="Graph: Verteilung der Follower"><br />
+	<img src="images/2013/01/bundestwitter-mdb-verhalten/verteilung-tweets.png" alt="Graph: Verteilung der Tweets"><br />
 </figure>
 <p>Natürlich gibt es jeweils eine große Bandbreite. Jede Partei hat sehr aktive und sehr inaktive Twitterer. Am Aktivsten sind Folgende Abgeordnete:</p>
 <figure>
@@ -110,26 +110,26 @@
 <h2>Wer hat die meisten Follower?</h2>
 
 <table>
-    <tr>
-        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_schroeder_k.jpg" alt="Profilbild Kristina Schröder"></td>
-        <td>Dr. Kristina Schröder (<a href="http://www.bundestwitter.de/mdb/schroeder_k/">@schroeder_k</a>)<br />32.757 Follower</td>
-    </tr>
-    <tr>
-        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_altmaier.jpg" alt="Profilbild Peter Altmaier"></td>
-        <td>Peter Altmaier (<a href="http://www.bundestwitter.de/mdb/peteraltmaier/">@peteraltmaier</a>)<br />31.478 Follower</td>
-    </tr>
-    <tr>
-        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_Volker_Beck.jpg" alt="Profilbild Volker Beck"></td>
-        <td>Volker Beck (<a href="http://www.bundestwitter.de/mdb/Volker_Beck/">@Volker_Beck</a>)<br />28.279 Follower</td>
-    </tr>
-    <tr>
-        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_FDP_Fraktion.jpeg" alt="Profilbild FDP-Fraktion"></td>
-        <td>FDP-Fraktion (<a href="http://www.bundestwitter.de/mdb/FDP_Fraktion/">@FDP_Fraktion</a>)<br />25.033 Follower</td>
-    </tr>
-    <tr>
-        <td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_sigmargabriel.jpg" alt="Profilbild Sigmar Gabriel"></td>
-        <td>Sigmar Gabriel (<a href="http://www.bundestwitter.de/mdb/sigmargabriel/">@sigmargabriel</a>)<br />18.731 Follower</td>
-    </tr>
+	<tr>
+		<td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_schroeder_k.jpg" alt="Profilbild Kristina Schröder"></td>
+		<td>Dr. Kristina Schröder (<a href="http://www.bundestwitter.de/mdb/schroeder_k/">@schroeder_k</a>)<br />32.757 Follower</td>
+	</tr>
+	<tr>
+		<td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_altmaier.jpg" alt="Profilbild Peter Altmaier"></td>
+		<td>Peter Altmaier (<a href="http://www.bundestwitter.de/mdb/peteraltmaier/">@peteraltmaier</a>)<br />31.478 Follower</td>
+	</tr>
+	<tr>
+		<td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_Volker_Beck.jpg" alt="Profilbild Volker Beck"></td>
+		<td>Volker Beck (<a href="http://www.bundestwitter.de/mdb/Volker_Beck/">@Volker_Beck</a>)<br />28.279 Follower</td>
+	</tr>
+	<tr>
+		<td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_FDP_Fraktion.jpeg" alt="Profilbild FDP-Fraktion"></td>
+		<td>FDP-Fraktion (<a href="http://www.bundestwitter.de/mdb/FDP_Fraktion/">@FDP_Fraktion</a>)<br />25.033 Follower</td>
+	</tr>
+	<tr>
+		<td><img src="images/2013/01/bundestwitter-mdb-verhalten/profile_sigmargabriel.jpg" alt="Profilbild Sigmar Gabriel"></td>
+		<td>Sigmar Gabriel (<a href="http://www.bundestwitter.de/mdb/sigmargabriel/">@sigmargabriel</a>)<br />18.731 Follower</td>
+	</tr>
 </table>
 <p><em>(Stand: Januar 2013)</em></p>
 
@@ -146,24 +146,24 @@
 <h1>Wahllkampf in Niedersachsen</h1>
 <p>Im Landtagswahlkampf 2013 für Niedersachsen habe ich die Accounts der amtierenden Abgeordneten sowie aller twitternden Kandidaten beobachtet. Hier einige Impressionen (die ich noch vor der Wahl beispielhaft zusammengetragen habe).</p>
 <figure>
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweet-mcallister.png" alt="Tweets von David McAllister">
-    <figcaption>David McAllisters Team twitterte eher hölzern.</figcaption>
+	<img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweet-mcallister.png" alt="Tweets von David McAllister">
+	<figcaption>David McAllisters Team twitterte eher hölzern.</figcaption>
 </figure>
 <figure>
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweets-olpen.png" alt="Tweets von oliver Olpen">
-    <figcaption>Berichte über den Wahlkampf – auch in der Provinz oder übers Plakatekleben</figcaption>
+	<img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweets-olpen.png" alt="Tweets von oliver Olpen">
+	<figcaption>Berichte über den Wahlkampf – auch in der Provinz oder übers Plakatekleben</figcaption>
 </figure>
 <figure>
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweets-weil.png" alt="Tweets von Stephan Weil">
-    <figcaption>Das Team um Stephan Weil war etwas näher am Bürger.</figcaption>
+	<img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweets-weil.png" alt="Tweets von Stephan Weil">
+	<figcaption>Das Team um Stephan Weil war etwas näher am Bürger.</figcaption>
 </figure>
 <figure>
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweet-katta.png" alt="Tweets von Piraten-Politikern">
-    <figcaption>Typisch für die Piraten: der schon länger existirende private Account wird nun für Privates und Politik genutzt.</figcaption>
+	<img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweet-katta.png" alt="Tweets von Piraten-Politikern">
+	<figcaption>Typisch für die Piraten: der schon länger existirende private Account wird nun für Privates und Politik genutzt.</figcaption>
 </figure>
 <figure>
-    <img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweet-dorisschroederk.png" alt="Tweets von Doris Schröder-Köpf">
-    <figcaption>Doris Schröder-Köpf ließ ihren Account automatisch von Facebook befüllen.</figcaption>
+	<img src="images/2013/01/bundestwitter-mdb-verhalten/nds-tweet-dorisschroederk.png" alt="Tweets von Doris Schröder-Köpf">
+	<figcaption>Doris Schröder-Köpf ließ ihren Account automatisch von Facebook befüllen.</figcaption>
 </figure>
 
 
@@ -172,8 +172,8 @@
 <p>In der Nachbetrachtung – wo man immer schlauer ist – kann man sagen: CDU twitterte zu professionall (= nicht authentisch). SPD hat es hinbekommen. FDP zu passiv. Piraten nicht professionell (im klassischen Politik-Sinn) genug. Grüne aktiv und authentisch. Die Freien Wähler waren auch auf Twitter aktiv, aber fielen nicht ins Gewicht. Die Kandidaten anderer Parteien hatten keine Twitter-Accounts.</p>
 <p>Natürlich haben auch die Medien sich die Onlinekompetenz im Wahlkampf angesehen. Ein Auszug von Beiträgen:
 <ul>
-    <li><a href="http://www.ndr.de/regional/niedersachsen/landtagswahl_niedersachsen_2013/netzwahlkampf101.html">&quot;Vorbild Obama? Web-Wahlkampf in Niedersachsen&quot;</a> von Birgit Reichardt, NDR.de</li>
-    <li><a href="http://www.ndr.de/fernsehen/sendungen/hallo_niedersachsen/media/hallonds13283.html">&quot;Wahlkampf im Internet&quot;</a> Hallo Niedersachsen - 02.01.2013 19:30 Uhr</li>
+	<li><a href="http://www.ndr.de/regional/niedersachsen/landtagswahl_niedersachsen_2013/netzwahlkampf101.html">&quot;Vorbild Obama? Web-Wahlkampf in Niedersachsen&quot;</a> von Birgit Reichardt, NDR.de</li>
+	<li><a href="http://www.ndr.de/fernsehen/sendungen/hallo_niedersachsen/media/hallonds13283.html">&quot;Wahlkampf im Internet&quot;</a> Hallo Niedersachsen - 02.01.2013 19:30 Uhr</li>
 </ul>
 </p>
 

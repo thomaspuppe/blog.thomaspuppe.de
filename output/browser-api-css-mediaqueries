@@ -38,9 +38,9 @@
         <p>In der Regel denkt man bei Media Queries an nicht viel mehr als <code>min-width</code> oder <code>device-pixel-ratio</code> und bei Browser APIs an <code>navigator.userAgent</code>. Moderne Browser können natürlich viel mehr.</p>
 <p>Kürzlich sah ich in einer interessanten <a href="https://speakerdeck.com/grigs/why-you-should-build-a-progressive-web-app-now-1">Präsentation über Progressive Web Apps</a> dies:</p>
 <pre>@media (display-mode: standalone), (display-mode: fullscreen) {
-    .backButton {
-        display: block;
-    }
+	.backButton {
+		display: block;
+	}
 }</pre>
 
 <p>Mit dieser Media Query stellt man fest, ob die Website (bzw Web App) das Browser-GUI (und damit den Back-Button des Browsers ) zur Verfügung hat, oder nicht. Und kann dann einen eigenen Button einblenden.</p>
@@ -72,16 +72,16 @@
 </blockquote>
 <script>
 document.getElementById('geolocationInfoTrigger').addEventListener('click', function(){
-    var $geolocationInfo = document.getElementById('geolocationInfo');
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            var coords = position.coords;
-            var positionString = coords.latitude + ', ' +  coords.longitude;
-            $geolocationInfo.innerHTML = positionString;
-        });
-    } else {
-        $geolocationInfo.innerHTML = '<em>navigator.geolocation ist nicht verfügbar</em>';
-    }
+	var $geolocationInfo = document.getElementById('geolocationInfo');
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position) {
+			var coords = position.coords;
+			var positionString = coords.latitude + ', ' +  coords.longitude;
+			$geolocationInfo.innerHTML = positionString;
+		});
+	} else {
+		$geolocationInfo.innerHTML = '<em>navigator.geolocation ist nicht verfügbar</em>';
+	}
 });
 </script>
 
@@ -109,9 +109,9 @@ window.addEventListener('offline', function(e) {
 var $connectionInfo = document.getElementById('connectionInfo');
 var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
 if (connection && connection.type) {
-    $connectionInfo.innerHTML = connection.type;
+	$connectionInfo.innerHTML = connection.type;
 } else {
-    $connectionInfo.innerHTML = '<em>navigator.connection ist nicht verfügbar</em>';
+	$connectionInfo.innerHTML = '<em>navigator.connection ist nicht verfügbar</em>';
 }
 </script>
 
@@ -124,14 +124,14 @@ if (connection && connection.type) {
 <script>
 var $batteryInfo = document.getElementById('batteryInfo');
 if (navigator.getBattery) {
-    navigator.getBattery().then(function(battery) {
-        var batteryLevel = battery.level * 100;
-        $batteryInfo.innerHTML = batteryLevel + '%';
-    }, function() {
-        $batteryInfo.innerHTML = '<em>navigator.getBattery() ist verfügbar, aber die Abfrage funktioniert nicht</em>';
-    });
+	navigator.getBattery().then(function(battery) {
+		var batteryLevel = battery.level * 100;
+		$batteryInfo.innerHTML = batteryLevel + '%';
+	}, function() {
+		$batteryInfo.innerHTML = '<em>navigator.getBattery() ist verfügbar, aber die Abfrage funktioniert nicht</em>';
+	});
 } else {
-    $batteryInfo.innerHTML = '<em>navigator.getBattery() ist nicht verfügbar</em>';
+	$batteryInfo.innerHTML = '<em>navigator.getBattery() ist nicht verfügbar</em>';
 }
 </script>
 
@@ -156,14 +156,14 @@ if (navigator.getBattery) {
 <p>Ein paar Einschränkungen hat die Technik: Sie ist nur auf HTTPS-Seiten verfügbar, und kann nur durch User-Interaktion getriggert werden (nicht etwa onLoad oder onScroll -- Sorry liebe &quot;User Engager&quot;). Navigator.share() ist derzeit nur im Chrome (ab Version 55) verfügbar. Wie bei allen aktuellen Features wird der Entwickler also progressively enhancen.</p>
 <script>
 function sharePage() {
-    if (navigator.share) {
-        navigator.share({
-            title: document.title,
-            url: window.location.href
-        });
-    } else {
-        document.getElementById('shareWrapper').innerHTML = '<em>navigator.share ist nicht verfügbar.</em>';
-    }
+	if (navigator.share) {
+		navigator.share({
+			title: document.title,
+			url: window.location.href
+		});
+	} else {
+		document.getElementById('shareWrapper').innerHTML = '<em>navigator.share ist nicht verfügbar.</em>';
+	}
 }
 </script>
 
@@ -198,21 +198,21 @@ function sharePage() {
 <style type="text/css" scoped>
 .orientationContainer > strong { display: none; }
 @media all and (orientation: portrait) {
-     .orientationContainer > * { display: none; }
-     .orientationContainer > .portrait { display: inline; }
+ 	.orientationContainer > * { display: none; }
+ 	.orientationContainer > .portrait { display: inline; }
 }
 @media all and (orientation: landscape) {
-     .orientationContainer > * { display: none; }
-     .orientationContainer > .landscape { display: inline; }
+ 	.orientationContainer > * { display: none; }
+ 	.orientationContainer > .landscape { display: inline; }
 }
 </style>
 
 <blockquote>
 <p>In diesem Browser: <span class="orientationContainer">
-    <em class="undefined">undefined</em>
-    <strong class="portrait">portrait</strong>
-    <strong class="landscape">landscape</strong>
-    </span></p>
+	<em class="undefined">undefined</em>
+	<strong class="portrait">portrait</strong>
+	<strong class="landscape">landscape</strong>
+	</span></p>
 </blockquote>
 <h2 id="resolution">resolution</h2>
 <p>Erkennt die Pixeldichte auf einem Gerät, und wird vor Allem genutzt, um Retina-optimierte Bilder auszuliefern (<code>min-resolution: 300dpi</code>).</p>

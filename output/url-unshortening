@@ -74,7 +74,7 @@
 <pre>import requests
 r = requests.get(url, allow_redirects=False)
 if r.status_code == 301:
-    return r.headers.get('Location')</pre>
+	return r.headers.get('Location')</pre>
 
 <p>Schöne Erkenntnis am Rande: selbst bei hunderten oder tausenden Abfragen im unter-Sekunden-Takt hat keiner der Dienste mit Rate Limiting oder anderer Abweisung reagiert.</p>
 

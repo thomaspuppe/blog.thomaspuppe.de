@@ -42,7 +42,7 @@
 
 <p>Das ist ein Feature aus ES2015 funktioniert deshalb leider nicht für den Internet Explorer 11 abwärts. Also, wenn man nicht babelt, muss man das wieder einkassieren und in der Funktion selbst den Default-Wert definieren:</p>
 <pre>function(myParam, optionalParam) {
-    optionalParam = (typeof optionalParam !== 'undefined') ?  optionalParam : true;
+	optionalParam = (typeof optionalParam !== 'undefined') ?  optionalParam : true;
 }</pre>
 
 
@@ -51,17 +51,17 @@
 <p><a href="http://2ality.com/2014/05/current-script.html">Detaillierter Artikel zu currentScript von Dr. Axel Rauschmayer</a> mit veralteten Angaben zur Browser-Unterstützung. Caniuse bestätigt eine gute Unterstützung: [<a href="https://www.caniuse.com/#search=currentScript%5D">https://www.caniuse.com/#search=currentScript]</a>(Browser-Unterstützung von <code>document.currentScript</code> bei caniuse.com).</p>
 <p>Allerdings wieder ohne den IE11. Und weil wir da ja keinen Bug haben wollen (siehe oben), gibt es einen schönen Polyfill:</p>
 <pre>var currentScript = document.currentScript || (function() {
-    var scripts = document.getElementsByTagName('script');
-    return scripts[scripts.length - 1];
+	var scripts = document.getElementsByTagName('script');
+	return scripts[scripts.length - 1];
 })();</pre>
 
 <p>Wozu braucht man das? Um z.B. ein Script-Tag wegzuräumen, nachdem es seine Arbeit getan hat.</p>
 <pre>&lt;script&gt;
-    var currentScript = document.currentScript;
-    var parent = currentScript.parentNode;
-    var newDiv = document.createElement('div');
-    newDiv.setAttribute('class', 'wurstbrot');
-    parent.replaceChild(newDiv, currentScript);
+	var currentScript = document.currentScript;
+	var parent = currentScript.parentNode;
+	var newDiv = document.createElement('div');
+	newDiv.setAttribute('class', 'wurstbrot');
+	parent.replaceChild(newDiv, currentScript);
 &lt;/script&gt;</pre>
 
 <p>Im Übrigen, unintuitiverweise:</p>

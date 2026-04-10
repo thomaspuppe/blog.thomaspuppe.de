@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="language" content="de">
     <title>Twitterdaten mappen mit Leaflet</title>
-    <meta name="description" content="Meine Sammlung von Tweets zum">
+    <meta name="description" content="Meine Sammlung von Tweets zum #Mauerfall umfasst über 70.000 Tweets. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.">
     <meta name="date" content="2014-11-19">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
@@ -61,25 +61,25 @@ readFile.close()
 outputArray = []
 
 for lineString in lines:
-    try:
-        lineObject = json.loads(lineString)
-        outputObject = {}
-        outputObject['id_str'] = lineObject['id_str']
-        outputObject['text'] = lineObject['text']
-        outputObject['screen_name'] = lineObject['user']['screen_name']
-        outputObject['text'] = lineObject['text']
+	try:
+		lineObject = json.loads(lineString)
+		outputObject = {}
+		outputObject['id_str'] = lineObject['id_str']
+		outputObject['text'] = lineObject['text']
+		outputObject['screen_name'] = lineObject['user']['screen_name']
+		outputObject['text'] = lineObject['text']
 
-        for entityKey in lineObject['entities'] :
-            if entityKey == 'media' :
-                for media in lineObject['entities']['media'] :
-                    if media['type'] == 'photo' :
-                        outputObject['media_url'] = media['media_url']
+		for entityKey in lineObject['entities'] :
+			if entityKey == 'media' :
+				for media in lineObject['entities']['media'] :
+					if media['type'] == 'photo' :
+						outputObject['media_url'] = media['media_url']
 
-        outputObject['coordinates'] = lineObject['coordinates']['coordinates']
+		outputObject['coordinates'] = lineObject['coordinates']['coordinates']
 
-        outputArray.append(outputObject)
-    except:
-        pass
+		outputArray.append(outputObject)
+	except:
+		pass
 
 outputString = json.dumps(outputArray, separators=(',',':'), indent=2)
 
@@ -92,39 +92,39 @@ writeFile.close()</pre>
 <p>In die gegebene Karte wmüssen nur noch ein paar Zeilen JavaScript eingefügt werden, und schon sind die Punkte auf einer schönen Karte hinterlegt.</p>
 <pre>var markerIcon = L.divIcon({className: 'my-div-icon'}), // stylen via CSS!
 markerOptions = {
-    'clickable': true,
-    'keyboard': false,
-    'icon': markerIcon
+	'clickable': true,
+	'keyboard': false,
+	'icon': markerIcon
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    var httpRequest = new XMLHttpRequest()
-    httpRequest.onreadystatechange = function () {
-        if (httpRequest.readyState === 4) {
-            if (httpRequest.status === 200) {
-                var data = JSON.parse(httpRequest.responseText);
-                for (var i=0; i &lt; data['tweets'].length; i++) {
-                    var currentData = data['tweets'][i];
-                    markerOptions['alt'] = currentData['media_url'];
-                    L.marker(
-                        [currentData['coordinates'][1], currentData['coordinates'][0]],
-                        markerOptions)
-                    .addTo(map);
-                }
-            }
-        }
-    }
-    httpRequest.open('GET', 'data/tweets_media_coordinates_short.json')
-    httpRequest.send()
+	var httpRequest = new XMLHttpRequest()
+	httpRequest.onreadystatechange = function () {
+		if (httpRequest.readyState === 4) {
+			if (httpRequest.status === 200) {
+				var data = JSON.parse(httpRequest.responseText);
+				for (var i=0; i &lt; data['tweets'].length; i++) {
+					var currentData = data['tweets'][i];
+					markerOptions['alt'] = currentData['media_url'];
+					L.marker(
+						[currentData['coordinates'][1], currentData['coordinates'][0]],
+						markerOptions)
+					.addTo(map);
+				}
+			}
+		}
+	}
+	httpRequest.open('GET', 'data/tweets_media_coordinates_short.json')
+	httpRequest.send()
 });</pre>
 
 <p>Zu beachten: die Koordinaten bei Twitter sind als Lon,Lat gespeichert, leaflet benötigt aber Lat,Lon. Daher die Rochade beim Anlegen der Marker.</p>
 <p>Und hier das Ergebnis:</p>
 <figure>
-    <a href="http://lab.thomaspuppe.de/mauerfall-tweets/">
-        <img src="/images/2014/11/tweets-mauerfall.png" alt="Eine karte mit Tweets zum Mauerfall-Jubiläum">
-        <figcaption>http://lab.thomaspuppe.de/mauerfall-tweets/</figcaption>
-    </a>
+	<a href="http://lab.thomaspuppe.de/mauerfall-tweets/">
+		<img src="/images/2014/11/tweets-mauerfall.png" alt="Eine karte mit Tweets zum Mauerfall-Jubiläum">
+		<figcaption>http://lab.thomaspuppe.de/mauerfall-tweets/</figcaption>
+	</a>
 </figure>
 
 

@@ -66,14 +66,14 @@ class LocalSpider(scrapy.Spider):
         }
 
     def parse(self, response):
-        # entry point: directory listing of localhost:9090
+    	# entry point: directory listing of localhost:9090
         for link in response.css('a'):
             link_url = link.css('::attr(href)').extract_first()
 
             if link_url.endswith('zeit.html'):
                 yield scrapy.Request(response.urljoin(link_url), callback=self.parse_single_page)
-            else:
-                yield scrapy.Request(response.urljoin(link_url), callback=self.parse)</pre>
+	        else:
+	            yield scrapy.Request(response.urljoin(link_url), callback=self.parse)</pre>
 
 <p>Mit <code>scrapy runspider localspider.py -o result.json --logfile=localspider.log</code> erhalte ich so ein <a href="http://lab.thomaspuppe.de/us-wahl-news-aufmacher/result.json">JSON-File mit allen Ergebnissen</a> und ein umfangreiches Logfile des Scraping-Vorgangs.</p>
 <p>Zum Schluss robbe ich mittels PHP über das JSON-File und gebe die Inhalte als HTML-Tabelle aus. Das Ergebnis (weder für Mobilgeräte optimiert, noch für sonstwas) schaut so aus: <a href="http://lab.thomaspuppe.de/us-wahl-news-aufmacher/">http://lab.thomaspuppe.de/us-wahl-news-aufmacher/</a></p>
@@ -84,8 +84,8 @@ class LocalSpider(scrapy.Spider):
 <h1 id="fazit-2-die-aufmacher">Fazit 2: Die Aufmacher</h1>
 <p>Das Ergebnis kann man hier ansehen: <a href="http://lab.thomaspuppe.de/us-wahl-news-aufmacher/">Aufmacher auf deutschen News-Websites zur US-Wahl</a> (Achtung: 4 MB groß). Die Legende zeigt die Farbcodes an. Per Mouseover sieht man den Titel. Die meisten Felder sind zum Artikel verlinkt. Zoomen funktioniert. Mobil sieht man was, aber Mouseover tut natürlich nicht.</p>
 <figure>
-    <img src="/images/2016/11/us-wahl-aufmacher.png" alt="Screenshot der Visualisierung Aufmacher auf deutschen News-Websites zur US-Wahl" />
-    <figcaption>Screenshot der Visualisierung</figcaption>
+	<img src="/images/2016/11/us-wahl-aufmacher.png" alt="Screenshot der Visualisierung Aufmacher auf deutschen News-Websites zur US-Wahl" />
+	<figcaption>Screenshot der Visualisierung</figcaption>
 </figure>
 
 <p>Was sieht man?</p>

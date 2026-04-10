@@ -42,49 +42,49 @@
 <h2 id="make-it-more-functional">Make it more functional</h2>
 <p>Another thing to make the code more handable is to move variables from the &quot;global&quot; scope to a more local one. What I mean by this:</p>
 <pre>var initialTime,
-    timeDomElement,
-    currentTime,
-    elapsedTime,
-    elapsedTimeHours,
-    elapsedTimeMinutes,
-    elapsedTimeSeconds,
-    updateTime = function () {
-        elapsedTimeSeconds = Math.floor((elapsedTime / 1000) % 60);
-        elapsedTimeMinutes = Math.floor((elapsedTime / 60000) % 60);
-        elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
+	timeDomElement,
+	currentTime,
+	elapsedTime,
+	elapsedTimeHours,
+	elapsedTimeMinutes,
+	elapsedTimeSeconds,
+	updateTime = function () {
+		elapsedTimeSeconds = Math.floor((elapsedTime / 1000) % 60);
+		elapsedTimeMinutes = Math.floor((elapsedTime / 60000) % 60);
+		elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
 
-        elapsedTimeSeconds = (elapsedTimeSeconds > 9) ? elapsedTimeSeconds : '0' + elapsedTimeSeconds.toString();
-        elapsedTimeMinutes = (elapsedTimeMinutes > 9) ? elapsedTimeMinutes : '0' + elapsedTimeMinutes.toString();
+		elapsedTimeSeconds = (elapsedTimeSeconds > 9) ? elapsedTimeSeconds : '0' + elapsedTimeSeconds.toString();
+		elapsedTimeMinutes = (elapsedTimeMinutes > 9) ? elapsedTimeMinutes : '0' + elapsedTimeMinutes.toString();
 
-        timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
-    },
-    tick = function () {
-        currentTime = Date.parse(new Date());
-        elapsedTime = currentTime - initialTime;
-        updateCosts(elapsedTime);
-        updateTime(elapsedTime);
+		timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
+	},
+	tick = function () {
+		currentTime = Date.parse(new Date());
+		elapsedTime = currentTime - initialTime;
+		updateCosts(elapsedTime);
+		updateTime(elapsedTime);
     };</pre>
 
 <p>There is more code around it, that&#39;s why initialTime is not set here. But what I want to demonstrate: initially I hat all variables on a &quot;global&quot; scope so every function inside that scope can read and write them. Which works fine, and is okay for that small project. But at a larger scale things would get confusing and before you now it you start chasing states and lokking who changes what when.</p>
 <p>A better approach is to keep things on a more local scope. Only menipulate variables on a certain point, and pushing them into functions where they are only read. My small timer is a perfect example for that.</p>
 <pre>var initialTime,
-    timeDomElement,
-    updateTime = function (elapsedTime) {
-        let elapsedTimeSeconds = Math.floor((elapsedTime / 1000) % 60);
-        let elapsedTimeMinutes = Math.floor((elapsedTime / 60000) % 60);
-        const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
+	timeDomElement,
+	updateTime = function (elapsedTime) {
+		let elapsedTimeSeconds = Math.floor((elapsedTime / 1000) % 60);
+		let elapsedTimeMinutes = Math.floor((elapsedTime / 60000) % 60);
+		const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
 
-        elapsedTimeSeconds = (elapsedTimeSeconds > 9) ? elapsedTimeSeconds : '0' + elapsedTimeSeconds.toString();
-        elapsedTimeMinutes = (elapsedTimeMinutes > 9) ? elapsedTimeMinutes : '0' + elapsedTimeMinutes.toString();
+		elapsedTimeSeconds = (elapsedTimeSeconds > 9) ? elapsedTimeSeconds : '0' + elapsedTimeSeconds.toString();
+		elapsedTimeMinutes = (elapsedTimeMinutes > 9) ? elapsedTimeMinutes : '0' + elapsedTimeMinutes.toString();
 
-        timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
-    },
+		timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
+	},
 
-    tick = function () {
-        const currentTime = Date.parse(new Date());
-        const elapsedTime = currentTime - initialTime;
-        updateTime(elapsedTime);
-    };</pre>
+	tick = function () {
+		const currentTime = Date.parse(new Date());
+		const elapsedTime = currentTime - initialTime;
+		updateTime(elapsedTime);
+	};</pre>
 
 <p>That way, the <code>updateTime()</code> function has no influence on the outside world (except DOM manipulation). It only takes the one argument that it needs, and handles internal stuff (seconds, minutes) internally.</p>
 <h2 id="letconst">let/const</h2>
@@ -95,43 +95,43 @@
 <h2 id="currying">currying</h2>
 <p>TODO: make it currying, or change the headline :-)</p>
 <pre>updateTime = function (elapsedTime) {
-    let elapsedTimeSeconds = Math.floor((elapsedTime / 1000) % 60);
-    let elapsedTimeMinutes = Math.floor((elapsedTime / 60000) % 60);
-    const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
+	let elapsedTimeSeconds = Math.floor((elapsedTime / 1000) % 60);
+	let elapsedTimeMinutes = Math.floor((elapsedTime / 60000) % 60);
+	const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
 
-    elapsedTimeSeconds = (elapsedTimeSeconds > 9) ? elapsedTimeSeconds : '0' + elapsedTimeSeconds.toString();
-    elapsedTimeMinutes = (elapsedTimeMinutes > 9) ? elapsedTimeMinutes : '0' + elapsedTimeMinutes.toString();
+	elapsedTimeSeconds = (elapsedTimeSeconds > 9) ? elapsedTimeSeconds : '0' + elapsedTimeSeconds.toString();
+	elapsedTimeMinutes = (elapsedTimeMinutes > 9) ? elapsedTimeMinutes : '0' + elapsedTimeMinutes.toString();
 
-    timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
-    }</pre>
+	timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
+	}</pre>
 
 <p>We cannot have the <code>elapsedTimeSeconds</code> as constant, because we need to manipulate it later. That manipulation has, in a strict sense, nothing to do with the updateTime(), and is only a cosmetical enhancement. Further, the code is redundant because we want to apply the same logic to <code>elapsedTimeMinutes</code>.</p>
 <p>So, of course, a first step would be to extract that into a function:</p>
 <pre>addLeadingZero = function(num) {
-    return (num > 9) ? num.toString() : '0' + num.toString();
+	return (num > 9) ? num.toString() : '0' + num.toString();
 },
 updateTime = function (elapsedTime) {
-    let elapsedTimeSeconds = Math.floor((elapsedTime / 1000) % 60);
-    let elapsedTimeMinutes = Math.floor((elapsedTime / 60000) % 60);
-    const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
+	let elapsedTimeSeconds = Math.floor((elapsedTime / 1000) % 60);
+	let elapsedTimeMinutes = Math.floor((elapsedTime / 60000) % 60);
+	const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
 
-    elapsedTimeSeconds = addLeadingZero(elapsedTimeSeconds);
-    elapsedTimeMinutes = addLeadingZero(elapsedTimeMinutes);
+	elapsedTimeSeconds = addLeadingZero(elapsedTimeSeconds);
+	elapsedTimeMinutes = addLeadingZero(elapsedTimeMinutes);
 
-    timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
+	timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
 }</pre>
 
 <p>Since this is a utility for formatting, one could consider moving it somewhere else. But for now this stays right above the updateTime() function.</p>
 <p>After we extracted that code into a function, we can also wrap that one around our calculation ... and have the desired constant.</p>
 <pre>addLeadingZero = function(num) {
-    return (num > 9) ? num.toString() : '0' + num.toString();
+	return (num > 9) ? num.toString() : '0' + num.toString();
 },
 updateTime = function (elapsedTime) {
-    const elapsedTimeSeconds = addLeadingZero(Math.floor((elapsedTime / 1000) % 60));
-    const elapsedTimeMinutes = addLeadingZero(Math.floor((elapsedTime / 60000) % 60));
-    const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
+	const elapsedTimeSeconds = addLeadingZero(Math.floor((elapsedTime / 1000) % 60));
+	const elapsedTimeMinutes = addLeadingZero(Math.floor((elapsedTime / 60000) % 60));
+	const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
 
-    timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
+	timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
 }</pre>
 
 

@@ -52,7 +52,7 @@
 <p>Onboarding time skyrocketed. Debugging and understanding is now inherintly more complicated. Well now we get to teach our CI system how to bring up all those systems to actually test that things are working.</p>
 </blockquote>
 <h1 id="avatar-generator">Avatar-Generator</h1>
-<p><a href="https://getavataaars.com/?accessoriesType=Prescription02&amp;clotheColor=Black&amp;clotheType=Hoodie&amp;eyeType=Default&amp;facialHairColor=Brown&amp;facialHairType=BeardLight&amp;mouthType=Default&amp;skinColor=Pale&amp;topType=NoHair&amp;utm_campaign=bizarrodevs&amp;utm_medium=email&amp;utm_source=BizarroDevs_60">https://getavataaars.com/?accessoriesType=Prescription02&amp;clotheColor=Black&amp;clotheType=Hoodie&amp;eyeType=Default&amp;facialHairColor=Brown&amp;facialHairType=BeardLight&amp;mouthType=Default&amp;skinColor=Pale&amp;topType=NoHair&amp;utm_campaign=bizarrodevs&amp;utm_medium=email&amp;utm_source=BizarroDevs_60</a></p>
+<p><a href="https://getavataaars.com/?accessoriesType=Prescription02&clotheColor=Black&clotheType=Hoodie&eyeType=Default&facialHairColor=Brown&facialHairType=BeardLight&mouthType=Default&skinColor=Pale&topType=NoHair&utm_campaign=bizarrodevs&utm_medium=email&utm_source=BizarroDevs_60">https://getavataaars.com/?accessoriesType=Prescription02&amp;clotheColor=Black&amp;clotheType=Hoodie&amp;eyeType=Default&amp;facialHairColor=Brown&amp;facialHairType=BeardLight&amp;mouthType=Default&amp;skinColor=Pale&amp;topType=NoHair&amp;utm_campaign=bizarrodevs&amp;utm_medium=email&amp;utm_source=BizarroDevs_60</a></p>
 <p>PNG, SVG, React</p>
 <h1 id="command-line-magic">Command Line Magic</h1>
 <p><code>cal -3</code></p>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="language" content="de">
     <title>Twitter-Bot-Beobachtung zu #AnneWill</title>
-    <meta name="description" content="Social Bots sind aktell ein großes Thema. Zu Recht? Ich habe am Sonntag">
+    <meta name="description" content="Social Bots sind aktell ein großes Thema. Zu Recht? Ich habe am Sonntag #AnneWill Tweets gesammelt, und an denen zwei Methoden zur Bot-Erkennung verglichen.">
     <meta name="date" content="2017-03-10">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
@@ -46,8 +46,8 @@
 </ul>
 <p>Die Rohdaten habe ich bei <a href="https://github.com/thomaspuppe/watch-the-bots/tree/master/data/annewill/original">GitHub</a> veröffentlicht, einige Explorations-Grafiken sind in meinem <a href="https://public.tableau.com/profile/thomas.puppe#!/vizhome/BlogBotswatch/TweetsUhrzeit">Tableau</a> Account zugänglich.</p>
 <figure>
-    <img src="/images/2017/03/botswatch/graph_tweets-per-minute.png" alt="Graph: Tweets pro Minute währen der Anne Will Sendung"/>
-    <figcaption>Tweets mit #annewill pro Minute während der Sendung am 05.03.2017 <a href="https://public.tableau.com/profile/thomas.puppe#!/vizhome/BlogBotswatch/TweetsUhrzeit">Daten bei Tableau</a></figcaption>
+	<img src="/images/2017/03/botswatch/graph_tweets-per-minute.png" alt="Graph: Tweets pro Minute währen der Anne Will Sendung"/>
+	<figcaption>Tweets mit #annewill pro Minute während der Sendung am 05.03.2017 <a href="https://public.tableau.com/profile/thomas.puppe#!/vizhome/BlogBotswatch/TweetsUhrzeit">Daten bei Tableau</a></figcaption>
 </figure>
 
 
@@ -66,8 +66,8 @@
 <p>12 Prozent aller User sollen also Bots sein, die für ein Fünftel der Tweets verantwortlich sind. Das sind auch Zahlen, die Botswatch nennt (logisch, ich habe deren Verfahren angewendet) und 19% werden auch in einem <a href="http://www.zeit.de/digital/internet/2017-01/social-bots-bundestagswahl-twitter-studie/komplettansicht">ZEIT Online Artikel zu Social Bots</a> genannt, oder im <a href="http://www.manager-magazin.de/unternehmen/it/social-bots-donald-trumps-stimmungsmacher-a-1136133.html">Handelsblatt</a>. Beide zitieren Studien von Universitäten in den USA. Ich habe mir nicht die Mühe gemacht, die Primärquellen zu prüfen, und übernehme die Zahlen jetzt mal so.</p>
 <p>Verschiebt man die Grenze, ab der ein Account als Bot gilt, auf 40 oder 60 Tweets, bleibt der Anteil ähnlich: 16 bis 10 Prozent der Nutzer wären Bots, und 22 bis 15 Prozent der Nachrichten von ihnen geschrieben. Ein <a href="https://public.tableau.com/profile/thomas.puppe#!/vizhome/BlogBotswatch/TweetsTagHistogramm">Histogramm</a> dazu habe ich bei Tableau (Achtung: unterschiedliche Bucket-Größen!).</p>
 <figure>
-    <img src="/images/2017/03/botswatch/graph_tweets-tag-histogramm.png" alt="Graph: Histogramm mit Accounts und Tweets pro Tag"/>
-    <figcaption>Anzahl von Accounts des #annewill Samples, die eine bestimmte Menge von Tweets pro Tag versenden</figcaption>
+	<img src="/images/2017/03/botswatch/graph_tweets-tag-histogramm.png" alt="Graph: Histogramm mit Accounts und Tweets pro Tag"/>
+	<figcaption>Anzahl von Accounts des #annewill Samples, die eine bestimmte Menge von Tweets pro Tag versenden</figcaption>
 </figure>
 
 
@@ -87,8 +87,8 @@
 <p>Die University of Indiana bietet einen Service namens <a href="http://truthy.indiana.edu/botornot">BotOrNot</a> an, den man auch per <a href="https://github.com/truthy/botornot-python">API</a> benutzen kann. Die Nutzer der Annewill-Tweets habe ich gegen diese API gesendet.</p>
 <p>Als Ergebnis erhält man eine Wahrscheinlichkeit, zu der ein Account als Bot angesehen wird. Da gibt es verschiedene Merkmale wie das Netzwerk, Account-Infos, Zeiträume zu denen geschrieben wird (24h Aktivität=Bot) und Inhaltsanalysen. Außerdem einen Gesamt-Score, den ich für alle Accounts, die sich an #annewill beteiligt haben, betrachtet habe:</p>
 <figure>
-    <img src="/images/2017/03/botswatch/graph_botornot-score-histogramm.png" alt="Graph: Histogramm mit dem Botornot-Score"/>
-    <figcaption>Anzahl von Accounts des #annewill Samples, die eine bestimmten Score bei BotOrNot erreichen</figcaption>
+	<img src="/images/2017/03/botswatch/graph_botornot-score-histogramm.png" alt="Graph: Histogramm mit dem Botornot-Score"/>
+	<figcaption>Anzahl von Accounts des #annewill Samples, die eine bestimmten Score bei BotOrNot erreichen</figcaption>
 </figure>
 
 <p>Aus dem Sample werden 163 Accounts als Bots betrachtet, wenn man 50% Wahrscheinlichkeit als Bot-Grenze zieht. Möchte man zu 60% sicher sein, sind es nur noch 31 Accounts. Diese habe ich mir im Detail angesehen.</p>

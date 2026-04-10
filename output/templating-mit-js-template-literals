@@ -38,8 +38,8 @@
         <p>Für meinen kleinen <a href="https://github.com/thomaspuppe/easto">Static-Site Generator easto</a> benutze ich keine Templating-Engine, sondern mache nur Suchen-und-Ersetzen in den Templates. Das sah bisher so aus:</p>
 <h2 id="gut-genug-string-replacement">Gut genug: String-Replacement</h2>
 <pre>&lt;div class="post__meta"&gt
-    &lt;span class="post__category"&gt#{{ META_TAGS }}&lt;/span&gt
-    &lt;time datetime="{{ META_DATE }}"&gt{{ META_DATELABEL }}&lt;/time&gt
+	&lt;span class="post__category"&gt#{{ META_TAGS }}&lt;/span&gt
+	&lt;time datetime="{{ META_DATE }}"&gt{{ META_DATELABEL }}&lt;/time&gt
 &lt;/div&gt
 &lt;h1 class="post__title"&gt{{ META_TITLE }}&lt;/h1&gt
 {{ CONTENT }}
@@ -50,14 +50,14 @@
 template.replace('{{ CONTENT }}', fileContentHtml)
 
 for (var key in metadata) {
-    const re = new RegExp('{{ META_' + key.toUpperCase() + ' }}', 'g')
+	const re = new RegExp('{{ META_' + key.toUpperCase() + ' }}', 'g')
 
-    if ( key === 'tags') {
-        const tagsString = metadata[key].join(', #')
-        template = template.replace(re, tagsString)
-    } else {
-        template = template.replace(re, metadata[key])
-    }
+	if ( key === 'tags') {
+		const tagsString = metadata[key].join(', #')
+		template = template.replace(re, tagsString)
+	} else {
+		template = template.replace(re, metadata[key])
+	}
 }</pre>
 
 <p>... im Prinzip. In echt war dann alles noch etwas umständlicher. Die Regex Nummer ist nötig, weil nur das erste Vorkommen ersetzt wird, wenn man einen String als Parameter verwendet. In Teasern benutze ich etwas andere Ausgaben als im Post oder den Feeds. Usw.</p>
@@ -70,8 +70,8 @@ console.log(`Meine Katze heißt ${kitty}.`);
 
 <p>Meine Template-Dateien sehen nun <a href="https://github.com/thomaspuppe/blog.thomaspuppe.de/commit/2223b3c22d4b1cba6c4d87151137a2f886c47f6c">etwas anders</a> aus. Erstens werden sie komplett mit Back Ticks umschlossen. Und zweitens verwende ich Ausdrücke mit Dollarzeichen und geschweiften Klammern anstelle der selbst ausgedachten Marker fürs Suchen-und-Ersetzen.</p>
 <pre>`&lt;div class="post__meta"&gt;
-    &lt;span class="post__category"&gt;#${ meta.tags.join(', #') }&lt;/span&gt;
-    &lt;time datetime="{{ META_DATE }}"&gt;${ meta.datelabel }&lt;/time&gt;
+	&lt;span class="post__category"&gt;#${ meta.tags.join(', #') }&lt;/span&gt;
+	&lt;time datetime="{{ META_DATE }}"&gt;${ meta.datelabel }&lt;/time&gt;
 &lt;/div&gt;
 &lt;h1 class="post__title"&gt;${ meta.title }&lt;/h1&gt;
 ${ content }
@@ -79,16 +79,16 @@ ${ content }
 
 <p>Im JavaScript stecke ich ein Objekt zusammen das alles enthält, was das Template braucht.</p>
 <pre>const output = eval_template(template, {
-    'blogmeta': CONFIG,
-    'meta': metadata,
-    'content': fileContentHtml
+	'blogmeta': CONFIG,
+	'meta': metadata,
+	'content': fileContentHtml
 })
 </pre>
 
 <p>Damit das mit mehreren Variablen und Objekten funktioniert, habe ich im Netz eine magische Funktion gefunden (deren Quelle ich leider nicht mehr weiß).</p>
 <pre>const eval_template = (s, params) => {
-    return Function(...Object.keys(params), "return " + s)
-    (...Object.values(params))
+	return Function(...Object.keys(params), "return " + s)
+	(...Object.values(params))
 }</pre>
 
 

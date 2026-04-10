@@ -38,20 +38,20 @@
         <p>Mit Version 10.14 Mojave von macOS <a href="https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/">hat Apple den &quot;Dark Mode&quot; eingeführt</a>. Über seine Systemeinstellungen kann man das Farbschema des Betriebssystems in einen Modus versetzen, der alle Interfaces abdunkelt.</p>
 <p>Das funktioniert für native Software und die GUI des Browsers, aber schlägt natürlich nicht auf Websites durch. (Außer man benutzt des Reader-Modus im Safari.) Für seine Website kann man aber einen Dark Mode via CSS bauen.</p>
 <figure>
-    <img src="/images/2019/01/dark-mode-css/blog-both.jpg" alt="Screenshots von www.thomaspuppe.de im Dark Mode und Light Mode"/>
-    <figcaption>www.thomaspuppe.de und die MacOS Systemeinstellung im Light Mode (links) und Dark Mode (rechts)</figcaption>
+	<img src="/images/2019/01/dark-mode-css/blog-both.jpg" alt="Screenshots von www.thomaspuppe.de im Dark Mode und Light Mode"/>
+	<figcaption>www.thomaspuppe.de und die MacOS Systemeinstellung im Light Mode (links) und Dark Mode (rechts)</figcaption>
 </figure>
 
 <p>Der aktivierte Dark Mode wird via Media Query an CSS und JS des Browsers exponiert, sodass man als Programmierer einer Website auf diesen bevorzugten Modus seiner Besucher eingehen kann. Menschen, die auf ihrem Computer helle Schrift auf dunklem Hintergrund bevorzugen, bekommen dies auch auf meiner Website. Die Umsetzung ist, wie bei anderen Media Queries auch, sehr einfach:</p>
 <pre>body {
-    background: #fff;
-    color: #333;
+	background: #fff;
+	color: #333;
 }
 @media (prefers-color-scheme: dark) {
-    body {
-        background: #333;
-        color: #fff;
-    }
+	body {
+		background: #333;
+		color: #fff;
+	}
 }</pre>
 
 <p>Die Query nimmt drei Werte an: <code>dark</code>, <code>light</code> und <code>no-preference</code>. Eine normalerweise dunkle Website kann also auch ins Helle umschwenken, wenn gewünscht. Wobei in der Praxis ist im Safari ja immer hell, das GUI für Systemeinstellung im MacOS gibt kein &quot;no preference&quot; her.</p>
@@ -60,18 +60,18 @@
 <p>Je fancier das Design einer Website ist, desto mehr muss man auch für den Dark Mode hinterherräumen. Selbst auf meiner Homepage und in meinem Blog hat es nicht ausgereicht, zwei Farben zu invertieren.</p>
 <p>Meine <a href="/link-unterstreichung">spezielle Unterstreichung von Links</a> erfordert einen Text-Shadow, der im Dark Mode schlecht aussieht:</p>
 <figure>
-    <img src="/images/2019/01/dark-mode-css/text-shadow.jpg" alt="Screenshot: Schlecht lesbarer Text, weil weißer Schatten um weiße Schrift herum"/>
-    <figcaption>Die Umkehrung von Hintergrund- und Schriftfarbe ist nicht genug, wenn man farbige Schlagschatten am Text definiert hat.</figcaption>
+	<img src="/images/2019/01/dark-mode-css/text-shadow.jpg" alt="Screenshot: Schlecht lesbarer Text, weil weißer Schatten um weiße Schrift herum"/>
+	<figcaption>Die Umkehrung von Hintergrund- und Schriftfarbe ist nicht genug, wenn man farbige Schlagschatten am Text definiert hat.</figcaption>
 </figure>
 
 <p>Und schon ist man dabei, seinen kleinen Hacks hinterherzuräumen.</p>
 <pre>@media (prefers-color-scheme: dark) {
-    a {
-        color: currentColor;
-        background-image: none;
-        text-shadow: none;
-        text-decoration: underline;
-    }
+	a {
+		color: currentColor;
+		background-image: none;
+		text-shadow: none;
+		text-decoration: underline;
+	}
 }</pre>
 
 <p><strong>Complexity is killing us.</strong></p>

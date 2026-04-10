@@ -171,16 +171,16 @@ contentPage = contentPage.replace('{{ META_LANGUAGE }}', frontmatter['language']
 
 <p>Wenn ich die Struktur häufiger erweitere, oder es etwas bequemer haben möchte, kann ich natürlich auch über alle Metadaten iterieren und diese im Template generisch ersetzen. Das ist dann schon etwas fortgeschrittener:</p>
 <pre>for (var key in contentFrontmatter) {
-    const re = new RegExp('{{ META_' + key.toUpperCase() + ' }}', 'g')
+	const re = new RegExp('{{ META_' + key.toUpperCase() + ' }}', 'g')
 
-    // Frontmatter unterstützt auch Arrays im Format
-    // "tags: [Webentwicklung, Magic, Internet]"
-    if ( key === 'tags') {
-        const tagsString = contentFrontmatter[key].join(', #')
-        contentPage = contentPage.replace(re, tagsString)
-    } else {
-        contentPage = contentPage.replace(re, contentFrontmatter[key])
-    }
+	// Frontmatter unterstützt auch Arrays im Format
+	// "tags: [Webentwicklung, Magic, Internet]"
+	if ( key === 'tags') {
+		const tagsString = contentFrontmatter[key].join(', #')
+		contentPage = contentPage.replace(re, tagsString)
+	} else {
+		contentPage = contentPage.replace(re, contentFrontmatter[key])
+	}
 }</pre>
 
 <p>Bei der Entwicklung von diesen Algorithmus konnte ich wunderbar in kleinen Schritten vorgehen, weil ich binnen Milliskunden das Ergebnis meiner Bemühung im Browser betrachten konnte. Hoch lebe die handgestrickte Webentwicklung!</p>
@@ -191,8 +191,8 @@ contentPage = contentPage.replace('{{ META_LANGUAGE }}', frontmatter['language']
 let teaserList = [];
 
 .forEach(sourceFilename => {
-    ...
-    teaserList.push(`<li><a href="${frontmatter['permalink']}">${frontmatter['title']}</a></li>`)
+	...
+	teaserList.push(`<li><a href="${frontmatter['permalink']}">${frontmatter['title']}</a></li>`)
 }
 
 const indexTemplate = fs.readFileSync('template_index.html', {encoding: 'utf-8'})
@@ -210,10 +210,10 @@ let teaserList = [];
 const teaserTemplate = fs.readFileSync(`templates/teaser.html`, {encoding: 'utf-8'})
 
 .forEach(sourceFilename => {
-    ...
-    // in der Schleife, wo auch Artikel-Metadaten ersetzt werden:
-    teaserContent = teaserTemplate.replace(re, fileContentFrontmatter[key])
-    teaserList.push(teaserContent)
+	...
+	// in der Schleife, wo auch Artikel-Metadaten ersetzt werden:
+	teaserContent = teaserTemplate.replace(re, fileContentFrontmatter[key])
+	teaserList.push(teaserContent)
 }</pre>
 
 <p>Beim Ansehen der index-Seite fällt auf, dass die Quelldatien in &quot;zufälliger&quot; Reihenfolge von der Platte gelesen werden. Ich löse das, indem ich als Präfix für meine Dateinamen das Datum jedes Blogposts benutze (<code>/content/2019-03-11_easto-static-site-generator.md</code>), und zwischen Auslesen und Verarbeiten eine Sortierung setze:</p>
@@ -228,31 +228,31 @@ const teaserTemplate = fs.readFileSync(`templates/teaser.html`, {encoding: 'utf-
 <h2 id="5-feeds-generieren">5: Feeds generieren</h2>
 <p>Wenn ich schon das chronologische Inhaltsverzeichnis erzeuge, kann ich im gleichen Zuge auch RSS-Feeds bauen, die im Grunde nichts anderes sind. Auch dafür gibt es ein Node-Package (&quot;feed&quot;), mit dem dies recht einfach gelingt.</p>
 <pre>
-    // Vorbereitung: Metadaten zum Feed
+	// Vorbereitung: Metadaten zum Feed
 
-    const Feedbuilder = require('feed')
-    feed_config = {
-        "title": "Blog von Thomas Puppe, Web Developer.",
-        "description": "This is my personal feed!"
-    }
-    let feed = new Feedbuilder.Feed(feed_config)
+	const Feedbuilder = require('feed')
+	feed_config = {
+		"title": "Blog von Thomas Puppe, Web Developer.",
+		"description": "This is my personal feed!"
+	}
+	let feed = new Feedbuilder.Feed(feed_config)
 
-    // ... in der Schleife der Blogposts: "Teaser" sammeln
+	// ... in der Schleife der Blogposts: "Teaser" sammeln
 
-    const feedItem = {
-        title: contentFrontmatter['title'],
-        description: contentFrontmatter['description'],
-        date: contentFrontmatter['date'],
-        link: `https://blog.thomaspuppe.de/${targetFilename}`
-    }
-    feed.addItem(feedItem)
+	const feedItem = {
+		title: contentFrontmatter['title'],
+		description: contentFrontmatter['description'],
+		date: contentFrontmatter['date'],
+		link: `https://blog.thomaspuppe.de/${targetFilename}`
+	}
+	feed.addItem(feedItem)
 
-    // ... nach der Schleife: Speichern der Feeds in den Output-Ordner
+	// ... nach der Schleife: Speichern der Feeds in den Output-Ordner
 
-    fs.mkdirSync(`output/feed`)
-    fs.writeFileSync(`output/feed/rss`, feed.rss2())
-    fs.writeFileSync(`output/feed/atom`, feed.atom1())
-    fs.writeFileSync(`output/feed/json`, feed.json1())
+	fs.mkdirSync(`output/feed`)
+	fs.writeFileSync(`output/feed/rss`, feed.rss2())
+	fs.writeFileSync(`output/feed/atom`, feed.atom1())
+	fs.writeFileSync(`output/feed/json`, feed.json1())
 </pre>
 
 <p>Die Domain des Blogs möchte ich am Ende lieber in einer Konfigurationsdatei haben als im Quellcode, aber das Beispiel zeigt, worauf ich hinaus will: mit wenigen Zeilen Code lassen sich Feeds in den gängigen Formaten RSS, Atom und JSON bauen.</p>

@@ -55,32 +55,32 @@
 <p>Es gibt eine Sache, die alle betrachteten Websites gemeinsam haben. Und zwar die &quot;IVW-Zählung&quot;. Die IVW ist die &quot;<a href="https://de.wikipedia.org/wiki/Informationsgemeinschaft_zur_Feststellung_der_Verbreitung_von_Werbetr%C3%A4gern">Informationsgemeinschaft zur Feststellung der Verbreitung von Werbeträgern</a>&quot;. Sie erfasst die Reichweite vieler Medien, und dient damit nicht nur zur unabhängigen Zählung der Besucher, sondern auch zur Verteilung von Werbeerlösen.</p>
 <p>Da machen alle betrachteten Medien mit, und daher haben auch alle die Datei <code>https://script.ioam.de/iam.js</code> eingebunden. Was passiert also, wenn ich den Host <code>script.ioam.de</code> blockiere &mdash; oder er tatsächlich ausfällt bzw lahmt?</p>
 <table>
-    <thead>
-        <tr>
-            <td></td>
-            <td>Bild</td>
-            <td>Spiegel</td>
-            <td>Focus</td>
-            <td>Welt</td>
-            <td>Stern</td>
-            <td>SZ</td>
-            <td>taz</td>
-            <td>Zeit</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>IVW</td>
-            <td class="red">blockiert</td>
-            <td class="red">blockiert</td>
-            <td class="red">blockiert</td>
-            <td class="green">ok</td>
-            <td class="red">blockiert</td>
-            <td class="red">blockiert</td>
-            <td class="red">blockiert</td>
-            <td class="red">blockiert</td>
-        </tr>
-    </tbody>
+	<thead>
+		<tr>
+			<td></td>
+			<td>Bild</td>
+			<td>Spiegel</td>
+			<td>Focus</td>
+			<td>Welt</td>
+			<td>Stern</td>
+			<td>SZ</td>
+			<td>taz</td>
+			<td>Zeit</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>IVW</td>
+			<td class="red">blockiert</td>
+			<td class="red">blockiert</td>
+			<td class="red">blockiert</td>
+			<td class="green">ok</td>
+			<td class="red">blockiert</td>
+			<td class="red">blockiert</td>
+			<td class="red">blockiert</td>
+			<td class="red">blockiert</td>
+		</tr>
+	</tbody>
 </table>
 
 <p>Alle Seiten bis auf welt.de bleiben weiß! Der Nutzer sieht keinen Inhalt, und nichts passiert solange das Zähl-Script der IWV geladen und ausgeführt wird. Wenn deren Server nicht antwortet, bleibt die News-Website also etliche Sekunden lang (bei meinen Tests im aktuellen Chrome 2 Minuten) weiß. Obwohl alle Inhalte eigentlich schon da sind.</p>
@@ -89,43 +89,43 @@
 <h2 id="test-2-google-analytics-und-google-tagmanager">Test 2: Google Analytics und Google TagManager</h2>
 <p>Als nächstes habe ich mir die Standardtools von Google angesehen. Auch sie werden von fast allen Medien genutzt.</p>
 <table>
-    <thead>
-        <tr>
-            <td></td>
-            <td>Bild</td>
-            <td>Spiegel</td>
-            <td>Focus</td>
-            <td>Welt</td>
-            <td>Stern</td>
-            <td>SZ</td>
-            <td>taz</td>
-            <td>Zeit</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Google Analytics</td>
-            <td>-</td>
-            <td class="green">ok</td>
-            <td>-</td>
-            <td class="green">ok</td>
-            <td class="green">ok</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>Google TagManager</td>
-            <td>-</td>
-            <td>-</td>
-            <td class="green">ok</td>
-            <td>-</td>
-            <td>-</td>
-            <td class="green">ok</td>
-            <td>-</td>
-            <td class="green">ok</td>
-        </tr>
-    </tbody>
+	<thead>
+		<tr>
+			<td></td>
+			<td>Bild</td>
+			<td>Spiegel</td>
+			<td>Focus</td>
+			<td>Welt</td>
+			<td>Stern</td>
+			<td>SZ</td>
+			<td>taz</td>
+			<td>Zeit</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Google Analytics</td>
+			<td>-</td>
+			<td class="green">ok</td>
+			<td>-</td>
+			<td class="green">ok</td>
+			<td class="green">ok</td>
+			<td>-</td>
+			<td>-</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>Google TagManager</td>
+			<td>-</td>
+			<td>-</td>
+			<td class="green">ok</td>
+			<td>-</td>
+			<td>-</td>
+			<td class="green">ok</td>
+			<td>-</td>
+			<td class="green">ok</td>
+		</tr>
+	</tbody>
 </table>
 
 <p>Da Google die Einbindung grundsätzlich asynchron empfiehlt, stellen diese Tools keinen SPOF dar. Und folglich spielen auch alle Dinge, die über den TagManager nachgeladen werden (zum Beispiel Analytics, das dann auch nicht mit betrachtet wird), keine Rolle mehr für die Untersuchung. Dass sie die korrekt geladene Seite dennoch wieder langsam machen und bis zur Unkenntlichkeit manipulieren können, ist hier nicht das Thema.</p>
@@ -134,64 +134,64 @@
 <h2 id="test-4-chartbeat">Test 4: Chartbeat</h2>
 <p>Chartbeat ist ein Tool, mit dem man live die Besucherstöme auf einer Website anschauen kann, samt Herkunft und Interaktionen.</p>
 <table>
-    <thead>
-        <tr>
-            <td></td>
-            <td>Bild</td>
-            <td>Spiegel</td>
-            <td>Focus</td>
-            <td>Welt</td>
-            <td>Stern</td>
-            <td>SZ</td>
-            <td>taz</td>
-            <td>Zeit</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Chartbeat</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td class="green">ok</td>
-            <td class="red">blockiert</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-    </tbody>
+	<thead>
+		<tr>
+			<td></td>
+			<td>Bild</td>
+			<td>Spiegel</td>
+			<td>Focus</td>
+			<td>Welt</td>
+			<td>Stern</td>
+			<td>SZ</td>
+			<td>taz</td>
+			<td>Zeit</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Chartbeat</td>
+			<td>-</td>
+			<td>-</td>
+			<td>-</td>
+			<td>-</td>
+			<td class="green">ok</td>
+			<td class="red">blockiert</td>
+			<td>-</td>
+			<td>-</td>
+		</tr>
+	</tbody>
 </table>
 
 <p>Der Stern und die SZ binden Chartbeat auf ihrer Homepage ein. Und bieten ein schönes Beispiel dafür, dass der SPOF nicht zwingend durch den Drittanbieter verursacht wird, sondern man selbst durch die Art der Einbindung Einfluss darauf hat. Hat Chartbeat Probleme, reißt es die Süddeutsche mit rein. Der Stern lädt das Script asynchron, und ist damit nicht abhängig.</p>
 <h2 id="test-5-werbung">Test 5: Werbung</h2>
 <p>Die Einbindung der Werbung ist sehr unterschiedlich gelöst. Und häufig über die eigenen Server. So werden Scripte gern mal blockierend eingebunden, auch über document.write, aber über eigene Domains (Beispielsweise <code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://scripts.zeit.de/iqd/iqd_gzip_test.js.gz&quot;&gt;&lt;/script&gt;</code>). Diese Fälle lasse ich hier außen vor.</p>
 <table>
-    <thead>
-        <tr>
-            <td></td>
-            <td>Bild</td>
-            <td>Spiegel</td>
-            <td>Focus</td>
-            <td>Welt</td>
-            <td>Stern</td>
-            <td>SZ</td>
-            <td>taz</td>
-            <td>Zeit</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Werbung</td>
-            <td class="red">blockiert</td>
-            <td class="red">blockiert</td>
-            <td class="green">ok</td>
-            <td class="green">ok</td>
-            <td class="green">ok</td>
-            <td class="red">blockiert</td>
-            <td class="green">ok</td>
-            <td class="green">ok</td>
-        </tr>
-    </tbody>
+	<thead>
+		<tr>
+			<td></td>
+			<td>Bild</td>
+			<td>Spiegel</td>
+			<td>Focus</td>
+			<td>Welt</td>
+			<td>Stern</td>
+			<td>SZ</td>
+			<td>taz</td>
+			<td>Zeit</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Werbung</td>
+			<td class="red">blockiert</td>
+			<td class="red">blockiert</td>
+			<td class="green">ok</td>
+			<td class="green">ok</td>
+			<td class="green">ok</td>
+			<td class="red">blockiert</td>
+			<td class="green">ok</td>
+			<td class="green">ok</td>
+		</tr>
+	</tbody>
 </table>
 
 <p>Wieder einmal macht es die Welt richtig. Sie benutzt den gleichen Werbeserver wie die Bild, aber bindet das Script asynchron ein (es gibt einen Feature-Toggle: offenbar werden synchron und asynchron verglichen).</p>
@@ -207,76 +207,76 @@
 </ul>
 <h1 id="zusammenfassung">Zusammenfassung</h1>
 <table>
-    <thead>
-        <tr>
-            <td></td>
-            <td>Bild</td>
-            <td>Spiegel</td>
-            <td>Focus</td>
-            <td>Welt</td>
-            <td>Stern</td>
-            <td>SZ</td>
-            <td>taz</td>
-            <td>Zeit</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>IVW</td>
-            <td class="red">blockiert</td>
-            <td class="red">blockiert</td>
-            <td class="red">blockiert</td>
-            <td class="green">ok</td>
-            <td class="red">blockiert</td>
-            <td class="red">blockiert</td>
-            <td class="red">blockiert</td>
-            <td class="red">blockiert</td>
-        </tr>
-        <tr>
-            <td>Google Analytics</td>
-            <td>-</td>
-            <td class="green">ok</td>
-            <td>-</td>
-            <td class="green">ok</td>
-            <td class="green">ok</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>Google TagManager</td>
-            <td>-</td>
-            <td>-</td>
-            <td class="green">ok</td>
-            <td>-</td>
-            <td>-</td>
-            <td class="green">ok</td>
-            <td>-</td>
-            <td class="green">ok</td>
-        </tr>
-        <tr>
-            <td>Chartbeat</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td class="green">ok</td>
-            <td class="red">blockiert</td>
-            <td>-</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>Werbung</td>
-            <td class="red">blockiert</td>
-            <td class="red">blockiert</td>
-            <td class="green">ok</td>
-            <td class="green">ok</td>
-            <td class="green">ok</td>
-            <td class="red">blockiert</td>
-            <td class="green">ok</td>
-            <td class="green">ok</td>
-        </tr>
-    </tbody>
+	<thead>
+		<tr>
+			<td></td>
+			<td>Bild</td>
+			<td>Spiegel</td>
+			<td>Focus</td>
+			<td>Welt</td>
+			<td>Stern</td>
+			<td>SZ</td>
+			<td>taz</td>
+			<td>Zeit</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>IVW</td>
+			<td class="red">blockiert</td>
+			<td class="red">blockiert</td>
+			<td class="red">blockiert</td>
+			<td class="green">ok</td>
+			<td class="red">blockiert</td>
+			<td class="red">blockiert</td>
+			<td class="red">blockiert</td>
+			<td class="red">blockiert</td>
+		</tr>
+		<tr>
+			<td>Google Analytics</td>
+			<td>-</td>
+			<td class="green">ok</td>
+			<td>-</td>
+			<td class="green">ok</td>
+			<td class="green">ok</td>
+			<td>-</td>
+			<td>-</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>Google TagManager</td>
+			<td>-</td>
+			<td>-</td>
+			<td class="green">ok</td>
+			<td>-</td>
+			<td>-</td>
+			<td class="green">ok</td>
+			<td>-</td>
+			<td class="green">ok</td>
+		</tr>
+		<tr>
+			<td>Chartbeat</td>
+			<td>-</td>
+			<td>-</td>
+			<td>-</td>
+			<td>-</td>
+			<td class="green">ok</td>
+			<td class="red">blockiert</td>
+			<td>-</td>
+			<td>-</td>
+		</tr>
+		<tr>
+			<td>Werbung</td>
+			<td class="red">blockiert</td>
+			<td class="red">blockiert</td>
+			<td class="green">ok</td>
+			<td class="green">ok</td>
+			<td class="green">ok</td>
+			<td class="red">blockiert</td>
+			<td class="green">ok</td>
+			<td class="green">ok</td>
+		</tr>
+	</tbody>
 </table>
 
 <p>Mit ihrer Ansage, durch den Relaunch im September 2016 die schnellste News-Website in Deutschland zu werden, meinte die Welt es ernst. Best Practices wurden offenbar konsequent verfolgt, notfalls auch um den Preis von IVW-Zählungen (so meine Vermutung). Dass Lade- und Render-Zeiten von verschiedenen Punkten auf der Website mittels <code>window.performance.mark</code> gemessen werden, deutet auf eine genaue Beobachtung der Performance hin &mdash; was überhaupt erst einmal die Grundlage einer vernünftigen Optimierung ist.</p>

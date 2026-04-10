@@ -65,15 +65,15 @@ Lorem Ipsum youknow.</pre>
 <pre># http://localhost:8000/one.md
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;My First Post&lt;/title&gt;
-        &lt;meta charset="utf-8"&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;p&gt;What The Fuck. Cool!&lt;/p&gt;
-        &lt;h2&gt;This is h2&lt;/h2&gt;
-        &lt;p&gt;Lorem Ipsum youknow.&lt;/p&gt;
-    &lt;/body&gt;
+	&lt;head&gt;
+		&lt;title&gt;My First Post&lt;/title&gt;
+		&lt;meta charset="utf-8"&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;What The Fuck. Cool!&lt;/p&gt;
+		&lt;h2&gt;This is h2&lt;/h2&gt;
+		&lt;p&gt;Lorem Ipsum youknow.&lt;/p&gt;
+	&lt;/body&gt;
 &lt;/html&gt;</pre>
 
 <p>Ta dah! A website with title-tag and content.</p>
@@ -81,7 +81,7 @@ Lorem Ipsum youknow.</pre>
 <p>For some cases like a programming journal this might be enough. But you might want at least some CSS with it. You can do this by simply adding the path to a CSS file into the markdown-block of your caddyfile:</p>
 <pre>localhost:8000
 markdown / {
-    css /styles.css
+	css /styles.css
 }</pre>
 
 <p>which results into the line</p>
@@ -92,7 +92,7 @@ markdown / {
 <p>But you want to load JS asyncronously and deferred at the end of the body-tag, don&#39;t you? And you want to add some more HTML, like a custom header or something. You can do that – by creating a template file and using that in the caddyfile:</p>
 <pre>localhost:8000
 markdown / {
-    template ../template.html
+	template ../template.html
 }</pre>
 
 <p>Note: the template path is not relative to the caddyfile, but relative to the folder where you run your <code>caddy -conf path/to/Caddyfile</code> command.</p>
@@ -118,21 +118,21 @@ markdown / {
 <p>which renders this:</p>
 <pre>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;My First Post&lt;/title&gt;
-        &lt;link rel="stylesheet" media="screen" href="/styles.css"&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;head&gt;
-            &lt;h1&gt;My First Post&lt;/h1&gt;
-        &lt;/head&gt;
-        &lt;article&gt;
-            &lt;p&gt;What The Fuck. Cool!&lt;/p&gt;
-            &lt;h2&gt;This is h2&lt;/h2&gt;
-            &lt;p&gt;Lorem Ipsum youknow.&lt;/p&gt;
-        &lt;/article&gt;
-        &lt;script async defer src="/script.js"&gt;&lt;/script&gt;
-    &lt;/body&gt;
+	&lt;head&gt;
+		&lt;title&gt;My First Post&lt;/title&gt;
+		&lt;link rel="stylesheet" media="screen" href="/styles.css"&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;head&gt;
+			&lt;h1&gt;My First Post&lt;/h1&gt;
+		&lt;/head&gt;
+		&lt;article&gt;
+			&lt;p&gt;What The Fuck. Cool!&lt;/p&gt;
+			&lt;h2&gt;This is h2&lt;/h2&gt;
+			&lt;p&gt;Lorem Ipsum youknow.&lt;/p&gt;
+		&lt;/article&gt;
+		&lt;script async defer src="/script.js"&gt;&lt;/script&gt;
+	&lt;/body&gt;
 &lt;/html&gt;</pre>
 
 
@@ -156,8 +156,8 @@ date: April 10th 2018
 <pre>localhost:8000
 
 markdown / {
-    ext .md .html
-    template ../template.html
+	ext .md .html
+	template ../template.html
 }</pre>
 
 <p>This means that caddy tries to match every request, which is not served by an existing file, is tested against files with these extensions. So if you request <code>http://localhost:8000/my-first-post</code>, Caddy tries to find a <code>my-first-post</code> file, and if that does not exist, it tries to find <code>my-first-port.md</code>, which we just have created. <code>.html</code> would be another fallback, and you can define as many as you like.</p>
@@ -165,8 +165,8 @@ markdown / {
 <h2 id="special-templates-per-file">Special templates per file</h2>
 <p>You might want render diffent posts inside different templates. Maybe there are special posts which have a sidebar, or you create some landing pages with a lot of beautiful custom HTML and only some copy text from markdown. You can introduce diffent templates to Caddy be listing them in the caddyfile.</p>
 <pre>markdown / {
-    template ../template.html
-    template special ../special.html
+	template ../template.html
+	template special ../special.html
 }</pre>
 
 <p>In the frontmatter part of your your markdown file, you can specify the template just like this: <code>template: index</code>. Then, this page will use the special.html template for rendering. If no template is given in the markdown file, the default <code>template.html</code>, which is defined without a name in the Caddyfile, will be used.</p>
@@ -178,11 +178,11 @@ markdown / {
 <h2 id="file-listings">File listings</h2>
 <p>On index pages, it would be handy to hava an automatic listing of subpages: the home page of a blog, the members page of your sports club. Caddy can even do that:</p>
 <pre>&lt;ul&gt;
-    {{.Files "sub/folder"}}
-        &lt;li&gt;
-            &lt;a href="{{$.StripExt .Name}}"&gt;{{$.StripExt .Name}}&lt;/a&gt;
-        &lt;/li&gt;
-    {{end}}
+	{{.Files "sub/folder"}}
+		&lt;li&gt;
+			&lt;a href="{{$.StripExt .Name}}"&gt;{{$.StripExt .Name}}&lt;/a&gt;
+		&lt;/li&gt;
+	{{end}}
 &lt;/ul&gt;</pre>
 
 <p>You &quot;just&quot; have to filter files like &quot;.DS_Store&quot;, asset folders, the index file itself and so on. But, for your convenience, Caddy at least provides <a href="https://caddyserver.com/docs/template-actions">control statements</a> like <code>{{if not .IsDir }}</code> and you can strip away extensions (<code>{{$.StripExt .Name}}</code>).</p>

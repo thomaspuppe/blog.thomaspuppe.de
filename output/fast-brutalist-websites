@@ -69,69 +69,69 @@
 <td><a href="http://bennettfeely.com/filters/">appy CSS filters</a><br>
 (credits: <a href="https://twitter.com/bennettfeely">@bennettfeely</a>)</td>
 <td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg" alt="Photo of Donald Trump with a graphic filter"
-    style="-webkit-filter:sepia(1) hue-rotate(200deg);filter:sepia(1) hue-rotate(200deg);"/>
-    <br>sepia(1) hue-rotate(200deg)
+	style="-webkit-filter:sepia(1) hue-rotate(200deg);filter:sepia(1) hue-rotate(200deg);"/>
+	<br>sepia(1) hue-rotate(200deg)
 </td>
 <td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg" alt="Photo of Donald Trump with a graphic filter"
-    style="-webkit-filter:sepia(1);filter:sepia(1);"/>
-    <br>sepia(1)
+	style="-webkit-filter:sepia(1);filter:sepia(1);"/>
+	<br>sepia(1)
 </td>
 <td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg" alt="Photo of Donald Trump with a graphic filter"
-    style="-webkit-filter:saturate(4);filter: saturate(4);"/>
-    <br>saturate(4)
+	style="-webkit-filter:saturate(4);filter: saturate(4);"/>
+	<br>saturate(4)
 </td>
 </tr>
 <tr>
 <td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg" alt="Photo of Donald Trump with a graphic filter"
-    style="-webkit-filter:hue-rotate(90deg);filter:hue-rotate(90deg);"/>
-    <br>hue-rotate(90deg)
+	style="-webkit-filter:hue-rotate(90deg);filter:hue-rotate(90deg);"/>
+	<br>hue-rotate(90deg)
 </td>
 <td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg" alt="Photo of Donald Trump with a graphic filter"
-    style="-webkit-filter:invert(.8);filter:invert(.8);"/>
-    <br>invert(.8)
+	style="-webkit-filter:invert(.8);filter:invert(.8);"/>
+	<br>invert(.8)
 </td>
 <td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg" alt="Photo of Donald Trump with a graphic filter"
-    style="-webkit-filter:contrast(3);filter:contrast(3);"/>
-    <br>contrast(3)
+	style="-webkit-filter:contrast(3);filter:contrast(3);"/>
+	<br>contrast(3)
 </td>
 <td><img src="/images/2017/02/brutalist/img_trump_jpeg75.jpg" alt="Photo of Donald Trump with a graphic filter"
-    style="-webkit-filter:blur(7px);filter: blur(7px);"/>
-    <br>blur(7px)
+	style="-webkit-filter:blur(7px);filter: blur(7px);"/>
+	<br>blur(7px)
 </td>
 </tr>
 </table>
 </div>
 
 <div class="larger">
-    <table><tr>
-        <td><a href="http://www.jpegreducer.com">compress heavily</a></td>
-        <td>
-            <img src="/images/2017/02/brutalist/img_trump_jpeg50.jpg" alt="Photo of Donald Trump" /><br>
-            jpg 50%: 13kB
-        </td>
-        <td>
-            <img src="/images/2017/02/brutalist/img_trump_jpeg25.jpg" alt="Photo of Donald Trump, heavily compressed" /><br>
-            jpg 25%: 9kB
-        </td>
-        <td>
-            <img src="/images/2017/02/brutalist/img_trump_jpeg10.jpg" alt="Photo of Donald Trump, heavily compressed" /><br>
-            jpg 10%: 6kB
-        </td>
-    </tr></table>
+	<table><tr>
+		<td><a href="http://www.jpegreducer.com">compress heavily</a></td>
+		<td>
+			<img src="/images/2017/02/brutalist/img_trump_jpeg50.jpg" alt="Photo of Donald Trump" /><br>
+			jpg 50%: 13kB
+		</td>
+		<td>
+			<img src="/images/2017/02/brutalist/img_trump_jpeg25.jpg" alt="Photo of Donald Trump, heavily compressed" /><br>
+			jpg 25%: 9kB
+		</td>
+		<td>
+			<img src="/images/2017/02/brutalist/img_trump_jpeg10.jpg" alt="Photo of Donald Trump, heavily compressed" /><br>
+			jpg 10%: 6kB
+		</td>
+	</tr></table>
 </div>
 
 <div class="larger">
-    <table><tr>
-        <td><a href="http://optimizilla.com">reduce colors</a></td>
-        <td>
-            <img src="/images/2017/02/brutalist/img_trump_8colors.png" alt="8-color-photo of Donald Trump" /><br>
-            8 colors png: 44kB
-        </td>
-        <td>
-            <img src="/images/2017/02/brutalist/img_trump_2colors.png" alt="2-color-photo of Donald Trump" /><br>
-            2 colors png: 15kB
-        </td>
-    </tr></table>
+	<table><tr>
+		<td><a href="http://optimizilla.com">reduce colors</a></td>
+		<td>
+			<img src="/images/2017/02/brutalist/img_trump_8colors.png" alt="8-color-photo of Donald Trump" /><br>
+			8 colors png: 44kB
+		</td>
+		<td>
+			<img src="/images/2017/02/brutalist/img_trump_2colors.png" alt="2-color-photo of Donald Trump" /><br>
+			2 colors png: 15kB
+		</td>
+	</tr></table>
 </div>
 
 
@@ -153,17 +153,17 @@
 <h1 id="6-oldschool-html-without-styles">6. Oldschool HTML without styles</h1>
 <p>This was more fun when <code>&lt;hr&gt;</code> had a dropshadow and tables had borders and table-padding and stuff. But some HTML elements look quite brutal when unstyled. <code>fieldset</code> elements are handy for creating boxes:</p>
 <div><form><fieldset>
-    <legend>form fieldset legend</legend>
-    <textarea cols="3" rows="8">unstyled    textarea</textarea>
-    <hr>
-    <button disabled style="width:100%">disabled button</button>
-    <hr>
-    With HTML5 we even have new fany stuff like the progress element:
-    <progress>progress</progress>
+	<legend>form fieldset legend</legend>
+	<textarea cols="3" rows="8">unstyled    textarea</textarea>
+	<hr>
+	<button disabled style="width:100%">disabled button</button>
+	<hr>
+	With HTML5 we even have new fany stuff like the progress element:
+	<progress>progress</progress>
 </fieldset></form></div>
 
 
-<h1 id="7-share-this-page-❤">7. Share this page! &#10084;</h1>
+<h1 id="7-share-this-page-">7. Share this page! &#10084;</h1>
 <p>Never never ever use Twitter and Facebook widgets! They are the worst! They force your users to connect to twitter/facebook servers and load tons of crap, even when they do not click.</p>
 <p>Instead, use simple links which you can style on your own behalf. It is really fast, it is safe, and it works. Just try it out:</p>
 <a href="https://twitter.com/share?url=https%3A%2F%2Fblog.thomaspuppe.de/fast-brutalist-websites&hashtags=brutalist%2Cwebdesign&text=How%20to%20make%20your%20shiny%20new%20brutalist%20website%20brutally%20fast">
