@@ -8,6 +8,8 @@
     <meta name="date" content="2020-05-23">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/syntax.css"/>
+    <script type="module" src="/assets/microlighter/microlighter.min.js"></script>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
@@ -22,7 +24,7 @@
     <meta property="og:article:published_time" content="2020-05-23" />
     <meta property="og:article:author" content="Thomas Puppe" />
 </head>
-<body>
+<body data-syntax-theme="alabaster">
     <header>
         <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
@@ -43,12 +45,12 @@
 <h2 id="always-wrap-localstorage-into-trycatch">Always wrap localStorage into try/catch</h2>
 <h2 id="elementclasslisttoggle-parameter-and-return-value">element.classList.toggle() parameter and return value</h2>
 <p><code>element.classList.toggle()</code> returns a boolean value, telling you if the class was added or removed. I used this to store the result directly into localstorage (or a variable). No value-checking needed.</p>
-<pre><code>document.querySelector(&#39;#darkmode&#39;).addEventListener(&#39;click&#39;, function(evt) {
+<pre><code class="language-javascript">document.querySelector(&#39;#darkmode&#39;).addEventListener(&#39;click&#39;, function(evt) {
 	window.localStorage.setItem(&#39;wryte_darkmode&#39;, document.body.classList.toggle(&#39;dark&#39;));
 });
 </code></pre>
 <p><code>element.classList.toggle()</code> accepts a second parameter, where you can command if the value shoud be set or removed. This is a shortcut to &quot;check a boolean, and then do add or remove&quot;.</p>
-<pre><code>document.querySelector(&#39;#darkmode&#39;).addEventListener(&#39;click&#39;, function(evt) {
+<pre><code class="language-javascript">document.querySelector(&#39;#darkmode&#39;).addEventListener(&#39;click&#39;, function(evt) {
 	document.body.classList.toggle(&#39;dark&#39;, window.localStorage.getItem(&#39;wryte_darkmode&#39;)===&#39;true&#39;);
 });
 </code></pre>

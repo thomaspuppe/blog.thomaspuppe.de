@@ -153,12 +153,17 @@ header a {
 	margin-top: 1.41667rem;
 }
 .post pre {
-	background: #34495e;
-	color: #ecf0f1;
+	/* background and color come from syntax.css */
 	font-family: "PT Mono", "Lucida Console", "Monaco", monospace;
 	font-size: smaller;
 	overflow-x: auto;
 	padding: 1.41667rem;
+}
+.post pre code {
+	font-size: inherit;
+	background: none;
+	color: inherit;
+	padding: 0;
 }
 .post img {
 	max-width: 100%;

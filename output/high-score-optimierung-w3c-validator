@@ -8,6 +8,8 @@
     <meta name="date" content="2018-12-19">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/syntax.css"/>
+    <script type="module" src="/assets/microlighter/microlighter.min.js"></script>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
@@ -22,7 +24,7 @@
     <meta property="og:article:published_time" content="2018-12-19" />
     <meta property="og:article:author" content="Thomas Puppe" />
 </head>
-<body>
+<body data-syntax-theme="alabaster">
     <header>
         <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
@@ -42,11 +44,11 @@
 <p>Das <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fblog.thomaspuppe.de%2F&showsource=yes&showoutline=yes">Ergebnis</a> erschrickt mich zunächst: 32 Fehler! Allerdings ist das 32 mal derselbe Fehler.</p>
 <h3 id="1-fehlerhaftes-datumsformat">1) fehlerhaftes Datumsformat</h3>
 <p>In jedem Blogpost-Teaser auf der Indexseite ist das Datum in einem ungültigen Format angegeben. Neben dem lesbaren Datum für Menschen wollte ich es auch maschinenlesbar machen...</p>
-<pre>&lt;time datetime="Fri Jul 31 2018 02:00:00 GMT+0200 (CEST)"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</pre>
+<pre><code class="language-html">&lt;time datetime="Fri Jul 31 2018 02:00:00 GMT+0200 (CEST)"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</code></pre>
 
 <p>... und eben jenes <code>Fri Jul 20 2018 02:00:00 GMT+0200 (CEST)</code> ist nicht valide. Der W3C-Validator verlinkt auch gleich auf die <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-time-element">Spec des time-Elements</a>, die verletzt wird. Dort sind viele Beispiele gültiger Datumsformate aufgelistet.</p>
 <p>Ich <a href="https://github.com/thomaspuppe/easto/commit/392dee5b7fb71b562085f7261e8cd8a79ca1a12c">ändere also das Datumsformat</a> und kürze gleich noch die unnütze Uhrzeit raus.</p>
-<pre>&lt;time datetime="2018-07-31"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</pre>
+<pre><code class="language-html">&lt;time datetime="2018-07-31"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</code></pre>
 
 <p>Und schwupps: <strong>No errors or warnings to show</strong>!</p>
 <p>Das war zu einfach. Deshalb schaue ich mir noch die einzelnen Blogposts an.</p>
@@ -58,9 +60,9 @@
 <p>Durch die Erklärung, ich wolle ja mit der Durchstreichung etwas ausdrücken, ist mir eines aufgefallen: wenn man den <em>entfernten</em> Text semantisch kennzeichnet, was ist dann mit dem <em>hinzugefügten</em> Text? Der besagte Artikel zu Präsentationselementen hat die Antwort: das <code>ins</code> Tag!</p>
 <p>Der default-Stil des <code>ins</code> Tags ist übrigens eine einfache Unterstreichung &mdash; genau wie es auch Links in meinem Blog sind. Da ich meine Links nicht einfärbe und in der Textfarbe unterstreiche, sehen nun die eingefügten Texte aus wie Links. (Nebenbei: das wäre schon ein Grund, nicht an Link-Stilen herumzufummeln: weil man dann genau solche Probleme erzeugt.) Da ich meine Link-Stile aber nicht ändern möchte, style ich also die <code>ins</code> Tags um. Der erste Ansatz war, <code>text-decoration: none</code> zu setzen und dann mit einem <code>border-bottom</code> in der <code>currentColor</code> zu arbeiten. Was aber viel besser ist: es gibt das CSS-Property <code>text-decoration-style</code>, mit dem man eben diese Unterstreichung ändern kann, zum Beispiel auf <code>dotted</code>, <code>dashed</code> oder <code>wavy</code>.</p>
 <p>Bonuswissen: man kann ebenso die <code>text-decoration-color</code> und die <code>text-decoration-line</code> ändern. Damit kann man einen Text z.B. wellig rot über- unter- und durchstreichen &mdash; sogar gleichzeitig.</p>
-<pre>text-decoration-style: wavy;
+<pre><code class="language-css">text-decoration-style: wavy;
 text-decoration-line: overline underline line-through;
-text-decoration-color: red;</pre>
+text-decoration-color: red;</code></pre>
 
 <p>Das aber nur am Rande. Im Blog-CSS habe ich mich für eine wellige Unterstreichung in etwas hellerem Ton entschieden:</p>
 <p>Hier die Demo mit <del>Text im del-Tag</del> und <ins>Text im ins-Tag</ins>.</p>

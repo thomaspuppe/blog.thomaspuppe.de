@@ -8,6 +8,8 @@
     <meta name="date" content="2017-03-15">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/syntax.css"/>
+    <script type="module" src="/assets/microlighter/microlighter.min.js"></script>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
@@ -22,7 +24,7 @@
     <meta property="og:article:published_time" content="2017-03-15" />
     <meta property="og:article:author" content="Thomas Puppe" />
 </head>
-<body>
+<body data-syntax-theme="alabaster">
     <header>
         <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
@@ -56,10 +58,10 @@
 <h1 id="schritt-1-ssl">Schritt 1: SSL</h1>
 <p>Die Auslieferung per SSL ist eine der Voraussetzungen, dass eine Website als Progressive Web App funktioniert. Gleichzeitig ist sie die größte Hürde. Während man den Code beliebig selbst schreiben kann, und das nicht besonders schwer ist (wie wir gleich sehen), ist die Einrichtung von SSL komplizierter, und meist mit Kosten verbunden.</p>
 <p>Zum Glück gibt es <a href="https://letsencrypt.org/">Letsencrypt</a>, eine Zertifizierungsstelle die kostenlose Zertifikate ausstellt und bei der Einrichtung unterstützt. Auf einem Server mit SSH-Zugriff ist es superleicht, mittels <a href="https://certbot.eff.org/">Letsencrypt und Certbot</a> SSL-Zertifikate zu erzeugen. Das funktionier auch, wenn mehrere Domains auf diesem Server liegen. Nach der (systemspezifischen) Installation reicht ein Befehl zum Erzeugen eines Zertifikats:</p>
-<pre>$ ./certbot-auto certonly --webroot -w /var/www/www_meetingtimer_biz/ -d www.meetingtimer.biz</pre>
+<pre><code class="language-bash">$ ./certbot-auto certonly --webroot -w /var/www/www_meetingtimer_biz/ -d www.meetingtimer.biz</code></pre>
 
 <p>Der Certbot gibt aus, wo das neu erzeugte Zertifikat liegt. Diesen Pfad benutze ich nun zur Konfiguration meines nginX Webservers:</p>
-<pre>server {
+<pre><code class="language-nginx">server {
 		listen 443;
 
 		ssl on;
@@ -69,14 +71,14 @@
 		server_name www.meetingtimer.biz;
 		root /var/www/www_meetingtimer_biz;
 		index index.html;
-}</pre>
+}</code></pre>
 
 <p>Die drei ssl-Zeilen sind im Prinzip alles, was es zum Verschlüsseln braucht. Man kann das ganze optimieren: für eine Weiterleitung von nicht-www auf www braucht man zum Beispiel noch ein Zertifikat, wenn die Weiterleitung auch durch den Webserver erfolgen soll. Außerdem kann man die Verschlüsselung noch verbessern, laut einem Test von <a href="https://www.ssllabs.com/ssltest/">SSL Labs</a> erreichen das Zertifikat und die Server-Konfiguration noch nicht die volle Punktzahl. Aber für den Einstieg sind wir sehr gut versorgt.</p>
 <p>Eine andere Möglichkeit, eigene Inhalte kostenlos und einfach über eine HTTPS-Verbindung auszuliefern, sind <a href="https://pages.github.com/">GitHub Pages</a>. Für den lokalen Webserver kann man sich selbst ein Zertifikat <a href="https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04">erzeugen</a> und signieren. Beim Öffnen der Seite warnt der Browser zwar, lässt sich aber überreden, die Seite zu öffnen.</p>
 <p>Auch wenn Verschlüsselung an sich schon ein Wert ist, war sie hier nur die notwenige Vorbedingung für den nächsten Schritt:</p>
 <h1 id="schritt-2-ein-manifest-und-einen-service-worker-erstellen-um-die-app-installieren-zu-können">Schritt 2: Ein Manifest und einen Service Worker erstellen, um die App &quot;installieren&quot; zu können</h1>
 <p>Progressive Web Apps lassen sich auf dem Smartphone zum Home-Screen oder menü hinzufügen.</p>
-<pre>{
+<pre><code class="language-json">{
 	"lang": "en",
 	"background_color": "#232323",
 	"name": "How Much does this meeting cost?",
@@ -89,18 +91,18 @@
 			"type": "image/png"
 		},
 	]
-}</pre>
+}</code></pre>
 
 <p>Diese Datei wird unter dem Namen <a href="https://www.meetingtimer.biz/manifest.json">manifest.json</a> im Root der Domain abgelegt.</p>
 <p>Bruce Lawson hat einen kleinen <a href="http://brucelawson.github.io/manifest/">Manifest-Generator</a> erstellt, und es gibt eine <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest">umfangreiche
 Dokumentation</a> im MDN.</p>
 <p>Nun kann man das <a href="https://manifest-validator.appspot.com/">Manifest validieren</a>. Wenn es in Ordnung ist, wird es im HTML-Head der Website eingetragen:</p>
-<pre>&lt;link rel="manifest" href="./manifest.json"&gt;</pre>
+<pre><code class="language-html">&lt;link rel="manifest" href="./manifest.json"&gt;</code></pre>
 
 <p>Als nächstes erstellen wir einen ServiceWorker, und registrieren ihn in einem Script-Tag in der index.html Datei:</p>
-<pre>if ('serviceWorker' in navigator) {
+<pre><code class="language-javascript">if ('serviceWorker' in navigator) {
 	navigator.serviceWorker.register('/serviceworker.js');
-}</pre>
+}</code></pre>
 
 <p>Die Datei <code>sericeworker.js</code> kann sogar leer sein, wenn man die Möglichkeiten der Worker nicht nutzen möchte -- was wir später tun werden. Aber sie muss existieren.</p>
 <p>Mit den drei geschaffenen Voraussetzungen (HTTPS, Manifest und ServiceWorker) kann man die App nun auf seinem Home Screen installieren. Das könnte man schon immer mit dem Menüpunkt &quot;zum Startbildschirm hinzufügen&quot;, was einen Shortcut auf dem Startbildschirm hinterlegt. Die progressive-web-appige Lösung löst aber außerdem einen Installations-Hinweis des Chrome Browsers aus:</p>

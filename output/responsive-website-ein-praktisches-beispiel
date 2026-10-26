@@ -8,6 +8,8 @@
     <meta name="date" content="2014-02-13">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/syntax.css"/>
+    <script type="module" src="/assets/microlighter/microlighter.min.js"></script>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
@@ -22,7 +24,7 @@
     <meta property="og:article:published_time" content="2014-02-13" />
     <meta property="og:article:author" content="Thomas Puppe" />
 </head>
-<body>
+<body data-syntax-theme="alabaster">
     <header>
         <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
@@ -43,7 +45,7 @@
 <figure><img src="/images/2014/02/responsive_01_ohneviewport.png" alt="Abb. 1: Darstellung ohne Viewport"><figcaption>Abb. 1: Darstellung ohne Viewport</figcaption></figure>
 
 <p>Wenn nun aber eine Website mit einer Breite von wenigr als 980 Pixeln gut zurechtkommt (also responsive ist), dann muss das dem Browser mitgeteilt werden. Dafür dient der Viewport:</p>
-<pre>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</pre>
+<pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
 
 <p>Dieser Meta-Tag im Head-Bereich der Website sagt dem Browser, dass die Seite nicht mit fiktiven 980 Pixeln gerendert werden soll, sondern auf der nativen Breite des Geräts. Wie sich die Seite bei dieser Breite verhält, das ist dann Sache des CSS.</p>
 <figure><img src="/images/2014/02/responsive_02_mitviewport.png" alt="Abb. 2: Darstellung mit Viewport (noch nicht schön, aber man sieht die automatische Anpassung der Breite)"><figcaption>Abb. 2: Darstellung mit Viewport (noch nicht schön, aber man sieht die automatische Anpassung der Breite).</figcaption></figure>
@@ -52,16 +54,16 @@
 <h2 id="2-flexible-seitenbreite-und-raster">2. Flexible Seitenbreite und Raster</h2>
 <p>Als nächstes muss die Seite flexibel auf die (nun auch auf kleinen Geräten erkannte) Breite reagieren. Statt einer festen Breite in Pixeln geben wir den Elementen auf der Seite eine flexible Breite in Prozent, die sich an der größe des Browserfensters (oder des mobilen Gerätes) orientiert.</p>
 <p>Feste oder minimale Breiten können im Responsive Web Design für kleine Elemente nützlich sein. Für große Elemente sind sie es meist nicht. Böser Fehler in der ersten Version dieses Blogs:</p>
-<pre>.posts { width: 100%; min-width:710px; }</pre>
+<pre><code class="language-css">.posts { width: 100%; min-width:710px; }</code></pre>
 
 <p>Soeben haben wir mobile Geräte mittels Viewport dazu gezwungen, die Seite in Originalpixeln zu rendern. Hat das Gerät nur 480 Pixel Breite, ist die Seite natürlich zur Hälfte abgeschnitten. Indem man feste oder minmale Breiten aus dem CSS entfernt, passten sich Block-Elemente wie Divs an die verfügbare Breite an. In diesem Fall sind das 100% des Browsers - so soll es sein. Auf die Angabe von 100% kann man in dem Fall natürlich auch verzichten.</p>
 <p>100% Breite für Elemente sind aber nicht immer erwünscht. Gerade bei sehr großen Monitoren sind Flisßtexte schlecht lesbar, wenn sie den ganzen Bildschrimbreite einnehmen. Abhilfe schafft die Angabe einer maximalen Breite:</p>
-<pre>.posts p, .posts h1, .posts h2 { max-width:600px; }</pre>
+<pre><code class="language-css">.posts p, .posts h1, .posts h2 { max-width:600px; }</code></pre>
 
 <p>Da die Artikel selbst noch breit laufen sollen (bunter Rand rechts), begrenzen wir nur Überschriften und Absätze in der Breite. Ḿan erkennt, dass die Inhalte der rechten Spalte sich dem Menü</p>
 <h2 id="3-breakpoints-für-unterschiedliche-styles">3. Breakpoints für unterschiedliche Styles</h2>
 <p>Anhand von sogenannten Media Queries kann bestimmtes CSS für bestimmte Gerätetypen ausgeliefert werden. Für Responsive Websites richtet man sich meist nach der Breite des Bildschirms. Anhand von Grenzwerten (&ldquo;Breakpoints&rdquo;) werden unterschiedliche Regeln für unterschiedliche Bildschirm edefiniert. Für den Einsatz von Breakpoints gibt es zwei verschiedene Ansätze. <strong>Desktop-First</strong> funktioniert mit absteigenden max-width Werten:</p>
-<pre>h1 {
+<pre><code class="language-css">h1 {
 font-size: 3.5em;
 }
 
@@ -75,10 +77,10 @@ font-size: 3.5em;
     h1 {
         font-size: 2em;
     }
-}</pre>
+}</code></pre>
 
 <p><strong>Mobile-First</strong> arbeitet mit aufsteigenden min-width Werten:</p>
-<pre>h1 {
+<pre><code class="language-css">h1 {
 font-size: 2em;
 }
 
@@ -92,7 +94,7 @@ font-size: 2em;
     h1 {
         font-size: 3.5em;
     }
-}</pre>
+}</code></pre>
 
 <p>Beachte: für alle Bildschirme über dem größten max-width-Wert (oder unter dem kleinsten min-width-Wert) muss ein Standardwert definiert werden.</p>
 <p>Da mobile (kleine) Geräte tendentiell schwächer sind als große, halte ich Mobile-First für einen guten Ansatz.</p>

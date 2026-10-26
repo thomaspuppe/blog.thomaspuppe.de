@@ -8,6 +8,8 @@
     <meta name="date" content="2014-11-19">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/syntax.css"/>
+    <script type="module" src="/assets/microlighter/microlighter.min.js"></script>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
@@ -22,7 +24,7 @@
     <meta property="og:article:published_time" content="2014-11-19" />
     <meta property="og:article:author" content="Thomas Puppe" />
 </head>
-<body>
+<body data-syntax-theme="alabaster">
     <header>
         <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
@@ -37,7 +39,7 @@
 
         <p>Meine <a href="https://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.</p>
 <p>In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aussortieren usw.</p>
-<pre>//Alle Tweets in einer großen Datei:
+<pre><code class="language-bash">//Alle Tweets in einer großen Datei:
 $ wc -l tweets.json
 // 71180 tweets.json
 
@@ -49,10 +51,10 @@ $ wc -l tweets_media.json
 // Filtern der Tweets, die Koordinaten enthalten
 $ grep -v "\"coordinates\":null" tweets_media.json > tweets_media_coordinates.json
 $ wc -l tweets_media_coordinates.json
-// 249 tweets_media_coordinates.json</pre>
+// 249 tweets_media_coordinates.json</code></pre>
 
 <p>Die Datei enthält nun (erstaunlich wenige) Tweets, die aber mit allen Daten. Da für die Visualisierung nicht alles benötigt wird, extrahiere ich nur die nötigen Daten. Dazu habe ich ein kleines Python-Script geschrieben. Die Code-Qualität sei mir verziehen, das waren jetzt meine ersten Zeilen Python überhaupt.</p>
-<pre>import json
+<pre><code class="language-python">import json
 
 readFile = open('tweets_media_coordinates.json')
 lines = readFile.readlines()
@@ -85,12 +87,12 @@ outputString = json.dumps(outputArray, separators=(',',':'), indent=2)
 
 writeFile = open('tweets_media_coordinates_short.json','w')
 writeFile.write('{"tweets":' + outputString + '}')
-writeFile.close()</pre>
+writeFile.close()</code></pre>
 
 <p>Das Ergebnis ist eine JSON Datei mit den Tweets, Foto-URLs und Koordinaten: <a href="http://lab.thomaspuppe.de/mauerfall-tweets/data/tweets_media_coordinates_short.json">http://www.thomaspuppe.de/lab/mauerfall-tweets/data/tweets_media_coordinates_short.json</a>.</p>
 <p>Diese Datei ist die Daten-Grundlage für die Visualisierung. Auch dafür habe ich fix was aus dem Netz gezogen: den <a href="https://github.com/moklick/generator-leaflet">Leaflet-Generator</a> von <a href="https://twitter.com/moklick">Moritz Klack</a>. Via npm lädt man das halbe Internet herunter, hat aber dafür eine out-of-the-box Map Anwendung. Die eigentlich benötigten Dateien sollte man sich dann fürs nächste mal zurechtlegen.</p>
 <p>In die gegebene Karte wmüssen nur noch ein paar Zeilen JavaScript eingefügt werden, und schon sind die Punkte auf einer schönen Karte hinterlegt.</p>
-<pre>var markerIcon = L.divIcon({className: 'my-div-icon'}), // stylen via CSS!
+<pre><code class="language-javascript">var markerIcon = L.divIcon({className: 'my-div-icon'}), // stylen via CSS!
 markerOptions = {
 	'clickable': true,
 	'keyboard': false,
@@ -116,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	httpRequest.open('GET', 'data/tweets_media_coordinates_short.json')
 	httpRequest.send()
-});</pre>
+});</code></pre>
 
 <p>Zu beachten: die Koordinaten bei Twitter sind als Lon,Lat gespeichert, leaflet benötigt aber Lat,Lon. Daher die Rochade beim Anlegen der Marker.</p>
 <p>Und hier das Ergebnis:</p>

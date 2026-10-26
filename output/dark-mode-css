@@ -8,6 +8,8 @@
     <meta name="date" content="2019-01-26">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/syntax.css"/>
+    <script type="module" src="/assets/microlighter/microlighter.min.js"></script>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
@@ -22,7 +24,7 @@
     <meta property="og:article:published_time" content="2019-01-26" />
     <meta property="og:article:author" content="Thomas Puppe" />
 </head>
-<body>
+<body data-syntax-theme="alabaster">
     <header>
         <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
@@ -43,7 +45,7 @@
 </figure>
 
 <p>Der aktivierte Dark Mode wird via Media Query an CSS und JS des Browsers exponiert, sodass man als Programmierer einer Website auf diesen bevorzugten Modus seiner Besucher eingehen kann. Menschen, die auf ihrem Computer helle Schrift auf dunklem Hintergrund bevorzugen, bekommen dies auch auf meiner Website. Die Umsetzung ist, wie bei anderen Media Queries auch, sehr einfach:</p>
-<pre>body {
+<pre><code class="language-css">body {
 	background: #fff;
 	color: #333;
 }
@@ -52,7 +54,7 @@
 		background: #333;
 		color: #fff;
 	}
-}</pre>
+}</code></pre>
 
 <p>Die Query nimmt drei Werte an: <code>dark</code>, <code>light</code> und <code>no-preference</code>. Eine normalerweise dunkle Website kann also auch ins Helle umschwenken, wenn gewünscht. Wobei in der Praxis ist im Safari ja immer hell, das GUI für Systemeinstellung im MacOS gibt kein &quot;no preference&quot; her.</p>
 <h2 id="der-teufel-steckt-im-detail">Der Teufel steckt im Detail</h2>
@@ -65,14 +67,14 @@
 </figure>
 
 <p>Und schon ist man dabei, seinen kleinen Hacks hinterherzuräumen.</p>
-<pre>@media (prefers-color-scheme: dark) {
+<pre><code class="language-css">@media (prefers-color-scheme: dark) {
 	a {
 		color: currentColor;
 		background-image: none;
 		text-shadow: none;
 		text-decoration: underline;
 	}
-}</pre>
+}</code></pre>
 
 <p><strong>Complexity is killing us.</strong></p>
 <p>Auch sonst ist man gut beraten, seine Designs im Dark Mode ausführlich zu testen. Denn der Teufel steckt im Detail. Ein Artikel bei <a href="https://css-tricks.com/dark-modes-with-css/#article-header-id-0">CSS-Tricks</a> empfiehlt, helle Bilder per CSS abzudunkeln, weil sie sonst auf dunklem Hintergrund zu grell sind. Apple hat Beispiele für <a href="https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/#images-icons-glyphs">Schatten und Glow-Effekte an Icons</a>.</p>

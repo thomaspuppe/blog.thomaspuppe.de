@@ -234,17 +234,16 @@
             <description><![CDATA[Wie natives JS Templating mein Suchen-und-Ersetzen im Blog-Generator ablöste]]></description>
             <content:encoded><![CDATA[<p>Für meinen kleinen <a href="https://github.com/thomaspuppe/easto">Static-Site Generator easto</a> benutze ich keine Templating-Engine, sondern mache nur Suchen-und-Ersetzen in den Templates. Das sah bisher so aus:</p>
 <h2 id="gut-genug-string-replacement">Gut genug: String-Replacement</h2>
-<pre>&lt;div class="post__meta"&gt
+<pre><code class="language-html">&lt;div class="post__meta"&gt
 	&lt;span class="post__category"&gt#{{ META_TAGS }}&lt;/span&gt
 	&lt;time datetime="{{ META_DATE }}"&gt{{ META_DATELABEL }}&lt;/time&gt
 &lt;/div&gt
 &lt;h1 class="post__title"&gt{{ META_TITLE }}&lt;/h1&gt
 {{ CONTENT }}
-</pre>
+</code></pre>
 
 <p>Im JavaScript habe ich dann über eine Liste von Metadaten iteriert und diese im Template ersetzt:</p>
-<pre>
-template.replace('{{ CONTENT }}', fileContentHtml)
+<pre><code class="language-javascript">template.replace('{{ CONTENT }}', fileContentHtml)
 
 for (var key in metadata) {
 	const re = new RegExp('{{ META_' + key.toUpperCase() + ' }}', 'g')
@@ -255,38 +254,38 @@ for (var key in metadata) {
 	} else {
 		template = template.replace(re, metadata[key])
 	}
-}</pre>
+}</code></pre>
 
 <p>... im Prinzip. In echt war dann alles noch etwas umständlicher. Die Regex Nummer ist nötig, weil nur das erste Vorkommen ersetzt wird, wenn man einen String als Parameter verwendet. In Teasern benutze ich etwas andere Ausgaben als im Post oder den Feeds. Usw.</p>
 <h2 id="besser-template-literals">Besser: Template Literals</h2>
 <p>Bei einem <a href="https://github.com/thomaspuppe/news-benchmark">anderen Projekt</a> wurde ich wieder daran erinnert, dass man in modernem JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals">Template Literals</a> zur Verfügung hat. Wenn Strings in Back Ticks (&#715;) gefasst sind, werden enthaltene Ausdrücke ausgeführt.</p>
-<pre>var kitty = "Cheddar";
+<pre><code class="language-javascript">var kitty = "Cheddar";
 console.log(`Meine Katze heißt ${kitty}.`);
 => Meine Katze heißt Cheddar.
-</pre>
+</code></pre>
 
 <p>Meine Template-Dateien sehen nun <a href="https://github.com/thomaspuppe/blog.thomaspuppe.de/commit/2223b3c22d4b1cba6c4d87151137a2f886c47f6c">etwas anders</a> aus. Erstens werden sie komplett mit Back Ticks umschlossen. Und zweitens verwende ich Ausdrücke mit Dollarzeichen und geschweiften Klammern anstelle der selbst ausgedachten Marker fürs Suchen-und-Ersetzen.</p>
-<pre>`&lt;div class="post__meta"&gt;
+<pre><code class="language-javascript">`&lt;div class="post__meta"&gt;
 	&lt;span class="post__category"&gt;#${ meta.tags.join(', #') }&lt;/span&gt;
 	&lt;time datetime="{{ META_DATE }}"&gt;${ meta.datelabel }&lt;/time&gt;
 &lt;/div&gt;
 &lt;h1 class="post__title"&gt;${ meta.title }&lt;/h1&gt;
 ${ content }
-`</pre>
+`</code></pre>
 
 <p>Im JavaScript stecke ich ein Objekt zusammen das alles enthält, was das Template braucht.</p>
-<pre>const output = eval_template(template, {
+<pre><code class="language-javascript">const output = eval_template(template, {
 	'blogmeta': CONFIG,
 	'meta': metadata,
 	'content': fileContentHtml
 })
-</pre>
+</code></pre>
 
 <p>Damit das mit mehreren Variablen und Objekten funktioniert, habe ich im Netz eine magische Funktion gefunden (deren Quelle ich leider nicht mehr weiß).</p>
-<pre>const eval_template = (s, params) => {
+<pre><code class="language-javascript">const eval_template = (s, params) => {
 	return Function(...Object.keys(params), "return " + s)
 	(...Object.values(params))
-}</pre>
+}</code></pre>
 
 
 <h2 id="voilá">Voilá</h2>
@@ -321,7 +320,7 @@ ${ content }
 <p>Diesen möchte ich nun beschreiben, und damit einen Fahrplan liefern, wie jeder mit 100 Zeilen Code seinen eigenen Static-Site Generator bauen kann.</p>
 <h2 id="schritt-1-markdown-dateien-iterieren-transformieren-und-speichern">Schritt 1: Markdown-Dateien iterieren, transformieren, und speichern</h2>
 <p>Das Grundprinzip eines Static-Site Generators lässt sich in wenigen Zeilen Code umsetzen. Lies Dateien (z.B. Blogposts) von der Festplatte aus, mach etwas mit ihnen, und speichere das Ergebnis wieder auf die Festplatte.</p>
-<pre>const fs = require('fs')
+<pre><code class="language-javascript">const fs = require('fs')
 fs.readdirSync('content')
   .forEach(sourceFilename => {
     const sourcePath = `content/${sourceFilename}`
@@ -330,10 +329,10 @@ fs.readdirSync('content')
     const targetFilename = sourceFilename.replace('.md', '.html')
     const targetPath = `output/` + targetFilename
     fs.writeFileSync(targetPath, content)
-  })</pre>
+  })</code></pre>
 
 <p>Nun habe alle Dateien aus einem Quellordner ausgelesen, und unter neuem Namen in einen Zielordner gespeichert. Das könnte ich auch kopieren, ohne auszulesen, aber ich möchte ja noch etwas damit anfangen:</p>
-<pre>const fs = require('fs')
+<pre><code class="language-javascript">const fs = require('fs')
 const marked = require('marked')
 
 fs.readdirSync('content')
@@ -347,26 +346,26 @@ fs.readdirSync('content')
     const targetPath = `output/${targetFilename}`
 
     fs.writeFileSync(targetPath, contentHtml)
-  })</pre>
+  })</code></pre>
 
 <p>Im Befehl <code>const contentHtml = marked(contentMarkdown)</code> steckt die Magie. Texte, die in Markdown verfasst wurden, werden in HTML umgewandelt. Natürlich könnte ich auch gleich in HTML schreiben. Schöner ist aber beides! Mit dem npm Modul marked kann ich sowohl schlankes Markdown schreiben (für Blogposts aus Überschriften, Texten, und Links), als auch im selben Text HTML verwenden, wenn Markdown nicht mehr ausreicht (für Figures, Tabellen, JS und CSS). Die <a href="https://github.com/thomaspuppe/blog.thomaspuppe.de/blob/master/content/2019-03-11_easto-static-site-generator.md">Quelldatei dieses Blog-Posts</a> veranschaulicht die Mischung. Ein Artikel über <a href="https://raw.githubusercontent.com/thomaspuppe/blog.thomaspuppe.de/master/content/2017-04-06_browser-api-css-mediaqueries.md">moderne Browser-APIs</a> enthält ausführbare Code-Beispiele aus CSS und JavaScript.</p>
 <p>Aber zurück zum Generator. Obiges Textbeispiel als JavaScript-Datei reicht schon aus, um ein kleines simples Blog zu erzeugen. Der Aufruf der JavaScript-Datei wird alle Markdown-Dateien im Content-Ordner als HTML im Output-Ordner ablegen.</p>
-<pre>$ node index.js
-🚀 Easto: 170.456ms</pre>
+<pre><code class="language-bash">$ node index.js
+🚀 Easto: 170.456ms</code></pre>
 
 <p>Wie in der modernen JavaScript-Welt üblich, musste ich vorher noch das &quot;marked&quot; Modul als Dependency mit dem aktuell coolen Paketmanager installieren.</p>
 <p>Die Laufzeit des Scripts messe ich übrigens mit</p>
-<pre>console.time('🚀 Easto')
+<pre><code class="language-javascript">console.time('🚀 Easto')
 ...
 console.timeEnd('🚀 Easto')
-</pre>
+</code></pre>
 
 <p>am Anfang und Ende des Scripts.</p>
 <h2 id="2-templating">2: Templating</h2>
 <p>Nun ist der Output von Inhalt im HTML Format noch keine anständige Website. Alles um den eigentlichen Inhalt herum (Header, Navigation, Footer) möchte ich ja auch nicht auf jeder einzelnen Seite pflegen. Also: Templating to the rescue!</p>
 <p>Aber bevor ich irgendwelche Template-Engines lade, benutze ich simple String-Ersetzung. Das soll ja schließlich ein einfacher Seiten-Editor werden, und kein Dependency-Monster.</p>
 <p>Als erstes Template für mein Blog dient eine HTMl-Datei, deren Inhalt nur aus einem Platzhalter besteht.</p>
-<pre>&lt;!doctype html&gt;
+<pre><code class="language-html">&lt;!doctype html&gt;
 &lt;html lang="de"&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8"&gt;
@@ -376,10 +375,10 @@ console.timeEnd('🚀 Easto')
         &lt;h1&gt;Willkommen auf Thomas Puppes Blog!&lt;/h1&gt;
         {{ CONTENT }}
     &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
 
 <p>In meinem Generator lese ich nun zusätzlich das Template aus (außerhalb der Schleife, denn das bleibt ja gleich) und benutze es zum Zusammenbauen jeder einzelnen Seite.</p>
-<pre>// Module laden
+<pre><code class="language-javascript">// Module laden
 
 const template = fs.readFileSync('template.html', {encoding: 'utf-8'})
 
@@ -396,24 +395,24 @@ fs.readdirSync('content')
     const targetPath = `output/` + targetFilename
 
     fs.writeFileSync(targetPath, contentPage)
-  })</pre>
+  })</code></pre>
 
 <p>Und schon enthalten die generierten Dateien das HTML des Templates und alle Inhalte.</p>
 <p>Was sofort auffällt: der <code>title</code> ist gar nicht individuell. Den möchte ich aber gern setzen. Woraus eine zweite Frage folgt: woher bekomme ich den Titel, oder andere Metadaten?</p>
 <h2 id="3-metadaten-yamlfrontmatter">3: Metadaten (YAML/Frontmatter)</h2>
 <p>&quot;Frontmatter&quot; ist ein gängiges Format oder Prinzip, um in Dateien mit Inhalten außerdem noch Meta-Informationen zu schreiben.</p>
-<pre>---
+<pre><code class="language-markdown">---
 title: Perfekte Link-Unterstreichung
 language: de
 permalink: link-unterstreichung
 ---
-Hier beginnt der Inhalt. Er ist beliebig lang...</pre>
+Hier beginnt der Inhalt. Er ist beliebig lang...</code></pre>
 
 <p>In einen Block am Anfang der Datei werden die Meta-Informationen geschrieben. Nach einem Trenner (<code>---</code>) kommt dann der Inhalt. Weil diese Struktur schön einfach und definiert ist, kommen selbst Computer damit klar &mdash; und deswegen gibt es auch ein npm Modul dafür: <a href="https://www.npmjs.com/package/yaml-front-matter">yaml-front-matter</a>.</p>
 <p>Im Detail unterscheiden sich die Module (zum Beispiel brauchen manche den Trenner auch am Anfang der Datei), und es gibt kleine Fallstricke (wenn der Titel einen Doppelpunkt enthält, muss er in Anführungsstriche gesetzt werden, damit klar wird was Struktur und was Inhalt ist). Aber im Grunde parst das Modul die Datei, und gibt die Werte strukturiert zurück.</p>
 <p>Ich setze weitere Platzhalter in das Template, und ersetze diese beim Zusammenbauen der HTML-Seiten.</p>
 <p>Das Template sieht nun so aus:</p>
-<pre>&lt;!doctype html&gt;
+<pre><code class="language-html">&lt;!doctype html&gt;
 &lt;html lang="{{ META_LANGUAGE }}"&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8"&gt;
@@ -423,10 +422,10 @@ Hier beginnt der Inhalt. Er ist beliebig lang...</pre>
         &lt;h1&gt;{{ META_TITLE }}&lt;/h1&gt;
         {{ CONTENT }}
     &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
 
 <p>Im JavaScript füge ich hinter das Transformieren von Markdown in HTML die Schleife zur Ersetzung aller Metadaten ein.</p>
-<pre>const content = fs.readFileSync(sourcePath, {encoding: 'utf-8'})
+<pre><code class="language-javascript">const content = fs.readFileSync(sourcePath, {encoding: 'utf-8'})
 
 // parse die Datei mit Inhalt und Metadaten
 const frontmatter = yaml.loadFront(content)
@@ -437,14 +436,14 @@ let contentPage = template.replace('{{ CONTENT }}', contentHtml)
 
 // die Yaml-Teile über dem Trenner sind nun Felder im "frontmatter" Objekt
 contentPage = contentPage.replace('{{ META_TITLE }}', frontmatter['title'])
-contentPage = contentPage.replace('{{ META_LANGUAGE }}', frontmatter['language'])</pre>
+contentPage = contentPage.replace('{{ META_LANGUAGE }}', frontmatter['language'])</code></pre>
 
 <p>Das yaml-Modul habe ich am Anfang des Scripts via <code>const yaml = require(&#39;yaml-front-matter&#39;)</code> geladen, und vorher mit dem Paketmanager installiert.</p>
 <p>Die Werte aus dem Frontmatter kann ich natürlich nicht nur für den Inhalt der Seiten benutzen, sondern auch für den Dateinamen.</p>
-<pre>const targetFilename = frontmatter['permalink'] + '.html`</pre>
+<pre><code class="language-javascript">const targetFilename = frontmatter['permalink'] + '.html`</code></pre>
 
 <p>Wenn ich die Struktur häufiger erweitere, oder es etwas bequemer haben möchte, kann ich natürlich auch über alle Metadaten iterieren und diese im Template generisch ersetzen. Das ist dann schon etwas fortgeschrittener:</p>
-<pre>for (var key in contentFrontmatter) {
+<pre><code class="language-javascript">for (var key in contentFrontmatter) {
 	const re = new RegExp('{{ META_' + key.toUpperCase() + ' }}', 'g')
 
 	// Frontmatter unterstützt auch Arrays im Format
@@ -455,14 +454,13 @@ contentPage = contentPage.replace('{{ META_LANGUAGE }}', frontmatter['language']
 	} else {
 		contentPage = contentPage.replace(re, contentFrontmatter[key])
 	}
-}</pre>
+}</code></pre>
 
 <p>Bei der Entwicklung von diesen Algorithmus konnte ich wunderbar in kleinen Schritten vorgehen, weil ich binnen Milliskunden das Ergebnis meiner Bemühung im Browser betrachten konnte. Hoch lebe die handgestrickte Webentwicklung!</p>
 <h2 id="4-inhaltsverzeichnis">4: Inhaltsverzeichnis</h2>
 <p>Mit dem bisherigen Code wurden also allerlei Seiten oder Blog-Artikel generiert. Eine dieser Seiten war die Startseite, die ich anfangs händisch angelegt und die Links zu allen Artkeln eingepflegt habe. Ich möchte aber, dass die Startseite meines Blog austomatisch eine Liste aller Blogposts enthält und darauf verlinkt. Auch das habe ich easto beigebracht.</p>
 <p>Beim Iterieren über alle Inhalte baue ich nicht nur die aktuelle Seite zusammen, sondern jeweils auch einen Link zur Seite. Und die gesammelten Links werden am Ende als Index-Seite gespeichert.</p>
-<pre>
-let teaserList = [];
+<pre><code class="language-javascript">let teaserList = [];
 
 .forEach(sourceFilename => {
 	...
@@ -476,11 +474,10 @@ let indexContent = indexTemplate.replace(
   teaserList.join()
 )
 
-fs.writeFileSync('output/index.html', indexContent)</pre>
+fs.writeFileSync('output/index.html', indexContent)</code></pre>
 
 <p>Das lässt sich nun mit der bekannten Technik der Templates erweitern, damit aus der simplen Linkliste schöne Teaser-Blöcke werden.</p>
-<pre>
-let teaserList = [];
+<pre><code class="language-javascript">let teaserList = [];
 const teaserTemplate = fs.readFileSync(`templates/teaser.html`, {encoding: 'utf-8'})
 
 .forEach(sourceFilename => {
@@ -488,21 +485,20 @@ const teaserTemplate = fs.readFileSync(`templates/teaser.html`, {encoding: 'utf-
 	// in der Schleife, wo auch Artikel-Metadaten ersetzt werden:
 	teaserContent = teaserTemplate.replace(re, fileContentFrontmatter[key])
 	teaserList.push(teaserContent)
-}</pre>
+}</code></pre>
 
 <p>Beim Ansehen der index-Seite fällt auf, dass die Quelldatien in &quot;zufälliger&quot; Reihenfolge von der Platte gelesen werden. Ich löse das, indem ich als Präfix für meine Dateinamen das Datum jedes Blogposts benutze (<code>/content/2019-03-11_easto-static-site-generator.md</code>), und zwischen Auslesen und Verarbeiten eine Sortierung setze:</p>
-<pre>fs
+<pre><code class="language-javascript">fs
   .readdirSync('content')
   .sort((a, b) => {
     return b.localeCompare(a)
   })
-  .forEach(sourceFilename => { ...</pre>
+  .forEach(sourceFilename => { ...</code></pre>
 
 
 <h2 id="5-feeds-generieren">5: Feeds generieren</h2>
 <p>Wenn ich schon das chronologische Inhaltsverzeichnis erzeuge, kann ich im gleichen Zuge auch RSS-Feeds bauen, die im Grunde nichts anderes sind. Auch dafür gibt es ein Node-Package (&quot;feed&quot;), mit dem dies recht einfach gelingt.</p>
-<pre>
-	// Vorbereitung: Metadaten zum Feed
+<pre><code class="language-javascript">	// Vorbereitung: Metadaten zum Feed
 
 	const Feedbuilder = require('feed')
 	feed_config = {
@@ -527,17 +523,17 @@ const teaserTemplate = fs.readFileSync(`templates/teaser.html`, {encoding: 'utf-
 	fs.writeFileSync(`output/feed/rss`, feed.rss2())
 	fs.writeFileSync(`output/feed/atom`, feed.atom1())
 	fs.writeFileSync(`output/feed/json`, feed.json1())
-</pre>
+</code></pre>
 
 <p>Die Domain des Blogs möchte ich am Ende lieber in einer Konfigurationsdatei haben als im Quellcode, aber das Beispiel zeigt, worauf ich hinaus will: mit wenigen Zeilen Code lassen sich Feeds in den gängigen Formaten RSS, Atom und JSON bauen.</p>
 <p>Eine XML Sitemap <em>sollte</em> ähnlich funktionieren sein, das habe ich aber noch nicht umgesetzt.</p>
 <h2 id="6-statische-dateien-kopieren">6: Statische Dateien kopieren</h2>
 <p>Zuletzt noch alles was den geschriebenen Inhalt anreichert: Assets (CSS, JS), Bilder und andere statische Dateien kopiere ich direkt aus einer Quelle in das Output-Verzeichis. Das Node-Modul <code>ncp</code>ermöglicht das rekursiv.</p>
-<pre>const ncp = require('ncp').ncp
+<pre><code class="language-javascript">const ncp = require('ncp').ncp
 ncp('static', 'output', err => {
   if (err) return console.error(err)
 })
-</pre>
+</code></pre>
 
 
 <h2 id="deployment">Deployment</h2>
@@ -588,7 +584,7 @@ ncp('static', 'output', err => {
 </figure>
 
 <p>Der aktivierte Dark Mode wird via Media Query an CSS und JS des Browsers exponiert, sodass man als Programmierer einer Website auf diesen bevorzugten Modus seiner Besucher eingehen kann. Menschen, die auf ihrem Computer helle Schrift auf dunklem Hintergrund bevorzugen, bekommen dies auch auf meiner Website. Die Umsetzung ist, wie bei anderen Media Queries auch, sehr einfach:</p>
-<pre>body {
+<pre><code class="language-css">body {
 	background: #fff;
 	color: #333;
 }
@@ -597,7 +593,7 @@ ncp('static', 'output', err => {
 		background: #333;
 		color: #fff;
 	}
-}</pre>
+}</code></pre>
 
 <p>Die Query nimmt drei Werte an: <code>dark</code>, <code>light</code> und <code>no-preference</code>. Eine normalerweise dunkle Website kann also auch ins Helle umschwenken, wenn gewünscht. Wobei in der Praxis ist im Safari ja immer hell, das GUI für Systemeinstellung im MacOS gibt kein &quot;no preference&quot; her.</p>
 <h2 id="der-teufel-steckt-im-detail">Der Teufel steckt im Detail</h2>
@@ -610,14 +606,14 @@ ncp('static', 'output', err => {
 </figure>
 
 <p>Und schon ist man dabei, seinen kleinen Hacks hinterherzuräumen.</p>
-<pre>@media (prefers-color-scheme: dark) {
+<pre><code class="language-css">@media (prefers-color-scheme: dark) {
 	a {
 		color: currentColor;
 		background-image: none;
 		text-shadow: none;
 		text-decoration: underline;
 	}
-}</pre>
+}</code></pre>
 
 <p><strong>Complexity is killing us.</strong></p>
 <p>Auch sonst ist man gut beraten, seine Designs im Dark Mode ausführlich zu testen. Denn der Teufel steckt im Detail. Ein Artikel bei <a href="https://css-tricks.com/dark-modes-with-css/#article-header-id-0">CSS-Tricks</a> empfiehlt, helle Bilder per CSS abzudunkeln, weil sie sonst auf dunklem Hintergrund zu grell sind. Apple hat Beispiele für <a href="https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/#images-icons-glyphs">Schatten und Glow-Effekte an Icons</a>.</p>
@@ -721,11 +717,11 @@ I have designed and created tailor made websites, exclusively for individual peo
 <p>Das <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fblog.thomaspuppe.de%2F&showsource=yes&showoutline=yes">Ergebnis</a> erschrickt mich zunächst: 32 Fehler! Allerdings ist das 32 mal derselbe Fehler.</p>
 <h3 id="1-fehlerhaftes-datumsformat">1) fehlerhaftes Datumsformat</h3>
 <p>In jedem Blogpost-Teaser auf der Indexseite ist das Datum in einem ungültigen Format angegeben. Neben dem lesbaren Datum für Menschen wollte ich es auch maschinenlesbar machen...</p>
-<pre>&lt;time datetime="Fri Jul 31 2018 02:00:00 GMT+0200 (CEST)"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</pre>
+<pre><code class="language-html">&lt;time datetime="Fri Jul 31 2018 02:00:00 GMT+0200 (CEST)"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</code></pre>
 
 <p>... und eben jenes <code>Fri Jul 20 2018 02:00:00 GMT+0200 (CEST)</code> ist nicht valide. Der W3C-Validator verlinkt auch gleich auf die <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-time-element">Spec des time-Elements</a>, die verletzt wird. Dort sind viele Beispiele gültiger Datumsformate aufgelistet.</p>
 <p>Ich <a href="https://github.com/thomaspuppe/easto/commit/392dee5b7fb71b562085f7261e8cd8a79ca1a12c">ändere also das Datumsformat</a> und kürze gleich noch die unnütze Uhrzeit raus.</p>
-<pre>&lt;time datetime="2018-07-31"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</pre>
+<pre><code class="language-html">&lt;time datetime="2018-07-31"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</code></pre>
 
 <p>Und schwupps: <strong>No errors or warnings to show</strong>!</p>
 <p>Das war zu einfach. Deshalb schaue ich mir noch die einzelnen Blogposts an.</p>
@@ -737,9 +733,9 @@ I have designed and created tailor made websites, exclusively for individual peo
 <p>Durch die Erklärung, ich wolle ja mit der Durchstreichung etwas ausdrücken, ist mir eines aufgefallen: wenn man den <em>entfernten</em> Text semantisch kennzeichnet, was ist dann mit dem <em>hinzugefügten</em> Text? Der besagte Artikel zu Präsentationselementen hat die Antwort: das <code>ins</code> Tag!</p>
 <p>Der default-Stil des <code>ins</code> Tags ist übrigens eine einfache Unterstreichung &mdash; genau wie es auch Links in meinem Blog sind. Da ich meine Links nicht einfärbe und in der Textfarbe unterstreiche, sehen nun die eingefügten Texte aus wie Links. (Nebenbei: das wäre schon ein Grund, nicht an Link-Stilen herumzufummeln: weil man dann genau solche Probleme erzeugt.) Da ich meine Link-Stile aber nicht ändern möchte, style ich also die <code>ins</code> Tags um. Der erste Ansatz war, <code>text-decoration: none</code> zu setzen und dann mit einem <code>border-bottom</code> in der <code>currentColor</code> zu arbeiten. Was aber viel besser ist: es gibt das CSS-Property <code>text-decoration-style</code>, mit dem man eben diese Unterstreichung ändern kann, zum Beispiel auf <code>dotted</code>, <code>dashed</code> oder <code>wavy</code>.</p>
 <p>Bonuswissen: man kann ebenso die <code>text-decoration-color</code> und die <code>text-decoration-line</code> ändern. Damit kann man einen Text z.B. wellig rot über- unter- und durchstreichen &mdash; sogar gleichzeitig.</p>
-<pre>text-decoration-style: wavy;
+<pre><code class="language-css">text-decoration-style: wavy;
 text-decoration-line: overline underline line-through;
-text-decoration-color: red;</pre>
+text-decoration-color: red;</code></pre>
 
 <p>Das aber nur am Rande. Im Blog-CSS habe ich mich für eine wellige Unterstreichung in etwas hellerem Ton entschieden:</p>
 <p>Hier die Demo mit <del>Text im del-Tag</del> und <ins>Text im ins-Tag</ins>.</p>
@@ -821,7 +817,7 @@ Your brand is what people think of you.</p>
 <p>2016 konnte beispielsweise ein Recherche-Team des NDR von einem Databroker einen Datensatz mit angeblich anonymisierten Browserverläufen erwerben. Darin fanden sich hochsensible Informationen unter anderem über einen Polizisten, einen Richter und Bundestagsmitarbeiterinnen.</p>
 </blockquote>
 <p>Sven Wolfermann mit einer schönen umfassenden <a href="http://maddesigns.de/wpo2018/">Website-Performance-Präsentation</a>. Mein Highlight ist die Folie zu <a href="http://maddesigns.de/wpo2018/#/61">serve breakpoint specific JS</a>:</p>
-<pre>&lt;link rel="preload" as="script" href="map.js" media="(min-width: 601px)"&gt;</pre>
+<pre><code class="language-html">&lt;link rel="preload" as="script" href="map.js" media="(min-width: 601px)"&gt;</code></pre>
 
 <p><a href="https://generativeartistry.com/">Generative Artistry</a>: coole interaktive(!) Tutorials von Tim Holman.</p>
 <p><a href="https://onym.co/">onym.co</a> bietet massenhaft Theorie, Inspiration, und Quellen für <em>Naming Things</em>. gefunden von unserem Designer <a href="https://twitter.com/nandorocker">Nando</a>.</p>
@@ -871,7 +867,7 @@ Your brand is what people think of you.</p>
 markdown /</pre>
 
 <p>Now start your server with <code>caddy -conf ../path/to/Caddyfile</code> and visit pages <code>http://localhost:8000/one.md</code>. You will see that pages written in markdown (which you have to create, of course) ...</p>
-<pre># one.md:
+<pre><code class="language-markdown"># one.md:
 ---
 title: My First Post
 ---
@@ -880,10 +876,10 @@ What The Fuck. Cool!
 
 ## This is h2
 
-Lorem Ipsum youknow.</pre>
+Lorem Ipsum youknow.</code></pre>
 
 <p>... are rendered as HTML:</p>
-<pre># http://localhost:8000/one.md
+<pre><code class="language-html"># http://localhost:8000/one.md
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
@@ -895,7 +891,7 @@ Lorem Ipsum youknow.</pre>
 		&lt;h2&gt;This is h2&lt;/h2&gt;
 		&lt;p&gt;Lorem Ipsum youknow.&lt;/p&gt;
 	&lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
 
 <p>Ta dah! A website with title-tag and content.</p>
 <h2 id="add-css-and-js">Add CSS and JS</h2>
@@ -906,7 +902,7 @@ markdown / {
 }</pre>
 
 <p>which results into the line</p>
-<pre>&lt;link rel="stylesheet" href="/styles.css"&gt;</pre>
+<pre><code class="language-html">&lt;link rel="stylesheet" href="/styles.css"&gt;</code></pre>
 
 <p>in the head of your rendered HTML file. This also works for JavaScript (<code>js /script.js</code>), which is also inserted into the head of your HTML file.</p>
 <h2 id="templating">Templating</h2>
@@ -919,7 +915,7 @@ markdown / {
 <p>Note: the template path is not relative to the caddyfile, but relative to the folder where you run your <code>caddy -conf path/to/Caddyfile</code> command.</p>
 <p>Note 2: You need to restart the caddy server after changing the caddyfile.</p>
 <p>And: we do not need to specify the CSS and JS here, because we can do it directly inside out HTML template file:</p>
-<pre>&lt;!DOCTYPE html&gt;
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;{{.Doc.title}}&lt;/title&gt;
@@ -934,10 +930,10 @@ markdown / {
         &lt;/article&gt;
         &lt;script async defer src="/script.js"&gt;&lt;/script&gt;
     &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
 
 <p>which renders this:</p>
-<pre>&lt;!DOCTYPE html&gt;
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
 		&lt;title&gt;My First Post&lt;/title&gt;
@@ -954,21 +950,21 @@ markdown / {
 		&lt;/article&gt;
 		&lt;script async defer src="/script.js"&gt;&lt;/script&gt;
 	&lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
 
 
 <h2 id="template-variables">Template variables</h2>
 <p>You can see that the variable <code>{{.Doc.title}}</code> holds the content of the line <code>title: My First Post</code> in your markdown file. That kind of declaration in markdown (an other) files is called &quot;frontmatter&quot; and can be written in YAML or JSON format.</p>
 <p>Even better: it can hold different contents ...</p>
-<pre>---
+<pre><code class="language-yaml">---
 title: My First Post
 author: Thomas Puppe
 author_url: https://www.thomaspuppe.de
 date: April 10th 2018
----</pre>
+---</code></pre>
 
 <p>... which then can be used inside your template file:</p>
-<pre>&lt;a href="{{.Doc.author_url}}"&gt;{{.Doc.author}}&lt;/a&gt; on {{.Doc.date}}&lt;/footer&gt;</pre>
+<pre><code class="language-html">&lt;a href="{{.Doc.author_url}}"&gt;{{.Doc.author}}&lt;/a&gt; on {{.Doc.date}}&lt;/footer&gt;</code></pre>
 
 <p>Caddy even offers some own template variables like <code>{{.Cookie &quot;cookiename&quot;}}</code> or <code>{{.RandomString 100 10000}}</code>, sanitizing functions and control statements. A <a href="https://caddyserver.com/docs/template-actions">complete list of template actions</a> can be found in the Caddy docs.</p>
 <p>This is pretty cool and you can get very far with that.</p>
@@ -998,13 +994,13 @@ markdown / {
 <p>(This is written in the <a href="https://caddyserver.com/docs/template-actions">template action docs</a>, but did not work for me. Maybe because of a strange combination of relative paths?)</p>
 <h2 id="file-listings">File listings</h2>
 <p>On index pages, it would be handy to hava an automatic listing of subpages: the home page of a blog, the members page of your sports club. Caddy can even do that:</p>
-<pre>&lt;ul&gt;
+<pre><code class="language-html">&lt;ul&gt;
 	{{.Files "sub/folder"}}
 		&lt;li&gt;
 			&lt;a href="{{$.StripExt .Name}}"&gt;{{$.StripExt .Name}}&lt;/a&gt;
 		&lt;/li&gt;
 	{{end}}
-&lt;/ul&gt;</pre>
+&lt;/ul&gt;</code></pre>
 
 <p>You &quot;just&quot; have to filter files like &quot;.DS_Store&quot;, asset folders, the index file itself and so on. But, for your convenience, Caddy at least provides <a href="https://caddyserver.com/docs/template-actions">control statements</a> like <code>{{if not .IsDir }}</code> and you can strip away extensions (<code>{{$.StripExt .Name}}</code>).</p>
 <p>According to the docs, you can even list a subset of &quot;tagged&quot; files by, but I have not explored that.</p>
@@ -1031,13 +1027,13 @@ markdown / {
             <description><![CDATA[this-month-I-learned und Lesetipps für April 2018]]></description>
             <content:encoded><![CDATA[<h2 id="magical-auto-jump-statt-cd">Magical Auto-Jump statt CD</h2>
 <p>Autojump ist ein schönes kleines Tool für die Kommandozeile. Es merkt sich häufig benutzte Verzeichnisse, und weiß dann wo ich hinwill wenn ich irgendwo <code>j a11</code> eingebe.</p>
-<pre>brew install autojump
+<pre><code class="language-bash">brew install autojump
 
 puppe:~ $ j blog
 /Users/puppe/code/private/blog/blog.thomaspuppe.de
 
 puppe:~ $ j a11
-/Users/puppe/code/zon/a11y-dashboard</pre>
+/Users/puppe/code/zon/a11y-dashboard</code></pre>
 
 
 <h2 id="a11y-zwei-tools-um-einschränkungen-zu-simulieren">A11y: Zwei Tools um Einschränkungen zu simulieren</h2>
@@ -1057,10 +1053,10 @@ puppe:~ $ j a11
 <li>Plugins anzulegen ist sehr einfach. Folder und Datei erstellen, im Admin aktivieren, fertig.</li>
 <li>Mit einem simplen Vierzeiler kann man Inhalte in die Seite injizieren, zum Beispiel im Head:</li>
 </ul>
-<pre>add_action( 'wp_head', 'my_meta_tags' );
+<pre><code class="language-php">add_action( 'wp_head', 'my_meta_tags' );
 function my_meta_tags() {
   echo '&lt;meta name="generator" content="Thomas" /&gt;';
-}</pre>
+}</code></pre>
 
 <ul>
 <li>Selbst Admin-Funktionen, wie eine Setting-Page für das Plugin, werden auf diese Art gebaut.</li>
@@ -1096,7 +1092,7 @@ day to make deceptive user experiences. You are better than that.</p>
 <p>Mit der Browser-Extension &quot;<a href="https://chrome.google.com/webstore/detail/spof-o-matic/plikhggfbplemddobondkeogomgoodeg">SPOF-o-Matic</a>&quot; lässt sich das auch machen.</p>
 <p>Mit beiden Tricks hatte ich mal <a href="https://blog.thomaspuppe.de/spof-auf-news-websites">deutsche News-Websites auf Single-Points-of-Failures getestet</a>.</p>
 <h2 id="paste-clipboard-into-file-on-macos">Paste Clipboard into file on MacOS</h2>
-<pre>pbpaste > file.js</pre>
+<pre><code class="language-bash">pbpaste > file.js</code></pre>
 
 
 <h2 id="webfont-preloading">Webfont Preloading</h2>
@@ -1166,39 +1162,39 @@ day to make deceptive user experiences. You are better than that.</p>
             <content:encoded><![CDATA[<p>Ich versuche mich mal am beliebten &quot;this month I learned&quot; Format. Weil ich in den letzten Monaten aber immer gesammelt und nie gepublished habe, versuche ich es so: zu Monatsbeginn schreibe ich einen Anfang, und dann ergänze ich im Laufe des Monats. Das gibt auch Raum für kleine Sachen, die es nie zu eigenen Blogposts schaffen. Mal schauen wie das wird.</p>
 <h2 id="default-parameters-in-javascript--nicht-im-ie-11">Default Parameters in Javascript ... nicht im IE 11</h2>
 <p>Fangen wir gleich mal an mit dem Fail der Woche. Einmal ZEIT Online Production kaputtmachen für alte Browser. Wie? Durch den Gebrauch von default Parametern in JavaScript:</p>
-<pre>function(myParam, optionalParam = true) { ... }</pre>
+<pre><code class="language-javascript">function(myParam, optionalParam = true) { ... }</code></pre>
 
 <p>Das ist ein Feature aus ES2015 funktioniert deshalb leider nicht für den Internet Explorer 11 abwärts. Also, wenn man nicht babelt, muss man das wieder einkassieren und in der Funktion selbst den Default-Wert definieren:</p>
-<pre>function(myParam, optionalParam) {
+<pre><code class="language-javascript">function(myParam, optionalParam) {
 	optionalParam = (typeof optionalParam !== 'undefined') ?  optionalParam : true;
-}</pre>
+}</code></pre>
 
 
 <h2 id="documentcurrentscript">document.currentScript</h2>
 <p>Das zweite JS Learning des Tages: man kann im JS Code dasjenige <code>script</code>-DOM-Element selektieren, in dem der Code läuft. Einfach via <code>document.currentScript</code>.</p>
 <p><a href="http://2ality.com/2014/05/current-script.html">Detaillierter Artikel zu currentScript von Dr. Axel Rauschmayer</a> mit veralteten Angaben zur Browser-Unterstützung. Caniuse bestätigt eine gute Unterstützung: [<a href="https://www.caniuse.com/#search=currentScript%5D">https://www.caniuse.com/#search=currentScript]</a>(Browser-Unterstützung von <code>document.currentScript</code> bei caniuse.com).</p>
 <p>Allerdings wieder ohne den IE11. Und weil wir da ja keinen Bug haben wollen (siehe oben), gibt es einen schönen Polyfill:</p>
-<pre>var currentScript = document.currentScript || (function() {
+<pre><code class="language-javascript">var currentScript = document.currentScript || (function() {
 	var scripts = document.getElementsByTagName('script');
 	return scripts[scripts.length - 1];
-})();</pre>
+})();</code></pre>
 
 <p>Wozu braucht man das? Um z.B. ein Script-Tag wegzuräumen, nachdem es seine Arbeit getan hat.</p>
-<pre>&lt;script&gt;
+<pre><code class="language-html">&lt;script&gt;
 	var currentScript = document.currentScript;
 	var parent = currentScript.parentNode;
 	var newDiv = document.createElement('div');
 	newDiv.setAttribute('class', 'wurstbrot');
 	parent.replaceChild(newDiv, currentScript);
-&lt;/script&gt;</pre>
+&lt;/script&gt;</code></pre>
 
 <p>Im Übrigen, unintuitiverweise:</p>
-<pre>// String.replace Parameter Reihenfolge: search, replace
+<pre><code class="language-javascript">// String.replace Parameter Reihenfolge: search, replace
 str.replace(regexp|substr, newSubStr|function);
 
 // Node.replaceChild Parameter Reihenfolge: replace, search
 parentNode.replaceChild(newChild, oldChild);
-</pre>
+</code></pre>
 
 <p>Ich dachte das sei eine Spezialität von PHP.</p>
 <h2 id="newsletter">Newsletter</h2>
@@ -1210,9 +1206,9 @@ parentNode.replaceChild(newChild, oldChild);
 <p>Also haben wir ein kleines CSript geschrieben, das pa11y-tests parallel laufen lässt und die Ergebnisse an eine Graphite Instanz sendet.  Ergebnis ist ein kleines Repo: <a href="https://github.com/ZeitOnline/a11y-dashboard-connector">a11y-dashboard-connector</a>: Es ist ein zaghafter Anfang, und noch hardcoded für unsere Zwecke, aber immerhin.</p>
 <h2 id="css-keylogger-und-andere-schweinereien">CSS Keylogger und andere Schweinereien</h2>
 <p><strong>Keylogging via CSS</strong>: vor einigen Tagen ging ein GitHub Repo um, das zeigte, wie man CSS als Keylogger missbrauchen kann: <a href="https://github.com/maxchehab/CSS-Keylogging">CSS Keylogger</a>.</p>
-<pre>input[type="password"][value$="p"] {
+<pre><code class="language-css">input[type="password"][value$="p"] {
   background: url('/password?p');
-}</pre>
+}</code></pre>
 
 <p>In seinem Blogpost <a href="https://jakearchibald.com/2018/third-party-css-is-not-safe/">Third party CSS is not safe</a> erfindet Jake Archibald weitere Möglichkeiten, wie 3rd Party CSS eine Seite manipulieren kann. Sehr spannend, aber nur nebenbei im Artikel erwähnt: wenn ein Angreifer die Cache Storage vollschreibt, kann er Clients dauerhaft kompromittieren, auch wenn das schadhafte Script längst von der Seite entfernt wurde. Fazit:</p>
 <blockquote>
@@ -1314,11 +1310,11 @@ parentNode.replaceChild(newChild, oldChild);
             <description><![CDATA[Der Einsatz von Media Queries und Browser APIs beschränkt sich häufig auf min-width und navigator.userAgent. Aber in modernen Browsern gibt es cooles Zeug.]]></description>
             <content:encoded><![CDATA[<p>In der Regel denkt man bei Media Queries an nicht viel mehr als <code>min-width</code> oder <code>device-pixel-ratio</code> und bei Browser APIs an <code>navigator.userAgent</code>. Moderne Browser können natürlich viel mehr.</p>
 <p>Kürzlich sah ich in einer interessanten <a href="https://speakerdeck.com/grigs/why-you-should-build-a-progressive-web-app-now-1">Präsentation über Progressive Web Apps</a> dies:</p>
-<pre>@media (display-mode: standalone), (display-mode: fullscreen) {
+<pre><code class="language-css">@media (display-mode: standalone), (display-mode: fullscreen) {
 	.backButton {
 		display: block;
 	}
-}</pre>
+}</code></pre>
 
 <p>Mit dieser Media Query stellt man fest, ob die Website (bzw Web App) das Browser-GUI (und damit den Back-Button des Browsers ) zur Verfügung hat, oder nicht. Und kann dann einen eigenen Button einblenden.</p>
 <p>Das war für mich ein Anlass, mal zu schauen, welche Media/Feature Queries und Browser APIs heutzutage zur Verfügung stehen.</p>
@@ -1340,9 +1336,9 @@ parentNode.replaceChild(newChild, oldChild);
 </blockquote>
 <h2 id="navigatorgeolocation">navigator.geolocation</h2>
 <p>Selbsterklärend. Neben der aktuellen Position kann man auch Positions (oder Genauigkeits-) Änderungen als Event-Handler empfangen. Was macht man mit der Position des Users? Man füttert sie in eine Routenplanung, oder nutzt sie, um Ort und Land des Besuchers herauszufinden.</p>
-<pre>navigator.geolocation.getCurrentPosition(function(position) {
+<pre><code class="language-javascript">navigator.geolocation.getCurrentPosition(function(position) {
   console.log(position.coords.latitude, position.coords.longitude);
-});</pre>
+});</code></pre>
 
 <blockquote>
 <p>In diesem Browser: <span id="geolocationInfo"><button id="geolocationInfoTrigger">Testen</button></span></p>
@@ -1368,13 +1364,13 @@ document.getElementById('geolocationInfoTrigger').addEventListener('click', func
 <p>In diesem Browser: <script>document.write(navigator.onLine || '<em>undefined</em>')</script></p>
 </blockquote>
 <p>Selbsterklärend. Die Änderung des online-Status lässt sich über ein Event abfangen:</p>
-<pre>window.addEventListener('online', function(e) {
+<pre><code class="language-javascript">window.addEventListener('online', function(e) {
     console.log("You are online");
 }, false);
 
 window.addEventListener('offline', function(e) {
     console.log("You are offline");
-}, false);</pre>
+}, false);</code></pre>
 
 
 <h2 id="navigatorconnection">navigator.connection</h2>
@@ -1413,20 +1409,20 @@ if (navigator.getBattery) {
 </script>
 
 <p>Gute Menschen setzen das ein, um bei Telefonen mit schwachem Akku auf aufwändige Animationen und allen überflüssigen Quatsch zu verzichten, der die CPU belastet.</p>
-<pre>navigator.getBattery().then(function(battery) {
+<pre><code class="language-javascript">navigator.getBattery().then(function(battery) {
    console.log(battery.level*100 + '%');
    console.log(battery.chargingTime);
    console.log(battery.dischargingTime);
-});</pre>
+});</code></pre>
 
 <p>Für die Änderung der Werte kann man auch wieder Event Handler registrieren, damit die Website/App informiert wird.</p>
 <p>Eine schöne Einführung findet man bei <a href="https://developer.mozilla.org/en-US/docs/Web/API/BatteryManager">MDN</a>. Das Feature wird <a href="http://caniuse.com/#search=battery">unterstützt</a> im Firefox (nur in &quot;privilegiertem Code&quot; -- diesen Term recherchiere ich jetzt nicht), Chrome und Opera.</p>
 <h2 id="navigatorshare">navigator.share()</h2>
 <p>Mit dieser Funktion kann man per JS die Sharing-Funktion auslösen, die sonst aus dem Menü des Browsers getriggert wird. Der Vorteil gegenüber individuellen Sharing-Buttons: die Leute bekommen genau die Dienste angeboten, die sie zur Verfügung haben -- und nicht die der Seitenbetreiber für wichtig hielt.</p>
-<pre>navigator.share({
+<pre><code class="language-javascript">navigator.share({
     title: document.title,
     url: window.location.href
-})</pre>
+})</code></pre>
 
 <p>Alle Parameter müssen Strings sein. Ob diese aus JavaScript kommen oder hardcoded sind, ist egal. Test oder URL können weggelasssen werden, eines von beiden muss vorhanden sein.</p>
 <p>Zurückgegeben wird eine Promise. Man kann den User also fürs Sharen belohnen oder Abbruchraten tracken.</p>
@@ -1449,7 +1445,7 @@ function sharePage() {
 </blockquote>
 <h2 id="navigatorsendbeacon">navigator.sendBeacon</h2>
 <p>Kann genutzt werden, um kleine Datenmengen asynchron an einen Server zu senden. Das Verfahren ist für Event Tracking und Monitoring gedacht. Vor allem das Rumeiern mit Requests bei window.unload soll erleichtert werden.</p>
-<pre>navigator.sendBeacon("/log", data);</pre>
+<pre><code class="language-javascript">navigator.sendBeacon("/log", data);</code></pre>
 
 <p>Das <code>data</code> können Form Objekte, Arrays oder normale JS Objekte sein.</p>
 <p>Der Browser-Support ist <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon#Browser_compatibility">durchwachsen</a> und das Verfahren ist als experimentell eingestuft. Auf GitHub liegt eine <a href="https://googlechrome.github.io/samples/beacon/">clevere kleine Testseite</a> bereit.</p>
@@ -1465,12 +1461,12 @@ function sharePage() {
 <p>Doch Media Queries können viel mehr:</p>
 <h2 id="device-aspect-ratio">(device-)aspect-ratio</h2>
 <p>... ist das Seitenverhältnis des geräts (bzw Viewports). Damit kann man im simpelsten Fall quer- von Hochformat unterscheiden, oder beispielsweise Panorama-Bildschirmen spezielel Stile oder Inhalte ausliefern.</p>
-<pre>@media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) { ... }</pre>
+<pre><code class="language-css">@media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) { ... }</code></pre>
 
 
 <h2 id="orientation">orientation</h2>
 <p>Eine noch simplere Variante der aspect-ratio. Nimmt die Werte <code>landscape</code> oder <code>portrait</code> an.</p>
-<pre>@media all and (orientation: portrait) { ... }</pre>
+<pre><code class="language-css">@media all and (orientation: portrait) { ... }</code></pre>
 
 <style type="text/css" scoped>
 .orientationContainer > strong { display: none; }
@@ -1501,12 +1497,12 @@ function sharePage() {
 <p>Erst diese Woche in einem <a href="https://github.com/codecandies/grid-talk">Vortrag meines Kollegen Nico Brünjes</a> gesehen. Außerhalb leider selten. Mit dieser Feature Query prüft man, ob der Browser bestimmte CSS-Eigenschaften unterstützt. Zum Beispiel <code>@supports(blink)</code> oder <code>@supports (display: grid)</code>.</p>
 <p>In den meisten Fällen lässt sich die Abfrage bzw. das progressive Enhancement direkt in die CSS-Regeln einbauen. Zum Beispiel bei Schriftgrößen via <code>font-size:16px; font-size: 1rem;</code> für den IE8. Der ignoriert die zweite Angabe, mit der er nicht klarkommt, und nutzt die erste. Moderne Browser überschreiben die erste mit der zweiten.</p>
 <p>Die Query <code>@supports</code> sorgt aber für Klarheit, wenn man größere Blöcke umstylen will, sobald eine Technik verfügbar ist. Oder aber, um eine ganz andere CSS-Datei zu laden.</p>
-<pre>&lt;link rel="stylesheet" media="all" href="basic.css" /&gt;
-&lt;link rel="stylesheet" media="screen and (min-width: 5in) and (display: flex)" href="shiny.css" /&gt;</pre>
+<pre><code class="language-html">&lt;link rel="stylesheet" media="all" href="basic.css" /&gt;
+&lt;link rel="stylesheet" media="screen and (min-width: 5in) and (display: flex)" href="shiny.css" /&gt;</code></pre>
 
 <p>Der IE bis inklusive Version 11 unterstützt <code>@supports</code> nicht.</p>
 <p>Der Support von Features lässt sich übrigens auch via JavaScript über die CSS-API des Browsers abfragen:</p>
-<pre>var canuiseCSSGrid = CSS.supports("(display: grid)");</pre>
+<pre><code class="language-javascript">var canuiseCSSGrid = CSS.supports("(display: grid)");</code></pre>
 
 
 <h2 id="exotische-queries">Exotische Queries</h2>
@@ -1525,9 +1521,9 @@ function sharePage() {
 <li>Geräte-Geschwindigkeit oder RAM. Ich möchte wissen, ob das Gerät schwach ist. Die CPU-Zahl via <code>navigator.hardwareConcurrency</code> hilft schon.</li>
 <li>Queries an Script-Tags:</li>
 </ul>
-<pre>&lt;script media="screen and not (doNotTrack)" src="https://google.com/analytics.js" defer integrity="abc"&gt;
+<pre><code class="language-html">&lt;script media="screen and not (doNotTrack)" src="https://google.com/analytics.js" defer integrity="abc"&gt;
 &lt;script media="screen and (bandwidth:high)" src="/immersiveEffects.js" defer integrity="xyz"&gt;
-</script></pre>
+</script></code></pre>
 
 ]]></content:encoded>
         </item>
@@ -1832,7 +1828,7 @@ function sharePage() {
 <h1 id="eigentlich-ist-es-viel-einfacher">Eigentlich ist es viel einfacher!</h1>
 <p>Es stellt sich heraus, dass <em>im Prinzip</em> ein Curl-Aufruf ausreicht. Alle genannten Dienste antworten mit einem HTTP Status 301 und dem Location-Header. <strong>Das Internet ist also doch noch nicht so kaputt wie ich dachte.</strong></p>
 <p>In Bash ist das ganz simpel: <code>curl -I http://fb.me/16MEzokwA</code>. Fertig. Wegen der Anbindung an meine Datenbank habe ich die Arbeit mit PHP erledigt, was auch mit Bordmitteln und ein paar Codezeilen funktioniert:</p>
-<pre>function get_resp_from_url($url)
+<pre><code class="language-php">function get_resp_from_url($url)
 {
     $curlConnection = curl_init();
     curl_setopt($curlConnection, CURLOPT_URL, $url);
@@ -1850,14 +1846,14 @@ function sharePage() {
             'location' => $responseInfo['redirect_url']
             );
     }
-}</pre>
+}</code></pre>
 
 <p>Einzig Facebook konnte damit nicht abgegrast werden. <code>fb.me</code>-Adressen liefern mir zuverlässig Status 301 bei Abfrage per Bash, und Status 200 mit Facebook-HTML im Body bei der Abfrage per PHP.</p>
 <p>Weder Google noch die curl-Referenz für PHP konnten helfen, also musste Python herhalten. Nach dem üblichen erfolglosen Herumirren auf mehreren Wegen (<code>httplib</code> und <code>urllib2</code>) funktioniert es dann auf diese Art:</p>
-<pre>import requests
+<pre><code class="language-python">import requests
 r = requests.get(url, allow_redirects=False)
 if r.status_code == 301:
-	return r.headers.get('Location')</pre>
+	return r.headers.get('Location')</code></pre>
 
 <p>Schöne Erkenntnis am Rande: selbst bei hunderten oder tausenden Abfragen im unter-Sekunden-Takt hat keiner der Dienste mit Rate Limiting oder anderer Abweisung reagiert.</p>
 ]]></content:encoded>
@@ -2036,7 +2032,7 @@ span.gitadd { background: #ecffec; }
             <content:encoded><![CDATA[<p>Kürzlich habe ich mit dem Python-Framework <a href="https://scrapy.org/">Scrapy</a> herumgespielt. Erstens wollte ich ausprobieren, wie gut es sich bedienen lässt. Zweitens war ich neugierig, wie die Aufmacher von News-Websies vor und bei der US-Präsidentschaftswahl bestückt werden. Beides lässt sich praktischerweise gut kombinieren :-)</p>
 <h1 id="das-vorgehen">Das Vorgehen</h1>
 <p>Zunächst habe ich die Homepages der News-Seiten mehrere Tage lang im 5-Minuten-Takt heruntergeladen.</p>
-<pre>#!/bin/bash
+<pre><code class="language-bash">#!/bin/bash
 currenttime=`date '+%Y-%m-%d_%H-%M-%S'`;
 foldername="/var/www/newscurl/$currenttime";
 mkdir $foldername;
@@ -2045,10 +2041,10 @@ cd $foldername;
 curl -o spiegel.html http://www.spiegel.de/
 curl -o zeit.html http://www.zeit.de/index
 curl -o lr-online.html http://www.lr-online.de/
-</pre>
+</code></pre>
 
 <p>Damit ist das HTML der Seite gesichert, und kann später immer wieder analysiert werden. Was mit Scrapy auch recht einfach gelingt:</p>
-<pre>import os
+<pre><code class="language-python">import os
 import scrapy
 
 class LocalSpider(scrapy.Spider):
@@ -2071,7 +2067,7 @@ class LocalSpider(scrapy.Spider):
             if link_url.endswith('zeit.html'):
                 yield scrapy.Request(response.urljoin(link_url), callback=self.parse_single_page)
 	        else:
-	            yield scrapy.Request(response.urljoin(link_url), callback=self.parse)</pre>
+	            yield scrapy.Request(response.urljoin(link_url), callback=self.parse)</code></pre>
 
 <p>Mit <code>scrapy runspider localspider.py -o result.json --logfile=localspider.log</code> erhalte ich so ein <a href="http://lab.thomaspuppe.de/us-wahl-news-aufmacher/result.json">JSON-File mit allen Ergebnissen</a> und ein umfangreiches Logfile des Scraping-Vorgangs.</p>
 <p>Zum Schluss robbe ich mittels PHP über das JSON-File und gebe die Inhalte als HTML-Tabelle aus. Das Ergebnis (weder für Mobilgeräte optimiert, noch für sonstwas) schaut so aus: <a href="http://lab.thomaspuppe.de/us-wahl-news-aufmacher/">http://lab.thomaspuppe.de/us-wahl-news-aufmacher/</a></p>
@@ -2424,8 +2420,8 @@ Size    Used    Avail    Use%
 </pre>
 
 <p>Es zeigt sich, dass Bundestwitter nicht der Verursacher ist. Aber mit dem genannten Befehl kann ich nun die Ordner des Root-Verzeichnisses auflisten ...</p>
-<pre>sudo su #(um sich eine Menge "Permission denied" Meldungen zu sparen)
-for i in /*; do echo $i; find $i | wc -l | sort ; done</pre>
+<pre><code class="language-bash">sudo su #(um sich eine Menge "Permission denied" Meldungen zu sparen)
+for i in /*; do echo $i; find $i | wc -l | sort ; done</code></pre>
 
 <p>... zeigt, dass die allermeisten Inodes in <code>/var</code> verbraucht werden. (Warum in <code>proc</code> so viel los ist, wird Gegenstand einer anderen Untersuchung sein.)</p>
 <pre>
@@ -2450,21 +2446,21 @@ for i in /*; do echo $i; find $i | wc -l | sort ; done</pre>
 <p>Das sind also felgeschlagene Versuche des Systems, E-Mails zu versenden. Stichproben (<code>cat /var/spool/postfix/maildrop/D7E6A90D4CA9</code>) ergeben, dass meine Cronjobs versuchen, Mails zu versenden.</p>
 <h3 id="ich-habe-also-meinen-übeltäter-nun-geht-es-ans-aufräumen">Ich habe also meinen Übeltäter. Nun geht es ans Aufräumen.</h3>
 <p>Die erste Maßnahme, für den Seelenfrieden, ist natürlich</p>
-<pre>sudo rm -rf /var/spool/postfix/maildrop/*
-bash: /bin/rm: Argument list too long</pre>
+<pre><code class="language-bash">sudo rm -rf /var/spool/postfix/maildrop/*
+bash: /bin/rm: Argument list too long</code></pre>
 
 <p>Eine schnelle Suche führt mich auf`<a href="http://www.sysadminslife.com/linux/bash-binrm-die-argumentliste-ist-zu-lang/">sysadminslife.com</a>, wo folgender Befehl vorgeschlagen wird:</p>
-<pre>find -type f -print0 | xargs -0 rm</pre>
+<pre><code class="language-bash">find -type f -print0 | xargs -0 rm</code></pre>
 
 <p>An der Stelle möchte ich Explainshell erwähnen. Eine Website, die Shell-Befehle aufdröselt und die einzelnen Bestandteile erklärt. <a href="http://explainshell.com/explain?cmd=find+-type+f+-print0+%7C+xargs+-0+rm">http://explainshell.com/explain?cmd=find+-type+f+-print0+%7C+xargs+-0+rm</a></p>
 <p>Ta dah:</p>
-<pre>$ ls /var/spool/postfix/maildrop | wc -l
+<pre><code class="language-bash">$ ls /var/spool/postfix/maildrop | wc -l
 14
 
 $ df -i
 Inodes      IUsed     IFree    IUse%
 1000000    143491    856509      15%
-</pre>
+</code></pre>
 
 
 <p>Es bleibt die Frage: Wie vermeide ich, dass die Ausführung der Cronjobs Mails erzeugt (die dann in der Spool Queue landen)?</p>
@@ -2763,19 +2759,19 @@ Projects are a journey, be fluid.
 </ol>
 <h2 id="lösung-mittels-gulp">Lösung mittels Gulp</h2>
 <p>Grundlage bei der Arbeit mit CSS und JS sind natürlich die klassischen Werkzeuge wie less, minify-css, slint, uglify und concat. Die sind in jedem Gulp-Tutorial enthalten und sollen hier nicht behandelt werden. Spannend für meine Zwecke sind zwei weitere Tasks:</p>
-<pre>var replace = require('gulp-replace-task'),
-    cleanhtml = require('gulp-cleanhtml');</pre>
+<pre><code class="language-javascript">var replace = require('gulp-replace-task'),
+    cleanhtml = require('gulp-cleanhtml');</code></pre>
 
 <p>Deren Benutzung ist simpel und komfortabel: Im HTML setzt man Platzhalter:</p>
-<pre>...
+<pre><code class="language-html">...
 &lt;style type="text/css"&gt;@@cssStyles&lt;/style&gt;
 ...&lt;/head&gt;
 &lt;body&gt;...
 &lt;script type="text/javascript">@@jsScript&lt;/script&gt;
-&lt;/body&gt;</pre>
+&lt;/body&gt;</code></pre>
 
 <p>Und lässt diese im Gulp Task durch den Inhalt der Dateien ersetzen:</p>
-<pre>gulp.task('replace', function () {
+<pre><code class="language-javascript">gulp.task('replace', function () {
     return gulp.src('./index.html')
         .pipe(replace({
             patterns: [
@@ -2795,7 +2791,7 @@ Projects are a journey, be fluid.
         }))
         .pipe(cleanhtml())
         .pipe(gulp.dest('./web'));
-});</pre>
+});</code></pre>
 
 <p>Ich habe auch mit &quot;gulp-inline-source&quot; experimentiert, aber der hat den JavaScript Code zerstört. Replace macht dasselbe und kann außerdem banutzt werden um andere Platzhalter zu erstezen - z.B. den aktuellen Timestamp, eine Release-Nummer, Dateigrößen, Subtemplates, MD5-Hashes von Downloads oder was auch immer.</p>
 <p>Die Datei aus &quot;src&quot; wird gelesen und die Vorkommen des Suchpatterns ersetzt. Danach entfernt &quot;cleanhtml&quot; alle Whitespaces und &quot;dest&quot; schreibt die Datei in ihren Zielordner (das VErzeichnis was dann deployed wird). So einfach geht es.</p>
@@ -2829,7 +2825,7 @@ Projects are a journey, be fluid.
 <p>Für das Sammeln reicht die kleinste EC2 Instanz von AWS (t2.micro), die kostenlos ist. Der kostenlose Festplattenspeicher kann bis zu 30 GB reichen, je größer desto besser wird auch die IO Performance sein. Zugriff braucht man nur per SSH, daher lege ich kein eigenes VPC an.</p>
 <p>Mit meinem (oder einem neu generierten) Key melde ich mich via SSH auf der Instanz an.</p>
 <h2 id="schritt-2-twitter-collecor-installieren-und-anwerfen">Schritt 2: Twitter-Collecor installieren und anwerfen</h2>
-<pre>// Update
+<pre><code class="language-bash">// Update
 $ sudo apt-get update
 $ sudo apt-get upgrade
 
@@ -2840,11 +2836,11 @@ $ sudo pip install tweepy
 // Python-File erstellen
 $ mkdir tweets_mauerfall
 $ cd tweets_mauerfall/
-$ nano collect.py</pre>
+$ nano collect.py</code></pre>
 
 <p>Die genaue Code-Quelle finde ich gerade nicht mehr. Eine Suche nach &quot;tweepy save tweets to file&quot; brignt aber mehrere Quellen zutage. Mein Code hatte ursprünglich eine MongoDB als Datenspeicher, das habe ich gegen die einfache Datei ausgetauscht.</p>
 <p>Der Quellcode von collect.py:</p>
-<pre>import json
+<pre><code class="language-python">import json
 import tweepy
 
 consumer_key = ""
@@ -2880,16 +2876,16 @@ class CustomStreamListener(tweepy.StreamListener):
         return True # Don't kill the stream
 
 sapi = tweepy.streaming.Stream(auth, CustomStreamListener(api))
-sapi.filter(track=['mauerfall', 'fotw25', 'mauerspecht', 'berlinwall', 'fallofthewall25'])</pre>
+sapi.filter(track=['mauerfall', 'fotw25', 'mauerspecht', 'berlinwall', 'fallofthewall25'])</code></pre>
 
 <p>Und das Ganze muss dann nur noch gestartet werden:</p>
-<pre>// Stumm im Hintergrund ausführen lassen
+<pre><code class="language-bash">// Stumm im Hintergrund ausführen lassen
 $ nohup python collect.py > /dev/null &
 
 // anhand der ausgegebenen Prozessnummer (oder via top suchen) kann ich den Prozess später wieder killen.
 
 // Um die aktuelle Zahl der Tweets zu verfolgen, lasse ich mir (periodisch) die Anzahl der Zeilen in der json-Datei ausgeben:
-$ while true; do ( wc -l tweets.json ; sleep 5 ) done;</pre>
+$ while true; do ( wc -l tweets.json ; sleep 5 ) done;</code></pre>
 
 
 <p>Fertig. Ein Update zur Zuverlässigkeit und eine Auswertung der Tweets gibt es dann später hier im Blog.</p>
@@ -2909,7 +2905,7 @@ $ while true; do ( wc -l tweets.json ; sleep 5 ) done;</pre>
             <description><![CDATA[Meine Sammlung von Tweets zum #Mauerfall umfasst über 70.000 Tweets. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.]]></description>
             <content:encoded><![CDATA[<p>Meine <a href="https://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws">Sammlung von Tweets zum #Mauerfall</a> via Amazon AWS hat trotz Ausfall über 70.000 Tweets ergeben. Nun sollen diejenigen mit Fotos und Geo-Daten auf einer Karte angezeigt werden.</p>
 <p>In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aussortieren usw.</p>
-<pre>//Alle Tweets in einer großen Datei:
+<pre><code class="language-bash">//Alle Tweets in einer großen Datei:
 $ wc -l tweets.json
 // 71180 tweets.json
 
@@ -2921,10 +2917,10 @@ $ wc -l tweets_media.json
 // Filtern der Tweets, die Koordinaten enthalten
 $ grep -v "\"coordinates\":null" tweets_media.json > tweets_media_coordinates.json
 $ wc -l tweets_media_coordinates.json
-// 249 tweets_media_coordinates.json</pre>
+// 249 tweets_media_coordinates.json</code></pre>
 
 <p>Die Datei enthält nun (erstaunlich wenige) Tweets, die aber mit allen Daten. Da für die Visualisierung nicht alles benötigt wird, extrahiere ich nur die nötigen Daten. Dazu habe ich ein kleines Python-Script geschrieben. Die Code-Qualität sei mir verziehen, das waren jetzt meine ersten Zeilen Python überhaupt.</p>
-<pre>import json
+<pre><code class="language-python">import json
 
 readFile = open('tweets_media_coordinates.json')
 lines = readFile.readlines()
@@ -2957,12 +2953,12 @@ outputString = json.dumps(outputArray, separators=(',',':'), indent=2)
 
 writeFile = open('tweets_media_coordinates_short.json','w')
 writeFile.write('{"tweets":' + outputString + '}')
-writeFile.close()</pre>
+writeFile.close()</code></pre>
 
 <p>Das Ergebnis ist eine JSON Datei mit den Tweets, Foto-URLs und Koordinaten: <a href="http://lab.thomaspuppe.de/mauerfall-tweets/data/tweets_media_coordinates_short.json">http://www.thomaspuppe.de/lab/mauerfall-tweets/data/tweets_media_coordinates_short.json</a>.</p>
 <p>Diese Datei ist die Daten-Grundlage für die Visualisierung. Auch dafür habe ich fix was aus dem Netz gezogen: den <a href="https://github.com/moklick/generator-leaflet">Leaflet-Generator</a> von <a href="https://twitter.com/moklick">Moritz Klack</a>. Via npm lädt man das halbe Internet herunter, hat aber dafür eine out-of-the-box Map Anwendung. Die eigentlich benötigten Dateien sollte man sich dann fürs nächste mal zurechtlegen.</p>
 <p>In die gegebene Karte wmüssen nur noch ein paar Zeilen JavaScript eingefügt werden, und schon sind die Punkte auf einer schönen Karte hinterlegt.</p>
-<pre>var markerIcon = L.divIcon({className: 'my-div-icon'}), // stylen via CSS!
+<pre><code class="language-javascript">var markerIcon = L.divIcon({className: 'my-div-icon'}), // stylen via CSS!
 markerOptions = {
 	'clickable': true,
 	'keyboard': false,
@@ -2988,7 +2984,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	httpRequest.open('GET', 'data/tweets_media_coordinates_short.json')
 	httpRequest.send()
-});</pre>
+});</code></pre>
 
 <p>Zu beachten: die Koordinaten bei Twitter sind als Lon,Lat gespeichert, leaflet benötigt aber Lat,Lon. Daher die Rochade beim Anlegen der Marker.</p>
 <p>Und hier das Ergebnis:</p>
@@ -3014,7 +3010,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </figure>
 
 <p>Kürzlich bin ich auf einen Artikel von <a href="https://medium.com/@mwichary">Marcin Wichary</a> gestoßen, der dieses Problem löst: <a href="https://medium.com/p/7c03a9274f9">&ldquo;Crafting link underlines on Medium&rdquo;</a>. In dem sehr lesenswerten Artikel wird auf pro und contra von Link-Unterstreichung im Allgemeinen und verschiedenen Techniken im Speziellen eingegangen. Am Ende schaut die Lösung so aus:</p>
-<pre>a, a:link, a:visited {
+<pre><code class="language-css">a, a:link, a:visited {
     color: #333;
     text-decoration: none;
     position: relative;
@@ -3036,7 +3032,7 @@ a:hover, a:focus {
     a:hover, a:focus {
         background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #666 2px, #666 2.5px, rgba(0, 0, 0, 0) 2.5px);
     }
-}</pre>
+}</code></pre>
 
 <p><strong>Trick 1:</strong> Links bekommen ein Hintergrundbild, das keine Datei oder DataURI nutzt, sondern Gradients.</p>
 <p><strong>Trick 2:</strong> Ein Text-Shadow, unterbricht die Linie bei Buchstaben mit Unterlänge.</p>
@@ -6682,7 +6678,7 @@ a:hover, a:focus {
 <figure><img src="/images/2014/02/responsive_01_ohneviewport.png" alt="Abb. 1: Darstellung ohne Viewport"><figcaption>Abb. 1: Darstellung ohne Viewport</figcaption></figure>
 
 <p>Wenn nun aber eine Website mit einer Breite von wenigr als 980 Pixeln gut zurechtkommt (also responsive ist), dann muss das dem Browser mitgeteilt werden. Dafür dient der Viewport:</p>
-<pre>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</pre>
+<pre><code class="language-html">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
 
 <p>Dieser Meta-Tag im Head-Bereich der Website sagt dem Browser, dass die Seite nicht mit fiktiven 980 Pixeln gerendert werden soll, sondern auf der nativen Breite des Geräts. Wie sich die Seite bei dieser Breite verhält, das ist dann Sache des CSS.</p>
 <figure><img src="/images/2014/02/responsive_02_mitviewport.png" alt="Abb. 2: Darstellung mit Viewport (noch nicht schön, aber man sieht die automatische Anpassung der Breite)"><figcaption>Abb. 2: Darstellung mit Viewport (noch nicht schön, aber man sieht die automatische Anpassung der Breite).</figcaption></figure>
@@ -6691,16 +6687,16 @@ a:hover, a:focus {
 <h2 id="2-flexible-seitenbreite-und-raster">2. Flexible Seitenbreite und Raster</h2>
 <p>Als nächstes muss die Seite flexibel auf die (nun auch auf kleinen Geräten erkannte) Breite reagieren. Statt einer festen Breite in Pixeln geben wir den Elementen auf der Seite eine flexible Breite in Prozent, die sich an der größe des Browserfensters (oder des mobilen Gerätes) orientiert.</p>
 <p>Feste oder minimale Breiten können im Responsive Web Design für kleine Elemente nützlich sein. Für große Elemente sind sie es meist nicht. Böser Fehler in der ersten Version dieses Blogs:</p>
-<pre>.posts { width: 100%; min-width:710px; }</pre>
+<pre><code class="language-css">.posts { width: 100%; min-width:710px; }</code></pre>
 
 <p>Soeben haben wir mobile Geräte mittels Viewport dazu gezwungen, die Seite in Originalpixeln zu rendern. Hat das Gerät nur 480 Pixel Breite, ist die Seite natürlich zur Hälfte abgeschnitten. Indem man feste oder minmale Breiten aus dem CSS entfernt, passten sich Block-Elemente wie Divs an die verfügbare Breite an. In diesem Fall sind das 100% des Browsers - so soll es sein. Auf die Angabe von 100% kann man in dem Fall natürlich auch verzichten.</p>
 <p>100% Breite für Elemente sind aber nicht immer erwünscht. Gerade bei sehr großen Monitoren sind Flisßtexte schlecht lesbar, wenn sie den ganzen Bildschrimbreite einnehmen. Abhilfe schafft die Angabe einer maximalen Breite:</p>
-<pre>.posts p, .posts h1, .posts h2 { max-width:600px; }</pre>
+<pre><code class="language-css">.posts p, .posts h1, .posts h2 { max-width:600px; }</code></pre>
 
 <p>Da die Artikel selbst noch breit laufen sollen (bunter Rand rechts), begrenzen wir nur Überschriften und Absätze in der Breite. Ḿan erkennt, dass die Inhalte der rechten Spalte sich dem Menü</p>
 <h2 id="3-breakpoints-für-unterschiedliche-styles">3. Breakpoints für unterschiedliche Styles</h2>
 <p>Anhand von sogenannten Media Queries kann bestimmtes CSS für bestimmte Gerätetypen ausgeliefert werden. Für Responsive Websites richtet man sich meist nach der Breite des Bildschirms. Anhand von Grenzwerten (&ldquo;Breakpoints&rdquo;) werden unterschiedliche Regeln für unterschiedliche Bildschirm edefiniert. Für den Einsatz von Breakpoints gibt es zwei verschiedene Ansätze. <strong>Desktop-First</strong> funktioniert mit absteigenden max-width Werten:</p>
-<pre>h1 {
+<pre><code class="language-css">h1 {
 font-size: 3.5em;
 }
 
@@ -6714,10 +6710,10 @@ font-size: 3.5em;
     h1 {
         font-size: 2em;
     }
-}</pre>
+}</code></pre>
 
 <p><strong>Mobile-First</strong> arbeitet mit aufsteigenden min-width Werten:</p>
-<pre>h1 {
+<pre><code class="language-css">h1 {
 font-size: 2em;
 }
 
@@ -6731,7 +6727,7 @@ font-size: 2em;
     h1 {
         font-size: 3.5em;
     }
-}</pre>
+}</code></pre>
 
 <p>Beachte: für alle Bildschirme über dem größten max-width-Wert (oder unter dem kleinsten min-width-Wert) muss ein Standardwert definiert werden.</p>
 <p>Da mobile (kleine) Geräte tendentiell schwächer sind als große, halte ich Mobile-First für einen guten Ansatz.</p>

@@ -8,6 +8,8 @@
     <meta name="date" content="2016-11-09">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/syntax.css"/>
+    <script type="module" src="/assets/microlighter/microlighter.min.js"></script>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
@@ -22,7 +24,7 @@
     <meta property="og:article:published_time" content="2016-11-09" />
     <meta property="og:article:author" content="Thomas Puppe" />
 </head>
-<body>
+<body data-syntax-theme="alabaster">
     <header>
         <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
@@ -38,7 +40,7 @@
         <p>Kürzlich habe ich mit dem Python-Framework <a href="https://scrapy.org/">Scrapy</a> herumgespielt. Erstens wollte ich ausprobieren, wie gut es sich bedienen lässt. Zweitens war ich neugierig, wie die Aufmacher von News-Websies vor und bei der US-Präsidentschaftswahl bestückt werden. Beides lässt sich praktischerweise gut kombinieren :-)</p>
 <h1 id="das-vorgehen">Das Vorgehen</h1>
 <p>Zunächst habe ich die Homepages der News-Seiten mehrere Tage lang im 5-Minuten-Takt heruntergeladen.</p>
-<pre>#!/bin/bash
+<pre><code class="language-bash">#!/bin/bash
 currenttime=`date '+%Y-%m-%d_%H-%M-%S'`;
 foldername="/var/www/newscurl/$currenttime";
 mkdir $foldername;
@@ -47,10 +49,10 @@ cd $foldername;
 curl -o spiegel.html http://www.spiegel.de/
 curl -o zeit.html http://www.zeit.de/index
 curl -o lr-online.html http://www.lr-online.de/
-</pre>
+</code></pre>
 
 <p>Damit ist das HTML der Seite gesichert, und kann später immer wieder analysiert werden. Was mit Scrapy auch recht einfach gelingt:</p>
-<pre>import os
+<pre><code class="language-python">import os
 import scrapy
 
 class LocalSpider(scrapy.Spider):
@@ -73,7 +75,7 @@ class LocalSpider(scrapy.Spider):
             if link_url.endswith('zeit.html'):
                 yield scrapy.Request(response.urljoin(link_url), callback=self.parse_single_page)
 	        else:
-	            yield scrapy.Request(response.urljoin(link_url), callback=self.parse)</pre>
+	            yield scrapy.Request(response.urljoin(link_url), callback=self.parse)</code></pre>
 
 <p>Mit <code>scrapy runspider localspider.py -o result.json --logfile=localspider.log</code> erhalte ich so ein <a href="http://lab.thomaspuppe.de/us-wahl-news-aufmacher/result.json">JSON-File mit allen Ergebnissen</a> und ein umfangreiches Logfile des Scraping-Vorgangs.</p>
 <p>Zum Schluss robbe ich mittels PHP über das JSON-File und gebe die Inhalte als HTML-Tabelle aus. Das Ergebnis (weder für Mobilgeräte optimiert, noch für sonstwas) schaut so aus: <a href="http://lab.thomaspuppe.de/us-wahl-news-aufmacher/">http://lab.thomaspuppe.de/us-wahl-news-aufmacher/</a></p>

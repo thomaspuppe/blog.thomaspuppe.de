@@ -1,0 +1,75 @@
+/*
+ * Syntax highlighting theme for MicroLighter, after "Alabaster" by Nikita Prokopov (tonsky)
+ * https://github.com/tonsky/sublime-scheme-alabaster
+ *
+ * Only four things get a color: strings, constants, comments and definitions.
+ * Keywords, variables, properties and function calls stay plain. Punctuation is dimmed.
+ * Light mode uses "Alabaster", dark mode "Alabaster Dark".
+ *
+ * Activated via <body data-syntax-theme="alabaster">.
+ * ::highlight() only supports colors and decorations, no font-style/font-weight (Alabaster uses none anyway).
+ */
+
+[data-syntax-theme=alabaster] {
+	color-scheme: light dark;
+	--syntax-background: light-dark(#F7F7F7, #0E1415);
+	--syntax-foreground: light-dark(#000000, #CECECE);
+	--syntax-comment: light-dark(#AA3731, #DFDF8E);
+	--syntax-string: light-dark(#448C27, #95CB82);
+	--syntax-constant: light-dark(#7A3E9D, #CC8BC9);
+	--syntax-definition: light-dark(#325CC0, #71ADE7);
+	--syntax-punctuation: light-dark(#777777, #708B8D);
+	--syntax-inserted: light-dark(hsl(100, 50%, 35%), hsl(100, 50%, 60%));
+	--syntax-deleted: light-dark(hsl(2, 65%, 45%), hsl(2, 65%, 60%));
+}
+
+[data-syntax-theme=alabaster] pre {
+	background-color: var(--syntax-background);
+	color: var(--syntax-foreground);
+}
+
+/* 1. Comments: highlighted, not dimmed */
+::highlight(comment),
+::highlight(quote) {
+	color: var(--syntax-comment);
+}
+
+/* 2. Strings */
+::highlight(string),
+::highlight(regexp),
+::highlight(attribute-value),
+::highlight(link),
+::highlight(raw) {
+	color: var(--syntax-string);
+}
+
+/* 3. Statically known constants: numbers, booleans, colors, symbols */
+::highlight(numeric),
+::highlight(boolean),
+::highlight(constant),
+::highlight(symbol),
+::highlight(character-entity) {
+	color: var(--syntax-constant);
+}
+
+/* 4. Definitions: class/type names, document sections.
+   "function" is left out on purpose: MicroLighter puts definitions and calls in the same category. */
+::highlight(type),
+::highlight(section) {
+	color: var(--syntax-definition);
+}
+
+::highlight(punctuation),
+::highlight(operator) {
+	color: var(--syntax-punctuation);
+}
+
+::highlight(inserted) {
+	color: var(--syntax-inserted);
+}
+
+::highlight(deleted) {
+	color: var(--syntax-deleted);
+}
+
+/* Everything else (keyword, storage, function, variable, property, support, tag, selector, key, …) stays plain. */

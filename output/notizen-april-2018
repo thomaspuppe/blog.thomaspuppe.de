@@ -8,6 +8,8 @@
     <meta name="date" content="2018-04-03">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/syntax.css"/>
+    <script type="module" src="/assets/microlighter/microlighter.min.js"></script>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
@@ -22,7 +24,7 @@
     <meta property="og:article:published_time" content="2018-04-03" />
     <meta property="og:article:author" content="Thomas Puppe" />
 </head>
-<body>
+<body data-syntax-theme="alabaster">
     <header>
         <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
@@ -37,13 +39,13 @@
 
         <h2 id="magical-auto-jump-statt-cd">Magical Auto-Jump statt CD</h2>
 <p>Autojump ist ein schönes kleines Tool für die Kommandozeile. Es merkt sich häufig benutzte Verzeichnisse, und weiß dann wo ich hinwill wenn ich irgendwo <code>j a11</code> eingebe.</p>
-<pre>brew install autojump
+<pre><code class="language-bash">brew install autojump
 
 puppe:~ $ j blog
 /Users/puppe/code/private/blog/blog.thomaspuppe.de
 
 puppe:~ $ j a11
-/Users/puppe/code/zon/a11y-dashboard</pre>
+/Users/puppe/code/zon/a11y-dashboard</code></pre>
 
 
 <h2 id="a11y-zwei-tools-um-einschränkungen-zu-simulieren">A11y: Zwei Tools um Einschränkungen zu simulieren</h2>
@@ -63,10 +65,10 @@ puppe:~ $ j a11
 <li>Plugins anzulegen ist sehr einfach. Folder und Datei erstellen, im Admin aktivieren, fertig.</li>
 <li>Mit einem simplen Vierzeiler kann man Inhalte in die Seite injizieren, zum Beispiel im Head:</li>
 </ul>
-<pre>add_action( 'wp_head', 'my_meta_tags' );
+<pre><code class="language-php">add_action( 'wp_head', 'my_meta_tags' );
 function my_meta_tags() {
   echo '&lt;meta name="generator" content="Thomas" /&gt;';
-}</pre>
+}</code></pre>
 
 <ul>
 <li>Selbst Admin-Funktionen, wie eine Setting-Page für das Plugin, werden auf diese Art gebaut.</li>
@@ -102,7 +104,7 @@ day to make deceptive user experiences. You are better than that.</p>
 <p>Mit der Browser-Extension &quot;<a href="https://chrome.google.com/webstore/detail/spof-o-matic/plikhggfbplemddobondkeogomgoodeg">SPOF-o-Matic</a>&quot; lässt sich das auch machen.</p>
 <p>Mit beiden Tricks hatte ich mal <a href="https://blog.thomaspuppe.de/spof-auf-news-websites">deutsche News-Websites auf Single-Points-of-Failures getestet</a>.</p>
 <h2 id="paste-clipboard-into-file-on-macos">Paste Clipboard into file on MacOS</h2>
-<pre>pbpaste > file.js</pre>
+<pre><code class="language-bash">pbpaste > file.js</code></pre>
 
 
 <h2 id="webfont-preloading">Webfont Preloading</h2>

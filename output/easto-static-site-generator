@@ -8,6 +8,8 @@
     <meta name="date" content="2019-03-11">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/syntax.css"/>
+    <script type="module" src="/assets/microlighter/microlighter.min.js"></script>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
@@ -22,7 +24,7 @@
     <meta property="og:article:published_time" content="2019-03-11" />
     <meta property="og:article:author" content="Thomas Puppe" />
 </head>
-<body>
+<body data-syntax-theme="alabaster">
     <header>
         <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
@@ -47,7 +49,7 @@
 <p>Diesen möchte ich nun beschreiben, und damit einen Fahrplan liefern, wie jeder mit 100 Zeilen Code seinen eigenen Static-Site Generator bauen kann.</p>
 <h2 id="schritt-1-markdown-dateien-iterieren-transformieren-und-speichern">Schritt 1: Markdown-Dateien iterieren, transformieren, und speichern</h2>
 <p>Das Grundprinzip eines Static-Site Generators lässt sich in wenigen Zeilen Code umsetzen. Lies Dateien (z.B. Blogposts) von der Festplatte aus, mach etwas mit ihnen, und speichere das Ergebnis wieder auf die Festplatte.</p>
-<pre>const fs = require('fs')
+<pre><code class="language-javascript">const fs = require('fs')
 fs.readdirSync('content')
   .forEach(sourceFilename => {
     const sourcePath = `content/${sourceFilename}`
@@ -56,10 +58,10 @@ fs.readdirSync('content')
     const targetFilename = sourceFilename.replace('.md', '.html')
     const targetPath = `output/` + targetFilename
     fs.writeFileSync(targetPath, content)
-  })</pre>
+  })</code></pre>
 
 <p>Nun habe alle Dateien aus einem Quellordner ausgelesen, und unter neuem Namen in einen Zielordner gespeichert. Das könnte ich auch kopieren, ohne auszulesen, aber ich möchte ja noch etwas damit anfangen:</p>
-<pre>const fs = require('fs')
+<pre><code class="language-javascript">const fs = require('fs')
 const marked = require('marked')
 
 fs.readdirSync('content')
@@ -73,26 +75,26 @@ fs.readdirSync('content')
     const targetPath = `output/${targetFilename}`
 
     fs.writeFileSync(targetPath, contentHtml)
-  })</pre>
+  })</code></pre>
 
 <p>Im Befehl <code>const contentHtml = marked(contentMarkdown)</code> steckt die Magie. Texte, die in Markdown verfasst wurden, werden in HTML umgewandelt. Natürlich könnte ich auch gleich in HTML schreiben. Schöner ist aber beides! Mit dem npm Modul marked kann ich sowohl schlankes Markdown schreiben (für Blogposts aus Überschriften, Texten, und Links), als auch im selben Text HTML verwenden, wenn Markdown nicht mehr ausreicht (für Figures, Tabellen, JS und CSS). Die <a href="https://github.com/thomaspuppe/blog.thomaspuppe.de/blob/master/content/2019-03-11_easto-static-site-generator.md">Quelldatei dieses Blog-Posts</a> veranschaulicht die Mischung. Ein Artikel über <a href="https://raw.githubusercontent.com/thomaspuppe/blog.thomaspuppe.de/master/content/2017-04-06_browser-api-css-mediaqueries.md">moderne Browser-APIs</a> enthält ausführbare Code-Beispiele aus CSS und JavaScript.</p>
 <p>Aber zurück zum Generator. Obiges Textbeispiel als JavaScript-Datei reicht schon aus, um ein kleines simples Blog zu erzeugen. Der Aufruf der JavaScript-Datei wird alle Markdown-Dateien im Content-Ordner als HTML im Output-Ordner ablegen.</p>
-<pre>$ node index.js
-🚀 Easto: 170.456ms</pre>
+<pre><code class="language-bash">$ node index.js
+🚀 Easto: 170.456ms</code></pre>
 
 <p>Wie in der modernen JavaScript-Welt üblich, musste ich vorher noch das &quot;marked&quot; Modul als Dependency mit dem aktuell coolen Paketmanager installieren.</p>
 <p>Die Laufzeit des Scripts messe ich übrigens mit</p>
-<pre>console.time('🚀 Easto')
+<pre><code class="language-javascript">console.time('🚀 Easto')
 ...
 console.timeEnd('🚀 Easto')
-</pre>
+</code></pre>
 
 <p>am Anfang und Ende des Scripts.</p>
 <h2 id="2-templating">2: Templating</h2>
 <p>Nun ist der Output von Inhalt im HTML Format noch keine anständige Website. Alles um den eigentlichen Inhalt herum (Header, Navigation, Footer) möchte ich ja auch nicht auf jeder einzelnen Seite pflegen. Also: Templating to the rescue!</p>
 <p>Aber bevor ich irgendwelche Template-Engines lade, benutze ich simple String-Ersetzung. Das soll ja schließlich ein einfacher Seiten-Editor werden, und kein Dependency-Monster.</p>
 <p>Als erstes Template für mein Blog dient eine HTMl-Datei, deren Inhalt nur aus einem Platzhalter besteht.</p>
-<pre>&lt;!doctype html&gt;
+<pre><code class="language-html">&lt;!doctype html&gt;
 &lt;html lang="de"&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8"&gt;
@@ -102,10 +104,10 @@ console.timeEnd('🚀 Easto')
         &lt;h1&gt;Willkommen auf Thomas Puppes Blog!&lt;/h1&gt;
         {{ CONTENT }}
     &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
 
 <p>In meinem Generator lese ich nun zusätzlich das Template aus (außerhalb der Schleife, denn das bleibt ja gleich) und benutze es zum Zusammenbauen jeder einzelnen Seite.</p>
-<pre>// Module laden
+<pre><code class="language-javascript">// Module laden
 
 const template = fs.readFileSync('template.html', {encoding: 'utf-8'})
 
@@ -122,24 +124,24 @@ fs.readdirSync('content')
     const targetPath = `output/` + targetFilename
 
     fs.writeFileSync(targetPath, contentPage)
-  })</pre>
+  })</code></pre>
 
 <p>Und schon enthalten die generierten Dateien das HTML des Templates und alle Inhalte.</p>
 <p>Was sofort auffällt: der <code>title</code> ist gar nicht individuell. Den möchte ich aber gern setzen. Woraus eine zweite Frage folgt: woher bekomme ich den Titel, oder andere Metadaten?</p>
 <h2 id="3-metadaten-yamlfrontmatter">3: Metadaten (YAML/Frontmatter)</h2>
 <p>&quot;Frontmatter&quot; ist ein gängiges Format oder Prinzip, um in Dateien mit Inhalten außerdem noch Meta-Informationen zu schreiben.</p>
-<pre>---
+<pre><code class="language-markdown">---
 title: Perfekte Link-Unterstreichung
 language: de
 permalink: link-unterstreichung
 ---
-Hier beginnt der Inhalt. Er ist beliebig lang...</pre>
+Hier beginnt der Inhalt. Er ist beliebig lang...</code></pre>
 
 <p>In einen Block am Anfang der Datei werden die Meta-Informationen geschrieben. Nach einem Trenner (<code>---</code>) kommt dann der Inhalt. Weil diese Struktur schön einfach und definiert ist, kommen selbst Computer damit klar &mdash; und deswegen gibt es auch ein npm Modul dafür: <a href="https://www.npmjs.com/package/yaml-front-matter">yaml-front-matter</a>.</p>
 <p>Im Detail unterscheiden sich die Module (zum Beispiel brauchen manche den Trenner auch am Anfang der Datei), und es gibt kleine Fallstricke (wenn der Titel einen Doppelpunkt enthält, muss er in Anführungsstriche gesetzt werden, damit klar wird was Struktur und was Inhalt ist). Aber im Grunde parst das Modul die Datei, und gibt die Werte strukturiert zurück.</p>
 <p>Ich setze weitere Platzhalter in das Template, und ersetze diese beim Zusammenbauen der HTML-Seiten.</p>
 <p>Das Template sieht nun so aus:</p>
-<pre>&lt;!doctype html&gt;
+<pre><code class="language-html">&lt;!doctype html&gt;
 &lt;html lang="{{ META_LANGUAGE }}"&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8"&gt;
@@ -149,10 +151,10 @@ Hier beginnt der Inhalt. Er ist beliebig lang...</pre>
         &lt;h1&gt;{{ META_TITLE }}&lt;/h1&gt;
         {{ CONTENT }}
     &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
 
 <p>Im JavaScript füge ich hinter das Transformieren von Markdown in HTML die Schleife zur Ersetzung aller Metadaten ein.</p>
-<pre>const content = fs.readFileSync(sourcePath, {encoding: 'utf-8'})
+<pre><code class="language-javascript">const content = fs.readFileSync(sourcePath, {encoding: 'utf-8'})
 
 // parse die Datei mit Inhalt und Metadaten
 const frontmatter = yaml.loadFront(content)
@@ -163,14 +165,14 @@ let contentPage = template.replace('{{ CONTENT }}', contentHtml)
 
 // die Yaml-Teile über dem Trenner sind nun Felder im "frontmatter" Objekt
 contentPage = contentPage.replace('{{ META_TITLE }}', frontmatter['title'])
-contentPage = contentPage.replace('{{ META_LANGUAGE }}', frontmatter['language'])</pre>
+contentPage = contentPage.replace('{{ META_LANGUAGE }}', frontmatter['language'])</code></pre>
 
 <p>Das yaml-Modul habe ich am Anfang des Scripts via <code>const yaml = require(&#39;yaml-front-matter&#39;)</code> geladen, und vorher mit dem Paketmanager installiert.</p>
 <p>Die Werte aus dem Frontmatter kann ich natürlich nicht nur für den Inhalt der Seiten benutzen, sondern auch für den Dateinamen.</p>
-<pre>const targetFilename = frontmatter['permalink'] + '.html`</pre>
+<pre><code class="language-javascript">const targetFilename = frontmatter['permalink'] + '.html`</code></pre>
 
 <p>Wenn ich die Struktur häufiger erweitere, oder es etwas bequemer haben möchte, kann ich natürlich auch über alle Metadaten iterieren und diese im Template generisch ersetzen. Das ist dann schon etwas fortgeschrittener:</p>
-<pre>for (var key in contentFrontmatter) {
+<pre><code class="language-javascript">for (var key in contentFrontmatter) {
 	const re = new RegExp('{{ META_' + key.toUpperCase() + ' }}', 'g')
 
 	// Frontmatter unterstützt auch Arrays im Format
@@ -181,14 +183,13 @@ contentPage = contentPage.replace('{{ META_LANGUAGE }}', frontmatter['language']
 	} else {
 		contentPage = contentPage.replace(re, contentFrontmatter[key])
 	}
-}</pre>
+}</code></pre>
 
 <p>Bei der Entwicklung von diesen Algorithmus konnte ich wunderbar in kleinen Schritten vorgehen, weil ich binnen Milliskunden das Ergebnis meiner Bemühung im Browser betrachten konnte. Hoch lebe die handgestrickte Webentwicklung!</p>
 <h2 id="4-inhaltsverzeichnis">4: Inhaltsverzeichnis</h2>
 <p>Mit dem bisherigen Code wurden also allerlei Seiten oder Blog-Artikel generiert. Eine dieser Seiten war die Startseite, die ich anfangs händisch angelegt und die Links zu allen Artkeln eingepflegt habe. Ich möchte aber, dass die Startseite meines Blog austomatisch eine Liste aller Blogposts enthält und darauf verlinkt. Auch das habe ich easto beigebracht.</p>
 <p>Beim Iterieren über alle Inhalte baue ich nicht nur die aktuelle Seite zusammen, sondern jeweils auch einen Link zur Seite. Und die gesammelten Links werden am Ende als Index-Seite gespeichert.</p>
-<pre>
-let teaserList = [];
+<pre><code class="language-javascript">let teaserList = [];
 
 .forEach(sourceFilename => {
 	...
@@ -202,11 +203,10 @@ let indexContent = indexTemplate.replace(
   teaserList.join()
 )
 
-fs.writeFileSync('output/index.html', indexContent)</pre>
+fs.writeFileSync('output/index.html', indexContent)</code></pre>
 
 <p>Das lässt sich nun mit der bekannten Technik der Templates erweitern, damit aus der simplen Linkliste schöne Teaser-Blöcke werden.</p>
-<pre>
-let teaserList = [];
+<pre><code class="language-javascript">let teaserList = [];
 const teaserTemplate = fs.readFileSync(`templates/teaser.html`, {encoding: 'utf-8'})
 
 .forEach(sourceFilename => {
@@ -214,21 +214,20 @@ const teaserTemplate = fs.readFileSync(`templates/teaser.html`, {encoding: 'utf-
 	// in der Schleife, wo auch Artikel-Metadaten ersetzt werden:
 	teaserContent = teaserTemplate.replace(re, fileContentFrontmatter[key])
 	teaserList.push(teaserContent)
-}</pre>
+}</code></pre>
 
 <p>Beim Ansehen der index-Seite fällt auf, dass die Quelldatien in &quot;zufälliger&quot; Reihenfolge von der Platte gelesen werden. Ich löse das, indem ich als Präfix für meine Dateinamen das Datum jedes Blogposts benutze (<code>/content/2019-03-11_easto-static-site-generator.md</code>), und zwischen Auslesen und Verarbeiten eine Sortierung setze:</p>
-<pre>fs
+<pre><code class="language-javascript">fs
   .readdirSync('content')
   .sort((a, b) => {
     return b.localeCompare(a)
   })
-  .forEach(sourceFilename => { ...</pre>
+  .forEach(sourceFilename => { ...</code></pre>
 
 
 <h2 id="5-feeds-generieren">5: Feeds generieren</h2>
 <p>Wenn ich schon das chronologische Inhaltsverzeichnis erzeuge, kann ich im gleichen Zuge auch RSS-Feeds bauen, die im Grunde nichts anderes sind. Auch dafür gibt es ein Node-Package (&quot;feed&quot;), mit dem dies recht einfach gelingt.</p>
-<pre>
-	// Vorbereitung: Metadaten zum Feed
+<pre><code class="language-javascript">	// Vorbereitung: Metadaten zum Feed
 
 	const Feedbuilder = require('feed')
 	feed_config = {
@@ -253,17 +252,17 @@ const teaserTemplate = fs.readFileSync(`templates/teaser.html`, {encoding: 'utf-
 	fs.writeFileSync(`output/feed/rss`, feed.rss2())
 	fs.writeFileSync(`output/feed/atom`, feed.atom1())
 	fs.writeFileSync(`output/feed/json`, feed.json1())
-</pre>
+</code></pre>
 
 <p>Die Domain des Blogs möchte ich am Ende lieber in einer Konfigurationsdatei haben als im Quellcode, aber das Beispiel zeigt, worauf ich hinaus will: mit wenigen Zeilen Code lassen sich Feeds in den gängigen Formaten RSS, Atom und JSON bauen.</p>
 <p>Eine XML Sitemap <em>sollte</em> ähnlich funktionieren sein, das habe ich aber noch nicht umgesetzt.</p>
 <h2 id="6-statische-dateien-kopieren">6: Statische Dateien kopieren</h2>
 <p>Zuletzt noch alles was den geschriebenen Inhalt anreichert: Assets (CSS, JS), Bilder und andere statische Dateien kopiere ich direkt aus einer Quelle in das Output-Verzeichis. Das Node-Modul <code>ncp</code>ermöglicht das rekursiv.</p>
-<pre>const ncp = require('ncp').ncp
+<pre><code class="language-javascript">const ncp = require('ncp').ncp
 ncp('static', 'output', err => {
   if (err) return console.error(err)
 })
-</pre>
+</code></pre>
 
 
 <h2 id="deployment">Deployment</h2>

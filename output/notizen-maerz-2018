@@ -8,6 +8,8 @@
     <meta name="date" content="2018-03-23">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/syntax.css"/>
+    <script type="module" src="/assets/microlighter/microlighter.min.js"></script>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
@@ -22,7 +24,7 @@
     <meta property="og:article:published_time" content="2018-03-23" />
     <meta property="og:article:author" content="Thomas Puppe" />
 </head>
-<body>
+<body data-syntax-theme="alabaster">
     <header>
         <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
@@ -38,39 +40,39 @@
         <p>Ich versuche mich mal am beliebten &quot;this month I learned&quot; Format. Weil ich in den letzten Monaten aber immer gesammelt und nie gepublished habe, versuche ich es so: zu Monatsbeginn schreibe ich einen Anfang, und dann ergänze ich im Laufe des Monats. Das gibt auch Raum für kleine Sachen, die es nie zu eigenen Blogposts schaffen. Mal schauen wie das wird.</p>
 <h2 id="default-parameters-in-javascript--nicht-im-ie-11">Default Parameters in Javascript ... nicht im IE 11</h2>
 <p>Fangen wir gleich mal an mit dem Fail der Woche. Einmal ZEIT Online Production kaputtmachen für alte Browser. Wie? Durch den Gebrauch von default Parametern in JavaScript:</p>
-<pre>function(myParam, optionalParam = true) { ... }</pre>
+<pre><code class="language-javascript">function(myParam, optionalParam = true) { ... }</code></pre>
 
 <p>Das ist ein Feature aus ES2015 funktioniert deshalb leider nicht für den Internet Explorer 11 abwärts. Also, wenn man nicht babelt, muss man das wieder einkassieren und in der Funktion selbst den Default-Wert definieren:</p>
-<pre>function(myParam, optionalParam) {
+<pre><code class="language-javascript">function(myParam, optionalParam) {
 	optionalParam = (typeof optionalParam !== 'undefined') ?  optionalParam : true;
-}</pre>
+}</code></pre>
 
 
 <h2 id="documentcurrentscript">document.currentScript</h2>
 <p>Das zweite JS Learning des Tages: man kann im JS Code dasjenige <code>script</code>-DOM-Element selektieren, in dem der Code läuft. Einfach via <code>document.currentScript</code>.</p>
 <p><a href="http://2ality.com/2014/05/current-script.html">Detaillierter Artikel zu currentScript von Dr. Axel Rauschmayer</a> mit veralteten Angaben zur Browser-Unterstützung. Caniuse bestätigt eine gute Unterstützung: [<a href="https://www.caniuse.com/#search=currentScript%5D">https://www.caniuse.com/#search=currentScript]</a>(Browser-Unterstützung von <code>document.currentScript</code> bei caniuse.com).</p>
 <p>Allerdings wieder ohne den IE11. Und weil wir da ja keinen Bug haben wollen (siehe oben), gibt es einen schönen Polyfill:</p>
-<pre>var currentScript = document.currentScript || (function() {
+<pre><code class="language-javascript">var currentScript = document.currentScript || (function() {
 	var scripts = document.getElementsByTagName('script');
 	return scripts[scripts.length - 1];
-})();</pre>
+})();</code></pre>
 
 <p>Wozu braucht man das? Um z.B. ein Script-Tag wegzuräumen, nachdem es seine Arbeit getan hat.</p>
-<pre>&lt;script&gt;
+<pre><code class="language-html">&lt;script&gt;
 	var currentScript = document.currentScript;
 	var parent = currentScript.parentNode;
 	var newDiv = document.createElement('div');
 	newDiv.setAttribute('class', 'wurstbrot');
 	parent.replaceChild(newDiv, currentScript);
-&lt;/script&gt;</pre>
+&lt;/script&gt;</code></pre>
 
 <p>Im Übrigen, unintuitiverweise:</p>
-<pre>// String.replace Parameter Reihenfolge: search, replace
+<pre><code class="language-javascript">// String.replace Parameter Reihenfolge: search, replace
 str.replace(regexp|substr, newSubStr|function);
 
 // Node.replaceChild Parameter Reihenfolge: replace, search
 parentNode.replaceChild(newChild, oldChild);
-</pre>
+</code></pre>
 
 <p>Ich dachte das sei eine Spezialität von PHP.</p>
 <h2 id="newsletter">Newsletter</h2>
@@ -82,9 +84,9 @@ parentNode.replaceChild(newChild, oldChild);
 <p>Also haben wir ein kleines CSript geschrieben, das pa11y-tests parallel laufen lässt und die Ergebnisse an eine Graphite Instanz sendet.  Ergebnis ist ein kleines Repo: <a href="https://github.com/ZeitOnline/a11y-dashboard-connector">a11y-dashboard-connector</a>: Es ist ein zaghafter Anfang, und noch hardcoded für unsere Zwecke, aber immerhin.</p>
 <h2 id="css-keylogger-und-andere-schweinereien">CSS Keylogger und andere Schweinereien</h2>
 <p><strong>Keylogging via CSS</strong>: vor einigen Tagen ging ein GitHub Repo um, das zeigte, wie man CSS als Keylogger missbrauchen kann: <a href="https://github.com/maxchehab/CSS-Keylogging">CSS Keylogger</a>.</p>
-<pre>input[type="password"][value$="p"] {
+<pre><code class="language-css">input[type="password"][value$="p"] {
   background: url('/password?p');
-}</pre>
+}</code></pre>
 
 <p>In seinem Blogpost <a href="https://jakearchibald.com/2018/third-party-css-is-not-safe/">Third party CSS is not safe</a> erfindet Jake Archibald weitere Möglichkeiten, wie 3rd Party CSS eine Seite manipulieren kann. Sehr spannend, aber nur nebenbei im Artikel erwähnt: wenn ein Angreifer die Cache Storage vollschreibt, kann er Clients dauerhaft kompromittieren, auch wenn das schadhafte Script längst von der Seite entfernt wurde. Fazit:</p>
 <blockquote>

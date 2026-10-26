@@ -8,6 +8,8 @@
     <meta name="date" content="2014-11-06">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/syntax.css"/>
+    <script type="module" src="/assets/microlighter/microlighter.min.js"></script>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
@@ -22,7 +24,7 @@
     <meta property="og:article:published_time" content="2014-11-06" />
     <meta property="og:article:author" content="Thomas Puppe" />
 </head>
-<body>
+<body data-syntax-theme="alabaster">
     <header>
         <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
@@ -47,7 +49,7 @@
 <p>Für das Sammeln reicht die kleinste EC2 Instanz von AWS (t2.micro), die kostenlos ist. Der kostenlose Festplattenspeicher kann bis zu 30 GB reichen, je größer desto besser wird auch die IO Performance sein. Zugriff braucht man nur per SSH, daher lege ich kein eigenes VPC an.</p>
 <p>Mit meinem (oder einem neu generierten) Key melde ich mich via SSH auf der Instanz an.</p>
 <h2 id="schritt-2-twitter-collecor-installieren-und-anwerfen">Schritt 2: Twitter-Collecor installieren und anwerfen</h2>
-<pre>// Update
+<pre><code class="language-bash">// Update
 $ sudo apt-get update
 $ sudo apt-get upgrade
 
@@ -58,11 +60,11 @@ $ sudo pip install tweepy
 // Python-File erstellen
 $ mkdir tweets_mauerfall
 $ cd tweets_mauerfall/
-$ nano collect.py</pre>
+$ nano collect.py</code></pre>
 
 <p>Die genaue Code-Quelle finde ich gerade nicht mehr. Eine Suche nach &quot;tweepy save tweets to file&quot; brignt aber mehrere Quellen zutage. Mein Code hatte ursprünglich eine MongoDB als Datenspeicher, das habe ich gegen die einfache Datei ausgetauscht.</p>
 <p>Der Quellcode von collect.py:</p>
-<pre>import json
+<pre><code class="language-python">import json
 import tweepy
 
 consumer_key = ""
@@ -98,16 +100,16 @@ class CustomStreamListener(tweepy.StreamListener):
         return True # Don't kill the stream
 
 sapi = tweepy.streaming.Stream(auth, CustomStreamListener(api))
-sapi.filter(track=['mauerfall', 'fotw25', 'mauerspecht', 'berlinwall', 'fallofthewall25'])</pre>
+sapi.filter(track=['mauerfall', 'fotw25', 'mauerspecht', 'berlinwall', 'fallofthewall25'])</code></pre>
 
 <p>Und das Ganze muss dann nur noch gestartet werden:</p>
-<pre>// Stumm im Hintergrund ausführen lassen
+<pre><code class="language-bash">// Stumm im Hintergrund ausführen lassen
 $ nohup python collect.py > /dev/null &
 
 // anhand der ausgegebenen Prozessnummer (oder via top suchen) kann ich den Prozess später wieder killen.
 
 // Um die aktuelle Zahl der Tweets zu verfolgen, lasse ich mir (periodisch) die Anzahl der Zeilen in der json-Datei ausgeben:
-$ while true; do ( wc -l tweets.json ; sleep 5 ) done;</pre>
+$ while true; do ( wc -l tweets.json ; sleep 5 ) done;</code></pre>
 
 
 <p>Fertig. Ein Update zur Zuverlässigkeit und eine Auswertung der Tweets gibt es dann später hier im Blog.</p>

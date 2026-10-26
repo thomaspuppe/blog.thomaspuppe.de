@@ -8,6 +8,8 @@
     <meta name="date" content="2018-06-30">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/syntax.css"/>
+    <script type="module" src="/assets/microlighter/microlighter.min.js"></script>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
@@ -22,7 +24,7 @@
     <meta property="og:article:published_time" content="2018-06-30" />
     <meta property="og:article:author" content="Thomas Puppe" />
 </head>
-<body>
+<body data-syntax-theme="alabaster">
     <header>
         <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
@@ -62,7 +64,7 @@ Your brand is what people think of you.</p>
 <p>2016 konnte beispielsweise ein Recherche-Team des NDR von einem Databroker einen Datensatz mit angeblich anonymisierten Browserverläufen erwerben. Darin fanden sich hochsensible Informationen unter anderem über einen Polizisten, einen Richter und Bundestagsmitarbeiterinnen.</p>
 </blockquote>
 <p>Sven Wolfermann mit einer schönen umfassenden <a href="http://maddesigns.de/wpo2018/">Website-Performance-Präsentation</a>. Mein Highlight ist die Folie zu <a href="http://maddesigns.de/wpo2018/#/61">serve breakpoint specific JS</a>:</p>
-<pre>&lt;link rel="preload" as="script" href="map.js" media="(min-width: 601px)"&gt;</pre>
+<pre><code class="language-html">&lt;link rel="preload" as="script" href="map.js" media="(min-width: 601px)"&gt;</code></pre>
 
 <p><a href="https://generativeartistry.com/">Generative Artistry</a>: coole interaktive(!) Tutorials von Tim Holman.</p>
 <p><a href="https://onym.co/">onym.co</a> bietet massenhaft Theorie, Inspiration, und Quellen für <em>Naming Things</em>. gefunden von unserem Designer <a href="https://twitter.com/nandorocker">Nando</a>.</p>

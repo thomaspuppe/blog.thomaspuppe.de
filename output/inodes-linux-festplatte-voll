@@ -8,6 +8,8 @@
     <meta name="date" content="2016-10-18">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/syntax.css"/>
+    <script type="module" src="/assets/microlighter/microlighter.min.js"></script>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
@@ -22,7 +24,7 @@
     <meta property="og:article:published_time" content="2016-10-18" />
     <meta property="og:article:author" content="Thomas Puppe" />
 </head>
-<body>
+<body data-syntax-theme="alabaster">
     <header>
         <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
@@ -75,8 +77,8 @@ Size    Used    Avail    Use%
 </pre>
 
 <p>Es zeigt sich, dass Bundestwitter nicht der Verursacher ist. Aber mit dem genannten Befehl kann ich nun die Ordner des Root-Verzeichnisses auflisten ...</p>
-<pre>sudo su #(um sich eine Menge "Permission denied" Meldungen zu sparen)
-for i in /*; do echo $i; find $i | wc -l | sort ; done</pre>
+<pre><code class="language-bash">sudo su #(um sich eine Menge "Permission denied" Meldungen zu sparen)
+for i in /*; do echo $i; find $i | wc -l | sort ; done</code></pre>
 
 <p>... zeigt, dass die allermeisten Inodes in <code>/var</code> verbraucht werden. (Warum in <code>proc</code> so viel los ist, wird Gegenstand einer anderen Untersuchung sein.)</p>
 <pre>
@@ -101,21 +103,21 @@ for i in /*; do echo $i; find $i | wc -l | sort ; done</pre>
 <p>Das sind also felgeschlagene Versuche des Systems, E-Mails zu versenden. Stichproben (<code>cat /var/spool/postfix/maildrop/D7E6A90D4CA9</code>) ergeben, dass meine Cronjobs versuchen, Mails zu versenden.</p>
 <h3 id="ich-habe-also-meinen-übeltäter-nun-geht-es-ans-aufräumen">Ich habe also meinen Übeltäter. Nun geht es ans Aufräumen.</h3>
 <p>Die erste Maßnahme, für den Seelenfrieden, ist natürlich</p>
-<pre>sudo rm -rf /var/spool/postfix/maildrop/*
-bash: /bin/rm: Argument list too long</pre>
+<pre><code class="language-bash">sudo rm -rf /var/spool/postfix/maildrop/*
+bash: /bin/rm: Argument list too long</code></pre>
 
 <p>Eine schnelle Suche führt mich auf`<a href="http://www.sysadminslife.com/linux/bash-binrm-die-argumentliste-ist-zu-lang/">sysadminslife.com</a>, wo folgender Befehl vorgeschlagen wird:</p>
-<pre>find -type f -print0 | xargs -0 rm</pre>
+<pre><code class="language-bash">find -type f -print0 | xargs -0 rm</code></pre>
 
 <p>An der Stelle möchte ich Explainshell erwähnen. Eine Website, die Shell-Befehle aufdröselt und die einzelnen Bestandteile erklärt. <a href="http://explainshell.com/explain?cmd=find+-type+f+-print0+%7C+xargs+-0+rm">http://explainshell.com/explain?cmd=find+-type+f+-print0+%7C+xargs+-0+rm</a></p>
 <p>Ta dah:</p>
-<pre>$ ls /var/spool/postfix/maildrop | wc -l
+<pre><code class="language-bash">$ ls /var/spool/postfix/maildrop | wc -l
 14
 
 $ df -i
 Inodes      IUsed     IFree    IUse%
 1000000    143491    856509      15%
-</pre>
+</code></pre>
 
 
 <p>Es bleibt die Frage: Wie vermeide ich, dass die Ausführung der Cronjobs Mails erzeugt (die dann in der Spool Queue landen)?</p>

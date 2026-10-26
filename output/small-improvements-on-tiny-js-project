@@ -8,6 +8,8 @@
     <meta name="date" content="2018-07-26">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/assets/styles.css"/>
+    <link rel="stylesheet" href="/assets/syntax.css"/>
+    <script type="module" src="/assets/microlighter/microlighter.min.js"></script>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/leaguespartan/leaguespartan-bold.woff2" crossorigin>
 	<link rel="preload" as="font" type="font/woff2" href="/assets/webfonts/sinanova/sinanova-regular.woff2" crossorigin>
 
@@ -22,7 +24,7 @@
     <meta property="og:article:published_time" content="2018-07-26" />
     <meta property="og:article:author" content="Thomas Puppe" />
 </head>
-<body>
+<body data-syntax-theme="alabaster">
     <header>
         <p><a href="https://blog.thomaspuppe.de/" rel="home start">Blog von Thomas Puppe, Web Developer.</a></p>
     </header>
@@ -41,7 +43,7 @@
 <p>(TODO: theoretische )</p>
 <h2 id="make-it-more-functional">Make it more functional</h2>
 <p>Another thing to make the code more handable is to move variables from the &quot;global&quot; scope to a more local one. What I mean by this:</p>
-<pre>var initialTime,
+<pre><code class="language-javascript">var initialTime,
 	timeDomElement,
 	currentTime,
 	elapsedTime,
@@ -63,11 +65,11 @@
 		elapsedTime = currentTime - initialTime;
 		updateCosts(elapsedTime);
 		updateTime(elapsedTime);
-    };</pre>
+    };</code></pre>
 
 <p>There is more code around it, that&#39;s why initialTime is not set here. But what I want to demonstrate: initially I hat all variables on a &quot;global&quot; scope so every function inside that scope can read and write them. Which works fine, and is okay for that small project. But at a larger scale things would get confusing and before you now it you start chasing states and lokking who changes what when.</p>
 <p>A better approach is to keep things on a more local scope. Only menipulate variables on a certain point, and pushing them into functions where they are only read. My small timer is a perfect example for that.</p>
-<pre>var initialTime,
+<pre><code class="language-javascript">var initialTime,
 	timeDomElement,
 	updateTime = function (elapsedTime) {
 		let elapsedTimeSeconds = Math.floor((elapsedTime / 1000) % 60);
@@ -84,7 +86,7 @@
 		const currentTime = Date.parse(new Date());
 		const elapsedTime = currentTime - initialTime;
 		updateTime(elapsedTime);
-	};</pre>
+	};</code></pre>
 
 <p>That way, the <code>updateTime()</code> function has no influence on the outside world (except DOM manipulation). It only takes the one argument that it needs, and handles internal stuff (seconds, minutes) internally.</p>
 <h2 id="letconst">let/const</h2>
@@ -94,7 +96,7 @@
 <p>[TODO: minute-Formatierung in Funktionen auslagern.]</p>
 <h2 id="currying">currying</h2>
 <p>TODO: make it currying, or change the headline :-)</p>
-<pre>updateTime = function (elapsedTime) {
+<pre><code class="language-javascript">updateTime = function (elapsedTime) {
 	let elapsedTimeSeconds = Math.floor((elapsedTime / 1000) % 60);
 	let elapsedTimeMinutes = Math.floor((elapsedTime / 60000) % 60);
 	const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
@@ -103,11 +105,11 @@
 	elapsedTimeMinutes = (elapsedTimeMinutes > 9) ? elapsedTimeMinutes : '0' + elapsedTimeMinutes.toString();
 
 	timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
-	}</pre>
+	}</code></pre>
 
 <p>We cannot have the <code>elapsedTimeSeconds</code> as constant, because we need to manipulate it later. That manipulation has, in a strict sense, nothing to do with the updateTime(), and is only a cosmetical enhancement. Further, the code is redundant because we want to apply the same logic to <code>elapsedTimeMinutes</code>.</p>
 <p>So, of course, a first step would be to extract that into a function:</p>
-<pre>addLeadingZero = function(num) {
+<pre><code class="language-javascript">addLeadingZero = function(num) {
 	return (num > 9) ? num.toString() : '0' + num.toString();
 },
 updateTime = function (elapsedTime) {
@@ -119,11 +121,11 @@ updateTime = function (elapsedTime) {
 	elapsedTimeMinutes = addLeadingZero(elapsedTimeMinutes);
 
 	timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
-}</pre>
+}</code></pre>
 
 <p>Since this is a utility for formatting, one could consider moving it somewhere else. But for now this stays right above the updateTime() function.</p>
 <p>After we extracted that code into a function, we can also wrap that one around our calculation ... and have the desired constant.</p>
-<pre>addLeadingZero = function(num) {
+<pre><code class="language-javascript">addLeadingZero = function(num) {
 	return (num > 9) ? num.toString() : '0' + num.toString();
 },
 updateTime = function (elapsedTime) {
@@ -132,7 +134,7 @@ updateTime = function (elapsedTime) {
 	const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
 
 	timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
-}</pre>
+}</code></pre>
 
 
 <p>TODO: define the function <em>inside</em> updateTime???</p>
