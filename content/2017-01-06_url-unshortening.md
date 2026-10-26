@@ -28,7 +28,7 @@ Es stellt sich heraus, dass _im Prinzip_ ein Curl-Aufruf ausreicht. Alle genannt
 
 In Bash ist das ganz simpel: `curl -I http://fb.me/16MEzokwA`. Fertig. Wegen der Anbindung an meine Datenbank habe ich die Arbeit mit PHP erledigt, was auch mit Bordmitteln und ein paar Codezeilen funktioniert:
 
-<pre>function get_resp_from_url($url)
+<pre><code class="language-php">function get_resp_from_url($url)
 {
     $curlConnection = curl_init();
     curl_setopt($curlConnection, CURLOPT_URL, $url);
@@ -46,15 +46,15 @@ In Bash ist das ganz simpel: `curl -I http://fb.me/16MEzokwA`. Fertig. Wegen der
             'location' => $responseInfo['redirect_url']
             );
     }
-}</pre>
+}</code></pre>
 
 Einzig Facebook konnte damit nicht abgegrast werden. `fb.me`-Adressen liefern mir zuverlässig Status 301 bei Abfrage per Bash, und Status 200 mit Facebook-HTML im Body bei der Abfrage per PHP.
 
 Weder Google noch die curl-Referenz für PHP konnten helfen, also musste Python herhalten. Nach dem üblichen erfolglosen Herumirren auf mehreren Wegen (`httplib` und `urllib2`) funktioniert es dann auf diese Art:
 
-<pre>import requests
+<pre><code class="language-python">import requests
 r = requests.get(url, allow_redirects=False)
 if r.status_code == 301:
-	return r.headers.get('Location')</pre>
+	return r.headers.get('Location')</code></pre>
 
 Schöne Erkenntnis am Rande: selbst bei hunderten oder tausenden Abfragen im unter-Sekunden-Takt hat keiner der Dienste mit Rate Limiting oder anderer Abweisung reagiert.

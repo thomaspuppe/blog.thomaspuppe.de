@@ -13,11 +13,11 @@ In der Regel denkt man bei Media Queries an nicht viel mehr als `min-width` oder
 
 Kürzlich sah ich in einer interessanten [Präsentation über Progressive Web Apps](https://speakerdeck.com/grigs/why-you-should-build-a-progressive-web-app-now-1) dies:
 
-<pre>@media (display-mode: standalone), (display-mode: fullscreen) {
+<pre><code class="language-css">@media (display-mode: standalone), (display-mode: fullscreen) {
 	.backButton {
 		display: block;
 	}
-}</pre>
+}</code></pre>
 
 Mit dieser Media Query stellt man fest, ob die Website (bzw Web App) das Browser-GUI (und damit den Back-Button des Browsers ) zur Verfügung hat, oder nicht. Und kann dann einen eigenen Button einblenden.
 
@@ -52,9 +52,9 @@ Gibt die Zahl der verfügbaren Prozessoren zurück. Das ist ein grober Indikator
 
 Selbsterklärend. Neben der aktuellen Position kann man auch Positions (oder Genauigkeits-) Änderungen als Event-Handler empfangen. Was macht man mit der Position des Users? Man füttert sie in eine Routenplanung, oder nutzt sie, um Ort und Land des Besuchers herauszufinden.
 
-<pre>navigator.geolocation.getCurrentPosition(function(position) {
+<pre><code class="language-javascript">navigator.geolocation.getCurrentPosition(function(position) {
   console.log(position.coords.latitude, position.coords.longitude);
-});</pre>
+});</code></pre>
 
 > In diesem Browser: <span id="geolocationInfo"><button id="geolocationInfoTrigger">Testen</button></span>
 
@@ -82,13 +82,13 @@ Geolocation hat eine sehr gute [Browser-Unterstützung](http://caniuse.com/#sear
 
 Selbsterklärend. Die Änderung des online-Status lässt sich über ein Event abfangen:
 
-<pre>window.addEventListener('online', function(e) {
+<pre><code class="language-javascript">window.addEventListener('online', function(e) {
     console.log("You are online");
 }, false);
 
 window.addEventListener('offline', function(e) {
     console.log("You are offline");
-}, false);</pre>
+}, false);</code></pre>
 
 
 ## navigator.connection
@@ -132,11 +132,11 @@ if (navigator.getBattery) {
 
 Gute Menschen setzen das ein, um bei Telefonen mit schwachem Akku auf aufwändige Animationen und allen überflüssigen Quatsch zu verzichten, der die CPU belastet.
 
-<pre>navigator.getBattery().then(function(battery) {
+<pre><code class="language-javascript">navigator.getBattery().then(function(battery) {
    console.log(battery.level*100 + '%');
    console.log(battery.chargingTime);
    console.log(battery.dischargingTime);
-});</pre>
+});</code></pre>
 
 Für die Änderung der Werte kann man auch wieder Event Handler registrieren, damit die Website/App informiert wird.
 
@@ -147,10 +147,10 @@ Eine schöne Einführung findet man bei [MDN](https://developer.mozilla.org/en-U
 
 Mit dieser Funktion kann man per JS die Sharing-Funktion auslösen, die sonst aus dem Menü des Browsers getriggert wird. Der Vorteil gegenüber individuellen Sharing-Buttons: die Leute bekommen genau die Dienste angeboten, die sie zur Verfügung haben -- und nicht die der Seitenbetreiber für wichtig hielt.
 
-<pre>navigator.share({
+<pre><code class="language-javascript">navigator.share({
     title: document.title,
     url: window.location.href
-})</pre>
+})</code></pre>
 
 Alle Parameter müssen Strings sein. Ob diese aus JavaScript kommen oder hardcoded sind, ist egal. Test oder URL können weggelasssen werden, eines von beiden muss vorhanden sein.
 
@@ -178,7 +178,7 @@ function sharePage() {
 
 Kann genutzt werden, um kleine Datenmengen asynchron an einen Server zu senden. Das Verfahren ist für Event Tracking und Monitoring gedacht. Vor allem das Rumeiern mit Requests bei window.unload soll erleichtert werden.
 
-<pre>navigator.sendBeacon("/log", data);</pre>
+<pre><code class="language-javascript">navigator.sendBeacon("/log", data);</code></pre>
 
 Das `data` können Form Objekte, Arrays oder normale JS Objekte sein.
 
@@ -206,14 +206,14 @@ Doch Media Queries können viel mehr:
 
 ... ist das Seitenverhältnis des geräts (bzw Viewports). Damit kann man im simpelsten Fall quer- von Hochformat unterscheiden, oder beispielsweise Panorama-Bildschirmen spezielel Stile oder Inhalte ausliefern.
 
-<pre>@media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) { ... }</pre>
+<pre><code class="language-css">@media screen and (device-aspect-ratio: 16/9), screen and (device-aspect-ratio: 16/10) { ... }</code></pre>
 
 
 ## orientation
 
 Eine noch simplere Variante der aspect-ratio. Nimmt die Werte `landscape` oder `portrait` an.
 
-<pre>@media all and (orientation: portrait) { ... }</pre>
+<pre><code class="language-css">@media all and (orientation: portrait) { ... }</code></pre>
 
 <style type="text/css" scoped>
 .orientationContainer > strong { display: none; }
@@ -257,14 +257,14 @@ In den meisten Fällen lässt sich die Abfrage bzw. das progressive Enhancement 
 
 Die Query `@supports` sorgt aber für Klarheit, wenn man größere Blöcke umstylen will, sobald eine Technik verfügbar ist. Oder aber, um eine ganz andere CSS-Datei zu laden.
 
-<pre>&lt;link rel="stylesheet" media="all" href="basic.css" /&gt;
-&lt;link rel="stylesheet" media="screen and (min-width: 5in) and (display: flex)" href="shiny.css" /&gt;</pre>
+<pre><code class="language-html">&lt;link rel="stylesheet" media="all" href="basic.css" /&gt;
+&lt;link rel="stylesheet" media="screen and (min-width: 5in) and (display: flex)" href="shiny.css" /&gt;</code></pre>
 
 Der IE bis inklusive Version 11 unterstützt `@supports` nicht.
 
 Der Support von Features lässt sich übrigens auch via JavaScript über die CSS-API des Browsers abfragen:
 
-<pre>var canuiseCSSGrid = CSS.supports("(display: grid)");</pre>
+<pre><code class="language-javascript">var canuiseCSSGrid = CSS.supports("(display: grid)");</code></pre>
 
 
 ## Exotische Queries
@@ -294,7 +294,7 @@ Noch im [Draft-Status](https://drafts.csswg.org/mediaqueries-4/#media) sind Medi
 * Geräte-Geschwindigkeit oder RAM. Ich möchte wissen, ob das Gerät schwach ist. Die CPU-Zahl via `navigator.hardwareConcurrency` hilft schon.
 * Queries an Script-Tags:
 
-<pre>&lt;script media="screen and not (doNotTrack)" src="https://google.com/analytics.js" defer integrity="abc"&gt;
+<pre><code class="language-html">&lt;script media="screen and not (doNotTrack)" src="https://google.com/analytics.js" defer integrity="abc"&gt;
 &lt;script media="screen and (bandwidth:high)" src="/immersiveEffects.js" defer integrity="xyz"&gt;
-</script></pre>
+</script></code></pre>
 

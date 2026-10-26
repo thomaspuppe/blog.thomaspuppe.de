@@ -27,21 +27,21 @@ Die Seite ist einfach und benötigt nur wenig JavaScript und CSS. Dem Performanc
 
 Grundlage bei der Arbeit mit CSS und JS sind natürlich die klassischen Werkzeuge wie less, minify-css, slint, uglify und concat. Die sind in jedem Gulp-Tutorial enthalten und sollen hier nicht behandelt werden. Spannend für meine Zwecke sind zwei weitere Tasks:
 
-<pre>var replace = require('gulp-replace-task'),
-    cleanhtml = require('gulp-cleanhtml');</pre>
+<pre><code class="language-javascript">var replace = require('gulp-replace-task'),
+    cleanhtml = require('gulp-cleanhtml');</code></pre>
 
 Deren Benutzung ist simpel und komfortabel: Im HTML setzt man Platzhalter:
 
-<pre>...
+<pre><code class="language-html">...
 &lt;style type="text/css"&gt;@@cssStyles&lt;/style&gt;
 ...&lt;/head&gt;
 &lt;body&gt;...
 &lt;script type="text/javascript">@@jsScript&lt;/script&gt;
-&lt;/body&gt;</pre>
+&lt;/body&gt;</code></pre>
 
 Und lässt diese im Gulp Task durch den Inhalt der Dateien ersetzen:
 
-<pre>gulp.task('replace', function () {
+<pre><code class="language-javascript">gulp.task('replace', function () {
     return gulp.src('./index.html')
         .pipe(replace({
             patterns: [
@@ -61,7 +61,7 @@ Und lässt diese im Gulp Task durch den Inhalt der Dateien ersetzen:
         }))
         .pipe(cleanhtml())
         .pipe(gulp.dest('./web'));
-});</pre>
+});</code></pre>
 
 Ich habe auch mit "gulp-inline-source" experimentiert, aber der hat den JavaScript Code zerstört. Replace macht dasselbe und kann außerdem banutzt werden um andere Platzhalter zu erstezen - z.B. den aktuellen Timestamp, eine Release-Nummer, Dateigrößen, Subtemplates, MD5-Hashes von Downloads oder was auch immer.
 

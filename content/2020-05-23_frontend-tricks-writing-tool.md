@@ -34,7 +34,7 @@ max-width: 70ch;
 
 `element.classList.toggle()` returns a boolean value, telling you if the class was added or removed. I used this to store the result directly into localstorage (or a variable). No value-checking needed.
 
-```
+```javascript
 document.querySelector('#darkmode').addEventListener('click', function(evt) {
 	window.localStorage.setItem('wryte_darkmode', document.body.classList.toggle('dark'));
 });
@@ -43,7 +43,7 @@ document.querySelector('#darkmode').addEventListener('click', function(evt) {
 
 `element.classList.toggle()` accepts a second parameter, where you can command if the value shoud be set or removed. This is a shortcut to "check a boolean, and then do add or remove".
 
-```
+```javascript
 document.querySelector('#darkmode').addEventListener('click', function(evt) {
 	document.body.classList.toggle('dark', window.localStorage.getItem('wryte_darkmode')==='true');
 });

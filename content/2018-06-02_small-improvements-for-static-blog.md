@@ -52,12 +52,14 @@ Meine Schriften im woff 2 Format (https://blog.thomaspuppe.de/assets/webfonts/le
 
 Dareboost moniert,dass ich keine CSP und XSS protection header aktiviert habe. Da das Blog reinstatisch ist, sollte das _eigentlich_(TM) nicht nötig sein. Aber schaden tut es auch nicht, und ich bin ja auf hohe Scores aus, also:
 
-	# nur Ressourcen von derselben Domain einbinden
-	add_header Content-Security-Policy "default-src 'self'";
-	# kein Laden der Seite in (i)Frames erlauben
-	add_header X-Frame-Options SAMEORIGIN always;
-	# XSS Protection
-	add_header X-XSS-Protection "1; mode=block" always;
+```nginx
+# nur Ressourcen von derselben Domain einbinden
+add_header Content-Security-Policy "default-src 'self'";
+# kein Laden der Seite in (i)Frames erlauben
+add_header X-Frame-Options SAMEORIGIN always;
+# XSS Protection
+add_header X-XSS-Protection "1; mode=block" always;
+```
 
 **Update: es schadet doch! ;-)** Die `Content-Security-Policy "default-src 'self'";` sorgt dafür, dass nur Scripte und Styles vom eigenen Host eingebunden werden können. [Das schließt aber auch Inline-Styles und Scripte aus](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP#Writing_a_policy)! Klar, es soll ja z.B. auch ins HTML injizierte Inhalte unterbinden. Da ich aber inline JS und CSS verwende, und kein Input von außen in meine statischen Seiten möglich ist, lasse ich das mit der CSP bleiben.
 

@@ -26,7 +26,7 @@ markdown /</pre>
 
 Now start your server with `caddy -conf ../path/to/Caddyfile` and visit pages `http://localhost:8000/one.md`. You will see that pages written in markdown (which you have to create, of course) ...
 
-<pre># one.md:
+<pre><code class="language-markdown"># one.md:
 ---
 title: My First Post
 ---
@@ -35,11 +35,11 @@ What The Fuck. Cool!
 
 ## This is h2
 
-Lorem Ipsum youknow.</pre>
+Lorem Ipsum youknow.</code></pre>
 
 ... are rendered as HTML:
 
-<pre># http://localhost:8000/one.md
+<pre><code class="language-html"># http://localhost:8000/one.md
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
@@ -51,7 +51,7 @@ Lorem Ipsum youknow.</pre>
 		&lt;h2&gt;This is h2&lt;/h2&gt;
 		&lt;p&gt;Lorem Ipsum youknow.&lt;/p&gt;
 	&lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
 
 Ta dah! A website with title-tag and content.
 
@@ -67,7 +67,7 @@ markdown / {
 
 which results into the line
 
-<pre>&lt;link rel="stylesheet" href="/styles.css"&gt;</pre>
+<pre><code class="language-html">&lt;link rel="stylesheet" href="/styles.css"&gt;</code></pre>
 
 in the head of your rendered HTML file. This also works for JavaScript (`js /script.js`), which is also inserted into the head of your HTML file.
 
@@ -87,7 +87,7 @@ Note 2: You need to restart the caddy server after changing the caddyfile.
 
 And: we do not need to specify the CSS and JS here, because we can do it directly inside out HTML template file:
 
-<pre>&lt;!DOCTYPE html&gt;
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
         &lt;title&gt;{{.Doc.title}}&lt;/title&gt;
@@ -102,11 +102,11 @@ And: we do not need to specify the CSS and JS here, because we can do it directl
         &lt;/article&gt;
         &lt;script async defer src="/script.js"&gt;&lt;/script&gt;
     &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
 
 which renders this:
 
-<pre>&lt;!DOCTYPE html&gt;
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
 		&lt;title&gt;My First Post&lt;/title&gt;
@@ -123,7 +123,7 @@ which renders this:
 		&lt;/article&gt;
 		&lt;script async defer src="/script.js"&gt;&lt;/script&gt;
 	&lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
 
 
 ## Template variables
@@ -132,16 +132,16 @@ You can see that the variable `{{.Doc.title}}` holds the content of the line `ti
 
 Even better: it can hold different contents ...
 
-<pre>---
+<pre><code class="language-yaml">---
 title: My First Post
 author: Thomas Puppe
 author_url: https://www.thomaspuppe.de
 date: April 10th 2018
----</pre>
+---</code></pre>
 
 ... which then can be used inside your template file:
 
-<pre>&lt;a href="{{.Doc.author_url}}"&gt;{{.Doc.author}}&lt;/a&gt; on {{.Doc.date}}&lt;/footer&gt;</pre>
+<pre><code class="language-html">&lt;a href="{{.Doc.author_url}}"&gt;{{.Doc.author}}&lt;/a&gt; on {{.Doc.date}}&lt;/footer&gt;</code></pre>
 
 Caddy even offers some own template variables like `{{.Cookie "cookiename"}}` or `{{.RandomString 100 10000}}`, sanitizing functions and control statements. A [complete list of template actions](https://caddyserver.com/docs/template-actions) can be found in the Caddy docs.
 
@@ -187,13 +187,13 @@ If your templates share a common set of HTML tags, you should be able to use the
 
 On index pages, it would be handy to hava an automatic listing of subpages: the home page of a blog, the members page of your sports club. Caddy can even do that:
 
-<pre>&lt;ul&gt;
+<pre><code class="language-html">&lt;ul&gt;
 	{{.Files "sub/folder"}}
 		&lt;li&gt;
 			&lt;a href="{{$.StripExt .Name}}"&gt;{{$.StripExt .Name}}&lt;/a&gt;
 		&lt;/li&gt;
 	{{end}}
-&lt;/ul&gt;</pre>
+&lt;/ul&gt;</code></pre>
 
 You "just" have to filter files like ".DS_Store", asset folders, the index file itself and so on. But, for your convenience, Caddy at least provides [control statements](https://caddyserver.com/docs/template-actions) like `{{if not .IsDir }}` and you can strip away extensions (`{{$.StripExt .Name}}`).
 

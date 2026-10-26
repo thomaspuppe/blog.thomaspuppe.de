@@ -26,7 +26,7 @@ Meetingtimer erklären, GitHub Projekt verlinken.
 Another thing to make the code more handable is to move variables from the "global" scope to a more local one. What I mean by this:
 
 
-<pre>var initialTime,
+<pre><code class="language-javascript">var initialTime,
 	timeDomElement,
 	currentTime,
 	elapsedTime,
@@ -48,13 +48,13 @@ Another thing to make the code more handable is to move variables from the "glob
 		elapsedTime = currentTime - initialTime;
 		updateCosts(elapsedTime);
 		updateTime(elapsedTime);
-    };</pre>
+    };</code></pre>
 
 There is more code around it, that's why initialTime is not set here. But what I want to demonstrate: initially I hat all variables on a "global" scope so every function inside that scope can read and write them. Which works fine, and is okay for that small project. But at a larger scale things would get confusing and before you now it you start chasing states and lokking who changes what when.
 
 A better approach is to keep things on a more local scope. Only menipulate variables on a certain point, and pushing them into functions where they are only read. My small timer is a perfect example for that.
 
-<pre>var initialTime,
+<pre><code class="language-javascript">var initialTime,
 	timeDomElement,
 	updateTime = function (elapsedTime) {
 		let elapsedTimeSeconds = Math.floor((elapsedTime / 1000) % 60);
@@ -71,7 +71,7 @@ A better approach is to keep things on a more local scope. Only menipulate varia
 		const currentTime = Date.parse(new Date());
 		const elapsedTime = currentTime - initialTime;
 		updateTime(elapsedTime);
-	};</pre>
+	};</code></pre>
 
 That way, the `updateTime()` function has no influence on the outside world (except DOM manipulation). It only takes the one argument that it needs, and handles internal stuff (seconds, minutes) internally.
 
@@ -92,7 +92,7 @@ We will have a deeper look at that later.
 
 TODO: make it currying, or change the headline :-)
 
-<pre>updateTime = function (elapsedTime) {
+<pre><code class="language-javascript">updateTime = function (elapsedTime) {
 	let elapsedTimeSeconds = Math.floor((elapsedTime / 1000) % 60);
 	let elapsedTimeMinutes = Math.floor((elapsedTime / 60000) % 60);
 	const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
@@ -101,13 +101,13 @@ TODO: make it currying, or change the headline :-)
 	elapsedTimeMinutes = (elapsedTimeMinutes > 9) ? elapsedTimeMinutes : '0' + elapsedTimeMinutes.toString();
 
 	timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
-	}</pre>
+	}</code></pre>
 
 We cannot have the `elapsedTimeSeconds` as constant, because we need to manipulate it later. That manipulation has, in a strict sense, nothing to do with the updateTime(), and is only a cosmetical enhancement. Further, the code is redundant because we want to apply the same logic to `elapsedTimeMinutes`.
 
 So, of course, a first step would be to extract that into a function:
 
-<pre>addLeadingZero = function(num) {
+<pre><code class="language-javascript">addLeadingZero = function(num) {
 	return (num > 9) ? num.toString() : '0' + num.toString();
 },
 updateTime = function (elapsedTime) {
@@ -119,13 +119,13 @@ updateTime = function (elapsedTime) {
 	elapsedTimeMinutes = addLeadingZero(elapsedTimeMinutes);
 
 	timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
-}</pre>
+}</code></pre>
 
 Since this is a utility for formatting, one could consider moving it somewhere else. But for now this stays right above the updateTime() function.
 
 After we extracted that code into a function, we can also wrap that one around our calculation ... and have the desired constant.
 
-<pre>addLeadingZero = function(num) {
+<pre><code class="language-javascript">addLeadingZero = function(num) {
 	return (num > 9) ? num.toString() : '0' + num.toString();
 },
 updateTime = function (elapsedTime) {
@@ -134,7 +134,7 @@ updateTime = function (elapsedTime) {
 	const elapsedTimeHours = Math.floor((elapsedTime / 1000) / 3600);
 
 	timeDomElement.innerHTML = elapsedTimeHours + ':' + elapsedTimeMinutes + ':' + elapsedTimeSeconds;
-}</pre>
+}</code></pre>
 
 
 TODO: define the function _inside_ updateTime???

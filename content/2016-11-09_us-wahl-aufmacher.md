@@ -15,7 +15,7 @@ Kürzlich habe ich mit dem Python-Framework [Scrapy](https://scrapy.org/) herumg
 
 Zunächst habe ich die Homepages der News-Seiten mehrere Tage lang im 5-Minuten-Takt heruntergeladen.
 
-<pre>#!/bin/bash
+<pre><code class="language-bash">#!/bin/bash
 currenttime=`date '+%Y-%m-%d_%H-%M-%S'`;
 foldername="/var/www/newscurl/$currenttime";
 mkdir $foldername;
@@ -24,11 +24,11 @@ cd $foldername;
 curl -o spiegel.html http://www.spiegel.de/
 curl -o zeit.html http://www.zeit.de/index
 curl -o lr-online.html http://www.lr-online.de/
-</pre>
+</code></pre>
 
 Damit ist das HTML der Seite gesichert, und kann später immer wieder analysiert werden. Was mit Scrapy auch recht einfach gelingt:
 
-<pre>import os
+<pre><code class="language-python">import os
 import scrapy
 
 class LocalSpider(scrapy.Spider):
@@ -51,7 +51,7 @@ class LocalSpider(scrapy.Spider):
             if link_url.endswith('zeit.html'):
                 yield scrapy.Request(response.urljoin(link_url), callback=self.parse_single_page)
 	        else:
-	            yield scrapy.Request(response.urljoin(link_url), callback=self.parse)</pre>
+	            yield scrapy.Request(response.urljoin(link_url), callback=self.parse)</code></pre>
 
 Mit `scrapy runspider localspider.py -o result.json --logfile=localspider.log` erhalte ich so ein [JSON-File mit allen Ergebnissen](http://lab.thomaspuppe.de/us-wahl-news-aufmacher/result.json) und ein umfangreiches Logfile des Scraping-Vorgangs.
 

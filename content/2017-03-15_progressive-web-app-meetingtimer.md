@@ -40,11 +40,11 @@ Die Auslieferung per SSL ist eine der Voraussetzungen, dass eine Website als Pro
 
 Zum Glück gibt es [Letsencrypt](https://letsencrypt.org/), eine Zertifizierungsstelle die kostenlose Zertifikate ausstellt und bei der Einrichtung unterstützt. Auf einem Server mit SSH-Zugriff ist es superleicht, mittels [Letsencrypt und Certbot](https://certbot.eff.org/) SSL-Zertifikate zu erzeugen. Das funktionier auch, wenn mehrere Domains auf diesem Server liegen. Nach der (systemspezifischen) Installation reicht ein Befehl zum Erzeugen eines Zertifikats:
 
-<pre>$ ./certbot-auto certonly --webroot -w /var/www/www_meetingtimer_biz/ -d www.meetingtimer.biz</pre>
+<pre><code class="language-bash">$ ./certbot-auto certonly --webroot -w /var/www/www_meetingtimer_biz/ -d www.meetingtimer.biz</code></pre>
 
 Der Certbot gibt aus, wo das neu erzeugte Zertifikat liegt. Diesen Pfad benutze ich nun zur Konfiguration meines nginX Webservers:
 
-<pre>server {
+<pre><code class="language-nginx">server {
 		listen 443;
 
 		ssl on;
@@ -54,7 +54,7 @@ Der Certbot gibt aus, wo das neu erzeugte Zertifikat liegt. Diesen Pfad benutze 
 		server_name www.meetingtimer.biz;
 		root /var/www/www_meetingtimer_biz;
 		index index.html;
-}</pre>
+}</code></pre>
 
 Die drei ssl-Zeilen sind im Prinzip alles, was es zum Verschlüsseln braucht. Man kann das ganze optimieren: für eine Weiterleitung von nicht-www auf www braucht man zum Beispiel noch ein Zertifikat, wenn die Weiterleitung auch durch den Webserver erfolgen soll. Außerdem kann man die Verschlüsselung noch verbessern, laut einem Test von [SSL Labs](https://www.ssllabs.com/ssltest/) erreichen das Zertifikat und die Server-Konfiguration noch nicht die volle Punktzahl. Aber für den Einstieg sind wir sehr gut versorgt.
 
@@ -66,7 +66,7 @@ Auch wenn Verschlüsselung an sich schon ein Wert ist, war sie hier nur die notw
 
 Progressive Web Apps lassen sich auf dem Smartphone zum Home-Screen oder menü hinzufügen.
 
-<pre>{
+<pre><code class="language-json">{
 	"lang": "en",
 	"background_color": "#232323",
 	"name": "How Much does this meeting cost?",
@@ -79,7 +79,7 @@ Progressive Web Apps lassen sich auf dem Smartphone zum Home-Screen oder menü h
 			"type": "image/png"
 		},
 	]
-}</pre>
+}</code></pre>
 
 Diese Datei wird unter dem Namen [manifest.json](https://www.meetingtimer.biz/manifest.json) im Root der Domain abgelegt.
 
@@ -88,13 +88,13 @@ Dokumentation](https://developer.mozilla.org/en-US/docs/Web/Manifest) im MDN.
 
 Nun kann man das [Manifest validieren](https://manifest-validator.appspot.com/). Wenn es in Ordnung ist, wird es im HTML-Head der Website eingetragen:
 
-<pre>&lt;link rel="manifest" href="./manifest.json"&gt;</pre>
+<pre><code class="language-html">&lt;link rel="manifest" href="./manifest.json"&gt;</code></pre>
 
 Als nächstes erstellen wir einen ServiceWorker, und registrieren ihn in einem Script-Tag in der index.html Datei:
 
-<pre>if ('serviceWorker' in navigator) {
+<pre><code class="language-javascript">if ('serviceWorker' in navigator) {
 	navigator.serviceWorker.register('/serviceworker.js');
-}</pre>
+}</code></pre>
 
 Die Datei `sericeworker.js` kann sogar leer sein, wenn man die Möglichkeiten der Worker nicht nutzen möchte -- was wir später tun werden. Aber sie muss existieren.
 

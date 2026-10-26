@@ -35,7 +35,7 @@ Diesen möchte ich nun beschreiben, und damit einen Fahrplan liefern, wie jeder 
 
 Das Grundprinzip eines Static-Site Generators lässt sich in wenigen Zeilen Code umsetzen. Lies Dateien (z.B. Blogposts) von der Festplatte aus, mach etwas mit ihnen, und speichere das Ergebnis wieder auf die Festplatte.
 
-<pre>const fs = require('fs')
+<pre><code class="language-javascript">const fs = require('fs')
 fs.readdirSync('content')
   .forEach(sourceFilename => {
     const sourcePath = `content/${sourceFilename}`
@@ -44,11 +44,11 @@ fs.readdirSync('content')
     const targetFilename = sourceFilename.replace('.md', '.html')
     const targetPath = `output/` + targetFilename
     fs.writeFileSync(targetPath, content)
-  })</pre>
+  })</code></pre>
 
 Nun habe alle Dateien aus einem Quellordner ausgelesen, und unter neuem Namen in einen Zielordner gespeichert. Das könnte ich auch kopieren, ohne auszulesen, aber ich möchte ja noch etwas damit anfangen:
 
-<pre>const fs = require('fs')
+<pre><code class="language-javascript">const fs = require('fs')
 const marked = require('marked')
 
 fs.readdirSync('content')
@@ -62,23 +62,23 @@ fs.readdirSync('content')
     const targetPath = `output/${targetFilename}`
 
     fs.writeFileSync(targetPath, contentHtml)
-  })</pre>
+  })</code></pre>
 
 Im Befehl `const contentHtml = marked(contentMarkdown)` steckt die Magie. Texte, die in Markdown verfasst wurden, werden in HTML umgewandelt. Natürlich könnte ich auch gleich in HTML schreiben. Schöner ist aber beides! Mit dem npm Modul marked kann ich sowohl schlankes Markdown schreiben (für Blogposts aus Überschriften, Texten, und Links), als auch im selben Text HTML verwenden, wenn Markdown nicht mehr ausreicht (für Figures, Tabellen, JS und CSS). Die [Quelldatei dieses Blog-Posts](https://github.com/thomaspuppe/blog.thomaspuppe.de/blob/master/content/2019-03-11_easto-static-site-generator.md) veranschaulicht die Mischung. Ein Artikel über [moderne Browser-APIs](https://raw.githubusercontent.com/thomaspuppe/blog.thomaspuppe.de/master/content/2017-04-06_browser-api-css-mediaqueries.md) enthält ausführbare Code-Beispiele aus CSS und JavaScript.
 
 Aber zurück zum Generator. Obiges Textbeispiel als JavaScript-Datei reicht schon aus, um ein kleines simples Blog zu erzeugen. Der Aufruf der JavaScript-Datei wird alle Markdown-Dateien im Content-Ordner als HTML im Output-Ordner ablegen.
 
-<pre>$ node index.js
-🚀 Easto: 170.456ms</pre>
+<pre><code class="language-bash">$ node index.js
+🚀 Easto: 170.456ms</code></pre>
 
 Wie in der modernen JavaScript-Welt üblich, musste ich vorher noch das "marked" Modul als Dependency mit dem aktuell coolen Paketmanager installieren.
 
 Die Laufzeit des Scripts messe ich übrigens mit
 
-<pre>console.time('🚀 Easto')
+<pre><code class="language-javascript">console.time('🚀 Easto')
 ...
 console.timeEnd('🚀 Easto')
-</pre>
+</code></pre>
 
 am Anfang und Ende des Scripts.
 
@@ -91,7 +91,7 @@ Aber bevor ich irgendwelche Template-Engines lade, benutze ich simple String-Ers
 
 Als erstes Template für mein Blog dient eine HTMl-Datei, deren Inhalt nur aus einem Platzhalter besteht.
 
-<pre>&lt;!doctype html&gt;
+<pre><code class="language-html">&lt;!doctype html&gt;
 &lt;html lang="de"&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8"&gt;
@@ -101,11 +101,11 @@ Als erstes Template für mein Blog dient eine HTMl-Datei, deren Inhalt nur aus e
         &lt;h1&gt;Willkommen auf Thomas Puppes Blog!&lt;/h1&gt;
         {{ CONTENT }}
     &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
 
 In meinem Generator lese ich nun zusätzlich das Template aus (außerhalb der Schleife, denn das bleibt ja gleich) und benutze es zum Zusammenbauen jeder einzelnen Seite.
 
-<pre>// Module laden
+<pre><code class="language-javascript">// Module laden
 
 const template = fs.readFileSync('template.html', {encoding: 'utf-8'})
 
@@ -122,7 +122,7 @@ fs.readdirSync('content')
     const targetPath = `output/` + targetFilename
 
     fs.writeFileSync(targetPath, contentPage)
-  })</pre>
+  })</code></pre>
 
 Und schon enthalten die generierten Dateien das HTML des Templates und alle Inhalte.
 
@@ -133,12 +133,12 @@ Was sofort auffällt: der `title` ist gar nicht individuell. Den möchte ich abe
 
 "Frontmatter" ist ein gängiges Format oder Prinzip, um in Dateien mit Inhalten außerdem noch Meta-Informationen zu schreiben.
 
-<pre>---
+<pre><code class="language-markdown">---
 title: Perfekte Link-Unterstreichung
 language: de
 permalink: link-unterstreichung
 ---
-Hier beginnt der Inhalt. Er ist beliebig lang...</pre>
+Hier beginnt der Inhalt. Er ist beliebig lang...</code></pre>
 
 In einen Block am Anfang der Datei werden die Meta-Informationen geschrieben. Nach einem Trenner (`---`) kommt dann der Inhalt. Weil diese Struktur schön einfach und definiert ist, kommen selbst Computer damit klar &mdash; und deswegen gibt es auch ein npm Modul dafür: [yaml-front-matter](https://www.npmjs.com/package/yaml-front-matter).
 
@@ -148,7 +148,7 @@ Ich setze weitere Platzhalter in das Template, und ersetze diese beim Zusammenba
 
 Das Template sieht nun so aus:
 
-<pre>&lt;!doctype html&gt;
+<pre><code class="language-html">&lt;!doctype html&gt;
 &lt;html lang="{{ META_LANGUAGE }}"&gt;
     &lt;head&gt;
         &lt;meta charset="utf-8"&gt;
@@ -158,11 +158,11 @@ Das Template sieht nun so aus:
         &lt;h1&gt;{{ META_TITLE }}&lt;/h1&gt;
         {{ CONTENT }}
     &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
 
 Im JavaScript füge ich hinter das Transformieren von Markdown in HTML die Schleife zur Ersetzung aller Metadaten ein.
 
-<pre>const content = fs.readFileSync(sourcePath, {encoding: 'utf-8'})
+<pre><code class="language-javascript">const content = fs.readFileSync(sourcePath, {encoding: 'utf-8'})
 
 // parse die Datei mit Inhalt und Metadaten
 const frontmatter = yaml.loadFront(content)
@@ -173,17 +173,17 @@ let contentPage = template.replace('{{ CONTENT }}', contentHtml)
 
 // die Yaml-Teile über dem Trenner sind nun Felder im "frontmatter" Objekt
 contentPage = contentPage.replace('{{ META_TITLE }}', frontmatter['title'])
-contentPage = contentPage.replace('{{ META_LANGUAGE }}', frontmatter['language'])</pre>
+contentPage = contentPage.replace('{{ META_LANGUAGE }}', frontmatter['language'])</code></pre>
 
 Das yaml-Modul habe ich am Anfang des Scripts via `const yaml = require('yaml-front-matter')` geladen, und vorher mit dem Paketmanager installiert.
 
 Die Werte aus dem Frontmatter kann ich natürlich nicht nur für den Inhalt der Seiten benutzen, sondern auch für den Dateinamen.
 
-<pre>const targetFilename = frontmatter['permalink'] + '.html`</pre>
+<pre><code class="language-javascript">const targetFilename = frontmatter['permalink'] + '.html`</code></pre>
 
 Wenn ich die Struktur häufiger erweitere, oder es etwas bequemer haben möchte, kann ich natürlich auch über alle Metadaten iterieren und diese im Template generisch ersetzen. Das ist dann schon etwas fortgeschrittener:
 
-<pre>for (var key in contentFrontmatter) {
+<pre><code class="language-javascript">for (var key in contentFrontmatter) {
 	const re = new RegExp('{{ META_' + key.toUpperCase() + ' }}', 'g')
 
 	// Frontmatter unterstützt auch Arrays im Format
@@ -194,7 +194,7 @@ Wenn ich die Struktur häufiger erweitere, oder es etwas bequemer haben möchte,
 	} else {
 		contentPage = contentPage.replace(re, contentFrontmatter[key])
 	}
-}</pre>
+}</code></pre>
 
 Bei der Entwicklung von diesen Algorithmus konnte ich wunderbar in kleinen Schritten vorgehen, weil ich binnen Milliskunden das Ergebnis meiner Bemühung im Browser betrachten konnte. Hoch lebe die handgestrickte Webentwicklung!
 
@@ -204,8 +204,7 @@ Mit dem bisherigen Code wurden also allerlei Seiten oder Blog-Artikel generiert.
 
 Beim Iterieren über alle Inhalte baue ich nicht nur die aktuelle Seite zusammen, sondern jeweils auch einen Link zur Seite. Und die gesammelten Links werden am Ende als Index-Seite gespeichert.
 
-<pre>
-let teaserList = [];
+<pre><code class="language-javascript">let teaserList = [];
 
 .forEach(sourceFilename => {
 	...
@@ -219,12 +218,11 @@ let indexContent = indexTemplate.replace(
   teaserList.join()
 )
 
-fs.writeFileSync('output/index.html', indexContent)</pre>
+fs.writeFileSync('output/index.html', indexContent)</code></pre>
 
 Das lässt sich nun mit der bekannten Technik der Templates erweitern, damit aus der simplen Linkliste schöne Teaser-Blöcke werden.
 
-<pre>
-let teaserList = [];
+<pre><code class="language-javascript">let teaserList = [];
 const teaserTemplate = fs.readFileSync(`templates/teaser.html`, {encoding: 'utf-8'})
 
 .forEach(sourceFilename => {
@@ -232,24 +230,23 @@ const teaserTemplate = fs.readFileSync(`templates/teaser.html`, {encoding: 'utf-
 	// in der Schleife, wo auch Artikel-Metadaten ersetzt werden:
 	teaserContent = teaserTemplate.replace(re, fileContentFrontmatter[key])
 	teaserList.push(teaserContent)
-}</pre>
+}</code></pre>
 
 Beim Ansehen der index-Seite fällt auf, dass die Quelldatien in "zufälliger" Reihenfolge von der Platte gelesen werden. Ich löse das, indem ich als Präfix für meine Dateinamen das Datum jedes Blogposts benutze (`/content/2019-03-11_easto-static-site-generator.md`), und zwischen Auslesen und Verarbeiten eine Sortierung setze:
 
-<pre>fs
+<pre><code class="language-javascript">fs
   .readdirSync('content')
   .sort((a, b) => {
     return b.localeCompare(a)
   })
-  .forEach(sourceFilename => { ...</pre>
+  .forEach(sourceFilename => { ...</code></pre>
 
 
 ## 5: Feeds generieren
 
 Wenn ich schon das chronologische Inhaltsverzeichnis erzeuge, kann ich im gleichen Zuge auch RSS-Feeds bauen, die im Grunde nichts anderes sind. Auch dafür gibt es ein Node-Package ("feed"), mit dem dies recht einfach gelingt.
 
-<pre>
-	// Vorbereitung: Metadaten zum Feed
+<pre><code class="language-javascript">	// Vorbereitung: Metadaten zum Feed
 
 	const Feedbuilder = require('feed')
 	feed_config = {
@@ -274,7 +271,7 @@ Wenn ich schon das chronologische Inhaltsverzeichnis erzeuge, kann ich im gleich
 	fs.writeFileSync(`output/feed/rss`, feed.rss2())
 	fs.writeFileSync(`output/feed/atom`, feed.atom1())
 	fs.writeFileSync(`output/feed/json`, feed.json1())
-</pre>
+</code></pre>
 
 Die Domain des Blogs möchte ich am Ende lieber in einer Konfigurationsdatei haben als im Quellcode, aber das Beispiel zeigt, worauf ich hinaus will: mit wenigen Zeilen Code lassen sich Feeds in den gängigen Formaten RSS, Atom und JSON bauen.
 
@@ -285,11 +282,11 @@ Eine XML Sitemap _sollte_ ähnlich funktionieren sein, das habe ich aber noch ni
 
 Zuletzt noch alles was den geschriebenen Inhalt anreichert: Assets (CSS, JS), Bilder und andere statische Dateien kopiere ich direkt aus einer Quelle in das Output-Verzeichis. Das Node-Modul `ncp`ermöglicht das rekursiv.
 
-<pre>const ncp = require('ncp').ncp
+<pre><code class="language-javascript">const ncp = require('ncp').ncp
 ncp('static', 'output', err => {
   if (err) return console.error(err)
 })
-</pre>
+</code></pre>
 
 
 ## Deployment

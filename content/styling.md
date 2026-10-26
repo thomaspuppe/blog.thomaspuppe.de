@@ -46,7 +46,7 @@ Als Freund <a href="http://ia.net/blog/100e2r">&ldquo;großer&rdquo; Schrift</a>
 	 <li>Aliquam tincidunt mauris eu risus.</li>
 </ul>
 
-<pre><code>#header h1 a {
+<pre><code class="language-css">#header h1 a {
 	display: block;
 	width: 300px;
 	height: 80px;
@@ -90,7 +90,7 @@ commodo consequat.</dd>
 
 Kürzlich bin ich auf einen Artikel von <a href="https://medium.com/@mwichary">Marcin Wichary</a> gestoßen, der dieses Problem löst: <a href="https://medium.com/p/7c03a9274f9">&ldquo;Crafting link underlines on Medium&rdquo;</a>. In dem sehr lesenswerten Artikel wird auf pro und contra von Link-Unterstreichung im Allgemeinen und verschiedenen Techniken im Speziellen eingegangen. Am Ende schaut die Lösung so aus:
 
-<pre>a, a:link, a:visited {
+<pre><code class="language-css">a, a:link, a:visited {
 		color: #333;
 		text-decoration: none;
 		position: relative;
@@ -112,7 +112,7 @@ a:hover, a:focus {
 		a:hover, a:focus {
 				background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 2px, #666 2px, #666 2.5px, rgba(0, 0, 0, 0) 2.5px);
 		}
-}</pre>
+}</code></pre>
 
 **Trick 1:** Links bekommen ein Hintergrundbild, das keine Datei oder DataURI nutzt, sondern Gradients.
 

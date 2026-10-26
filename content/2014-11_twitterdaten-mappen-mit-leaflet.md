@@ -14,7 +14,7 @@ Meine <a href="https://blog.thomaspuppe.de/twitterdaten-sammeln-mit-aws">Sammlun
 
 In der JSON Datei, die dabei angelegt wird, ist jeder Tweet in einer Zeile erfasst. Das macht das Zählen leicht, und auch das Aussortieren usw.
 
-<pre>//Alle Tweets in einer großen Datei:
+<pre><code class="language-bash">//Alle Tweets in einer großen Datei:
 $ wc -l tweets.json
 // 71180 tweets.json
 
@@ -26,11 +26,11 @@ $ wc -l tweets_media.json
 // Filtern der Tweets, die Koordinaten enthalten
 $ grep -v "\"coordinates\":null" tweets_media.json > tweets_media_coordinates.json
 $ wc -l tweets_media_coordinates.json
-// 249 tweets_media_coordinates.json</pre>
+// 249 tweets_media_coordinates.json</code></pre>
 
 Die Datei enthält nun (erstaunlich wenige) Tweets, die aber mit allen Daten. Da für die Visualisierung nicht alles benötigt wird, extrahiere ich nur die nötigen Daten. Dazu habe ich ein kleines Python-Script geschrieben. Die Code-Qualität sei mir verziehen, das waren jetzt meine ersten Zeilen Python überhaupt.
 
-<pre>import json
+<pre><code class="language-python">import json
 
 readFile = open('tweets_media_coordinates.json')
 lines = readFile.readlines()
@@ -63,7 +63,7 @@ outputString = json.dumps(outputArray, separators=(',',':'), indent=2)
 
 writeFile = open('tweets_media_coordinates_short.json','w')
 writeFile.write('{"tweets":' + outputString + '}')
-writeFile.close()</pre>
+writeFile.close()</code></pre>
 
 Das Ergebnis ist eine JSON Datei mit den Tweets, Foto-URLs und Koordinaten: <a href="http://lab.thomaspuppe.de/mauerfall-tweets/data/tweets_media_coordinates_short.json">http://www.thomaspuppe.de/lab/mauerfall-tweets/data/tweets_media_coordinates_short.json</a>.
 
@@ -71,7 +71,7 @@ Diese Datei ist die Daten-Grundlage für die Visualisierung. Auch dafür habe ic
 
 In die gegebene Karte wmüssen nur noch ein paar Zeilen JavaScript eingefügt werden, und schon sind die Punkte auf einer schönen Karte hinterlegt.
 
-<pre>var markerIcon = L.divIcon({className: 'my-div-icon'}), // stylen via CSS!
+<pre><code class="language-javascript">var markerIcon = L.divIcon({className: 'my-div-icon'}), // stylen via CSS!
 markerOptions = {
 	'clickable': true,
 	'keyboard': false,
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	httpRequest.open('GET', 'data/tweets_media_coordinates_short.json')
 	httpRequest.send()
-});</pre>
+});</code></pre>
 
 Zu beachten: die Koordinaten bei Twitter sind als Lon,Lat gespeichert, leaflet benötigt aber Lat,Lon. Daher die Rochade beim Anlegen der Marker.
 

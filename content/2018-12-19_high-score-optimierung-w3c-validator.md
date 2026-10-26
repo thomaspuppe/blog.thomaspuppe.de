@@ -24,13 +24,13 @@ Das [Ergebnis](https://validator.w3.org/nu/?doc=https%3A%2F%2Fblog.thomaspuppe.d
 
 In jedem Blogpost-Teaser auf der Indexseite ist das Datum in einem ungültigen Format angegeben. Neben dem lesbaren Datum für Menschen wollte ich es auch maschinenlesbar machen...
 
-<pre>&lt;time datetime="Fri Jul 31 2018 02:00:00 GMT+0200 (CEST)"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</pre>
+<pre><code class="language-html">&lt;time datetime="Fri Jul 31 2018 02:00:00 GMT+0200 (CEST)"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</code></pre>
 
 ... und eben jenes `Fri Jul 20 2018 02:00:00 GMT+0200 (CEST)` ist nicht valide. Der W3C-Validator verlinkt auch gleich auf die [Spec des time-Elements](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-time-element), die verletzt wird. Dort sind viele Beispiele gültiger Datumsformate aufgelistet.
 
 Ich [ändere also das Datumsformat](https://github.com/thomaspuppe/easto/commit/392dee5b7fb71b562085f7261e8cd8a79ca1a12c) und kürze gleich noch die unnütze Uhrzeit raus.
 
-<pre>&lt;time datetime="2018-07-31"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</pre>
+<pre><code class="language-html">&lt;time datetime="2018-07-31"&gt;01. Juli 2018 – 31. Juli 2018&lt;/time&gt;</code></pre>
 
 Und schwupps: **No errors or warnings to show**!
 
@@ -52,9 +52,9 @@ Der default-Stil des `ins` Tags ist übrigens eine einfache Unterstreichung &mda
 
 Bonuswissen: man kann ebenso die `text-decoration-color` und die `text-decoration-line` ändern. Damit kann man einen Text z.B. wellig rot über- unter- und durchstreichen &mdash; sogar gleichzeitig.
 
-<pre>text-decoration-style: wavy;
+<pre><code class="language-css">text-decoration-style: wavy;
 text-decoration-line: overline underline line-through;
-text-decoration-color: red;</pre>
+text-decoration-color: red;</code></pre>
 
 Das aber nur am Rande. Im Blog-CSS habe ich mich für eine wellige Unterstreichung in etwas hellerem Ton entschieden:
 

@@ -13,18 +13,17 @@ Für meinen kleinen [Static-Site Generator easto](https://github.com/thomaspuppe
 
 ## Gut genug: String-Replacement
 
-<pre>&lt;div class="post__meta"&gt
+<pre><code class="language-html">&lt;div class="post__meta"&gt
 	&lt;span class="post__category"&gt#{{ META_TAGS }}&lt;/span&gt
 	&lt;time datetime="{{ META_DATE }}"&gt{{ META_DATELABEL }}&lt;/time&gt
 &lt;/div&gt
 &lt;h1 class="post__title"&gt{{ META_TITLE }}&lt;/h1&gt
 {{ CONTENT }}
-</pre>
+</code></pre>
 
 Im JavaScript habe ich dann über eine Liste von Metadaten iteriert und diese im Template ersetzt:
 
-<pre>
-template.replace('{{ CONTENT }}', fileContentHtml)
+<pre><code class="language-javascript">template.replace('{{ CONTENT }}', fileContentHtml)
 
 for (var key in metadata) {
 	const re = new RegExp('{{ META_' + key.toUpperCase() + ' }}', 'g')
@@ -35,7 +34,7 @@ for (var key in metadata) {
 	} else {
 		template = template.replace(re, metadata[key])
 	}
-}</pre>
+}</code></pre>
 
 ... im Prinzip. In echt war dann alles noch etwas umständlicher. Die Regex Nummer ist nötig, weil nur das erste Vorkommen ersetzt wird, wenn man einen String als Parameter verwendet. In Teasern benutze ich etwas andere Ausgaben als im Post oder den Feeds. Usw.
 
@@ -43,36 +42,36 @@ for (var key in metadata) {
 
 Bei einem [anderen Projekt](https://github.com/thomaspuppe/news-benchmark) wurde ich wieder daran erinnert, dass man in modernem JavaScript [Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) zur Verfügung hat. Wenn Strings in Back Ticks (&#715;) gefasst sind, werden enthaltene Ausdrücke ausgeführt.
 
-<pre>var kitty = "Cheddar";
+<pre><code class="language-javascript">var kitty = "Cheddar";
 console.log(`Meine Katze heißt ${kitty}.`);
 => Meine Katze heißt Cheddar.
-</pre>
+</code></pre>
 
 Meine Template-Dateien sehen nun [etwas anders](https://github.com/thomaspuppe/blog.thomaspuppe.de/commit/2223b3c22d4b1cba6c4d87151137a2f886c47f6c) aus. Erstens werden sie komplett mit Back Ticks umschlossen. Und zweitens verwende ich Ausdrücke mit Dollarzeichen und geschweiften Klammern anstelle der selbst ausgedachten Marker fürs Suchen-und-Ersetzen.
 
-<pre>`&lt;div class="post__meta"&gt;
+<pre><code class="language-javascript">`&lt;div class="post__meta"&gt;
 	&lt;span class="post__category"&gt;#${ meta.tags.join(', #') }&lt;/span&gt;
 	&lt;time datetime="{{ META_DATE }}"&gt;${ meta.datelabel }&lt;/time&gt;
 &lt;/div&gt;
 &lt;h1 class="post__title"&gt;${ meta.title }&lt;/h1&gt;
 ${ content }
-`</pre>
+`</code></pre>
 
 Im JavaScript stecke ich ein Objekt zusammen das alles enthält, was das Template braucht.
 
-<pre>const output = eval_template(template, {
+<pre><code class="language-javascript">const output = eval_template(template, {
 	'blogmeta': CONFIG,
 	'meta': metadata,
 	'content': fileContentHtml
 })
-</pre>
+</code></pre>
 
 Damit das mit mehreren Variablen und Objekten funktioniert, habe ich im Netz eine magische Funktion gefunden (deren Quelle ich leider nicht mehr weiß).
 
-<pre>const eval_template = (s, params) => {
+<pre><code class="language-javascript">const eval_template = (s, params) => {
 	return Function(...Object.keys(params), "return " + s)
 	(...Object.values(params))
-}</pre>
+}</code></pre>
 
 
 ## Voilá

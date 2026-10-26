@@ -28,7 +28,7 @@ Mit meinem (oder einem neu generierten) Key melde ich mich via SSH auf der Insta
 
 ## Schritt 2: Twitter-Collecor installieren und anwerfen
 
-<pre>// Update
+<pre><code class="language-bash">// Update
 $ sudo apt-get update
 $ sudo apt-get upgrade
 
@@ -39,13 +39,13 @@ $ sudo pip install tweepy
 // Python-File erstellen
 $ mkdir tweets_mauerfall
 $ cd tweets_mauerfall/
-$ nano collect.py</pre>
+$ nano collect.py</code></pre>
 
 Die genaue Code-Quelle finde ich gerade nicht mehr. Eine Suche nach "tweepy save tweets to file" brignt aber mehrere Quellen zutage. Mein Code hatte ursprünglich eine MongoDB als Datenspeicher, das habe ich gegen die einfache Datei ausgetauscht.
 
 Der Quellcode von collect.py:
 
-<pre>import json
+<pre><code class="language-python">import json
 import tweepy
 
 consumer_key = ""
@@ -81,17 +81,17 @@ class CustomStreamListener(tweepy.StreamListener):
         return True # Don't kill the stream
 
 sapi = tweepy.streaming.Stream(auth, CustomStreamListener(api))
-sapi.filter(track=['mauerfall', 'fotw25', 'mauerspecht', 'berlinwall', 'fallofthewall25'])</pre>
+sapi.filter(track=['mauerfall', 'fotw25', 'mauerspecht', 'berlinwall', 'fallofthewall25'])</code></pre>
 
 Und das Ganze muss dann nur noch gestartet werden:
 
-<pre>// Stumm im Hintergrund ausführen lassen
+<pre><code class="language-bash">// Stumm im Hintergrund ausführen lassen
 $ nohup python collect.py > /dev/null &
 
 // anhand der ausgegebenen Prozessnummer (oder via top suchen) kann ich den Prozess später wieder killen.
 
 // Um die aktuelle Zahl der Tweets zu verfolgen, lasse ich mir (periodisch) die Anzahl der Zeilen in der json-Datei ausgeben:
-$ while true; do ( wc -l tweets.json ; sleep 5 ) done;</pre>
+$ while true; do ( wc -l tweets.json ; sleep 5 ) done;</code></pre>
 
 
 Fertig. Ein Update zur Zuverlässigkeit und eine Auswertung der Tweets gibt es dann später hier im Blog.
